@@ -1,0 +1,20 @@
+{
+  "status": "prospective_engineering_only",
+  "input": "validation/deadline_screen_engineering_2026-11-11_01",
+  "correction": "Single compiled validation/interval pass, original PyTorch FP32 neural core, native screened decoder; same route applied to all seven families.",
+  "models": 14,
+  "observations": 128,
+  "exact_actions_required": true,
+  "Q_atol": 1e-06,
+  "Q_rtol": 1e-05,
+  "mask_boundary_random": 100000,
+  "order_seed": 997310003,
+  "timing_rounds": 5,
+  "warmups": 32,
+  "calls": 128,
+  "timing_rule": "Only after all equivalence and boundary checks pass; once, all models; no retry for favorable outcome.",
+  "frozen_weights": true,
+  "unchanged_thresholds": true,
+  "no_research": true,
+  "no_simulator": true
+}

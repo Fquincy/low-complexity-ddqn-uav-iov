@@ -1,0 +1,92 @@
+HEURISTIC-INITIALIZED COMPACT DDQN ENGINEERING FIXTURE REVIEW
+Date: 2026-11-19
+
+STATUS: ISOLATED BASELINE IMPLEMENTED; EIGHT RUNTIME TESTS PASS.
+No research-quality, low-complexity acceptance or novelty claim is established.
+
+IMPLEMENTED BASELINE
+heuristic_initialized_ddqn_baseline.py defines a plain24_nonpositive student,
+the observed-load/radio teacher-label adapter, masked branchwise imitation
+loss, detached-target DDQN loss and a student-only deployment function.
+The teacher adapter accepts an injected teacher; deployment neither imports
+nor calls it. A standalone equivalent screen avoids importing historical
+research runners. The student has
+16,841 parameters and 67,364 FP32 online parameter bytes.
+
+STATIC CHECKS
+The dependency-free audit passed required interfaces, teacher exclusion from
+deployment, no-grad target evaluation and fixture receipt fields. Python
+bytecode compilation passed for the module, tests and audit script.
+Eight runtime tests pass: architecture/storage; teacher label separation;
+synthetic preference learning; DDQN gradients/optimizer update; exact numeric
+online-selection/target-evaluation and terminal bypass; screen equivalence
+and original-teacher arithmetic; checkpoint reload/deployment isolation;
+invalid input handling. The independent static audit is structural only;
+the numeric tests supply the relevant behavioral checks.
+
+Synthetic preference fixture: 40 Adam updates on six artificial observations,
+one fixed valid destination per task, stationary movement labels. It verifies
+decreasing imitation loss and improved branch agreement, NOT perfect imitation,
+generalization, teacher-policy quality or a comparison of research controllers.
+One further synthetic DDQN optimizer step checks the transition to value
+learning. See final attempt receipt for exact losses/agreement. The original
+teacher's source equations generate two further synthetic label states; their
+label-generation wall time is recorded separately, not as deployment latency.
+No simulator episodes or research seeds are used.
+
+ENVIRONMENT FAILURE AND RECOVERY
+The designated environment
+C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12
+contains a broken NumPy installation: it exposes a namespace package without
+numpy.ndarray, numpy.__version__ or numpy.__init__.py. Consequently importing
+PyTorch initially failed before the fixture started. Its pip launcher was also
+incomplete. The system Python's working pip restored ONLY this isolated
+environment's recorded pip24.0 and numpy2.4.6 via --python/--ignore-installed;
+no dependency upgrade was selected. PyTorch2.15.0+cpu then imported successfully.
+The historical runner import chain next exposed an incomplete numba package.
+Rather than repair the unrelated compiled research stack, this baseline uses
+the equivalent standalone screen, tested against original function bodies.
+The teacher fixture executes original source functions with identity decorators
+and the original public Chapter3Config. It is a Python arithmetic reference,
+NOT validation of the historical compiled teacher runtime or its performance.
+Historical source files and environments outside this isolated path are not
+edited. Future compiled deployment benchmarking needs its own environment check.
+This is an environment-integrity blocker, not a model or scientific result.
+Initial import failures are recorded in environment_failure_history.json.
+Attempt02 preserves one failed fixture assertion and a missing configuration
+property. Attempt03 passed after using the actual public config and replacing
+an unsupported perfect-imitation requirement with loss/action-preference
+improvement. This is a synthetic test correction, not a research acceptance
+threshold amendment. Attempt04 is the final expanded fixture receipt.
+
+DECISION
+The isolated correctness gate passes within the stated scope. Do not launch
+research training. The baseline remains an adaptation of established methods,
+not a released contribution or complete DQfD implementation. No native export,
+trained-controller latency, policy comparison or empirical calibration solution
+is established. BC does not determine scalar value offsets or teach nonstationary
+UAV motion from a stationary teacher.
+
+NEXT BOUNDED STEP
+Prepare a small paired development-pilot plan for the identical student with
+and without teacher initialization, with explicit teacher data/label/update
+costs, fresh seed separation, final-only checkpoints and closed-loop policy
+metrics. Include the frozen heuristic as a reference and disclose its stationary
+motion/extra battery restriction. Keep the stronger neural references in the
+eventual research comparison. Freeze budgets and diagnostic decisions before
+new outcomes; separate runner implementation/fixture from launch authorization.
+This review does not authorize a pilot or a full research run.
+
+BOUNDARIES
+No historical files, frozen protocols, final seeds, rewards or Word thesis
+were changed. Security/trust remains deferred; cloud and charging excluded.
+The current module is not imported into any frozen historical runner.
+
+ARTIFACTS
+heuristic_initialized_ddqn_baseline.py
+test_heuristic_initialized_ddqn_baseline.py
+verify_heuristic_initialized_baseline_static.py
+validation/heuristic_initialization_feasibility_2026-11-19_01/
+  baseline_fixture_attempt_02.json (failed), attempt_03.json (passed),
+  baseline_fixture_attempt_04.json (passed,41 synthetic optimizer updates),
+  static_source_audit.json, baseline_engineering_receipt.json.

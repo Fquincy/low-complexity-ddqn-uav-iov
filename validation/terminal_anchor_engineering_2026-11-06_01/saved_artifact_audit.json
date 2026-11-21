@@ -1,0 +1,9 @@
+{
+  "state": "passed_synthetic_terminal_anchor_artifact_audit",
+  "checkpoints": 6,
+  "updates": 438,
+  "prediction_actions": 480,
+  "manifest_entries": 20,
+  "research_evidence": false,
+  "new_simulator_steps": 0
+}

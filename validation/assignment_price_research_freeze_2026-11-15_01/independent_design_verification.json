@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "tests": 2,
+  "failures": 0,
+  "errors": 0,
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "simulator_steps": 0,
+  "optimizer_updates": 0,
+  "research_launched": false
+}

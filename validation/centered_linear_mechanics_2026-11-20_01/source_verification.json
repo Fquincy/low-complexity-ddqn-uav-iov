@@ -1,0 +1,13 @@
+{
+  "tests_passed": 9,
+  "source_sha256": {
+    "centered_linear_ddqn_prototype.py": "7fa7cdcdf0c4b760d57071a7c4dcccbbd51aaa3efdfec4485188a42441de444a",
+    "test_centered_linear_ddqn_prototype.py": "1f72de5a58bc652338ad52548e60d2a759a2e9264c9817be163479cd8787179b",
+    "CENTERED_LINEAR_DDQN_MECHANICS_REVIEW_2026-11-20.txt": "7521b44221e91147c362f1b2d9f59c298ef330181f7568ec5e5207b160dc2f79"
+  },
+  "prior_design_source_bindings_unchanged": 8,
+  "historical_source_hashes_unchanged": 15,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "research_launch_authorized": false
+}

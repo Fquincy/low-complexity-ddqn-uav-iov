@@ -1,0 +1,122 @@
+{
+  "state": "passed_decoder_equivalence_and_profile",
+  "date": "2026-11-04",
+  "equivalence": {
+    "reduced_batch_cases": 60,
+    "full_model_batch_sizes": [
+      1,
+      7,
+      128
+    ],
+    "actions_identical": true,
+    "max_value_difference": 4.76837158203125e-07,
+    "tie_and_interaction_checks": true,
+    "floating_point_near_ties_may_differ_outside_checked_cases": true
+  },
+  "full_action": {
+    "additive128": {
+      "calls": 640,
+      "median_ms": 0.1242,
+      "p95_ms": 0.23521499999999979
+    },
+    "additive64": {
+      "calls": 640,
+      "median_ms": 0.1172,
+      "p95_ms": 0.1976149999999999
+    },
+    "matmul": {
+      "calls": 640,
+      "median_ms": 0.4435,
+      "p95_ms": 0.7884999999999995
+    },
+    "original_einsum": {
+      "calls": 640,
+      "median_ms": 0.47985,
+      "p95_ms": 1.0429299999999997
+    },
+    "rank2_broadcast": {
+      "calls": 640,
+      "median_ms": 0.47195,
+      "p95_ms": 1.02033
+    }
+  },
+  "isolated_components": {
+    "decoder_only_matmul": {
+      "calls": 256,
+      "median_ms": 0.44320000000000004,
+      "p95_ms": 0.64005
+    },
+    "decoder_only_original_einsum": {
+      "calls": 256,
+      "median_ms": 0.2703,
+      "p95_ms": 0.64665
+    },
+    "decoder_only_rank2_broadcast": {
+      "calls": 256,
+      "median_ms": 0.2612,
+      "p95_ms": 0.34275
+    },
+    "encoder_only": {
+      "calls": 256,
+      "median_ms": 0.04795,
+      "p95_ms": 0.0547
+    },
+    "head_only": {
+      "calls": 256,
+      "median_ms": 0.0182,
+      "p95_ms": 0.019375
+    }
+  },
+  "round_order": [
+    [
+      "rank2_broadcast",
+      "matmul",
+      "additive64",
+      "additive128",
+      "original_einsum"
+    ],
+    [
+      "additive64",
+      "rank2_broadcast",
+      "matmul",
+      "additive128",
+      "original_einsum"
+    ],
+    [
+      "original_einsum",
+      "additive128",
+      "additive64",
+      "matmul",
+      "rank2_broadcast"
+    ],
+    [
+      "matmul",
+      "rank2_broadcast",
+      "additive64",
+      "original_einsum",
+      "additive128"
+    ],
+    [
+      "additive128",
+      "rank2_broadcast",
+      "original_einsum",
+      "matmul",
+      "additive64"
+    ]
+  ],
+  "untrained": true,
+  "weights_unchanged": true,
+  "optimizer_updates": 0,
+  "simulator_steps": 0,
+  "include_state_conversion_and_action_dictionary": true,
+  "component_medians_not_additive": true,
+  "full_action_rows": 3200,
+  "component_rows": 1280,
+  "source_sha256": {
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "emc_decoder_variants.py": "f9bd457f9f51c3c5578b3289369e0c373e7de485a125f380ecd5495a0b73b4ee",
+    "profile_emc_decoder.py": "b02c412f427ec49c0dbf2f39b24131f37c0851f62e212807615ec89aff12fd24",
+    "Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a"
+  },
+  "input_observations_sha256": "04aca32d05cb2354cee79f9f03a1a8a8850b23cca448bd4ee9a9d3cc7b348fdc"
+}

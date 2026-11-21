@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "models": 70,
+  "no_training": true,
+  "no_simulator_steps": true,
+  "independent_actions_and_checkpoint_hashes_verified": true
+}

@@ -1,0 +1,97 @@
+TERMINAL-ANCHOR PAIRED IOV INTEGRATION REVIEW
+Date: November 6, 2026
+
+OUTCOME
+The paired IoV engineering fixture and saved-artifact audit passed.
+Three new integration tests passed. The prior eight mechanics tests remain
+unchanged; they were not rerun here. No research experiment was launched.
+These short engineering trajectories are excluded from policy-quality
+evidence, model selection, threshold tuning and thesis performance claims.
+
+FROZEN FIXTURE
+TERMINAL_ANCHOR_IOV_FIXTURE_PROTOCOL_2026-11-06.json
+Two synthetic model initializations, six correction/control variants,
+two real-simulator training episodes per fit,40 slots per episode:
+960 training simulator slots,876 optimizer updates,12 final checkpoints.
+Every fit receives paired task seeds and the same exploration schedule.
+Terminal sampling has its own random stream. All checkpoints are frozen
+before held-out engineering workloads. Original IoV dynamics and reward
+equations are reused without modifying simulator or historical model files.
+The48-row engineering replay wraps and terminal index eviction is checked.
+Shortened warmup/batch/target-copy intervals are fixture settings only.
+
+AUDIT
+The auditor checked54 episodes:24 training,24 controller evaluation,
+and6 heuristic episodes. It checked task/workload pairing, actor-stream
+pairing, transition arrays, real reward/task accounting, complete greedy
+evaluation actions and online/target Q, frozen checkpoint hashes, update
+counts, anchor-pool membership and loss arithmetic. Evaluation checks do
+not rerun training or reconstruct all historical gradients. The fixture
+itself checks weight invariance around evaluation.
+All sources and artifacts are covered by hashes; tampering is rejected.
+Development/final CLI execution and terminal deployment decoding are blocked.
+
+DEPLOYMENT AND TIMING
+All12 final models were exported with the existing ORT neural-core route
+and native decoder. The complete wrapper includes finite/state-shape/time
+grid checks and horizon scaling. All1,536 eager/export decisions agree
+exactly; Q agrees within atol1e-6 and rtol1e-5. The auditor independently
+reloads exports and replays those checks. It does not retime models.
+Graphs, extra arrays, fixed128 engineering inputs and ordered timing
+schedule freeze before the first timed call. Three timing rounds x128
+calls x12 paths yield4,608 rows; all statistics are recomputed from them.
+ORT CPU and Numba use single-thread execution. Reported costs are specific
+to these short-trained checkpoints, inputs, machine and runtime route.
+No speed superiority versus the wide reference is tested in this fixture.
+
+arm/fit | FP32 parameter bytes | complete median ms | p95 ms | training seconds
+compact_both_0 | 194944 | 0.04015 | 0.04557 | 1.957
+compact_both_1 | 194944 | 0.04020 | 0.05557 | 1.895
+no_price_both_0 | 68264 | 0.03790 | 0.05585 | 2.030
+no_price_both_1 | 68264 | 0.03780 | 0.05268 | 1.995
+plain_both_0 | 67364 | 0.03510 | 0.03879 | 1.912
+plain_both_1 | 67364 | 0.03500 | 0.04840 | 1.940
+price_anchor_only_0 | 68264 | 0.03770 | 0.04099 | 2.017
+price_anchor_only_1 | 68264 | 0.03800 | 0.05293 | 2.098
+price_both_0 | 68264 | 0.03790 | 0.04100 | 2.042
+price_both_1 | 68264 | 0.03790 | 0.08110 | 2.000
+price_horizon_only_0 | 68264 | 0.03770 | 0.05219 | 2.020
+price_horizon_only_1 | 68264 | 0.03800 | 0.04228 | 1.994
+
+TRAINING/REPLAY COST LIMITS
+Training durations include replay sampling, simulator episodes and training
+episode saves. Per-update wall times are recorded in optimizer traces.
+Replay payload bytes and terminal index counts are recorded per fit.
+Python container overhead, interpreter baseline and peak process memory
+are excluded. Do not call these figures complete peak-memory measurements.
+Anchor variants add forward/backward work while keeping parameter storage
+unchanged. This fixture has no untouched old-objective control or wide128
+benchmark, so it does not establish the cost benefit of the new design.
+
+PRESERVATION
+Attempt _01 stopped at an export metadata reporting error (duplicate
+parameter-count key). Its files and failed test evidence remain preserved.
+Attempt _02 passed after that reporting fix; no research criteria or models
+were tuned from fixture performance. The original440,000-slot run and its
+failed performance gate remain unchanged. Final evaluation seeds untouched.
+
+NEXT STEP
+Prepare and review the full prospective research protocol and its runner/
+auditor integration. Include the original eleven arms, the six declared
+corrected arms and required heuristics, fresh collision-audited development
+seeds, candidate-specific value screening with explicit prospective scope,
+all numeric return/deadline/cost thresholds, and final-only checkpoints.
+Test that complete research workflow on a reduced isolated fixture, including
+all comparator deployment paths and failure cases, before a separate launch
+decision. The proposed680,000-slot experiment has NOT been enabled or run.
+Keep literature novelty assessment separate from implementation verification.
+No claim is established that terminal anchoring fixes deadline performance.
+
+Word thesis unchanged. Cloud and charging stations excluded. Security/trust
+remains deferred to contribution two. No final experiment launched.
+
+ARTIFACTS
+validation\terminal_anchor_iov_fixture_2026-11-06_02
+validation/terminal_anchor_iov_fixture_tests_2026-11-06.json
+run_terminal_anchor_iov_fixture.py
+test_terminal_anchor_iov_fixture.py

@@ -1,0 +1,53 @@
+{
+  "state": "passed_predeclaration_checks_only",
+  "protocol_sha256": "844a0c5987aaa871e8f2540bcc8e0c7864f902fdaf23817e4324b93c17c40734",
+  "validator_sha256": "4a22fb8c601acb7f5c57825fd3eea9ffcaf0ec1398c841104704fc5133ba77b1",
+  "arms": 5,
+  "replicates": 3,
+  "group_sizes": {
+    "train_0": 200,
+    "train_1": 200,
+    "train_2": 200,
+    "scheduled_validation": 5,
+    "timing_probe": 8,
+    "fresh_development_gate": 48,
+    "smoke_train_seeds": 2,
+    "smoke_validation_seeds": 2,
+    "smoke_probe_seeds": 2,
+    "smoke_fresh_seeds": 2,
+    "model_seeds": 3
+  },
+  "registered_protocols_scanned": [
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\LOW_COMPLEXITY_EMC_TRADEOFF_SPEC_2026-11-04.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\Source\\CHAPTER3_ACTION_SENSITIVITY_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\Source\\CHAPTER3_SEQUENTIAL_PILOT_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_ACTION_SENSITIVITY_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_FINITE_HORIZON_FORMULATION_PLAN_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_FROZEN_TARGET_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_LR_STABILITY_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_RESEARCH_EXPERIMENT_SPEC_2026-10-31.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_RESEARCH_EXPERIMENT_SPEC_VERIFICATION_2026-10-31.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_REWARD_SCALE_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_SEQUENTIAL_PILOT_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_SEQUENTIAL_TIMING_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_TERMINAL_FIT_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_TERMINAL_SAMPLING_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_TIME_PRIOR_SPEC_2026-11-01.json"
+  ],
+  "training_slots": 120000,
+  "optimizer_updates": 104655,
+  "target_copies": 510,
+  "smoke_slots": 400,
+  "smoke_updates": 365,
+  "transform_mechanics": {
+    "nonpositive_finite_grid": true,
+    "negative_transform_action_is_raw_argmin": true,
+    "exact_negated_table_decoder_matches_exhaustive": true,
+    "enumerated_joint_actions_per_state": 108
+  },
+  "source_hashes_checked": true,
+  "optimizer_steps": 0,
+  "simulator_steps": 0,
+  "runner_implemented": false,
+  "development_launch_authorized": false
+}

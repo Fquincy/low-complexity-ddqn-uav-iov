@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "files_scanned": 1700,
+  "scope": "numeric_literals_readable_source_config_text_csv_up_to8MB_excludes_binary_compressed_files_and_new_design_outputs",
+  "caveat": "not_a_proof_against_unlogged_or_external_runs; runtime_manifest_disjointness_check_required_before_launch",
+  "collisions": []
+}

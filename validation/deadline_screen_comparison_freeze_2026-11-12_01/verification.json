@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "scope": "structural_document_and_source_freeze_only",
+  "learned_arms": 11,
+  "heuristics": 3,
+  "definition_files": 32,
+  "snapshot_hashes_match": true,
+  "exact_screening_pairs": 3,
+  "parameter_arithmetic_checked": true,
+  "live_model_construction_verified": false,
+  "new_simulator_slots": 0,
+  "new_optimizer_updates": 0,
+  "registry_sha256": "015fd205a62fb2e3b7db9fcae640f1b758cd071d28f2010b2dc524fdf40c25ae",
+  "review_sha256": "fc0964157998248366fbea49de16406518a92481cca808b08359466fd2280769"
+}

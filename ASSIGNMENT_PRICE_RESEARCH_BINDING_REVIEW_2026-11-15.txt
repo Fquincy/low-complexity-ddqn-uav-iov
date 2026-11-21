@@ -1,0 +1,162 @@
+ADP-DDQN: FULL MULTI-INITIALIZATION RESEARCH WORKFLOW BINDING
+Date: 2026-11-15
+
+DECISION
+Full prospective research orchestration is implemented and exercised through
+the SAME runner on a small two-initialization engineering plan. Plan/guard
+tests and corrected saved-artifact/tamper tests PASS. The tested source release
+is frozen. Development remains explicitly unreleased; final execution disabled.
+No600000-slot research comparison is launched. Next is a separate launch
+readiness/release review of sources, environment, seed freshness, resource
+requirements and unresolved literature position, then an explicit user launch
+instruction. This is engineering evidence, not policy/calibration/novelty proof.
+
+BOUND EXECUTABLE
+run_assignment_price_research_bound.py binds the exact ADP protocol SHA256
+6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef.
+It checks the frozen model definitions and retains all15 learned controllers
+and4 heuristics, original objectives/rewards/optimizers, candidate FP32 heads/
+FP64 cost arithmetic, masks and deterministic one-pass decoder.
+The new full workflow uses existing tested episode/update/deployment code,
+not a monkeypatched fixture promoted into research.
+
+plan(development) maps the5 declared model seeds and their disjoint200-episode
+task blocks exactly; uses48 paired evaluation tasks and frozen RNG streams.
+Arithmetic independently verified:600000 training slots,523275 optimizer
+updates,2550 target copies,75 final checkpoints,151680 evaluation slots and
+48000 raw timing records. No research seeds are drawn by these plan checks.
+Reduced engineering values affect only fixture seeds, fit/task counts and
+warmup/batch/replay/target-copy/timing sizes. Controller choices and scientific
+criteria are unchanged. Scientific outcome reporting is explicitly disabled
+for the fixture even though all screen calculations are exercised.
+
+ORDER AND FREEZES
+The same run() path in both modes:
+1. Freeze protocol, source snapshot, runtime plan and shuffled arm/fit jobs.
+2. Train every job, retain final online/target/optimizer checkpoint only,
+   save actor history, replay state and complete episode/optimizer artifacts.
+3. Globally freeze ALL final checkpoint hashes before any export.
+4. Reconstruct/export/check all snapshots; freeze ALL graphs and checkpoints
+   before any timing or policy-quality evaluation.
+5. Measure fresh-process startup separately for every learned path.
+6. Freeze full timing order/checkpoints/graphs; time once on the common saved
+   engineering input before policy-quality evaluation.
+7. Evaluate all frozen policies on paired tasks, plus all4 heuristics; ensure
+   unchanged checkpoint hashes/weights and no updates; compute reports/audit.
+The saved event sequence and hash freezes are independently checked. No
+early-fit evaluation or best-checkpoint selection leaks into the global order.
+
+MULTI-FIT FIXTURE
+Two model seeds867350001/867350011. Two disjoint training blocks start
+867351000/867351100, two tasks each. Evaluations867352000/867352001.
+Order867353000; timing867354003; bootstrap867354007. Separate action/replay/
+anchor offsets retained. Pre-execution collision check passes against root
+protocol/spec/amendment/release points/ranges, including ADP research and
+protected final reservations. This is a local declaration check, not every
+historical trace. Research seed sets remain unconsumed and must refresh before
+launch. Model, reward, physical simulator and scientific limits were not tuned.
+
+Each of30 arm/fit jobs used2 training episodes, warmup8, batch4, replay32,
+anchor batch4, copy interval8 and epsilon decay80. Totals:
+-2400 training and2720 evaluation simulator slots;5120 total.
+-60 training,60 learned-evaluation and8 heuristic episodes;128 episodes.
+-153600 generated task records, all audited.
+-2190 optimizer updates and270 target copies.
+-30 final checkpoints,30 graph exports and30 fresh-process invocations.
+-240 pre-evaluation export-equivalence state checks;2400 learned evaluation
+  action/value deployment checks and independent saved eager value checks.
+-240 tiny workflow timing records (8states x1round x30paths,2warmups/path).
+This tiny timing schedule exercises reporting/freeze order; it is NOT a new
+acceptance cost benchmark or favorable retiming of the previous narrow pass.
+No extra training/simulator activity occurred in the validation continuation.
+
+STARTUP AND STORAGE
+Each path runs in a new Python subprocess, two workers concurrently to limit
+memory. Fresh helper loads the frozen checkpoint/graph, makes its first
+deployment call including native compilation, and checks action/value equality.
+Records include actual process ID, model/session load, first-action and module-
+start-to-action times, plus parent process wall time and checkpoint/graph hashes.
+Across paths first calls including native compilation took2.804-9.181 seconds;
+module-start-to-first-action took9.112-15.383 seconds. These include imports/
+loading; parent wall includes interpreter startup, verification and exit.
+OS file caches were not flushed; concurrent workers/system activity affect
+elapsed time. This is fresh-process startup evidence, not hardware-independent
+cold-storage latency. Do not confuse it with warmed sub-millisecond inference.
+
+Per job actual storage records separately account online parameter/buffer
+tensors, target tensors, optimizer tensors, allocated/populated replay arrays,
+checkpoint file, compressed replay file and serialized graph. Auditor checks
+these against actual tensors/arrays/files and reconstructs the replay ring.
+Source libraries, peak process memory and electrical energy are not measured.
+Equal slots/updates still do not imply equal training compute; per-fit wall
+time and optimizer time are recorded and reported.
+
+REPORTING AND AUDIT
+assignment_price_bound_reports.py calculates every declared primary comparison,
+mechanism and auxiliary contrast per initialization; all-arm value distributions
+(all/terminal/nonterminal/time bins) and gradient/Bellman/TD/anchor/loss/clipping
+diagnostics; crossed descriptive bootstrap; storage and pooled median/p95 costs.
+Fixture quality_evidence=false, screens_applied=false and scientific outcome
+null. Neither good nor poor fixture values justify scientific model selection.
+Reference/sweep/coupling/price/value/cost conjunction remains the frozen rule.
+
+audit_assignment_price_research_bound_v2.py verifies complete inventory/hash
+manifests, source/plan identity, all job/model/task mappings and global stage
+order. It independently reconstructs action RNGs, replay/anchor indices and
+ring eviction, Bellman/TD/loss arithmetic with original dtypes and branchwise
+BDQ loss, target-copy timing, optimizer step counts, all trained parameter/
+graph equality, stored replay and deployment storage, fresh startup records,
+all timing rows/order and comparison/diagnostic arithmetic. All2400 saved
+eager Q/target/action checks pass. Shared established audit utilities are
+reused; the audit is not a second simulator implementation. It does not
+re-simulate every radio/queue transition or prove every possible numerical tie.
+
+Plan/guard tests:2 PASS. Saved full-artifact audit/tamper tests:2 PASS.
+Missing development confirmation fails before plan/output/model construction.
+Correct confirmation also fails while DEVELOPMENT_RELEASED=False. Final and
+unknown modes rejected. Subprocess CLI evidence retained; no blocked output
+directory created. The correct confirmation string is not an authorization
+in this engineering gate. No final phase can be selected through this runner.
+
+PRESERVED AUDITOR CORRECTION
+The first saved audit assumed a unique OS PID for every fresh subprocess.
+Windows reused one PID after an earlier child exited:30 new subprocess
+invocations had29 distinct recorded PIDs. This did not indicate a reused live
+process or a model failure. The original audit and failed report are retained.
+Version2 checks one distinct arm/fit invocation per job and equality of each
+saved per-job startup record and frozen hashes. Separate subprocess.run calls
+are present in the unchanged tested runner. No numerical tolerance, startup
+measurement, controller or scientific criterion changed. Saved evidence was
+re-audited; no fixture training, evaluation or timing was repeated.
+
+RELEASE STATUS AND NEXT REVIEW
+ENGINEERING_BINDING_MANIFEST.json identifies tested source hashes and the
+corrected auditor/verifier. It is NOT launch authorization. The original
+prospective protocol remains unchanged (including its historical design-stage
+status); the separate binding artifact records current implementation evidence.
+Full comparison execution is implemented but the release flag remains false.
+
+Next review: verify exact tested source/environment identity, refresh actual
+run/seed collision evidence, assess full-scale output/memory/disk/runtime
+requirements and any remaining reporting limitations, and resolve an explicit
+scientific proceed/hold decision with the documented prior-work overlap.
+Do not substitute new timing/backend variants or tune from tiny policy outcomes.
+The observed-load/radio heuristic's latency and stationary-motion approximation
+remain separate reporting limitations; fixture learned-path timing does not
+establish heuristic execution cost. The research release review should make
+that omission concrete before declaring complete reporting readiness.
+No supervisor-availability dependency is introduced for technical work.
+
+The precise novelty of learned assignment-dependent pricing remains unproven;
+generic DDQN, masking, congestion costs and coordinate descent are known.
+Fresh policy/deadline, learned-mechanism, calibration and stability results
+are still required before a thesis contribution claim. Word thesis unchanged,
+final reservations untouched, security/trust deferred, cloud/charging absent.
+
+EVIDENCE
+validation/assignment_price_research_binding_2026-11-15_01/fixture_evidence/
+validation/assignment_price_research_binding_2026-11-15_01/plan_tests.json
+validation/assignment_price_research_binding_2026-11-15_01/saved_tests_verified.json
+validation/assignment_price_research_binding_2026-11-15_01/independent_audit.json
+validation/assignment_price_research_binding_2026-11-15_01/supplementary_checks.json
+validation/assignment_price_research_binding_2026-11-15_01/ENGINEERING_BINDING_MANIFEST.json

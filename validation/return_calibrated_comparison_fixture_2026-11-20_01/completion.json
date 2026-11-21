@@ -1,0 +1,7 @@
+{
+  "status": "ENGINEERING_AUDITED_COMPLETE",
+  "kind": "ENGINEERING_FIXTURE_NOT_RESEARCH",
+  "audit_passed": true,
+  "manifest_sha256": "3c3e8bc6659473aae43e92d32967b8d6fc431f928c14e8b6bd1b6c1b4b2192b5",
+  "research_launch_authorized": false
+}

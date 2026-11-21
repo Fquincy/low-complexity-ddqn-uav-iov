@@ -1,0 +1,17 @@
+FROZEN HORIZON-LOSS DEVELOPMENT COMPARISON LAUNCHED
+Verified: 2026-11-14T16:06:16.528666+08:00
+Explicit user instruction: Launch the frozen 560,000-slot horizon-loss development comparison
+14 learners, three heuristics, five initializations; 70 final-only checkpoints.
+560,000 training + 140,160 evaluation slots; 488,390 updates and 2,380 target copies.
+Training, frozen-checkpoint evaluation/timing, full artifact/storage audit and
+separate startup reporting execute in the same persistent background workflow.
+Worker PID: 30424; monitor PID: 7388
+Live status: C:\Users\OMEN\Desktop\Fitz Thesis docs\Low Complexity\validation\horizon_loss_development_launch_2026-11-14_01\LIVE_STATUS.txt
+Research output: C:\Users\OMEN\Desktop\Fitz Thesis docs\Low Complexity\development_runs\horizon_loss_development_2026-11-14_01
+Fresh actual-use seed audit: C:\Users\OMEN\Desktop\Fitz Thesis docs\Low Complexity\validation\horizon_loss_prelaunch_5vzz5j8k\seed_refresh.json
+All 65 release source files were checked and archived before model/task initialization.
+Existing runner files remain unchanged; the explicit launch adapter activates
+the development release flag only in the authorized worker process.
+No model definition, reward, seed, optimizer setting or acceptance threshold changed.
+Stop on execution/audit failures and preserve artifacts; no automatic restart.
+The Word thesis, old runs and protected final phase remain unchanged.

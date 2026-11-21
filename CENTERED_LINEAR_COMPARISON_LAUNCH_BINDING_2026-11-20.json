@@ -1,0 +1,21 @@
+{
+  "authorization": "USER_EXPLICIT_LAUNCH_51280_SLOT_COMPARISON",
+  "user_instruction": "Launch the frozen 51,280-slot centered-linear correction comparison",
+  "output": "development_runs/centered_linear_correction_comparison_2026-11-20_01",
+  "archive": "D:/Fitz Thesis Research Archive/centered_linear_correction_comparison_2026-11-20_01",
+  "python_executable": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Scripts\\python.exe",
+  "sha256": {
+    "CENTERED_LINEAR_COMPARISON_ENGINEERING_REVIEW_2026-11-20.txt": "f1980fe53cb74e8a7e28b1684159217f46f29439f0beb5abe9803b81e5dfef2f",
+    "CENTERED_LINEAR_COMPARISON_LAUNCH_READINESS_2026-11-20.txt": "5cb28e070ad865b0778dc4bc4feddecead2e133532e4dc43b2dd750264ea2a4b",
+    "CENTERED_LINEAR_CORRECTION_COMPARISON_PROTOCOL_2026-11-20.json": "95bd2737f8700378ced695bfaf4b9a3d457a2fbe54df2f6f7f829186ac7c674f",
+    "audit_centered_linear_comparison.py": "5e12cc71576c882307b4a7634fc8254dddc8fd54020fe56dce11d940230292f5",
+    "centered_linear_comparison_models.py": "2de20beb58242e40d876324fe6e5a7cbfa3e02f625cda0247ad09b01b196b734",
+    "check_centered_linear_comparison_readiness.py": "433e4b21628adf0dddee5d396c9978208c153354240022381077ecb588da0203",
+    "freeze_heuristic_initialization_pilot_plan_2026_11_19.py": "8c79ed7c2e0328282bd1dd00e67ca4886beb362c0cb52c6091a2bbe1a020536f",
+    "launch_centered_linear_comparison_2026_11_20.py": "2e002ac56edaa697fc617df6610b9414d87fe253a5d46ddf3c5456ba83454bb3",
+    "run_centered_linear_comparison.py": "8e334ba7e38dbb5754255db1fc0915d8a27f9dc3729f9bdd2d6f2b6b155fa432",
+    "test_centered_linear_comparison.py": "d947f74d66e014789c0d0902ba0f253fe5f4c6d8ff9d148fc46ae6b6aa2a7a7e",
+    "validation/centered_linear_comparison_readiness_2026-11-20_01/readiness.json": "9412ccce2bee2607a76f498b2aa4f24537cc24ef501ceec04539f2e69a5bda4a"
+  },
+  "word_thesis_changed": false
+}

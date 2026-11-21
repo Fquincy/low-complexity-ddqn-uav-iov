@@ -1,0 +1,48 @@
+{
+  "kind": "SYNTHETIC_NOT_RESEARCH",
+  "model_seeds": [
+    99811,
+    99817
+  ],
+  "training_starts": [
+    998110000,
+    998170000
+  ],
+  "evaluation_seeds": [
+    998190100,
+    998190101
+  ],
+  "arms": [
+    "price_both",
+    "no_price_both",
+    "plain_both",
+    "compact_both",
+    "plain24_nonpositive",
+    "additive128_unbounded",
+    "bdq64_uniform_adapted"
+  ],
+  "episodes": 2,
+  "slots": 40,
+  "warmup": 8,
+  "batch": 4,
+  "capacity": 64,
+  "learning_rate": 0.0001,
+  "gamma": 1.0,
+  "gradient_clip": 10,
+  "target_interval": 8,
+  "epsilon_decay": 40,
+  "action_rng": "one epsilon uniform and32 branch uniforms consumed every training slot, independent of warmup/mask",
+  "anchor_batch": 32,
+  "anchor_weight": 1.0,
+  "final_checkpoint_only": true,
+  "optimizer_steps_expected": 1022,
+  "new_training_slots_expected": 1120,
+  "new_evaluation_slots_expected": 1120,
+  "observations": 128,
+  "timing_rounds": 5,
+  "warmups": 32,
+  "calls": 128,
+  "order_seed": 998190003,
+  "research_execution_disabled": true,
+  "no_quality_or_novelty_claim": true
+}

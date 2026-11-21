@@ -1,0 +1,119 @@
+RETURN-CALIBRATED HANDOFF: SEPARATE LAUNCH-READINESS REVIEW
+20 November 2026
+
+DECISION
+Technically ready for a separately authorized frozen51280slot seven-arm
+development comparison. NOT LAUNCHED. The default runner remains
+DEVELOPMENT_RELEASED=False;final mode is closed. This review confirms
+implementation readiness,not expected policy success,novelty or contribution
+acceptance. The previous correction's failed scientific screens stand.
+
+BOUND RECORDS
+Protocol: RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256:1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1
+Readiness checker: check_return_calibrated_comparison_readiness.py
+Receipt: validation/return_calibrated_comparison_readiness_2026-11-20_01/readiness.json
+Receipt SHA256:
+25c93e3a891395f940d4c2b86bcaa9a331c797e178bd30239355b1667488345f
+Engineering evidence:
+validation/return_calibrated_comparison_fixture_2026-11-20_02/
+
+CHECKS PASSED
+Verified12passing integration tests and the completed full fixture audit.
+Rehashed all268engineering manifest artifacts,including255immutable run
+artifacts and tested source snapshots. Exact tested runner,auditor,test,
+helper,verification and review hashes match;frozen definitions are unchanged.
+Python executable and environment match the fixture and frozen protocol:
+Python3.11.9,torch2.15.0+cpu,numpy2.4.6,Windows,one torch thread.
+Verified development rejection without confirmation AND with the correct
+confirmation while release is disabled;final mode also rejects. Rejection
+occurred before output creation or model construction. No new model,
+simulator step,optimizer update,teacher inference or reserved seed draw.
+
+SEEDS
+Compared reserved development ranges against52other root JSON and saved
+validation/development */run/runtime_plan.json records. Recognized two
+same-study aliases:the frozen protocol and its exact prior design reservation.
+No external or internal overlap found. This is a bounded reservation audit,
+not a complete scan of every historical log. Refresh at launch,and validate
+any later same-study alias rather than silently excluding matching seeds.
+Final evaluation reservations remain unchanged and unused.
+
+STORAGE AND RETENTION
+Projected output:4,179,084,372bytes,approximately4.18GB.
+Conservative required free space per drive:17,790,079,312bytes,approximately
+17.79GB,using four times the projection plus1GiB.
+At checking,E: free516,796,833,792bytes;D: free110,800,125,952bytes.
+Both exceed the requirement. Projection scales episode bytes by slot exposure,
+optimizer logs by sampled-transition exposure,and other artifacts tenfold.
+It is not an exact output-size bound. Refresh actual space at launch.
+
+Keep primary output on E: and retain an independent D: archive after full
+audit. Verify exact archive inventory and every SHA256before claiming archive
+completion. Never overwrite prior outputs,discard failed fits or auto-retry.
+
+MONITORING AND DURATION
+Read-only helper: return_calibrated_progress.py
+Verified its complete-fixture counters,development51280slot denominators,
+33696TD update denominator,and separate pending/full-audit stage. No research
+simulation was needed for those checks. Counters include saved demonstrations,
+student online/evaluation slots,total slots,final checkpoints,BC/TD/retention
+in completed fits. Active episode/fit work may be ahead of saved counters.
+Archive receipt presence is a status signal,not independent archive rehashing.
+
+A later authorized launcher must refresh numerical LIVE_STATUS automatically,
+report stage/elapsed time,retain stdout/stderr/failure records and separately
+time full audit and archive phases outside immutable run data. The runner's
+saved artifacts_complete event means audit is running or pending,not finished.
+Wrap the bound auditor in memory for phase timing without modifying its tested
+source,and record that timing separately. Do not include training inferences
+or simulator steps in readiness checks or monitoring.
+
+No reliable complete-run ETA is established. Recorded fixture components
+give only a broad,unvalidated extrapolation:roughly0.34to4.31hours for training
+and evaluation under alternative linear scaling assumptions. This is NOT a
+confidence interval or completion promise;full audit,hashing,archive and other
+overhead are excluded. Retention gradients,batch size,thermal behavior and IO
+may scale differently. Use actual launch progress for a later ETA.
+
+FROZEN SCIENTIFIC DECISION
+Three paired fits,seven learned controls,teacher evaluated once.
+1200demo+36000student online+14080evaluation=51280simulated slots.
+3600BC+33696TD=37296optimizer steps;11232retention batches within TD;
+nine ridge solves;21final checkpoints globally frozen before evaluation.
+All proposed rewards,alphas/formulas,ridge/retention settings,optimizers,seeds,
+screens and control definitions remain unchanged from the prospective freeze.
+Require primary improvement over BC-only and previous baseline under the
+per-fit/equal-fit policy screen,AND lower own-policy value errors than the
+uncorrected centered model under the value screen,plus full finite audit.
+Finite poor handoff return fits are disclosed warnings,not newly added pass
+criteria. Technical/calibration-action/source/data failures stop without
+replacement. All comparisons and factorial effects must be reported.
+
+AUDIT AND CLAIM LIMITS
+Independent augmented ridge verifies fitting;final policies and target/log
+arithmetic are checked. No full historical gradient/weight replay;inverse
+branch scaling only approximately reconstructs BC probes. Teacher uses the
+bound Python reference;historical compiled equivalence is unestablished.
+Fixture outcomes did not tune the frozen scientific rules. No prediction
+that a technically correct implementation will meet scientific criteria.
+Stronger compact64/wide128,BDQ/full-DQfD comparisons,novelty review and final
+untouched evaluation remain later requirements. Same-size controls do not
+establish a storage reduction;complete laptop timings are not UAV hardware
+latency/energy measurements. A pass here is not full thesis claim validation.
+
+NEXT ACTION REQUIRES SEPARATE EXPLICIT LAUNCH AUTHORIZATION
+For example:
+"Launch the frozen 51,280-slot return-calibrated handoff development comparison."
+
+After that instruction,prepare a versioned release/launcher that binds this
+receipt,exact tested sources,environment/interpreter,and monitoring source.
+Refresh evidence/seed/storage checks and select nonexistent E: output and
+D: archive directories. Enable only the bound development runner in memory,
+leaving the on-disk defaultFalse and final mode closed. Preserve the original
+receipt and generate new preflight evidence instead of overwriting it.
+Run all declared endpoints,complete the full audit and verify the independent
+archive before interpreting outcomes. This review itself does not launch it.
+
+The Word thesis remains unchanged. Contribution one is efficient DDQN
+offloading;security/trust remains deferred;cloud/charging are excluded.

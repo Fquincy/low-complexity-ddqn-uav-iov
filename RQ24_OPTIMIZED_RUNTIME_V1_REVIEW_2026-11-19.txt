@@ -1,0 +1,109 @@
+RQ24 SINGLE RUNTIME OPTIMIZATION ATTEMPT: COMPLETION REVIEW
+Date: 2026-11-19 (Asia/Shanghai)
+
+DECISION: IMPLEMENTATION IMPROVED; REQUIRED MEDIAN COST STILL FAILS.
+Do not advance this RQ24 design to research training or final evaluation.
+The allowed one measured optimization attempt is complete. Preserve the
+failed result; no automatic repeat benchmarks or further tuning are declared.
+
+IMPLEMENTATION
+New file rq24_optimized_runtime_v1.py leaves the existing critic, original
+runtime, ONNX graphs, K4 edges, loss, precision and thresholds intact.
+Observed-state/geometry preparation uses scalar loops instead of per-link
+temporary arrays. Reference link rates are reused within the same call for
+transmission and backlog conversion. Work/queue extraction avoids copies.
+The exact donor graph, head conversion and cached coordinate decoder remain
+shared with the original. Neural graph/backend is unchanged for every path.
+No approximation, cross-state cache, shared mutable workspace, quantization,
+new model weights or training was introduced. Scratch is invocation-local.
+
+PRE-TIMING IMPLEMENTATION FAILURE, PRESERVED
+The first equivalence attempt found incorrect scalar promotion in compiled
+Numba code: float(FP32) retained FP32 before expm1, unlike the original
+FP64 preparation. Local backlog differences reached about1.6e-8 seconds,
+outside the declared rtol1e-12/atol1e-12. Timing never started.
+The code was corrected to explicit np.float64 conversions. No tolerance,
+feature scale, action rule or equation was relaxed. First failure records:
+validation/rq24_optimized_v1_2026-11-19_01/equivalence_failure.json
+The corrected verification and sole timed attempt occupy a separate _02 path.
+There was one timed attempt, not selection among favorable repeated timings.
+
+EQUIVALENCE AND SAFETY CHECKS
+32 original synthetic states plus6 fixed stress states: tied gains/cycles,
+coincident horizontal positions, lower/upper documented task features,
+zero/full batteries. All4 RQ24 mechanism arms and all3 initializations.
+304 physical-preparation arrays and76 physical feature sets match at the
+declared FP64 tolerance. Edge indices/order and all456 actions match exactly.
+All456 raw FP32 neural outputs match exactly. Largest observed old/new Q
+difference is0. Final scalar/initial-cost/change-count diagnostics match.
+The same decoder and compute potential are reused; the previous independent
+graph/coordinate/dense algebra tests were rerun and passed. Finite gradients
+and immutable critic weights verified for12 arm/initialization cases.
+Invalid dtype/shape/NaN, zero deadline, overflowed backlog, off-grid time and
+terminal decoding are rejected. Alternating calls leave prior returned
+outputs unchanged; runtime constants/scales remain unchanged.
+These finite fixtures do not prove all-state floating-point equivalence,
+physical correctness at zero battery or policy/calibration quality.
+
+MATCHED COST BENCHMARK
+Original RQ24, optimized RQ24, screened plain24, screened wide128,
+unmasked wide128, unmasked compact64 measured in the SAME session.
+Same32 original synthetic observations and3 initializations,3 frozen
+randomized rounds,16 warmups/path/round:1,728 complete-call readings.
+Includes validation, all physical/radio features, network, mask, decoder,
+scalar evaluation and copied action. Graphs are the preserved originals.
+Compilation/export/tests are outside steady-state timing. Combined setup
+time is recorded with its shared-process scope; no true cold-start claim.
+
+fit | original median | optimized median | screened wide | unmasked wide | optimized p95 (ms)
+0   | .06920          | .06100           | .03605        | .03450        | .06440
+1   | .07005          | .06080           | .03580        | .03530        | .06930
+2   | .06980          | .06170           | .03600        | .03430        | .09770
+
+Median reduction versus same-session original:11.85%,13.20%,11.60%.
+Optimized medians remain1.72-1.80 times unmasked wide128. All3 required
+median screens fail. Parameter storage and absolute p95<=1ms pass.
+Parameters68,364bytes; buffer20bytes; preserved ONNX graphs68,805bytes each.
+These exclude runtime libraries, process memory, target/optimizer and replay.
+The result is an engineering comparison of untrained synthetic controllers,
+not research-policy evidence or a general hardware performance claim.
+
+AUDIT
+audit_rq24_optimized_v1.py independently verifies all1,728 raw readings,
+their unique keys and frozen order, medians/p95, all3 cost screens, input/
+source/graph hashes and456 equivalence cases. The failed precision check
+and zero timing observations from that first attempt are verified preserved.
+Audit passes; the scientific/research release remains FALSE.
+
+NEXT BOUNDED DECISION
+Stop this candidate's current cost-gate progression. Do not launch expensive
+training merely because inference improved. Do not relax the comparison or
+drop the radio term retrospectively to call this attempt successful.
+
+The next useful deliverable is a design/claim decision memo, not another
+implementation by default: compare whether a prospectively simpler physical
+interaction mechanism can plausibly fit the measured latency budget while
+retaining the radio/deadline hypothesis. Explicitly account for what would
+be removed, which decisions it could lose and what novelty remains after
+the closest-method review. If no credible measured-cost path exists, state
+that the present combined storage/speed/performance claim remains unsupported.
+Any new mechanism requires a separately written design, fresh synthetic
+engineering evidence, and eventually a fresh-seed research protocol. Changing
+the speed requirement would be a new claim/protocol, not a pass of this one.
+No new controller, research run, final evaluation or thesis claim is authorized
+by this review. Preserve failed evidence and reserved final seeds.
+
+PROJECT BOUNDARIES
+New simulator/training slots0; optimizer updates0. Word thesis unchanged.
+Security/trust deferred. Cloud and charging excluded. Frozen ADP research
+definitions and outcomes remain historical evidence and were not modified.
+
+EVIDENCE
+validation/rq24_optimized_v1_2026-11-19_02/PLAN.json
+validation/rq24_optimized_v1_2026-11-19_02/EQUIVALENCE.json
+validation/rq24_optimized_v1_2026-11-19_02/PRE_TIMING_FREEZE.json
+validation/rq24_optimized_v1_2026-11-19_02/timings.json
+validation/rq24_optimized_v1_2026-11-19_02/verification.json
+validation/rq24_optimized_v1_2026-11-19_02/saved_artifact_audit.json
+rq24_optimized_runtime_v1.py;test_rq24_optimized_runtime_v1.py
+audit_rq24_optimized_v1.py

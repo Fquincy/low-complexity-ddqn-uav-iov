@@ -1,0 +1,19 @@
+{
+  "dueling_shared_td_rescale_ddqn_calibration.json": "189468de1497fbd2d0b39e5d27a297ce5152d04de32ea10144da38b4a8cc916c",
+  "dueling_shared_td_rescale_ddqn_deployment_weights.pt": "931ecac06ceb823db5c30b0b0771316a00dd6f1eb5b759e549877e4de1f8c072",
+  "dueling_shared_td_rescale_ddqn_step.json": "d0db98821dc44f612cd0bffe7fed2ca3baee7a912397c931712dd69e3f03e85e",
+  "dueling_shared_td_rescale_ddqn_SYNTHETIC_training_checkpoint.pt": "39300b56312dc5222a92859d9b9b1ee42b664c9dc302c48cb079905b5c1d1d2e",
+  "input_bindings.json": "22f9dc2fe7de9e90e00471a6937250b250b246c4fce03963397d852e41c21db4",
+  "source_snapshot/test_return_calibrated_handoff.py": "dedc7cbd7ff49c8767fdc288541e5c688eca19b2939558e4b2f19a4ffd2d8702",
+  "source_snapshot/test_value_gradient_isolation.py": "716f075b624b48e98959b9fcc530b480bde04838c2db36598bc69b6e56b1b131",
+  "source_snapshot/value_gradient_isolation.py": "de6a0680f57ae53d8c7c1e84d84fe796ed6b0d97dec495ce8366f8f8ed3db6e7",
+  "source_snapshot/verify_value_gradient_isolation_mechanics_2026_11_20.py": "da90d4f51c2176db3197b1390ed79704a4d75832bfe7ed7453690bc0029f1898",
+  "synthetic_inputs.npz": "26ac607f5f92a839eaa4cd5c419a9aa3bf636ba0daf07c22926b0c36e3de32eb",
+  "test_results.json": "dd3180582f4bba5803d9f6b44b0407716007e49dd6d7fec3f75404b7aff4d97a",
+  "tests.txt": "057a089da7348aea98c12152fd4cc20c9eba332185b9c591d17b057b7f3a0259",
+  "value_gradient_isolated_ddqn_calibration.json": "189468de1497fbd2d0b39e5d27a297ce5152d04de32ea10144da38b4a8cc916c",
+  "value_gradient_isolated_ddqn_deployment_weights.pt": "58d548ff9a3493db3fcca845e8fa69d8c5071693b1bf80cec7a8a6bd8692c1f8",
+  "value_gradient_isolated_ddqn_step.json": "df87e912db6390ea557314a4fc688e1df1b100f50a0b2eaef9ec166766cad606",
+  "value_gradient_isolated_ddqn_SYNTHETIC_training_checkpoint.pt": "a80f355d66c394ca413e6448459a7476d88a4e081f73fe65714bbf890ec12a3c",
+  "verification.json": "cd1a80939eb5011e83d96b1d53cf94f48295f57bc72de83e4bdb88fa4006dea6"
+}

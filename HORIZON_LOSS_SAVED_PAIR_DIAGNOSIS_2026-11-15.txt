@@ -1,0 +1,172 @@
+HORIZON-LOSS: SAVED-PAIR DIAGNOSIS
+2026-11-15
+
+FINDING
+The normalization correction failed across all three architecture pairs.
+It greatly reduced gradient clipping but did not produce better policies.
+The price primary mostly overloaded a single RSU. Normalized no-price and
+plain variants used UAVs heavily and suffered unfinished/late uploads.
+These are saved outcome associations, not proof of one optimizer cause.
+
+EVIDENCE AND LIMITS
+Read-only diagnosis of the completed fresh 560,000-slot comparison.
+All five fits for each of six arms retained; no fitting/retiming/inference.
+Uses independently audited optimizer distributions, horizon residual and
+remote-decision reports, and previously recomputed absolute evaluation means.
+Input hashes match the saved run/workflow manifests; prior completion review
+and its evidence manifest verified. The full multi-gigabyte raw logs and
+full run audit were not reread/repeated. Optimizer distributions aggregate
+all6977 updates: they do not establish the temporal onset of deterioration.
+TD summaries pool logged training predictions, not final-network residuals.
+Means by horizon are sample-count weighted; medians/quantiles are not averaged.
+
+PAIRED CORRECTION EFFECTS: NORMALIZED MINUS ORIGINAL
+architecture | mean return difference | mean deadline difference (points)
+normalized_screened_price24 | -7.753247 | -13.984028
+normalized_screened_no_price24 | -300.846349 | -31.931944
+normalized_screened_plain24_anchored | -460.738173 | -42.233333
+All three pairs lose both metrics in every initialization; exact per-fit
+differences and checks are saved in diagnosis.json.
+
+LEARNING AND VALUE SUMMARY
+arm | fit | deadline% | median gradient | clip fraction | mean anchor/uniform loss | Q-G bias | RMSE
+normalized_screened_price24 | 0 | 68.4375 | 7.8690 | 0.3628 | 1.4887 | -11.4648 | 0.8678
+normalized_screened_price24 | 1 | 78.8108 | 9.5882 | 0.4767 | 2.3092 | 3.2843 | 0.4428
+normalized_screened_price24 | 2 | 88.2500 | 7.9868 | 0.3767 | 1.7263 | 3.5964 | 0.6498
+normalized_screened_price24 | 3 | 85.8194 | 5.5456 | 0.2120 | 1.9432 | 4.0247 | 0.4929
+normalized_screened_price24 | 4 | 94.4288 | 9.4562 | 0.4695 | 2.7725 | 3.3258 | 0.4732
+screened_price24 | 0 | 96.1337 | 57.5595 | 1.0000 | 2.3161 | -8.7879 | 1.1299
+screened_price24 | 1 | 95.8247 | 66.4121 | 1.0000 | 2.2032 | -1.9807 | 0.4016
+screened_price24 | 2 | 96.4392 | 62.4665 | 1.0000 | 2.1170 | -9.2103 | 1.1094
+screened_price24 | 3 | 99.6441 | 64.0795 | 1.0000 | 2.1327 | 0.9511 | 0.2559
+screened_price24 | 4 | 97.6250 | 75.2450 | 1.0000 | 2.2321 | -10.2988 | 1.4157
+normalized_screened_no_price24 | 0 | 63.6128 | 6.8753 | 0.2950 | 1.5544 | -47.5880 | 0.2664
+normalized_screened_no_price24 | 1 | 68.8524 | 9.3087 | 0.4618 | 2.5994 | -33.0995 | 0.2346
+normalized_screened_no_price24 | 2 | 62.5712 | 7.0025 | 0.2974 | 1.6964 | -46.9884 | 0.2504
+normalized_screened_no_price24 | 3 | 64.9826 | 7.2794 | 0.3248 | 1.9903 | -90.5957 | 0.5778
+normalized_screened_no_price24 | 4 | 46.8316 | 9.4193 | 0.4697 | 2.8256 | 23.4486 | 0.1291
+screened_no_price24 | 0 | 97.4653 | 59.8405 | 1.0000 | 2.3603 | -16.9376 | 2.3232
+screened_no_price24 | 1 | 97.2066 | 64.8052 | 1.0000 | 2.1659 | -17.0732 | 2.1929
+screened_no_price24 | 2 | 98.4097 | 58.9789 | 1.0000 | 2.2123 | -6.0890 | 0.8853
+screened_no_price24 | 3 | 96.3681 | 69.2161 | 1.0000 | 2.2148 | -7.1478 | 0.9470
+screened_no_price24 | 4 | 77.0608 | 76.1276 | 1.0000 | 2.3789 | 28.2503 | 0.2902
+normalized_screened_plain24_anchored | 0 | 44.4740 | 8.8232 | 0.4210 | 1.5819 | 365.4513 | 0.9774
+normalized_screened_plain24_anchored | 1 | 57.2049 | 9.8224 | 0.4893 | 2.1271 | 260.7917 | 0.9899
+normalized_screened_plain24_anchored | 2 | 42.3958 | 9.8401 | 0.4895 | 1.5432 | 386.2140 | 0.9798
+normalized_screened_plain24_anchored | 3 | 50.2917 | 8.3097 | 0.3906 | 1.7959 | 280.3398 | 0.9300
+normalized_screened_plain24_anchored | 4 | 60.5972 | 12.4272 | 0.6328 | 2.1566 | 236.9655 | 0.9957
+screened_plain24_anchored | 0 | 97.5903 | 63.2594 | 1.0000 | 2.3766 | -2.2569 | 0.4697
+screened_plain24_anchored | 1 | 94.4167 | 70.6722 | 1.0000 | 2.4365 | 2.1216 | 0.5021
+screened_plain24_anchored | 2 | 94.7448 | 64.3432 | 1.0000 | 2.1715 | -2.0066 | 0.5008
+screened_plain24_anchored | 3 | 95.0990 | 66.9796 | 1.0000 | 2.3647 | 2.6496 | 0.4229
+screened_plain24_anchored | 4 | 84.2795 | 87.4863 | 1.0000 | 2.6285 | 25.0989 | 0.8509
+
+INTERPRETATION
+Original arms clipped approximately every update. Normalized arms clipped
+less frequently, yet all three paired policies deteriorated. Therefore the
+observed reduction in clipping is not evidence of learning success, and
+near-universal clipping in the originals was not sufficient to predict worse
+policy quality. This does not prove clipping is harmless or causal.
+Loss scales differ by design. The anchor/uniform scalar-loss ratio is not
+a gradient-contribution ratio; the saved summaries do not isolate anchoring,
+Huber-regime changes and horizon weighting as separate causes. Raw normalized
+and original losses cannot be compared as equal-unit objectives.
+All five original-price fits still fail RMSE<=.25, so better original policy
+performance does not establish the declared value-consistency contribution.
+Prediction accuracy and policy action ranking remain distinct questions.
+
+DESTINATION AND STAGE ACCOUNTING
+Destination order:local,UAV1,UAV2,RSU1,RSU2. Counts cover48 episodes/57600tasks.
+normalized_screened_price24 fit0: assigned[10309, 1751, 3, 3753, 41784]; missed[0, 760, 0, 0, 17420]; dominant[('cpu_started_after_deadline', 15481), ('cpu_completed_late', 2084)]
+normalized_screened_price24 fit1: assigned[18356, 0, 0, 3514, 35730]; missed[1, 0, 0, 0, 12204]; dominant[('cpu_started_after_deadline', 10289), ('cpu_completed_late', 1915)]
+normalized_screened_price24 fit2: assigned[18496, 0, 0, 30475, 8629]; missed[0, 0, 0, 6768, 0]; dominant[('cpu_started_after_deadline', 4924), ('cpu_completed_late', 1844)]
+normalized_screened_price24 fit3: assigned[22996, 0, 0, 30961, 3643]; missed[0, 0, 0, 8168, 0]; dominant[('cpu_started_after_deadline', 6400), ('cpu_completed_late', 1768)]
+normalized_screened_price24 fit4: assigned[26984, 0, 0, 6357, 24259]; missed[1, 0, 0, 0, 3208]; dominant[('cpu_started_after_deadline', 2108), ('cpu_completed_late', 1100)]
+screened_price24 fit0: assigned[19946, 751, 533, 12512, 23858]; missed[0, 119, 90, 0, 2018]; dominant[('cpu_started_after_deadline', 1094), ('cpu_completed_late', 1053)]
+screened_price24 fit1: assigned[18579, 0, 2356, 23110, 13555]; missed[1, 0, 868, 1536, 0]; dominant[('cpu_completed_late', 938), ('cpu_started_after_deadline', 752)]
+screened_price24 fit2: assigned[19018, 2699, 0, 19302, 16581]; missed[1, 1853, 0, 188, 9]; dominant[('upload_finished_after_deadline', 1691), ('cpu_completed_late', 302)]
+screened_price24 fit3: assigned[24578, 1, 0, 16974, 16047]; missed[1, 0, 0, 73, 131]; dominant[('cpu_completed_late', 129), ('cpu_started_after_deadline', 75)]
+screened_price24 fit4: assigned[16819, 868, 1676, 15059, 23178]; missed[0, 125, 245, 7, 991]; dominant[('cpu_completed_late', 818), ('cpu_started_after_deadline', 375)]
+normalized_screened_no_price24 fit0: assigned[3746, 7231, 13449, 19579, 13595]; missed[0, 6785, 13056, 584, 534]; dominant[('unfinished_upload', 11959), ('upload_finished_after_deadline', 8855)]
+normalized_screened_no_price24 fit1: assigned[11669, 4769, 14145, 15067, 11950]; missed[1, 4112, 13744, 84, 0]; dominant[('unfinished_upload', 9781), ('upload_finished_after_deadline', 7941)]
+normalized_screened_no_price24 fit2: assigned[7545, 9244, 12418, 13973, 14420]; missed[0, 8827, 11950, 540, 242]; dominant[('unfinished_upload', 12561), ('upload_finished_after_deadline', 8856)]
+normalized_screened_no_price24 fit3: assigned[7316, 13116, 7228, 21785, 8155]; missed[0, 12502, 6730, 784, 154]; dominant[('unfinished_upload', 10898), ('upload_finished_after_deadline', 8761)]
+normalized_screened_no_price24 fit4: assigned[7504, 16383, 12861, 9710, 11142]; missed[0, 15948, 12424, 955, 1298]; dominant[('unfinished_upload', 21553), ('upload_finished_after_deadline', 8916)]
+screened_no_price24 fit0: assigned[17185, 1300, 2311, 16532, 20272]; missed[0, 476, 802, 64, 118]; dominant[('upload_finished_after_deadline', 1003), ('cpu_completed_late', 418)]
+screened_no_price24 fit1: assigned[21297, 9, 2130, 20043, 14121]; missed[1, 8, 1078, 522, 0]; dominant[('upload_finished_after_deadline', 954), ('cpu_completed_late', 452)]
+screened_no_price24 fit2: assigned[13556, 1070, 682, 21478, 20814]; missed[1, 176, 71, 443, 225]; dominant[('cpu_completed_late', 646), ('cpu_started_after_deadline', 181)]
+screened_no_price24 fit3: assigned[19747, 827, 2972, 17800, 16254]; missed[0, 142, 1858, 65, 27]; dominant[('upload_finished_after_deadline', 1715), ('cpu_completed_late', 354)]
+screened_no_price24 fit4: assigned[13538, 9780, 3150, 15109, 16023]; missed[0, 9326, 2196, 774, 917]; dominant[('upload_finished_after_deadline', 6557), ('unfinished_upload', 6412)]
+normalized_screened_plain24_anchored fit0: assigned[7255, 17739, 12136, 11305, 9165]; missed[0, 17330, 11772, 1532, 1349]; dominant[('unfinished_upload', 23061), ('upload_finished_after_deadline', 8838)]
+normalized_screened_plain24_anchored fit1: assigned[14585, 10279, 10071, 14952, 7713]; missed[1, 9949, 9758, 3016, 1926]; dominant[('unfinished_upload', 15536), ('upload_finished_after_deadline', 9009)]
+normalized_screened_plain24_anchored fit2: assigned[6423, 14013, 14217, 12076, 10871]; missed[0, 13663, 13906, 3020, 2591]; dominant[('unfinished_upload', 23939), ('upload_finished_after_deadline', 9164)]
+normalized_screened_plain24_anchored fit3: assigned[12162, 13652, 10156, 10820, 10810]; missed[0, 13305, 9599, 1815, 3913]; dominant[('unfinished_upload', 20546), ('upload_finished_after_deadline', 7945)]
+normalized_screened_plain24_anchored fit4: assigned[12094, 7722, 13382, 11390, 13012]; missed[0, 7411, 12892, 1893, 500]; dominant[('unfinished_upload', 14095), ('upload_finished_after_deadline', 8509)]
+screened_plain24_anchored fit0: assigned[17783, 1278, 320, 16443, 21776]; missed[0, 488, 89, 97, 714]; dominant[('cpu_completed_late', 600), ('upload_finished_after_deadline', 465)]
+screened_plain24_anchored fit1: assigned[21633, 2288, 2193, 17046, 14440]; missed[0, 1521, 1499, 180, 16]; dominant[('upload_finished_after_deadline', 2530), ('unfinished_upload', 322)]
+screened_plain24_anchored fit2: assigned[19329, 1723, 809, 24162, 11577]; missed[1, 882, 274, 1867, 3]; dominant[('cpu_completed_late', 1059), ('cpu_started_after_deadline', 989)]
+screened_plain24_anchored fit3: assigned[22937, 2302, 2479, 18282, 11600]; missed[1, 1537, 1088, 188, 9]; dominant[('upload_finished_after_deadline', 2315), ('cpu_completed_late', 443)]
+screened_plain24_anchored fit4: assigned[14596, 3176, 5489, 15994, 18345]; missed[1, 2348, 5019, 1163, 524]; dominant[('upload_finished_after_deadline', 7706), ('unfinished_upload', 1024)]
+
+PRIMARY POLICY DETERIORATION
+Normalized price fit0 assigned41784/57600 tasks toRSU2 and missed17420
+there. Its paired original assigned23858 toRSU2 and missed2018 there.
+Fit1 also concentrated atRSU2; fits2/3 atRSU1; fit4 atRSU2. Across the
+normalized primary the dominant failure label is CPU started after deadline.
+The lifecycle timing supports late CPU admission; counts alone do not prove
+which learned estimate, queue history or motion choice caused concentration.
+Original and normalized policies have different subsequent queue histories,
+so task comparisons are not isolated counterfactual single-action tests.
+A few local misses remain in some fits. Do not claim the conservative screen
+guarantees zero local or remote misses. This diagnosis does not introduce a
+new feasibility mask or access to private queue/future-arrival information.
+
+NORMALIZED NO-PRICE AND PLAIN CONTROLS
+High UAV allocations coincide with almost all UAV-assigned tasks missing
+deadlines in several fits. Unfinished upload and upload finished after
+deadline dominate. The primary therefore passes relative price/architecture
+contrasts partly in the context of very poor normalized comparators. That
+is valid relative development evidence, not proof of overall claim success.
+
+EXPLORATORY ORIGINAL-LOSS CONTROL ASSESSMENT
+All retained primary-style policy reference margins pass for the original control: False.
+This is exploratory re-expression of saved paired differences. The control
+is not promoted to primary, the frozen experiment remains failed, and
+none of these consumed seeds become independent confirmation data.
+Original vsunmasked_price24: fits failing same policy margin[].
+Original vsscreened_no_price24: fits failing same policy margin[0, 1, 2].
+Original vsscreened_plain24_anchored: fits failing same policy margin[0].
+Original vsscreened_compact64_anchored: fits failing same policy margin[].
+Original vsscreened_plain24: fits failing same policy margin[].
+Original vsunmasked_plain24: fits failing same policy margin[].
+Original vsscreened_wide128: fits failing same policy margin[].
+Original vsunmasked_wide128: fits failing same policy margin[].
+Original vsscreened_bdq64: fits failing same policy margin[].
+Original vsunmasked_compact64: fits failing same policy margin[].
+Original vsnormalized_screened_plain24_anchored: fits failing same policy margin[].
+Original vsnearest_rsu: fits failing same policy margin[].
+Original vsuav_selective: fits failing same policy margin[].
+Original primary value limits pass by fit: [False, False, False, False, False]
+Original vs original no-price, per-fit return/deadline points:
+{'fit': 0, 'return_difference': -0.8187194377914739, 'deadline_points': -1.331597222222225}
+{'fit': 1, 'return_difference': -0.4346432495174124, 'deadline_points': -1.3819444444444273}
+{'fit': 2, 'return_difference': -2.2509971311810872, 'deadline_points': -1.9704861111111027}
+{'fit': 3, 'return_difference': 1.875888132399723, 'deadline_points': 3.2760416666666736}
+{'fit': 4, 'return_difference': 161.40645427556083, 'deadline_points': 20.56423611111111}
+
+DECISION AND NEXT BOUNDARY
+Close this normalization correction as an unsuccessful development design
+under its frozen exposure and settings. Preserve its useful negative evidence.
+Do not automatically add another controller or adjust loss weights/rewards.
+The original-loss screened controller is the more plausible policy candidate
+in this paired run, but still lacks the complete value/mechanism evidence.
+The next decision is a contribution/claim brief for supervisor discussion:
+separate established size/latency and screening evidence from unproven price
+superiority, calibration and novelty. Decide whether a narrowly specified
+controller improvement remains justified before any new prospective trial.
+A different scientific claim needs its own prospective criteria and fresh
+development/final confirmation, not retrospective relaxation of this run.
+No thesis revision, new training or final launch is authorized by this report.
+Final seeds remain protected; security/trust deferred; cloud/charging excluded.
+
+Evidence:validation\horizon_loss_saved_pair_diagnosis_2026-11-15_01

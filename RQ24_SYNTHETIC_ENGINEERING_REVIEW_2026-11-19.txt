@@ -1,0 +1,90 @@
+RQ24 SYNTHETIC ENGINEERING REVIEW
+Date: 2026-11-19
+
+DECISION: CORRECTNESS PASS; MEDIAN COST FAIL. NO RESEARCH RELEASE.
+This completes the bounded full-method/isolated-prototype gate. No policy
+performance is measured. No simulator/task generation or optimizer step ran.
+All frozen scientific files and prior failed evidence remain unchanged.
+
+IMPLEMENTATION
+rq24_prototype.py implements design-v1's signed residual24-unit critic,
+explicit unary physics/deadline surrogate, K4 sparse physical pair graph,
+compute potential, one cached coordinate sweep, differentiable same-action
+Q and matched ONNX CPU/native deployment. All four new mechanism arms use
+the same17,091-parameter/20buffer-byte architecture.
+The research runner and model definitions are not replaced by this prototype.
+
+SYNTHETIC PLAN AND TESTS
+PLAN.json and SOURCE_FREEZE.json were written before fixture execution.
+Three synthetic model initializations:906190001,906190011,906190021.
+32 direct synthetic observation vectors (no environment) seed906192001.
+Task feature ranges follow documented input bounds; no saved development
+or final research workloads are used. These seeds are engineering-only.
+Graph tests:9 cases including donor ties,K0,K4,all-neighbor and small N.
+Cached decoder:12 small systems checked against direct scalar recomputation;
+180 coordinate deltas independently checked. Every sweep is nonincreasing.
+Dense limit:870 physical coefficients match independent all-pairs equations.
+Autograd:4 arms x3 initializations, finite gradients and detached targets;
+terminal values zero and terminal decoding rejected. Invalid dtype, shape,
+NaN, zero deadline, overflowed queue feature and off-grid time rejected.
+Zero/full battery states produce finite outputs; finite does not mean safe
+or physically accurate at zero battery. That approximation is unchanged.
+24 eager/export paths x32 states:768 exact action matches. Value closeness
+checked at engineering rtol1e-5/atol2e-4; this is not a new research tolerance
+or an all-states deployment-equivalence guarantee.
+
+FULL ACTION-SELECTION COST
+All five timed paths per initialization have one-thread ONNX neural cores
+and native decoders, same32 synthetic inputs,3 shuffled rounds,16 warmups
+per path/round. 1,440 raw observations;96 per path/initialization.
+Includes validation, physics, sparse graph, network, screen, cached sweep,
+scalar evaluation and final action copy. Compilation/export/warmup excluded.
+This is a small untrained engineering benchmark, not research acceptance,
+true startup measurement, total-memory evidence or hardware-general result.
+
+fit | RQ24 median ms | screened wide128 | unmasked wide128 | RQ24 p95 ms
+0   | .06985        | .03680          | .03520          | .093625
+1   | .06910        | .03655          | .03530          | .077125
+2   | .06950        | .03685          | .03510          | .074725
+
+All three primary paths fail the prewritten engineering median ratio<=1
+against each wide reference. Parameter storage<=half compact64 and absolute
+p95<=1ms pass. RQ24 is about1.9-2.0x slower in median on these inputs.
+68,364 parameter bytes versus194,944 compact64 and422,016 wide128 still
+supports parameter reduction; it does not support the combined speed claim.
+No favorable repeat timing or K tuning was performed.
+
+COMPLEXITY QUALIFICATION
+The design brief's local-update expression O(ND+E) omits sorting tasks by
+cycles. This implementation uses stable mergesort: total decoder includes
+O(N log N+ND+E), plus forward/features. Sparse donor selection costs O(UNK)
+with bounded insertion arrays; K4 is fixed. An optimized heap could provide
+the brief's logK factor, but no heap or strictly-linear whole-controller
+claim is implemented. Undirected degree may exceedK, yet summing all
+incident edge visits is O(E). No dense N-by-N edge table is allocated.
+This accounting correction does not change the declared architecture or
+rescue the failed measured gate.
+
+LITERATURE AND NEXT DECISION
+RQ24_FULL_METHOD_COMPARISON_2026-11-19.txt records direct method overlap
+with DCG, BDQ, graph-DDQN VEC preprint and interference-aware vehicular DRL.
+Journal full text remains blocked and exact novelty remains unresolved.
+
+Do not launch a long training run for this candidate as it stands. The next
+bounded step is to profile this exact fixed path on the same synthetic
+inputs, identify physical-feature/edge/network/decoder overhead, and write
+an explicit engineering-only optimization plan if there is a plausible way
+to meet complete latency without changing the specified Q/decoder.
+Do not change K, equations, rewards, thresholds or losses to make this fixture
+look successful. Any semantic simplification needs a prospective new design;
+timing optimization needs separate preserved measurements, not replacement
+of this failed benchmark. Policy/calibration remain entirely untested here.
+Final evaluation seeds protected; thesis unchanged; security/trust deferred;
+cloud and charging excluded. No deployment or research launch authorized.
+
+EVIDENCE
+validation/rq24_engineering_2026-11-19_01/fixture/PLAN.json
+validation/rq24_engineering_2026-11-19_01/fixture/verification.json
+validation/rq24_engineering_2026-11-19_01/fixture/saved_artifact_audit.json
+validation/rq24_engineering_2026-11-19_01/literature/retrieval.json
+rq24_prototype.py;test_rq24_engineering_2026_11_19.py

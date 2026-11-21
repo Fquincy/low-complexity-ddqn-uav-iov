@@ -1,0 +1,89 @@
+VERSION 3 RESEARCH LAUNCH READINESS REVIEW
+Date: November 6, 2026
+
+DECISION
+Defer launch until the implementation corrections below pass an isolated
+integration check. The eleven-arm research protocol remains frozen. This
+review did not launch training, consume research seeds, change models or edit
+the Word thesis. Its findings concern implementation and audit coverage;
+they do not establish that the proposed controller succeeds or fails.
+
+EVIDENCE CHECKED
+All 137 entries in the November 5 preparation completion manifest match their
+current files. The saved seven-test evidence reports success and all recorded
+source hashes still match. Those seven tests were inspected, not rerun here.
+The retained fixture covers eleven arms, one initialization, one training
+episode, one evaluation workload and no diagnostic validation workload.
+Four fresh CLI checks (development/final, with/without confirmation) all
+rejected execution without creating their requested output directory.
+
+CONFIRMED LAUNCH BLOCKERS
+1. The runner verifies the older compatibility manifest against the current
+   root, including LOW_COMPLEXITY_PROJECT_STATUS.json. That status file was
+   legitimately advanced when preparation completed. Of 114 compatibility
+   manifest entries it is the only mismatch. The archived status in the
+   retained fixture matches the original manifest, so this is an evidence
+   reference bug rather than lost historical evidence. A new execution would
+   fail before training. Use an explicit archived-evidence mapping and keep
+   the current status separately; preserve the original manifests and bytes.
+
+2. frozen_inference_gate measures action latency at runner line 249, then
+   writes PRE_TIMING_FREEZE.json at line 254 after the fit loop finishes.
+   Freeze exported graphs, extra decoder arrays, execution settings and
+   measurement order before the first timed call. Record and audit the stage
+   ordering; the present file name alone does not establish that ordering.
+
+3. The runner's overall development pass uses all(quality_screens.values()),
+   which excludes the separately computed storage/latency screens. The full
+   research auditor repeats that omission in research_claim_established.
+   Therefore a cost failure could coexist with an overall success label.
+   Require every predeclared quality AND cost condition in the aggregate
+   decision. Rename the claim label to describe empirical protocol screens;
+   passing them does not independently establish novelty or thesis sufficiency.
+
+4. Existing tests execute audit_fixture, not audit_research. The one-fit,
+   one-episode fixture does not exercise multi-fit grouping, multi-episode
+   schedules or diagnostic-validation orchestration. Add a reduced, explicitly
+   synthetic multi-fit/multi-episode plan using the same research orchestration
+   and audit implementation, with safe nonreserved seeds. Verify expected
+   counts from the plan, exact episode/fit identities, checkpoint inventory,
+   action/workload pairing, greedy evaluation actions, immutable weights,
+   comparisons, value summaries and inference-stage ordering. Test deliberate
+   corruption and a cost failure, rather than only the passing case.
+
+ADDITIONAL PRE-LAUNCH CHECKS
+Refresh the seed-consumption audit against actual saved run metadata before
+any authorization. The previous scan's compressed/binary/external-history
+limitations still apply; this review did not complete a new consumption scan.
+Reject duplicate or missing comparison rows and validate the exact fit/task
+sets before computing screens. Keep the frozen per-arm value-screen rule;
+any proposed scientific change requires an explicit prospective amendment.
+Do not remove failing arms or change rewards, seeds, thresholds, optimizer
+settings or model definitions in response to synthetic outcomes.
+
+REPORT CORRECTION
+The November 5 preparation prose incorrectly calls plain24 the matched
+architecture ablation. The frozen JSON correctly identifies
+amortized_no_price24 as the matched architecture/parameter ablation.
+plain24_nonpositive is a separate, smaller reference controller. The prior
+report is preserved; this note records the correction.
+
+NEXT ENGINEERING WORK
+Preserve this implementation and its evidence, correct the evidence mapping,
+freeze ordering and aggregate pass logic, strengthen the shared auditor, and
+exercise the reduced multi-fit workflow with targeted failure tests. Keep
+research CLI execution disabled during that gate. After the engineering
+evidence and seed audit pass, make a separate explicit development launch
+decision. The frozen development budget is 440,000 training slots across
+55 fits, not the earlier experiment's 120,000-slot budget.
+
+Scope remains local/UAV/RSU offloading. Cloud and charging stations are
+excluded. Security/trust remains deferred to contribution two. No policy
+improvement or low-complexity thesis claim is established by this review.
+
+REPRODUCIBLE REVIEW EVIDENCE
+Script: analysis/review_v3_launch_readiness_2026_11_06.py
+Output: validation/v3_launch_readiness_review_2026-11-06.json
+The existing project tracker and historical completion manifests were left
+intact so their archived hashes remain verifiable. This newer review supplies
+the current launch decision.

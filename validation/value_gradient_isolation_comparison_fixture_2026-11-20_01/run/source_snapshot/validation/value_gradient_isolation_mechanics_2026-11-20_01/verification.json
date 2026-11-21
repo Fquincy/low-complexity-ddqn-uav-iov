@@ -1,0 +1,75 @@
+{
+  "status": "ISOLATED_MECHANICS_PASSED_RESEARCH_DISABLED",
+  "passed": true,
+  "kind": "ENGINEERING_SYNTHETIC_NOT_RESEARCH",
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "artifact_failure": null,
+  "synthetic_counts": {
+    "synthetic_BC_optimizer_steps": 3,
+    "synthetic_TD_optimizer_steps": 6,
+    "independent_reference_optimizer_steps": 3,
+    "inherited_baseline_optimizer_steps": 1,
+    "synthetic_ridge_solves": 7,
+    "artifact_TD_optimizer_steps": 2
+  },
+  "synthetic_optimizer_steps": 15,
+  "exports": {
+    "value_gradient_isolated_ddqn": {
+      "deployment_class": "return_calibrated_handoff.Critic",
+      "parameter_count": 16841,
+      "parameter_bytes": 67364,
+      "buffer_bytes": 20,
+      "deployment_file_bytes": 70105,
+      "training_checkpoint_bytes": 279285,
+      "same_original_state_dict": true,
+      "exact_action_Q_parity": true,
+      "target_unchanged": true,
+      "rule": "isolate_value"
+    },
+    "dueling_shared_td_rescale_ddqn": {
+      "deployment_class": "return_calibrated_handoff.Critic",
+      "parameter_count": 16841,
+      "parameter_bytes": 67364,
+      "buffer_bytes": 20,
+      "deployment_file_bytes": 70105,
+      "training_checkpoint_bytes": 279405,
+      "same_original_state_dict": true,
+      "exact_action_Q_parity": true,
+      "target_unchanged": true,
+      "rule": "rescale_shared_td"
+    }
+  },
+  "source_sha256": {
+    "value_gradient_isolation.py": "de6a0680f57ae53d8c7c1e84d84fe796ed6b0d97dec495ce8366f8f8ed3db6e7",
+    "test_value_gradient_isolation.py": "716f075b624b48e98959b9fcc530b480bde04838c2db36598bc69b6e56b1b131",
+    "verify_value_gradient_isolation_mechanics_2026_11_20.py": "da90d4f51c2176db3197b1390ed79704a4d75832bfe7ed7453690bc0029f1898",
+    "test_return_calibrated_handoff.py": "dedc7cbd7ff49c8767fdc288541e5c688eca19b2939558e4b2f19a4ffd2d8702"
+  },
+  "frozen_historical_sources_unchanged": true,
+  "ambient_torch_numpy_rng_unchanged": true,
+  "reserved_research_seeds_used": false,
+  "research_protocol_frozen": false,
+  "research_runner_implemented": false,
+  "results_auditor_implemented": false,
+  "development_release_enabled": false,
+  "final_release_enabled": false,
+  "new_research_optimizer_updates": 0,
+  "new_simulator_steps": 0,
+  "new_teacher_calls": 0,
+  "actual_controller_mechanics_tested": true,
+  "scientific_quality_established": false,
+  "novelty_established": false,
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "threads": 1
+  },
+  "limitation": "Synthetic first-order autograd, optimizer and original eager-PyTorch deployment export checks only; no learning-quality result or ONNX/native/UAV validation.",
+  "research_launch_authorized": false,
+  "final_phase_launched": false,
+  "word_thesis_changed": false
+}

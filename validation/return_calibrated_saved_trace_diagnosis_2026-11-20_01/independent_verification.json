@@ -1,0 +1,133 @@
+{
+  "status": "DIAGNOSIS_EXPORT_HASH_ARITHMETIC_AND_WORKLOAD_CHECKS_PASSED",
+  "cross_population": {
+    "0": {
+      "saved_A_E_states_different_fraction": 0.2390625,
+      "block_max_abs_difference": {
+        "tasks": 0.0,
+        "local_work": 0.0,
+        "remote_work": 0.0,
+        "radio": 0.0,
+        "remote_summary": 0.0,
+        "uavs": 0.0003148317337036133,
+        "time": 0.0
+      },
+      "policy_changes_across_observed_A_E_states": {
+        "calibrated_retained_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "calibrated_no_retention_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "uncalibrated_retained_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "calibrated_bc_only": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "old_softplus_bc_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        }
+      }
+    },
+    "1": {
+      "saved_A_E_states_different_fraction": 0.16875,
+      "block_max_abs_difference": {
+        "tasks": 0.0,
+        "local_work": 0.0,
+        "remote_work": 0.0,
+        "radio": 0.0,
+        "remote_summary": 0.0,
+        "uavs": 0.0001621246337890625,
+        "time": 0.0
+      },
+      "policy_changes_across_observed_A_E_states": {
+        "calibrated_retained_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "calibrated_no_retention_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "uncalibrated_retained_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "calibrated_bc_only": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "old_softplus_bc_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        }
+      }
+    },
+    "2": {
+      "saved_A_E_states_different_fraction": 0.0515625,
+      "block_max_abs_difference": {
+        "tasks": 0.0,
+        "local_work": 0.0,
+        "remote_work": 0.0,
+        "radio": 0.0,
+        "remote_summary": 0.0,
+        "uavs": 3.540515899658203e-05,
+        "time": 0.0
+      },
+      "policy_changes_across_observed_A_E_states": {
+        "calibrated_retained_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "calibrated_no_retention_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "uncalibrated_retained_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "calibrated_bc_only": {
+          "placement": 0.0,
+          "movement": 0.0
+        },
+        "old_softplus_bc_ddqn": {
+          "placement": 0.0,
+          "movement": 0.0
+        }
+      }
+    }
+  },
+  "primary_evidence_files_rehashed": 612,
+  "first_update_evidence_files_rehashed": 56,
+  "input_receipts_sha256": {
+    "verification.json": "abbc35985da0760eab05bb4182aafabb277e52286694b828c74617112feb9ff4",
+    "first_update_verification.json": "4bc529022cd559cd2661dac825769334cf5c286c6e4900ae948f978d465f525f"
+  },
+  "script_sha256": "151f8bc449553d4aa912995cf9240795ad2bffdc15bb1d0bbcbc1a21f8aa810a",
+  "new_optimizer_steps": 0,
+  "new_simulator_steps": 0,
+  "new_teacher_calls": 0,
+  "new_autograd_evaluations": 0,
+  "policy_screen": false,
+  "value_screen": true,
+  "promising": false
+}

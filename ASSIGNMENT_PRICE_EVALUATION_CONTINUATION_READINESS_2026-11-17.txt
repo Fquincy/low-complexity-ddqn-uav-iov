@@ -1,0 +1,57 @@
+ADP-DDQN EVALUATION-ONLY CONTINUATION READINESS
+Date: 2026-11-17
+
+DECISION: READY FOR A SEPARATE EXPLICIT EVALUATION-ONLY CONTINUATION
+
+The 600,000 training slots, 523,275 optimizer updates, 75 final checkpoints,
+75 exported graphs and all prior evidence are retained. No retraining is needed.
+The original process stopped after 919 of 3,600 learned evaluation episodes,
+before heuristic evaluation, reporting, saved-artifact audit and independent
+archive. The continuation has NOT been launched.
+
+ROOT CAUSE
+The failure is an exact-action equivalence assertion at evaluation seed
+874000007, slot 26, branch 31 for screened_wide128 fit 1. PyTorch selected
+destination 2 and ONNX selected destination 4. The two leading PyTorch scores
+differ by 2.384185791015625e-07; ONNX reversed them with a 7.152557373046875e-07
+gap. Maximum raw-output difference is 1.6689300537109375e-06 and total Q differs
+by 1.52587890625e-05. This is a floating-point near-tie at export/runtime, not
+evidence of lost training, changed parameters or a broad policy-quality result.
+
+PROSPECTIVE RULE
+Policy-quality evaluation uses the frozen eager DDQN action, which defines the
+trained controller. The frozen exported runtime is still executed on every
+state for deployment equivalence and cost evidence. Q-value agreement retains
+the original rtol 1e-5 / atol 1e-6 check. Exact action disagreements are saved
+and make exact deployment equivalence fail; they no longer abort the remaining
+scientific evaluation. This rule is declared before continuation results.
+
+CONTINUATION SAFETY
+1. All 75 checkpoint and 75 export hashes pass.
+2. All 1,838 existing evaluation files are hashed and cannot be overwritten.
+3. Only 2,681 missing learned episodes and missing heuristic episodes are made.
+4. Existing training/evaluation artifacts are rechecked after continuation.
+5. Counters/storage reports are reconstructed from frozen checkpoints, replay
+   arrays and saved files; the unavailable training wall-time field is derived
+   from saved training/checkpoint timestamps and is not scientific evidence.
+6. The original reports, manifest, full saved-artifact audit and independent
+   D: archive follow only after all missing evaluation completes.
+7. Two tests pass: confirmation precedes preflight, and the exact failed episode
+   completes through all 40 slots while recording the expected near-tie.
+
+UNCHANGED
+Rewards, model definitions, training seeds, evaluation seeds, thresholds,
+optimizer settings, checkpoints and comparison arms are unchanged. Security is
+deferred; cloud and charging stations remain absent. The Word thesis is unchanged.
+
+NEXT DECISION
+Issue a separate explicit instruction to launch the frozen evaluation-only
+continuation. This will not retrain any controller. After completion, run the
+full saved-artifact audit and independent archive before interpreting results.
+
+EVIDENCE
+validation/assignment_price_evaluation_stop_2026-11-17_01/diagnosis.json
+validation/assignment_price_evaluation_continuation_readiness_2026-11-17_01/verification.json
+ASSIGNMENT_PRICE_EVALUATION_CONTINUATION_AMENDMENT_2026-11-17.json
+continue_assignment_price_evaluation_2026_11_17.py
+test_assignment_price_evaluation_continuation_2026_11_17.py

@@ -1,0 +1,154 @@
+{
+  "state": "cost_gate_failed",
+  "screens": {
+    "online_storage": true,
+    "complete_action_median": false,
+    "complete_action_p95": false
+  },
+  "metrics": {
+    "shared_congestion_cost": {
+      "parameters": 4052,
+      "parameter_bytes": 16208,
+      "buffer_bytes": 20,
+      "median_ms": 2.3171,
+      "p95_ms": 3.2513999999999994,
+      "calls": 640
+    },
+    "shared_no_congestion": {
+      "parameters": 4052,
+      "parameter_bytes": 16208,
+      "buffer_bytes": 20,
+      "median_ms": 0.53845,
+      "p95_ms": 0.8705050000000001,
+      "calls": 640
+    },
+    "untied_congestion_cost": {
+      "parameters": 53845,
+      "parameter_bytes": 215380,
+      "buffer_bytes": 20,
+      "median_ms": 4.38015,
+      "p95_ms": 5.9700299999999995,
+      "calls": 640
+    },
+    "shared_joint_bound": {
+      "parameters": 4052,
+      "parameter_bytes": 16208,
+      "buffer_bytes": 20,
+      "median_ms": 2.23085,
+      "p95_ms": 2.877035,
+      "calls": 640
+    },
+    "additive64_nonpositive": {
+      "parameters": 48736,
+      "parameter_bytes": 194944,
+      "buffer_bytes": 0,
+      "median_ms": 0.1093,
+      "p95_ms": 0.19132999999999997,
+      "calls": 640
+    },
+    "additive128_unbounded": {
+      "parameters": 105504,
+      "parameter_bytes": 422016,
+      "buffer_bytes": 0,
+      "median_ms": 0.1096,
+      "p95_ms": 0.18493999999999997,
+      "calls": 640
+    },
+    "emc_q_nonpositive": {
+      "parameters": 69361,
+      "parameter_bytes": 277444,
+      "buffer_bytes": 0,
+      "median_ms": 0.6272,
+      "p95_ms": 0.929275,
+      "calls": 640
+    },
+    "bdq64_uniform_adapted": {
+      "parameters": 48801,
+      "parameter_bytes": 195204,
+      "buffer_bytes": 0,
+      "median_ms": 0.17125,
+      "p95_ms": 0.28228499999999995,
+      "calls": 640
+    }
+  },
+  "hardware": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.4.6",
+    "threads": 1,
+    "interop_threads": 1,
+    "backend": "PyTorch eager CPU FP32, fixed for all arms before measurement",
+    "cuda_used": false
+  },
+  "research_training_started": false,
+  "training_slots": 0,
+  "optimizer_updates": 0,
+  "probe_slots": 320,
+  "probe_seeds_consumed": [
+    422000000,
+    422000001,
+    422000002,
+    422000003,
+    422000004,
+    422000005,
+    422000006,
+    422000007
+  ],
+  "all_development_training_and_gate_seeds_unconsumed": true,
+  "all_final_seeds_unconsumed": true,
+  "quality_evidence": false,
+  "order": [
+    [
+      "emc_q_nonpositive",
+      "shared_congestion_cost",
+      "untied_congestion_cost",
+      "bdq64_uniform_adapted",
+      "additive64_nonpositive",
+      "shared_no_congestion",
+      "shared_joint_bound",
+      "additive128_unbounded"
+    ],
+    [
+      "emc_q_nonpositive",
+      "shared_joint_bound",
+      "additive64_nonpositive",
+      "shared_no_congestion",
+      "bdq64_uniform_adapted",
+      "untied_congestion_cost",
+      "shared_congestion_cost",
+      "additive128_unbounded"
+    ],
+    [
+      "shared_joint_bound",
+      "additive64_nonpositive",
+      "shared_congestion_cost",
+      "additive128_unbounded",
+      "shared_no_congestion",
+      "untied_congestion_cost",
+      "emc_q_nonpositive",
+      "bdq64_uniform_adapted"
+    ],
+    [
+      "untied_congestion_cost",
+      "shared_no_congestion",
+      "shared_congestion_cost",
+      "bdq64_uniform_adapted",
+      "shared_joint_bound",
+      "additive64_nonpositive",
+      "emc_q_nonpositive",
+      "additive128_unbounded"
+    ],
+    [
+      "emc_q_nonpositive",
+      "shared_no_congestion",
+      "additive128_unbounded",
+      "bdq64_uniform_adapted",
+      "additive64_nonpositive",
+      "untied_congestion_cost",
+      "shared_congestion_cost",
+      "shared_joint_bound"
+    ]
+  ]
+}

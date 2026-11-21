@@ -1,0 +1,135 @@
+{
+  "kind": "ONE_DECLARED_OPTIMIZATION_ATTEMPT_NOT_RESEARCH",
+  "equivalence_passed": true,
+  "input_hashes_unchanged": true,
+  "costs": {
+    "0": {
+      "original_rq24": {
+        "median_ms": 0.0692,
+        "p95_ms": 0.076825,
+        "parameter_bytes": 68364
+      },
+      "optimized_rq24": {
+        "median_ms": 0.061,
+        "p95_ms": 0.0644,
+        "parameter_bytes": 68364
+      },
+      "screened_plain24": {
+        "median_ms": 0.0269,
+        "p95_ms": 0.029025,
+        "parameter_bytes": 67364
+      },
+      "screened_wide128": {
+        "median_ms": 0.03605,
+        "p95_ms": 0.05285,
+        "parameter_bytes": 422016
+      },
+      "unmasked_wide128": {
+        "median_ms": 0.0345,
+        "p95_ms": 0.04545,
+        "parameter_bytes": 422016
+      },
+      "unmasked_compact64": {
+        "median_ms": 0.02995,
+        "p95_ms": 0.035025,
+        "parameter_bytes": 194944
+      }
+    },
+    "1": {
+      "original_rq24": {
+        "median_ms": 0.07005,
+        "p95_ms": 0.081425,
+        "parameter_bytes": 68364
+      },
+      "optimized_rq24": {
+        "median_ms": 0.0608,
+        "p95_ms": 0.0693,
+        "parameter_bytes": 68364
+      },
+      "screened_plain24": {
+        "median_ms": 0.0266,
+        "p95_ms": 0.02765,
+        "parameter_bytes": 67364
+      },
+      "screened_wide128": {
+        "median_ms": 0.0358,
+        "p95_ms": 0.04065,
+        "parameter_bytes": 422016
+      },
+      "unmasked_wide128": {
+        "median_ms": 0.0353,
+        "p95_ms": 0.03675,
+        "parameter_bytes": 422016
+      },
+      "unmasked_compact64": {
+        "median_ms": 0.0301,
+        "p95_ms": 0.03335,
+        "parameter_bytes": 194944
+      }
+    },
+    "2": {
+      "original_rq24": {
+        "median_ms": 0.0698,
+        "p95_ms": 0.07445,
+        "parameter_bytes": 68364
+      },
+      "optimized_rq24": {
+        "median_ms": 0.0617,
+        "p95_ms": 0.0977,
+        "parameter_bytes": 68364
+      },
+      "screened_plain24": {
+        "median_ms": 0.027,
+        "p95_ms": 0.030875,
+        "parameter_bytes": 67364
+      },
+      "screened_wide128": {
+        "median_ms": 0.036,
+        "p95_ms": 0.040075,
+        "parameter_bytes": 422016
+      },
+      "unmasked_wide128": {
+        "median_ms": 0.0343,
+        "p95_ms": 0.03755,
+        "parameter_bytes": 422016
+      },
+      "unmasked_compact64": {
+        "median_ms": 0.03,
+        "p95_ms": 0.032775,
+        "parameter_bytes": 194944
+      }
+    }
+  },
+  "cost_screens": [
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    }
+  ],
+  "cost_gate_passed": false,
+  "raw_readings": 1728,
+  "model_parameter_bytes": 68364,
+  "model_buffer_bytes": 20,
+  "graph_bytes": [
+    68805,
+    68805,
+    68805
+  ],
+  "no_new_graphs": true,
+  "quality_evidence": false,
+  "research_released": false,
+  "new_training_slots": 0,
+  "new_optimizer_updates": 0,
+  "word_thesis_changed": false
+}

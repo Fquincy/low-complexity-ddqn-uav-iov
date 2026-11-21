@@ -1,0 +1,118 @@
+VALUE-BOUND DEVELOPMENT READINESS REVIEW
+Date: November 4, 2026
+Scope: Review of the reserved five-arm smoke, current runner, frozen protocol
+and development-audit path. No training or thesis edits occurred.
+
+DECISION
+The reserved smoke and saved-artifact audit passed. The five-arm development
+runner and independent auditor have now been implemented and passed synthetic
+readiness tests. This engineering gate did not launch training. A separate
+review and launch decision is still required before the 120,000-slot run.
+
+SMOKE REVIEW
+The smoke used the reserved model/task seeds, completed 400 training slots and
+365 updates, and passed the read-only artifact audit. The audit checked the
+five checkpoint/source snapshots, paired training and fresh workloads,
+bounded greedy-value signs, optimizer rows, timing records and evaluation
+state invariance. This confirms execution plumbing and the nonpositive sign
+constraint; it is not evidence of comparative learning quality.
+
+The two fresh episodes per arm showed weaker returns for the bounded arms,
+and bounded EMC-Q's fresh-terminal absolute-error p95 was 24.51, above the
+development calibration screen of 10. Because smoke outcomes are explicitly
+integration-only, these observations must not be used to change thresholds,
+seeds, rewards, optimizer settings or model selection.
+
+IMPLEMENTATION GATE COMPLETED
+
+The runner now has a development path using all three frozen task blocks and
+model seeds across all five arms. It retains only each run's final checkpoint,
+hashes all 15 before fresh evaluation, and applies the predeclared point screens
+per initialization. The primary constrained EMC-Q is compared with
+additive128_unbounded, additive64_nonpositive, emc_q_unbounded, nearest-RSU and
+UAV-selective as specified.
+
+The optimizer trace now records chosen-Q, Bellman-target and TD-residual
+distributions, pre-clip gradient norms, and clipping indicators. Per-run
+summaries include training-episode trends, fixed-probe online/target Q,
+fresh-terminal Q and calibration-error distributions, parameter/target/replay/
+optimizer storage, and action-selection latency.
+Optimizer distribution summaries are explicitly labeled as means of
+minibatch statistics; the trace preserves each update's full summary and the
+200-episode trend, rather than claiming a pooled raw-value histogram.
+
+The replacement five-arm auditor checks all 15 checkpoints, hashes and source
+snapshots, replay and optimizer records, physical accounting, paired training,
+validation and fresh workloads, bounded-value signs and distributions, raw
+timing, memory-size calculations, and recomputes the per-initialization screens.
+
+Twelve focused tests pass. They include budget and seed-block checks,
+development screen fixtures, optimizer diagnostic aggregation, auditor helper
+fixtures, and an actual CLI subprocess that confirms development mode refuses
+to start without --confirm-development-run. No development command or simulator
+training was started in this implementation gate.
+
+The first auditor tests used synthetic summary and pairing fixtures. The
+reduced end-to-end fixture described below then exercised the complete saved
+artifact audit path without using reserved research seeds.
+
+REDUCED END-TO-END FIXTURE PASSED
+The complete development orchestration and saved-artifact auditor were run on
+a temporary, marked synthetic plan using nonreserved seeds. All five arms
+completed one 40-slot episode each, for 200 training slots and 185 optimizer
+updates. The fixture passed checkpoint freezing, paired fresh evaluation,
+screen calculation and the independent audit, which checked 5 checkpoints,
+72 manifest entries, 185 optimizer rows and the saved physical records. The
+fixture's quality screen failed, as expected for one-episode synthetic data;
+this result is explicitly not research evidence and has no bearing on the
+frozen experiment's decision thresholds. Temporary fixture outputs were
+removed when the test completed.
+
+All 13 runner tests now pass, including the end-to-end orchestration/auditor
+fixture. The development engineering-readiness blocker is cleared.
+
+NEXT DECISION
+The frozen 120,000-slot experiment completed on November 4, 2026. It used the
+predeclared three task-seed blocks and model seeds, trained all 15 models for
+8,000 slots each, and completed 104,655 optimizer updates. All 15 checkpoints
+were frozen before fresh evaluation. The independent saved-artifact audit
+passed, checking 3,000 training episodes, 375 validation episodes, 720 model
+fresh episodes, 144 heuristic fresh episodes, 8 probes, 15 checkpoints,
+6,194 manifest entries and every optimizer row. The auditor added zero
+simulator steps and zero optimizer updates.
+
+The predeclared aggregate quality gate FAILED because all three primary
+initializations had to pass, but initialization 3119 failed all five policy
+comparisons. Initialization 3109 passed all policy comparisons and calibration
+but failed the median latency ratio: 0.550 ms versus additive128 at 0.1098 ms,
+ratio 5.009 against the 5.0 limit. Initialization 3121 passed every screen.
+All three passed the value sign and terminal calibration screens. The result
+is therefore mixed across model seeds and is not a consistent quality win.
+
+The conclusion remains a development engineering result, not formal
+noninferiority, statistical significance, novelty, deployment performance or
+a proven thesis contribution. No protocol settings were tuned from these
+results. Do not select only the passing initialization or silently rerun.
+The next step is to document and discuss the failed gate, then predeclare any
+new experiment before using new seeds. The Word thesis remains unchanged.
+
+This recommendation is about implementation risk, not the bounded arms'
+two-episode smoke performance. Those smoke outcomes are explicitly excluded
+from tuning or model selection. After the reduced end-to-end fixture passes,
+the existing CLI confirmation can be used for a separate launch decision.
+Do not change frozen rewards, seeds, thresholds, optimizer settings or model
+definitions based on the smoke. The Word thesis remains unchanged.
+
+EVIDENCE
+Smoke review: LOW_COMPLEXITY_VALUE_BOUND_SMOKE_REVIEW_2026-11-04.txt
+Smoke verification: validation/value_bound_smoke_2026-11-04_01/verification.json
+Saved-artifact audit: validation/value_bound_smoke_2026-11-04_01/saved_artifact_audit.json
+Frozen protocol: LOW_COMPLEXITY_VALUE_BOUND_PROTOCOL_2026-11-04.json
+Runner guard: run_value_bound_tradeoff.py, settings() and run()
+Development auditor: audit_value_bound_development.py
+Development readiness tests: test_value_bound_tradeoff.py
+Reduced fixture: 200 training slots, 185 updates, 5 checkpoints, 72 manifest
+entries; full audit passed; synthetic-only output removed with temporary dir.
+Completed run: validation/value_bound_development_2026-11-04_01/
+Completed state: development_screen_failed; saved-artifact audit passed.
+Interpretation: mixed initialization performance; aggregate primary gate failed.

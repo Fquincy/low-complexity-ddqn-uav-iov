@@ -1,0 +1,24 @@
+{
+  "files": {
+    "CHECKPOINT_FREEZE.json": "1b9f830d3f3184d7996e751fe3410e71989ca3db112d6dec174f9a9d665f517d",
+    "compact_both.pt": "4e508512d5b15e0fc894bec36d649688df8e6995c172241773f4fd7d6271e1d9",
+    "no_price_both.pt": "c976e2dea2010bd3fd72d3a8128484b5f8fbbbfd84dcd5a81b823fe65896760f",
+    "plain_both.pt": "12e66cf88619694aeee4ed8ac105897c74ecd62f5ca02cb1974cc89fdadb570f",
+    "predictions.json": "8abf9ede8f4e524a3d5e26d52c8483f8f25c78bbc923b4a08e6f78de42c30e75",
+    "price_anchor_only.pt": "0f56542f499d97d2ffc025ae9ece502df3ce433358d80a927e62d847f720439e",
+    "price_both.pt": "359dc5752af56b7515f7ca76e3e9736ce75a47aba29deb722751465a43da6993",
+    "price_horizon_only.pt": "9e1178e938863a2b4db251d75081f2aac28f93386becdb431eeb492b06f0f1da",
+    "synthetic_transitions.npz": "30537d2234fb8f1420ed3256d42a9293a7ed0d6262a2d2525a2bc025b26bafe6",
+    "training_trace.json": "8b37a742b31730a14fa3b509ba6342507e1640b0d37ad2694eddbc302c1e758a",
+    "verification.json": "96bc06e22a9054811136281e555b94515796411009437b021787d3369f24f18f",
+    "source_snapshot/controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "source_snapshot/run_controller_redesign_engineering.py": "b04e0793dc8d126ab8775f51673e7dccf7ce4f711c96e16cb1a59f72987c6021",
+    "source_snapshot/run_terminal_anchor_engineering.py": "bc19f88c663914d19bdbadd06f718fe4973003204a417e328746d863f0be5559",
+    "source_snapshot/run_v3_research_gate_v2.py": "ac234b99641c672900a181bbecc6f0f696f314278d665ffec2c6058bb5126909",
+    "source_snapshot/run_value_bound_tradeoff.py": "afe2b9c94265c5f2e7a5fa9fdcf9c0aa0759623548323a92ce711827933ef4c4",
+    "source_snapshot/TERMINAL_ANCHOR_ENGINEERING_PROTOCOL_2026-11-06.json": "543a5a25f15c26c85892e959a7760bac5b844697190755d392c3d53e80c2e503",
+    "source_snapshot/terminal_anchor_prototype.py": "1713a39f9c5890395ac22517c432a5845105e88f89b3b18ea6849a2bd2873f90",
+    "source_snapshot/test_terminal_anchor_engineering.py": "f24d89969a6b096685206b0b08edca9fe9520f1b09181fda996f02a797439cdd",
+    "source_snapshot/Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a"
+  }
+}

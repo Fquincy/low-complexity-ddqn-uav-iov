@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "source_episode_files_checked": 1440,
+  "checkpoint_hashes_checked": 15,
+  "evaluation_traces": 720,
+  "task_records_across_policies": 864000,
+  "paired_task_comparisons": 576000,
+  "paired_deadline_contrasts_reproduced": true,
+  "original_value_summaries_reconciled": true,
+  "local_impossible_action_count": 0,
+  "local_deadline_misses": 0,
+  "own_trajectory_telescoping_identity_verified": true,
+  "new_training_slots": 0,
+  "new_evaluation_slots": 0,
+  "new_optimizer_updates": 0,
+  "retiming": false,
+  "word_thesis_changed": false
+}

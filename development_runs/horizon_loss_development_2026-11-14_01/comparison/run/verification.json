@@ -1,0 +1,363 @@
+{
+  "kind": "RESEARCH_DEVELOPMENT",
+  "checkpoints": 70,
+  "training_slots": 560000,
+  "optimizer_updates": 488390,
+  "target_copies": 2380,
+  "evaluation_slots": 140160,
+  "raw_timing_rows": 44800,
+  "quality_evidence": true,
+  "research_launched": true,
+  "counts": {
+    "screened_plain24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_wide128/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_plain24_anchored/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_bdq64/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_plain24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_wide128/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_price24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_price24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_price24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_price24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_compact64_anchored/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24_anchored/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_no_price24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_no_price24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_compact64/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_compact64/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_price24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_compact64/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_price24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_wide128/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_compact64/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_no_price24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_wide128/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_plain24_anchored/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_bdq64/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_compact64_anchored/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_no_price24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_compact64/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_no_price24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_wide128/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_no_price24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_price24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24_anchored/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_price24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_no_price24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_wide128/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24_anchored/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_price24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_wide128/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_plain24_anchored/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_price24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_compact64_anchored/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_wide128/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_no_price24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_price24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_price24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_bdq64/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_no_price24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_wide128/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_plain24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_plain24_anchored/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_bdq64/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_compact64_anchored/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_price24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_plain24/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_plain24/fit_04/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24_anchored/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_bdq64/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_plain24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_price24/fit_00/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "normalized_screened_plain24_anchored/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "unmasked_wide128/fit_03/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24_anchored/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_no_price24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_compact64_anchored/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_plain24/fit_02/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    },
+    "screened_price24/fit_01/final.pt": {
+      "slots": 8000,
+      "updates": 6977,
+      "copies": 34
+    }
+  }
+}

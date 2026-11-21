@@ -1,0 +1,111 @@
+VALUE-GRADIENT ISOLATION: NINE-CONTROLLER COMPARISON FREEZE REVIEW
+20 November 2026
+
+RESULT
+The full prospective comparison protocol and plan are frozen and independently
+reviewed. Research remains disabled. No model,simulation,optimizer,teacher
+call or reduced workflow fixture ran in this gate. The study is not ready
+for launch until its new runner/auditor and complete isolated fixture pass.
+
+Protocol: VALUE_GRADIENT_ISOLATION_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 2a3a4cd58f3f04eabf1d54958e058af7294fbb73a2f41000c3242999bcc4f683
+Plan: VALUE_GRADIENT_ISOLATION_COMPARISON_PLAN_2026-11-20.txt
+Freeze script: freeze_value_gradient_isolation_comparison_2026_11_20.py
+Independent verifier: verify_value_gradient_isolation_protocol_freeze_2026_11_20.py
+
+Freeze evidence:
+validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/
+Independent review:
+validation/value_gradient_isolation_comparison_freeze_review_2026-11-20_01/verification.json
+42bound definitions and44freeze-manifest entries were rehashed,including
+the exact source snapshots. The preceding18-test/17-artifact mechanics gate
+was reverified without rerunning its synthetic optimizer steps.
+
+FROZEN COMPARISON
+P is the SOLE primary: calibrated+retention DDQN with V-to-feature TD gradient
+isolation. R is the adapted1/sqrt(2)shared-TD-gradient control. A is the
+unchanged previous calibrated+retention controller/isolation ablation.
+B/C/D remove retention,calibration,or both. E is calibrated imitation only;
+F is the old softplus BC+DDQN baseline; G is ordinary no-demo small DDQN.
+The observed-load/radio teacher is a shared reference evaluated once.
+All nine retain identical small deployment storage and original inference.
+R scales TD feature gradients only; its imitation and readout gradients
+remain ordinary. No new deployment allocation repair is introduced.
+
+All physical/reward/BC/calibration/optimizer definitions and the seven
+legacy control definitions match their inherited versions. Role labels
+explicitly identify A as an ablation rather than another primary.
+No historical failed screen was changed or relabeled successful.
+
+DECISION RULES
+For EACH fit,P must have nonnegative return AND deadline differences against
+E,F,A,R. EACH contrast's equal-fit means must be strictly positive in BOTH
+outcomes. Scientific comparisons have no tolerance or policy-loss allowance.
+Value screen: P own-policy NRMSE AND absolute Q-G bias strictly below D in
+each fit. Promising requires both screens,finite complete data,all fits and
+the full artifact audit. Relative values are not proof of calibration.
+Retain every arm/fit and all contrasts; no best-fit/arm promotion or retry.
+
+FIXED BUDGETS
+Development:1,200demo +48,000student online +17,920evaluation =67,120slots.
+4,800BC +44,928TD =49,728optimizer steps;22,464retention batches within TD;
+15ridge solves;27final training checkpoints plus27deployment-only exports;
+24initial and216scheduled target copies. Timing:10,752calls+2,688warmups.
+
+The future reduced fixture exercises ALL9arms,teacher and2fits. It retains
+the10demo-episode8/2calibration split,uses1online/evaluation episode,2BC
+steps,batch4,warmup8,replay416,target interval8,and reduced timing. Budget:
+2,200slots;32BC+512TDsteps;256retention batches;10ridge solves;18final
+checkpoints+18deployment files;76timed calls+19warmups. It is engineering
+evidence only. It has NOT run in this gate.
+
+SEED AND OUTPUT SEPARATION
+The three978...development initializations/task blocks are copied exactly
+from their design reservation; new988...fixture streams are disjoint.
+56other root-JSON/runtime-plan documents were checked with no collisions,
+including internal development/fixture overlaps. The design document is
+one legitimate same-study reservation alias. The post-freeze review also
+recognizes the new protocol itself as an exact alias,not a second use.
+Coverage is root JSON plus validation/development_runs */run/runtime_plan.json,
+not an exhaustive scan of historical text/logs. Refresh before launch.
+Reserved final sets remain untouched. Planned research and D: archive
+directories were confirmed absent; the freeze did not create them.
+
+MECHANISM AND AUDIT REQUIREMENTS
+The runner must bind value_gradient_isolation.ddqn_retention_step and its
+explicit Critic.td_prediction path. Forward equivalence does not prove that
+the intended backward rule executed. Every update must record its expected
+rule tag. Source-bound checks and the independent auditor must reject an
+ordinary inherited training step substituted for P/R.
+
+The full auditor must independently reconstruct P/R/A's first saved update
+for all3fits(9contexts),using E's identical handoff and saved sampled data.
+Reference derivatives must not call the production custom affine backward.
+Check V-path removal,TD-only rescaling,ordinary readout/retention derivatives,
+targets,losses,norms and clipping. Record actual audit gradient computation
+separately; perform no optimizer update. This is not full historical gradient,
+weight or optimizer replay. The reduced fixture requires6such contexts.
+
+All27final training AND27deployment hashes freeze before any development
+evaluation. Deployment-only weights reload into the original inherited
+critic class,with exact action/Q parity at matching single/batch boundaries.
+Keep synthetic parity inputs separate from quality data and G demonstrations.
+Audit exact inventory,source snapshots,data permissions,samplers,calibration,
+final policies,all comparisons,task/reward decomposition,timing and archives.
+
+NEXT BOUNDED ENGINEERING GATE
+Implement a NEW paired runner and independent results auditor against this
+frozen protocol. Test the full training/export/global-freeze/evaluation/
+analysis/timing/audit workflow on the declared2,200-slot isolated fixture,
+including positive and rejection cases for the new mechanism bindings.
+Research CLI must require explicit confirmation AND stay disabled pending
+a separate readiness and explicit launch decision. Final mode stays disabled.
+Do not start the67,120-slot research study in that implementation gate.
+
+This narrow study cannot establish compression versus equal-size controls,
+novelty or the complete thesis contribution. Larger64/128DDQN,adapted BDQ,
+specified full DQfD,broader heuristics and untouched final validation remain
+separate required work. The previous mixed result remains failed policy/
+passed relative value,promising=false. Contribution one stays efficient
+DDQN offloading; security/trust is deferred and cloud/charging are excluded.
+The Word thesis remains unchanged.

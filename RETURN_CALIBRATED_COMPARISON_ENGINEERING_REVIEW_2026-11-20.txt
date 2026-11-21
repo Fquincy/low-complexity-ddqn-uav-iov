@@ -1,0 +1,140 @@
+RETURN-CALIBRATED HANDOFF: PAIRED RUNNER AND AUDITOR ENGINEERING REVIEW
+20 November 2026
+
+DECISION
+The paired runner and independent saved-artifact auditor are implemented.
+The final reduced workflow completed and its full audit passed. All12final
+integration/corruption/CLI tests passed. Proceed to a separate launch-readiness
+review;DO NOT launch research or consume final evaluation reservations here.
+This is engineering evidence,not validation of controller quality or novelty.
+
+FROZEN BINDING
+Protocol: RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256:1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1
+No frozen design constants,models,seeds,thresholds,rewards or optimizers were
+changed. Historical failed research evidence and the Word thesis are unchanged.
+New files:
+  run_return_calibrated_comparison.py
+  audit_return_calibrated_comparison.py
+  test_return_calibrated_comparison.py
+  verify_return_calibrated_comparison_engineering_2026_11_20.py
+
+FINAL EVIDENCE
+validation/return_calibrated_comparison_fixture_2026-11-20_02/
+  run/ (immutable arrays,records,sources,draws,checkpoints,analysis,timing)
+  saved_artifact_audit.json,completion.json
+  tests.json,test_log.txt
+  deployment_storage_measurement.json
+  engineering_source_snapshot/,engineering_verification.json
+  engineering_manifest.json
+Its separate stdout/stderr logs are beside the fixture directory.
+The final fixture's stderr log is empty. Engineering receipt binds exact
+tested sources,environment and all saved evidence. Its manifest excludes
+itself,as specified by the receipt builder.
+
+ORCHESTRATION COVERED
+Same run()/audit() path for fixture and development modes,with an explicit
+fixed fixture budget override. Full ten demo episodes/fit preserve the exact
+eight-episode fitting/two-episode withheld-return split. Two paired model
+initializations and all seven learned arms,plus teacher reference,are included.
+The fixture reduces BC to2updates and online/evaluation to1episode per arm.
+Batch4,warmup8,target interval8,replay416 permit target copies and demo replay
+eviction during the40online slots. Fixture labels explicitly say NOT_RESEARCH.
+Its separate982...blocks do not use reserved968...development/final blocks.
+
+Per fixture:1880simulated engineering slots,24BCupdates,384TDupdates,
+128retention batches,6ridge solves,14final checkpoints and60timed calls.
+Only A/C receive auxiliary retention batches;E has no online/TD/replay,
+and plain G has no demo training/probe inputs. Independent BC and A/B/E
+handoff hashes/alphas agree. Final hashes freeze before any evaluation.
+No intermediate or best checkpoint is selected;all endpoints retained.
+
+The first integration fixture is preserved under
+validation/return_calibrated_comparison_fixture_2026-11-20_01/.
+It passed its full audit and9initial workflow tests. The final version adds
+explicit first-update decomposition,equal-fit and value contrasts,per-round
+timing summaries,and3additional integration tests. Both fixtures together
+used3760engineering slots,48BCupdates,768TDupdates,256retention batches and
+12ridge solves. They are not research evidence and cannot tune the protocol.
+The earlier separate mechanics gate's synthetic tensor steps are recorded
+in its own review and are not part of these integration counts.
+
+WHAT THE AUDITOR INDEPENDENTLY CHECKS
+Exact artifact inventory and hashes,source/protocol/runtime-plan bindings,
+declared environment,fixture/development budgets and seeds,job order,
+demonstration/global checkpoint freeze events and final-only checkpoint set.
+Episode shapes/types/timeline,legal actions,reward components,task/unfinished
+accounting,exogenous workload pairing,and within-episode return-to-go.
+Calibration split,alpha,all-five ranges,gap bound,action preservation,
+independent augmented least-squares value solution,rank/conditioning/scales,
+FP32 coefficients,residual distributions and the descriptive withheld-fit
+warning. A/B/E calibration reports/hashes and independent endpoints agree.
+BC/replay/action/retention RNG draws and final states,replay eviction/content,
+data-access restrictions,Adam step counts and scheduled target-copy metadata.
+Recorded Bellman/Huber/joint-loss/terminal-bypass arithmetic,gradient norm
+partition/clip arithmetic,and first-update gap decomposition.
+Reproduces final learner action/Q and fixed probes from saved observations,
+recomputes per-fit absolute and paired outcomes,equal-fit means,all declared
+value comparisons,factorial interactions,and both scientific screens.
+Reconstructs timing-state selection,order,call inventory,learner and reference
+actions;reports raw-sample median/p95 including per-round summaries.
+Recomputes844teacher-reference decisions on saved states per fixture;those
+are audit inferences,not new teacher demonstration/evaluation episodes.
+
+LIMITS OF AUDIT INDEPENDENCE
+No historical BC/TD gradient or full parameter trajectory is replayed.
+The retained independent BC-only endpoint supplies unchanged calibrated
+features and branch rows. The auditor approximately inverts alpha to check
+BC/scale probes and uses original V-row coefficients to reconstruct their
+value outputs. FP32 inversion uses numerical tolerance and cannot establish
+an exact independently replayed BC-end state_dict. Logged BC-end hashes
+bind parity across arms;they do not replace independent training replay.
+Retention loss values/gradients at intermediate weights cannot be recomputed
+from final-only checkpoints. The auditor checks their finiteness,combined-loss
+arithmetic,draws/counts and norm partition;the isolated mechanics tests
+independently checked an actual combined gradient/Adam step. Distinguish these
+checks from full historical gradient replay in every later results claim.
+Teacher decisions are reproduced using the bound Python reference;historical
+compiled-runtime equivalence is not established.
+
+12 FINAL TESTS
+1. Complete all-arm orchestration,split,freeze,audit,counts and final inventory.
+2. Research CLI requires explicit confirmation AND disabled release guard;
+   final mode closed;rejection precedes output/model construction.
+3. Withheld/fitting return-split corruption rejected,even after rehashing.
+4. Retention-draw and Bellman-target corruption rejected after rehashing.
+5. Handoff parity and scientific decision corruption rejected after rehashing.
+6. Missing checkpoint freeze and undeclared files/checkpoints rejected.
+7. Plain small controller's unauthorized demo BC rejected.
+8. Runtime budget or reserved-seed substitution rejected after rehashing.
+9. Positive synthetic comparison passes,one failed fit/equal value error
+   fails relevant screen;factorial arithmetic checked separately.
+10. Independent-ridge metadata and withheld-warning corruption rejected.
+11. Gradient-partition and first-update identity corruption rejected.
+12. All-arm storage,per-round timings,equal-fit means and value outputs present.
+
+COST AND SCIENTIFIC LIMITS
+All learners retain16841parameters,67364FP32parameter bytes and20buffer bytes.
+The evidence additionally measures and round-trips weights-only state_dict
+serialization in memory,separate from target/optimizer checkpoint size.
+This is not an exported hardware deployment or measured process-memory claim.
+Per-episode teacher/evaluation time and per-fit BC/calibration/online time
+are saved. Later launch monitoring must separately time the full audit and
+archive phases;there is no full-research runtime estimate from this fixture.
+Neither fixture's small-policy scores or promising flag are used for tuning,
+model selection,novelty or a thesis-contribution claim. Retain all outcomes.
+Finite poor return fits are warnings and continue;technical failures stop.
+
+NEXT BOUNDED GATE
+Review launch readiness separately:rehash all tested source/evidence bindings,
+verify environment and interpreter,refresh seed reservations and storage,
+estimate output/runtime conservatively,confirm monitoring/phase timing and
+E:primary/D:verified-archive plan. Research runner default remains
+DEVELOPMENT_RELEASED=False,and final mode closed. A later authorized launcher
+must bind exact tested sources and leave this on-disk default disabled.
+Do not treat this implementation or a generic "Next" as launch permission.
+The frozen51280slot development comparison has NOT been launched.
+
+Contribution one stays efficient DDQN offloading. Stronger reference comparisons,
+novelty review and final evaluation remain unresolved later work. Security/trust
+is deferred;cloud/charging excluded. The Word thesis remains unchanged.

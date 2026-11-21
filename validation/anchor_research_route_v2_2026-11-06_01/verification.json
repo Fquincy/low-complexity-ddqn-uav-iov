@@ -1,0 +1,340 @@
+{
+  "state": "completed_synthetic_full_fixture_not_research",
+  "run_kind": "SYNTHETIC_NOT_RESEARCH",
+  "fixture": true,
+  "checkpoint_count": 34,
+  "counts": {
+    "compact_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "untied_congestion_cost_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "plain_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "additive64_nonpositive_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "no_price_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "shared_no_congestion_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "price_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "bdq64_uniform_adapted_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "price_anchor_only_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "plain24_nonpositive_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "price_horizon_only_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "additive128_unbounded_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "shared_congestion_cost_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "amortized_workload_price24_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "shared_joint_bound_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "amortized_no_price24_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "emc_q_nonpositive_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99601,
+      "train_seed_start": 996010000
+    },
+    "amortized_no_price24_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "no_price_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "plain_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "price_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "plain24_nonpositive_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "shared_no_congestion_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "shared_congestion_cost_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "bdq64_uniform_adapted_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "emc_q_nonpositive_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "price_anchor_only_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "amortized_workload_price24_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "shared_joint_bound_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "additive64_nonpositive_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "untied_congestion_cost_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "compact_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "price_horizon_only_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    },
+    "additive128_unbounded_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "checkpoints": 1,
+      "optimizer_rows": 73,
+      "model_seed": 99607,
+      "train_seed_start": 996070000
+    }
+  },
+  "training_slots": 2720,
+  "optimizer_updates": 2482,
+  "target_copies": 306,
+  "checkpoints_frozen_before_evaluation": true,
+  "heldout_evaluation_seeds": [
+    996090100,
+    996090101
+  ],
+  "frozen_checkpoint_inference_screens": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "1": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "frozen_checkpoint_inference_all_fit_screens_pass": true,
+  "research_training_launched": false,
+  "policy_quality_claim": false,
+  "thesis_changed": false,
+  "all_failed_fits_retained": true,
+  "empirical_protocol_screens_passed": false
+}

@@ -1,0 +1,630 @@
+{
+  "state": "compatibility_cost_passed",
+  "screens": {
+    "online_storage": true,
+    "complete_action_median": true,
+    "complete_action_p95": true
+  },
+  "metrics": {
+    "legacy": {
+      "amortized_workload_price24": {
+        "median_ms": 0.0858,
+        "p95_ms": 0.0923,
+        "calls": 640,
+        "parameter_bytes": 68264,
+        "route": "complete_ORT_policy"
+      },
+      "amortized_no_price24": {
+        "median_ms": 0.0864,
+        "p95_ms": 0.09681499999999998,
+        "calls": 640,
+        "parameter_bytes": 68264,
+        "route": "complete_ORT_policy"
+      },
+      "plain24_nonpositive": {
+        "median_ms": 0.0497,
+        "p95_ms": 0.053305,
+        "calls": 640,
+        "parameter_bytes": 67364,
+        "route": "complete_ORT_policy"
+      },
+      "shared_congestion_cost": {
+        "median_ms": 0.3962,
+        "p95_ms": 0.45735999999999993,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "route": "complete_ORT_policy"
+      },
+      "shared_no_congestion": {
+        "median_ms": 0.1028,
+        "p95_ms": 0.11802499999999998,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "route": "complete_ORT_policy"
+      },
+      "untied_congestion_cost": {
+        "median_ms": 0.601,
+        "p95_ms": 1.053565,
+        "calls": 640,
+        "parameter_bytes": 215380,
+        "route": "complete_ORT_policy"
+      },
+      "shared_joint_bound": {
+        "median_ms": 0.39515,
+        "p95_ms": 0.45994499999999994,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "route": "complete_ORT_policy"
+      },
+      "additive64_nonpositive": {
+        "median_ms": 0.04,
+        "p95_ms": 0.046505,
+        "calls": 640,
+        "parameter_bytes": 194944,
+        "route": "complete_ORT_policy"
+      },
+      "additive128_unbounded": {
+        "median_ms": 0.043,
+        "p95_ms": 0.046505,
+        "calls": 640,
+        "parameter_bytes": 422016,
+        "route": "complete_ORT_policy"
+      },
+      "emc_q_nonpositive": {
+        "median_ms": 0.1172,
+        "p95_ms": 0.126505,
+        "calls": 640,
+        "parameter_bytes": 277444,
+        "route": "complete_ORT_policy"
+      },
+      "bdq64_uniform_adapted": {
+        "median_ms": 0.0446,
+        "p95_ms": 0.052004999999999996,
+        "calls": 640,
+        "parameter_bytes": 195204,
+        "route": "complete_ORT_policy"
+      }
+    },
+    "compatibility": {
+      "amortized_workload_price24": {
+        "median_ms": 0.0349,
+        "p95_ms": 0.0385,
+        "calls": 640,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder"
+      },
+      "amortized_no_price24": {
+        "median_ms": 0.03455,
+        "p95_ms": 0.0386,
+        "calls": 640,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder"
+      },
+      "plain24_nonpositive": {
+        "median_ms": 0.0319,
+        "p95_ms": 0.0352,
+        "calls": 640,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder"
+      },
+      "shared_congestion_cost": {
+        "median_ms": 0.4007,
+        "p95_ms": 0.6753199999999999,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy"
+      },
+      "shared_no_congestion": {
+        "median_ms": 0.1036,
+        "p95_ms": 0.10991999999999998,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy"
+      },
+      "untied_congestion_cost": {
+        "median_ms": 0.6033,
+        "p95_ms": 0.9964649999999998,
+        "calls": 640,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy"
+      },
+      "shared_joint_bound": {
+        "median_ms": 0.3933,
+        "p95_ms": 0.49187499999999995,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy"
+      },
+      "additive64_nonpositive": {
+        "median_ms": 0.0387,
+        "p95_ms": 0.0424,
+        "calls": 640,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder"
+      },
+      "additive128_unbounded": {
+        "median_ms": 0.042,
+        "p95_ms": 0.047404999999999996,
+        "calls": 640,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder"
+      },
+      "emc_q_nonpositive": {
+        "median_ms": 0.0415,
+        "p95_ms": 0.0457,
+        "calls": 640,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder"
+      },
+      "bdq64_uniform_adapted": {
+        "median_ms": 0.039,
+        "p95_ms": 0.0421,
+        "calls": 640,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder"
+      }
+    }
+  },
+  "orders": [
+    [
+      [
+        "legacy",
+        "plain24_nonpositive"
+      ],
+      [
+        "compatibility",
+        "plain24_nonpositive"
+      ],
+      [
+        "compatibility",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "additive128_unbounded"
+      ],
+      [
+        "compatibility",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "shared_congestion_cost"
+      ],
+      [
+        "legacy",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "shared_no_congestion"
+      ],
+      [
+        "legacy",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "shared_no_congestion"
+      ],
+      [
+        "legacy",
+        "additive64_nonpositive"
+      ],
+      [
+        "compatibility",
+        "additive64_nonpositive"
+      ],
+      [
+        "legacy",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "compatibility",
+        "additive128_unbounded"
+      ],
+      [
+        "compatibility",
+        "shared_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "compatibility",
+        "emc_q_nonpositive"
+      ],
+      [
+        "legacy",
+        "emc_q_nonpositive"
+      ],
+      [
+        "legacy",
+        "untied_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "untied_congestion_cost"
+      ]
+    ],
+    [
+      [
+        "compatibility",
+        "additive128_unbounded"
+      ],
+      [
+        "legacy",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "legacy",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "shared_no_congestion"
+      ],
+      [
+        "legacy",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "untied_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "emc_q_nonpositive"
+      ],
+      [
+        "compatibility",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "legacy",
+        "additive128_unbounded"
+      ],
+      [
+        "legacy",
+        "shared_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "shared_congestion_cost"
+      ],
+      [
+        "legacy",
+        "plain24_nonpositive"
+      ],
+      [
+        "compatibility",
+        "additive64_nonpositive"
+      ],
+      [
+        "compatibility",
+        "untied_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "emc_q_nonpositive"
+      ],
+      [
+        "compatibility",
+        "plain24_nonpositive"
+      ],
+      [
+        "compatibility",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "additive64_nonpositive"
+      ],
+      [
+        "legacy",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "shared_joint_bound"
+      ]
+    ],
+    [
+      [
+        "compatibility",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "additive64_nonpositive"
+      ],
+      [
+        "legacy",
+        "additive128_unbounded"
+      ],
+      [
+        "legacy",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "additive64_nonpositive"
+      ],
+      [
+        "compatibility",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "legacy",
+        "emc_q_nonpositive"
+      ],
+      [
+        "compatibility",
+        "additive128_unbounded"
+      ],
+      [
+        "compatibility",
+        "plain24_nonpositive"
+      ],
+      [
+        "compatibility",
+        "shared_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "emc_q_nonpositive"
+      ],
+      [
+        "legacy",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "untied_congestion_cost"
+      ],
+      [
+        "legacy",
+        "shared_congestion_cost"
+      ],
+      [
+        "legacy",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "compatibility",
+        "shared_joint_bound"
+      ],
+      [
+        "legacy",
+        "untied_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "plain24_nonpositive"
+      ],
+      [
+        "legacy",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "amortized_workload_price24"
+      ]
+    ],
+    [
+      [
+        "compatibility",
+        "plain24_nonpositive"
+      ],
+      [
+        "legacy",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "amortized_no_price24"
+      ],
+      [
+        "compatibility",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "shared_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "untied_congestion_cost"
+      ],
+      [
+        "legacy",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "legacy",
+        "plain24_nonpositive"
+      ],
+      [
+        "compatibility",
+        "additive64_nonpositive"
+      ],
+      [
+        "compatibility",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "legacy",
+        "additive64_nonpositive"
+      ],
+      [
+        "legacy",
+        "additive128_unbounded"
+      ],
+      [
+        "compatibility",
+        "emc_q_nonpositive"
+      ],
+      [
+        "legacy",
+        "shared_congestion_cost"
+      ],
+      [
+        "legacy",
+        "emc_q_nonpositive"
+      ],
+      [
+        "legacy",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "additive128_unbounded"
+      ],
+      [
+        "legacy",
+        "amortized_no_price24"
+      ],
+      [
+        "compatibility",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "untied_congestion_cost"
+      ]
+    ],
+    [
+      [
+        "legacy",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "legacy",
+        "additive64_nonpositive"
+      ],
+      [
+        "legacy",
+        "shared_joint_bound"
+      ],
+      [
+        "legacy",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "bdq64_uniform_adapted"
+      ],
+      [
+        "compatibility",
+        "amortized_workload_price24"
+      ],
+      [
+        "legacy",
+        "amortized_workload_price24"
+      ],
+      [
+        "compatibility",
+        "additive128_unbounded"
+      ],
+      [
+        "compatibility",
+        "amortized_no_price24"
+      ],
+      [
+        "compatibility",
+        "shared_no_congestion"
+      ],
+      [
+        "compatibility",
+        "shared_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "emc_q_nonpositive"
+      ],
+      [
+        "legacy",
+        "emc_q_nonpositive"
+      ],
+      [
+        "compatibility",
+        "additive64_nonpositive"
+      ],
+      [
+        "compatibility",
+        "shared_joint_bound"
+      ],
+      [
+        "compatibility",
+        "plain24_nonpositive"
+      ],
+      [
+        "legacy",
+        "untied_congestion_cost"
+      ],
+      [
+        "legacy",
+        "additive128_unbounded"
+      ],
+      [
+        "legacy",
+        "plain24_nonpositive"
+      ],
+      [
+        "legacy",
+        "amortized_no_price24"
+      ],
+      [
+        "legacy",
+        "shared_congestion_cost"
+      ],
+      [
+        "compatibility",
+        "untied_congestion_cost"
+      ]
+    ]
+  ],
+  "timing_records": 14080,
+  "exact_equivalence_passed": true,
+  "regression_passed": true,
+  "cross_route_architecture_speedup_claim": false,
+  "policy_quality_established": false,
+  "research_training_started": false,
+  "new_simulator_steps": 0,
+  "optimizer_updates": 0,
+  "word_thesis_changed": false,
+  "all_research_and_final_seeds_unconsumed": true
+}

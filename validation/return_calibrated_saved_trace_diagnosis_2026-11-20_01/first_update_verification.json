@@ -1,0 +1,13 @@
+{
+  "status": "FIRST_SAVED_UPDATE_PATHS_REPRODUCED_WITHOUT_PARAMETER_UPDATE",
+  "artifacts_sha256": {
+    "first_update_gradient_decomposition.json": "64f52fcf367d06c2f7a8aced42715c04cfe0fbbfeb8dfaf70ee178d92beac367"
+  },
+  "script_sha256": "c89c6b60a8846975f8d87223516decc2a1a9f2f55ead391821ee895e1749a3af",
+  "main_diagnosis_script_sha256": "c5f0bfc0fd6ac22e1019368552a9e4b9c7a63ccf6f8cb16521df9c6b984874e0",
+  "consumed_files_verified_unchanged": 56,
+  "new_offline_autograd_evaluations": 15,
+  "new_optimizer_steps": 0,
+  "new_simulator_steps": 0,
+  "new_teacher_calls": 0
+}

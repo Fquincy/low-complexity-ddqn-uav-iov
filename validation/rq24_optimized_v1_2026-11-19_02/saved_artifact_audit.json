@@ -1,0 +1,28 @@
+{
+  "saved_artifact_audit_passed": true,
+  "equivalence_checks": 456,
+  "raw_readings_verified": 1728,
+  "cost_screens": [
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    }
+  ],
+  "cost_gate_passed": false,
+  "failed_precision_check_preserved": true,
+  "one_timed_attempt_verified": true,
+  "research_release": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0
+}

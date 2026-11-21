@@ -1,0 +1,72 @@
+PROSPECTIVE OBSERVED-STATE LOAD/RADIO HEURISTIC
+Date: 2026-11-15. Specification only; implementation/test gate outstanding.
+
+Purpose: a deterministic, same-observation competitor, not a claimed optimal
+scheduler. No neural model, training, private simulator task records or future
+events. Use only the 533 encoded features and frozen public Chapter3Config.
+FP64 heuristic arithmetic, conservative local mask identical to the candidate.
+No fitted coefficients. UAV motion stays (0,0): a declared restriction and
+limitation, not a matched learned trajectory policy or deadline guarantee.
+
+Decode B_i=feature[8i+5]*max_task_bits, C_i=feature[8i+6]*500e6,
+D_i=feature[8i+7]*.300, vehicle positions from features[8i:8i+2]*area.
+UAV positions from indices 526:532 reshaped (2,3), first two columns*area;
+the last column is encoded battery fraction. CPU pending seconds:
+L_local_i=expm1(feature[240+i])*.300,
+L_remote_d=expm1(feature[269+d])*.300 for d=1..4.
+Radio pending bits R_id=expm1(feature[274+8i+d-1])*max_task_bits, d=1..4.
+These are rounded observed estimates, not recovered exact private quantities.
+
+For complete assignment a, estimate current UAV rates using the same public
+LoS/path-loss/noise formula and physical constants in the frozen simulator,
+observed positions and all CURRENT assigned links to each UAV. Rate r_id(a)
+uses full 20 MHz per-link bandwidth and interference P*sum_{k!=i:a_k=d}G_kd.
+For d=3,4 use frozen RSU link rate. For a hypothetical backlog destination d
+of a vehicle not currently assigned to d, use interference from all current
+assignments at that UAV; for a current link exclude that vehicle itself.
+Clip rates below at 1 bit/s exactly as the simulator. Empty observed UAV
+battery makes a NEW current assignment to that UAV infeasible; this is an
+additional heuristic-only restriction. Its pending backlog rate is still
+estimated by the same radio expression. Local always has no upload delay.
+
+Approximate existing vehicle radio waiting time as
+  T_old_i(a)=sum_{d=1..4} R_id/r_id(a).
+This serial-backlog surrogate ignores future movement/arrivals and does not
+recover the exact upload FIFO order; all encoded destination backlogs enter.
+It is conservative about serial old work but not a physical upper bound.
+For a_i=d>0, T_up_i=T_old_i+B_i/r_id(a); for local T_up_i=0.
+
+Fix order pi by descending observed C_i, ties vehicle ID. Estimate finish:
+  F_i(a)=L_local_i+C_i/f_local, if a_i=0;
+  F_i(a)=T_up_i(a)+L_remote_d+
+            sum_{k at/before i in pi:a_k=d} C_k/f_d, otherwise.
+This deliberately adds upload and CPU wait rather than claiming an exact
+event-engine prediction. It uses current-assignment interference and CPU load.
+
+Surrogate objective to MINIMIZE:
+  J(a)=delay_weight*mean(F_i(a)/.300)
+       +deadline_penalty*mean(1[F_i(a)>D_i+TIME_EPS])
+       +uav_energy_weight*sum_{i:a_i in {1,2}} kappa*C_i*f_{a_i}^2/E_norm.
+Weights, kappa, f and E_norm are frozen public config values. Stationary
+propulsion is assignment-independent and omitted; battery depletion, unfinished
+task accrual and future service are not predicted. This is not the simulator's
+exact return or a full energy/deadline feasibility oracle. Report this gap.
+
+Initialize in pi order, keeping previous assignments and provisionally setting
+unprocessed tasks local even if the local screen will later exclude them.
+For each task, try every permitted destination, recompute complete J, choose
+smallest J; exact ties lowest destination. An empty-battery UAV is excluded.
+Then exactly one pi-ordered coordinate sweep: try all permitted destinations,
+recompute complete J; retain old destination on exact tie else lowest index.
+Initialization finishes before policy execution, so every returned choice
+obeys the local screen. Always allow both RSUs. Return assignment and motion0.
+No iterative convergence, tuning, epsilon or random order. Full objective
+recomputation is intentional: O(N^2 D) work and O(ND+N) workspace when aggregate
+channel interference/backlogs and prefix CPU work are computed in O(ND) per
+trial. Measure complete latency; do not label this heuristic lightweight.
+
+Required pre-release tests: observation indices and dimensions; no env object
+or exact task access; radio interference changes with assignment; backlog and
+CPU monotonic cases; exhaustive small assignment cost checks; deterministic
+ties; masks/battery/remote choices; fixed one-pass bounds; trace/auditor support.
+No policy evaluation or full research launch until implementation is reviewed.

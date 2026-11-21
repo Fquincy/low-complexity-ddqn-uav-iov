@@ -1,0 +1,2294 @@
+{
+  "protocol": {
+    "reexport_every_final_checkpoint_before_heldout_evaluation": true,
+    "retest_complete_action_equivalence": true,
+    "equivalence_inputs": "existing 128 saved engineering common observations, never used for policy-quality or checkpoint selection",
+    "equivalence_observations_path": "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+    "equivalence_observations_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+    "backend": "ORT CPU FP32 1thread plus native Numba FP32 decoder where predeclared",
+    "timing_rounds": 5,
+    "warmups": 32,
+    "calls_per_round": 128,
+    "order_seed": 623600003,
+    "require_exact_actions_and_Q_atol1e-6_rtol1e-5": true,
+    "report_median_p95_per_fit_no_weight_selection": true,
+    "run_before_any_heldout_evaluation": true,
+    "no_model_changes_after_checkpoint_freeze": true,
+    "routes": "original eleven retain fixed routes; six corrected use underlying native route plus complete validated horizon wrapper"
+  },
+  "observation_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+  "exports": {
+    "fit_00": {
+      "price_both": {
+        "graph_sha256": "feb8911f12d2c1320221c7e6efa89dead445de8acb448938c51d774d949eb3a8",
+        "graph_bytes": 68847,
+        "parameter_sha256": "0327a738120d91afc6de2d2c4b315980676b7907c7ca27ec186d48591c6187b2",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_both_fit_00.onnx",
+        "export_seconds": 0.11560620018281043,
+        "session_startup_seconds": 0.05416029994376004
+      },
+      "no_price_both": {
+        "graph_sha256": "71ff06826039df6251a18b156cf7982578b379a043aa4cf3c0c462c15ecd6af5",
+        "graph_bytes": 68847,
+        "parameter_sha256": "29d99a366239264e0f015815eeae8f3a1d929e8f32c9df8b0c4143d573ffd0c5",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "no_price_both_fit_00.onnx",
+        "export_seconds": 0.005999499931931496,
+        "session_startup_seconds": 0.0010987999849021435
+      },
+      "price_horizon_only": {
+        "graph_sha256": "bf9527f671e10d0725830b5a27b7a8beedc09c8cb146609655cb8c37d44130b8",
+        "graph_bytes": 68847,
+        "parameter_sha256": "65a980f0dee2d3c49e845fdf6cdcbd2d2c3d288980097a062b388ce03cccec30",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_horizon_only_fit_00.onnx",
+        "export_seconds": 0.005359699949622154,
+        "session_startup_seconds": 0.001394200138747692
+      },
+      "price_anchor_only": {
+        "graph_sha256": "cb56efe6fe0325f4f21df05ec0c58ca849b87688d0163924a9afbd0413c09827",
+        "graph_bytes": 68847,
+        "parameter_sha256": "b0443d32c0c81e2ed4d6259d1ef562ab8c643652aaff83675747a2cbc7e279bc",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_anchor_only_fit_00.onnx",
+        "export_seconds": 0.0061651000287383795,
+        "session_startup_seconds": 0.0010488000698387623
+      },
+      "plain_both": {
+        "graph_sha256": "73a15b87267c3bb9e6b51c7539c52f48d829c46ad83c83b0a39cd8a0d08ab6c2",
+        "graph_bytes": 67947,
+        "parameter_sha256": "a73fa67b2107919c11ef5fc7043378b23c3430eedacea73827a542c17bd43998",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain_both_fit_00.onnx",
+        "export_seconds": 0.005487499991431832,
+        "session_startup_seconds": 0.0010915999300777912
+      },
+      "compact_both": {
+        "graph_sha256": "845beff9e294356fb2cfd45193d71cd9a137a5feb9b8c3345c0bd70522dd238d",
+        "graph_bytes": 196275,
+        "parameter_sha256": "4a5d9e50b5351225e9f0c8c2ae491dfd43c6ce32987b6c49dcff0bc73b50e60a",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "compact_both_fit_00.onnx",
+        "export_seconds": 0.010625199880450964,
+        "session_startup_seconds": 0.0021100000012665987
+      },
+      "amortized_workload_price24": {
+        "graph_sha256": "b24cedab5da368229239c84f91435a88dd08fe34680a02a74977d064e31fbff1",
+        "graph_bytes": 68847,
+        "parameter_sha256": "1f9564796988b54c70cd09d767efb490554e6836abd601265adb685a360a6d6f",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_workload_price24_fit_00.onnx",
+        "export_seconds": 0.005780300125479698,
+        "session_startup_seconds": 0.001408000010997057
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "da75cffe0cca59715ff0ffaa668b2d111fd885025f2f30673f42fc276f524a0c",
+        "graph_bytes": 68847,
+        "parameter_sha256": "c1b51fce0414602d7b0bc864b3ec5db82a922a831f82c14337b2dddeddc0c88a",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_no_price24_fit_00.onnx",
+        "export_seconds": 0.006452800007537007,
+        "session_startup_seconds": 0.0010806999634951353
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "62c47326efc6f11d1b3b21b5b1cd2be6e0c4675ce58ce7815e8750172060e7cb",
+        "graph_bytes": 67947,
+        "parameter_sha256": "81659128001bdf2b3c19501c67f36c291451c993d1bb724feb3390c3a359c59d",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain24_nonpositive_fit_00.onnx",
+        "export_seconds": 0.005420000059530139,
+        "session_startup_seconds": 0.001334599917754531
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "202c92acf8115228e1a6c48f84d56d174cdee646d28cf077d26d558b0b9f6831",
+        "graph_bytes": 93669,
+        "parameter_sha256": "124d6ce6bb889bfc3aef77450f93d6608e4962eb07681d7cd0f77c6bd6924fad",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_00.onnx",
+        "export_seconds": 0.5725332000292838,
+        "session_startup_seconds": 0.0921191000379622
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "88b7ab2767375533d157ca2b782edf6d01bf51f645a105f0b268514813c50e0a",
+        "graph_bytes": 32325,
+        "parameter_sha256": "eee3fca92ea6a55a9f2d5b270b89c7d092dd60e023600aa3c4108b8e73caea07",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_00.onnx",
+        "export_seconds": 0.12235000007785857,
+        "session_startup_seconds": 0.014454300049692392
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "36214f393495f28ce70b245191525f8a48ad045a33bbaabd09a2b0933414d87d",
+        "graph_bytes": 351792,
+        "parameter_sha256": "96d95d606bad9ad3b5c7942f61c9f1b7b53934ba1669b6bfc394a6ef0dfcfbcd",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_00.onnx",
+        "export_seconds": 0.8308933000080287,
+        "session_startup_seconds": 0.158542700111866
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "fb7536e25924c632d235b0525c61747785702e96f4bde414b1f3442b72d727c2",
+        "graph_bytes": 93529,
+        "parameter_sha256": "af951879a1972eb048e09401c336fbd437aac8c724c2b4b7fe5c2d28c38df3cc",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_00.onnx",
+        "export_seconds": 0.506111599970609,
+        "session_startup_seconds": 0.08049389999359846
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "08dc88dead84f6605983d08bee48241a14ef5d1dc3ade1e4d4f24f23a77d1ff9",
+        "graph_bytes": 196275,
+        "parameter_sha256": "0304646178c1257169dcc274e7e02b30a8cdf4e209e54b0d24b743c30a799090",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive64_nonpositive_fit_00.onnx",
+        "export_seconds": 0.01980459992773831,
+        "session_startup_seconds": 0.0013435001019388437
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "58679dc8bfb147f43a5474f6bc5021b12dfe2be51ca3f6872fae19378f7fa5e5",
+        "graph_bytes": 423353,
+        "parameter_sha256": "df4582e5a1909232b0f26a4e30c53ee29876bf2f16768c2cc640d98ca4998387",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive128_unbounded_fit_00.onnx",
+        "export_seconds": 0.009373300010338426,
+        "session_startup_seconds": 0.0015142997726798058
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "3bcffb618330b557f1b597ddee1cef6b9ba62e816c02df905944abe55586a4c0",
+        "graph_bytes": 278373,
+        "parameter_sha256": "99b5b85639de6ae3132cbce112db408210f6469b349e398c8451bee4311638ef",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "original_torch_core_native_decoder",
+        "graph": "emc_q_nonpositive_fit_00.onnx",
+        "export_seconds": 0.00827630003914237,
+        "session_startup_seconds": 0.001321899937465787
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "b8a59b9627bce138a08518dfacc2117437fe2f380dadccd28f1abb37b275a162",
+        "graph_bytes": 196402,
+        "parameter_sha256": "3c5bc51fd50d931a3586789465f3b6de07e126fb1fc4bea3f5382ec8779f451f",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "original_torch_core_native_decoder",
+        "graph": "bdq64_uniform_adapted_fit_00.onnx",
+        "export_seconds": 0.008677500067278743,
+        "session_startup_seconds": 0.0016652001067996025
+      }
+    },
+    "fit_01": {
+      "price_both": {
+        "graph_sha256": "9ea06d3495485ad69e1db61e1ca08d61da7d784d3c3e12aa6fd1b4b42c7df7d7",
+        "graph_bytes": 68847,
+        "parameter_sha256": "a9a18bf7a6569eba12b559325250c846992f10adfd51618626775d91cdc3893c",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_both_fit_01.onnx",
+        "export_seconds": 0.005757599836215377,
+        "session_startup_seconds": 0.0018134000711143017
+      },
+      "no_price_both": {
+        "graph_sha256": "782000ba33bf7e9c4549d09f239b57316e453b725a55bbd7a44834cea1612768",
+        "graph_bytes": 68847,
+        "parameter_sha256": "ac922a2d2c28991d91a11fd9c657dca9a863e4ec8b95d4b75929c61550b62754",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "no_price_both_fit_01.onnx",
+        "export_seconds": 0.00519599998369813,
+        "session_startup_seconds": 0.0013168000150471926
+      },
+      "price_horizon_only": {
+        "graph_sha256": "f4e8c4f664d0d215444f89979e7f8361536debcbf7ac777fb609962d26dc70d8",
+        "graph_bytes": 68847,
+        "parameter_sha256": "d5b39c7966783eca8b0cbee50c2a681862b26e422448f214bb1184c47d6fd71c",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_horizon_only_fit_01.onnx",
+        "export_seconds": 0.00656449981033802,
+        "session_startup_seconds": 0.0013959999196231365
+      },
+      "price_anchor_only": {
+        "graph_sha256": "bced5f34319a4fd7ac2c45d60caf6d4017de0fa2cee41a5495d2e18f3fafa4d6",
+        "graph_bytes": 68847,
+        "parameter_sha256": "aea2b5db9bd3b217f32c14c725d57cca88609083f3616c3a6c68b1a21e753742",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_anchor_only_fit_01.onnx",
+        "export_seconds": 0.0058228999841958284,
+        "session_startup_seconds": 0.001100699882954359
+      },
+      "plain_both": {
+        "graph_sha256": "1796ed7fa5eaa3696879527de2c86a4b74cdf4210cde7e675be2127cceab2ad1",
+        "graph_bytes": 67947,
+        "parameter_sha256": "ff7fd38a09c742a01b8cc43e99290e9c3d72a73aa9f71eb796f3bc95da2bbadd",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain_both_fit_01.onnx",
+        "export_seconds": 0.006464899983257055,
+        "session_startup_seconds": 0.0010546999983489513
+      },
+      "compact_both": {
+        "graph_sha256": "03d71e828759a1c376c94fbc9c73f15009a892d723fc356f469686e610531cf1",
+        "graph_bytes": 196275,
+        "parameter_sha256": "cca5c0af4bb1653aac88055a6f857a123ae0ab3dd3288be891b667e8fd74383e",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "compact_both_fit_01.onnx",
+        "export_seconds": 0.00883589987643063,
+        "session_startup_seconds": 0.0013729000929743052
+      },
+      "amortized_workload_price24": {
+        "graph_sha256": "60b67dfe978be4e33a54ae5d95515972b74fe4e94b1baa188c9dfb1dcbe87e55",
+        "graph_bytes": 68847,
+        "parameter_sha256": "93bc07b14cf9a4020b7b272a5dda9b83f102a105a9ec33c855eeb4f04abc0f04",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_workload_price24_fit_01.onnx",
+        "export_seconds": 0.011519100051373243,
+        "session_startup_seconds": 0.001316600013524294
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "6980a5a41919ee8d85347c9ee543fc666a6f0ea592c68c82e3ad8c95872761b3",
+        "graph_bytes": 68847,
+        "parameter_sha256": "eed2168b552548a4dd4d11463c840deb950018943d2780554febc0ad4287beae",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_no_price24_fit_01.onnx",
+        "export_seconds": 0.005443899892270565,
+        "session_startup_seconds": 0.0011032000184059143
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "f3f0ccc9c60b052e6033cd0fc04680cbd34a2f42c9f0fad6edbee99013398312",
+        "graph_bytes": 67947,
+        "parameter_sha256": "e6700fc7a6c5dfeb9057e5ef04cd4ff6334a128c5f54d6e10240fd14b501e1d4",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain24_nonpositive_fit_01.onnx",
+        "export_seconds": 0.006427200045436621,
+        "session_startup_seconds": 0.0016302999574691057
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "c3cc17f983d3ca5fe4822440155531cfa535c273518e8df502bbb7bb5b70eaea",
+        "graph_bytes": 93669,
+        "parameter_sha256": "698837b21c95d1fd5f1e74da35db7d97007561eafe5049ab19cd4129b89cdb74",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_01.onnx",
+        "export_seconds": 0.5213988998439163,
+        "session_startup_seconds": 0.07987479981966317
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "20afe1fcd1b339440e477f229f69dfd9950a24570507a46141b4f218ef3bc38b",
+        "graph_bytes": 32325,
+        "parameter_sha256": "b239e852c8d558f52c3d7ed4fb90f013c9659938f26d35f6592df324934d4179",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_01.onnx",
+        "export_seconds": 0.1188608999364078,
+        "session_startup_seconds": 0.013492400059476495
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "9b9cb90709ee831b964e2da51688d345ffe5230cd25af1085ff1178e5dfdaccc",
+        "graph_bytes": 351792,
+        "parameter_sha256": "08896052534fe06ed598d6a3d63521c62c1e2fd71e3089a199f966dc9aa5fd12",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_01.onnx",
+        "export_seconds": 0.8051964999176562,
+        "session_startup_seconds": 0.14364139991812408
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "5904814d133b60e571592e57d902cfb87b215f74cb784d42d4ce46e3445d3a95",
+        "graph_bytes": 93529,
+        "parameter_sha256": "36dbfdc3700febf5d2697f5ce7a29ec3bb4d021222af9f12f17454c0e2e88c27",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_01.onnx",
+        "export_seconds": 0.503135500010103,
+        "session_startup_seconds": 0.07962530013173819
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "98390158c6fdf405f6ca15917de294fa442e090a1fc1c7622f62ddf4405b8202",
+        "graph_bytes": 196275,
+        "parameter_sha256": "e5e07d663a1cbe3e68503cf9979ffcde992f289909dc42bc2560aff9f1774480",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive64_nonpositive_fit_01.onnx",
+        "export_seconds": 0.008605299983173609,
+        "session_startup_seconds": 0.0016690001357346773
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "98a757f6e395082e6393acc8ec4741175dd10f294543393901c0f2caef32e714",
+        "graph_bytes": 423353,
+        "parameter_sha256": "410b4a19f34bfa0457a597c30bb6e0e4f02eab536218db61398e298a8f3e550f",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive128_unbounded_fit_01.onnx",
+        "export_seconds": 0.00974439992569387,
+        "session_startup_seconds": 0.0018290998414158821
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "29725ee79306ba7eb7900a940e5256a2f33c3bbc3c7d8a21f6a29b719f37c51e",
+        "graph_bytes": 278373,
+        "parameter_sha256": "d6d8c13177a9004759955db867255be98ede12d67facce9c0caee2f0ad088ccc",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "original_torch_core_native_decoder",
+        "graph": "emc_q_nonpositive_fit_01.onnx",
+        "export_seconds": 0.007891899906098843,
+        "session_startup_seconds": 0.0013501001521945
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "b8edc71a5f28f1c647aeda00c2d23b6ba7f68ef5dac0c154951eb3b7abd4d283",
+        "graph_bytes": 196402,
+        "parameter_sha256": "9567d14c1345bdb5c6700f1a638e17c75e07069fbaba5b497456135f6ccb7abb",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "original_torch_core_native_decoder",
+        "graph": "bdq64_uniform_adapted_fit_01.onnx",
+        "export_seconds": 0.008188999956473708,
+        "session_startup_seconds": 0.0019356000702828169
+      }
+    },
+    "fit_02": {
+      "price_both": {
+        "graph_sha256": "b99530ac2dbe9e1d72b2005580e8af08f868fde2ff6e849789d22a2da6e2e695",
+        "graph_bytes": 68847,
+        "parameter_sha256": "8a3944e82e1464c20aa241743b01e69ce9d2d950173369b167addc74f9644925",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_both_fit_02.onnx",
+        "export_seconds": 0.005480500170961022,
+        "session_startup_seconds": 0.0011409998405724764
+      },
+      "no_price_both": {
+        "graph_sha256": "df48e4fa70d3d9a63d3ef4d1d3e65eec148dabe90b4c4d84878251e1e141b81c",
+        "graph_bytes": 68847,
+        "parameter_sha256": "de97329116d581eba83970690c073c579a84cec41dbdeff161fb69ce60d94415",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "no_price_both_fit_02.onnx",
+        "export_seconds": 0.006084599997848272,
+        "session_startup_seconds": 0.0011208001524209976
+      },
+      "price_horizon_only": {
+        "graph_sha256": "ba8caebf16d2db025dbc81359bbe0bbe6b93b37810c9a30ce5dc17184bd302c3",
+        "graph_bytes": 68847,
+        "parameter_sha256": "ee98d73027d2e56e65aea1d954f9f487a3eafca66929da032f584673134d7075",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_horizon_only_fit_02.onnx",
+        "export_seconds": 0.005888199899345636,
+        "session_startup_seconds": 0.0012918999418616295
+      },
+      "price_anchor_only": {
+        "graph_sha256": "e0dc37a882e5d8d214535e3c837cd86ec26e55ee67710d3ddbfae567b1e1d7ca",
+        "graph_bytes": 68847,
+        "parameter_sha256": "e63b2ce5c7eeb229a996171d620a746a202c465f54b63641df2cca2ee012619c",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_anchor_only_fit_02.onnx",
+        "export_seconds": 0.006050300085917115,
+        "session_startup_seconds": 0.0016479999758303165
+      },
+      "plain_both": {
+        "graph_sha256": "2b69cbca202d27850bf144bcb57d34e62c2ac73995038f6dbda86826b42d31bb",
+        "graph_bytes": 67947,
+        "parameter_sha256": "d6c2a5f188ef9fa82793b4790d257fb885a31b83dafa9d12e30eef88612e0c21",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain_both_fit_02.onnx",
+        "export_seconds": 0.005077300127595663,
+        "session_startup_seconds": 0.0013540999498218298
+      },
+      "compact_both": {
+        "graph_sha256": "49d0eb27033824242b77e9da10a7e3d9cfde692b2511e5e749421bd4528558d5",
+        "graph_bytes": 196275,
+        "parameter_sha256": "9eeae14e225740adb0ab1bd2f9e126a706a099a59d9ba6975d32a7ebe599e185",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "compact_both_fit_02.onnx",
+        "export_seconds": 0.011046099942177534,
+        "session_startup_seconds": 0.0017211998347193003
+      },
+      "amortized_workload_price24": {
+        "graph_sha256": "77558566136490653f3cc2f9a04b4efe4fe7a4093fe78732c664ee4c01d28f99",
+        "graph_bytes": 68847,
+        "parameter_sha256": "a373cff3044e214bd85b157eac2067327adbdea7526ef57f259014d88a7574fd",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_workload_price24_fit_02.onnx",
+        "export_seconds": 0.005902000004425645,
+        "session_startup_seconds": 0.0013697000686079264
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "81f2ae5760fb4888fd9f326e703a3216127420344ecdfbac0b8ca3a1409fffcf",
+        "graph_bytes": 68847,
+        "parameter_sha256": "f26f334d138921b78a9631217b423b126353345652972bc8836cae397123e783",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_no_price24_fit_02.onnx",
+        "export_seconds": 0.007686600089073181,
+        "session_startup_seconds": 0.0014939000830054283
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "b343e34a7a78b833b9cb10abf7b6c8b80ede4fac34f144594768938a4bb96eb8",
+        "graph_bytes": 67947,
+        "parameter_sha256": "b715c9c40dea1862c8286052e6172ded30d8cfe52f88e488ab8082c97459b4fb",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain24_nonpositive_fit_02.onnx",
+        "export_seconds": 0.005294000031426549,
+        "session_startup_seconds": 0.0011394999455660582
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "fc4aab971b90e120787766c631b0434cbbb8fb3fa766452e2a5c230afd5bf912",
+        "graph_bytes": 93669,
+        "parameter_sha256": "df981022600cac3dc4e781681dd8f6d9deeb07810f3096e01a92b46f2f5b4bd1",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_02.onnx",
+        "export_seconds": 0.5594820000696927,
+        "session_startup_seconds": 0.08371950010769069
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "5ea41c04f70a4aeb4ff6987a2a521e4e866ff3a4df3749c21b23c8653d359d95",
+        "graph_bytes": 32325,
+        "parameter_sha256": "9a8f226065acefb6fa3edd220ffedf98fe5d0acacd40de82beb195873efddee1",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_02.onnx",
+        "export_seconds": 0.11778110009618104,
+        "session_startup_seconds": 0.013129099970683455
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "88b28a727e102239477223a0f1616f0c125da87de2f7a9687202e62110f743ea",
+        "graph_bytes": 351792,
+        "parameter_sha256": "7ba036b475dcf91b4f23b6bb49e53412b6a0e9ec04216f210c156f9ecb9d8696",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_02.onnx",
+        "export_seconds": 0.812188999960199,
+        "session_startup_seconds": 0.14177610003389418
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "7c7967dd68c9ce1594ae38dc93f4751cf0825e762360e36bb351f4fdf5a4a913",
+        "graph_bytes": 93529,
+        "parameter_sha256": "b9595b9829b7c95bb68b0162b54672dbcc98d3f288fee757243c9fe873a62b0a",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_02.onnx",
+        "export_seconds": 0.5083727000746876,
+        "session_startup_seconds": 0.08167660003527999
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "fbe48939959b4c575e8515cc6edee5e0aa3c39c40a90329c635f6d8123312c37",
+        "graph_bytes": 196275,
+        "parameter_sha256": "d3fb17e89e889981b99b52aeb8d72edd5ee3a7b559f3553cbdfa244875c26d15",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive64_nonpositive_fit_02.onnx",
+        "export_seconds": 0.01909019984304905,
+        "session_startup_seconds": 0.0014160999562591314
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "020c8408f79661d4c303c2db609f588b9cb6fd5aeddafdcc5288cf4078adc1a5",
+        "graph_bytes": 423353,
+        "parameter_sha256": "739775ed8495a80724509515dab1ac9b6e1e9f485f19a51f4ed9c986f912b1b9",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive128_unbounded_fit_02.onnx",
+        "export_seconds": 0.009278099983930588,
+        "session_startup_seconds": 0.0015006999019533396
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "cf2545c1e9498c369d6f06d8544c228d59a8e0f61816295967a9cf18bdda7fd3",
+        "graph_bytes": 278373,
+        "parameter_sha256": "77b926d845b0f50f3e00ed59fdd7ebfea4496d4a5b47d6df944db7194aa5ca8f",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "original_torch_core_native_decoder",
+        "graph": "emc_q_nonpositive_fit_02.onnx",
+        "export_seconds": 0.007941300049424171,
+        "session_startup_seconds": 0.0013369000516831875
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "cfcd1996b1edabb1e02105947f593d81e58c9ab9858935b655ac8c46794e74cb",
+        "graph_bytes": 196402,
+        "parameter_sha256": "8fa7585e2b279c3af796b4c207c57e24b3ce22290f3f3c6076ecdc7767e7577a",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "original_torch_core_native_decoder",
+        "graph": "bdq64_uniform_adapted_fit_02.onnx",
+        "export_seconds": 0.00803289981558919,
+        "session_startup_seconds": 0.0014845998957753181
+      }
+    },
+    "fit_03": {
+      "price_both": {
+        "graph_sha256": "53bbddd16ed2f433289c7c109d34b8aeb4988dc62ec90d9246645d31258c1862",
+        "graph_bytes": 68847,
+        "parameter_sha256": "f2da566f0349406cf6dcdbb16b53a8b77138faded38a3eec5c39e696b7ace07c",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_both_fit_03.onnx",
+        "export_seconds": 0.008370300056412816,
+        "session_startup_seconds": 0.0010373000986874104
+      },
+      "no_price_both": {
+        "graph_sha256": "8b08507b082b2d93f1850f775f903ac217a6ebe398755f503d8977f863e61b65",
+        "graph_bytes": 68847,
+        "parameter_sha256": "a31637ef1e78daeb3795ab7f4ef9590dd4e76c4ba720b1675e1e77c55ac5dfba",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "no_price_both_fit_03.onnx",
+        "export_seconds": 0.005927300080657005,
+        "session_startup_seconds": 0.0016821001190692186
+      },
+      "price_horizon_only": {
+        "graph_sha256": "3092d02124e78c2c00f2b1eeb90074a61c24874fd61e85e4d21a6075a7da0166",
+        "graph_bytes": 68847,
+        "parameter_sha256": "e5f90e7ce04e2299df34cc300efdd2e7df510f577de103a4082416b0185501ab",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_horizon_only_fit_03.onnx",
+        "export_seconds": 0.006600099848583341,
+        "session_startup_seconds": 0.0013838999439030886
+      },
+      "price_anchor_only": {
+        "graph_sha256": "ea3517926d559746ea61c4a09286aa54b3d9c7da66672f0677eecb371e124f9a",
+        "graph_bytes": 68847,
+        "parameter_sha256": "d2079ba6950f250e884c7f9eab94035fd449373fdcdf258ec5c5f34fbc109ff9",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_anchor_only_fit_03.onnx",
+        "export_seconds": 0.005587499821558595,
+        "session_startup_seconds": 0.0013776000123471022
+      },
+      "plain_both": {
+        "graph_sha256": "51bef179ad4424b8c9ac7c64c8095a1fd092e9180f8f00e87bc9c158f5500d3c",
+        "graph_bytes": 67947,
+        "parameter_sha256": "e51e1e82c337324c8d2f42f0e87a7dea51ee29cdfa9f806493531b48b66fdcaa",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain_both_fit_03.onnx",
+        "export_seconds": 0.0057496000081300735,
+        "session_startup_seconds": 0.001144499983638525
+      },
+      "compact_both": {
+        "graph_sha256": "1efd37495e5685ec4790b78e14d43a8a378c3127b34f1bfbd86c78c807b71242",
+        "graph_bytes": 196275,
+        "parameter_sha256": "d45389d32425c3095fd888aa071cc46cf3bc206e744dea1160462f1d1489ae04",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "compact_both_fit_03.onnx",
+        "export_seconds": 0.008528399979695678,
+        "session_startup_seconds": 0.0014372998848557472
+      },
+      "amortized_workload_price24": {
+        "graph_sha256": "cf2725595d66e71a3974a362efc47aa6da01ad9416fadb93f4fcde988a56604a",
+        "graph_bytes": 68847,
+        "parameter_sha256": "003b5ae282181aa2ade3fe0f9718f4cad509a344dbb454aa393aa9abaeee7a03",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_workload_price24_fit_03.onnx",
+        "export_seconds": 0.0061969999223947525,
+        "session_startup_seconds": 0.0010740000288933516
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "92565904c05b59efb25224cea77a868e6a6e2e803a3be27ca599f1ec3ede0da8",
+        "graph_bytes": 68847,
+        "parameter_sha256": "bae1d879fcf198fc3fb5cfa0f13163bac574248c896a61da9a630e9af6c9c64e",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_no_price24_fit_03.onnx",
+        "export_seconds": 0.007777099963277578,
+        "session_startup_seconds": 0.001767599955201149
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "1e5c990ab9f7d1f5f59b07ae10e6d350cd5725106c5a83e13ff2a3556b75f341",
+        "graph_bytes": 67947,
+        "parameter_sha256": "5600f416cdf80ce17093699646aedf2fd4cfbe7b0d6f04a4ffd29bde8a14a528",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain24_nonpositive_fit_03.onnx",
+        "export_seconds": 0.0094006999861449,
+        "session_startup_seconds": 0.001843299949541688
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "a8f5b316ad36973a7d285194ad3c7d8e4c69cb1b12826564eb6bdbcc2dc9f515",
+        "graph_bytes": 93669,
+        "parameter_sha256": "0904206cc7c8af7906b2aa19afe3fb95185367a51baa6999ca95e9420c4a3c4f",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_03.onnx",
+        "export_seconds": 0.519506299868226,
+        "session_startup_seconds": 0.08504269993864
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "cd86e25191c0c6a7d39d669e3390171cd6d84b97e69d323a2aefef0506e4b72e",
+        "graph_bytes": 32325,
+        "parameter_sha256": "d17d870cb1d106d476065615e25c6b34f85021bcc6fa75d061ef38aaba3ae3c7",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_03.onnx",
+        "export_seconds": 0.11500589991919696,
+        "session_startup_seconds": 0.013265999965369701
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "77a35c9f16575c46dae5731695ab8f960217d65614a263c2d6721fc20fb8dc10",
+        "graph_bytes": 351792,
+        "parameter_sha256": "a1a6f55c0c80fc6b6223dbdc5f7a629d80a074ce68190135463c1212436ae597",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_03.onnx",
+        "export_seconds": 0.8058145001996309,
+        "session_startup_seconds": 0.14153650007210672
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "0fba498b49063d495ea3c6685b5f88d6dfe5650e4188cb46ad1c50f7e7a340d7",
+        "graph_bytes": 93529,
+        "parameter_sha256": "cf4e5e41afa6017a597badda61714c9cac71ed538b6c031c9d562bd2f89969b1",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_03.onnx",
+        "export_seconds": 0.5047528001014143,
+        "session_startup_seconds": 0.08345380006358027
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "c68cd989446faaa8b20cdbb5263c347eaf0b959657c1bd8acac1f3ca5a9eda45",
+        "graph_bytes": 196275,
+        "parameter_sha256": "d50e378224951c5334f04c8339b7dba22664f0712ba2351356719fc05f9a6c58",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive64_nonpositive_fit_03.onnx",
+        "export_seconds": 0.009147200034931302,
+        "session_startup_seconds": 0.001819599885493517
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "8ffb1f775513ca3042507ec1e91ee93753ef0f8c7e463a32edb2fc73275b3682",
+        "graph_bytes": 423353,
+        "parameter_sha256": "4dea66129b9544fe67b3223f1ebcc6d5ee2321701cdf133febc024ea0572c594",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive128_unbounded_fit_03.onnx",
+        "export_seconds": 0.009719000197947025,
+        "session_startup_seconds": 0.0022336000110954046
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "eebe1c240583969ae3372b4b6fe4b676cd1460da624c6aa4c8e467b70eff3ea6",
+        "graph_bytes": 278373,
+        "parameter_sha256": "04631831a22e88cb4f58a881f43754b5cd947e0cdc4c25764ff5f3d04a60ab66",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "original_torch_core_native_decoder",
+        "graph": "emc_q_nonpositive_fit_03.onnx",
+        "export_seconds": 0.007567599881440401,
+        "session_startup_seconds": 0.00206389999948442
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "285707eec3203ace64d64fe7fab9fdd9398b101c6739905639513c389b8c1ff9",
+        "graph_bytes": 196402,
+        "parameter_sha256": "b7107d858bb2650530ef077fe014b99dd6145782cdcc2c9897e5997236e5d610",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "original_torch_core_native_decoder",
+        "graph": "bdq64_uniform_adapted_fit_03.onnx",
+        "export_seconds": 0.011604799889028072,
+        "session_startup_seconds": 0.0013956001494079828
+      }
+    },
+    "fit_04": {
+      "price_both": {
+        "graph_sha256": "290ebbefaf5e6fc0bd3f03ddc6db9d2486feb9398ffa4d38eee189189b81f57b",
+        "graph_bytes": 68847,
+        "parameter_sha256": "a267fd3201466682767b7eecaeba9e051bd0708493e9fe964bbf87dbb22d5f69",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_both_fit_04.onnx",
+        "export_seconds": 0.005719900131225586,
+        "session_startup_seconds": 0.001030100043863058
+      },
+      "no_price_both": {
+        "graph_sha256": "7438cf7584b6ca8448c06eb2e8830b6f80feab89578a870c247646250d9ee752",
+        "graph_bytes": 68847,
+        "parameter_sha256": "b6d63b5057239fcccc408270f5924be100724866148d585d34468e38eb0fcab7",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "no_price_both_fit_04.onnx",
+        "export_seconds": 0.005631399806588888,
+        "session_startup_seconds": 0.0011829000432044268
+      },
+      "price_horizon_only": {
+        "graph_sha256": "9b4b1ef544ec4f334a30f33d32501e9cbf0424fa60da59d18d0a65836088d4cd",
+        "graph_bytes": 68847,
+        "parameter_sha256": "232b04c5ff73d1a475dfe28779c6c7aa27aa8b76370807295b6a3d0524811f43",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_horizon_only_fit_04.onnx",
+        "export_seconds": 0.005755299935117364,
+        "session_startup_seconds": 0.001644300064072013
+      },
+      "price_anchor_only": {
+        "graph_sha256": "4726f2bcc313affb9033aa3610eff801c5a7a2867129ee04959217cacfffeafb",
+        "graph_bytes": 68847,
+        "parameter_sha256": "88f38fad61e1fd72a03c47ad751b4f1b0198c5411657546521b24d0db8ca07d2",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "price_anchor_only_fit_04.onnx",
+        "export_seconds": 0.005998900160193443,
+        "session_startup_seconds": 0.0011128000915050507
+      },
+      "plain_both": {
+        "graph_sha256": "9a0019f09e86449e0d5184f944eb0ccdd3ac95dda0b78869c6c4d7a70914d1ee",
+        "graph_bytes": 67947,
+        "parameter_sha256": "f5d231b140738e920144e6292e44ca0e9c5273b921dc5ba3ada9c8bb5a0db5b7",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain_both_fit_04.onnx",
+        "export_seconds": 0.0059362000320106745,
+        "session_startup_seconds": 0.0011621001176536083
+      },
+      "compact_both": {
+        "graph_sha256": "3e78b3a7bd37701026dc0b09d390a89cf9927968d5e9b0a319cd511a339d67d1",
+        "graph_bytes": 196275,
+        "parameter_sha256": "bb1b3380190c129f3e1b50aa345de612cd37eac076f4c825f2ff71075ab60add",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "compact_both_fit_04.onnx",
+        "export_seconds": 0.012253999942913651,
+        "session_startup_seconds": 0.0014818001072853804
+      },
+      "amortized_workload_price24": {
+        "graph_sha256": "2c7bf36e68a58444f1ae23390f0a66df14777688ac0cc17b10f93b8eb2120978",
+        "graph_bytes": 68847,
+        "parameter_sha256": "d9ceb46e4137d7f29f1a02dfcdfdc9cf12ff684fe2437e58272f8b5b49311ba4",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_workload_price24_fit_04.onnx",
+        "export_seconds": 0.005651999963447452,
+        "session_startup_seconds": 0.0016164998523890972
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "784985e037c8c79ce0de9784e0ac609a0d30b27e0dfb82d187f62657721688bd",
+        "graph_bytes": 68847,
+        "parameter_sha256": "e5b04fcf313c4bf49e2f4a4bb650947f9f445ee737e3487da4623a922c3fd79d",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "original_torch_core_native_decoder",
+        "graph": "amortized_no_price24_fit_04.onnx",
+        "export_seconds": 0.0057634999975562096,
+        "session_startup_seconds": 0.0016550999134778976
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "47c2353abe53c8da7d0d56120a6825f56de60619768057e0e50380091476af98",
+        "graph_bytes": 67947,
+        "parameter_sha256": "474fc1b3026207214991a1e6683c58e49d09bdbdbffe02c14acd023079fa0341",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "original_torch_core_native_decoder",
+        "graph": "plain24_nonpositive_fit_04.onnx",
+        "export_seconds": 0.005525700049474835,
+        "session_startup_seconds": 0.0013872000854462385
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "0cec0b1f821c2f55604c2af1c7c2ee4455cb57ccfb94954718636fed88b42656",
+        "graph_bytes": 93669,
+        "parameter_sha256": "91a9468b24b2d2e2d006bc14616084255bc975f7552090c97d97f6965c8c1a0a",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_04.onnx",
+        "export_seconds": 0.5157775001134723,
+        "session_startup_seconds": 0.08117030002176762
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "8cdae74f35c0e2f1ff3a70577f5b9c6519eacfa24623c7e06fe395d190e1a6c7",
+        "graph_bytes": 32325,
+        "parameter_sha256": "ba4bfbbc6010d960add3f158d243c81feb99a0abd4ae3a84edac171b047cb616",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_04.onnx",
+        "export_seconds": 0.11659620003774762,
+        "session_startup_seconds": 0.013259399915114045
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "dc754fc6b5d77f707b7f87470a5ae2edb415cd16fcae2b7a2f24733ebe1f4d54",
+        "graph_bytes": 351792,
+        "parameter_sha256": "890dad1d0bb66bafaf85c10a7c5c754ecda50fe865cbe310e3bf98549b82b988",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_04.onnx",
+        "export_seconds": 0.8125816001556814,
+        "session_startup_seconds": 0.15400029998272657
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "ef1cf36ff1eaa6f14a57c79bd632be4866d61a2f4f39cba17029ea84809455ac",
+        "graph_bytes": 93529,
+        "parameter_sha256": "903f6c7dd97526e1a4eb3764e56de6ea2c4335b812b8e8f62d0188ea267c300e",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_04.onnx",
+        "export_seconds": 0.5053246000315994,
+        "session_startup_seconds": 0.08099859999492764
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "63695eb88212adf47c852f4d123352867878a1e7d7a22d01c2aac737a63a9a88",
+        "graph_bytes": 196275,
+        "parameter_sha256": "b2a1355a4521a6237a475a105da9052cc603d837b11840fd523d036f11704f06",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive64_nonpositive_fit_04.onnx",
+        "export_seconds": 0.008514899993315339,
+        "session_startup_seconds": 0.0021007999312132597
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "e75ca3b4a3c4d734ddc3bc49e079b68093208b4d0d0e233ac44c18c2bf3ad226",
+        "graph_bytes": 423353,
+        "parameter_sha256": "f4cacea996231a1b69a02aa4b79ed3ca8e642afe9b7dbb36b88cc436e518913c",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "original_torch_core_native_decoder",
+        "graph": "additive128_unbounded_fit_04.onnx",
+        "export_seconds": 0.009728100150823593,
+        "session_startup_seconds": 0.001503300154581666
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "a4040148e61f7f540416cbf5fbb40f5a0c5475936d5d015f4e0554a66d7a27c9",
+        "graph_bytes": 278373,
+        "parameter_sha256": "3b5b98e90d72667d2583dab69a041c6d72ea996280f3e7cfd33d7e6a3d102a93",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "original_torch_core_native_decoder",
+        "graph": "emc_q_nonpositive_fit_04.onnx",
+        "export_seconds": 0.009031500201672316,
+        "session_startup_seconds": 0.0013189001474529505
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "ded95aa70c5bfee021dcd6c18e1ce20eaccd0073a5c17e96f353c93373a7ce35",
+        "graph_bytes": 196402,
+        "parameter_sha256": "ec95c5619c38196aaab0f9c717db89256ed782f1cebceb94de0e3fe3fa4fdab9",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "original_torch_core_native_decoder",
+        "graph": "bdq64_uniform_adapted_fit_04.onnx",
+        "export_seconds": 0.008086099987849593,
+        "session_startup_seconds": 0.001362999901175499
+      }
+    }
+  },
+  "metrics": {
+    "price_both": [
+      {
+        "fit": 0,
+        "median_ms": 0.0742,
+        "p95_ms": 0.0795,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0744,
+        "p95_ms": 0.079,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0743,
+        "p95_ms": 0.08361499999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0745,
+        "p95_ms": 0.08220499999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0747,
+        "p95_ms": 0.08381999999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "no_price_both": [
+      {
+        "fit": 0,
+        "median_ms": 0.0743,
+        "p95_ms": 0.08072999999999997,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.07444999999999999,
+        "p95_ms": 0.08062999999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0745,
+        "p95_ms": 0.08420499999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0742,
+        "p95_ms": 0.09701,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0744,
+        "p95_ms": 0.08030499999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "price_horizon_only": [
+      {
+        "fit": 0,
+        "median_ms": 0.0746,
+        "p95_ms": 0.08600999999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0742,
+        "p95_ms": 0.079,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0749,
+        "p95_ms": 0.0843,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0745,
+        "p95_ms": 0.084005,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0746,
+        "p95_ms": 0.081105,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "price_anchor_only": [
+      {
+        "fit": 0,
+        "median_ms": 0.0737,
+        "p95_ms": 0.07911,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0737,
+        "p95_ms": 0.07891999999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0737,
+        "p95_ms": 0.08352999999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0735,
+        "p95_ms": 0.07830499999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0736,
+        "p95_ms": 0.07981499999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "plain_both": [
+      {
+        "fit": 0,
+        "median_ms": 0.0707,
+        "p95_ms": 0.08303499999999997,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.071,
+        "p95_ms": 0.07861499999999999,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0708,
+        "p95_ms": 0.08281,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0708,
+        "p95_ms": 0.0758,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.071,
+        "p95_ms": 0.07771,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "compact_both": [
+      {
+        "fit": 0,
+        "median_ms": 0.0935,
+        "p95_ms": 0.10674499999999996,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0935,
+        "p95_ms": 0.0989,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0937,
+        "p95_ms": 0.1028,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0935,
+        "p95_ms": 0.10030499999999999,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0937,
+        "p95_ms": 0.10559499999999991,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "amortized_workload_price24": [
+      {
+        "fit": 0,
+        "median_ms": 0.0689,
+        "p95_ms": 0.07350999999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0686,
+        "p95_ms": 0.07310499999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0693,
+        "p95_ms": 0.076315,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0692,
+        "p95_ms": 0.07371,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0689,
+        "p95_ms": 0.07981499999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "amortized_no_price24": [
+      {
+        "fit": 0,
+        "median_ms": 0.0685,
+        "p95_ms": 0.07310499999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0689,
+        "p95_ms": 0.0739,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0693,
+        "p95_ms": 0.075705,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0692,
+        "p95_ms": 0.07791499999999998,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0688,
+        "p95_ms": 0.09144499999999996,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "plain24_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0666,
+        "p95_ms": 0.08491999999999998,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0665,
+        "p95_ms": 0.0711,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0667,
+        "p95_ms": 0.0719,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0666,
+        "p95_ms": 0.07071,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0666,
+        "p95_ms": 0.07150499999999999,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "shared_congestion_cost": [
+      {
+        "fit": 0,
+        "median_ms": 0.39425,
+        "p95_ms": 0.504665,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.39125,
+        "p95_ms": 0.43870499999999996,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.3908,
+        "p95_ms": 0.4432749999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.3899,
+        "p95_ms": 0.43943499999999996,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.3918,
+        "p95_ms": 0.43704999999999994,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "shared_no_congestion": [
+      {
+        "fit": 0,
+        "median_ms": 0.0985,
+        "p95_ms": 0.10540499999999998,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0982,
+        "p95_ms": 0.1022,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0988,
+        "p95_ms": 0.1058,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0981,
+        "p95_ms": 0.10460499999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0985,
+        "p95_ms": 0.10504999999999995,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "untied_congestion_cost": [
+      {
+        "fit": 0,
+        "median_ms": 0.60185,
+        "p95_ms": 0.7504049999999999,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.5916,
+        "p95_ms": 0.7359299999999998,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.6022,
+        "p95_ms": 0.81951,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.6005,
+        "p95_ms": 0.7807149999999999,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.59395,
+        "p95_ms": 0.7566199999999998,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "shared_joint_bound": [
+      {
+        "fit": 0,
+        "median_ms": 0.3894,
+        "p95_ms": 0.4730299999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.3911,
+        "p95_ms": 0.485815,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.3897,
+        "p95_ms": 0.44273499999999977,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.3871,
+        "p95_ms": 0.4816049999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.3878,
+        "p95_ms": 0.43513499999999994,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "additive64_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0896,
+        "p95_ms": 0.09834499999999996,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0894,
+        "p95_ms": 0.09770499999999999,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.08985,
+        "p95_ms": 0.10651,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0896,
+        "p95_ms": 0.09761,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0894,
+        "p95_ms": 0.09630999999999999,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "additive128_unbounded": [
+      {
+        "fit": 0,
+        "median_ms": 0.094,
+        "p95_ms": 0.1017,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0959,
+        "p95_ms": 0.10332499999999999,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0938,
+        "p95_ms": 0.10305499999999994,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.094,
+        "p95_ms": 0.10191999999999998,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0941,
+        "p95_ms": 0.10270499999999999,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "emc_q_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0926,
+        "p95_ms": 0.1012,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0943,
+        "p95_ms": 0.10402499999999998,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0927,
+        "p95_ms": 0.099,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0926,
+        "p95_ms": 0.10021499999999998,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0931,
+        "p95_ms": 0.10370499999999999,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ],
+    "bdq64_uniform_adapted": [
+      {
+        "fit": 0,
+        "median_ms": 0.1001,
+        "p95_ms": 0.11341,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.1002,
+        "p95_ms": 0.106205,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.1004,
+        "p95_ms": 0.11012499999999999,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0999,
+        "p95_ms": 0.105705,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.1008,
+        "p95_ms": 0.11137499999999993,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "original_torch_core_native_decoder"
+      }
+    ]
+  },
+  "orders": [
+    {
+      "fit": 0,
+      "round": 0,
+      "order": [
+        "plain_both",
+        "price_both",
+        "untied_congestion_cost",
+        "price_horizon_only",
+        "plain24_nonpositive",
+        "compact_both",
+        "shared_joint_bound",
+        "no_price_both",
+        "emc_q_nonpositive",
+        "shared_no_congestion",
+        "price_anchor_only",
+        "amortized_no_price24",
+        "additive128_unbounded",
+        "additive64_nonpositive",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 1,
+      "order": [
+        "plain24_nonpositive",
+        "untied_congestion_cost",
+        "price_horizon_only",
+        "no_price_both",
+        "bdq64_uniform_adapted",
+        "shared_joint_bound",
+        "shared_no_congestion",
+        "plain_both",
+        "emc_q_nonpositive",
+        "additive64_nonpositive",
+        "compact_both",
+        "amortized_no_price24",
+        "amortized_workload_price24",
+        "shared_congestion_cost",
+        "price_both",
+        "price_anchor_only",
+        "additive128_unbounded"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 2,
+      "order": [
+        "amortized_no_price24",
+        "shared_joint_bound",
+        "price_anchor_only",
+        "plain24_nonpositive",
+        "shared_no_congestion",
+        "emc_q_nonpositive",
+        "compact_both",
+        "plain_both",
+        "untied_congestion_cost",
+        "price_horizon_only",
+        "price_both",
+        "no_price_both",
+        "additive128_unbounded",
+        "additive64_nonpositive",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "amortized_workload_price24"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 3,
+      "order": [
+        "amortized_workload_price24",
+        "compact_both",
+        "shared_no_congestion",
+        "shared_congestion_cost",
+        "plain_both",
+        "additive128_unbounded",
+        "additive64_nonpositive",
+        "price_horizon_only",
+        "shared_joint_bound",
+        "price_both",
+        "emc_q_nonpositive",
+        "price_anchor_only",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "no_price_both",
+        "untied_congestion_cost",
+        "bdq64_uniform_adapted"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 4,
+      "order": [
+        "untied_congestion_cost",
+        "bdq64_uniform_adapted",
+        "plain_both",
+        "shared_joint_bound",
+        "amortized_workload_price24",
+        "price_anchor_only",
+        "plain24_nonpositive",
+        "price_horizon_only",
+        "shared_congestion_cost",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "amortized_no_price24",
+        "shared_no_congestion",
+        "additive64_nonpositive",
+        "compact_both",
+        "price_both",
+        "no_price_both"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 0,
+      "order": [
+        "plain24_nonpositive",
+        "bdq64_uniform_adapted",
+        "price_horizon_only",
+        "untied_congestion_cost",
+        "plain_both",
+        "no_price_both",
+        "amortized_workload_price24",
+        "shared_joint_bound",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "price_both",
+        "shared_no_congestion",
+        "additive64_nonpositive",
+        "price_anchor_only",
+        "shared_congestion_cost",
+        "amortized_no_price24",
+        "compact_both"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 1,
+      "order": [
+        "shared_congestion_cost",
+        "no_price_both",
+        "price_anchor_only",
+        "untied_congestion_cost",
+        "shared_joint_bound",
+        "bdq64_uniform_adapted",
+        "emc_q_nonpositive",
+        "plain_both",
+        "price_both",
+        "amortized_no_price24",
+        "additive64_nonpositive",
+        "additive128_unbounded",
+        "price_horizon_only",
+        "compact_both",
+        "plain24_nonpositive",
+        "amortized_workload_price24",
+        "shared_no_congestion"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 2,
+      "order": [
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "price_horizon_only",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_no_congestion",
+        "no_price_both",
+        "amortized_workload_price24",
+        "shared_congestion_cost",
+        "compact_both",
+        "shared_joint_bound",
+        "plain_both",
+        "price_anchor_only",
+        "additive128_unbounded",
+        "price_both",
+        "bdq64_uniform_adapted"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 3,
+      "order": [
+        "shared_congestion_cost",
+        "price_horizon_only",
+        "plain24_nonpositive",
+        "untied_congestion_cost",
+        "price_both",
+        "compact_both",
+        "price_anchor_only",
+        "no_price_both",
+        "additive64_nonpositive",
+        "plain_both",
+        "amortized_workload_price24",
+        "shared_no_congestion",
+        "emc_q_nonpositive",
+        "bdq64_uniform_adapted",
+        "additive128_unbounded",
+        "shared_joint_bound",
+        "amortized_no_price24"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 4,
+      "order": [
+        "shared_joint_bound",
+        "additive64_nonpositive",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "price_horizon_only",
+        "plain_both",
+        "shared_congestion_cost",
+        "compact_both",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "bdq64_uniform_adapted",
+        "untied_congestion_cost",
+        "additive128_unbounded",
+        "price_anchor_only",
+        "price_both",
+        "no_price_both",
+        "emc_q_nonpositive"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 0,
+      "order": [
+        "plain_both",
+        "compact_both",
+        "shared_no_congestion",
+        "additive64_nonpositive",
+        "price_horizon_only",
+        "no_price_both",
+        "amortized_workload_price24",
+        "emc_q_nonpositive",
+        "untied_congestion_cost",
+        "plain24_nonpositive",
+        "bdq64_uniform_adapted",
+        "amortized_no_price24",
+        "additive128_unbounded",
+        "shared_joint_bound",
+        "price_anchor_only",
+        "shared_congestion_cost",
+        "price_both"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 1,
+      "order": [
+        "price_anchor_only",
+        "additive128_unbounded",
+        "plain_both",
+        "no_price_both",
+        "bdq64_uniform_adapted",
+        "additive64_nonpositive",
+        "emc_q_nonpositive",
+        "price_both",
+        "untied_congestion_cost",
+        "plain24_nonpositive",
+        "price_horizon_only",
+        "amortized_no_price24",
+        "shared_joint_bound",
+        "shared_congestion_cost",
+        "compact_both",
+        "shared_no_congestion",
+        "amortized_workload_price24"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 2,
+      "order": [
+        "shared_no_congestion",
+        "no_price_both",
+        "shared_congestion_cost",
+        "amortized_no_price24",
+        "additive64_nonpositive",
+        "amortized_workload_price24",
+        "additive128_unbounded",
+        "price_horizon_only",
+        "compact_both",
+        "price_anchor_only",
+        "shared_joint_bound",
+        "plain24_nonpositive",
+        "plain_both",
+        "price_both",
+        "bdq64_uniform_adapted",
+        "untied_congestion_cost",
+        "emc_q_nonpositive"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 3,
+      "order": [
+        "shared_no_congestion",
+        "plain24_nonpositive",
+        "price_anchor_only",
+        "shared_congestion_cost",
+        "emc_q_nonpositive",
+        "amortized_workload_price24",
+        "untied_congestion_cost",
+        "no_price_both",
+        "compact_both",
+        "plain_both",
+        "price_both",
+        "bdq64_uniform_adapted",
+        "price_horizon_only",
+        "amortized_no_price24",
+        "additive128_unbounded",
+        "additive64_nonpositive",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 4,
+      "order": [
+        "compact_both",
+        "plain24_nonpositive",
+        "untied_congestion_cost",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "shared_joint_bound",
+        "price_horizon_only",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "amortized_no_price24",
+        "price_anchor_only",
+        "plain_both",
+        "additive64_nonpositive",
+        "price_both",
+        "no_price_both"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 0,
+      "order": [
+        "additive64_nonpositive",
+        "shared_no_congestion",
+        "no_price_both",
+        "untied_congestion_cost",
+        "plain_both",
+        "amortized_no_price24",
+        "amortized_workload_price24",
+        "price_anchor_only",
+        "bdq64_uniform_adapted",
+        "shared_joint_bound",
+        "plain24_nonpositive",
+        "compact_both",
+        "price_horizon_only",
+        "price_both",
+        "additive128_unbounded",
+        "shared_congestion_cost",
+        "emc_q_nonpositive"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 1,
+      "order": [
+        "shared_joint_bound",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "bdq64_uniform_adapted",
+        "price_horizon_only",
+        "price_anchor_only",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "compact_both",
+        "untied_congestion_cost",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "plain_both",
+        "no_price_both",
+        "price_both"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 2,
+      "order": [
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "shared_joint_bound",
+        "price_horizon_only",
+        "shared_congestion_cost",
+        "amortized_no_price24",
+        "plain_both",
+        "price_both",
+        "price_anchor_only",
+        "emc_q_nonpositive",
+        "compact_both",
+        "shared_no_congestion",
+        "plain24_nonpositive",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "additive128_unbounded",
+        "no_price_both"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 3,
+      "order": [
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "price_horizon_only",
+        "additive128_unbounded",
+        "untied_congestion_cost",
+        "compact_both",
+        "emc_q_nonpositive",
+        "price_both",
+        "shared_joint_bound",
+        "plain_both",
+        "additive64_nonpositive",
+        "no_price_both",
+        "shared_congestion_cost",
+        "bdq64_uniform_adapted",
+        "price_anchor_only",
+        "plain24_nonpositive",
+        "amortized_no_price24"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 4,
+      "order": [
+        "price_anchor_only",
+        "compact_both",
+        "no_price_both",
+        "untied_congestion_cost",
+        "plain_both",
+        "amortized_workload_price24",
+        "additive64_nonpositive",
+        "shared_congestion_cost",
+        "emc_q_nonpositive",
+        "amortized_no_price24",
+        "shared_joint_bound",
+        "additive128_unbounded",
+        "bdq64_uniform_adapted",
+        "plain24_nonpositive",
+        "shared_no_congestion",
+        "price_both",
+        "price_horizon_only"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 0,
+      "order": [
+        "emc_q_nonpositive",
+        "shared_joint_bound",
+        "amortized_no_price24",
+        "untied_congestion_cost",
+        "price_anchor_only",
+        "amortized_workload_price24",
+        "plain24_nonpositive",
+        "no_price_both",
+        "additive64_nonpositive",
+        "price_horizon_only",
+        "additive128_unbounded",
+        "shared_congestion_cost",
+        "bdq64_uniform_adapted",
+        "price_both",
+        "plain_both",
+        "compact_both",
+        "shared_no_congestion"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 1,
+      "order": [
+        "plain_both",
+        "no_price_both",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "untied_congestion_cost",
+        "additive128_unbounded",
+        "shared_joint_bound",
+        "price_anchor_only",
+        "amortized_no_price24",
+        "price_both",
+        "shared_congestion_cost",
+        "price_horizon_only",
+        "amortized_workload_price24",
+        "compact_both",
+        "emc_q_nonpositive",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 2,
+      "order": [
+        "plain24_nonpositive",
+        "amortized_workload_price24",
+        "shared_congestion_cost",
+        "price_anchor_only",
+        "amortized_no_price24",
+        "additive64_nonpositive",
+        "shared_joint_bound",
+        "emc_q_nonpositive",
+        "no_price_both",
+        "untied_congestion_cost",
+        "compact_both",
+        "additive128_unbounded",
+        "bdq64_uniform_adapted",
+        "price_both",
+        "price_horizon_only",
+        "plain_both",
+        "shared_no_congestion"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 3,
+      "order": [
+        "compact_both",
+        "amortized_workload_price24",
+        "shared_joint_bound",
+        "plain_both",
+        "bdq64_uniform_adapted",
+        "emc_q_nonpositive",
+        "shared_no_congestion",
+        "price_both",
+        "additive128_unbounded",
+        "untied_congestion_cost",
+        "shared_congestion_cost",
+        "amortized_no_price24",
+        "no_price_both",
+        "price_horizon_only",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "price_anchor_only"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 4,
+      "order": [
+        "amortized_no_price24",
+        "bdq64_uniform_adapted",
+        "price_anchor_only",
+        "additive128_unbounded",
+        "shared_joint_bound",
+        "shared_congestion_cost",
+        "price_horizon_only",
+        "plain24_nonpositive",
+        "additive64_nonpositive",
+        "amortized_workload_price24",
+        "shared_no_congestion",
+        "price_both",
+        "emc_q_nonpositive",
+        "compact_both",
+        "no_price_both",
+        "untied_congestion_cost",
+        "plain_both"
+      ]
+    }
+  ],
+  "raw_rows": 54400,
+  "screens_per_fit": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "1": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "2": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "3": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "4": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "all_fit_cost_screens_pass": true,
+  "equivalence_models": 85,
+  "equivalence_actions": 10880,
+  "research_training_launched": false,
+  "optimizer_updates_added": 0,
+  "new_simulator_steps_added": 0
+}

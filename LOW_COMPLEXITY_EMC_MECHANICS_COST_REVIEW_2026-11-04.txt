@@ -1,0 +1,83 @@
+LOW COMPLEXITY EMC-Q MECHANICS AND COST REVIEW
+Date: November 4, 2026
+Status: implemented; mechanics and local cost measurement complete.
+
+DECISION
+EMC-Q satisfies the checked mechanics and exact restricted-argmax contract.
+It does NOT establish lower inference latency than either additive baseline.
+Do not start a long learning pilot or call this a proven low-complexity method.
+The next decision is whether to pursue a narrower parameter-storage/quality
+tradeoff, or optimize the exact decoder before any learning smoke. Quality
+has not been tested; no reward, simulator equation or Word thesis was changed.
+
+IMPLEMENTED
+New emc_q.py:533->64->64 encoder;477 output values;20 learned movement
+embedding scalars. The model represents movement-conditioned destination
+interactions with rank2. Conditional on each of25 movement pairs, destination
+terms are separable. Decoder maximizes those terms and picks the best pair.
+One physical action vector is returned; no beam or proposal head is needed.
+The decoder is exact for this restricted Q representation, not optimal control
+for the physical simulator. It does not capture all destination-destination
+interactions or resolve hidden-queue observation aliasing.
+
+MECHANICS
+Six tests passed:60 small random batched cases matched exhaustive action
+enumeration; selected-action value equals decoded maximum; batch/single
+parity; deterministic ties and interaction ablation; legal action layout; all
+output blocks/embeddings and encoder receive gradients; exactly one encoder
+call in greedy selection; detached DDQN targets with frozen target weights;
+absorbing successor NaN sentinels skipped and no successor gradients.
+No optimizer step occurred. Backward-only tests checked the loss graph.
+
+COMPLETE-ACTION COST
+Untrained models, CPU float32, one intra-op and inter-op thread.128 common
+recorded observations; three rounds with randomized block order;32 warmups
+then128 timed calls per path per round.384 calls/path,1536 total raw rows.
+Timing includes state conversion, complete action selection and native action
+dictionary decoding. Environment stepping, file IO and assertions excluded.
+Weights remained unchanged and every measured action matched its untimed
+reference. This is a local engineering microbenchmark, not deployment proof.
+
+Path | Median ms | p95 ms | Parameters | Online parameter bytes
+additive128 | 0.16380 | 0.45152 | 105504 | 422016
+additive64 | 0.15565 | 0.27188 | 48736 | 194944
+emc_q | 0.50555 | 0.90012 | 69361 | 277444
+spi_historical | 8.03855 | 10.54798 | 82697 | 330788
+
+EMC median / additive128 median: 3.09x.
+EMC median / additive64 median: 3.25x.
+Online parameter bytes reduction vs additive128: 34.26%.
+Online parameter bytes increase vs additive64: 42.32%.
+Median latency reduction vs historical SPI: 93.71%.
+
+The compact additive ablation is both smaller and faster. EMC may still earn
+its additional cost through higher policy quality, but that is untested.
+Do not attribute width reduction to the interaction mechanism. Historical SPI
+is included solely as a cost reference; its flawed learning smoke is not a
+quality baseline. Only same-run ratios are relevant here; older absolute
+timings were taken under different runtime conditions and are not speedup
+evidence across dates. CPU scheduling/power/thermal conditions were not
+controlled. Peak memory, inference energy and training cost were not measured.
+The replay buffer has not been implemented for EMC; no replay-memory claim.
+
+NEXT GATE
+First freeze the intended claim: smaller online parameter storage than the
+128x128 reference while preserving predeclared physical return/deadline
+quality, with the measured latency tradeoff disclosed; or lower latency, which
+the current implementation does not achieve. Include additive64 as a required
+ablation. Set quality margins and cost limits before training; no favorable
+post-hoc tradeoff. If pursuing latency, profile/optimize the exact tensor
+decoder under these unchanged mechanics tests before a learning experiment.
+Any later smoke must use disjoint episode blocks, identical physical budgets,
+independent action/replay RNGs, detached targets, final episode metrics, frozen
+source snapshots and fresh greedy evaluation. A mechanics pass is not a
+quality pass. No learning smoke or full pilot launched by this step.
+
+EVIDENCE
+validation/emc_mechanics_2026-11-04_01/verification.json
+validation/emc_mechanics_2026-11-04_01/tests.txt
+validation/emc_cost_gate_2026-11-04_01/verification.json
+validation/emc_cost_gate_2026-11-04_01/timings.csv
+Raw medians/p95 were recomputed from all1536 duration rows after benchmark.
+New files: emc_q.py, test_emc_q.py, benchmark_emc_q.py.
+Previous SPI, simulator sources and evidence preserved. Novelty unestablished.

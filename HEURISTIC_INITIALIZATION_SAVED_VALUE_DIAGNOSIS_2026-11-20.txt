@@ -1,0 +1,115 @@
+HEURISTIC-INITIALIZATION PILOT: SAVED-VALUE DIAGNOSIS
+2026-11-20 | OFFLINE ONLY
+
+DECISION
+Preserve the positive pilot policy result. Do not scale up the unchanged
+critic yet. The evidence supports a specific representational/training
+limitation worth addressing prospectively: action-preference supervision
+shares uncentered costs with an outer scalar softplus,whose derivative can
+become extremely small for selected actions. This is NOT a new corrected
+controller,proof of novelty or authorization to retrain.
+
+VERIFICATION
+Loaded all6final students,all demonstration states,saved evaluation states,
+all6optimizer logs and probe action records. Reproduced6,240batch-one joint
+actions from final weights,including all3,840student evaluation actions.
+Verified444consumed files against the frozen manifest before use and again
+afterward. The review used zero simulator steps,optimizer updates,backward
+calls,new seeds or timing repeats. Saved sources/checkpoints remain unchanged.
+
+1. WHY NEAR-ZERO Q AND USEFUL ACTION RANKING COEXIST
+The plain compact student computes branch placement/motion scores and chooses
+independent allowed minima. For the selected action let
+  C=bias+sum_i placement_i,a_i/30+sum_j motion_j,a_j/2,
+  Q=-softplus(C),  dQ/dC=-sigmoid(C).
+Branchwise classification pushes teacher choices below alternatives. It does
+not directly constrain the scalar bias or the cost scale/offset to represent
+long-term return. Adding a state-dependent common offset to every choice in
+one branch leaves its softmax probabilities and argmin unchanged but changes
+C and Q,unless compensated elsewhere. Thus good classification alone cannot
+identify a calibrated scalar critic. This is established mathematics,not a
+novel mechanism or an experimentally proven sole cause of every failure.
+
+Final held-out selected-action preactivation and derivative:
+fit | C min..max         | mean sigmoid(C) | fraction |Q|<1e-6
+0   | -39.167..-33.511  | 3.914e-16       | 100%
+1   | -31.709..-23.179  | 3.154e-12       | 100%
+2   | -1.622..0.156    | 0.3219          | 0%
+Mean cost contributions(bias,placement sum,motion sum):
+fit0:(-13.823,-16.010,-6.401)
+fit1:(-8.723,-18.377,-1.270)
+fit2:(2.329,-2.726,-0.367)
+The tiny derivative attenuates scalar TD correction on THESE selected actions.
+It does not imply that all network gradients vanish on all replay actions.
+Final selected vehicle branch-gap medians remain0.06965,0.08605,0.03591.
+Selection operates on these scores before the scalar transform,so near-zero
+Q does not mean the code returns a random/tied branch action everywhere.
+
+2. WHEN THE PROBLEM IS ALREADY VISIBLE
+At update1,the logged batch includes48,49,48demonstration transitions in
+fits0,1,2. Their predictions are all tiny before the first DDQN optimizer step:
+fit0 mean-1.903e-13;fit1 mean-4.276e-15;fit2 mean-5.405e-11.
+For the same update,the16,15,16sampled exploratory-online transitions have
+mean predictions-9.821,-3.264,-4.169. The control's first-update demo means
+are approximately-0.589,-0.675,-0.808.
+
+The bound runner performs BC,then128exploratory transitions without optimizer
+updates,before recording update1predictions. Therefore near-zero demo-action
+predictions are present in the BC-initialized weights BEFORE any online TD
+update. This is stronger than merely noticing collapse at the end. However,
+no BC-end checkpoint was retained:the exact progression within BC and the
+scalar values of unlogged actions cannot be reconstructed from these records.
+Do not claim a specific BC iteration/loss component caused every scalar shift.
+
+3. DDQN IS NOT SIMPLY INACTIVE EVERYWHERE
+For BC fits0/1/2,near-zero sampled replay-prediction fractions by update quarter:
+fit0:55.50%,34.29%,28.60%,32.86%
+fit1:55.10%,34.13%,26.31%,26.99%
+fit2:56.09%,2.02%,0%,0%.
+Mean replay predictions become more negative through training,and recorded
+preclip gradient norms are nonzero. By the last quarter their medians are
+11.30,13.71,11.42;clipping affects many updates. Replay includes non-greedy
+actions with different scalar magnitudes;shared weights can change preferences
+through their gradients even when greedy-action Q is saturated.
+All400saved demo-state joint actions differ between BC-end and final policy
+in each fit. Branch agreement falls from BC-end to final,but final closed-loop
+policy still beats the paired control. These observations establish policy
+drift during DDQN,not beneficial causal improvement from the DDQN stage.
+The frozen pilot did NOT evaluate BC-only closed-loop behavior,so that missing
+comparison cannot be reconstructed by evaluating final weights on old states.
+
+Mean signed logged TD residuals decrease across update quarters,but samples,
+policies and target critics change. This is not proof of convergence or good
+conditional expected values. Own-policy RMSE/calibration remains poor. Do not
+equate strong terminal residuals or lower loss with valid full-horizon values.
+
+4. CONCRETE NEXT STEP
+Write ONE prospective correction brief that separates action-preference
+learning from scalar-value offset/scale and prevents the demonstrated saturated
+TD path while preserving cheap student-only deployment. Assess centered branch
+advantages with a separately trained state-value component as an established
+dueling-style design option,NOT as an invented method or selected architecture.
+The brief must specify equations,BC-to-DDQN transition,which gradients train
+which outputs,and a mechanism ablation;check against BDQ,DQfD and distillation
+before claiming a research difference. Do not automatically implement that
+option or merely replace softplus and call it a new contribution.
+
+Require BC-only,ordinary no-demo DDQN,the current BC->DDQN baseline,teacher
+and stronger neural references as appropriate in any expanded protocol.
+BC-only is necessary to test whether subsequent TD adds policy value beyond
+imitation. A correction should separately test restoring scalar learning versus
+improving executed return/deadlines. Prevent offset-centering gains from being
+confounded with extra data,larger networks or changed movement restrictions.
+Measure complete cost anew under a frozen fair procedure if a new architecture
+is eventually authorized. No expectation of a pass is justified by this memo.
+
+Keep all pilot outcomes and failed historical gates. Any later change needs
+prospective declaration,fresh development seeds and a separate launch decision.
+The positive pilot screen remains PASSED;it is not retroactively revoked by
+diagnostic failure. Conversely,that pass does not establish the full thesis
+contribution or novelty. Word thesis and final reservations remain unchanged.
+Security/trust deferred;cloud and charging excluded.
+
+ARTIFACTS
+diagnose_heuristic_pilot_saved_values_2026_11_20.py
+validation/heuristic_initialization_saved_value_diagnosis_2026-11-20_01/diagnosis.json

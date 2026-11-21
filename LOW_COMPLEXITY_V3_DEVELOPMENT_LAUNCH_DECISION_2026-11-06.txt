@@ -1,0 +1,60 @@
+VERSION 3 DEVELOPMENT LAUNCH DECISION
+Date: November 6, 2026
+
+DECISION
+Recommend proceeding with the frozen eleven-controller development comparison.
+The engineering corrections and reduced shared-workflow audit provide enough
+implementation evidence to justify that research experiment. No additional
+synthetic training is required for the identified blockers. Research training
+has NOT been launched by this review.
+
+CURRENT VERIFICATION
+All471 engineering completion-manifest entries match their files. The frozen
+protocol hash and all source hashes in the saved seven-test evidence match.
+The shared synthetic auditor checked22 final checkpoints and160 episodes;
+these artifacts remain intact. The tests were not rerun in this decision review.
+The recorded seed audit found no reserved hits in12,968 checked files, subject
+to its explicit limitations for binary files, external history and unlogged use.
+
+EXPERIMENT TO LAUNCH
+5 paired initializations x11 controllers x200 episodes x40 slots:
+440,000 training slots;383,735 optimizer updates;1,870 target copies.
+Preserve all55 final checkpoints. Freeze every checkpoint before held-out
+evaluation. Use the declared48 common development evaluation workloads and
+all predeclared per-fit quality, mechanism, value-stability and cost screens.
+Retain failing fits and report every arm; no best-seed selection.
+
+No rewards, model definitions, thresholds, optimizer settings or seed schedules
+were changed in this review or selected from synthetic performance. Cloud and
+charging stations remain excluded. Security/trust remains deferred to the
+second contribution. The Word thesis is unchanged.
+
+WHY RUN IT
+The experiment will measure whether the proposed pricing controller preserves
+return/deadline performance while reducing storage and action-selection cost,
+and whether pricing improves on its matched no-price ablation. The smaller
+plain24 reference remains a required comparison. The synthetic engineering
+success cannot answer those policy-performance or contribution questions.
+
+LAUNCH BOUNDARY
+The current engineering runner deliberately blocks research modes even with
+confirmation. A separate explicit instruction to launch development is still
+required under the frozen protocol. On that instruction, enable the development
+entrypoint with explicit confirmation and frozen-plan/source checks, prepare
+persistent logs/status and execute the frozen schedule. Keep the final phase
+disabled pending its own later review and explicit instruction. This review
+does not enable execution or authorize final evaluation.
+
+Exact next instruction, if proceeding:
+Launch the frozen 440,000-slot Version 3 development comparison.
+
+AFTER DEVELOPMENT
+Audit the saved traces and artifacts, report every initialization and decide
+whether all predeclared development screens pass. Only then consider the
+separately reserved final experiment. A successful development run alone
+does not establish novelty, thesis sufficiency or a proven lightweight claim.
+
+EVIDENCE
+validation/v3_development_launch_decision_2026-11-06.json
+validation/v3_engineering_gate_v2_completion_2026-11-06/COMPLETION_MANIFEST.json
+LOW_COMPLEXITY_V3_RESEARCH_PROTOCOL_2026-11-05.json

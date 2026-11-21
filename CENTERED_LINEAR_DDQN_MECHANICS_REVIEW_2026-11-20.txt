@@ -1,0 +1,66 @@
+CENTERED-LINEAR DDQN: ISOLATED MECHANICS REVIEW
+2026-11-20
+DECISION: NINE SYNTHETIC MECHANICS TESTS PASSED. NO RESEARCH RELEASE.
+
+IMPLEMENTATION
+centered_linear_ddqn_prototype.py reuses the unchanged533->24->161compact
+network and inherited screen. It subtracts all-five-action branch means and
+defines Q=V-sum(centered scaled selected costs),with signed linear V output.
+It contains equation-only centered-softplus/uncentered-linear references for
+the declared mechanism questions. No new research runner or simulator adapter.
+16,841parameters,67,364FP32 parameter bytes and20buffer bytes match the design.
+The previous baseline and completed pilot stay unchanged.
+
+TESTED
+1. Storage,mean centering and same-action scalar Q;excluded local actions still
+   contribute to the five-action mean,as declared.
+2. Common branch-offset invariance and equivalent uncentered linear function
+   representation through a state-value adjustment.
+3. Exhaustive reduced joint maximization over two variable vehicle branches
+   and one movement branch,with masking;deterministic lowest-index ties.
+4. All161raw-output derivatives match analytic formulas in FP64 synthetic inputs.
+5. At the chosen synthetic saturation example,the linear value derivative is1
+   while the centered-softplus reference derivative is below1e-16. Positive
+   linear predictions remain allowed;they are not clipped to hide errors.
+6. BC gives zero direct gradient to the V output row,nonzero shared-feature
+   gradients,and equivalent raw/centered branch softmax preferences. A copied
+   BC-only policy stays unchanged during inference. No BC optimization was run.
+7. DDQN uses online selection,target same-action evaluation,detached target,
+   correct terminal bypass and numeric target-loss agreement.
+8. TD reaches the value output and leaves target parameters gradient-free;
+   invalid actions,non-FP32 states and terminal decoding reject.
+9. Checkpoint reload reproduces deployment actions without teacher calls.
+   Development,pilot and final CLI modes reject even with a confirmation value.
+
+SCOPE AND LIMITS
+Synthetic fixture seeds937200001/937200011;no research model/task seeds.
+Zero optimizer steps,zero simulator episodes,zero evaluation-seed use,no
+retiming/export or architecture width sweep. Backward calls test derivatives
+only. One harmless PyTorch scalar-conversion warning occurred in a synthetic
+assertion;all tests passed. It did not alter tensors,weights or test outcomes.
+This fixture does not prove trained calibration,policy gains,efficient runtime,
+nonvanishing network gradients everywhere,or that DDQN beats BC-only.
+Centering/dueling-style value separation is established prior art. The current
+work is a diagnosed correction and prospective baseline,not novelty clearance.
+
+NEXT BOUNDED STEP
+Freeze a minimal fresh comparison plan around the correction:identify which
+of scalar-linearity,centering,BC guidance and subsequent TD benefit are primary
+questions. Include a separately trained BC-only arm,matched old baseline and
+appropriate ordinary/no-demo and stronger controls. Explicitly bind exact
+loss/optimizer/data budgets,signed-value diagnostics,cost boundaries and seed
+separation before research implementation. Preserve the menu's necessary
+mechanism controls or state which question a reduced plan cannot answer.
+Then implement/test the bound orchestration and auditor before a separate
+launch-readiness decision. No training launch is authorized by this review.
+
+EVIDENCE
+validation/centered_linear_mechanics_2026-11-20_01/verification.json
+validation/centered_linear_mechanics_2026-11-20_01/source_verification.json
+centered_linear_ddqn_prototype.py
+test_centered_linear_ddqn_prototype.py
+HEURISTIC_DDQN_VALUE_SEPARATION_CORRECTION_BRIEF_2026-11-20.txt
+
+Word thesis unchanged;final reservations protected. Security/trust deferred;
+cloud and charging excluded. Historical failed gates remain failed and the
+completed heuristic-initialization promising pilot screen remains passed.

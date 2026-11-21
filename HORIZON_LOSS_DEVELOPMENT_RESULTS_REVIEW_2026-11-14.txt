@@ -1,0 +1,124 @@
+HORIZON-LOSS DEVELOPMENT: AUDITED RESULTS REVIEW
+2026-11-14
+
+DECISION
+The full development workflow completed. Artifact/storage/startup audits passed.
+The combined predeclared scientific decision FAILED. Do not launch final
+confirmation or revise the Word thesis to claim success. Preserve all fits.
+This is a completed negative test of the prospective loss correction, not
+a training crash and not proof that efficient DDQN is impossible.
+
+COMPLETION AND INTEGRITY
+560,000 training slots;70 final checkpoints;488,390 optimizer updates;
+2,380 target copies;140,160 evaluation slots;44,800 timing readings.
+Independent audit:17,504 episodes;21,004,800 task records;8,960 runtime
+actions. Diagnostic reports:70 training fits and73 policies. Deployment
+storage and separate startup checks passed for all70 checkpoints.
+This review rehashed all entries in the completion, paired-workflow, run
+and deployment-storage manifests and verified the saved/current source
+and protocol hashes. It did not repeat the auditor, training or timings.
+
+FROZEN SCIENTIFIC CRITERIA
+references_every_fit: FAIL
+strong_heuristics_every_fit: FAIL
+correction_mechanism: FAIL
+price_mechanism: PASS
+same_width_architecture_mechanism: PASS
+primary_value_every_fit: FAIL
+primary_cost_every_fit: PASS
+
+PRIMARY ABSOLUTE PERFORMANCE
+fit | model seed | mean return | deadline success %
+0 | 83001 | -30.284540 | 68.437500
+1 | 83011 | -25.021420 | 78.810764
+2 | 83017 | -19.412802 | 88.250000
+3 | 83023 | -21.516542 | 85.819444
+4 | 83039 | -17.022768 | 94.428819
+
+DIRECT LOSS-CORRECTION TEST: PRIMARY MINUS ORIGINAL-LOSS PRIMARY
+fit | return difference | deadline difference (percentage points)
+0 | -14.988639 | -27.696181
+1 | -9.504255 | -17.013889
+2 | -3.549474 | -8.189236
+3 | -7.885329 | -13.824653
+4 | -2.838535 | -3.196181
+Equal-fit mean: -7.753247 return; -13.984028 deadline points.
+Both metrics deteriorated in every fit. The proposed normalization is not
+supported as an improvement under this frozen budget/setup. This comparison
+uses fresh paired original-loss controls, not results from older seeds.
+
+ALL PRIMARY COMPARISONS: FIVE-FIT MEAN
+comparator | return difference | deadline difference (percentage points)
+screened_price24 | -7.753247 | -13.984028
+unmasked_price24 | +3.403308 | +9.116319
+screened_no_price24 | +24.202350 | -10.152778
+screened_plain24_anchored | +2.142077 | -10.076736
+screened_compact64_anchored | +364.768924 | +29.141319
+screened_plain24 | +84.003473 | +2.757292
+unmasked_plain24 | +12.874762 | +18.073958
+screened_wide128 | +38.541792 | -1.889583
+unmasked_wide128 | +12.858965 | +5.750000
+screened_bdq64 | +88.613213 | +0.899306
+unmasked_compact64 | +4.094622 | -4.459722
+normalized_screened_no_price24 | +325.048699 | +21.779167
+normalized_screened_plain24_anchored | +462.880250 | +32.156597
+all_local | +14.840588 | +26.946181
+nearest_rsu | -1.974545 | +0.300347
+uav_selective | -4.768386 | -4.371528
+
+INTERPRETING THE TWO POSITIVE MECHANISM SCREENS
+Price and same-width architecture pass against their NORMALIZED-loss
+comparators. Those arms performed much worse; the exact loss-correction
+effects within all three architectures are listed below. These positive
+relative contrasts do not establish correction benefit, overall superiority
+or independent final novelty. Do not substitute a successful comparator
+for the predeclared primary or select only favorable initializations.
+normalized_screened_price24 minus screened_price24: mean return -7.753247; deadline -13.984028 points.
+normalized_screened_no_price24 minus screened_no_price24: mean return -300.846349; deadline -31.931944 points.
+normalized_screened_plain24_anchored minus screened_plain24_anchored: mean return -460.738173; deadline -42.233333 points.
+
+VALUE CONSISTENCY: ORIGINAL UNITS
+fit | normalized RMSE (max.25) | absolute bias (max2) | terminal p95 (max2)
+0 | 0.867784 | 11.464777 | 1.623598
+1 | 0.442780 | 3.284271 | 0.480107
+2 | 0.649810 | 3.596395 | 0.524184
+3 | 0.492862 | 4.024720 | 0.420895
+4 | 0.473231 | 3.325848 | 0.366700
+All five primary fits fail global RMSE and bias; terminal p95, Q sign
+and near-zero checks pass. Lower training loss is not a calibration result.
+Realized own-policy return consistency is not exact optimal-Q ground truth.
+
+COST
+Online primary parameters68,264bytes +20buffer bytes versus194,944
+parameter bytes for unmasked compact64:64.98% fewer parameter bytes.
+Median action latency range 0.077600..0.078000ms; p95 range 0.083510..0.120830ms.
+All five frozen cost screens pass. Same host/procedure/backend; not a claim
+about total device memory or electrical energy. Startup is separately
+reported and includes full training-checkpoint loading and existing caches.
+
+SAVED PRIMARY DEADLINE FAILURE COUNTS
+Destinations ordered local,UAV1,UAV2,RSU1,RSU2; lifecycle labels descriptive.
+fit0: misses [0, 760, 0, 0, 17420]; stages {'cpu_completed_late': 2084, 'upload_finished_after_deadline': 615, 'cpu_started_after_deadline': 15481}
+fit1: misses [1, 0, 0, 0, 12204]; stages {'cpu_completed_late': 1915, 'cpu_started_after_deadline': 10289, 'local_deadline_miss': 1}
+fit2: misses [0, 0, 0, 6768, 0]; stages {'cpu_completed_late': 1844, 'cpu_started_after_deadline': 4924}
+fit3: misses [0, 0, 0, 8168, 0]; stages {'cpu_completed_late': 1768, 'cpu_started_after_deadline': 6400}
+fit4: misses [1, 0, 0, 0, 3208]; stages {'cpu_completed_late': 1100, 'cpu_started_after_deadline': 2108, 'local_deadline_miss': 1}
+
+NEXT WORK
+Do not automatically start another design or training run. The correction
+hypothesis failed its direct policy test. Preserve normalized and original
+arms, failed fits, thresholds and reserved final seeds.
+Use the saved residual-by-horizon, gradient/anchor histories and decision
+reports to compare the three normalized/original pairs. Establish where
+policy deterioration and value error occur and whether the original-loss
+screened price24 remains a plausible development candidate. Any such
+assessment is exploratory; it does not promote that control to primary.
+Then make an explicit claim/design decision with the supervisor rather
+than assume normalization needs another automatic tuning run. Literature
+novelty and independently justified acceptance remain separate questions.
+A later change requires prospective declaration and fresh development
+evidence. Final confirmation remains disabled. Word thesis unchanged.
+Cloud/charging excluded; security/trust deferred.
+
+Evidence: validation\horizon_loss_development_results_2026-11-14_01
+Run: development_runs\horizon_loss_development_2026-11-14_01

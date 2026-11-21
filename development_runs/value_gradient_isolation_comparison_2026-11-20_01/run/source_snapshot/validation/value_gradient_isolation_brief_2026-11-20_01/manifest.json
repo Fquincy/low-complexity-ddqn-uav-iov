@@ -1,0 +1,22 @@
+{
+  "validation/value_gradient_isolation_brief_2026-11-20_01/branching.html": "17ac44b2eb25befe45d8bf7153e9ad95276f7bd062a8c70ba0053d9fdcbfef16",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/crossref_detach.json": "cf29f696aafaa943d9abed556d8e4e0ecc45cb5c81fff572a9157b65b3a737b2",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/crossref_gradient.json": "7a071dc94d5a300daf3fc6ecc223c3bd320f14e754b42eb3b9d40ce966987cb5",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/crossref_offloading.json": "d85aea699e1d484b3cc72a8a9a79b9eee238f5f5db4cc1a28b7f1ae19f6687ed",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/decoupled_representation.html": "be7da578b3948bc35cf0322a53dc90011219093605b3a250c63c95327811ac0b",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/decoupled_representation_fulltext.html": "ae859f42613e30bdeeedc7f6cdb9657dac6b3ed3409fbfcd9f5a57db56604d27",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/double_dqn.html": "38bbd9cdc76a5057b5bcdd9e9f021455f1e9e2b0cffc7a90bb98da8092adf1e1",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/dqfd.html": "42985cc5b65e7a5a46b8ce93aabc39b4f8fd4d0df7bc326031d65573eca5f0b3",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/dueling.html": "0d21c53657220c9642db9c08a85200c082264c9846fb43980a27eb3284a325cb",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/dueling_fulltext.html": "7a9ea33de60970d6a0e49fec90e751ed37b5a5a2b60b3dff7ceefc08953621c1",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/gradient_surgery.html": "fd6ec84069e32b35b86d3b01dbe25455c85a15936d0d7367470c784fd0b54584",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/literature_retrieval.json": "1c9047e823c7301de8bd14da667b9a2774ae4cf99ac02d01f009f26acd4eb8c5",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/offloading_crossref.json": "6564b5d8139619745e53989eba0bd65768fdb43da37f0cda1c0aa512dbddbd13",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/offloading_openalex.json": "eeed36bd40494b46edb7dbacbe26d655b49c0eadeedbcff2eb4c4b4355b4dfff",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/offloading_overlap_refresh.json": "e73a2b60cf78af39bbe8d93a6dd91fd87554d30f7cf2b5b74295640ebc386a4a",
+  "validation/value_gradient_isolation_brief_2026-11-20_01/verification.json": "17ede24e24e9149f1ef60c40501ff706113d760f095d1724c3c8d8afd95aedae",
+  "VALUE_GRADIENT_ISOLATION_DESIGN_BRIEF_2026-11-20.txt": "5ae5bf25b22144155467ae4a17f6bed1447ad72e31c345c86dc2684b2d04e90d",
+  "VALUE_GRADIENT_ISOLATION_DESIGN_STATUS_2026-11-20.json": "5a6800b5c3332fa2a9727fa04a89721abc26f1d787bd351d6c69c221c572b132",
+  "prepare_value_gradient_isolation_brief_2026_11_20.py": "ee673f58969d02ea23c1500e950d3e5e9ddc0a7c32cd350519fa2a74786a9d7c",
+  "collect_value_gradient_isolation_literature_2026_11_20.py": "00b467b72ee0f95136d0ec87ec37465c96eb49206c9159ef4554cc4599723fea"
+}

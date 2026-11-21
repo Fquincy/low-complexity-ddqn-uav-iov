@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "protocol_sha256": "23b1b292e80a4dadba99ee99b1f7151a80a37db4f6c8b5d03ac198729acf84de",
+  "report_sha256": "37ef74e5241a433b0f22148c47cfc15802bdad5d09bd2bf18c39c7c0b214b72f",
+  "tests_passed": 8,
+  "workflow_guards_and_storage_audits_passed": true,
+  "model_definitions_unchanged": true,
+  "fixture_quality_evidence": false,
+  "final_seeds_consumed": false,
+  "research_launched": false,
+  "word_thesis_changed": false
+}

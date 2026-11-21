@@ -1,0 +1,44 @@
+THESIS CONTRIBUTION SCOPE - USER CONFIRMED NOVEMBER 5, 2026
+
+The user reports that the supervisor requires TWO separate contributions.
+The agreed research sequence is:
+
+CONTRIBUTION ONE
+Develop and demonstrate an efficient DDQN-style computational-offloading
+controller for UAV-assisted IoV, with measured policy quality, deadline
+performance, value stability, model storage and full decision latency.
+Its success and novelty remain to be established by comparative evidence.
+
+CONTRIBUTION TWO - DEFERRED
+Develop security/trust mechanisms after contribution one succeeds. Their threat
+model, algorithm, overhead and security evaluation will require a separate
+design and comparison protocol. No security/trust mechanism is introduced in
+the current experiment, and contribution one's results cannot establish
+security effectiveness. Success on contribution one does not automatically
+establish the second contribution's novelty or acceptance.
+
+SYSTEM BOUNDARY FOR CURRENT ACTIVE WORK
+Execution locations: local vehicle CPUs, UAV1, UAV2, RSU1 and RSU2 only.
+Cloud: excluded. Charging stations: excluded. Security/trust: deferred.
+Both UAVs remain battery-limited; no recharge action, charging energy,
+charging-station state, cloud latency, cloud queue or cloud offloading action
+is permitted in contribution one's active simulator/controller.
+
+CODE CHECK
+The active environment files Source/chapter3_iov_env.py and
+Source/chapter3_iov_env_v2.py already implement this cloud-free,
+charging-free system. The new controller uses exactly five execution choices
+per vehicle and five movement choices per UAV. Automated source/configuration
+checks are included in the engineering gate. No unnecessary deletion or
+reconstruction of already compliant active environment code is required.
+
+PRESERVATION
+Historical source, older training and completed research results stay intact.
+Cloud/charging code in those archived historical experiments must not be
+mistaken for the active target model. The Word thesis remains unchanged.
+
+PRECEDENCE
+This user clarification supersedes the open question in the November 5 design
+brief about whether security should be a separate contribution. It does not
+change the frozen controller design, rewards, seeds or evaluation thresholds,
+and does not authorize a research training launch.

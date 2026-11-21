@@ -1,0 +1,43 @@
+{
+  "state": "complete",
+  "runs": {
+    "additive_0": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "mean_return": -18.497687074290774,
+      "deadline_success": 0.2672141258864033,
+      "beam_candidate_mean": 4.2375
+    },
+    "spi_0": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "mean_return": -18.287801282047372,
+      "deadline_success": 0.29332705444861873,
+      "beam_candidate_mean": 4.2375
+    },
+    "additive_1": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "mean_return": -17.53020747435857,
+      "deadline_success": 0.2598336045938678,
+      "beam_candidate_mean": 4.5
+    },
+    "spi_1": {
+      "slots": 80,
+      "updates": 73,
+      "target_copies": 9,
+      "mean_return": -18.65917449421702,
+      "deadline_success": 0.22128572139640484,
+      "beam_candidate_mean": 4.5
+    }
+  },
+  "paired_workloads": true,
+  "total_slots": 160,
+  "total_updates": 146,
+  "new_full_pilot_launched": false,
+  "wall_seconds": 9.753827400039881,
+  "low_complexity_claim": false
+}

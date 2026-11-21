@@ -1,0 +1,10 @@
+{
+  "kind": "SYNTHETIC_ALGEBRA_NOT_IOV_RESEARCH",
+  "arms": 6,
+  "synthetic_transitions_per_arm": 80,
+  "optimizer_updates": 438,
+  "simulator_steps": 0,
+  "original_run_manifest_sha256": "f8dde55eb81a5c84b342abf63d5d7b91b47a875b23ddf35b39f754175ea7aeaa",
+  "policy_quality_evidence": false,
+  "thesis_changed": false
+}

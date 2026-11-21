@@ -1,0 +1,76 @@
+{
+  "state": "complete_verified_cost_gate",
+  "date": "2026-11-04",
+  "summaries": {
+    "additive128": {
+      "median_ms": 0.1638,
+      "p95_ms": 0.4515199999999996,
+      "calls": 384,
+      "parameters": 105504,
+      "parameter_bytes": 422016
+    },
+    "additive64": {
+      "median_ms": 0.15565,
+      "p95_ms": 0.27188,
+      "calls": 384,
+      "parameters": 48736,
+      "parameter_bytes": 194944
+    },
+    "emc_q": {
+      "median_ms": 0.5055499999999999,
+      "p95_ms": 0.9001199999999999,
+      "calls": 384,
+      "parameters": 69361,
+      "parameter_bytes": 277444
+    },
+    "spi_historical": {
+      "median_ms": 8.03855,
+      "p95_ms": 10.547984999999997,
+      "calls": 384,
+      "parameters": 82697,
+      "parameter_bytes": 330788
+    }
+  },
+  "round_order": [
+    [
+      "additive128",
+      "spi_historical",
+      "emc_q",
+      "additive64"
+    ],
+    [
+      "spi_historical",
+      "additive128",
+      "emc_q",
+      "additive64"
+    ],
+    [
+      "emc_q",
+      "additive64",
+      "additive128",
+      "spi_historical"
+    ]
+  ],
+  "python": "3.11.9",
+  "torch": "2.15.0+cpu",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_threads": 1,
+  "interop_threads": 1,
+  "weights_trained": false,
+  "weights_unchanged": true,
+  "all_actions_match_reference": true,
+  "include_state_tensor_conversion_and_physical_action_dictionary": true,
+  "exclude_environment_step_and_file_io": true,
+  "raw_timing_rows": 1536,
+  "observation_sha256": "04aca32d05cb2354cee79f9f03a1a8a8850b23cca448bd4ee9a9d3cc7b348fdc",
+  "timing_csv_sha256": "975fc46179d2674ff83fb02b653f0f48d1a1727ca5dc02522a3ec7f16f6ab679",
+  "source_sha256": {
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "benchmark_emc_q.py": "b50ecfd54b88c68f0a3e54d993d1927cf0f04d0fb60d9cbea31e83c5bf77da0a",
+    "Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a",
+    "spi_ddqn.py": "ba450c20857fe1644582a3bd3df4546d80a7c4e883836443a722593f9b09f65e"
+  },
+  "quality_claim": false,
+  "optimizer_updates": 0,
+  "simulator_steps": 0
+}

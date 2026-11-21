@@ -1,0 +1,101 @@
+HEURISTIC-INITIALIZATION PAIRED PILOT: SEPARATE LAUNCH-READINESS DECISION
+2026-11-19
+
+DECISION
+Technically ready for a separately explicitly authorized17,680-slot pilot.
+Recommend proceeding with this bounded exploratory baseline test if launched:
+it answers whether supervised initialization adds useful closed-loop behavior
+over the identical student with common demonstration replay. It does not
+establish algorithmic novelty or automatically satisfy the thesis contribution.
+The pilot has NOT been launched. Default PILOT_RELEASED remainsFalse.
+
+LIVE CHECKS
+The frozen protocol SHA256 remains
+a73994fdfea9eda763232fa4c86d52e6a1317f421c40fd6f25ddb0f78c1745fc.
+All seven definition bindings and tested runner,adapter,auditor and test source
+hashes match the passing engineering record. All75fixture manifest artifacts
+were rehashed successfully. Eight saved workflow tests passed. No new fixture,
+simulation,optimizer update or benchmark was run for this readiness review.
+The15historical contribution-ledger sources remain unchanged.
+
+The live environment matches the passing fixture:Python3.11.9,
+PyTorch2.15.0+cpu,NumPy2.4.6,the same Windows host. The runner sets1torch thread
+and deterministic algorithms before work. Pip/NumPy restoration was isolated
+to this environment and did not revise scientific definitions.
+
+Both direct pilot launch guard cases were checked again before output/model
+creation:missing confirmation rejects;correct confirmation still rejects
+because releaseFalse. Final mode remains disabled by the tested runner.
+
+TEACHER BACKEND DECISION
+Accept the explicit Python reference backend for THIS exploratory pilot.
+It extracts named definitions from the verified frozen teacher sources,uses
+public Chapter3Config,and replaces native decorators by identity. The original
+equations and deterministic tie rules are retained at source level; fixture
+reference actions agree. This is not an independent proof of compiled-runtime
+equivalence across all inputs. The protocol originally left the execution
+adapter unbound; this readiness receipt binds the tested implementation
+without rewriting that historical protocol field or claiming it was bound then.
+Teacher generation/evaluation/timing costs must use this backend and be
+reported separately. Do not compare its measured Python time with historical
+compiled-teacher timings or call any difference a new algorithmic speedup.
+The student alone,with its inherited screen,is deployed for student outcomes.
+
+SEED REVIEW
+Refreshed checks of explicit root-JSON seed values/start-count reservations
+and all three saved fixture runtime plans found no collisions with the pilot
+reservations. Root documents and fixture plan hashes are recorded in readiness
+JSON. This is a bounded reservation check,not a recursive inspection of every
+historical event log. Refresh again immediately before an authorized launch.
+No reserved pilot/final seeds were consumed here. Existing final reservations
+remain untouched; the pilot is a new exploratory development study.
+
+STORAGE AND RETENTION
+E: free at review521,587,650,560bytes;D:115,207,028,736bytes.
+Projection from fixture categories:1,133,490,286bytes output. Episode counts
+scale by442/11;optimizer rows scale by sample-entry exposure;other output gets
+a10x allowance. This is an estimate,not a bound on peak RAM or exact disk use.
+Require4xprojected output plus1GiB free:5,607,702,968bytes. Both drives pass.
+Primary output stays under E:\Fitz Thesis docs\Low Complexity. Retain an
+independent D:copy after the full saved-artifact audit; verify its file inventory
+and hashes before reporting archive completion. No files were moved or deleted
+and no pilot output directory was created by this review.
+
+FROZEN SCOPE
+Three paired initializations,two learned arms,same shared teacher transitions.
+12,000student online slots+1,200teacher demonstration slots+4,480evaluation
+slots=17,680unique simulated slots. BC adds600updates;DDQN11,232updates.
+All6final checkpoints frozen before held-out evaluation;no best-checkpoint
+selection,extension or failed-fit dropping. The teacher remains an evaluated
+reference even if stronger than both students. The control is common-demo
+no-BC DDQN,not ordinary no-demo DDQN;do not mislabel the estimated effect.
+The frozen promising screen applies to all3paired fits and both policy metrics.
+Calibration diagnostics and complete costs remain reported. No tuning from
+the reduced fixture's failed promising flag or previous research results.
+
+LIMITATIONS REMAIN
+The audit recomputes saved arithmetic and final policy predictions,not every
+historical weight/gradient update. The pilot is not an equal-total-training-
+compute comparison:BC adds extra gradient work,which is explicitly accounted.
+Teacher motion is stationary,and its battery restriction differs from neural
+controls. Neither empirical policy improvement nor calibrated values nor
+paper-level novelty is guaranteed. Stronger reference models and an ordinary
+no-demo control remain necessary before a full contribution claim.
+
+LAUNCH BOUNDARY
+A separate explicit user instruction is required for this specific pilot.
+On that instruction,prepare a versioned launcher that verifies this readiness
+receipt,exact source/environment bindings and refreshed storage/seeds BEFORE
+temporarily enabling the bound runner in memory. Leave the runner source's
+default releaseFalse. Use a new output path and preserve logs;do not silently
+overwrite fixture or earlier evidence. Do not consume a pilot seed while
+testing that launcher's guard or check-only mode. Final mode remains disabled.
+No need to request the same permission again after that explicit instruction.
+
+Word thesis unchanged;security/trust deferred;cloud/charging excluded.
+
+EVIDENCE
+check_heuristic_initialization_pilot_readiness.py
+validation/heuristic_initialization_pilot_readiness_2026-11-19_01/readiness.json
+validation/heuristic_initialization_pilot_fixture_2026-11-19_03/tests.json
+validation/heuristic_initialization_pilot_fixture_2026-11-19_03/engineering_verification.json

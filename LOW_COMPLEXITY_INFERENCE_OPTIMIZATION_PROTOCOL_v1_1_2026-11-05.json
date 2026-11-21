@@ -1,0 +1,114 @@
+{
+  "id": "controller-v2-onnx-cpu-inference-v1.1",
+  "date": "2026-11-05",
+  "purpose": "reduce_runtime_dispatch_overhead_without_changing_v2_mathematical_controller",
+  "status": "predeclared_before_compilation_equivalence_or_optimized_timing",
+  "original_design_sha256": "35a41a18bc642a79be4f4f3dfbdf0a7b7a18ecd4a351700b0e6e7f1e2b1b99b5",
+  "profile": "validation/controller_inference_optimization_2026-11-05_01/profile/profile.json",
+  "observations": "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+  "observations_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+  "unchanged": [
+    "all_eight_architectures",
+    "weights",
+    "FP32",
+    "two_price_passes",
+    "four_repairs",
+    "repair_epsilon_1e-6",
+    "Q_equations",
+    "training_path",
+    "rewards",
+    "research_seeds",
+    "cost_thresholds"
+  ],
+  "backend": {
+    "runtime": "ONNX Runtime 1.31.0",
+    "provider": "CPUExecutionProvider",
+    "intra_op_threads": 1,
+    "inter_op_threads": 1,
+    "execution": "ORT_SEQUENTIAL",
+    "graph_optimization": "ORT_ENABLE_ALL",
+    "export": "torch.onnx.export_legacy_dynamoFalse",
+    "opset": 17,
+    "fixed_input_shape": [
+      1,
+      533
+    ],
+    "outputs": [
+      "complete_actions",
+      "chosen_Q"
+    ],
+    "not_returned": "unused_diagnostic_tensors_for_all_paths",
+    "training": "PyTorch_eager_unchanged",
+    "precision": "FP32_no_quantization_no_pruning_no_approximate_activation_substitution",
+    "additional_packages": {
+      "onnx": "1.23.2",
+      "ml_dtypes": "0.5.4"
+    },
+    "dependency_policy": "no_deps_install_preserve_existing_torch_numpy_onnxruntime_versions",
+    "operator_lowering": {
+      "aten::expm1": "ONNX Exp(x)-1 in FP32",
+      "scope": "mathematical_equivalence_not_bitwise_FP32_identity",
+      "requirement": "explicit_near_zero_value_tests_and_exact_complete_action_checks"
+    }
+  },
+  "equivalence": {
+    "timed_initialization_seed": 99001,
+    "additional_synthetic_model_seeds": [
+      99006,
+      99007
+    ],
+    "cases_per_model": "128_saved_observations_plus64_valid_synthetic_observations",
+    "synthetic_observation_rng_seed": 99005,
+    "complete_action_agreement_required": 1.0,
+    "Q_rtol": 1e-05,
+    "Q_atol": 1e-06,
+    "also_check": [
+      "nonpositive_Q_where_required",
+      "finite_values",
+      "unchanged_parameter_hashes",
+      "deterministic_repeat",
+      "serialization_roundtrip",
+      "fixed_input_contract",
+      "symmetry_and_tie_and_repair_threshold_fixtures",
+      "FP32_expm1_primitive_lowering_near_zero"
+    ],
+    "stop": "on_any_action_mismatch_or_value_failure_do_not_time_optimized_paths",
+    "scope": "finite_tested_inputs_and_weights_not_universal_bitwise_equivalence",
+    "future_trained_models": "must_repeat_equivalence_after_each_final_checkpoint_export"
+  },
+  "benchmark": {
+    "paths": "all8_eager_and_all8_compiled_interleaved",
+    "rounds": 5,
+    "warmups_per_path_round": 32,
+    "timed_calls_per_path_round": 128,
+    "order_rng_seed": 99008,
+    "include": [
+      "input_conversion",
+      "inference",
+      "full_action_decoder",
+      "required_full_scoring",
+      "output_action_copy"
+    ],
+    "exclude": [
+      "export_and_session_startup_reported_separately",
+      "simulator_steps",
+      "file_io"
+    ],
+    "no_backend_search_or_favorable_retest": true,
+    "failed_export_or_session": "record_failure_for_whole_backend_do_not_silently_fallback_one_arm"
+  },
+  "cost_screens": {
+    "compiled_primary_online_parameter_bytes_ratio_vs_compiled_additive64_at_most": 0.5,
+    "compiled_primary_median_ratio_vs_compiled_additive128_at_most": 1.0,
+    "compiled_primary_p95_ms_at_most": 1.0,
+    "serialized_graph_bytes": "report_separately_not_equal_to_parameter_bytes"
+  },
+  "research_training_authorized": false,
+  "development_and_final_CLI": "remain_disabled",
+  "cloud": false,
+  "charging_stations": false,
+  "security_trust": "deferred_contribution_two",
+  "word_thesis_changed": false,
+  "supersedes": "controller-v2-onnx-cpu-inference-v1",
+  "amendment_reason": "legacy_exporter_lacks_aten_expm1_symbolic_no_optimized_timing_has_occurred"
+}

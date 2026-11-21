@@ -1,0 +1,18 @@
+{
+  "status": "SAVED_TRACE_DIAGNOSIS_COMPLETE_NO_NEW_RESEARCH",
+  "consumed_files_verified_unchanged": 602,
+  "decoded_saved_states": 54000,
+  "artifacts_sha256": {
+    "diagnosis.json": "c059ffc70624db719fe8bdadb9dda29d8ae830448e3e9ca2b3b92bd9f68a3714",
+    "fixed_state_predictions.npz": "fa27a9f7c5c6ba16f7b2064fdf4af1efcb0f17633bf76984b56d649943332c78"
+  },
+  "script_sha256": "a4082eb0b56799e3b86fe20aca133a12328291b6cbe2e9638d0e6ccc860affc4",
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_teacher_calls": 0,
+  "new_autograd_evaluations": 0,
+  "policy_screen": false,
+  "value_screen": true,
+  "promising": false,
+  "word_thesis_changed": false
+}

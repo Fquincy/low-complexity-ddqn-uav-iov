@@ -1,0 +1,7 @@
+{
+  "source": "run_v3_research_gate_v2.py",
+  "sha256": "ac234b99641c672900a181bbecc6f0f696f314278d665ffec2c6058bb5126909",
+  "prior_manifest": "validation/terminal_anchor_engineering_completion_2026-11-06.json",
+  "prior_manifest_sha256": "3f019e7f9ce53d295fc7cb2ed76d73be99707188aced6d751081a666358ecb9f",
+  "limitation": "Supplemental post-run provenance check; not part of original pre-timing source freeze. Include directly before research launch."
+}

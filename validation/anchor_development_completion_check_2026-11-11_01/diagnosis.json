@@ -1,0 +1,594 @@
+{
+  "state": "training_complete_post_training_export_gate_failed",
+  "checked_at": "2026-11-11",
+  "training_slots": 680000,
+  "training_episodes": 17000,
+  "checkpoints_verified": 85,
+  "source_files_verified": 28,
+  "training_rows": [
+    {
+      "arm": "price_both",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "a21c3c50a309b59ed0d2e5b0160eeaab393b0263e6b5bcc91f2f8481a3791a85"
+    },
+    {
+      "arm": "no_price_both",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "c5d35eb2751a1a79602fca54a04ec4846f47de8e6f8384b0f942bce911d73036"
+    },
+    {
+      "arm": "price_horizon_only",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "30b7eb5063c3d1fa0d0a47bc3c1af513f6acdde0fba5b2ecd473461a62367be4"
+    },
+    {
+      "arm": "price_anchor_only",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "f11ab3083a3d0062951e66c1633cb351cde20be7c4297f4c0cec552f3959dfd1"
+    },
+    {
+      "arm": "plain_both",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "b77e7d3520e8973f5bd93834baca11ddc65c1e2dcd3fd02cc320b435cdf933f3"
+    },
+    {
+      "arm": "compact_both",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "18a16d08b29776ee997517e8466361588df83f518ebee64d5b6b15886c3b9211"
+    },
+    {
+      "arm": "amortized_workload_price24",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "c9a0412769393ff6e8c435c3f399482497462d119ab12591b6e9a51ce7faf9dc"
+    },
+    {
+      "arm": "amortized_no_price24",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "275f8ee7e2911465b4c9ec3331bb8320436f9687707aba923c345c39df2a33b6"
+    },
+    {
+      "arm": "plain24_nonpositive",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "0d74f1f260b46bc5a2998a68627eeb88583235ed6cea93e49eab62e7e1e52b35"
+    },
+    {
+      "arm": "shared_congestion_cost",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "05136ed8b1e7e73185f849bcc5dcb9e919234c81377ccafce324256d3145c52c"
+    },
+    {
+      "arm": "shared_no_congestion",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "f3d9e62729d6c2d85b5a12bed5733c76cbb7bf0c374b6f953fa59f916b780dbe"
+    },
+    {
+      "arm": "untied_congestion_cost",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "4c2012cacc9edf17673c06d71a38237ac47ea0af155aec301ee634e98e81430e"
+    },
+    {
+      "arm": "shared_joint_bound",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "e105bc67c0b5bb64ed5508d76e4604954a683e79bf25eb00b316189e68cdb4da"
+    },
+    {
+      "arm": "additive64_nonpositive",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "5e724fb0ff518b45534b802c1f593af7eb24928e6468adb0a553136555639d04"
+    },
+    {
+      "arm": "additive128_unbounded",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "add632b15abb113b57959282fe32c9a42d28d5cd8273828fadd1ef90c84a2b94"
+    },
+    {
+      "arm": "emc_q_nonpositive",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "052d6776fed62edcb4410175cfdd682a11ca07babf9d78074cb381871de926da"
+    },
+    {
+      "arm": "bdq64_uniform_adapted",
+      "fit": 0,
+      "training_episodes": 200,
+      "checkpoint_sha256": "d7ce227882a78dc787ffd44d496a68f217462e174501f446f114c85308746f33"
+    },
+    {
+      "arm": "price_both",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "c59d86b074cc8a2a0eed42fd47bac2e0d2146936aab5e76b8824038290286ed5"
+    },
+    {
+      "arm": "no_price_both",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "216476ae9b112246063f736b4fe4dded90c8db35c9bac086057d4a0b3339ceeb"
+    },
+    {
+      "arm": "price_horizon_only",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "539a684166ad5c1839bff654114858eb7aac37cd7d57772313b226c43bdd6fb9"
+    },
+    {
+      "arm": "price_anchor_only",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "23e6d669b95633cab160c2204d8ad3ed51c179c2038d7bf2decd1630a151d21d"
+    },
+    {
+      "arm": "plain_both",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "3d3a94a2d3f60d4fabad3ed14bc9923386979a946b422417a37e2474dd96b3b3"
+    },
+    {
+      "arm": "compact_both",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "54f7aaf533614b3fc8c7834300c2afd39d6be414a5d344d06d1d6d373364215d"
+    },
+    {
+      "arm": "amortized_workload_price24",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "18590bdfd79759adc0c1cc52c77c92024cff459347db4c7d38c9f0596f3d70fb"
+    },
+    {
+      "arm": "amortized_no_price24",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "398b6798aef666ed9299cc39e04a8206455a7d0f9c23f5c743fecc238007f41b"
+    },
+    {
+      "arm": "plain24_nonpositive",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "a67f470675e6ed47d07ee23cc2db4f64f685f39dc58927160b183fb9792d3c34"
+    },
+    {
+      "arm": "shared_congestion_cost",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "5b31812672d59dcfe07faac75d7b1e25152eec42ff325c75d170e52f5e5486dc"
+    },
+    {
+      "arm": "shared_no_congestion",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "0477c27059935a6df7f03b08e0766e5187d6b3b27a57d057e34babc8657c98c9"
+    },
+    {
+      "arm": "untied_congestion_cost",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "6e962b36a99122aacd1c3ff2dc1b3fb8a2941e3ec146a58ae1770ea6a986528e"
+    },
+    {
+      "arm": "shared_joint_bound",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "80c5bbb572a5b30dd0b96d6f2720de1d03d865576102f588dd1a0cfddb3b6637"
+    },
+    {
+      "arm": "additive64_nonpositive",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "935a63e772542b2dc1315963cc9c854774890ba2bc3739e2ade6e450fb6fa479"
+    },
+    {
+      "arm": "additive128_unbounded",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "66e44334b0f45524b82ce6c99bef0704de103bb6fd60829ad226b9a80cce9791"
+    },
+    {
+      "arm": "emc_q_nonpositive",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "2349ed53246955c07ddc4085db85c462cf1ce6fbae14db78eb4838d689ba2dac"
+    },
+    {
+      "arm": "bdq64_uniform_adapted",
+      "fit": 1,
+      "training_episodes": 200,
+      "checkpoint_sha256": "ead24492ca71f9d4aaeacb1cdbfd2d62f0117cf48e5d0a17c5daf340582bf1b2"
+    },
+    {
+      "arm": "price_both",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "54fa29f913ac68f3b00d6a279624f74e010b7063f668a5714ee6b279dfc7f238"
+    },
+    {
+      "arm": "no_price_both",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "bd27e5e200a3e7ef33bb3bf3000e2a7a12703e8eb0a300f9c1a40776a004b9b5"
+    },
+    {
+      "arm": "price_horizon_only",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "e0b7dd557afa6baf428abeda182a9cbacbf709227d9c64bc834245397f77957f"
+    },
+    {
+      "arm": "price_anchor_only",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "b379651e260f60cd5d16b7ba12284a3a64fa735d2f17e0ae4d53ce5118d43e3a"
+    },
+    {
+      "arm": "plain_both",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "c040b029406ad39dcbd85db82f2aee06d7e00e27de69e20c5fe18de70b605746"
+    },
+    {
+      "arm": "compact_both",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "4e5fd54774868e470ff05f26539b3f506bdebdf1b1333be19800f4a8b519ca1a"
+    },
+    {
+      "arm": "amortized_workload_price24",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "8cf021addadf0aff6bf13478804a372a8929f85e5f65ab7ee4d6f217dd048795"
+    },
+    {
+      "arm": "amortized_no_price24",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "0062e5a8b59ee120031414dd0204afb6951272396d4328edf8892086ec7cd4ca"
+    },
+    {
+      "arm": "plain24_nonpositive",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "9860fa66bbd2dedb7c2a4bcf39ca46f21dcf8dbb6dc7c335e5d29d783f57cc36"
+    },
+    {
+      "arm": "shared_congestion_cost",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "337ca8b4d0e045cfa601f4586c089b9a34da9b602da1d68866c91cadc2ceb038"
+    },
+    {
+      "arm": "shared_no_congestion",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "4ae9c385bcd0fbc664dc43f8fa4c9f2951b24fc47fd4e980f986cbdb043c2cf4"
+    },
+    {
+      "arm": "untied_congestion_cost",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "01f9cc56ec19f514c08f2018ee31f300094ea5ddcf5019322055da77ab9cf00e"
+    },
+    {
+      "arm": "shared_joint_bound",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "5b3a3de2f2da4adac1111d11dc86ff5fce678f7bf128e94c96ba1abf7631b9a9"
+    },
+    {
+      "arm": "additive64_nonpositive",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "10a83861f42eee63a7532b9915a7d7d56e9b76334048bd97920cff28f1fabc79"
+    },
+    {
+      "arm": "additive128_unbounded",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "cf7e9bcdcd30283c1dcde8b55dc6c81cb9c9cfcd5984daea4a6b036c9562face"
+    },
+    {
+      "arm": "emc_q_nonpositive",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "d3729bb6eaf1a05fc7c2b210f0cb1eb7422217677c6284665628314d1a944389"
+    },
+    {
+      "arm": "bdq64_uniform_adapted",
+      "fit": 2,
+      "training_episodes": 200,
+      "checkpoint_sha256": "cd8cc0245f2e88766dd3428da34d847e5b96bfc97915c64d2b53a5657c42bbd5"
+    },
+    {
+      "arm": "price_both",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "bb5d85cab03b643ce46b65b9d3b598ac0d90345a24ad6307c6fb13fadf05c1fc"
+    },
+    {
+      "arm": "no_price_both",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "52f0d125c7caaa8aa00a18c8fe69c52abdd508ba6f8a42596451b9ec1f5de0fd"
+    },
+    {
+      "arm": "price_horizon_only",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "2378772075a51f45ce7c15f4566d2eab554259de1dd87aef2bdd45fabe849b99"
+    },
+    {
+      "arm": "price_anchor_only",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "abc3fe5d0d8f7f820d220306c5ce5433e92e186a15c218dd40568471fc8f54d3"
+    },
+    {
+      "arm": "plain_both",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "fd601aa4587ee342f1173066a0dfcfd3eb54f9e27fee3f51ee382fc4f5cf9383"
+    },
+    {
+      "arm": "compact_both",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "7311b25df8f8b57e65810e0d1a0591eaaae77bb4ea6543d0205d7e763403b2ae"
+    },
+    {
+      "arm": "amortized_workload_price24",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "e03d92fbf77957492dff74ade152c077231dcca45d5df26c9619f77cd317c973"
+    },
+    {
+      "arm": "amortized_no_price24",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "4f12f85592925a9bb78fe7067d474efda9dc373dd491a0a32163c660eb46cc93"
+    },
+    {
+      "arm": "plain24_nonpositive",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "a8ba5caf9f3bc38ee4c2731880b7d74e6e493357fa35f9f674710d237ead1216"
+    },
+    {
+      "arm": "shared_congestion_cost",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "4cf5f3133c5c6ae12315abff21970e6fb6a6e0b551ac233938fc9daa76f2a0ae"
+    },
+    {
+      "arm": "shared_no_congestion",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "18717f9e524777238073818dafc9d3a945bf5fcd5fdd9f9c049d34afa86c51b9"
+    },
+    {
+      "arm": "untied_congestion_cost",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "98622251c751b5f2216cd29498551ee36d8c05d64ac9aca620ee287f8599a903"
+    },
+    {
+      "arm": "shared_joint_bound",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "1b9753d5b32c1fcdb953ac8a4c233be306c128ac7fa6c02a92f96d582cf18b57"
+    },
+    {
+      "arm": "additive64_nonpositive",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "bec599e40f5edf8bd46f0e4b81f21202bc621c2d7491d46ad7827a7af7ea4450"
+    },
+    {
+      "arm": "additive128_unbounded",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "8cf572f54238f32af794203c2ad8345bf266258b753f8defbdfe2238ba501162"
+    },
+    {
+      "arm": "emc_q_nonpositive",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "d8e8cb41addc7826847d54a12aa5440c7781fed4ad72cd7f7985bf65da65778a"
+    },
+    {
+      "arm": "bdq64_uniform_adapted",
+      "fit": 3,
+      "training_episodes": 200,
+      "checkpoint_sha256": "94d37053812e0009af21fac5f3394ac95948e6756a189c355394f3b0c0137db0"
+    },
+    {
+      "arm": "price_both",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "6da12372a67f628c242c86b7697a793cfb333ba61b8ed6d4835f034f7fd99661"
+    },
+    {
+      "arm": "no_price_both",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "f3d0f67a5a70f85f0c85221ce283aedd94eb6554a90cf1869ef35478c3f930a8"
+    },
+    {
+      "arm": "price_horizon_only",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "b17684e5edddc2e49e7574bbe5995710b1272f79f7479cfd744035369e3f508b"
+    },
+    {
+      "arm": "price_anchor_only",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "b368c721ea426bea0e21348284675d255a920610aadc0dd52e98d62bb720535e"
+    },
+    {
+      "arm": "plain_both",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "5d64140cc9f072a6daaf87d76243480ae1499d810819935f38f9053c950cc9bc"
+    },
+    {
+      "arm": "compact_both",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "972f492e4d71c910d0c2228b4639f98720461c56b642ed59cab9078affdda0db"
+    },
+    {
+      "arm": "amortized_workload_price24",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "1e2f8bcf6b95d619df391b2cb7411ab9014aade6f449e5299b5371b731f57993"
+    },
+    {
+      "arm": "amortized_no_price24",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "2008b506cee90397cfc55620927b9618878afcf48138cba239db3d253e5efadc"
+    },
+    {
+      "arm": "plain24_nonpositive",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "b61ff965a86590ac762dd1925855679a187706dfc2529d9947bb250590a7f041"
+    },
+    {
+      "arm": "shared_congestion_cost",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "4ff4fd0b74dee979b5be30f9d01b064595a428e3c0557b7aa4fb4d2f9c93306c"
+    },
+    {
+      "arm": "shared_no_congestion",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "9161c2738e671989cc345b15aefb1648862fe3c2f7c601560f0d97e6f484a890"
+    },
+    {
+      "arm": "untied_congestion_cost",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "eba363e3244ca63d4e9c28278784401a0865fcfccc3575112c633259e1e30653"
+    },
+    {
+      "arm": "shared_joint_bound",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "95864085291a939eb6640933f52b3ed13c2734829ffa114d1d884747e312bbf2"
+    },
+    {
+      "arm": "additive64_nonpositive",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "dc49378d19bd0b80e0e200541ead41e7894b1be468a56237679138372c3d64dc"
+    },
+    {
+      "arm": "additive128_unbounded",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "dc11c022f3bdd7578bf2a9fad07855079a0df4adf5d1e0bb0df6739e1f8c9b05"
+    },
+    {
+      "arm": "emc_q_nonpositive",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "f59e86d687416a3c91666728dc2971e5ea6e0e49d34adf6e3aff89eb1b74771b"
+    },
+    {
+      "arm": "bdq64_uniform_adapted",
+      "fit": 4,
+      "training_episodes": 200,
+      "checkpoint_sha256": "6f5d643a27dbffbe66cdb0bc1229a9c5117cfeb3a1853c6cc51992ef6a585e39"
+    }
+  ],
+  "saved_export_diagnostics": [
+    {
+      "arm": "price_both",
+      "fit": 0,
+      "observations": 128,
+      "mismatched_branches": 0,
+      "mismatch_observations": 0,
+      "max_absolute_q_error": 4.76837158203125e-06,
+      "max_core_absolute_error": 1.9073486328125e-06,
+      "mismatches": []
+    },
+    {
+      "arm": "no_price_both",
+      "fit": 0,
+      "observations": 128,
+      "mismatched_branches": 1,
+      "mismatch_observations": 1,
+      "max_absolute_q_error": 7.62939453125e-06,
+      "max_core_absolute_error": 1.430511474609375e-06,
+      "mismatches": [
+        {
+          "observation": 110,
+          "branch": 18,
+          "eager_action": 4,
+          "export_action": 0,
+          "eager_branch_scores": [
+            0.006834309082478285,
+            0.03296462818980217,
+            0.011387135833501816,
+            0.01669415459036827,
+            0.006834303494542837
+          ],
+          "eager_branch_raw": [
+            -1.4803369045257568,
+            0.5237696170806885,
+            -0.898408830165863,
+            -0.4306577444076538,
+            -1.4803378582000732
+          ],
+          "ort_branch_raw": [
+            -1.480337381362915,
+            0.5237696170806885,
+            -0.8984084725379944,
+            -0.4306577444076538,
+            -1.4803372621536255
+          ],
+          "native_action_using_eager_raw": 4,
+          "eager_q": -2.839221477508545,
+          "export_q": -2.839221954345703,
+          "native_scores_using_eager_raw": [
+            0.0068343100138008595,
+            0.03296462818980217,
+            0.011387134902179241,
+            0.01669415459036827,
+            0.006834303494542837
+          ],
+          "native_scores_using_ort_raw": [
+            0.006834306754171848,
+            0.03296462818980217,
+            0.01138713862746954,
+            0.01669415459036827,
+            0.006834306754171848
+          ]
+        }
+      ]
+    }
+  ],
+  "comparisons_available": false,
+  "final_audit_available": false,
+  "heldout_event_present": false,
+  "new_simulator_steps": 0,
+  "optimizer_updates": 0,
+  "research_relaunched": false,
+  "thesis_changed": false
+}

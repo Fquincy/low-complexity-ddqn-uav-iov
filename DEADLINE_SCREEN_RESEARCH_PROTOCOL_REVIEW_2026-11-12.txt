@@ -1,0 +1,93 @@
+DEADLINE SCREEN: PROSPECTIVE DEVELOPMENT PROTOCOL FREEZE
+Date: November 12, 2026
+
+OUTCOME
+The eleven-controller/three-heuristic comparison now has a prospective
+development budget, fresh seed reservation, optimizer schedule and explicit
+decision rules. No controller, simulator, optimizer or research run executed.
+The comparison definitions and historical failed runs remain unchanged.
+
+BUDGET
+11 learned controllers x 5 initializations x 200 episodes x 40 slots:
+440,000 training slots; 55 final checkpoints; 383,735 optimizer updates;
+1,870 target copies. Each fit gets 8,000 slots. No best-fit selection,
+intermediate research checkpoints, budget extension or early policy stopping.
+Evaluation: same 48 new tasks for every fit/controller, plus each heuristic
+once per task: 2,784 evaluation episodes / 111,360 simulator slots.
+
+PAIRED SEEDS
+Models: 71001,71011,71017,71023,71039.
+Training: 710000000,711000000,712000000,713000000,714000000 starts,
+each a consecutive 200-task block. Evaluation: 720000000..720000047.
+Action/replay/anchor RNG offsets: 100000/200000/300000.
+Order/bootstrap/timing: 720600001/720600002/723600003.
+The local saved-run metadata/header and declaration audit found no collisions
+in its checked scope. Its roots, counts, file list, errors and limitations
+are preserved. This is not proof about external or unlogged runs; refresh
+before launch. Protected historical final reservations are not used.
+
+TRAINING RULES
+Same existing simulator/configuration, rewards, features and model definitions.
+Adam1e-4, gamma1, batch128, replay50000, warmup1024, clip10, target200 updates.
+Epsilon1 during warmup, then 1-.95*min(slot_before_action/8000,1).
+Each slot consumes one epsilon uniform and32 branch uniforms in every arm.
+Screening applies consistently to behavior and online next-action selection.
+Target evaluates that selected action; terminal target is reward only.
+Anchored arms retain32 terminal samples and unit anchor weight per update.
+Adapted BDQ retains branchwise Huber; no scalar-mean loss substitution.
+
+PROSPECTIVE PASS RULES: ALL FIVE INITIALIZATIONS
+Reference controls: primary paired episode mean return difference >=-2,
+deadline difference >=-.01 against all eight declared reference controls.
+Nearest-RSU and UAV-selective: both differences >=0 per initialization.
+All-local remains a reported diagnostic floor, not an acceptance reference.
+
+Screening, price, and same-width architecture comparisons: each fit must
+have return/deadline differences >=0. Each equally weighted five-fit mean
+must improve return by >=2 and deadline fraction by >=.01. The architecture
+comparison changes more than price and is not a single-factor ablation.
+The mechanism margins reuse the earlier price-effect standard; applying
+them to screening/architecture is explicit and prospective, not evidence
+that these improvements will occur. Auxiliary contrasts remain reported.
+
+Primary value consistency per fit: normalized RMSE<=.25, absolute bias<=2,
+near-zero-Q/large-return fraction<=.05, terminal abs-error p95<=2; finite
+values/gradients everywhere and nonpositive primary Q. All arms' value,
+target, return residual and gradient distributions must be reported by time
+and terminal/nonterminal status. Realized returns are not exact Q-star labels.
+
+Primary cost per fit: online FP32 payload<=half original compact64;
+median complete action latency<=both screened and unmasked wide128;
+p95<=1ms. Same fixed128 engineering observations,5rounds,32warmups and
+128timed calls/path/round, all55checkpoints:35,200 raw timing readings.
+Use original PyTorch FP32 cores/native decoders; no ONNX conversion or
+deliberately slow baseline. Report buffers/artifact sizes/startup separately.
+
+All required integrity, policy, mechanism, value and cost gates must pass.
+No dropped fits, favorable retiming, model changes or retrospective margins.
+Report 5,000-draw paired crossed-bootstrap descriptive intervals; these do
+not constitute final confirmation or multiplicity-adjusted superiority.
+
+ENGINEERING STILL REQUIRED
+Repair or replace the incomplete Python environment through a versioned
+environment setup; live parameter/buffer counts remain to be confirmed.
+Implement the research runner and independent auditor in new files, with
+unmasked runtime paths and original compact64. Unmasked/heuristic actions
+must not be required to belong to the screened set. Heuristics must run in
+the V2 environment using unchanged destination rules and hover, not the old
+V1 evaluate_policy helper. This clarifies adapter wiring, not policy changes.
+
+Run the same complete orchestration on isolated fixture seeds99921/99929,
+two40-slot training episodes/fit. It is 1,760 training slots and2,000 evaluation
+slots,1,606 updates,198copies; no quality inference or tuning. Test confirmation
+guards, exact eager/runtime behavior, comparisons, freeze stages, artifact
+audit, duplicate/missing files and deliberate corruption rejection.
+Freeze executable sources/environment and refresh the seed audit before a
+separate explicit research launch decision. This document is not a launcher.
+
+CLAIM AND SCOPE
+The goal remains a measured low-complexity DDQN improvement in UAV-IoV
+offloading. A development pass only permits reviewing independent final
+confirmation. Masking alone is established; broader related-work comparison
+and supervisor discussion are still open. Cloud/charging excluded, security
+deferred. Existing final seeds and Word thesis remain untouched.

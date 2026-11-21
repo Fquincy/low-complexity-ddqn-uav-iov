@@ -1,0 +1,34 @@
+{
+  "state": "passed_compatibility_artifact_audit",
+  "cost_gate": "compatibility_cost_passed",
+  "complete_actions_replayed": 6336,
+  "timing_records_recomputed": 14080,
+  "regression_reproduced": true,
+  "fixed_routes_verified": true,
+  "principal_references_same_native_treatment": true,
+  "historical_v2_graphs_unchanged": 12,
+  "manifest_entries": 106,
+  "prior_artifacts_preserved": 92,
+  "vectors_sha256": "4336fa9b39b50da2ea1be70a4a13defdfcf92a7945421905386e43b9929b018a",
+  "new_simulator_steps": 0,
+  "optimizer_updates": 0,
+  "research_training_started": false,
+  "scope": {
+    "excluded": true,
+    "active_source_paths": [
+      "Source/chapter3_iov_env.py",
+      "Source/chapter3_iov_env_v2.py",
+      "controller_redesign_v2.py"
+    ],
+    "execution_destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "cloud_nodes": 0,
+    "charging_stations": 0,
+    "security_trust_enabled": false
+  }
+}

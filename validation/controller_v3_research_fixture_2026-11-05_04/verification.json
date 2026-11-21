@@ -1,0 +1,126 @@
+{
+  "state": "completed_synthetic_full_fixture_not_research",
+  "run_kind": "SYNTHETIC_NOT_RESEARCH",
+  "fixture": true,
+  "checkpoint_count": 11,
+  "counts": {
+    "amortized_workload_price24_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "shared_joint_bound_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "additive64_nonpositive_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "emc_q_nonpositive_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "amortized_no_price24_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "bdq64_uniform_adapted_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "untied_congestion_cost_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "plain24_nonpositive_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "shared_congestion_cost_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "additive128_unbounded_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    },
+    "shared_no_congestion_fit_00": {
+      "slots": 40,
+      "updates": 33,
+      "target_copies": 4,
+      "checkpoints": 1,
+      "optimizer_rows": 33,
+      "model_seed": 99131,
+      "train_seed_start": 991310000
+    }
+  },
+  "training_slots": 440,
+  "optimizer_updates": 363,
+  "target_copies": 44,
+  "checkpoints_frozen_before_evaluation": true,
+  "heldout_evaluation_seeds": [
+    991310100
+  ],
+  "frozen_checkpoint_inference_screens": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "frozen_checkpoint_inference_all_fit_screens_pass": true,
+  "research_training_launched": false,
+  "policy_quality_claim": false,
+  "thesis_changed": false,
+  "all_failed_fits_retained": true
+}

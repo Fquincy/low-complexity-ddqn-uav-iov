@@ -1,0 +1,7 @@
+{
+  "status": "PILOT_AUDITED_COMPLETE",
+  "kind": "EXPLORATORY_PAIRED_DEVELOPMENT",
+  "audit_passed": true,
+  "manifest_sha256": "a78483a0f12188d17acbcca2fcf8cd563e3a901aa6169bd6a09eb8fbefb73ca0",
+  "research_launch_authorized": false
+}

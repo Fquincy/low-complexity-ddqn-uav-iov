@@ -1,0 +1,13 @@
+{
+  "status": "AUDITED_COMPLETE",
+  "mode": "fixture",
+  "run_manifest_sha256": "2fdc7d86410101c22f1c346c62e570fe7bf7effd7acbdd78c549101b03945461",
+  "run_path": "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\validation\\assignment_price_research_binding_2026-11-15_01\\fixture_evidence",
+  "heuristic_cost_reported": true,
+  "all_saved_artifacts_audited": true,
+  "word_thesis_changed": false,
+  "final_phase_launched": false,
+  "no_new_simulator_steps": true,
+  "no_optimizer_steps": true,
+  "no_retiming": true
+}

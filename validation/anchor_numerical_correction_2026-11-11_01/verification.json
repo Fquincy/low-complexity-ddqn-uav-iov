@@ -1,0 +1,18 @@
+{
+  "state": "candidate_failed_exact_equivalence_no_timing",
+  "models_checked": 85,
+  "observations_per_model": 128,
+  "model_observation_checks": 10880,
+  "candidate_failed_models": 1,
+  "baseline_failed_models": 1,
+  "all_candidate_actions_and_values_pass": false,
+  "near_tie_baseline_regression_reproduced": true,
+  "near_tie_candidate_pass": false,
+  "cost_measured": false,
+  "new_simulator_slots": 0,
+  "optimizer_updates": 0,
+  "heldout_evaluation_started": false,
+  "original_run_modified": false,
+  "research_launched": false,
+  "word_thesis_changed": false
+}

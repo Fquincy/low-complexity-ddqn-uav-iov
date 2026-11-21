@@ -1,0 +1,3 @@
+# Choose an official CPU/CUDA PyTorch build appropriate for your host.
+-r requirements-simulator.txt
+torch>=2.4,<3

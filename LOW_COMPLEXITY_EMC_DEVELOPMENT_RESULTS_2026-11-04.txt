@@ -1,0 +1,93 @@
+EMC-Q DEVELOPMENT SCREEN RESULTS
+Date: November 4, 2026
+Run: validation/emc_tradeoff_development_2026-11-04_01
+Status: completed; saved-artifact audit passed; frozen quality screen failed.
+
+RUN COMPLETION
+All nine model runs followed the frozen 200-episode schedule. Each completed
+8,000 physical slots, 6,977 optimizer updates, and 34 target-network copies.
+Totals were 72,000 training slots, 62,793 updates and 306 copies. Final
+episode-200 checkpoints were frozen and hashed before fresh evaluation; no
+best-checkpoint selection, retuning, retry or extension occurred.
+
+AUDIT
+The independent read-only auditor passed. It checked 1,800 training episodes,
+225 scheduled validation episodes, 432 learned-model fresh episodes, 144
+heuristic episodes and 8 fixed-probe episodes. It checked 62,793 optimizer
+records, all nine checkpoint hashes, 3,728 run-manifest entries, paired task
+workloads, reward/task/energy accounting, timing, and the predeclared analysis.
+The audit added zero simulation steps and zero optimizer updates.
+
+PREDECLARED QUALITY SCREEN: FAILED
+Every EMC initialization (seeds2309,2333,2351) failed at least one frozen
+quality screen. Paired mean differences are EMC minus comparator over the same
+48 fresh episodes; deadline deltas are fractions (0.01 equals one percentage
+point).
+
+Seed2309:
+- Versus additive128: return -17.13, deadline -0.0598.
+- Versus additive64: return -29.71, deadline -0.0961.
+- Versus nearest-RSU: return -46.55, deadline -0.1289.
+- Versus UAV-selective: return -49.43, deadline -0.1778.
+
+Seed2333:
+- Versus additive128: return +5.23, deadline +0.0612.
+- Versus additive64: return -14.94, deadline -0.0158.
+- Versus nearest-RSU: return -19.48, deadline -0.0469.
+- Versus UAV-selective: return -22.37, deadline -0.0958.
+
+Seed2351:
+- Versus additive128: return +6.79, deadline +0.0015.
+- Versus additive64: return -5.30, deadline -0.0393.
+- Versus nearest-RSU: return -17.58, deadline -0.0719.
+- Versus UAV-selective: return -20.47, deadline -0.1208.
+
+Thus EMC failed the required additive64 and both heuristic comparisons for
+all three fitted initializations. It also failed the additive128 margin for
+seed2309. The development analysis contains 2,000-draw paired episode
+bootstrap intervals for each comparison. They condition on the fitted models
+and do not measure uncertainty across training initializations.
+
+VALUE CALIBRATION
+All three architectures returned a positive greedy Q value on 100% of the
+fixed probe states (frozen limit5%). Terminal absolute Q-error p95 was:
+
+- EMC-Q: 57.75, 46.98, 65.32 for seeds2309,2333,2351 (limit10).
+- Additive128: 88.27, 82.74, 43.88.
+- Additive64: 46.60, 27.77, 78.95.
+
+The shared calibration failure across all arms indicates that the frozen
+training/reward setup did not yield well-calibrated return estimates. It does
+not establish which training component caused the failure. The action-value
+screen is diagnostic and cannot replace policy return and deadline outcomes.
+
+COST SCREEN
+EMC-Q retained its predeclared storage advantage versus additive128:
+277,444 online parameter bytes, 65.7% of additive128's 422,016 bytes, meeting
+the 70% cap. Its medians across the three fitted models were 0.2916, 0.2954,
+and 0.2937ms; p95 values were 0.3487, 0.3496, and 0.3510ms. It met the local
+5x median-ratio and 2.0ms p95 ceilings, while remaining slower than the
+additive networks. This is machine-specific CPU timing only.
+
+CONCLUSION
+This run does not support the proposed claim that EMC-Q preserves the selected
+return and deadline performance while reducing storage. The frozen screen is
+failed even though the parameter-storage and local timing ceilings pass.
+It does not establish low complexity, noninferiority, novelty, or deployment
+readiness. The result is retained as a completed negative development result;
+the protocol, thresholds, seeds, run records and checkpoints remain unchanged.
+
+No follow-up model was trained from these outcomes. Before a new experiment,
+diagnose the common value overestimation from saved learning and validation
+records and decide whether the thesis claim or model objective must change.
+Any follow-up must receive a new predeclared design and disjoint seeds. Do not
+reuse this fresh gate to retune or select checkpoints.
+
+ARTIFACTS
+Runner result: validation/emc_tradeoff_development_2026-11-04_01/verification.json
+Frozen per-seed screens/bootstrap: validation/emc_tradeoff_development_2026-11-04_01/development_analysis.json
+Read-only audit: validation/emc_tradeoff_development_2026-11-04_01/saved_artifact_audit.json
+Checkpoint hashes: validation/emc_tradeoff_development_2026-11-04_01/FRESH_GATE_FREEZE.json
+Full run manifest: validation/emc_tradeoff_development_2026-11-04_01/run_manifest.json
+Runner and protocol review: LOW_COMPLEXITY_EMC_DEVELOPMENT_RUNNER_REVIEW_2026-11-04.txt
+Word thesis unchanged.

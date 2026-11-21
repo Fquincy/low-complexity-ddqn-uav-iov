@@ -1,0 +1,123 @@
+ASSIGNMENT-DEPENDENT PRICE: CPU DEPLOYMENT ENGINEERING REVIEW
+Date: 2026-11-15
+
+DECISION
+PASS the frozen engineering cost screens against the existing reference
+runtime paths in both engineering initializations. Five equivalence/validation
+test groups and the independent saved-artifact audit passed. No simulator or
+research training was run. This clears a specific implementation cost obstacle;
+it does not establish the thesis contribution, policy quality or novelty.
+Before simulator integration, test similarly compiled reference paths and
+repeat the paired comparison under a separately frozen deployment protocol.
+Do not attribute an architecture advantage to different runtime compilers.
+
+WHY THIS IMPLEMENTATION
+Diagnostic profiling of the previous optimized route: 128 calls after 32
+warmups on the original saved engineering checkpoint. Total instrumented time
+0.029 s, module execution 0.017 s, tensor-to-NumPy conversions about 0.002 s,
+native evaluation about 0.002 s. The remaining dominant measured region is
+the scripted module path, not the coordinate sweep. These are instrumented
+profile durations, not acceptance timings or a benchmark speedup denominator.
+
+assignment_price_deployment_runtime.py moves the same neural network/head
+equations into a CPU ONNX graph. FP32 neural/head arithmetic and FP64 head
+outputs/coupled costs remain. Native code forms FP32 service workloads and
+uses expm1 directly for pending work before FP64 conversion; it does not
+replace expm1 with exp-minus-one. It reuses the prior validation/mask and
+exact same native coordinate decoder, including stable vehicle order, retained
+old-action ties, one fixed sweep, nonincrease check and selected full cost.
+All four arms are supported. No training-model, reward, optimizer, threshold,
+mask equation, tie rule or DDQN objective was changed. This is an immutable
+exported snapshot requiring reconstruction after training weight changes.
+The route combines graph heads and native decoder; it is not one monolithic
+graph or a new optimal scheduler.
+
+CORRECTNESS EVIDENCE
+First four test groups passed; a separate extended test run passed all five.
+Both reports and source versions are preserved. The extension checks the
+specific near-zero and near-tie numerical risk of this execution backend.
+- Four arms x two saved untrained checkpoints x 128 shared states = 1,024
+  checks: exact action equality, head comparisons at rtol 1e-5/atol 1e-7,
+  selected values at existing rtol 1e-5/atol 1e-6, unchanged source weights.
+- 500 randomized and adjacent-FP32 mask-boundary/horizon checks against the
+  original validation path.
+- Nonfinite, terminal/off-grid, malformed task/workload and wrong shape/dtype
+  rejections, plus noncontiguous valid inputs.
+- Equal heads, returned-array ownership and snapshot independence from later
+  mutation of source model weights.
+- Adjacent-FP32 neural biases with zero, subnormal, tiny and larger queues:
+  action equality and unchanged selected-value tolerance.
+The old decoder retains its independent coordinate oracle and suboptimal
+counterexample. Across graph/PyTorch backends, head values are numerically
+close, not promised bitwise identical. Exact action equivalence is observed
+on these fixtures, not proven on every possible near tie or learned model.
+Trained checkpoint exports will need the same verification gates later.
+
+ONE PROSPECTIVE PAIRED BENCHMARK
+Plan saved before setup and timing; graph/checkpoint/order freeze saved before
+timing. No acceptance timing was repeated for this implementation version.
+Same original engineering checkpoints/seeds 99861 and 99869; no research seeds.
+24 paths: four new graph/native paths, four prior scripted prototype paths,
+four frozen original reference paths, each at two initializations. Same 128
+observations, five rounds, 32 warmups/path/round and 640 readings/path; 15,360
+raw readings. Random order seed 99899. All 3,072 setup equivalence checks passed.
+Full Runtime.values(state)[0][0].copy() measured, including validation, heads,
+mask, decode, selected Q and output copy. CPU graph and framework threads one.
+
+Path                            Fit   Median ms    p95 ms
+New coupled_sweep graph/native    0      0.078200    0.148100
+Prior coupled_sweep scripted     0      0.334200    0.708970
+New coupled_sweep graph/native    1      0.080100    0.120520
+Prior coupled_sweep scripted     1      0.252800    0.601125
+Unmasked wide128 original route  0      0.127800    0.226995
+Unmasked wide128 original route  1      0.128850    0.430525
+
+Same-session scripted/new median ratios 4.27 and 3.16. Both fits also pass
+median <= each screened/unmasked wide reference, p95 <= 1 ms, and parameter
+payload <= half compact64. Complete values for every path/fit are preserved
+in cost_summary.json, including screened-wide results. Prior failed benchmark
+results remain intact; no cross-session timing is substituted for this pair.
+
+Storage: 68,264 FP32 parameter bytes plus 20 scale-buffer bytes; compact64
+194,944 parameter bytes. Primary serialized ONNX heads 74,164 bytes each.
+The graph stores the four neural tensors; the 20-byte scale remains external
+to that graph and is copied from the preserved original checkpoint. Shared
+runtime code/libraries, transient workspace and actual peak process memory
+are excluded. Constructor/first action shares process/import caches; no claim
+about fresh-process deployment cold start. Graph size is not total deployment
+memory. Export warnings and actual versions are preserved in the evidence.
+
+INDEPENDENT AUDIT
+audit_assignment_price_deployment_runtime.py passed: manifest and original
+test/cost integrity, tested/current sources, sixteen checkpoint hashes, eight
+graph hashes and ONNX validity. Every FP32 graph initializer equals its source
+checkpoint tensor exactly. Payload and serialized sizes checked separately.
+Independent Python statistics/interpolation reproduced all 15,360 raw timing
+records, randomized order, medians/p95 and all screens. Execution-equivalence
+counts are recorded tests; the auditor does not claim to rerun them. No new
+timing, model updates or simulator steps were used for the audit.
+
+INTERPRETATION AND NEXT GATE
+There is now a small, fast engineering implementation of this proposed
+mechanism against the frozen reference routes. The compared wide references
+still execute their previous PyTorch/native route, whereas the new candidate
+uses ONNX/native. This is useful implementation evidence but not a controlled
+architecture-efficiency result. Apply the same compilation opportunity to
+relevant references, verify action/value equivalence (especially near ties),
+predeclare a single matched deployment comparison and audit its storage/full
+latency results. Keep failed gates; do not weaken limits or select a favorable
+initialization. No additional timing is authorized by this report itself.
+
+Only after that engineering review should a temporary simulator fixture be
+prepared. Then a prospective research protocol, fresh development seeds and
+separate explicit research launch decision are required. Return/deadlines,
+training/value stability, learned-price and sweep ablations and exact novelty
+overlap remain open. No thesis claim revision or final phase is justified yet.
+Word thesis and reserved final evaluation seeds remain unchanged. Security/
+trust, cloud and charging remain outside contribution one's current branch.
+
+EVIDENCE
+validation/assignment_price_fused_2026-11-15_01/profile.txt
+validation/assignment_price_fused_2026-11-15_01/extended_tests/tests_extended.json
+validation/assignment_price_fused_2026-11-15_01/cost_gate/
+validation/assignment_price_fused_2026-11-15_01/independent_audit.json

@@ -1,0 +1,8 @@
+{
+  "state": "failed",
+  "tests_run": 9,
+  "runner_sha256": "fd29262b698ed8de054548a5333a434f3eff69f7bb8975cccd74938a8d6b77a1",
+  "synthetic_optimizer_updates": 219,
+  "physical_evaluation_steps": 120,
+  "pilot_launched": false
+}

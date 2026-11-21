@@ -1,0 +1,22 @@
+{
+  "state": "equivalence_passed_timing_completed",
+  "checks": 1792,
+  "timing_rows": 8960,
+  "screens": [
+    {
+      "fit": 0,
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    {
+      "fit": 1,
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  ],
+  "new_simulator_slots": 0,
+  "new_optimizer_updates": 0,
+  "research_launched": false
+}

@@ -1,0 +1,9 @@
+{
+  "checkpoints": {
+    "teacher_bc_then_ddqn/1": "c93cfd9c7ba7d368ff1b7c13f564fe8641caa2c08110d6ab4d6778ea61ef913e",
+    "teacher_bc_then_ddqn/0": "8f9f2eab106e4e3a7b28b88affdd10dbf63701650b9639a54e6e894f83f8e4a0",
+    "common_demo_no_bc/0": "21c8d537cfc6cc3f36f67998ba7f52a1415c7fa5300ddd3c3fd2981a9c7175ef",
+    "common_demo_no_bc/1": "55f78827daefa8e297beca461a82eb3923e54e92efbe980723356f215d33cd3b"
+  },
+  "job_count": 4
+}

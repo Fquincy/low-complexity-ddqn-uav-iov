@@ -1,0 +1,138 @@
+ADP-DDQN: PROSPECTIVE RESEARCH COMPARISON DESIGN FREEZE
+Date: 2026-11-15
+
+DECISION
+The comparison design and fresh local seed declarations are frozen and pass
+independent design checks. Implementation and launch remain DISABLED. This is
+a concrete prospective specification, not research readiness or novelty proof.
+No simulator steps, optimizer updates or acceptance timings occurred here.
+
+FROZEN SCOPE AND QUESTION
+Primary coupled_sweep: compact learned assignment-dependent workload potential
+with fixed one-pass coordinate decoder, DDQN online approximate selection and
+same-action target evaluation, original-unit Huber plus terminal anchoring.
+Retain 533 observed features, 30 vehicles, five destinations, two motion
+branches, horizon40, original simulator/reward and FP32 heads/FP64 scalar route.
+Security/trust deferred; cloud/charging excluded. Word thesis untouched.
+
+FIFTEEN LEARNED CONTROLLERS
+New: coupled_sweep, coupled_no_sweep, separable64, fixed_price_plain_sweep.
+All eleven original-loss controls retained, with exact existing definitions:
+screened_price24, unmasked_price24, screened_no_price24,
+screened_plain24_anchored, screened_compact64_anchored,
+screened_plain24, unmasked_plain24, screened_wide128, unmasked_wide128,
+screened_bdq64, unmasked_compact64. No normalized-loss branch is reopened.
+Original controls are newly trained on the same declared tasks/model seeds;
+old consumed checkpoints are not substituted as fresh research results.
+
+Four heuristics: nearest_rsu, uav_selective, observed_load_radio and all_local.
+The first three are required strong-heuristic comparisons; all_local diagnostic.
+The new observed-load/radio heuristic has a separately frozen complete surrogate
+and deterministic initialization/sweep in its design note. It uses the same
+encoded workload/radio/position information and public simulator constants,
+assignment-dependent interference and CPU load. It is approximate and holds
+UAV motion fixed; it is not an exact delay oracle or optimal scheduler.
+It must be implemented/tested before launch, not silently omitted or replaced.
+
+MANDATORY CONTRASTS AND THRESHOLDS
+Primary versus coupled_no_sweep: sweep within coupled critic.
+Primary versus separable64: coupled objective and selection together.
+Primary versus fixed_price_plain_sweep: learned versus fixed workload prices.
+Each must have nonnegative return/deadline difference in EVERY initialization,
+equal-initialization mean >= +2 return and >= +1 percentage point deadline.
+Report precision-route and original screening auxiliary contrasts separately.
+Primary versus every original learned reference: return >= -2 and deadline
+fraction >= -.01 in every initialization. Strong heuristics: >=0 in both
+endpoints every initialization. No best-fit selection or dropping failed fits.
+All comparisons, including all-local, reported even when not acceptance gates.
+
+Unchanged primary value limits from the preceding prospective protocol:
+normalized own-policy realized-return RMSE <= .25; absolute bias <=2;
+near-zero-Q/large-return fraction <=.05; terminal absolute-error p95 <=2;
+primary positive-Q fraction zero. Report all/terminal/nonterminal/time-bin Q,
+target, realized return, errors, Bellman/TD and gradient/anchor distributions
+for ALL arms; finite learning values required. These are realized-trajectory
+consistency diagnostics, not optimal-Q ground truth. Comparator calibration
+failure never excuses primary calibration failure.
+
+Unchanged cost limits each fit: <= half unmasked_compact64 parameter payload,
+median complete action latency <= EACH screened/unmasked wide128 reference,
+p95 <=1ms. Use matched ONNX CPU/neural and native decoder optimization for all
+arms, including the original controls not yet covered by current adapters.
+No deliberately slower reference route. Freeze all final checkpoints and
+exports, verify actions/values, then time once before policy-quality evaluation.
+75 paths x five rounds x128 calls =48,000 raw readings, plus32 warmups/path/
+round. Include validation, masks, neural/head/decode work, chosen Q and action
+copy. Record graph serialization, parameter/buffer payload, training/target/
+optimizer/replay costs and startup scope separately. True fresh-process startup
+is a declared reporting requirement, not inferred from shared-process records.
+Actual peak memory is not established by tensor payload. No retiming to pass.
+
+DEVELOPMENT BUDGET AND SEEDS
+5 model seeds: 87301,87311,87317,87323,87331.
+5 disjoint 200-episode training blocks start at
+873000000,873100000,873200000,873300000,873400000.
+48 evaluation episodes: 874000000..874000047; shared paired across arms/fits.
+Order/timing/bootstrap seeds: 875000001,875000003,875000007.
+Action/replay/anchor RNG offsets +100000/+200000/+300000 retained and audited.
+Original optimizer, warmup1024, batch128, replay50000, target copy200 updates,
+200 episodes x40 slots per arm/fit. No reward/optimizer/threshold changes from
+fixture outcomes. Retain final checkpoints only, no outcome-driven early stop.
+
+15 x5 x8000 =600,000 training slots, 523,275 optimizer updates, 2,550 target
+copies and75 final checkpoints. 3,600 learned plus192 heuristic evaluation
+episodes =151,680 evaluation slots. Total22,550,400 generated task records.
+Equal slots do not imply equal training compute; measured costs are required.
+This is a larger declared comparison because it retains all eleven controls
+plus four new arms; it is not the old 560,000-slot experiment being continued.
+
+SEED AND FREEZE CHECKS
+New integer seeds, RNG offsets and task intervals were checked for collisions
+with root protocol/spec/amendment/release declaration documents (and each
+other). Audit passes. This is a local declaration check, not an exhaustive scan
+of every historical trace. Existing final model/train/evaluation reservations
+are copied unchanged and remain unconsumed. Refresh declaration/source/actual
+run checks before launch. Reservations do not authorize execution.
+Source/model definitions, simulator defaults, heuristic/literature notes and
+protocol are hashed/snapshotted. SHA256 protocol:
+6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef
+
+INDEPENDENT VERIFICATION
+Two test groups pass: complete protocol arithmetic/definitions/retained
+thresholds/final reservations/source hashes; rejection of mutated budget,
+median threshold, launch authorization or final evaluation declaration.
+Checks reproduce600000/151680 slots,523275 updates,2550 copies,75 checkpoints
+and48000 timing rows. Frozen design sources verified. No execution is implied.
+
+LITERATURE POSITION
+The saved full-text review confirms overlap for DDQN+masking (2407.19657),
+action branching (1711.08946), vehicular congestion scheduling (2404.07215),
+hierarchical resource-aware selection (2507.05722) and complexity discussions.
+Proposed learned assignment-dependent potential plus bounded approximate joint
+selection remains a specific testable hypothesis, not established novelty.
+Quadratic potentials/marginal allocation/coordinate descent are known tools.
+No live literature retrieval was performed in this stage. Exact mechanism
+overlap and unavailable domain full texts remain unresolved; the positioning
+note explicitly names those limits. No first-of-kind claim is warranted.
+
+NEXT ENGINEERING GATE
+Implement/test the observed-state load/radio heuristic; expand matched CPU
+deployment to all eleven original controls (including BDQ, plain and anchored
+compact variants); bind a research runner and auditor to THIS protocol and
+require exact source/seed/plan checks. The current eight-arm fixture runner
+does not implement this full research comparison and cannot launch it.
+Test the expanded orchestration/auditor on a separate tiny engineering plan,
+including every controller, comparisons, value distributions, freeze/export/
+timing/storage and tamper rejection. Test development confirmation and final
+mode lock before outputs/seeds. Preserve fixture failures and correct
+infrastructure without tuning controllers from fixture outcomes.
+Complete specific literature overlap work, then perform a separate launch
+readiness review and explicit user launch decision. No supervisor availability
+dependency is introduced for these technical tasks. Thesis/contribution claims
+await fresh evidence and a defensible precise novelty statement.
+
+FILES
+ASSIGNMENT_PRICE_RESEARCH_PROTOCOL_2026-11-15.json
+ASSIGNMENT_PRICE_OBSERVED_LOAD_HEURISTIC_2026-11-15.txt
+ASSIGNMENT_PRICE_LITERATURE_POSITION_2026-11-15.txt
+validation/assignment_price_research_freeze_2026-11-15_01/

@@ -1,0 +1,195 @@
+PROSPECTIVE CLAIM AND VALIDATION RATIONALE
+2026-11-19 | Contribution one: efficient DDQN offloading in UAV-IoV
+Status: RATIONALE COMPLETE; candidate/protocol/research launch NOT released.
+
+DECISION
+Retain the approved research problem and the goal of an implemented controller
+improvement. Assess storage-efficient DDQN with explicitly measured policy and
+latency tradeoffs as a prospective claim, rather than promising simultaneous
+dominance on every axis. This recommendation does not revise the thesis title,
+approve a weaker success rule or convert any completed failure into a pass.
+The original combined low-complexity requirement remains unmet.
+
+1. DEPLOYMENT NEED AND CLAIM BOUNDARY
+The system makes joint destination and UAV-movement decisions repeatedly from
+current task, link/location and compressed queue information. A small online
+critic can reduce persistent parameter payload, while feature extraction and
+decoding can consume the saved computation. Both costs matter. The current
+project has no verified target UAV memory budget, controller scheduling budget
+or hardware energy measurements. Do not invent these requirements from laptop
+benchmarks or claim that a small parameter array solves a demonstrated memory
+shortage. A 40-slot horizon is not an inference deadline specification.
+
+Prospective claim template, conditional on future evidence:
+  An implemented [precisely named mechanism] improves [specified offloading
+  policy outcome] over an equally informed same-size DDQN, using fewer online
+  parameter bytes than named larger references, with complete action-selection
+  cost and any policy/cost sacrifices explicitly quantified.
+The blanks are unresolved; this sentence is not a present results claim.
+If the same-size comparison does not establish a useful mechanism, shrinking
+a standard DDQN alone is not the proposed algorithmic contribution.
+
+Two distinct claim tracks must not be mixed:
+A. Original joint efficiency target: lower storage, faster complete decisions,
+   competitive return/deadlines and the frozen stability/mechanism conditions.
+   No release: this remains failed/unmet under completed protocols.
+B. Prospective tradeoff target: demonstrated storage reduction and a useful
+   mechanism, with policy/runtime differences disclosed against ALL relevant
+   controls. This could support a narrower measured contribution only after
+   scientific justification, fresh validation and a novelty assessment.
+No candidate, including parked AR24, is selected by this rationale.
+
+2. MEASUREMENTS AND ESTIMANDS
+Policy: episode return and deadline success under unchanged task accounting,
+including unfinished tasks. Give absolute outcomes and paired differences
+for each initialization; distinguish percentage points from relative change.
+Let DeltaR=R_candidate-R_control and DeltaD=D_candidate-D_control on matched
+task blocks. Higher is better. Do not exchange deadline losses for return
+gains through a new utility function fitted to consumed results.
+
+Persistent cost: separately record online parameter bytes, required buffers,
+serialized deployment files and peak resident deployment memory if measured.
+State dependencies/shared libraries and measurement scope. Report target
+critic, optimizer/replay and training resources separately. Smaller FP32
+parameter payload is not proof of smaller process memory or energy use.
+
+Action cost: observation validation, all state-dependent features, neural
+forward, masking, decoding and final action checks within one timed boundary.
+No per-observation work may be cached outside that boundary to obtain a pass.
+Match precision, threads, hardware, warmup and backend opportunities; randomize
+measurement order, retain raw samples, report median/p95 and startup separately.
+Use both screened and unmasked references for relevant speed claims. Report
+speedup only for a matched session. Synthetic cost is not trained-policy cost
+or evidence about real UAV hardware. Verify the actual evaluated deployment
+policy; export discrepancies must be resolved or disclosed before claiming
+equivalent deployment. Tolerances are fixed before acceptance measurements.
+
+3. MARGINS: WHAT IS AND IS NOT JUSTIFIED
+No deployment-derived policy-loss allowance or latency budget is currently
+established. Consequently this rationale does NOT set a new convenient pass
+threshold. Historical -2 return/-1 deadline-point margins, 70% storage caps
+or 1ms p95 limits do not become independently justified merely by reuse.
+Historical thresholds remain binding for their own completed experiments.
+
+If no defensible loss allowance is available, the prospective default is to
+claim an improvement only where paired evidence supports no degradation in
+both policy outcomes and a positive effect in the specifically claimed one.
+Zero-loss is a conservative claim boundary, not a promise it can be certified
+with five fits. A tradeoff can be reported descriptively without calling it
+acceptable, noninferior or Pareto-optimal. Pareto-optimality cannot be inferred
+from comparison with only the finite tested controller set.
+
+Before a future freeze, justify any nonzero margins using an explicit service
+requirement or independent domain evidence. If none can be justified, retain
+descriptive tradeoffs or the conservative boundary; do not backsolve a margin
+from ADP's approximately 2.201-point deficit against observed-load/radio.
+Similarly, parameter reduction must be reported exactly; practical importance
+requires context rather than an invented memory constraint.
+
+4. INITIALIZATIONS, TASKS AND INFERENCE
+Training initialization and workload randomness are separate uncertainty
+sources. Preserve all fitted models, failures and paired task blocks. Episodes
+sharing a fitted controller are not independent training replications.
+Report per-fit paired differences and across-initialization spread; a paired
+episode bootstrap conditional on fixed fits cannot certify seed robustness.
+Use a predeclared hierarchical/cluster-aware interval or an explicitly limited
+descriptive analysis. Choose replication/sample size and multiplicity handling
+before fresh results; five fits alone do not guarantee precise noninferiority.
+If claiming simultaneous success over multiple comparators/endpoints, declare
+the joint decision procedure. Do not replace an every-fit historical rule
+retrospectively with an across-fit mean or select a passing initialization.
+New development seeds require collision checks. Final model/task reservations
+remain untouched until a separately authorized final protocol and launch.
+
+5. VALUE STABILITY AND DDQN VALIDITY
+The implementation must use a detached semigradient target:
+  y = r + gamma*(1-done)*Q_target(s_next, decode(Q_online,s_next)).
+The decoder, mask, approximate-greedy scope, terminal handling and same-action
+critic evaluation must be explicitly specified. A single coordinate sweep is
+not an exact global argmax. Any learned state-action representation must receive
+the intended training gradient; target parameters must not receive updates.
+
+Keep finite-value/gradient, sign or bound checks where mathematically warranted,
+terminal error, value-scale, clipping and horizon-stratified residual reports.
+Compare chosen Q to realized own-policy return-to-go with stochastic/partial-
+observation limitations; separately report Bellman residuals and target lag.
+Neither one-step self-consistency nor one realized return is Q-star ground truth.
+Useful action ranking and calibrated scalar returns are distinct properties.
+Only call calibration diagnostic in a NEW policy-only claim if the rationale
+explains why the controller does not use calibrated magnitudes for confidence,
+safety, cross-controller selection or service guarantees. Otherwise it remains
+an acceptance endpoint. This decision must precede new outcomes. This document
+does not remove calibration from an old or future frozen protocol.
+Instability that affects deployed actions remains a controller reliability
+problem even if a particular scalar-error endpoint is secondary.
+
+6. CLOSEST-WORK MAP AND COMPARISON QUESTIONS
+This map reuses documented saved full-method inspections; no new retrieval,
+equation reproduction or exhaustive priority search was performed here.
+
+Branching DDQN, arXiv:1711.08946: shared representation/action branches and
+linear output growth exist. Include adapted BDQ and same-width plain DDQN;
+branch factorization or narrow width alone is not the distinction.
+
+Masked UAV offloading, arXiv:2407.19657: DDQN plus action filtering exists.
+Supply the same justified screen to appropriate controls. Unmasked ablation
+isolates screen benefit; do not claim to invent masking or transfer its
+security claims into contribution one.
+
+Vehicular DDQN scheduling, arXiv:2404.07215: queues, simultaneous requests and
+server congestion exist. An observed-load/radio heuristic using the same
+available information is indispensable; its current policy advantage cannot
+be hidden by retaining only nearest-RSU and UAV-selective heuristics.
+
+Hierarchical UAV-IoV offloading, arXiv:2507.05722, and FlexEdge,
+arXiv:2305.01536: learned control with resource-aware allocation and execution
+complexity discussions exist. A learned scorer plus deterministic allocator
+is not a new mechanism merely because this combination is renamed.
+
+Required candidate-level evidence before claiming a distinction:
+exact equations/update/decoder; inputs available at decision time; asymptotic
+and measured complete cost; difference from the closest existing mechanism;
+one matched ablation removing ONLY that mechanism where feasible; and explicit
+confounds where no pure ablation is possible. ADP's assignment-marginal/sweep
+mechanisms have not demonstrated robust benefit; RQ24/AR24 remain cost-failed
+untrained alternatives. No existing candidate is cleared by this map.
+
+Future comparison core, to bind only AFTER candidate selection:
+candidate; exact no-mechanism arm; same-width plain DDQN with identical screen
+and training aids; compact64 and wide128 with matched implementation options;
+adapted BDQ where branch-architecture novelty is asserted; observed-load/radio,
+nearest-RSU and UAV-selective heuristics. Add an unmasked arm only for a stated
+screen question. Equal observation information and training exposure are
+required; heuristic approximations and movement restrictions must be disclosed.
+Do not add arms without a distinct question or omit a stronger control to pass.
+
+7. REVIEW DECISION AND NEXT ACTION
+Rationale completed. HOLD candidate selection, implementation and research
+release: no exact surviving mechanism distinction or verified runtime route
+is established by this document, and deployment-based tradeoff margins remain
+unjustified. This is an explicit decision, not another implied training gate.
+
+Next bounded action: a targeted mechanism-and-feasibility assessment using
+existing designs and closest method texts. Produce ONE table identifying the
+equation-level distinction, necessary ablation, information parity, known
+runtime bottleneck and evidence for a feasible improvement. Evaluate the
+existing screened/ADP approaches before inventing another surrogate. End with
+one justified candidate recommendation or an explicit HOLD if none survives;
+do not automatically implement, retime, sweep widths or train to fill the gap.
+The assessment should resolve one concrete mechanism question, not repeat a
+general literature survey or all historical artifact audits.
+
+GO for a subsequent candidate/protocol stage requires all of: defensible
+specific distinction; feasible complete runtime reasoning; fair controls;
+pre-outcome endpoint/margin rationale; and a meaningful fresh test. It is not
+research launch authorization. Scope acceptance remains a departmental matter.
+
+BOUNDARIES AND SOURCES
+No new training, rollout, optimizer update, timing, seed assignment, final
+evaluation or Word-thesis edit. Security/trust deferred; cloud/charging excluded.
+Completed failed protocols, all fits and frozen artifacts remain unchanged.
+Sources: consolidated contribution decision and evidence ledger (2026-11-19);
+INCUMBENT_CLOSEST_WORK_MATRIX_2026-11-15.txt;
+ASSIGNMENT_PRICE_LITERATURE_POSITION_2026-11-15.txt;
+LOW_COMPLEXITY_OBJECTIVE_REDESIGN_2026-11-04.txt;
+AR24_PROFILE_AND_PARK_DECISION_2026-11-19.txt.

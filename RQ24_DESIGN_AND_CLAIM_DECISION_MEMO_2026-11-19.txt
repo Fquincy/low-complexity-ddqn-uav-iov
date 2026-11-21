@@ -1,0 +1,207 @@
+DESIGN AND CLAIM DECISION AFTER THE RQ24 COST FAILURE
+Date: 2026-11-19 (Asia/Shanghai)
+Decision level: SAVED-EVIDENCE DESIGN ASSESSMENT ONLY
+
+MAIN DECISION
+Park RQ24-v1 and its equivalent optimized runtime as preserved unsuccessful
+cost-gate candidates. Do not start their research training or automatically
+try more implementation variants. Our goal remains an implemented efficient
+DDQN offloading improvement, but the full low-complexity claim is unproven.
+
+There is a credible OPERATION-COUNT argument for assessing a different,
+aggregate radio-interaction surrogate. There is no measured proof that it
+will meet latency, policy, calibration or novelty requirements. Recommend
+only a prospective design/algebra gate for that ONE alternative. It is a
+semantic redesign, not an equivalent optimization or a pass of RQ24-v1.
+
+1. WHAT THE CURRENT EVIDENCE DOES AND DOES NOT SAY
+The original completed ADP development run is audited and archived. It
+beats small/wide DDQN controls on several policy comparisons, but fails
+all combined predeclared scientific screens. The observed-load/radio
+heuristic remains stronger. Whole-horizon calibration remains poor.
+
+RQ24 was designed to address the diagnosed radio/deadline weakness. Its
+prototype algebra/autograd/export fixtures pass; NO research policy was
+trained for RQ24. Its original and optimized complete median costs fail.
+Correctness is not policy success, and untrained inference is not a failed
+training result. These stages must not be merged in the thesis narrative.
+
+The optimized runtime reduced its own median by11.60-13.20%, but is still
+1.72-1.80 times the unmasked wide128 median in its matched synthetic test.
+Parameter reduction is supported for this architecture. Faster-than-wide
+inference and equal/better policy are not supported for this candidate.
+
+2. THE PRACTICAL LATENCY BUDGET
+Same-session optimized-v1 benchmark, milliseconds:
+fit | screened plain24 | unmasked wide128 | optimized RQ24
+0   | .02690           | .03450           | .06100
+1   | .02660           | .03530           | .06080
+2   | .02700           | .03430           | .06170
+
+Wide-minus-small margin: .00760,.00870,.00730ms (7.3-8.7 microseconds).
+This difference is not an independent mechanism allowance or an exact
+lower bound: networks, values and decoders differ and timings are noisy.
+It is a useful warning against adding an elaborate physical optimizer.
+
+The earlier ORIGINAL-RQ24 component profile put feature/graph work near
+.031ms, network near .017ms and decoder near .011ms. These overlap and
+are not exact additive shares. They were NOT a profile of optimized-v1;
+do not subtract them from optimized-v1 to claim an attainable new latency.
+
+Reaching the SAME-SESSION unmasked-wide median from optimized-v1 would
+require reductions of about43.4%,41.9%,44.4% in fits0,1,2. No evidence
+supports expecting that from scalar-loop cleanup alone.
+
+3. OPTIONS CONSIDERED (NO NEW CONTROLLERS IMPLEMENTED)
+
+A. Reduce K or remove only some radio edges.
+   Removes pair coefficients/adjacency work but retains geometry, channel
+   functions, unaries, network and coordinate decoding. Can miss interacting
+   vehicles; small K does not bound undirected node degree. Choosing K after
+   inspecting this outcome would need a new declared design. No measured
+   reason to expect this alone closes the gap. Do not pursue as a rescue.
+
+B. Unary-only physical DDQN (no assignment interaction).
+   Removes graph construction and pair rate calculations, but retains much
+   feature overhead. It cannot directly express the new joint interference
+   cost when multiple tasks choose a UAV. Existing no-pair ablation already
+   gives a way to test that loss in a future comparison. This is not the
+   preferred next contribution hypothesis and not a proven fast alternative.
+
+C. Fixed-pass aggregate radio-interaction DDQN.
+   Replace per-edge exact two-signal rate increments with cached aggregates
+   of cheap geometry/payload/slack features. No edge lists, donor selection,
+   trigonometric path-loss model or logarithmic radio rate per pair.
+   Preserve a joint assignment interaction rather than simply deleting it.
+   This is the ONE proposed direction for a design/algebra gate below.
+
+D. Distill the observed-load/radio heuristic into a small network.
+   Could move heavy computation into training, but distillation/imitation
+   is established and introduces teacher-label cost and attribution issues.
+   It would need comparisons against plain imitation, DDQN and the teacher.
+   It is not selected alongside C; do not open a second implementation track.
+
+E. Claim parameter-efficient DDQN with an absolute latency bound instead
+   of faster-than-wide inference.
+   Potentially a legitimate different empirical claim IF independently
+   justified and supported by policy and calibration evidence. It is a
+   prospective topic/claim decision, not a relabeling of failed criteria.
+   The present record does not authorize relaxing the speed requirement.
+
+4. AGGREGATE RADIO CANDIDATE: ALGEBRA TO ASSESS, NOT A FROZEN MODEL
+Let i index current vehicle tasks and d index UAV destinations. Use only
+observed current positions, payload B_i, relative deadline tau_i and the
+existing task/queue features. Define a simple dimensionless link proxy
+  g_id = H^2 / (horizontal_distance_id^2 + H^2),
+  x_id = (B_i/B_max) * (.300/tau_i) / g_id,
+  y_id = g_id.
+Use the existing UAV altitude H and task payload scale B_max. This g is a
+geometry proxy, NOT the current simulator's channel gain; it has no LoS/
+NLoS model, channel calibration or radio-rate guarantee. Valid task deadlines
+are positive. Battery and movement limitations must be explicitly retained.
+
+For the currently selected assignments define
+  X_d = sum_{i:a_i=d} x_id,
+  Y_d = sum_{i:a_i=d} y_id,
+  Z_d = sum_{i:a_i=d} x_id*y_id,
+  P_radio = sum_d lambda_d(s) * (X_d*Y_d-Z_d)/N, lambda_d>=0.
+Equivalently, each same-UAV unordered pair contributes
+  lambda_d*(x_id*y_jd+x_jd*y_id)/N.
+There are no explicit stored pair coefficients. The value is nonnegative
+algebraically; numerical cancellation needs an explicit implementation rule
+and tests before this can become a specified critic. Do not silently clamp
+values in a way that invalidates the insertion-marginal identity.
+
+After removing task i, the exact insertion marginal for THIS surrogate is
+  Delta_radio(i,d)=lambda_d*(x_id*Y_minus_i,d + y_id*X_minus_i,d)/N.
+X and Y can be updated in constant work per move. The cost models the
+qualitative effect of strong transmitters burdening weaker receivers and
+gives payload/deadline-sensitive weights. It does NOT calculate actual
+multiuser rates, event overlaps, queue completion or deadline feasibility.
+
+The future brief must specify how this term combines with compute queue
+costs, signed neural residuals and the scalar value transform, then use ONE
+consistent scalar for decoder decisions and DDQN same-action evaluation.
+Do not add a repair heuristic at inference while training a different Q.
+Architecture width/output layout and scalar precision are NOT frozen here;
+no claimed parameter count or tested model is assigned to this candidate.
+
+5. WHY IT COULD COST LESS, AND WHAT IT LOSES
+Radio feature preparation and exact aggregate marginals require O(U*N)
+feature/storage work, with no explicit O(U*N*K) graph construction or
+hundreds of rate-log evaluations. For fixed U,D, a single coordinate pass
+costs O(N*D). If decreasing-cycle order is retained, include O(N log N)
+sorting; do not call the whole algorithm strictly linear without handling
+that cost. The small neural forward and validation remain measured costs.
+
+This operation-count reduction is credible, but the previous ADP decoder
+already missed its own strict median criterion near the wide-reference
+cost. Similar aggregate bookkeeping might still be too slow. There is no
+timing estimate promoted to a measured result and no promised pass.
+
+Lost fidelity relative to RQ24-v1: reference-rate magnitude, LoS/NLoS
+attenuation, nonlinear pair rate increments and deadline hinges based on
+estimated upload/compute completion. No per-edge sparsification can be
+blamed for omissions because all same-destination interactions are folded
+into an APPROXIMATE low-rank sum instead. Distant/weak links and geometry
+asymmetry may be misranked; UAV positions change during slots; compressed
+queues and old pending uploads remain only partially observed. A learned
+residual may fail to compensate. Lower operation count may worsen policy.
+
+6. NOVELTY AND CALIBRATION RISKS
+Pair-factorized Q functions, low-rank factors, congestion potentials and
+coordinate optimization already exist (see DCG and the saved closest-method
+review). This rank-two-style aggregate is not a newly invented mathematical
+factorization. Radio/deadline-aware offloading also exists. No new first-
+of-its-kind or publication-ready novelty claim follows from this memo.
+
+Potential application contribution, ONLY after evidence: a compact DDQN
+with a precisely specified inexpensive radio/queue assignment mechanism
+that improves the measured policy/cost tradeoff against matched controls.
+The mechanism-removal ablation and fixed-physics decoder must demonstrate
+that learning and the proposed interaction add something. If plain small
+DDQN or the analytic controller matches it, mechanism-specific novelty is
+unsupported. Adapted DCG/low-rank methods need explicit overlap assessment.
+
+The proposed aggregate does not solve the existing return-to-go calibration
+or terminal-anchor gradient conflict. Retaining a horizon-scaled critic may
+retain those problems. No repeated normalized-loss experiment, clipping
+relaxation or bigger training budget is implied. The next brief must keep
+calibration as an independent measured requirement and state this risk.
+
+7. NEXT BOUNDED GATE AND STOP RULE
+Prepare one prospective aggregate-radio DDQN brief plus an analytical
+complexity/closest-work comparison. Specify every value equation, decoder
+tie rule, initialization, movement behavior, numerical rule, DDQN target,
+loss and mechanism ablation BEFORE implementing it. Explicitly identify
+changes from ADP and RQ24; do not present it as the same frozen experiment.
+
+Only after that brief: a small synthetic algebra and complete matched-cost
+gate can decide whether research preparation is worthwhile. Require direct
+pair-sum/aggregate equality, cached-marginal/direct-delta equality, surrogate
+nonincrease, legal actions, edge-case arithmetic, gradients and same-backend
+references. Preserve all measurements. Failure means stop and review, not
+automatic K/width/loss tuning until something passes.
+
+No new development task/model seeds or research budget are assigned here.
+If synthetic cost passes, fresh-seed protocol preparation, runner/auditor
+fixtures and a separate explicit research launch decision remain necessary.
+Final reservations stay untouched. Do not revise the Word thesis to claim
+success. Security/trust deferred; cloud/charging excluded.
+
+8. WHAT WE CAN SAY TODAY
+We have an implemented offloading research pipeline, audited comparative
+evidence, a diagnosed policy bottleneck and verified parameter reductions.
+We do not yet have a controller satisfying the combined speed, policy,
+value-stability and mechanism criteria. This is a hard design tradeoff,
+not a laptop limitation or a lack of implementation. This memo recommends
+one bounded hypothesis assessment without promising that it will succeed.
+
+SOURCES
+RQ24_OPTIMIZED_RUNTIME_V1_REVIEW_2026-11-19.txt
+validation/rq24_optimized_v1_2026-11-19_02/verification.json
+validation/rq24_optimized_v1_2026-11-19_02/saved_artifact_audit.json
+validation/rq24_runtime_profile_2026-11-19_01/profile.json
+RQ24_FULL_METHOD_COMPARISON_2026-11-19.txt
+ASSIGNMENT_PRICE_AUDITED_RESULTS_AND_CONTRIBUTION_DECISION_2026-11-19.txt
+ASSIGNMENT_PRICE_OFFLINE_GRADIENT_TIMELINE_DIAGNOSIS_2026-11-19.txt

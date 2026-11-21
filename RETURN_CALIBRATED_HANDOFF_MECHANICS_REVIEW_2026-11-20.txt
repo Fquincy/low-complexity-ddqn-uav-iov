@@ -1,0 +1,110 @@
+RETURN-CALIBRATED DDQN HANDOFF: ISOLATED MECHANICS REVIEW
+20 November 2026
+
+DECISION
+The isolated calibration and retention helpers are implemented and all15
+synthetic mechanics tests passed. Proceed to a separate comparison-protocol
+freeze gate. Do not run the proposed research comparison yet.
+This is implementation evidence, not a scientific policy/calibration pass,
+proof of novelty, or validation of a low-complexity thesis contribution.
+
+IMPLEMENTATION
+return_calibrated_handoff.py
+  Same compact centered-linear/old-softplus adapters for the seven controls.
+  Positive branch-weight/bias rescaling; same deterministic masked decoder.
+  Episode-local undiscounted reward-to-go; first8episodes for fitting, last2
+  return targets withheld; all action labels may be used in BC/retention.
+  FP64 standardized ridge,unpenalized intercept,folded FP32 value-row weights.
+  Fixed alpha-temperature retention CE and detached-target DDQN joint loss.
+  Separate TD/retention losses and preclip total/shared/branch/value norms.
+  One global clip10 and one Adam step; no target update except by caller.
+  Separate replay and retention RNG objects; no auxiliary draws for controls.
+  BC-only rejects TD setup/draws/updates; plain DDQN rejects demonstrations.
+  Calibration returns an independent model and leaves its source unchanged,
+  including when an action-preservation check fails. No automatic retry.
+
+All prospective constants and formulas remain as declared in
+RETURN_CALIBRATED_DDQN_HANDOFF_DESIGN_BRIEF_2026-11-20.txt.
+The existing historical model,runner,auditor,protocol and results are unchanged.
+
+TESTED EVIDENCE
+Final test script: test_return_calibrated_handoff.py
+Final evidence: validation/return_calibrated_handoff_mechanics_2026-11-20_02/
+  tests.json,test_log.txt,synthetic_handoff.json
+  source_snapshot/,manifest.json,verification.json
+Receipt builder: verify_return_calibrated_handoff_mechanics_2026_11_20.py
+
+15 tests cover:
+1. Episode-local returns and valid demonstration terminal flags.
+2. Positive scaling,checked gap bound,masked action/tie preservation and
+   matching imitation loss when temperature rescales with the branch outputs.
+3. Changing withheld return targets leaves fitted model and alpha identical.
+4. Ridge agrees with an independent augmented least-squares solver;
+   rank-deficient/constant features and folded FP32 export are handled.
+5. Invalid inputs and injected action-change failure leave source unchanged.
+6. Independently repeated synthetic BC gives A/B/E handoff tensor-hash parity;
+   DDQN uses a fresh optimizer and detached same-weight target.
+7. All seven arm formulas,data-access rules and equal raw initial weights.
+8. Replay RNG isolation and rejection of auxiliary draws on no-retention arms.
+9. Combined loss/gradient/Adam result matches independently spelled-out
+   arithmetic exactly for the deterministic synthetic fixture.
+10. All six TD arms use the proper objective and zero terminal bootstrap.
+11. All-terminal batches bypass successor decoding and target evaluation.
+12. Aliased/live targets,wrong optimizers,invalid terminal metadata and
+    inappropriate auxiliary batches are rejected before updates.
+13. First-update diagnostic identity and all handoff-stage records.
+14. Same16841parameters,67364FP32parameter bytes and20buffer bytes.
+15. Both development/final CLI modes reject with or without confirmation
+    and create no output. There is no research runner or release in this module.
+
+ATTEMPTS AND EXPOSURE
+Attempt01 is preserved under
+validation/return_calibrated_handoff_mechanics_2026-11-20_01/.
+It ran15tests with14passes and1error: the action-change injection test's
+mock called itself recursively. The test harness was corrected; no design
+constant,scientific criterion or controller formula was changed for that error.
+Attempt02 reran15tests and passed all15.
+
+Each attempt made3synthetic BC optimizer steps,9synthetic TD optimizer steps
+and1independent-reference optimizer step. Across both attempts:26synthetic
+optimizer steps. These are tiny constructed tensors,not research training.
+No simulator episodes,teacher calls,reserved research seeds or final seeds
+were used. The only explicit fixture RNG seeds are17and23 for stream tests.
+Model fixture parameters are assigned deterministically; construction runs
+inside a torch RNG fork that restores ambient state.
+
+The final saved synthetic example has alpha about0.043784 and ridge rank18.
+Its synthetic return-fit RMSE decreased from8.6744to2.7143 on fitting data,
+and8.7903to2.7689 on withheld-return checks. These numbers are examples of
+the helper operation,not UAV-IoV outcomes and not a calibration acceptance
+threshold. No outcome or hyperparameter selection uses these fixture results.
+
+LIMITS AND REQUIRED NEXT WORK
+This gate has no paired research orchestration,results auditor,source-bound
+research release,real demonstration training or physical-policy evaluation.
+The new module's development/final CLI always rejects. Its callable helpers
+are for later runner integration; they do not authorize a research run.
+The caller must retain alpha,stage hashes and target-copy schedule metadata;
+no new deployed buffer is added. The later auditor must verify those records.
+Retention's fixed temperature can produce large gradients; the synthetic
+checks do not establish stability on real demonstrations. Ridge accuracy on
+withheld return targets is not guaranteed. Initial action preservation does
+not guarantee retention during later TD learning or improved deadlines.
+
+NEXT BOUNDED GATE
+Freeze the proposed seven-arm comparison and full scientific/engineering
+rules against these tested sources: seeds/data split,BC/DDQN/retention and
+ridge settings,all comparison screens,gradient/probe/checkpoint logging,
+timing boundaries,costs and final-only checkpoint retention. Preserve the
+existing proposed constants and all prior failed evidence. Explicitly state
+how a bad handoff fit is reported and whether any declared diagnostic is
+a scientific acceptance criterion; do not silently add a favorable threshold.
+
+After that freeze, separately implement/test the paired runner and independent
+auditor on a reduced isolated workflow fixture. Then review readiness and
+obtain separate explicit launch authorization. The proposed51280slots have
+NOT been launched. Stronger reference comparisons,novelty and final evaluation
+remain later unresolved gates; no guaranteed graduation/contribution outcome.
+
+The Word thesis is unchanged. Contribution one remains efficient DDQN
+offloading; security/trust is deferred; cloud/charging remain excluded.

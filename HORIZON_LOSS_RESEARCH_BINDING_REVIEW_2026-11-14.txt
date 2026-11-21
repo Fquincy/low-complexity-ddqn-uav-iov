@@ -1,0 +1,107 @@
+HORIZON-LOSS RESEARCH RUNNER AND AUDITOR: ENGINEERING REVIEW
+2026-11-14
+
+RESULT
+The research binding and isolated engineering workflow passed, including the
+separate startup stage for all28 saved checkpoints. Development remains
+unreleased pending the separate launch review and explicit instruction.
+
+SCOPE
+Versioned executable binding to HORIZON_LOSS_RESEARCH_PROTOCOL_2026-11-14.json.
+The frozen protocol, eleven original learner definitions, three normalized
+variants, rewards, optimizer settings, comparison rules and final reservations
+remain unchanged. This engineering gate launches no research or final phase.
+
+RESEARCH PLAN CHECKED WITHOUT EXECUTION
+14 learners, three heuristics, five model initializations, 200 training
+episodes of40 slots per fit.70 final checkpoints;560,000 training slots;
+488,390 optimizer updates;2,380 target copies.48 common evaluation tasks give
+140,160 evaluation slots.44,800 complete action-selection timing readings.
+All16 primary and nine auxiliary contrasts remain mandatory. No best fit,
+checkpoint selection, changed loss in a control, or replacement primary.
+
+VERSIONED IMPLEMENTATION
+run_horizon_loss_research.py binds the exact protocol hash and verifies all
+32 original definition hashes plus the tested engineering source hashes.
+The learning update, behavior episode, model construction and compact summary
+functions match the tested fixture source exactly. Final-only checkpoint
+freezing, one-thread eager/native equivalence, paired evaluation, bootstrap
+summaries and streaming deployment-storage checks retain the tested path.
+audit_horizon_loss_research.py independently reconstructs the full evidence,
+including the batch-one FP32 prediction path at unchanged tolerances.
+
+horizon_loss_research_reports.py automatically writes:
+  training_residuals_by_horizon.json: original and normalized TD distributions
+    for every arm/initialization, grouped by current replay-state horizon;
+  remote_decision_diagnostics.json: task/deadline counts by arrival slot and
+    destination, upload/CPU lifecycle categories, observed workload/queue
+    distributions, assigned loads, movement counts and distances.
+The audit counterpart reconstructs these without invoking the generator.
+Control residuals divided by horizon are descriptive diagnostics, not a
+change to those controls' training losses. Circular replay reconstruction
+handles eviction; the small capacity64 fixture exercises that wraparound.
+Task lifecycle labels describe observations and do not establish causation.
+Observed load values retain their documented log units. They are offline
+reports and are never supplied to a policy as privileged information.
+
+MEANINGFUL TEST EVIDENCE
+test_horizon_loss_research.py: four tests passed in204.316 seconds.
+Tests cover exact binding and research arithmetic, unchanged learning source,
+CLI/API confirmation and source-release guards, the complete bound fixture,
+and independent rejection of altered residual/remote summaries even after
+their file hashes are updated. Extra artifacts and output reuse also reject.
+
+The fixture completed28 models,2,240 training slots,2,044 updates,252 target
+copies and2,480 evaluation slots. All118 episodes and141,600 task records
+passed the independent audit;3,584 eager/runtime checks and17,920 timing
+readings were verified. Storage export/audit passed for all28 checkpoints.
+The diagnostic audit verified28 training-fit reports and31 policy reports
+(28 learner fits plus three heuristics). The comparison source closure has59
+files; the release also freezes the separate startup-stage sources.
+
+Engineering-only model seeds99941/99949 and their existing isolated fixture
+task/RNG schedules were reused to exercise the new executable binding. They
+are not new independent scientific evidence. The fresh research reservations
+were read for arithmetic checks and were not used to initialize or run models.
+Fixture quality_evidence is false, scientific screens are not applied and
+combined scientific acceptance is null. No fixture result tuned this design.
+
+SEPARATE STARTUP REPORTING
+horizon_loss_research_complete_workflow.py adds the separate startup stage to
+the tested comparison workflow. horizon_loss_cold_start.py reconstructs each
+frozen checkpoint in a fresh child Python process and records time through
+its first native action, plus parent spawn-to-exit time. It verifies checkpoint
+hashes and first actions/values against the already frozen engineering inputs.
+This reports fresh-process startup with existing disk/Numba caches; it is not
+a cold-machine measurement. It loads the full training checkpoint, so these
+readings include its extra payload and are not minimal deployment-bundle
+startup measurements. It performs no simulator or optimizer update and
+does not repeat the steady latency benchmark. Startup has no acceptance
+threshold and must not be used to select or retime a policy.
+The same completion stage is exercised using the already audited fixture
+checkpoints, without retraining them. See startup fixture verification for
+its completion and integrity evidence.
+
+LIMITS AND NEXT DECISION
+Engineering success is not policy, calibration, latency or thesis novelty
+success. The prior failed scientific result stays preserved. The normalized
+candidate remains a hypothesis. Detached audit forwards add measured training
+overhead; equal slots/updates do not imply equal compute.
+
+The production entry point is horizon_loss_research_complete_workflow.py.
+Development requires the exact explicit token
+LAUNCH_FROZEN_HORIZON_LOSS_DEVELOPMENT and a separately reviewed source
+release. The release flag remains FALSE. Final execution remains disabled.
+Before launch, verify the complete source/environment release and refresh
+actual-run seed use against the reservations. A separate explicit user launch
+instruction is required. Do not change the frozen design or thresholds during
+that review. The Word thesis and protected final seed set remain untouched.
+Cloud/charging remain excluded; security/trust remains deferred.
+
+EVIDENCE
+validation/horizon_loss_research_binding_2026-11-14_01/
+  tests.json, workflow/workflow_verification.json,
+  workflow/run/saved_artifact_audit.json,
+  workflow/run/training_residuals_by_horizon.json,
+  workflow/run/remote_decision_diagnostics.json,
+  startup_fixture/startup_verification.json and completion_manifest.json.

@@ -1,0 +1,88 @@
+CONSERVATIVE DEADLINE SCREEN RUNTIME OPTIMIZATION REVIEW
+Date: November11,2026
+
+OUTCOME
+The optimized runtime passed all declared equivalence, interval-boundary
+and synthetic storage/latency checks. Both retained initializations pass
+median<=screened wide128 andp95<=1ms. No research run was launched.
+This verifies implementation behavior/cost on fixed synthetic weights,
+not deadline or return improvement of a trained screened controller.
+
+CHANGE
+deadline_screen_fast_runtime.py combines complete finite/task/time input
+checks and conservative interval predicates into one Numba CPU pass.
+Neural Linear/ReLU arithmetic remains original PyTorch FP32. Subsequent
+price/flat/branch selection uses existing native decoders and first-index
+tie behavior. Only local scores certified infeasible are excluded.
+Both initializations of every price/no-price/plain/compact/wide/BDQ family
+use the same route change, not a selective advantage for the primary.
+The optimized route computes core outputs directly and eliminates full
+PyTorch task-score tables plus repeated validation/time processing in
+the prior prototype. No learned weights, training updates, masks or
+thresholds changed. Old runtime and failed timing evidence remain intact.
+
+PRESERVED SEMANTICS
+Outward adjacent FP32 task bounds, physical scaling and outward FP64
+rounding are retained, including TIME_EPS1e-10. Ambiguous local choices
+remain allowed; no remote deadline is certified. All four remotes and
+movement choices remain available. Terminal action selection is rejected.
+The time check uses the same FP32 multiply-by40 and grid tolerance as
+the prototype. No hidden simulator variables or outcome labels are used.
+This is an inference-only adapter. Training, objective and target code
+remain the separately tested prototype. No research runner is integrated.
+
+VERIFICATION
+Same14 saved random-weight models, same128 synthetic observations, same
+seven model families and two initializations as the failed benchmark.
+All1,792 eager/prototype/optimized action comparisons matched exactly;
+chosen Q matched original rtol1e-5/atol1e-6. Q is not claimed bitwise equal.
+100,020 randomized task mask checks exactly matched the original screen;
+every excluded task was truly locally infeasible by its exact synthetic
+cycles/deadline.3,000 equality/near-boundary perturbations retained local
+and matched original masks. Invalid finite/range/time cases were rejected.
+A zero-weight tie fixture retained first-index remote choice when local
+was excluded. No near-tie rule or acceptance tolerance was loosened.
+Independent auditor reloaded all models, replayed decisions/masks/values,
+reproduced boundary tests and recomputed every timing statistic and gate.
+Cost-summary tampering was rejected; exact original bytes were restored.
+
+FIXED COMPLETE-ACTION BENCHMARK
+Protocol declared before implementation measurement. Existing model/input
+payloads, source snapshots and randomized orders sealed before testing;
+all payloads rechecked and frozen before timing. Five rounds x128calls
+with32warmups per path/round:8,960 total timed calls. Only one benchmark.
+Complete action selection includes validation/screen, original core,
+native decoder, horizon handling and final action copy. All fits retained.
+No simulator episodes, parameter fitting, retiming or seed selection.
+fit | primary median ms | screened wide128 median ms | primary p95 ms
+0 | 0.077200 | 0.084200 | 0.084705
+1 | 0.077200 | 0.085200 | 0.083925
+Primary online FP32 parameter payload68,264bytes, existing buffer20bytes;
+compact64194,944parameter bytes. Zero additional trainable parameters.
+Temporary arrays, Python/PyTorch/Numba binaries, process memory and peak
+deployment memory are not counted in online parameter bytes.
+Prior prototype primary median0.7089/0.74635ms andp951.477395/1.85237ms
+remain recorded as failed under its original measurement. The new same-
+weight benchmark passes; it does not retroactively convert that result.
+Timing sessions have different machine/load conditions, so historical
+ratios are descriptive. Current reference gates use contemporaneous
+measurements with the same screening and randomized protocol.
+
+NEXT ENGINEERING STEP
+Integrate the screened training/exploration and mask-aware DDQN targets
+with this verified inference route into a separately versioned paired
+simulator fixture. Use isolated synthetic seeds, retain final checkpoints,
+verify masks on exact generated task records, paired workload/RNG identity,
+all equal-information controls, no terminal decoding and artifact hashes.
+Re-export/reverify all trained fixture models and complete-action cost,
+then review evidence before preparing a fresh-seed research comparison.
+Do not launch research from these random-weight engineering results.
+The old scientific failures, especially whole-trajectory value calibration,
+are unresolved. Screening must still demonstrate return/deadline benefit
+against equally screened controls; implementation success is not novelty.
+Broader UAV-IoV related-work check and supervisor scope discussion remain.
+
+SCOPE
+No simulator calls or optimizer updates, no reserved task/model seeds, no
+research checkpoint loading, no final evaluation and no Word thesis edits.
+Cloud/charging stations excluded; security/trust remains deferred.

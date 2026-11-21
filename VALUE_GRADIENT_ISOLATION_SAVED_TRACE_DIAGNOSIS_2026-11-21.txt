@@ -1,0 +1,254 @@
+VALUE-GRADIENT ISOLATION: SAVED-TRACE DIAGNOSIS
+21 November 2026 (Asia/Shanghai)
+
+FINDING AND DECISION
+Two distinct problems are visible in the saved evidence. In initialization 2,
+the primary sends too much simultaneous work to RSU 2, and recorded CPU
+waiting explains many newly missed deadlines. Separately, the calibrated
+value function drifts as its shared features change; blocking the V-to-hidden
+TD gradient does not freeze those features or preserve calibration. Training
+also samples a very different state/action distribution from greedy evaluation.
+
+These are measured observations and algebraic/accounting results. They do
+not identify one unique training-failure cause or prove that a particular new
+controller will succeed. The declared outcome remains policy=false,
+relative value=true, promising=false. No threshold, reward, seed, optimizer,
+model or failed scientific decision was changed. No retraining was performed.
+
+EVIDENCE AND WORK PERFORMED
+Run: development_runs/value_gradient_isolation_comparison_2026-11-20_01
+Evidence: validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/
+Main analysis: diagnose_value_gradient_isolation_saved_traces_2026_11_21.py
+Independent export/task verifier: verify_value_gradient_isolation_diagnosis_2026_11_21.py
+Replay coverage: analyze_value_gradient_isolation_replay_coverage_2026_11_21.py
+Final review verifier: verify_value_gradient_isolation_diagnosis_review_2026_11_21.py
+
+The main analysis binds and rehashes 602 source/evidence files, reproduces
+54,000 saved-state predictions with frozen original-class deployment weights,
+and checks saved probes at their original single/batch boundaries. The
+independent verifier rechecks all 90 population/model entries, 12 paired
+task comparisons and 723 same-RSU newly missed task delay identities.
+Those 723 are comparator-task occurrences, not 723 unique tasks.
+
+Supplemental coverage reads 836 bound evidence files. It joins the actual
+saved replay transition IDs to demonstration/online observations, distinguishes
+terminal online and demonstration samples, and reports behavior/evaluation
+coverage. The two analyses use 1,203 distinct input files in total. All inputs
+are rehashed unchanged. Saved outcomes are descriptive; alternative policies
+or allocations are never simulated. No teacher calls, optimizer steps,
+simulator slots or new autograd evaluations occurred. No final evaluation
+reservation was consumed. The Word thesis remains unchanged.
+
+P = sole primary, value-gradient isolation.
+R = adapted shared-TD-gradient rescaling comparator.
+A = unmodified calibrated retained DDQN/isolation ablation.
+E = calibrated imitation only, also the common calibrated handoff.
+F = old softplus BC+DDQN comparator.
+Other comparator evidence and the completed independent D: archive are intact.
+
+1. INITIALIZATION 2: WITHIN-SLOT RSU 2 CONCENTRATION
+All controllers see the same matched task descriptors. Each fit evaluates
+19,200 tasks across 640 decision slots. In fit 2:
+
+Controller   RSU2 tasks/slot   RSU2 CPU service/slot   Slots with RSU2 misses
+P                 10.526563          224.453476 ms             183
+E                  5.621875          127.584804 ms               1
+A                  7.610938          165.241992 ms              11
+R                  7.846875          171.067537 ms              16
+
+P's 95th-percentile assigned RSU2 CPU service is 312.535216 ms, compared
+with 201.578667 ms for E. Deadlines are 250-300 ms. Assigned service is a
+server-load descriptor, not each task's complete delay; task-level recorded
+CPU waits and link/computation components provide the direct accounting.
+
+P misses 367 deadlines, including 366 at RSU 2. E misses 31; A 77; R 61.
+Paired accounting, primary-only misses / comparator-only misses / both miss:
+  P versus E: 358 / 22 / 9.
+  P versus A: 349 / 59 / 18.
+  P versus R: 349 / 43 / 18.
+
+For 140 newly missed P-versus-E tasks, both controllers selected RSU 2.
+Their mean additional P CPU queue wait is 137.144644 ms (median 139.373515;
+range 28.558676-259.417527 ms). Same task/link/CPU configuration, transmission,
+uplink wait and compute duration match. The entire observed delay difference
+equals the CPU queue-wait difference, verified per task.
+
+Against A, 181 same-RSU2 newly missed tasks have 105.470269 ms mean additional
+waiting. Against R, 178 have 97.650440 ms. These sets overlap. Do not add
+their counts together as independent failures.
+
+The other 217 P-versus-E newly missed tasks changed destination: 110 moved
+from E's local action to P's RSU2, and 107 moved from E's RSU1 to P's RSU2.
+One further new miss kept RSU1. This accounts for all 358 new misses. No
+claim is made that a single reassignment would independently remove them:
+joint allocations determine which other tasks share each queue.
+
+2. NO PERSISTENT EVALUATION QUEUE BACKLOG
+All observed queue features are zero at decision boundaries for P/R/A/E/F,
+in all three evaluation fits. All their evaluated tasks complete before the
+next one-second slot. P's maximum task delays by fit are 324.102, 355.316
+and 372.327 ms: above some task deadlines, below one slot.
+
+P and E have bit-identical complete saved observations on every matched
+evaluation decision in all fits, including UAV features. Thus their observed
+action differences are not due to different decision-boundary states. P/R
+also have identical evaluation observations in fit 2. A differs from P only
+by tiny UAV battery values on 2.65625% of fit-2 observations; re-decoding
+every core model on both populations gives identical actions there.
+
+Do not describe this as missing observation of an existing persistent queue
+or propose queue-feature additions solely on that explanation. The measured
+deadline bottleneck is congestion formed AFTER simultaneous placement within
+the slot. Current observed inputs already include each task's work/deadline;
+whether a decoder learns to coordinate those allocations remains a separate
+controller-design question. UAV state/battery can differ in other comparisons,
+so this is not a claim that the complete environment is a contextual bandit.
+
+3. RETURN AND DEADLINE SUCCESS CAN MOVE IN DIFFERENT DIRECTIONS
+P-minus-E mean episode reward decomposition, using the frozen reward:
+
+Fit     Delay component    UAV-energy component    Deadline component   Total
+0          +0.082738              0.000000             -0.014583       +0.068154
+1          +0.367429              0.000000             +0.075000       +0.442429
+2          +0.512392              0.000000             -0.700000       -0.187608
+
+Positive means better reward contribution. Fit 0 gains aggregate delay reward
+but loses seven deadline successes. Fit 2 gains aggregate delay reward while
+losing 336 deadline successes; its added miss penalty dominates. Across fits,
+the average delay benefit helps explain a positive mean return contrast even
+though mean deadlines worsen. This is recorded reward accounting, not proof
+that training consciously optimized that tradeoff. No reward reweighting or
+deadline-loss allowance is introduced. Against A/R in fit 2 both overall
+return and deadline performance worsen; there is no compensating success.
+
+4. SHARED FEATURES CONTINUE TO MOVE AFTER CALIBRATION
+On the SAME 640 P evaluation states in each fit, compare final P with E's
+unchanged calibrated handoff and fix the joint action to E's choice:
+
+Fit   Mean delta Q(E action)   Mean delta V   Centered-branch contribution
+0            -4.410651          -10.434183             +6.023531
+1           -26.682032          -30.048852             +3.366820
+2           -19.098421          -23.132183             +4.033763
+
+The Q difference equals delta V plus the change in the centered branch
+contribution, subject to recorded FP32 roundoff. This separates changes in
+absolute values from the much smaller preferences between placement actions.
+
+Let E's hidden features/readout be h0,w0,b0 and final P's be h1,w1,b1.
+The symmetric algebraic split is:
+  readout = 0.5*(h1+h0)*(w1-w0) + (b1-b0)
+  features = 0.5*(h1-h0)*(w1+w0)
+Their sum equals the explicit affine delta V. This averages the two possible
+orders of changing features/readout; it is not a causal training intervention.
+
+Fit    Readout contribution    Hidden-feature contribution   Sum
+0             -2.345601                 -8.088585          -10.434185
+1             +2.328504                -32.377358          -30.048854
+2             +1.043022                -24.175207          -23.132184
+
+Feature changes dominate P's negative value shift in fits 1/2; its changed
+readout partly offsets them. The readout weight change norms are only 0.3081
+and 0.5504, against final row norms 33.0643 and 40.4125. The affine attribution
+is calculated in FP64 from saved FP32 features/weights. For these three P
+evaluation-population decompositions, the largest FP64-versus-original-FP32
+delta discrepancy is about 0.000144, far smaller than the measured shifts.
+Scientific comparisons retain their original rules.
+
+The mechanism blocks only V-to-hidden TD gradients. Branch TD and imitation
+still update the shared hidden representation. Therefore the calibrated
+readout no longer acts on its fitted feature map. Correct routing is already
+verified in the completed first-update audit; it is not equivalent to fixed
+features, stable Q values, or accurate values on a new policy.
+
+The scalar common V cancels directly from branch argmin decisions. Large
+value drift does not by itself prove the cause of RSU2 placement changes.
+Branch changes, training dynamics and joint allocation must be distinguished.
+
+5. IMITATION LOSS AND GREEDY SCORE GAINS DO NOT CERTIFY DEADLINES
+On P's common evaluation states, its placement actions differ from E's in
+20.1042%, 19.9427% and 31.0677% of vehicle decisions in fits 0/1/2. Movement
+choices are unchanged. Mean P placement margins are only about 0.00127,
+0.00108 and 0.00127. P's mean own-Q gain from its greedy joint action over
+E's action is about 0.00293, 0.00271 and 0.00879; these are model scores,
+not measured return gains from counterfactual simulations.
+
+P's demonstration imitation loss decreases in each fit: 1.152412->1.071427,
+1.151217->1.105380 and 1.153023->1.097497. Fit 2 still loses deadlines.
+Average cross-entropy can improve while specific high-impact placement
+mistakes remain. Do not use loss alone to replace the frozen policy screen.
+
+6. BEHAVIOR/REPLAY DISTRIBUTION AND TERMINAL MISFIT
+Saved P online behavior versus greedy evaluation:
+
+Fit   Online empty-queue states   Eval empty-queue states   Online/eval mean terminal reward
+0             12.15%                    100%                     -25.581354 / -0.349784
+1             12.50%                    100%                     -25.311805 / -0.348302
+2             13.25%                    100%                     -26.238850 / -0.362851
+
+Each behavior fraction uses all 2,000 saved online states; evaluation uses
+640 per fit. Demonstration states all have empty queues. In the actual TD
+replay draws, only about 35.4-35.9% of total sampled states have empty queues;
+among online samples alone, only about 4.85-5.05%. The early congested behavior
+is repeatedly sampled; these are weighted draws, not unique-state counts.
+The last 200 updates still contain only about 25.0-25.8% empty-queue samples.
+
+Replay terminal samples expose a substantial fitting error even though their
+target bypasses all successor inference and equals the recorded reward:
+
+Fit   Last-200 online terminal mean prediction / target
+0                          +131.231091 / -27.273644
+1                           +32.504340 / -25.868038
+2                           +21.271841 / -28.303208
+
+In those same windows, demonstration terminal mean predictions are -4.217871,
+-34.157049 and -24.743221 against targets near -0.305. Errors have different
+signs across populations. These are the actual logged predictions at update
+time, not predictions reconstructed from unavailable intermediate weights.
+They are not directly comparable to final greedy evaluation Q errors as if
+all came from one common policy/state/action distribution.
+
+Terminal bootstrap values are recorded and verified as zero. Consequently,
+one cannot explain all this misfit solely by terminal successor bootstrapping.
+The declared training schedule has not fitted even these direct terminal
+targets well. DDQN is off-policy; coverage mismatch alone neither invalidates
+the update nor proves a causal remedy. More training, a larger machine or a
+new sampler is not demonstrated to fix it by these observations.
+
+P mean preclip shared-hidden gradient norms are 0.1702/0.3991/0.3503 versus
+A's 261.0494/149.1816/191.1843. Its total norm is much smaller, confirming a
+substantial change in gradient behavior. Yet clipping remains 98.13%, 99.79%
+and 100% of its updates. Its value-output gradient accounts on average for
+48.58%, 61.70% and 65.76% of squared total norm. No historical per-loss full
+gradient-direction replay is claimed: saved norms combine TD and retention.
+
+WHAT IS ESTABLISHED, AND WHAT REMAINS OPEN
+Established: source-correct selective routing occurred; many specific added
+misses arise through recorded RSU2 CPU waiting; queues are empty before
+evaluation decisions; shared-feature changes account algebraically for most
+negative V shift; behavior/replay/evaluation coverage and terminal fitting
+remain problematic; neither better imitation loss nor smaller gradients
+guaranteed the required policy improvement.
+
+Open: the unique causal chain from optimizer/replay/representation changes
+to harmful branch preferences, and which prospective correction will improve
+both return and deadlines across fresh fits at lower deployment cost. Saved
+endpoints cannot reconstruct all intermediate training policies. No unchanged
+failure is reclassified as a successful novelty or thesis contribution.
+
+NEXT BOUNDED GATE
+Write one prospective controller-design DECISION brief using these findings.
+It should address preservation of calibrated features/values, sensitivity to
+within-slot joint allocation and the behavior-data mismatch, and choose one
+specific testable extension rather than combine speculative changes. Check
+the idea against previously failed designs and known methods before calling
+it new. Include a simple conventional control for the chosen mechanism,
+unchanged relevant controls and a precise falsifiable performance/cost claim.
+
+This gate does not implement a new controller, reserve or consume new
+development/final seeds, launch another experiment, or change the thesis.
+Any selected future extension requires its own prospective equations,
+comparison declaration, disjoint seeds and engineering validation before a
+separately authorized launch. The efficient-DDQN contribution-one objective
+remains active and unproven. Security/trust stays deferred; cloud/charging
+remain excluded. Keep the existing run and archive as valid negative/mixed
+evidence throughout that decision.

@@ -1,0 +1,25 @@
+{
+  "state": "passed_development_saved_artifact_audit",
+  "simulator_steps_added": 0,
+  "optimizer_updates_added": 0,
+  "run_kind": "research_protocol_run",
+  "episodes_checked": {
+    "training": 3000,
+    "validation": 375,
+    "fresh_model": 720,
+    "fresh_heuristic": 144,
+    "probe": 8
+  },
+  "training_slots": 120000,
+  "optimizer_rows_checked": 104655,
+  "checkpoint_hashes_checked": 15,
+  "manifest_entries_checked": 6194,
+  "paired_training_validation_and_fresh_workloads": true,
+  "source_checkpoint_replay_and_value_outputs_checked": true,
+  "quality_screens_recomputed": true,
+  "quality_screen": "one_or_more_predeclared_screens_failed",
+  "bootstrap_rng_seed": 25261113,
+  "bootstrap_draws": 2000,
+  "interpretation": "development engineering evidence only; no formal noninferiority or novelty claim",
+  "auditor_sha256": "d69e90c2a8d2dd2e16c8cb6b875c2bb7d02ab2ffaf85233275dcb00bc78a09a0"
+}

@@ -221,3 +221,30 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Research publication boundaries and generated artifacts
+.env
+.env.*
+!.env.example
+private/
+local_artifacts/
+runs/
+Fitz Extension 2026/
+*.docx
+*.pdf
+*.pt
+*.pth
+*.onnx
+*.npz
+*.npy
+*.gz
+*.bin
+*.dll
+*.pyd
+*.log
+*.jsonl
+~$*
+venv*/
+.venv*/
+**/site-packages/

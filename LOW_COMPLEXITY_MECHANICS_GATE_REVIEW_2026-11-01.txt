@@ -1,0 +1,55 @@
+LOW COMPLEXITY MECHANICS AND COST GATE
+Date: 2026-11-01
+Status: prototype mechanics passed; learning not launched.
+
+The separate Low Complexity project is now active. Existing October31 evidence
+was preserved and copied as Source. The proposed SPI-DDQN prototype passed five
+mechanics tests: output shapes, legal decoding, action-dependent joint scores,
+encoder/joint gradient flow and deterministic selection.
+
+A first failed test attempt exposed an indexing error in action-embedding lookup.
+That attempt is preserved. The corrected test suite passed; no training or
+simulator run used the failed implementation.
+
+COST GATE
+Common128 fixed physical observations, two rounds,32 warmups and128 timed
+complete-slot selections per path. Environment stepping and file I/O excluded.
+
+Path                 Median ms   p95 ms   Online parameter bytes
+Additive DDQN        0.09205     0.11915  422016
+Sequential cached    10.47220    11.42670  385300
+SPI prototype        4.91675     5.27098  330788
+
+SPI has about21.6% fewer online parameter bytes than additive and is about53%
+less median selection time than the sequential prototype in this local Python
+path. It is still about53.4 times slower than additive. Weights are untrained;
+this is an engineering gate, not a policy result. The SPI path currently uses
+bounded top2 beam width8 and a batched joint scorer. The timing includes that
+beam logic and excludes env.step.
+
+INTERPRETATION
+The architecture is promising as a lower-cost replacement for the failed
+sequential implementation, but it does not yet prove system-level low
+complexity against the additive baseline. Its real test is whether training
+can produce equal or better return/deadline performance while retaining the
+cost advantage and without beam coverage failure.
+
+OBSTACLES REMAINING
+- SPI may omit the physically best action because top2 candidates exclude it.
+- Beam width8 may miss useful joint combinations.
+- Untrained timing may change after training or optimization.
+- The joint scorer has not been trained or calibrated.
+- Partial observation and hidden queue state remain.
+- The candidate-set target semantics need a separate training specification.
+
+NEXT GATE
+Before a long pilot, add a tiny paired learning smoke with the unchanged
+simulator and reward model. Compare additive and SPI on identical physical
+slots, seeds, budgets and fresh evaluation workloads. Measure beam coverage
+against a wider reference candidate set. Stop if SPI cannot beat the
+sequential path on cost, if action coverage is inadequate, or if quality is
+clearly worse. No thesis claim is established by this gate.
+
+Evidence: validation/spi_ddqn_mechanics_2026-11-01_02 and
+validation/spi_cost_gate_2026-11-01_02/verification.json
+No Word thesis edit. No model retraining or simulator rollout occurred.

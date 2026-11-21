@@ -1,0 +1,131 @@
+ASSIGNMENT-DEPENDENT PRICE: ISOLATED IOV INTEGRATION FIXTURE
+Date: 2026-11-15
+
+DECISION
+The small simulator integration fixture and saved-artifact audit PASS.
+All four validation test groups pass after two preserved harness/auditor
+corrections. No retraining was required for either correction. Proceed to
+preparing a prospective full comparison, fresh development seed plan and
+specific novelty/overlap review. No research run is authorized or launched.
+The fixture does not establish return/deadline superiority, learned mechanism
+benefit, training stability at scale, value calibration or thesis novelty.
+
+WORKFLOW IMPLEMENTED
+run_assignment_price_fixture.py runs only mode=fixture; every other mode is
+rejected before output creation/model construction. It uses the original
+local/UAV/RSU simulator, physical reward, horizon 40 and observed local mask.
+Four candidate arms: coupled_sweep, coupled_no_sweep, separable64 and
+fixed_price_plain_sweep. Four existing controls: screened_price24,
+unmasked_compact64, screened_wide128 and unmasked_wide128. Three heuristics:
+nearest_rsu, uav_selective and all_local. All arms/heuristics are preserved.
+
+One engineering model seed 867150001. Two paired training task seeds
+867151000/867151001 and evaluation seed 867152000; shuffled arm order seed
+867153000. These are consumed engineering seeds, not research reservations.
+No final seed is used. A supplementary namespace check compares these and
+the action/replay/anchor RNG offsets against root declared protocol/spec/
+amendment/release integers and start/count ranges. It is not a repository-wide
+scan of all historic traces. The initial workspace search found no existing
+declared protocol match for this namespace before execution.
+
+Fixture sizes alone were reduced: 2 training episodes/arm, warmup 8, batch 4,
+replay capacity 32, terminal-anchor batch 4, target copy every 8 updates and
+epsilon decay over 80 slots. Retain Adam lr 1e-4, betas (.9,.999), eps 1e-8,
+weight decay 0, gamma 1, gradient clip 10, Huber beta 1, original-unit loss and
+terminal anchor weight 1 for candidates; existing controls retain their
+original objectives and anchoring status. These are engineering settings,
+not a frozen future research budget or optimizer amendment.
+
+Candidate updates use the original differentiable FP32-head/FP64-scalar
+critic/objective. Online next-action selection, same-action target evaluation,
+terminal bypass and target-gradient isolation retained. Terminal records are
+sampled only while un-evicted; capacity 32 deliberately removes the first
+episode's terminal record before the second terminates. Separate action,
+replay and anchor RNG streams are retained.
+
+COUNTS AND OUTPUTS
+- 8 learned controllers, 16 training episodes: 640 training simulator slots.
+- 8 learned evaluations plus 3 heuristic evaluations: 440 evaluation slots.
+- Total 1,080 simulator slots, 27 episodes and 32,400 generated task records.
+- 73 optimizer updates and 9 target copies per learned arm: 584 updates and
+  72 target copies total. No extra optimizer steps in validation tests.
+- 8 final checkpoints only, each storing online/target/optimizer state and
+  actor history; checkpoint reload and optimizer-state restoration exercised.
+- 8 trained deployment exports. All checkpoint hashes frozen before any
+  evaluation. Evaluation performs no updates and leaves weights/checkpoints
+  unchanged. All 320 learned-evaluation states passed deployment versus
+  original eager action/value checks, with existing tolerances unchanged.
+
+Saved outputs include training/evaluation task traces, observations and next
+observations, rewards/components, actions, workload fingerprints, optimizer
+rows, replay/anchor indices, targets, chosen Q, TD residuals, clipping and
+copy events, checkpoint/graph artifacts, counters and source/plan freezes.
+All learned training task fingerprints match across arms; learned/heuristic
+evaluation fingerprints match. Sources and full fixture evidence are archived.
+Supplementary distributions/paired differences are explicitly fixture-only;
+no scientific success screens or outcome-based selection are applied.
+There was no acceptance retiming in this stage. The previous narrow matched
+engineering timing pass remains separate evidence, not repeated here.
+
+TESTS AND INDEPENDENT AUDIT
+verify_assignment_price_fixture.py passes four groups:
+1. Entire completed fixture plus independent saved-artifact audit.
+2. Rejection of a changed artifact hash, corrupted Bellman target and invalid
+   next action in the auditor; temporary mutation restored before other checks.
+3. API and subprocess CLI reject development/final/unknown modes before output
+   creation. This fixture runner cannot launch research even with a generic
+   confirmation; a separately reviewed research executable/protocol is needed.
+4. Terminal-only DDQN does not decode next actions; backward sends gradients
+   to the online critic and none to the target. No test optimizer step.
+
+audit_assignment_price_fixture_v2.py checks all artifact hashes, exact output
+inventory, source/plan freezes, arm order, workload pairing and per-task/action/
+reward/summary consistency. It reconstructs replay rings, sample RNG streams,
+terminal-pool eviction and anchor draws; checks all 584 rows' Bellman targets,
+TD residuals, Huber/anchor arithmetic, finite gradients and target-copy timing.
+All eight terminal evictions are exercised. It verifies final checkpoint
+counts, optimizer step counts, ONNX validity and exact initializer equality
+to trained parameters. It independently checks all 320 saved evaluation Q/
+target values and original eager actions at batch one, matching execution.
+Saved-arithmetic audit performs no simulator or optimizer steps. Recorded
+deployment equivalence is distinguished from independent eager recomputation.
+Task audit checks saved accounting/physics summaries; it does not independently
+re-simulate every radio/queue transition. Peak memory and cold-start latency
+are not established. One initialization/two episodes do not test convergence.
+
+PRESERVED ENGINEERING CORRECTIONS
+The initial harness assigned cls.run to a path, shadowing unittest.TestCase.run.
+The complete fixture had already finished when unittest raised TypeError.
+Original harness and failure note are retained. A corrected continuation
+verified existing artifacts without repeating the 1,080 simulator slots.
+The first auditor used default NumPy FP64 subtraction on reference logs that
+were generated with FP32 addition/subtraction. It rejected a roughly 2.6e-6
+TD cancellation difference. Version 2 reproduces each arm's arithmetic dtype;
+no tolerance was widened. It also uses batch-one saved-value recomputation
+to match recorded evaluation. Original auditor and failed test report retained.
+Final validation passes all four tests. Use the versioned verifier/auditor for
+these saved artifacts; the original test file is a preserved failed harness.
+
+NEXT STAGE
+Prepare one prospective comparison specification with this unchanged candidate,
+all required ablations, small DDQN, stronger references and relevant heuristics.
+Declare full budgets, initializations, fresh disjoint development task/model
+seeds, untouched final reservations, original-unit value/gradient distributions,
+paired return/deadline endpoints, storage and complete matched deployment
+latency. Preserve every-fit criteria and define the acceptance conjunction
+before any research outcomes; resolve precise prior-work overlap. Bind/test
+the research runner and auditor against that specification, then make a
+separate explicit launch decision. Do not use this fixture to tune its rules.
+
+The first contribution remains an efficient-DDQN offloading hypothesis under
+test. No lightweight/low-complexity thesis claim is proven. The Word thesis
+and reserved final evaluation set remain untouched. Security/trust stays
+deferred; no cloud or charging mechanism has been introduced.
+
+EVIDENCE
+validation/assignment_price_iov_fixture_2026-11-15_01/fixture_evidence/
+validation/assignment_price_iov_fixture_2026-11-15_01/tests_verified.json
+validation/assignment_price_iov_fixture_2026-11-15_01/independent_audit.json
+validation/assignment_price_iov_fixture_2026-11-15_01/cli_guard_evidence.json
+validation/assignment_price_iov_fixture_2026-11-15_01/engineering_seed_audit.json
+validation/assignment_price_iov_fixture_2026-11-15_01/fixture_descriptive_summary.json

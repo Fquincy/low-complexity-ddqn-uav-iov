@@ -1,0 +1,132 @@
+VERSION 3 AMORTIZED WORKLOAD-PRICE DDQN: ENGINEERING REVIEW
+Date: November 5, 2026
+
+DECISION
+The new design is implemented and mechanically checked, but its cost gate
+FAILED. Do not start development/final training from this engineering result.
+The low-complexity contribution and policy improvement remain unproven.
+
+WHAT CHANGED
+One small 533->24->170 network estimates individual action costs and four
+workload prices, using a learned reference destination split to estimate other
+vehicles' load once. The decoder then takes independent minima; no price-pass
+loop, assignment repair or simulator look-ahead is used. This is exact greedy
+selection for a NEW separable critic, not an equivalent faster version of the
+old quadratic critic. It deliberately gives up action-dependent coordination.
+The former critic and all earlier failed results are retained unchanged.
+
+The network has 17,066 parameters, 68,264 FP32 online parameter bytes and 20
+buffer bytes, with 16,872 Linear MACs. It is larger than the 4,052-parameter
+shared critic, while using fewer neural MACs and much less decoder work.
+Its online parameter storage is 64.98% lower than compact64.
+This says nothing about total process RAM, replay memory or electrical energy.
+
+PREDECLARATION
+Design: LOW_COMPLEXITY_CONTROLLER_V3_DESIGN_2026-11-05.txt
+Protocol: LOW_COMPLEXITY_CONTROLLER_V3_ENGINEERING_PROTOCOL_2026-11-05.json
+Both were saved before implementation and timing. This was one fixed design
+and one declared timing attempt. No thresholds, old rewards, optimizer settings,
+research/final seeds or historical model definitions were changed.
+No timing-driven candidate revision or favorable rerun was performed.
+
+WHAT PASSED
+15 mechanics tests: exact parameter/MAC counts, observation offsets and units,
+independent price-equation arithmetic, exhaustive reduced-model greedy actions,
+deterministic ties, legal/nonpositive values, intended and masked head gradients,
+DDQN online selection/separate target evaluation, terminal skipping, target
+gradient isolation, checkpoint roundtrip, invalid-input/action/value rejection,
+corrupt/unlisted artifact rejection, cost-screen logic, CLI launch blocking and
+the absence of cloud, charging and security mechanisms.
+Backward passes were used to test gradients; there were ZERO optimizer updates.
+
+All 11 controllers were exported with the same ONNX Runtime 1.31.0 CPU FP32
+backend, sequential execution and one intra/inter-op thread. Three synthetic
+initializations per controller were checked against 128 saved observations and
+64 numerical synthetic observations: 6,336 complete joint actions (202,752
+individual choices) agreed exactly. Q values met rtol1e-5/atol1e-6. Every model
+also passed deterministic save/reload checks and unchanged-weight checks.
+This is finite-case equivalence, not a universal numerical proof or trained
+policy evidence. The inherited expm1 lowering is Exp(x)-1 in FP32, and future
+trained checkpoints need their own export/equivalence checks.
+
+The independent auditor reconstructed all 33 models, replayed the 6,336 cases,
+verified source/graph hashes and runtime settings, and recomputed all 7,040
+timing records. It checked 62 pre-audit manifest entries.
+Audit state: passed_v3_engineering_artifact_audit.
+
+FULL ACTION-SELECTION TIMING (same run, milliseconds)
+Controller                           Median       p95       FP32 parameter bytes
+amortized_workload_price24           0.08330   0.11148         68264
+amortized_no_price24                 0.08440   0.12881         68264
+plain24_nonpositive                  0.04810   0.06815         67364
+shared_congestion_cost               0.39180   0.59239         16208
+shared_no_congestion                 0.10030   0.16666         16208
+untied_congestion_cost               0.58710   1.26455        215380
+shared_joint_bound                   0.38700   0.64865         16208
+additive64_nonpositive               0.03890   0.04721        194944
+additive128_unbounded                0.04190   0.05494        422016
+emc_q_nonpositive                    0.11470   0.15693        277444
+bdq64_uniform_adapted                0.04320   0.06930        195204
+
+The primary is 4.70x faster than the old shared critic in THIS paired
+timing run, but 1.99x slower than the compiled wide reference. Do not
+substitute timings from earlier sessions to calculate this comparison.
+Primary p95 0.11148ms passes the absolute1ms limit.
+Unchanged screens: storage PASS; relative median speed FAIL; absolute p95 PASS.
+
+Timing used five rounds, 32 warmups and 128 measured calls per arm/round,
+640 readings per controller. Randomized interleaving order and every raw
+nanosecond reading are saved. Input conversion, finite-input checks, all neural
+and price calculations, full decoding/chosen-value computation and action copy
+were included for every arm. Graph export and session startup were excluded
+and saved separately. Export and audit processes both completed with exit0.
+Parameter bytes and serialized graph sizes are reported separately; neither
+is measured peak RAM. Untrained Q distributions are audit diagnostics only.
+
+IMPORTANT LIMITATION THAT THE TESTS EXPOSED
+In a symmetric two-vehicle algebra example, both vehicles still choose server1.
+Their cost under the OLD coupled quadratic objective is0.5, versus0.25 for a
+split assignment. Version3 minimizes its own separable approximation exactly;
+it does not solve the original coupled minimization. Actual deadline/return
+effects have not been measured. The reference fractions are latent learned
+quantities, with no calibrated assignment-prediction guarantee.
+The no-price ablation masks the price term to zero while retaining all
+parameters and the declared computational path. Its runtime is reported as
+implemented; the difference is not an isolated measure of pricing overhead.
+No novel algorithm or successful deployment is established by this gate.
+
+PRESERVATION AND SCOPE
+Verified 66 original saved research-input hashes and 186 prior source,
+design and engineering-artifact hashes unchanged. The pre-update tracker is
+saved as PROJECT_STATUS_BEFORE.json. All old results remain available.
+Zero new simulator slots; zero optimizer updates; no research/final seed use;
+no long training run. The Word thesis remains unchanged.
+Active execution locations are local vehicle, UAV1,UAV2,RSU1,RSU2 only.
+Cloud and charging stations are absent; security/trust is deferred contribution2.
+
+WHAT SHOULD HAPPEN NEXT
+Stop before research training. First profile this frozen compiled version3
+graph to locate the remaining cost, including price construction and model
+output handling. The plain small model is also slower than the wide reference
+in this run, so smaller widths alone do not establish lower runtime.
+Any subsequent implementation simplification needs a new predeclared amendment,
+the same complete cost accounting and equally optimized references. Do not
+relax the cost screen or infer policy quality from untrained fixtures.
+If that gate eventually passes, prepare and review a complete eleven-arm
+research protocol/runner/auditor before a separate launch decision. Preserve
+the prior return/deadline and value-stability screens, add the plain24 and
+no-price24 comparisons, and freeze disjoint development/final tasks and fits.
+The historical eight-arm budget is not a valid eleven-arm budget.
+Literature comparison and supervisor discussion remain necessary before
+claiming novelty or deciding the thesis contribution is sufficient.
+
+FILES
+controller_v3_amortized.py
+run_controller_v3_engineering.py
+audit_controller_v3_engineering.py
+test_controller_v3_engineering.py
+validation/controller_v3_engineering_2026-11-05_01/
+  PRE_EXPORT_FREEZE.json,PRE_TIMING_FREEZE.json,mechanics_tests.json
+  equivalence.json,metadata.json,raw_timings.json,verification.json
+  run_manifest.json,saved_artifact_audit.json,audited_vectors.npz
+  POST_AUDIT_PRESERVATION.json,exports/,source_snapshot/

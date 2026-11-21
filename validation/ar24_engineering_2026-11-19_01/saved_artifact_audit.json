@@ -1,0 +1,118 @@
+{
+  "saved_artifact_audit_passed": true,
+  "primary_and_variant_states": 666,
+  "direct_decoder_states": 555,
+  "reference_export_states": 384,
+  "reference_equivalence": [
+    {
+      "arm": "screened_plain24",
+      "fit": 0,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 5.960464477539063e-08
+    },
+    {
+      "arm": "screened_wide128",
+      "fit": 0,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 7.152557373046875e-07
+    },
+    {
+      "arm": "unmasked_wide128",
+      "fit": 0,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 9.5367431640625e-07
+    },
+    {
+      "arm": "unmasked_compact64",
+      "fit": 0,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 5.960464477539063e-08
+    },
+    {
+      "arm": "screened_plain24",
+      "fit": 1,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 1.1920928955078125e-07
+    },
+    {
+      "arm": "screened_wide128",
+      "fit": 1,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 7.152557373046875e-07
+    },
+    {
+      "arm": "unmasked_wide128",
+      "fit": 1,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 7.152557373046875e-07
+    },
+    {
+      "arm": "unmasked_compact64",
+      "fit": 1,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 4.470348358154297e-08
+    },
+    {
+      "arm": "screened_plain24",
+      "fit": 2,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 5.960464477539063e-08
+    },
+    {
+      "arm": "screened_wide128",
+      "fit": 2,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 4.76837158203125e-07
+    },
+    {
+      "arm": "unmasked_wide128",
+      "fit": 2,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 7.152557373046875e-07
+    },
+    {
+      "arm": "unmasked_compact64",
+      "fit": 2,
+      "states": 32,
+      "action_disagreements": 0,
+      "max_Q_difference": 2.9802322387695312e-08
+    }
+  ],
+  "raw_timing_readings_verified": 1440,
+  "graphs_hashed": 30,
+  "cost_screens": [
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    }
+  ],
+  "engineering_cost_passed": false,
+  "research_release": false,
+  "quality_evidence": false,
+  "frozen_research_definitions_unchanged": true,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_timing_readings": 0
+}

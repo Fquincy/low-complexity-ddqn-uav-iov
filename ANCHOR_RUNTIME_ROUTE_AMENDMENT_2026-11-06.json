@@ -1,0 +1,14 @@
+{
+  "id": "anchor-runtime-route-amendment-v1",
+  "base_protocol_sha256": "dae10a458a8de3234615e7f013e71730b52d12e9d87c477606de0f23a809f868",
+  "correction": "Replace corrected-arm duplicate-validation wrapper with anchor_runtime_single_validation.values; unchanged model, decoder and FP32 outputs.",
+  "historical_failed_cost_result": "validation/anchor_research_preparation_2026-11-06_01/FROZEN_CHECKPOINT_INFERENCE.json",
+  "old_runtime_sha256": "f6a1a6c3c1190d7c163cada9af963f8bf0b4182188b53b5e3a0603f7694ea3b7",
+  "new_adapter_sha256": "1d9dfef176c4349e7f0d8cdf9af7cd502e55f1c8805dca8e3772c63de0310c06",
+  "evidence": "validation/anchor_runtime_single_validation_2026-11-06_01",
+  "research_enabled": false,
+  "thresholds_changed": false,
+  "weights_changed": false,
+  "reward_changed": false,
+  "next": "Integrate declared route into separately versioned runner/auditor and verify reduced shared orchestration before launch review."
+}

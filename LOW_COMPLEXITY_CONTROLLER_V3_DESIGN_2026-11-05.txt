@@ -1,0 +1,102 @@
+CONTROLLER VERSION 3: AMORTIZED WORKLOAD-PRICE DDQN
+Date: November 5, 2026
+Status: engineering hypothesis predeclared BEFORE implementation/timing.
+
+WHY CHANGE THE DESIGN
+The preserved version-2 shared critic is small but complete compiled selection
+is about 10 times slower than the wide reference. Both neural dispatch and
+iterative coordination cost time. Version 3 changes BOTH the representation and
+decoder. It is not an equivalent optimization of version 2 and inherits none
+of its policy results. The prior critic and all failed gates stay unchanged.
+
+ONE FIXED DESIGN, NO ARCHITECTURE SEARCH IN THIS GATE
+For N=30, input remains the exact existing 533-element observation. One hidden
+ReLU layer: 533 -> 24 -> 170, biases included, framework-default initialization.
+Outputs in order: placement logits [30,5], movement logits [2,5], bias [1],
+four nonnegative-price logits, five predicted destination-fraction logits.
+17066 parameters; 68264 FP32 parameter bytes; 16872 Linear MACs.
+The public conversion buffer holds five FP32 numbers (20 bytes).
+No entity permutation invariance or variable-N deployment is claimed. The
+larger parameter count than version 2 is intentional to reduce complete runtime.
+
+VALUE FUNCTION AND UNITS
+sp denotes stable softplus. g_d is the existing log1p-normalized remote CPU
+workload; L_d=expm1(g_d). w_i,d=cycles_i/(CPU_frequency_d*0.3s), using existing
+500e6-cycle normalization and frequencies [10,10,20,20] Gcycles/s. Set L_0=w_i,0=0.
+These quantities are dimensionless normalized service times, not bits or seconds.
+pi=softmax(five fraction logits); beta_0=0, beta_d=sp(price_logit_d).
+H_i,d = L_d + pi_d * sum_{j != i} w_j,d.
+p_i,d = beta_d * (2 H_i,d w_i,d + w_i,d^2) / (4N).
+c_i,d = sp(placement_logit_i,d)/N + p_i,d.
+m_j,b = sp(movement_logit_j,b)/2.
+Q(s,a) = -[sp(bias) + sum_i c_i,a_i + sum_j m_j,a_j] <= 0.
+Use sum of other workloads explicitly (sum minus self, clamped at zero for
+roundoff). No action, hidden queue or future observation enters H.
+pi is a latent learned reference fraction, NOT a supervised or calibrated
+prediction of actual assignments. Its accuracy is not assumed. beta and pi
+need not be identifiable. Their gradient flow and distributions need reporting.
+
+DECODER AND LIMITATION
+Select each placement and movement by argmin of its table; ties choose lowest
+index. This is EXACT greedy selection for the NEW SEPARABLE critic. It is NOT
+an exact minimizer of the old assignment-quadratic critic or the true system.
+No iterative prices, repairs, candidate rescoring or simulator look-ahead.
+The mean-field approximation loses action-dependent load coordination. In a
+symmetric example, identical costs can still send all vehicles to one server.
+Record that counterexample; do not remove it or assert balancing guarantees.
+The unary network sees all observed vehicles and could learn distinct costs,
+but only fresh training can establish whether this is adequate.
+
+DDQN UPDATE
+a'=argmax_a Q_online(s',a) using the direct decoder.
+y=r for terminal tuples; else y=r+gamma*Q_target(s',a'). gamma remains 1.
+Huber beta1, detached target, Adam 1e-4, gradient clip10, uniform replay, no
+reward/physical-model change. Skip both models for terminal successor states.
+No research training is authorized in this engineering-only gate.
+
+COMPARISONS AND INTERPRETATION
+Primary: amortized_workload_price24.
+Mechanism ablation: amortized_no_price24, SAME 17066 parameters and ordering,
+price term identically zero. Keep masked parameters in storage accounting.
+Plain small reference: plain24_nonpositive, 533->24->161, outer joint negative
+softplus, 16841 parameters, 67364 bytes. No explicit workload-price mechanism.
+Retain ALL eight earlier arms in the same compiled timing run, including the
+failed shared critic, compact64, wide128, EMC and adapted BDQ.
+The price mechanism, compact width, DDQN, factorization and mean-field ideas are
+not claimed new. Literature review and supervisor discussion are still needed
+before asserting novelty. The hypothesis is a useful measured combination in
+this offloading setting; a faster untrained network alone is no contribution.
+
+ENGINEERING GATE AND STOPPING RULE
+Check units, nonnegative tables, exact reduced exhaustive argmin, stable ties,
+per-head gradients and intended masked gradients, DDQN online/target separation,
+terminal skip, checkpoint roundtrip, compile equivalence and artifact rejection.
+Use only saved observations and synthetic data; zero new simulator slots and
+zero optimizer updates. No reserved research seed is consumed.
+Predeclare all 11 arms before the single timing attempt, same ORT CPU FP32,
+single-thread settings, five rounds, 32 warmups and 128 timed observations per
+arm/round. Include input conversion, every price calculation and output copy;
+exclude graph export/session startup (report separately). Save all timings.
+Primary cost thresholds UNCHANGED: parameter bytes <=50% of compact64;
+median complete latency <=wide128; p95 <=1ms. No favorable retest or tuning.
+Do not launch training if any mechanics/equivalence/audit/cost screen fails.
+A pass permits preparation of a separately reviewed executable research
+protocol, not a launch or a thesis claim.
+
+FUTURE QUALITY GATE, NOT EXECUTED HERE
+Retain the v2 return/deadline/value-stability thresholds and five independent
+fits, matched workloads, final-only checkpoints and disjoint final evaluation.
+Include the new matched plain24 reference and no-price24 ablation. For each
+fit require return/deadline differences >=-2 / -.01 versus compact64, wide128,
+EMC, BDQ AND plain24. Against no-price24 require nonnegative differences per fit
+and across-fit means >=2 return and >=.01 deadline. Report all other contrasts.
+Before any training, freeze the full eleven-arm orchestration, source hashes,
+explicit seed-collision audit, complete schedule/budget, paired evaluation,
+value diagnostics and saved-artifact auditor. Earlier protocol budgets must
+not silently be reused for eleven arms. Training requires a separate decision.
+
+SCOPE
+Only local vehicles, two UAV servers and two RSUs. No cloud or charging stations.
+Security/trust remains contribution two, deferred until contribution one works.
+No Word thesis or historical experiment is edited. Only new engineering files
+and a project-status entry are written. This document is not thesis prose.

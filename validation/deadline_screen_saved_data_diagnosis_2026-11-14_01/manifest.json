@@ -1,0 +1,11 @@
+{
+  "files": {
+    "DEADLINE_SCREEN_SAVED_DATA_DIAGNOSIS_2026-11-14.txt": "c1932e684e6074edc1eaf3498c9e6d4609e79e66c864894167c536ffda83a59e",
+    "diagnosis_script.py": "1cdc57eff7600fa0220be5c783b0e9ac5220b185e9a6cd10eee58e678a9394c6",
+    "primary_price_decomposition.json": "66dd4a9a811d6d8b742c17f0d84e3b4cf253086929ef407019ac8f100777f8d3",
+    "PROJECT_STATUS_BEFORE_DIAGNOSIS.json": "79b8bb6b82d4d1127160a65c0335749659c9bbecb5bcf1d47949e10e292ba2ab",
+    "trace_diagnosis.json": "8348e449f6b3b33f3f173b2ceb2bbb2582bd5baac4e17731525e6a3fbf8b45f7",
+    "trace_inputs_manifest.json": "2340f7e625d03c3f8da3b76575096ee3fcbe8f7e7de979a46a2705ad01b2035b",
+    "verification.json": "b379d238dd8dfe5ed10889d134a517179e984daa7f58fd10bbcaa38a6d5cc94c"
+  }
+}

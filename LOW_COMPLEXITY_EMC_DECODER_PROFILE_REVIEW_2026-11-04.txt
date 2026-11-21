@@ -1,0 +1,101 @@
+EMC-Q EXACT DECODER PROFILING REVIEW
+Date: November 4, 2026
+Status: profiling and equivalent decoder checks complete; no fitting.
+
+RESULT
+Changing the exact contraction implementation gives only a modest local
+full-action median difference. No implementation measured here is faster
+than either additive control. A lower-latency claim remains unsupported.
+The original emc_q.py and all existing model/simulator sources were preserved.
+New alternatives are isolated in emc_decoder_variants.py.
+
+WHAT WAS CHECKED
+Two equivalent decoders: batched matrix multiplication and explicit rank2
+broadcasting, versus the original einsum contraction. The model, output
+representation, movement enumeration, reward and action layout were unchanged.
+All checked actions matched exactly. Maximum Q-value difference was
+4.77e-7 due to floating-point evaluation order. Checks covered60 reduced
+batched random cases, native model batches1/7/128, all-action ties and an
+explicit movement/destination coupling example. They do not guarantee the
+same tie resolution for every untested near-tied float32 input.
+The original backward/target tests remain relevant because chosen-action
+training and target detachment were not modified. No optimizer update or
+simulator interaction was performed.
+
+MATCHED COMPLETE-ACTION TIMING
+One Torch intra-op/inter-op thread, CPU, untrained model. Same128 recorded
+observations for all paths, five randomized block rounds,32 warmups and128
+timed complete actions/path/round.640 calls/path;3200 raw duration rows.
+State conversion and action dictionary included. IO, simulator steps and
+correctness assertions excluded. No model weights changed. Every timed EMC
+variant action matched the untimed original on its corresponding observation.
+
+Path | Median ms | p95 ms
+additive128 | 0.12420 | 0.23521
+additive64 | 0.11720 | 0.19761
+matmul | 0.44350 | 0.78850
+original_einsum | 0.47985 | 1.04293
+rank2_broadcast | 0.47195 | 1.02033
+
+Matmul median reduction vs original in this run: 7.58%.
+Matmul / additive128 median: 3.57x.
+Matmul / additive64 median: 3.78x.
+
+PER-ROUND MEDIANS (MS; TIMING VARIABILITY)
+additive128: 0.12695, 0.12410, 0.12445, 0.12365, 0.12350
+additive64: 0.15740, 0.11735, 0.11635, 0.11630, 0.11720
+matmul: 0.44105, 0.44325, 0.47215, 0.44085, 0.43995
+original_einsum: 0.47580, 0.47900, 0.47480, 0.47680, 0.84950
+rank2_broadcast: 0.46345, 0.46440, 0.46530, 0.46605, 0.84830
+
+ISOLATED COMPONENT TIMING
+One fixed observation, cached upstream values;256 calls/component, after32
+warmups. These component medians are NOT additive and cannot be subtracted
+from full-action medians to compute exact time fractions. Separate component
+blocks can experience different scheduling, frequency or runtime conditions.
+decoder_only_matmul: median 0.44320ms, p95 0.64005ms.
+decoder_only_original_einsum: median 0.27030ms, p95 0.64665ms.
+decoder_only_rank2_broadcast: median 0.26120ms, p95 0.34275ms.
+encoder_only: median 0.04795ms, p95 0.05470ms.
+head_only: median 0.01820ms, p95 0.01937ms.
+The decoder involves several small operations and reductions, whereas the
+encoder/head alone are relatively short in these blocks. However, isolated
+matmul timing is slower than isolated original even though full-action matmul
+median is lower. This inconsistency prevents a robust isolated-kernel speedup
+claim. Hardware power/thermal state and OS scheduling were not controlled.
+Only this same-run benchmark is reported; older absolute timings are not a
+paired speedup comparison. Torch compilation/native deployment was not tested.
+
+COST CLAIM AND STOPPING
+EMC still has69361 parameters/277444 float32 parameter bytes:34.3% fewer
+than additive128, but42.3% more than compact additive64. Parameter storage is
+not peak memory, inference energy or training computation. Quality remains
+untested. A long learning pilot is not authorized by a timing microbenchmark.
+Do not adopt matmul as a proven faster default from one noisy benchmark. The
+variants are available for a separately predeclared runner; original remains
+the correctness reference.
+
+RECOMMENDED NEXT STEP
+Freeze a bounded storage-versus-quality experiment specification before any
+training: EMC versus original128x128 and compact64x64 additive controls,
+disjoint training seed blocks, paired action/replay streams, detached target
+graphs, final episode metrics and common fresh greedy evaluation. Explicitly
+state that the candidate has a latency penalty; define a maximum acceptable
+latency cost and quality noninferiority/improvement margins BEFORE results.
+Against compact additive, interaction benefits would need to justify both
+additional parameter storage and execution cost. No novelty claim follows
+from the restricted movement-conditioning mechanism.
+If lower latency than additive is mandatory, stop here and redesign the
+representation/decoder instead of training this version. If lower storage
+than the original baseline is the intended claim, test quality under that
+narrow claim; do not rename it lower latency or lower total complexity.
+
+FILES
+emc_decoder_variants.py
+profile_emc_decoder.py
+validation/emc_decoder_profile_2026-11-04_01/verification.json
+validation/emc_decoder_profile_2026-11-04_01/full_action_timings.csv
+validation/emc_decoder_profile_2026-11-04_01/component_timings.csv
+validation/emc_decoder_profile_2026-11-04_01/quantile_readback.json
+Raw full-action medians/p95 were recomputed from all3200 rows.
+Word thesis unchanged; no model fitting or simulator rollout.

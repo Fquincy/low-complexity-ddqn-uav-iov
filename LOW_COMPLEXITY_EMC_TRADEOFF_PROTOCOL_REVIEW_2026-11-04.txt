@@ -1,0 +1,127 @@
+EMC-Q STORAGE-VERSUS-QUALITY DEVELOPMENT PROTOCOL
+Date: November 4, 2026
+Status: specified and arithmetic/source checked; runner not implemented; no
+training or simulator episode was launched by this step.
+
+QUESTION AND CLAIM BOUNDARY
+Can the restricted exact movement-conditioned model reduce online parameter
+storage relative to the original additive128 DDQN while preserving a useful
+policy, despite a measured inference-latency penalty? This is a bounded
+engineering quality/cost screen. It cannot prove novelty, deployment
+low-complexity or general noninferiority.
+
+FROZEN ARMS
+1. additive128: existing factorized DDQN,128x128.
+2. additive64: same factorized DDQN at64x64; controls for the effect of shrinking
+   the network.
+3. emc_q_original_exact: fixed EMC-Q with original einsum exact decoder.
+Do not select matmul/broadcast after examining quality; variants remain profile
+references. Physical model, task generator, reward equations, state, legal
+actions, horizon and simulator version stay fixed.
+
+DEVELOPMENT DESIGN
+Three initialization seeds2309,2333,2351. All three arms use the same three
+training task-seed blocks: 16100000..16100199,16200000..16200199,
+16300000..16300199. Runs execute sequentially with one model seed per paired
+replicate. Within a replicate, action and replay RNG streams are independent and
+paired by fixed offsets. Different-width architectures do not have identical
+initial weights; no identical-weight claim.
+
+200 episodes/run x40 slots =8000 physical training slots/run. Warmup1024;
+first update immediately after inserting physical record1024. One optimizer
+update per physical slot thereafter:6977 updates/run,34 periodic target copies
+at interval200. Batch128,capacity50000 physical records,Adam1e-4,Huber beta1,
+gradient clip10,gamma1. Epsilon1 during warmup, then
+1-.95*min(t_before_decision/8000,1),ending at.05. Final episode200 only; no
+best-checkpoint selection. Total nine model runs,72000 training slots,62793
+updates and306 target copies.
+
+Scheduled validation episodes0,50,100,150,200 on seeds16800000..16800004 is
+diagnostic only. No checkpoint choice or threshold retuning from it. After
+all nine episode200 checkpoints are frozen and hashed, run a shared48-episode
+fresh DEVELOPMENT gate with seeds16890000..16890047. Each of the three
+heuristics (all-local,nearest-RSU,UAV-selective) runs once per seed. Fixed timing
+probes use16850000..16850007. No updates, checkpoint selection or changes from
+the fresh gate. This48-episode set is development evidence, not pristine thesis
+confirmation. The 48 episodes are shared paired workloads, not 144 independent
+seed replications. Training-seed uncertainty remains only three clusters.
+
+PREDECLARED ENGINEERING SCREEN
+All three EMC initialization replicates must pass. Paired per-episode return is
+sum of 40 slot rewards; higher/closer to zero is better. Deadline success is
+on-time tasks / all generated tasks across the complete episode, not the mean
+of partial cumulative slot ratios.
+
+Versus additive128: mean episode-return difference >=-2 reward units AND
+absolute deadline-success fraction difference >=-.01 (minus1 percentage point).
+Versus additive64: mean return difference >=+2 units AND deadline fraction
+>=+.01. Against EACH nearest-RSU and UAV-selective heuristic: neither metric
+below that heuristic. All three conditions use point estimates as development
+screens, not formal noninferiority claims or significance tests.
+
+Calibration screen for all EMC seeds: own greedy final-slot stage0 and stage31
+absolute value error p95<=10 versus realized final-slot reward; fixed-probe
+positive greedy Q fractions stage0 and stage31 each<=5%. These are diagnostics,
+not sufficient quality criteria.
+
+Storage screen: EMC online parameter bytes<=70% of additive128. Cost screen:
+complete-action median<=5x additive128 and p95<=2.0ms on the declared local CPU
+protocol. The p95 ceiling is a local engineering limit, not an application
+real-time guarantee. Report additive64, SPI reference and every raw duration.
+There is no claim about peak process memory or energy. Include online, target,
+optimizer and replay-array bytes and wall time for training/evaluation.
+
+The quality thresholds deliberately include an EMC benefit over compact
+additive64, because EMC currently uses42.3% more parameter bytes and has a
+latency cost. If these margins are not acceptable to the supervisor, renegotiate
+and freeze them BEFORE launching the runner, not after seeing outcomes.
+
+UNCERTAINTY AND SELECTION
+Report every trained seed and all 48 paired episode outcomes. Use 2000 paired
+episode bootstrap draws, RNG seed20261113, with episode as the within-model
+resampling unit. This is conditional on three fitted models and does not
+quantify variation over all training seeds. Do not use 144 rows as independent
+training replicates. Report paired differences vs all comparators, raw metrics,
+all calibration screens, cost metrics and storage. No favorable seed, root or
+checkpoint substitution. Stop on error/nonfinite values; preserve partial
+state; no automatic retry or budget extension.
+
+SMOKE BEFORE DEVELOPMENT RUNNER
+A disjoint single-replicate three-arm smoke is reserved: model seed2399,
+80 physical slots/arm (two episodes), warmup8,batch4,capacity64,target-copy8,
+epsilon decay80. Training workload seeds17100000..17100001; validation
+17800000..17800001; fixed probe17850000..17850001; fresh smoke checks
+17890000..17890001. Expected73 updates and9 target copies/arm. Total240
+training slots/219 updates. Smoke is integration only, never a policy promotion
+screen. Implemented runner must log full episode metrics and verify workload
+fingerprints, paired action RNG, target gradients detached, no absorbing query,
+evaluation invariance and complete checkpoint hashes before fresh evaluation.
+
+COST CONTEXT
+Latest same-run untrained median latency: additive128 .124ms, additive64 .117ms,
+EMC original .480ms. EMC storage is277444 bytes versus422016 and194944.
+Thus EMC currently meets the proposed storage ratio versus additive128. Its
+existing untrained profile p95=0.901ms is below the proposed2.0ms ceiling, and
+its median is below5x additive128. It nevertheless fails to beat either
+additive latency and is larger than additive64. Training-quality benefit is
+required for continuation. Timings are machine/path-specific and do not
+transfer automatically to deployment.
+
+PRE-RUN CHECKS COMPLETED
+The JSON seed groups are disjoint from each other and from seed literals and
+ranges in scanned registered SPEC/PLAN files under Low Complexity, October31
+project root and Source. This is a scoped registry check, not proof against every
+unregistered experiment. Source hashes, exact counters, epsilon endpoint,
+quality margin percentage-point units, native parameter bytes and paired actor/
+replay RNG independence were checked. No model optimizer step or physical
+simulator step was performed.
+
+NEXT WORK ITEM
+Implement the separate paired runner and integration tests exactly to this
+spec. Verify its smoke first. The72,000-slot development pilot remains
+unlaunched until smoke implementation, full training/evaluation logging and
+fresh-gate checkpoint-freeze checks are reviewed.
+
+Spec: LOW_COMPLEXITY_EMC_TRADEOFF_SPEC_2026-11-04.json
+Validation: validation/emc_tradeoff_spec_2026-11-04_01/verification.json
+Word thesis unchanged. No novelty claim is made.

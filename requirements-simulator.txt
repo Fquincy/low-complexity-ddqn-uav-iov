@@ -1,0 +1,2 @@
+# Minimal portable environment check; not a historical environment lock.
+numpy>=1.26,<3

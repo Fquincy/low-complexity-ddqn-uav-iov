@@ -1,0 +1,79 @@
+HORIZON-NORMALIZED LOSS: ENGINEERING REVIEW
+Date: November14,2026
+
+OUTCOME
+The exact prospective loss is implemented in new horizon_normalized_loss.py.
+Six correctness/fixture tests passed. No simulator episode, new research seed,
+new evaluation workload, action timing or thesis edit occurred. This is a
+loss-adapter engineering gate, not a research-run readiness or quality result.
+
+IMPLEMENTATION
+For the three declared new anchored/scaled arms, uniform replay uses
+mean Huber1(Q/h_current - stopgrad(y)/h_current). Both operands are divided
+inside Huber; no change to rewards, gamma1, DDQN target selection/evaluation,
+model architecture, local screen, action decoder or scalar target units.
+Transitions require h_next=h_current-1 and terminal mask consistent with time.
+Terminal target remains reward only; terminal states are never decoded.
+The unit-weight terminal-anchor Huber stays in original units because h=1.
+Original-unit Q, target and TD residual diagnostics are retained alongside
+current h and normalized residuals. No evaluation threshold is normalized away.
+Three declared new arms require the inherited horizon/anchor/screen settings.
+Every original control delegates directly to its exact original update path,
+including adapted BDQ branchwise Huber. No old loss implementation was edited.
+
+TESTS: ALL SIX PASSED
+1. Independent scalar Huber and chain-rule gradients at h40,20,2,1, with both
+   quadratic and linear regimes. Targets detached. Dividing old scalar loss
+   by h is explicitly rejected as inequivalent. Zero/off-grid h rejected.
+2. Independent full-network loss/gradient oracle for all3new families, using
+   perturbed target weights, masked online action selection, target evaluation,
+   terminal bypass, unchanged anchor, empty pool and invalid time transition.
+3. Actual Adam update fixture across14definitions x2engineering seeds99921/99929.
+   Each model receives8 synthetic transition insertions,5optimizer updates and
+   1target copy:224insertions,140updates,28final checkpoints. These are controlled
+   arrays using saved engineering observations; not linked simulator episodes,
+   reserved workload tasks or scientific learning evidence. Replay capacity4
+   deliberately exercises terminal-pool eviction. Action-source uniforms/replay
+   indices pair across all14definitions per seed. Every original-control update
+   matches the unmodified update; every new actual update matches an independent
+   target/Huber/gradient-clipping/Adam calculation. Warmup and target copies pass.
+4. All28frozen checkpoints reconstructed. Every one of128fixed engineering
+   inputs gives exact eager/runtime actions and Q within unchanged atol1e-6,
+   rtol1e-5:3,584comparisons. Actual parameter/buffer counts unchanged. No timings.
+5. Independent saved normalized-loss audit recomputes30update rows from original
+   Q/target/h, including Huber, anchor and total losses; residual units retained.
+6. Development/research/final modes rejected. CLI development rejection was also
+   checked; this adapter has no research execution path or launch authority.
+
+COUNTS AND LIMITATIONS
+140actual synthetic optimizer updates are fixture work. Tests additionally
+compute reference/oracle optimizer updates on disposable clones for comparison;
+these are not independent fits or research evidence. The fixture deliberately
+uses reduced batch/replay/warmup/target settings only for mechanics testing.
+It does not measure policy return, deadline performance, calibration improvement,
+training convergence or changed trained-model action cost in the UAV-IoV system.
+The original audited failed development experiment remains failed and preserved.
+All32old pinned definitions, original protocol and prior launch-review manifest
+hashes were verified unchanged. The source/pre-fixture freeze and every saved
+fixture artifact/checkpoint are hashed. Final evaluation seeds remain untouched.
+
+NEXT ENGINEERING GATE
+Integrate this tested adapter into a separately versioned paired simulator
+fixture and independent auditor covering all14learners and3heuristics.
+Predeclare an isolated engineering-only workload/RNG plan, preserve original
+control losses and current-horizon normalization, and record both residual units.
+Exercise the entire checkpoint-freeze/runtime/evaluation/comparison/storage
+workflow, batch-one value verification and streaming audit/summary path.
+No research seed reservation or training budget has been declared for this
+amendment. After integration passes, prospectively freeze fresh disjoint
+research seeds, fixed14-arm budgets and the complete executable decision rules,
+then make a separate launch decision. This is not authority to reuse old
+research schedules or silently inherit440,000training slots.
+No result here supports a new policy-performance or novelty claim. Domain
+literature review and supervisor agreement remain open. Cloud/charging excluded;
+security/trust deferred; Word thesis unchanged.
+
+FILES
+horizon_normalized_loss.py
+test_horizon_normalized_loss.py
+validation/horizon_normalized_loss_engineering_2026-11-14_01

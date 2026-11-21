@@ -1,0 +1,153 @@
+ADP-DDQN DEVELOPMENT COMPARISON: LAUNCH READINESS REVIEW
+Date: 2026-11-15
+
+DECISION: HOLD RELEASE, NO RESEARCH LAUNCH
+Core engineering checks pass: frozen source identity, recorded environment
+identity, seed refresh, full-minibatch backward feasibility and audited saved
+completion. No new controller design is recommended by this review. The next
+step is to settle the full-run output/storage and release execution plan,
+then issue a separate release decision. Research remains disabled and needs
+an explicit user launch instruction after that review. The600000-slot run
+has NOT started. Scientific/novelty support remains unproven.
+
+This hold is an operational recommendation. It is not a retrospective change
+to scientific thresholds, not a claim that current storage is certainly
+insufficient, and not a new policy failure. The conservative capacity target
+below is an explicitly proposed engineering margin, not a frozen acceptance
+criterion. Do not delete existing evidence or compress away required raw
+diagnostics to meet it without a declared retention plan.
+
+WHAT PASSES
+1. Tested binding source hashes match the archived release manifest. The
+   complete prior binding archive still matches its manifest; protocol hash
+   6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef is unchanged.
+2. Python executable/version/platform, Torch and NumPy match the fields
+   recorded during binding. Current ONNX/runtime versions/paths and thread
+   settings are saved. This does not prove unchanged every binary or OS load.
+3. Fresh local reservation/consumption scan passes across48 declaration/saved
+   plan documents. It checks new model/RNG/task points and task intervals
+   against root protocols/specs/amendments/releases plus existing runtime
+   plans/settings/launch records. It excludes this exact current reservation
+   and its documented copies. No collisions found. This is not a scan of
+   arbitrary unlabeled seeds in every historical log. Final reservations remain
+   untouched. Refresh again immediately before any launch.
+4. Full computational minibatches exercised for ALL15 controllers: batch128,
+   anchor32 where anchored, finite losses/gradients, no target gradients and
+   source parameters unchanged. Uses existing trained engineering checkpoints
+   and replay only. Actual optimizer.step was explicitly replaced with a
+   no-op, verified once per arm; no actual optimizer update. Warmup/replay
+   fixture sizes reduced only to reach the computation. This is not a long-run
+   peak-memory/convergence test or reserved research seed use.
+5. Independently recomputed supplemental heuristic timing and resource sums.
+   Two readiness test groups PASS, zero failures/errors.
+6. assignment_price_audited_completion.py audits the actual saved multi-fit
+   fixture through the corrected auditor and attaches a hash-traceable reference
+   to the preserved heuristic cost result before writing AUDITED_COMPLETE.
+   No completion folder is created if verification fails; old run files stay
+   frozen. A corrupted heuristic median is rejected before audit/output creation.
+   Two completion test groups PASS. This is a separate completion routine;
+   the currently frozen training runner still writes its own execution-complete
+   event before the separately called audit. Launch execution must explicitly
+   chain run AND this audited completion, never infer audit success merely
+   from the runner event. The tested completion source hashes are preserved.
+
+HEURISTIC COST OMISSION CLOSED AS SUPPLEMENTARY EVIDENCE
+A single prospective standalone engineering schedule measured observed_load_radio
+on the common128 saved engineering states:5 rounds,32 warmups/round,640 raw
+readings, complete reused Runtime.values(state)[0][0].copy() path. Includes
+input checks, workload/radio preparation, initialization/sweep and output copy.
+Plan/source/input hashes saved before timing; no simulator or policy evaluation.
+Median0.537800ms; linear p950.689240ms. Independent saved arithmetic agrees.
+One initial call including native compilation took8301.7453ms in an existing
+process/import cache; this is NOT fresh-process startup. Prior multi-fit
+startup evidence concerned learned paths and remains separate.
+This deterministic heuristic/source/input result is reported via the verified
+completion reference. It is not a same-session speedup comparison with learned
+paths, not a primary acceptance retiming and not a new scientific cost screen.
+All prior timing failures and the narrow matched candidate pass remain intact.
+Full heuristic stationarity, backlog-order and physical-surrogate limitations
+remain in the frozen specification. No heuristic/controller was tuned here.
+
+FULL-RUN RESOURCE PROJECTION
+Basis: actual two-fit fixture bytes/optimizer row and episode; scale logs by
+full-to-fixture minibatch ratio32 (anchor ratio8), planned523275 updates,
+15000 training episodes and3792 evaluation episodes. This is an approximation,
+not a guaranteed bound. Long-run queues and JSON number lengths may differ.
+Approximate decimal GB, not GiB:
+  optimizer logs (batch-scaled):       26.15 GB
+  saved training traces:               4.45 GB
+  learned evaluation traces:           1.07 GB
+  heuristic evaluation traces:         0.06 GB
+  populated replay, uncompressed:      2.58 GB
+  final checkpoint files:              0.04 GB
+  projected total:                    34.36 GB
+Current free volume space at review:  67.49 GB.
+Proposed two-copy/headroom target:    68.71 GB.
+Shortfall to THAT advisory margin:    1.22 GB.
+
+The single projected run fits within free space, but less than the proposed
+two-copy allowance remains. It would be incorrect to call1.22GB a guaranteed
+minimum additional requirement: the projection is uncertain and OS/other work
+can consume space. No existing experiment, artifact or memory was removed.
+Before release, choose a concrete output/retention destination, decide whether
+independent duplication is required, retain raw evidence, and verify an
+adequate buffer on that volume. A different approved storage plan can satisfy
+this without changing scientific criteria. No hard free-space threshold was
+added to the frozen research protocol in this review.
+
+Replay storage alone:215200000 bytes allocated per active training agent
+(205.23MiB),34432000 bytes populated after8000 records. Target/optimizer/model
+and Python/task/log structures are additional. System snapshot showed about
+4.28million KiB free physical memory of16.12million KiB visible; it is transient.
+The runner disposes each training agent and retains deployment sessions, not
+75 live replay buffers. However reporting materializes per-fit diagnostic
+lists and the auditor reconstructs per-fit histories, so allocator/process
+peak remains unprofiled. Batch128 backward checks are evidence of feasibility
+on the test input, not a proof that all postprocessing fits in memory.
+
+Fixture-per-slot training-only extrapolation is5.68hours. DO NOT use this as
+an ETA: batch128 versus fixture4, larger anchors, queue growth, export/startup,
+full evaluation, artifact writing and auditing are not represented. No reliable
+end-to-end hour estimate is established. The review does not promise a
+completion/graduation date or hardware-independent time/energy result.
+
+SCIENTIFIC AND LITERATURE DECISION
+Retain the frozen primary, all15 learned controls/ablations,4 heuristics,
+5 initializations, rewards, optimizer settings, seeds and every-fit thresholds.
+Nothing in the tiny fixture justifies changing policy, value or cost criteria.
+Novelty remains a specific open learned-assignment-coupling hypothesis. Generic
+DDQN/masking/branching/congestion/coordinate descent are not novelty claims.
+This review uses the saved literature-position note; no new live search or
+full-paper access was obtained. Exact mechanism overlap and missing domain
+full texts remain unresolved, so it cannot grant publication-grade novelty
+clearance. Technical experimentation can still investigate the frozen
+hypothesis; the eventual thesis claim requires justified novelty and fresh
+policy/deadline/mechanism/calibration evidence. Record this limitation in the
+separate scientific proceed decision rather than implying it was resolved.
+
+CONCRETE REMAINING RELEASE TASK
+Settle output volume/retention/headroom; bind the exact execution command or
+versioned launcher to the tested source hashes and the corrected audited
+completion routine; verify preflight failure behavior without consuming
+research seeds; refresh disk/environment/source/seed checks immediately before
+release. Then make one explicit proceed/hold release decision. No new training
+experiment or controller redesign is needed for these operational tasks.
+Do not enable DEVELOPMENT_RELEASED or launch on the strength of this review.
+The CLI/API continue to reject both missing confirmation and correctly
+confirmed-but-unreleased development; final remains locked.
+
+STAGE COUNTS AND PRESERVATION
+Zero simulator steps, zero actual optimizer steps, fifteen synthetic full-
+minibatch backward computations,640 supplementary deterministic heuristic
+timing calls (plus declared warmups), zero learned acceptance retimings and
+zero research seed use. No Word thesis edits; final phase unlaunched.
+Security/trust deferred, cloud and charging absent. Earlier artifacts retained.
+
+EVIDENCE
+validation/assignment_price_launch_review_2026-11-15_01/
+  source_environment_verification.json
+  seed_consumption_refresh.json
+  resource_projection.json
+  PRE_HEURISTIC_TIMING_PLAN.json, heuristic_timings.json, heuristic_cost_summary.json
+  full_minibatch_checks.json, readiness_tests.json, completion_tests.json
+  verified_fixture_completion/

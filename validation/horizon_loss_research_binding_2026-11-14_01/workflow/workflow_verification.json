@@ -1,0 +1,15 @@
+{
+  "kind": "SYNTHETIC_NOT_RESEARCH",
+  "artifact_audit_passed": true,
+  "deployment_storage_audit": {
+    "passed": true,
+    "models": 28,
+    "online_weights_exact": true,
+    "storage_and_training_cost_recomputed": true,
+    "extra_optimizer_steps": 0,
+    "extra_simulator_steps": 0,
+    "timing_repeated": false
+  },
+  "quality_evidence": false,
+  "research_launched": false
+}

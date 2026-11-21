@@ -1,0 +1,371 @@
+{
+  "per_fit": {
+    "0": {
+      "absolute": {
+        "centered_linear_bc_ddqn": {
+          "return_value": -14.381844685451297,
+          "deadline": 0.9671875000000001
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -13.482746426021816,
+          "deadline": 0.99671875
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -15.158723924900196,
+          "deadline": 0.95171875
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -14.27742528166096,
+          "deadline": 0.9770833333333333
+        },
+        "centered_linear_bc_only": {
+          "return_value": -14.168848339318647,
+          "deadline": 0.9994791666666667
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -15.8610901832424,
+          "deadline": 0.9322916666666666
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": -331.5116129796089,
+          "deadline": 0.6382291666666666
+        }
+      },
+      "teacher": {
+        "return_value": -12.24932325979677,
+        "deadline": 1.0
+      },
+      "contrasts": {
+        "old_softplus_bc_ddqn": {
+          "return_value": -0.899098259429481,
+          "deadline": -0.029531249999999898
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": 0.776879239448899,
+          "deadline": 0.015468750000000142
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -0.10441940379033632,
+          "deadline": -0.009895833333333215
+        },
+        "centered_linear_bc_only": {
+          "return_value": -0.21299634613265006,
+          "deadline": -0.03229166666666661
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": 1.4792454977911031,
+          "deadline": 0.03489583333333346
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": 317.1297682941576,
+          "deadline": 0.32895833333333346
+        }
+      },
+      "minus_teacher": {
+        "centered_linear_bc_ddqn": {
+          "return_value": -2.1325214256545273,
+          "deadline": -0.03281249999999991
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -1.2334231662250463,
+          "deadline": -0.0032812500000000133
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -2.9094006651034263,
+          "deadline": -0.04828125000000005
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -2.028102021864191,
+          "deadline": -0.022916666666666696
+        },
+        "centered_linear_bc_only": {
+          "return_value": -1.9195250795218772,
+          "deadline": -0.0005208333333333037
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -3.6117669234456304,
+          "deadline": -0.06770833333333337
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": -319.26228971981214,
+          "deadline": -0.3617708333333334
+        }
+      }
+    },
+    "1": {
+      "absolute": {
+        "centered_linear_bc_ddqn": {
+          "return_value": -18.82011523393814,
+          "deadline": 0.8654166666666667
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -14.03758281402645,
+          "deadline": 0.9761979166666668
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -18.506841217734063,
+          "deadline": 0.874375
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -13.979476519247072,
+          "deadline": 0.9773958333333334
+        },
+        "centered_linear_bc_only": {
+          "return_value": -14.601573475006976,
+          "deadline": 0.9861458333333333
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -17.850083775891036,
+          "deadline": 0.8869270833333334
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": -93.0301625661251,
+          "deadline": 0.78
+        }
+      },
+      "teacher": {
+        "return_value": -12.24932325979677,
+        "deadline": 1.0
+      },
+      "contrasts": {
+        "old_softplus_bc_ddqn": {
+          "return_value": -4.782532419911689,
+          "deadline": -0.11078125000000005
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -0.31327401620407613,
+          "deadline": -0.00895833333333329
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -4.840638714691067,
+          "deadline": -0.11197916666666663
+        },
+        "centered_linear_bc_only": {
+          "return_value": -4.218541758931163,
+          "deadline": -0.12072916666666655
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -0.970031458047103,
+          "deadline": -0.021510416666666643
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": 74.21004733218696,
+          "deadline": 0.0854166666666667
+        }
+      },
+      "minus_teacher": {
+        "centered_linear_bc_ddqn": {
+          "return_value": -6.57079197414137,
+          "deadline": -0.13458333333333328
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -1.7882595542296809,
+          "deadline": -0.023802083333333224
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -6.257517957937294,
+          "deadline": -0.125625
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -1.7301532594503026,
+          "deadline": -0.022604166666666647
+        },
+        "centered_linear_bc_only": {
+          "return_value": -2.3522502152102067,
+          "deadline": -0.013854166666666723
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -5.600760516094267,
+          "deadline": -0.11307291666666663
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": -80.78083930632833,
+          "deadline": -0.21999999999999997
+        }
+      }
+    },
+    "2": {
+      "absolute": {
+        "centered_linear_bc_ddqn": {
+          "return_value": -23.997040987293612,
+          "deadline": 0.7756770833333333
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -14.291448557307636,
+          "deadline": 0.9733333333333334
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -14.3402430271449,
+          "deadline": 0.9700520833333333
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -14.316284493516736,
+          "deadline": 0.9720312499999999
+        },
+        "centered_linear_bc_only": {
+          "return_value": -14.22014984530492,
+          "deadline": 0.9989583333333333
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -22.286579366223553,
+          "deadline": 0.8041666666666667
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": -182.74439527339092,
+          "deadline": 0.7428125
+        }
+      },
+      "teacher": {
+        "return_value": -12.24932325979677,
+        "deadline": 1.0
+      },
+      "contrasts": {
+        "old_softplus_bc_ddqn": {
+          "return_value": -9.705592429985977,
+          "deadline": -0.1976562500000001
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -9.656797960148712,
+          "deadline": -0.19437499999999996
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -9.680756493776876,
+          "deadline": -0.1963541666666666
+        },
+        "centered_linear_bc_only": {
+          "return_value": -9.776891141988692,
+          "deadline": -0.22328125
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -1.7104616210700598,
+          "deadline": -0.0284895833333334
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": 158.7473542860973,
+          "deadline": 0.03286458333333331
+        }
+      },
+      "minus_teacher": {
+        "centered_linear_bc_ddqn": {
+          "return_value": -11.747717727496843,
+          "deadline": -0.2243229166666667
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -2.042125297510866,
+          "deadline": -0.026666666666666616
+        },
+        "centered_softplus_bc_ddqn": {
+          "return_value": -2.0909197673481312,
+          "deadline": -0.02994791666666674
+        },
+        "uncentered_linear_bc_ddqn": {
+          "return_value": -2.066961233719967,
+          "deadline": -0.027968750000000098
+        },
+        "centered_linear_bc_only": {
+          "return_value": -1.970826585508151,
+          "deadline": -0.0010416666666667185
+        },
+        "centered_linear_demo_no_bc": {
+          "return_value": -10.037256106426783,
+          "deadline": -0.1958333333333333
+        },
+        "centered_linear_no_demo_no_bc": {
+          "return_value": -170.49507201359415,
+          "deadline": -0.2571875
+        }
+      }
+    }
+  },
+  "value_metrics": {
+    "centered_linear_no_demo_no_bc/1": {
+      "bias": 31.52603539917618,
+      "nrmse": 0.7026358721907353
+    },
+    "centered_linear_no_demo_no_bc/2": {
+      "bias": 73.57611305341125,
+      "nrmse": 0.7472103003041339
+    },
+    "centered_linear_demo_no_bc/0": {
+      "bias": 15.409258330985903,
+      "nrmse": 1.7334971049585954
+    },
+    "uncentered_linear_bc_ddqn/1": {
+      "bias": 74.4101015094202,
+      "nrmse": 9.045135919289535
+    },
+    "old_softplus_bc_ddqn/2": {
+      "bias": 7.317992031615924,
+      "nrmse": 0.9999999997074398
+    },
+    "centered_softplus_bc_ddqn/0": {
+      "bias": 7.765708438312442,
+      "nrmse": 0.9999996823739106
+    },
+    "centered_linear_bc_ddqn/1": {
+      "bias": 75.87353673158213,
+      "nrmse": 6.892530815178483
+    },
+    "uncentered_linear_bc_ddqn/2": {
+      "bias": 91.45057158651761,
+      "nrmse": 10.8497582686808
+    },
+    "centered_linear_bc_only/2": {
+      "bias": 45.123376000020656,
+      "nrmse": 5.423652109586304
+    },
+    "old_softplus_bc_ddqn/0": {
+      "bias": 6.915962472883985,
+      "nrmse": 1.0
+    },
+    "centered_linear_bc_only/1": {
+      "bias": 38.878718418488276,
+      "nrmse": 4.5599109568488
+    },
+    "centered_linear_no_demo_no_bc/0": {
+      "bias": 162.05958410138265,
+      "nrmse": 0.8240480594400733
+    },
+    "centered_softplus_bc_ddqn/1": {
+      "bias": 9.505109105876336,
+      "nrmse": 0.9999999996190291
+    },
+    "centered_linear_demo_no_bc/1": {
+      "bias": 18.134910027170555,
+      "nrmse": 1.8029622487010006
+    },
+    "centered_linear_demo_no_bc/2": {
+      "bias": 18.092089001089334,
+      "nrmse": 1.473495567890657
+    },
+    "centered_linear_bc_ddqn/0": {
+      "bias": 86.16819443805143,
+      "nrmse": 10.203252942271316
+    },
+    "uncentered_linear_bc_ddqn/0": {
+      "bias": 93.86778314155526,
+      "nrmse": 11.167400914692593
+    },
+    "centered_linear_bc_ddqn/2": {
+      "bias": 96.7690087292809,
+      "nrmse": 6.887729134472601
+    },
+    "old_softplus_bc_ddqn/1": {
+      "bias": 7.205873899481011,
+      "nrmse": 0.9999999994411815
+    },
+    "centered_linear_bc_only/0": {
+      "bias": 47.23243492934853,
+      "nrmse": 5.699934668810116
+    },
+    "centered_softplus_bc_ddqn/2": {
+      "bias": 7.3627133886249485,
+      "nrmse": 0.999999972568999
+    }
+  },
+  "policy_screen": false,
+  "value_screen": false,
+  "promising": false,
+  "kind": "EXPLORATORY_PAIRED_DEVELOPMENT",
+  "quality_claim": false
+}

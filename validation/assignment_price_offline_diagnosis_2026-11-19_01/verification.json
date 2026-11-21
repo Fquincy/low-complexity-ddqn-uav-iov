@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "gradient_batches": 80,
+  "matched_primary_tasks": 288000,
+  "heuristic_unique_tasks": 57600,
+  "primary_predictions_reproduced": 800,
+  "terminal_target_identities": 20,
+  "terminal_boundary_checks": 20,
+  "frozen_definition_hashes_verified": true,
+  "input_hashes_verified": 329,
+  "saved_miss_counts_and_return_differences_reproduced": true,
+  "new_optimizer_updates": 0,
+  "new_simulator_steps": 0,
+  "final_seeds_used": false,
+  "report": "E:\\Fitz Thesis docs\\Low Complexity\\ASSIGNMENT_PRICE_OFFLINE_GRADIENT_TIMELINE_DIAGNOSIS_2026-11-19.txt"
+}

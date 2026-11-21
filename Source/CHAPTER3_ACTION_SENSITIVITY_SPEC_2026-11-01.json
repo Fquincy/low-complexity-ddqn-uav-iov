@@ -1,0 +1,104 @@
+{
+  "id": "chapter3-full-state-action-sensitivity-v1",
+  "status": "design_only_not_implemented_or_collected",
+  "task_seeds": [
+    13100000,
+    13100001,
+    13100002,
+    13100003,
+    13100004,
+    13100005
+  ],
+  "history_policies": [
+    "all_local",
+    "nearest_rsu",
+    "uniform_joint_actions"
+  ],
+  "root_slots": [
+    0,
+    20,
+    39
+  ],
+  "experiment_a": {
+    "slots": [
+      0,
+      20
+    ],
+    "current_candidates": [
+      "all_local",
+      "nearest_rsu",
+      "uav_selective",
+      "uniform_joint_vector"
+    ],
+    "continuation": "nearest_rsu_hover_to_slot39",
+    "physical_steps": 4320
+  },
+  "experiment_b": {
+    "slot": 39,
+    "stages": [
+      0,
+      2,
+      17,
+      31
+    ],
+    "physical_components": [
+      30,
+      0,
+      15,
+      29
+    ],
+    "choices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "suffix_draws_per_stage": {
+      "0": 16,
+      "2": 16,
+      "17": 16,
+      "31": 1
+    },
+    "prefix_fixed_per_root_stage": true,
+    "suffix_draws_common_between_choices": true,
+    "physical_steps": 4410
+  },
+  "rng_families": {
+    "uniform_history": 13200000,
+    "prefix": 13300000,
+    "suffix": 13400000,
+    "candidate_bundle": 13500000
+  },
+  "predictor_seeds": [
+    1901,
+    1907,
+    1913
+  ],
+  "predictor_run": "development_runs/chapter3_terminal_uniform_fit_2026-11-01_01",
+  "history_steps": 720,
+  "main_physical_steps": 9450,
+  "smoke": {
+    "task_seeds": [
+      13110000,
+      13110001
+    ],
+    "rng_family_offset": 10000,
+    "physical_steps": 3150,
+    "cloning_test_extra_steps": "declare_separately_before_execution"
+  },
+  "source_environment": "chapter3_iov_env_v2.py",
+  "clone_contract": "deepcopy_complete_authoritative_state_preserving_internal_aliases_no_shared_mutable_objects",
+  "discount": 1,
+  "end_slot": 39,
+  "reward_equal_tolerance": 1e-06,
+  "bootstrap": {
+    "clusters": "six_task_seeds",
+    "draws": 2000,
+    "seed": 20261110,
+    "interpretation": "descriptive_development"
+  },
+  "optimizer_updates": 0,
+  "main_launch_requires_smoke_review": true,
+  "next": "implement_separate_branch_harness_tests_then_disjoint_smoke_only"
+}

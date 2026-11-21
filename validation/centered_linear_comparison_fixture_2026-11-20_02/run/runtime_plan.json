@@ -1,0 +1,60 @@
+{
+  "mode": "fixture",
+  "kind": "ENGINEERING_FIXTURE_NOT_RESEARCH",
+  "fits": 2,
+  "seeds": {
+    "model_seeds": [
+      957190001,
+      957190011
+    ],
+    "demonstration_seed_blocks": [
+      {
+        "start": 957200000,
+        "count": 1
+      },
+      {
+        "start": 957200100,
+        "count": 1
+      }
+    ],
+    "online_seed_blocks": [
+      {
+        "start": 957210000,
+        "count": 1
+      },
+      {
+        "start": 957210100,
+        "count": 1
+      }
+    ],
+    "evaluation_seed_block": {
+      "start": 957220000,
+      "count": 1
+    },
+    "bc_sampler_seeds": [
+      957230001,
+      957230011
+    ],
+    "epsilon_branch_seeds": [
+      957240001,
+      957240011
+    ],
+    "replay_sampler_seeds": [
+      957250001,
+      957250011
+    ],
+    "job_order_seed": 957260001,
+    "timing_order_seed": 957260011
+  },
+  "demo_episodes": 1,
+  "online_episodes": 1,
+  "eval_episodes": 1,
+  "bc_steps": 2,
+  "batch": 4,
+  "warmup": 8,
+  "replay_capacity": 128,
+  "target_interval": 8,
+  "timing_states": 4,
+  "timing_rounds": 1,
+  "timing_warmups": 1
+}

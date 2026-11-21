@@ -1,0 +1,27 @@
+{
+  "kind": "PROSPECTIVE_POSTTRAINING_EVALUATION_CONTINUATION_AMENDMENT",
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "source_run": "E:\\Fitz Thesis docs\\Low Complexity\\development_runs\\assignment_price_development_2026-11-16_01\\run",
+  "failure": {
+    "arm": "screened_wide128",
+    "fit": 1,
+    "evaluation_seed": 874000007,
+    "slot": 26,
+    "branch": 31,
+    "eager_action": 2,
+    "native_action": 4,
+    "eager_top_gap": 2.384185791015625e-07,
+    "native_top_gap": 7.152557373046875e-07,
+    "q_absolute_difference": 1.52587890625e-05,
+    "raw_max_absolute_difference": 1.6689300537109375e-06
+  },
+  "continuation_policy": "Use the frozen eager DDQN action for policy-quality evaluation. Independently execute the already frozen exported runtime on every state, require Q-value numerical agreement at the original tolerance, and record every action disagreement as deployment-equivalence evidence.",
+  "existing_evaluation_artifacts": "Never overwrite. Preserve and hash all 919 completed learned episodes and their arrays.",
+  "missing_evaluation_artifacts": "Create only missing learned and heuristic evaluation episodes from the original reserved evaluation seeds.",
+  "training": "No retraining, no optimizer update, no checkpoint selection and no changed model parameters.",
+  "scientific_settings_changed": false,
+  "rewards_changed": false,
+  "seeds_changed": false,
+  "thresholds_changed": false,
+  "word_thesis_changed": false
+}

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "amendment_sha256": "d2c4b8789a41395cbbb162c8c7b9bada027b5b8e65ec19476264423c6720fcaa",
+  "continuation_sha256": "858a2ef7e4c88fa4f32b8681efb3f28cf5a15dd8e4ba1db3b48b6ef3c7cd8448",
+  "test_sha256": "2824272f64ecaee596944b10983ce0767c0a6c13027b81a3b7ea638038182add",
+  "diagnostic_source_sha256": "150616610cc48f5a561a6e638400e578596410ed2df8489792394973bdb6c3af",
+  "diagnosis_sha256": "e608cba2aa45c42dd5932651deeb70d20d274b27ac9a2ff590c1748c581e8547",
+  "check_only_passed": true,
+  "checkpoints_verified": 75,
+  "exports_verified": 75,
+  "existing_evaluation_files_frozen": 1838,
+  "existing_learned_episodes": 919,
+  "remaining_learned_episodes": 2681,
+  "tests_passed": 2,
+  "exact_failed_episode_reproduced": true,
+  "corrected_exact_failed_episode_completed": true,
+  "new_training_slots": 0,
+  "new_optimizer_updates": 0,
+  "continuation_launched": false,
+  "word_thesis_changed": false
+}

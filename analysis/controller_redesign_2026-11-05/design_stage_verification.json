@@ -1,0 +1,83 @@
+{
+  "status": "passed_saved_trace_diagnosis_prospective_v2_design_and_readback_checks_no_research_launch",
+  "research_launch": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "original_protocol_preserved": true,
+  "diagnostic_inputs_unchanged": true,
+  "protected_file_sha256": {
+    "LOW_COMPLEXITY_VALUE_BOUND_PROTOCOL_2026-11-04.json": "844a0c5987aaa871e8f2540bcc8e0c7864f902fdaf23817e4324b93c17c40734",
+    "run_value_bound_tradeoff.py": "afe2b9c94265c5f2e7a5fa9fdcf9c0aa0759623548323a92ce711827933ef4c4",
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "Source\\chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33"
+  },
+  "outputs_sha256": {
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_DIAGNOSIS_2026-11-05.txt": "cf5aefe527e0cf6058ec0457bff53abb1bebb34578b9e171669300650336eff6",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_DESIGN_BRIEF_2026-11-05.txt": "d2b048aff7209a57694bda713d0bb235ec250dd9f20fa9bd7b9768b07cd41a61",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_COMPARISON_PROTOCOL_2026-11-05.txt": "c9257d622c9ca441d3a4ee16034a63b457ead5937fa1039eb06975a26d205189",
+    "analysis\\controller_redesign_2026-11-05\\prospective_comparison_v1.json": "46f9480620ab2e63e03d2facf4d88baebe0f4d99b284a59eebfebcca44280a57",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_DESIGN_BRIEF_v2_2026-11-05.txt": "9324a3aaf903c212706adc56815a4503ebd748de1d20e857ee765c67f898e814",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_COMPARISON_PROTOCOL_v2_2026-11-05.txt": "d53df95f7c361aeded96043a1f32676857b297a7ee5b386218e05db4606415ca",
+    "analysis\\controller_redesign_2026-11-05\\prospective_comparison_v2.json": "35a41a18bc642a79be4f4f3dfbdf0a7b7a18ecd4a351700b0e6e7f1e2b1b99b5",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_NEXT_STEPS_2026-11-05.txt": "dd7b2c59a5f18b37084b12dca24e8e22bbc5436fcf48ec8db47169e30f7a3e57",
+    "analysis\\diagnose_value_bound_saved_2026_11_05.py": "353345ce1ef39ae0f60e03ae1d0c58513949d7463b6170b04037f9d3330b4669",
+    "analysis\\write_controller_design_stage_2026_11_05.py": "c7d240072d5ee7b29b61a869bb9d4e73058e87a16ff088d6483df387d8153baf",
+    "analysis\\check_controller_design_equations_2026_11_05.py": "d6bafbfaebefc63c484fec366a49170f3986cab2512079886f4b153e14bd9ede",
+    "analysis\\amend_controller_design_v2_2026_11_05.py": "aab939cddcccb5bb6fa20e8817ed9eaacf2bb99325cd79f1439c21b190358979"
+  },
+  "seed_reservation": {
+    "status": "passed",
+    "files_scanned": 1700,
+    "scope": "numeric_literals_readable_source_config_text_csv_up_to8MB_excludes_binary_compressed_files_and_new_design_outputs",
+    "caveat": "not_a_proof_against_unlogged_or_external_runs; runtime_manifest_disjointness_check_required_before_launch",
+    "collisions": []
+  },
+  "implementation_status": "not_implemented",
+  "literature_scope": "six_full_papers_bounded_comparison_not_exhaustive_novelty_search",
+  "current_design": "v2",
+  "v1_draft_retained": true,
+  "synthetic_algebra_checks": {
+    "status": "passed",
+    "kind": "synthetic_equation_checks_not_research_or_runner_tests",
+    "synthetic_seed": 99002,
+    "physical_simulator_steps": 0,
+    "optimizer_updates": 0,
+    "fixtures": 40,
+    "marginal_cost_identities": 800,
+    "retained_candidate_dominance": true,
+    "zero_penalty_exactness": true,
+    "exact_fixture_fraction": 1.0,
+    "maximum_fixture_cost_gap": 0.0,
+    "mean_fixture_cost_gap": 0.0,
+    "symmetric_counterexample": {
+      "decoder_cost": 0.5,
+      "exhaustive_cost": 0.25,
+      "gap": 0.25,
+      "meaning": "synchronous_choices_can_oscillate_together_and_miss_balanced_assignment"
+    },
+    "v2_four_repairs": {
+      "symmetric_cost": 0.25,
+      "mean_random_fixture_gap": 0.0,
+      "maximum_random_fixture_gap": 0.0,
+      "nonincreasing_full_cost_verified": true,
+      "exact_single_move_delta_verified": true,
+      "guarantee": "does_not_guarantee_global_optimality"
+    },
+    "conclusion": "price_decoder_is_approximate_nonzero_optimality_gaps_expected_no_policy_evidence"
+  },
+  "stage_checks": {
+    "source_syntax": true,
+    "readback_no_stray_patch_markers": true,
+    "declared_seed_groups_pairwise_disjoint": true,
+    "historical_input_hashes_rechecked": 66,
+    "research_steps": 0,
+    "optimizer_updates": 0,
+    "neural_controller_implemented": false
+  },
+  "current_files": [
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_DIAGNOSIS_2026-11-05.txt",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_DESIGN_BRIEF_v2_2026-11-05.txt",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_COMPARISON_PROTOCOL_v2_2026-11-05.txt",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_NEXT_STEPS_2026-11-05.txt"
+  ]
+}

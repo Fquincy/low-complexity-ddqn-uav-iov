@@ -1,0 +1,115 @@
+AR24 SYNTHETIC PROTOTYPE AND MATCHED COST REVIEW
+Date: 2026-11-19 (Asia/Shanghai)
+Decision: CORRECTNESS PASS; MEDIAN COST FAIL; NO RESEARCH RELEASE.
+
+WHAT WAS IMPLEMENTED
+ar24_prototype.py implements the separately declared aggregate-radio design:
+24-unit172-output FP32 network, signed residual costs, FP64 geometry/payload/
+deadline factors, inherited compute coupling, prefix-evaluated radio scalar,
+cached exact surrogate insertion marginals and one deterministic coordinate
+sweep. All six new variants exist: primary,no-radio,no-deadline-weight,
+homogeneous-geometry,no-CPU-coupling,no-sweep. All have17,116 parameters,
+68,464 FP32 parameter bytes and20 buffer bytes. Runtime neural graph export
+uses the same ONNX/native optimization opportunity as the references.
+No research runner integration or training is implemented by this prototype.
+
+EXECUTION PLAN AND SCOPE
+Synthetic plan/source freeze were written before tests. Three engineering
+model seeds906196101/906196111/906196121; synthetic observation seed906198101;
+algebra seed906197101; timing-order seed906199101. No environment object or
+task generator ran, and no development/final research workloads were used.
+32 synthetic observations plus5 stress vectors: tied geometry/cycles,
+coincident horizontal geometry,zero/full battery and default task extremes.
+The benchmark uses only the32 ordinary synthetic observations. Battery has
+no new analytic radio effect; finite outputs are not safety guarantees.
+
+CORRECTNESS EVIDENCE
+54 random algebra systems spanning1,3,7 tasks and enabled/disabled terms.
+162 prefix-versus-explicit-pair checks and990 candidate insertion-delta
+checks match at rtol1e-12/atol1e-12. Cached one-pass decisions match direct
+scalar recomputation. Exact zero/tie case and highly unequal positive
+features exercise cancellation-resistant evaluation and singleton/empty
+destinations. Surrogate nonincrease checks pass.
+18 variant/initialization paths x37 states:666 exact eager/export action
+matches. Same-raw FP64 scalar/dense reference checks pass.555 swept-state
+decisions match the direct recomputation decoder, including all five swept
+variants. No-sweep is separately checked against its own scalar/allowed set.
+Exported neural Q uses the written synthetic plan's engineering float32
+comparison rtol1e-5/atol2e-4; same-raw/delta FP64 checks retain1e-12.
+This distinction is not a changed research tolerance or exact all-state
+floating-point equivalence claim. No discrepancy was excused or tuned away.
+
+18 autograd cases: finite combined original-unit Huber/anchor gradients,
+detached target parameters and unchanged weights without optimizer steps.
+36 terminal-target checks reproduce reward-only Bellman targets; boundary
+Q=0, and runtime terminal decoding rejects. Outputs own their storage;
+alternating inputs leave prior returned actions/values unchanged.
+Invalid shape,dtype,nonfinite values,negative position,oversized payload,
+zero deadline,overflowed queue,off-grid time and terminal decoding reject.
+These finite tests do not establish value calibration or training convergence.
+
+MATCHED SINGLE-ATTEMPT LATENCY (milliseconds)
+fit | AR24 median | screened plain24 | screened wide128 | unmasked wide128 | compact64 | AR24 p95
+0   | .04125      | .02710           | .03560           | .03480           | .03000    | .04330
+1   | .04110      | .02700           | .03570           | .03455           | .02980    | .05000
+2   | .04140      | .02740           | .03580           | .03430           | .02965    | .04685
+
+Same32 synthetic inputs,3 initializations,3 frozen shuffled rounds,
+16 warmups/path/round;5 paths,1,440 complete-call readings. All one-thread
+ONNX neural graphs and native decoders. Time includes validation,features,
+network,mask,sort,decoder,full same-action scalar and copied final action.
+No favorable repeat timing. Setup/export/compilation/test time is recorded
+as combined shared-process setup, not a true cold-start measurement.
+
+All3 storage and absolute p95<=1ms criteria pass. All3 median criteria fail
+against both wide references. AR24 is1.185-1.207x the unmasked-wide median;
+it would require another15.6-17.1% reduction to reach that reference in this
+fixture. That arithmetic is not evidence that such a reduction is feasible.
+Primary serialized ONNX graph68,905bytes per initialization. Parameters
+and buffer counts exclude runtime libraries,process memory,target/replay/
+optimizer and other deployment artifacts. No electrical-energy claim.
+
+The median is lower than the earlier RQ24 measurements, but those were
+different-session tests of a different mechanism. This gate did NOT include
+RQ24 in the same session and establishes no matched speedup ratio over it.
+The controlling result is the failed SAME-SESSION wide-reference criterion.
+
+INDEPENDENT AUDIT
+audit_ar24_engineering_2026_11_19.py recomputed all timing medians/p95,
+checked1,440 unique keys/frozen order,source/state/30graph hashes and all
+cost decisions. It independently rebuilt all12 reference models and checked
+384 additional eager/exported reference actions and values without retiming.
+Frozen ADP research model-definition hashes remain unchanged. Audit passes.
+Audited artifact correctness does not make the cost screen pass.
+
+DECISION AND NEXT BOUNDED STEP
+Stop this candidate's current progression to training: the prewritten cost
+criterion failed. Do not train it just because correctness passed. Policy
+return/deadlines, calibration,mechanism benefit and novelty remain untested
+or unestablished. No alternative arm is promoted to primary after inspection.
+
+The next appropriate gate is a written runtime-feasibility decision based
+on this implementation: determine whether a specifically identifiable,
+semantics-preserving overhead reduction is worth ONE declared engineering
+attempt. Profiling would be diagnostic only and preserve this failed test.
+Do not assume another optimization is warranted; do not run it by default.
+If no concrete credible path is identified, park AR24 rather than start
+another automatic redesign or relax the faster-than-wide claim. Any changed
+architecture/claim requires an explicit prospective design decision.
+
+BOUNDARIES
+No new simulator/training slots,optimizer updates,research collection or
+final evaluation. Final reservations protected. Word thesis unchanged.
+Security/trust deferred; cloud/charging excluded. This is engineering
+evidence on untrained synthetic models, not a thesis-success declaration.
+
+ARTIFACTS
+validation/ar24_engineering_2026-11-19_01/PLAN.json
+validation/ar24_engineering_2026-11-19_01/SOURCE_FREEZE.json
+validation/ar24_engineering_2026-11-19_01/correctness.json
+validation/ar24_engineering_2026-11-19_01/PRE_TIMING_FREEZE.json
+validation/ar24_engineering_2026-11-19_01/timings.json
+validation/ar24_engineering_2026-11-19_01/verification.json
+validation/ar24_engineering_2026-11-19_01/saved_artifact_audit.json
+ar24_prototype.py;test_ar24_engineering_2026_11_19.py
+audit_ar24_engineering_2026_11_19.py

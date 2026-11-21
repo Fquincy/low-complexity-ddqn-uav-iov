@@ -1,0 +1,3737 @@
+{
+  "state": "development_screen_failed",
+  "mode": "development",
+  "order": [
+    [
+      "emc_q_original_exact",
+      "additive64",
+      "additive128"
+    ],
+    [
+      "emc_q_original_exact",
+      "additive64",
+      "additive128"
+    ],
+    [
+      "additive128",
+      "additive64",
+      "emc_q_original_exact"
+    ]
+  ],
+  "counters": {
+    "emc_q_original_exact_0": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 215.9014277998358,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 321947192643487368638793697773398421849,
+          "inc": 33596626253267831591604223798120836209
+        },
+        "has_uint32": 0,
+        "uinteger": 3004194088
+      },
+      "fresh_evaluation_wall_seconds": 27.709544100100175,
+      "fresh_terminal_abs_error_p95": 57.748612686622735,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.2916,
+      "p95_action_ms": 0.348725,
+      "online_parameter_bytes": 277444,
+      "target_parameter_bytes": 277444,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 554916
+    },
+    "additive64_0": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 163.95843680086546,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 321947192643487368638793697773398421849,
+          "inc": 33596626253267831591604223798120836209
+        },
+        "has_uint32": 0,
+        "uinteger": 3004194088
+      },
+      "fresh_evaluation_wall_seconds": 27.29844449996017,
+      "fresh_terminal_abs_error_p95": 46.59759082226231,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.0849,
+      "p95_action_ms": 0.09922999999999997,
+      "online_parameter_bytes": 194944,
+      "target_parameter_bytes": 194944,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 389912
+    },
+    "additive128_0": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 171.54511330195237,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 321947192643487368638793697773398421849,
+          "inc": 33596626253267831591604223798120836209
+        },
+        "has_uint32": 0,
+        "uinteger": 3004194088
+      },
+      "fresh_evaluation_wall_seconds": 27.643403599970043,
+      "fresh_terminal_abs_error_p95": 88.26832003070831,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.0894,
+      "p95_action_ms": 0.11747499999999984,
+      "online_parameter_bytes": 422016,
+      "target_parameter_bytes": 422016,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 844056
+    },
+    "emc_q_original_exact_1": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 197.93918369954918,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 81461164770345077965411577514445171385,
+          "inc": 129384352979219164156974783076158415889
+        },
+        "has_uint32": 0,
+        "uinteger": 2241814021
+      },
+      "fresh_evaluation_wall_seconds": 25.794977600104176,
+      "fresh_terminal_abs_error_p95": 46.98442551914827,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.2954,
+      "p95_action_ms": 0.34964999999999996,
+      "online_parameter_bytes": 277444,
+      "target_parameter_bytes": 277444,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 554916
+    },
+    "additive64_1": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 164.23408209963236,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 81461164770345077965411577514445171385,
+          "inc": 129384352979219164156974783076158415889
+        },
+        "has_uint32": 0,
+        "uinteger": 2241814021
+      },
+      "fresh_evaluation_wall_seconds": 23.9340239999583,
+      "fresh_terminal_abs_error_p95": 27.772109710458867,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.0847,
+      "p95_action_ms": 0.0942,
+      "online_parameter_bytes": 194944,
+      "target_parameter_bytes": 194944,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 389912
+    },
+    "additive128_1": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 173.59169790020678,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 81461164770345077965411577514445171385,
+          "inc": 129384352979219164156974783076158415889
+        },
+        "has_uint32": 0,
+        "uinteger": 2241814021
+      },
+      "fresh_evaluation_wall_seconds": 26.84823900007177,
+      "fresh_terminal_abs_error_p95": 82.7400642430892,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.0895,
+      "p95_action_ms": 0.1038099999999999,
+      "online_parameter_bytes": 422016,
+      "target_parameter_bytes": 422016,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 844056
+    },
+    "additive128_2": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 171.9979200992966,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 33058116689277460487175093385584490452,
+          "inc": 238991170592470293482630990687356090689
+        },
+        "has_uint32": 0,
+        "uinteger": 4063219432
+      },
+      "fresh_evaluation_wall_seconds": 25.498043999890797,
+      "fresh_terminal_abs_error_p95": 43.87520447760038,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.0893,
+      "p95_action_ms": 0.10110499999999999,
+      "online_parameter_bytes": 422016,
+      "target_parameter_bytes": 422016,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 844056
+    },
+    "additive64_2": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 163.40085239964537,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 33058116689277460487175093385584490452,
+          "inc": 238991170592470293482630990687356090689
+        },
+        "has_uint32": 0,
+        "uinteger": 4063219432
+      },
+      "fresh_evaluation_wall_seconds": 26.363906599930488,
+      "fresh_terminal_abs_error_p95": 78.95031751822452,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.0847,
+      "p95_action_ms": 0.090205,
+      "online_parameter_bytes": 194944,
+      "target_parameter_bytes": 194944,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 389912
+    },
+    "emc_q_original_exact_2": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "training_and_validation_wall_seconds": 197.28805730084423,
+      "action_rng_final": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 33058116689277460487175093385584490452,
+          "inc": 238991170592470293482630990687356090689
+        },
+        "has_uint32": 0,
+        "uinteger": 4063219432
+      },
+      "fresh_evaluation_wall_seconds": 25.879264799994417,
+      "fresh_terminal_abs_error_p95": 65.31796047850496,
+      "fixed_probe_positive_greedy_fraction": 1.0,
+      "median_action_ms": 0.2937,
+      "p95_action_ms": 0.35102999999999995,
+      "online_parameter_bytes": 277444,
+      "target_parameter_bytes": 277444,
+      "replay_array_bytes": 215200000,
+      "optimizer_tensor_bytes": 554916
+    }
+  },
+  "checkpoint_sha256": {
+    "emc_q_original_exact_0": "f35cb6ad6054ab973878e930affaa2b2a5e6d1fdca057af4ff97a7c09a9cc9b7",
+    "additive64_0": "a508de2ddd2e25162946494d253d24e25a28d7746138833fb764b4b9535abfa5",
+    "additive128_0": "0fda0ccb08e2e0df4dd4f0dd4c14917b5762b039a62bef296e539772d80c38aa",
+    "emc_q_original_exact_1": "1867377e3af161dda1e32ee55b777014d01b223e60ebcb3c67b43b521c2f7f04",
+    "additive64_1": "a38a8f0c23054bcb0efb8488be5324e4a3063303c532426749c78ca0b322b62c",
+    "additive128_1": "72cc5a5293cb046dc47940494aa10078dc172e255048c33302bba1fe4414a1ce",
+    "additive128_2": "63c404f07ba045214ec9e81a4b6b75d59f1dbcd0d564dd65b7a569089533bc58",
+    "additive64_2": "8ffd5ab9a5bab0ba20165fdb4e0f45fd63673c763d2e9e2ab2e2f1e4162b763b",
+    "emc_q_original_exact_2": "4985a662e075f3b52964ab2d4d2c35a1510d34c08f6ddc1cf9cd17468ccd85ba"
+  },
+  "fresh": {
+    "emc_q_original_exact_0": [
+      {
+        "seed": 16890000,
+        "return_sum": -118.3423337436968,
+        "deadline_success": 0.6441666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 773,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -51.847757733969,
+        "deadline_success": 0.6933333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 832,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -30.707143955080035,
+        "deadline_success": 0.7358333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 883,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -34.939030045386794,
+        "deadline_success": 0.7825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 939,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -38.811331231502045,
+        "deadline_success": 0.7575,
+        "tasks_generated": 1200,
+        "tasks_on_time": 909,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -28.86932972052141,
+        "deadline_success": 0.7566666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 908,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -53.284200784351256,
+        "deadline_success": 0.7066666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 848,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -46.127631586349295,
+        "deadline_success": 0.7675,
+        "tasks_generated": 1200,
+        "tasks_on_time": 921,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -22.48315931615896,
+        "deadline_success": 0.8025,
+        "tasks_generated": 1200,
+        "tasks_on_time": 963,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -50.04282456864456,
+        "deadline_success": 0.715,
+        "tasks_generated": 1200,
+        "tasks_on_time": 858,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -66.76533852329969,
+        "deadline_success": 0.6983333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 838,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -52.735864221974005,
+        "deadline_success": 0.7375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 885,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -26.446965630441518,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -104.62870470672542,
+        "deadline_success": 0.7166666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 860,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -137.20446186938796,
+        "deadline_success": 0.615,
+        "tasks_generated": 1200,
+        "tasks_on_time": 738,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -73.58290619550651,
+        "deadline_success": 0.6375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 765,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -63.05772527966085,
+        "deadline_success": 0.7341666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 881,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -124.90465581821262,
+        "deadline_success": 0.6341666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 761,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -90.48316800341999,
+        "deadline_success": 0.67,
+        "tasks_generated": 1200,
+        "tasks_on_time": 804,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -32.28691618911725,
+        "deadline_success": 0.7325,
+        "tasks_generated": 1200,
+        "tasks_on_time": 879,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -149.2905127234076,
+        "deadline_success": 0.6766666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 812,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -22.656815891618745,
+        "deadline_success": 0.8008333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 961,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -19.94406146086617,
+        "deadline_success": 0.8433333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1012,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -99.80106412474507,
+        "deadline_success": 0.6666666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 800,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -24.919654097636087,
+        "deadline_success": 0.7966666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 956,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -75.80387379388871,
+        "deadline_success": 0.6891666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 827,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -27.18508678240533,
+        "deadline_success": 0.7941666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 953,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -38.17516658250854,
+        "deadline_success": 0.725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 870,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -32.924103642186964,
+        "deadline_success": 0.74,
+        "tasks_generated": 1200,
+        "tasks_on_time": 888,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -65.62658150969057,
+        "deadline_success": 0.6833333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 820,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -55.29072061101516,
+        "deadline_success": 0.6925,
+        "tasks_generated": 1200,
+        "tasks_on_time": 831,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -41.72035101078585,
+        "deadline_success": 0.7283333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 874,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -82.69254554676237,
+        "deadline_success": 0.67,
+        "tasks_generated": 1200,
+        "tasks_on_time": 804,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -106.47119679744793,
+        "deadline_success": 0.72,
+        "tasks_generated": 1200,
+        "tasks_on_time": 864,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -49.312677440131345,
+        "deadline_success": 0.7383333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 886,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -50.43770367805507,
+        "deadline_success": 0.6558333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 787,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -141.04883272851825,
+        "deadline_success": 0.5741666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 689,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -40.9419727811774,
+        "deadline_success": 0.7458333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 895,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -44.75972073125467,
+        "deadline_success": 0.6783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 814,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -71.56168126827714,
+        "deadline_success": 0.6525,
+        "tasks_generated": 1200,
+        "tasks_on_time": 783,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -112.63183584715122,
+        "deadline_success": 0.6158333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 739,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -30.853475746472505,
+        "deadline_success": 0.7183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 862,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -162.26120121942026,
+        "deadline_success": 0.6333333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 760,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -103.50064615840664,
+        "deadline_success": 0.67,
+        "tasks_generated": 1200,
+        "tasks_on_time": 804,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -95.66389304664216,
+        "deadline_success": 0.6375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 765,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -63.98176320745983,
+        "deadline_success": 0.6966666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 836,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -112.92329674742285,
+        "deadline_success": 0.6533333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 784,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -37.25042399960251,
+        "deadline_success": 0.7183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 862,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "additive64_0": [
+      {
+        "seed": 16890000,
+        "return_sum": -53.18559697894696,
+        "deadline_success": 0.7991666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 959,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -32.22289987629975,
+        "deadline_success": 0.7825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 939,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -32.72769803080318,
+        "deadline_success": 0.8025,
+        "tasks_generated": 1200,
+        "tasks_on_time": 963,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -30.015692994580228,
+        "deadline_success": 0.7966666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 956,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -39.33876984995967,
+        "deadline_success": 0.8116666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 974,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -76.25773580211496,
+        "deadline_success": 0.72,
+        "tasks_generated": 1200,
+        "tasks_on_time": 864,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -25.513278839773196,
+        "deadline_success": 0.83,
+        "tasks_generated": 1200,
+        "tasks_on_time": 996,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -33.17969335988562,
+        "deadline_success": 0.7791666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 935,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -58.38830037718023,
+        "deadline_success": 0.77,
+        "tasks_generated": 1200,
+        "tasks_on_time": 924,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -28.00006501685547,
+        "deadline_success": 0.8133333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 976,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -46.70561881062247,
+        "deadline_success": 0.7916666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 950,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -27.143194271901095,
+        "deadline_success": 0.8491666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1019,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -37.731296063862686,
+        "deadline_success": 0.7983333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 958,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -22.649546293403876,
+        "deadline_success": 0.7908333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 949,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -59.519865244521355,
+        "deadline_success": 0.805,
+        "tasks_generated": 1200,
+        "tasks_on_time": 966,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -50.98450072281878,
+        "deadline_success": 0.7316666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 878,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -21.544770514081975,
+        "deadline_success": 0.855,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1026,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -29.506546102930116,
+        "deadline_success": 0.8,
+        "tasks_generated": 1200,
+        "tasks_on_time": 960,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -27.90605765154628,
+        "deadline_success": 0.7975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 957,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -19.082888906102554,
+        "deadline_success": 0.8733333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1048,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -65.95559548490559,
+        "deadline_success": 0.8025,
+        "tasks_generated": 1200,
+        "tasks_on_time": 963,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -19.739364985863155,
+        "deadline_success": 0.8633333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1036,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -26.95666080649582,
+        "deadline_success": 0.7966666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 956,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -25.222284044000173,
+        "deadline_success": 0.8116666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 974,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -19.89596190279696,
+        "deadline_success": 0.86,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1032,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -29.634901582775623,
+        "deadline_success": 0.73,
+        "tasks_generated": 1200,
+        "tasks_on_time": 876,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -34.3145701634474,
+        "deadline_success": 0.7883333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 946,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -22.647467502091597,
+        "deadline_success": 0.8691666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1043,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -20.403854182894534,
+        "deadline_success": 0.8716666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1046,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -19.903341444146985,
+        "deadline_success": 0.8483333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1018,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -30.063062953474784,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -47.39044569690542,
+        "deadline_success": 0.76,
+        "tasks_generated": 1200,
+        "tasks_on_time": 912,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -44.80573508623205,
+        "deadline_success": 0.7583333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 910,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -81.21769838394367,
+        "deadline_success": 0.7191666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 863,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -25.37119142251221,
+        "deadline_success": 0.7766666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 932,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -59.52534383155754,
+        "deadline_success": 0.7375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 885,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -27.918053683352664,
+        "deadline_success": 0.8058333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 967,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -40.52768493971922,
+        "deadline_success": 0.8216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 986,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -18.52302495217843,
+        "deadline_success": 0.8866666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1064,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -46.328028883830754,
+        "deadline_success": 0.7925,
+        "tasks_generated": 1200,
+        "tasks_on_time": 951,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -20.785299553679636,
+        "deadline_success": 0.8633333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1036,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -44.22745938959711,
+        "deadline_success": 0.7758333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 931,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -88.29942412648028,
+        "deadline_success": 0.7508333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 901,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -17.267778643746762,
+        "deadline_success": 0.8941666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1073,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -57.65900531244908,
+        "deadline_success": 0.79,
+        "tasks_generated": 1200,
+        "tasks_on_time": 948,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -26.36208740267313,
+        "deadline_success": 0.835,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1002,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -38.29051248821127,
+        "deadline_success": 0.7475,
+        "tasks_generated": 1200,
+        "tasks_on_time": 897,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -30.232736822942254,
+        "deadline_success": 0.8125,
+        "tasks_generated": 1200,
+        "tasks_on_time": 975,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "additive128_0": [
+      {
+        "seed": 16890000,
+        "return_sum": -68.9265362694446,
+        "deadline_success": 0.7208333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 865,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -43.249355091967324,
+        "deadline_success": 0.7575,
+        "tasks_generated": 1200,
+        "tasks_on_time": 909,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -65.59808599428357,
+        "deadline_success": 0.7708333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 925,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -32.66884364069807,
+        "deadline_success": 0.8225,
+        "tasks_generated": 1200,
+        "tasks_on_time": 987,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -71.5730472559655,
+        "deadline_success": 0.7108333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 853,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -86.08945209806518,
+        "deadline_success": 0.7683333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 922,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -63.64380879585717,
+        "deadline_success": 0.7533333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 904,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -94.80771488221981,
+        "deadline_success": 0.6508333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 781,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -55.23774673444203,
+        "deadline_success": 0.7508333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 901,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -28.12716114167289,
+        "deadline_success": 0.7558333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 907,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -63.7216694702153,
+        "deadline_success": 0.7091666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 851,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -26.774527770646852,
+        "deadline_success": 0.8083333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 970,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -25.777601180614408,
+        "deadline_success": 0.7633333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 916,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -53.61363143860654,
+        "deadline_success": 0.7666666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 920,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -108.92760160673184,
+        "deadline_success": 0.7066666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 848,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -87.74773807377987,
+        "deadline_success": 0.72,
+        "tasks_generated": 1200,
+        "tasks_on_time": 864,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -41.05856608141413,
+        "deadline_success": 0.7675,
+        "tasks_generated": 1200,
+        "tasks_on_time": 921,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -44.88972481295485,
+        "deadline_success": 0.7916666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 950,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -46.0994736990202,
+        "deadline_success": 0.7491666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 899,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -21.451405310024416,
+        "deadline_success": 0.8183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 982,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -49.518946329633906,
+        "deadline_success": 0.7291666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 875,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -55.584971572338524,
+        "deadline_success": 0.7283333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 874,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -29.712953006291862,
+        "deadline_success": 0.7833333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 940,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -37.85183830529423,
+        "deadline_success": 0.7908333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 949,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -38.71905856900618,
+        "deadline_success": 0.7516666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 902,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -26.090549324862614,
+        "deadline_success": 0.8158333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 979,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -20.19424464164122,
+        "deadline_success": 0.8583333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1030,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -21.934521764544467,
+        "deadline_success": 0.8225,
+        "tasks_generated": 1200,
+        "tasks_on_time": 987,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -33.514314881306255,
+        "deadline_success": 0.735,
+        "tasks_generated": 1200,
+        "tasks_on_time": 882,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -35.038091142128195,
+        "deadline_success": 0.7525,
+        "tasks_generated": 1200,
+        "tasks_on_time": 903,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -46.308188692362485,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -109.8914962393083,
+        "deadline_success": 0.7508333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 901,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -66.70258902004572,
+        "deadline_success": 0.7416666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 890,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -70.09032852330421,
+        "deadline_success": 0.7125,
+        "tasks_generated": 1200,
+        "tasks_on_time": 855,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -25.78138552976185,
+        "deadline_success": 0.8058333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 967,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -48.234581882229115,
+        "deadline_success": 0.73,
+        "tasks_generated": 1200,
+        "tasks_on_time": 876,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -24.51829504137815,
+        "deadline_success": 0.8233333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 988,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -34.11488036347439,
+        "deadline_success": 0.7983333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 958,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -24.732517124669716,
+        "deadline_success": 0.8375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1005,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -54.825149864810165,
+        "deadline_success": 0.7558333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 907,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -47.54394455491948,
+        "deadline_success": 0.7941666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 953,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -20.80978205696274,
+        "deadline_success": 0.8383333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1006,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -63.06829141822566,
+        "deadline_success": 0.8058333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 967,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -36.095127977230035,
+        "deadline_success": 0.775,
+        "tasks_generated": 1200,
+        "tasks_on_time": 930,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -41.79776802433246,
+        "deadline_success": 0.74,
+        "tasks_generated": 1200,
+        "tasks_on_time": 888,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -44.84080052548432,
+        "deadline_success": 0.7708333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 925,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -105.53261274888004,
+        "deadline_success": 0.7683333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 922,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -42.08370936109661,
+        "deadline_success": 0.7433333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 892,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "emc_q_original_exact_1": [
+      {
+        "seed": 16890000,
+        "return_sum": -26.79890300181012,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -45.62033558437615,
+        "deadline_success": 0.7491666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 899,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -22.302171088601263,
+        "deadline_success": 0.8008333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 961,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -23.57037651400887,
+        "deadline_success": 0.8391666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1007,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -24.803114660502846,
+        "deadline_success": 0.7925,
+        "tasks_generated": 1200,
+        "tasks_on_time": 951,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -21.403650724740846,
+        "deadline_success": 0.8291666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 995,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -88.22825421421653,
+        "deadline_success": 0.7766666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 932,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -58.821111699192336,
+        "deadline_success": 0.7375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 885,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -44.644993625544416,
+        "deadline_success": 0.7675,
+        "tasks_generated": 1200,
+        "tasks_on_time": 921,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -23.92248531010108,
+        "deadline_success": 0.8308333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 997,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -70.863156214859,
+        "deadline_success": 0.7766666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 932,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -46.21227335534664,
+        "deadline_success": 0.6958333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 835,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -26.604576937846264,
+        "deadline_success": 0.8275,
+        "tasks_generated": 1200,
+        "tasks_on_time": 993,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -24.24018098625511,
+        "deadline_success": 0.8116666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 974,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -34.66813135743008,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -22.734631109572835,
+        "deadline_success": 0.79,
+        "tasks_generated": 1200,
+        "tasks_on_time": 948,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -24.67816885294426,
+        "deadline_success": 0.7791666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 935,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -21.206703643699868,
+        "deadline_success": 0.835,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1002,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -27.004841219833295,
+        "deadline_success": 0.8208333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 985,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -46.644799473520564,
+        "deadline_success": 0.7658333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 919,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -85.71707109833517,
+        "deadline_success": 0.7108333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 853,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -94.86133126247087,
+        "deadline_success": 0.6958333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 835,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -55.728455795004024,
+        "deadline_success": 0.7625,
+        "tasks_generated": 1200,
+        "tasks_on_time": 915,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -43.402896765120715,
+        "deadline_success": 0.8033333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 964,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -25.71803625773562,
+        "deadline_success": 0.8308333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 997,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -53.35747910719708,
+        "deadline_success": 0.7408333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 889,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -32.05560734070254,
+        "deadline_success": 0.81,
+        "tasks_generated": 1200,
+        "tasks_on_time": 972,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -33.06332156124731,
+        "deadline_success": 0.8208333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 985,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -77.92483444282708,
+        "deadline_success": 0.7808333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 937,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -25.17194494860398,
+        "deadline_success": 0.805,
+        "tasks_generated": 1200,
+        "tasks_on_time": 966,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -66.00454552009258,
+        "deadline_success": 0.7733333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 928,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -47.88457802844293,
+        "deadline_success": 0.7925,
+        "tasks_generated": 1200,
+        "tasks_on_time": 951,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -20.925520656007098,
+        "deadline_success": 0.8475,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1017,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -19.13194636255899,
+        "deadline_success": 0.8641666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1037,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -92.88858829938026,
+        "deadline_success": 0.6941666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 833,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -22.082264142660026,
+        "deadline_success": 0.8125,
+        "tasks_generated": 1200,
+        "tasks_on_time": 975,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -28.039478258818313,
+        "deadline_success": 0.8233333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 988,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -19.82512717407957,
+        "deadline_success": 0.8475,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1017,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -36.25828732601129,
+        "deadline_success": 0.7666666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 920,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -29.977621181617927,
+        "deadline_success": 0.7883333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 946,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -51.66091280443622,
+        "deadline_success": 0.7858333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 943,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -41.74591733786635,
+        "deadline_success": 0.7075,
+        "tasks_generated": 1200,
+        "tasks_on_time": 849,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -24.456219609129427,
+        "deadline_success": 0.7591666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 911,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -43.320574799726245,
+        "deadline_success": 0.7875,
+        "tasks_generated": 1200,
+        "tasks_on_time": 945,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -21.948975158034624,
+        "deadline_success": 0.8333333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1000,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -49.27892556156465,
+        "deadline_success": 0.7533333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 904,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -18.540176654712347,
+        "deadline_success": 0.8825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1059,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -22.134940138623655,
+        "deadline_success": 0.805,
+        "tasks_generated": 1200,
+        "tasks_on_time": 966,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "additive64_1": [
+      {
+        "seed": 16890000,
+        "return_sum": -24.055727403726976,
+        "deadline_success": 0.765,
+        "tasks_generated": 1200,
+        "tasks_on_time": 918,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -22.24917350332565,
+        "deadline_success": 0.8175,
+        "tasks_generated": 1200,
+        "tasks_on_time": 981,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -23.900839852521656,
+        "deadline_success": 0.7866666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 944,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -19.175393623370415,
+        "deadline_success": 0.8566666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1028,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -25.829188331599468,
+        "deadline_success": 0.7591666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 911,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -21.68659580404982,
+        "deadline_success": 0.8066666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 968,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -20.495357073389165,
+        "deadline_success": 0.8491666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1019,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -18.53322666242451,
+        "deadline_success": 0.8816666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1058,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -23.804493282139436,
+        "deadline_success": 0.8325,
+        "tasks_generated": 1200,
+        "tasks_on_time": 999,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -20.65002677815279,
+        "deadline_success": 0.8391666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1007,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -32.06262628329268,
+        "deadline_success": 0.7575,
+        "tasks_generated": 1200,
+        "tasks_on_time": 909,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -20.074311608370973,
+        "deadline_success": 0.84,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1008,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -23.443065219276985,
+        "deadline_success": 0.8166666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 980,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -21.675136095565673,
+        "deadline_success": 0.8091666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 971,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -20.99368324709315,
+        "deadline_success": 0.8183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 982,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -21.759069115020637,
+        "deadline_success": 0.8241666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 989,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -28.695686764402126,
+        "deadline_success": 0.7041666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 845,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -24.615416878008123,
+        "deadline_success": 0.7583333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 910,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -32.10274440026298,
+        "deadline_success": 0.825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 990,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -27.430466847903652,
+        "deadline_success": 0.74,
+        "tasks_generated": 1200,
+        "tasks_on_time": 888,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -23.426287930156278,
+        "deadline_success": 0.79,
+        "tasks_generated": 1200,
+        "tasks_on_time": 948,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -24.674299133948036,
+        "deadline_success": 0.8425,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1011,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -32.172059815327735,
+        "deadline_success": 0.7641666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 917,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -25.119711299080677,
+        "deadline_success": 0.7825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 939,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -22.76798217967628,
+        "deadline_success": 0.7966666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 956,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -18.43889236681388,
+        "deadline_success": 0.8725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1047,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -25.744070155790016,
+        "deadline_success": 0.83,
+        "tasks_generated": 1200,
+        "tasks_on_time": 996,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -27.25228066948945,
+        "deadline_success": 0.7975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 957,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -37.67122923335418,
+        "deadline_success": 0.8066666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 968,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -26.812838073519202,
+        "deadline_success": 0.8,
+        "tasks_generated": 1200,
+        "tasks_on_time": 960,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -19.003246521862074,
+        "deadline_success": 0.8608333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1033,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -21.824957953893044,
+        "deadline_success": 0.8083333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 970,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -28.95105321287946,
+        "deadline_success": 0.7941666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 953,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -19.792868282785697,
+        "deadline_success": 0.845,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1014,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -20.37309512210316,
+        "deadline_success": 0.8525,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1023,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -23.974110158788324,
+        "deadline_success": 0.7933333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 952,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -29.193264440448445,
+        "deadline_success": 0.81,
+        "tasks_generated": 1200,
+        "tasks_on_time": 972,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -17.567183613243852,
+        "deadline_success": 0.8916666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1070,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -30.24627532112591,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -25.174327825552936,
+        "deadline_success": 0.7483333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 898,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -24.210360382455445,
+        "deadline_success": 0.7633333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 916,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -21.837157590898787,
+        "deadline_success": 0.8116666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 974,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -26.790378128283812,
+        "deadline_success": 0.72,
+        "tasks_generated": 1200,
+        "tasks_on_time": 864,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -23.00819499448805,
+        "deadline_success": 0.825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 990,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -21.48074890609311,
+        "deadline_success": 0.8275,
+        "tasks_generated": 1200,
+        "tasks_on_time": 993,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -48.00906576759376,
+        "deadline_success": 0.81,
+        "tasks_generated": 1200,
+        "tasks_on_time": 972,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -23.39823311256877,
+        "deadline_success": 0.835,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1002,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -28.897758311568364,
+        "deadline_success": 0.6816666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 818,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "additive128_1": [
+      {
+        "seed": 16890000,
+        "return_sum": -52.42781571920768,
+        "deadline_success": 0.6875,
+        "tasks_generated": 1200,
+        "tasks_on_time": 825,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -50.09966561766178,
+        "deadline_success": 0.7066666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 848,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -34.61454872785002,
+        "deadline_success": 0.7058333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 847,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -30.735455434140892,
+        "deadline_success": 0.7216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 866,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -39.46223889986469,
+        "deadline_success": 0.775,
+        "tasks_generated": 1200,
+        "tasks_on_time": 930,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -51.666526297218354,
+        "deadline_success": 0.7175,
+        "tasks_generated": 1200,
+        "tasks_on_time": 861,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -44.318351924661705,
+        "deadline_success": 0.7216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 866,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -39.16607415057182,
+        "deadline_success": 0.6741666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 809,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -34.435592518353694,
+        "deadline_success": 0.7516666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 902,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -33.95332727742961,
+        "deadline_success": 0.7316666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 878,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -46.666338096448506,
+        "deadline_success": 0.7533333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 904,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -59.002346921957695,
+        "deadline_success": 0.7241666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 869,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -42.98449814577872,
+        "deadline_success": 0.8091666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 971,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -34.297187831978185,
+        "deadline_success": 0.7166666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 860,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -35.77442755557461,
+        "deadline_success": 0.725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 870,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -48.60091876527062,
+        "deadline_success": 0.755,
+        "tasks_generated": 1200,
+        "tasks_on_time": 906,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -46.69185391644217,
+        "deadline_success": 0.745,
+        "tasks_generated": 1200,
+        "tasks_on_time": 894,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -33.9824090109273,
+        "deadline_success": 0.755,
+        "tasks_generated": 1200,
+        "tasks_on_time": 906,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -33.47821624749192,
+        "deadline_success": 0.725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 870,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -67.95574014284341,
+        "deadline_success": 0.6758333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 811,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -52.2047195130698,
+        "deadline_success": 0.7191666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 863,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -68.15795798360828,
+        "deadline_success": 0.7316666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 878,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -35.2633936074473,
+        "deadline_success": 0.7325,
+        "tasks_generated": 1200,
+        "tasks_on_time": 879,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -47.55045771510884,
+        "deadline_success": 0.7075,
+        "tasks_generated": 1200,
+        "tasks_on_time": 849,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -34.987699765195714,
+        "deadline_success": 0.745,
+        "tasks_generated": 1200,
+        "tasks_on_time": 894,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -42.64029688797013,
+        "deadline_success": 0.6533333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 784,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -59.31750876745882,
+        "deadline_success": 0.7508333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 901,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -41.97889439667641,
+        "deadline_success": 0.6975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 837,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -43.19581003858288,
+        "deadline_success": 0.7225,
+        "tasks_generated": 1200,
+        "tasks_on_time": 867,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -34.44701703493167,
+        "deadline_success": 0.7375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 885,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -47.76641809173545,
+        "deadline_success": 0.7508333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 901,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -53.825110127634645,
+        "deadline_success": 0.695,
+        "tasks_generated": 1200,
+        "tasks_on_time": 834,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -37.17893834796037,
+        "deadline_success": 0.6933333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 832,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -67.46798616197864,
+        "deadline_success": 0.7191666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 863,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -77.42508643713758,
+        "deadline_success": 0.7108333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 853,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -45.585444458213566,
+        "deadline_success": 0.735,
+        "tasks_generated": 1200,
+        "tasks_on_time": 882,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -41.46712824160039,
+        "deadline_success": 0.7183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 862,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -28.1965374452987,
+        "deadline_success": 0.7241666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 869,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -42.41627567873664,
+        "deadline_success": 0.7108333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 853,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -24.357875306474757,
+        "deadline_success": 0.7741666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 929,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -70.13706467892689,
+        "deadline_success": 0.795,
+        "tasks_generated": 1200,
+        "tasks_on_time": 954,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -50.75474878652546,
+        "deadline_success": 0.68,
+        "tasks_generated": 1200,
+        "tasks_on_time": 816,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -24.934596410723305,
+        "deadline_success": 0.795,
+        "tasks_generated": 1200,
+        "tasks_on_time": 954,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -67.91556549577626,
+        "deadline_success": 0.7358333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 883,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -27.732174026002433,
+        "deadline_success": 0.7166666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 860,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -61.989265242708555,
+        "deadline_success": 0.7091666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 851,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -34.326572605166916,
+        "deadline_success": 0.7216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 866,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -35.449229886949816,
+        "deadline_success": 0.7683333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 922,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "additive128_2": [
+      {
+        "seed": 16890000,
+        "return_sum": -83.41993310020987,
+        "deadline_success": 0.765,
+        "tasks_generated": 1200,
+        "tasks_on_time": 918,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -75.04273941575859,
+        "deadline_success": 0.7591666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 911,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -25.17257276041245,
+        "deadline_success": 0.7641666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 917,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -27.64750055071361,
+        "deadline_success": 0.7075,
+        "tasks_generated": 1200,
+        "tasks_on_time": 849,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -57.17840060850942,
+        "deadline_success": 0.7583333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 910,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -27.453476857624743,
+        "deadline_success": 0.8066666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 968,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -64.79263647011885,
+        "deadline_success": 0.7516666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 902,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -85.21155563696529,
+        "deadline_success": 0.6891666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 827,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -46.25275064120903,
+        "deadline_success": 0.7316666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 878,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -21.53479481208958,
+        "deadline_success": 0.815,
+        "tasks_generated": 1200,
+        "tasks_on_time": 978,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -37.275474886461836,
+        "deadline_success": 0.6958333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 835,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -67.41297685147366,
+        "deadline_success": 0.7275,
+        "tasks_generated": 1200,
+        "tasks_on_time": 873,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -62.62848188760525,
+        "deadline_success": 0.6616666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 794,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -20.70342892526924,
+        "deadline_success": 0.8266666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 992,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -39.73278112644981,
+        "deadline_success": 0.7725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 927,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -68.02461216081943,
+        "deadline_success": 0.7216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 866,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -32.32680614282082,
+        "deadline_success": 0.7616666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 914,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -87.27731880969424,
+        "deadline_success": 0.655,
+        "tasks_generated": 1200,
+        "tasks_on_time": 786,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -21.845042028860416,
+        "deadline_success": 0.8533333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1024,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -36.35123697012356,
+        "deadline_success": 0.7775,
+        "tasks_generated": 1200,
+        "tasks_on_time": 933,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -26.613386991260523,
+        "deadline_success": 0.7841666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 941,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -46.00710092391281,
+        "deadline_success": 0.755,
+        "tasks_generated": 1200,
+        "tasks_on_time": 906,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -90.86824089127407,
+        "deadline_success": 0.6883333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 826,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -27.357167586552215,
+        "deadline_success": 0.8166666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 980,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -22.067660034957928,
+        "deadline_success": 0.8016666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 962,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -30.706167970464495,
+        "deadline_success": 0.6833333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 820,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -88.11589672984887,
+        "deadline_success": 0.7483333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 898,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -20.0019902835846,
+        "deadline_success": 0.8475,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1017,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -95.08162190832508,
+        "deadline_success": 0.7383333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 886,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -26.968133022442853,
+        "deadline_success": 0.84,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1008,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -51.89450519985481,
+        "deadline_success": 0.7783333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 934,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -84.87370060947032,
+        "deadline_success": 0.7358333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 883,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -33.773196365843,
+        "deadline_success": 0.7975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 957,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -26.23651157593355,
+        "deadline_success": 0.8,
+        "tasks_generated": 1200,
+        "tasks_on_time": 960,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -47.77862174413837,
+        "deadline_success": 0.7183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 862,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -24.04739161203138,
+        "deadline_success": 0.785,
+        "tasks_generated": 1200,
+        "tasks_on_time": 942,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -43.995610541787855,
+        "deadline_success": 0.735,
+        "tasks_generated": 1200,
+        "tasks_on_time": 882,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -28.48020320829811,
+        "deadline_success": 0.7833333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 940,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -27.433549252099628,
+        "deadline_success": 0.7075,
+        "tasks_generated": 1200,
+        "tasks_on_time": 849,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -23.82200567736286,
+        "deadline_success": 0.7925,
+        "tasks_generated": 1200,
+        "tasks_on_time": 951,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -53.05941157229072,
+        "deadline_success": 0.6866666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 824,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -45.110166984218665,
+        "deadline_success": 0.7583333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 910,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -24.163158946453542,
+        "deadline_success": 0.7975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 957,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -23.174846126115625,
+        "deadline_success": 0.785,
+        "tasks_generated": 1200,
+        "tasks_on_time": 942,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -80.32822795040867,
+        "deadline_success": 0.6883333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 826,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -21.565287794248576,
+        "deadline_success": 0.8508333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1021,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -20.006500245862252,
+        "deadline_success": 0.8741666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1049,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -21.98099567850184,
+        "deadline_success": 0.8166666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 980,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "additive64_2": [
+      {
+        "seed": 16890000,
+        "return_sum": -30.55690095207088,
+        "deadline_success": 0.7433333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 892,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -50.90855945003005,
+        "deadline_success": 0.7733333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 928,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -69.09098742927468,
+        "deadline_success": 0.7758333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 931,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -22.534464181156324,
+        "deadline_success": 0.8141666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 977,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -22.90553665919788,
+        "deadline_success": 0.8375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1005,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -44.73299236340547,
+        "deadline_success": 0.7725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 927,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -31.416635870132048,
+        "deadline_success": 0.8158333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 979,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -29.696572625486713,
+        "deadline_success": 0.8275,
+        "tasks_generated": 1200,
+        "tasks_on_time": 993,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -22.069104239534933,
+        "deadline_success": 0.8216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 986,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -18.713502547364946,
+        "deadline_success": 0.8691666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1043,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -22.45873888976664,
+        "deadline_success": 0.8191666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 983,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -44.914222981899115,
+        "deadline_success": 0.7691666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 923,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -29.341198148893575,
+        "deadline_success": 0.7975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 957,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -17.079214597022016,
+        "deadline_success": 0.8991666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1079,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -23.6800582145029,
+        "deadline_success": 0.7983333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 958,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -52.99715346256528,
+        "deadline_success": 0.7908333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 949,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -22.682288637112723,
+        "deadline_success": 0.825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 990,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -17.61155127431679,
+        "deadline_success": 0.89,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1068,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -32.54022858445511,
+        "deadline_success": 0.7833333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 940,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -24.16621908675553,
+        "deadline_success": 0.7933333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 952,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -30.666294976610832,
+        "deadline_success": 0.7991666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 959,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -56.02291280146758,
+        "deadline_success": 0.8158333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 979,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -24.373802654989515,
+        "deadline_success": 0.8,
+        "tasks_generated": 1200,
+        "tasks_on_time": 960,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -32.27894934465964,
+        "deadline_success": 0.785,
+        "tasks_generated": 1200,
+        "tasks_on_time": 942,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -29.190692509300792,
+        "deadline_success": 0.775,
+        "tasks_generated": 1200,
+        "tasks_on_time": 930,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -37.40377950188768,
+        "deadline_success": 0.7483333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 898,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -35.26430453711403,
+        "deadline_success": 0.8375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1005,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -23.81158935093624,
+        "deadline_success": 0.7825,
+        "tasks_generated": 1200,
+        "tasks_on_time": 939,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -59.68040744842197,
+        "deadline_success": 0.8208333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 985,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -24.76524217640126,
+        "deadline_success": 0.7725,
+        "tasks_generated": 1200,
+        "tasks_on_time": 927,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -18.760002310224987,
+        "deadline_success": 0.8775,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1053,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -84.33807446553352,
+        "deadline_success": 0.7408333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 889,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -30.599188885656066,
+        "deadline_success": 0.8183333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 982,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -20.49270513310297,
+        "deadline_success": 0.865,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1038,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -24.477775990769384,
+        "deadline_success": 0.8216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 986,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -29.84874205514675,
+        "deadline_success": 0.7516666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 902,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -25.566220796239527,
+        "deadline_success": 0.7891666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 947,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -28.168195337652744,
+        "deadline_success": 0.7691666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 923,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -16.423899225742517,
+        "deadline_success": 0.9158333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1099,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -21.09772890362753,
+        "deadline_success": 0.8666666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1040,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -31.0075982696564,
+        "deadline_success": 0.7758333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 931,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -31.642510970922952,
+        "deadline_success": 0.7591666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 911,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -44.76655638083815,
+        "deadline_success": 0.735,
+        "tasks_generated": 1200,
+        "tasks_on_time": 882,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -26.52195790675623,
+        "deadline_success": 0.7966666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 956,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -30.508846086151046,
+        "deadline_success": 0.7716666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 926,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -62.78770090494439,
+        "deadline_success": 0.745,
+        "tasks_generated": 1200,
+        "tasks_on_time": 894,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -20.416207583450362,
+        "deadline_success": 0.85,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1020,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -31.32535370775163,
+        "deadline_success": 0.7541666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 905,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ],
+    "emc_q_original_exact_2": [
+      {
+        "seed": 16890000,
+        "return_sum": -21.458412030491562,
+        "deadline_success": 0.8216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 986,
+        "workload_sha256": "d67e2efad62c0c7e937cf6ceba7ef1d70fdeb7aeed73e79a86e3b548f8db3a34"
+      },
+      {
+        "seed": 16890001,
+        "return_sum": -24.326634384321004,
+        "deadline_success": 0.8016666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 962,
+        "workload_sha256": "19f7d12ddea23b79f46b24d8d5d6eff2a9adaaff513f7fc465cda20a22c02544"
+      },
+      {
+        "seed": 16890002,
+        "return_sum": -31.392722406675812,
+        "deadline_success": 0.7458333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 895,
+        "workload_sha256": "1d09588afa138db812f4bab5a543062840b65ddddffe06569c2fd18a98996226"
+      },
+      {
+        "seed": 16890003,
+        "return_sum": -66.8581186546002,
+        "deadline_success": 0.7375,
+        "tasks_generated": 1200,
+        "tasks_on_time": 885,
+        "workload_sha256": "8262a2c3e38394675a5d7cd22e6caf7d45c657823ce04c0a9d35d484b581d136"
+      },
+      {
+        "seed": 16890004,
+        "return_sum": -24.532966524923825,
+        "deadline_success": 0.7975,
+        "tasks_generated": 1200,
+        "tasks_on_time": 957,
+        "workload_sha256": "aa453916cd7082f307211a79837ff5d09fc2b8078cbf62111fdc53e98d300ac2"
+      },
+      {
+        "seed": 16890005,
+        "return_sum": -22.103851042426303,
+        "deadline_success": 0.8191666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 983,
+        "workload_sha256": "0064eb6e1f96846840c4eab6c0a2817c3138559eece0b851fe5dc82d2112c66e"
+      },
+      {
+        "seed": 16890006,
+        "return_sum": -28.032687859441864,
+        "deadline_success": 0.78,
+        "tasks_generated": 1200,
+        "tasks_on_time": 936,
+        "workload_sha256": "d3169c2d82f03dd4f3dfb2a8c029f1fb32eb0dba9c99da9f728c01a2a9dca253"
+      },
+      {
+        "seed": 16890007,
+        "return_sum": -42.852966557916794,
+        "deadline_success": 0.7791666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 935,
+        "workload_sha256": "3bb75ec1c79a4449825c4e82d56280106ba8956ce28aa0707b292eda848cd6cb"
+      },
+      {
+        "seed": 16890008,
+        "return_sum": -35.64118575105768,
+        "deadline_success": 0.7266666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 872,
+        "workload_sha256": "8e6544a58865e246efe810aa936269f148d0c23a2b61d5fc12196614f0d1571b"
+      },
+      {
+        "seed": 16890009,
+        "return_sum": -82.59141033418415,
+        "deadline_success": 0.7316666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 878,
+        "workload_sha256": "6398480e87cbbc42895b55449e71568cfb9bc819e68611f4ee7b13a74df591e8"
+      },
+      {
+        "seed": 16890010,
+        "return_sum": -24.576747952303013,
+        "deadline_success": 0.8058333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 967,
+        "workload_sha256": "6afd441313df41bf0259a911ec989e3c353a405298a76620ccc2fb72949e475a"
+      },
+      {
+        "seed": 16890011,
+        "return_sum": -32.13451766572176,
+        "deadline_success": 0.72,
+        "tasks_generated": 1200,
+        "tasks_on_time": 864,
+        "workload_sha256": "9592f4a317c15b0b9756d18464615c0649621adc43959996ec4eacd6ac10e62f"
+      },
+      {
+        "seed": 16890012,
+        "return_sum": -34.94156433905336,
+        "deadline_success": 0.7275,
+        "tasks_generated": 1200,
+        "tasks_on_time": 873,
+        "workload_sha256": "432d80000618371ad4e59c11f9278706d58d9f084e467624a799cf69e7cd8836"
+      },
+      {
+        "seed": 16890013,
+        "return_sum": -57.749346027032075,
+        "deadline_success": 0.775,
+        "tasks_generated": 1200,
+        "tasks_on_time": 930,
+        "workload_sha256": "735b31c79803a3064a0a3d4e29315f7a6093a6eb9f5a9ffd181f56373343f764"
+      },
+      {
+        "seed": 16890014,
+        "return_sum": -74.19114450764788,
+        "deadline_success": 0.7216666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 866,
+        "workload_sha256": "86ded006f3aa537aed298385183e4001073c444428a4e32c97613590893a6179"
+      },
+      {
+        "seed": 16890015,
+        "return_sum": -22.917706050065817,
+        "deadline_success": 0.7983333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 958,
+        "workload_sha256": "6ea952166e10b793eaa0430c68d57e5ac0e69fad629ddee8d8095cc2203f8c40"
+      },
+      {
+        "seed": 16890016,
+        "return_sum": -25.048705142782644,
+        "deadline_success": 0.7758333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 931,
+        "workload_sha256": "7bc8dcb0bd7da51555d5464789a788ebb044927bd4d254d5d4409ce89ebb55cb"
+      },
+      {
+        "seed": 16890017,
+        "return_sum": -20.806087357162713,
+        "deadline_success": 0.8341666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1001,
+        "workload_sha256": "58117af90aace93b2fdfe4c4a5b3d59211ea61840cc5f3174a953c2239d896a3"
+      },
+      {
+        "seed": 16890018,
+        "return_sum": -65.02710767045475,
+        "deadline_success": 0.7541666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 905,
+        "workload_sha256": "e321b14c6c8d834dcc8d535b24715ea3598a7556f43a9954271977c14d4ed2dc"
+      },
+      {
+        "seed": 16890019,
+        "return_sum": -24.201920728666078,
+        "deadline_success": 0.795,
+        "tasks_generated": 1200,
+        "tasks_on_time": 954,
+        "workload_sha256": "d5f98bee368ce6179bd7e6d80a42415c10cfff0d4d989fe05b0f1357d1c3734a"
+      },
+      {
+        "seed": 16890020,
+        "return_sum": -68.71902151051256,
+        "deadline_success": 0.7541666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 905,
+        "workload_sha256": "cf939000fa2b1556a715a0c71c4b89a948836e71709cdd4814ad30520c665251"
+      },
+      {
+        "seed": 16890021,
+        "return_sum": -78.27875751660164,
+        "deadline_success": 0.7025,
+        "tasks_generated": 1200,
+        "tasks_on_time": 843,
+        "workload_sha256": "614f284c01c1719f0f3adbbc2f89a16b157afe83b2c4688e939996a163a871e8"
+      },
+      {
+        "seed": 16890022,
+        "return_sum": -30.022718352345553,
+        "deadline_success": 0.7583333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 910,
+        "workload_sha256": "81c0993d0f954c311298a9007fbea840e2757f7103eb9e9156d73ccf1743bde3"
+      },
+      {
+        "seed": 16890023,
+        "return_sum": -20.639854812077573,
+        "deadline_success": 0.8333333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1000,
+        "workload_sha256": "32a2122be2160ccdf91672819907f24114ecaa4475425560168a27b2d6e8687a"
+      },
+      {
+        "seed": 16890024,
+        "return_sum": -22.8877052862601,
+        "deadline_success": 0.8058333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 967,
+        "workload_sha256": "dbdcb51305b30c3c59cd1a676e87f822ef84bfa2edb4f31a013657192e82b1ea"
+      },
+      {
+        "seed": 16890025,
+        "return_sum": -27.896888780296997,
+        "deadline_success": 0.76,
+        "tasks_generated": 1200,
+        "tasks_on_time": 912,
+        "workload_sha256": "f353bd697084d2842e82d5dbaaab3a751aba9b24bffa4fb3831fbc9a06a247c6"
+      },
+      {
+        "seed": 16890026,
+        "return_sum": -20.387205288232124,
+        "deadline_success": 0.8366666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 1004,
+        "workload_sha256": "da4d41c2c16137a47e450e7727449445825b49af70f93c2a201b00c686a32f66"
+      },
+      {
+        "seed": 16890027,
+        "return_sum": -22.78647319915254,
+        "deadline_success": 0.8108333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 973,
+        "workload_sha256": "c0a7d54c03ade1c610b25313346c08ca283738ce70bcab6bf138775ba72d4a0c"
+      },
+      {
+        "seed": 16890028,
+        "return_sum": -26.562144558941313,
+        "deadline_success": 0.7533333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 904,
+        "workload_sha256": "471c3d9be94f8d4e4b3d22a0273e2f303d67800b58eeb5a791429425774adb3e"
+      },
+      {
+        "seed": 16890029,
+        "return_sum": -45.76681289734684,
+        "deadline_success": 0.7366666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 884,
+        "workload_sha256": "f06004da06f4211b796269a1ab5bb7b7f6615920aa4c9f41bbb932d77f4ade61"
+      },
+      {
+        "seed": 16890030,
+        "return_sum": -21.74440008932923,
+        "deadline_success": 0.8275,
+        "tasks_generated": 1200,
+        "tasks_on_time": 993,
+        "workload_sha256": "d17c674ab3bbc307805762472a02fc32aabc561a115d930cf11ebbc6b741ccf0"
+      },
+      {
+        "seed": 16890031,
+        "return_sum": -33.93079292039609,
+        "deadline_success": 0.7383333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 886,
+        "workload_sha256": "84fdf56637467ff5c4a8987f67569b54888a8e771fdc65370f53c3586015e616"
+      },
+      {
+        "seed": 16890032,
+        "return_sum": -23.106407094039902,
+        "deadline_success": 0.8008333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 961,
+        "workload_sha256": "1cab335cd5cfd3300c05da8c74e5191bf9663cc020b99650bc7a75c76379af53"
+      },
+      {
+        "seed": 16890033,
+        "return_sum": -38.714411134563555,
+        "deadline_success": 0.6925,
+        "tasks_generated": 1200,
+        "tasks_on_time": 831,
+        "workload_sha256": "d528f58c8c6b8d1f72979699261f9541fc4b4df0cee46374bf2e791edc9be892"
+      },
+      {
+        "seed": 16890034,
+        "return_sum": -28.445436471336986,
+        "deadline_success": 0.7525,
+        "tasks_generated": 1200,
+        "tasks_on_time": 903,
+        "workload_sha256": "4e06ef0b259600ae0ff8d059f9fcf0e68cafd823f89ab9088b2b85bf76139833"
+      },
+      {
+        "seed": 16890035,
+        "return_sum": -22.530071824912405,
+        "deadline_success": 0.8016666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 962,
+        "workload_sha256": "c8d4f96a13c2d09a00d2b4d65a005e536850f73d3b8774a95a7663a6c9570baa"
+      },
+      {
+        "seed": 16890036,
+        "return_sum": -25.989939744694123,
+        "deadline_success": 0.7566666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 908,
+        "workload_sha256": "510f27d29b9e4978f6c650bc44a39a6d5a3f0f31763c2b72692c1d988985e0f3"
+      },
+      {
+        "seed": 16890037,
+        "return_sum": -38.194495164848654,
+        "deadline_success": 0.7475,
+        "tasks_generated": 1200,
+        "tasks_on_time": 897,
+        "workload_sha256": "17cb555b8e35c3a4559799c6c56d2bed8aaaea0f5b5de9183b19abb22f587428"
+      },
+      {
+        "seed": 16890038,
+        "return_sum": -40.15091749213467,
+        "deadline_success": 0.7566666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 908,
+        "workload_sha256": "fafdd2ea833742bdd02aceff49f803e31a58e1e760267a5ec90981fd824c9b5f"
+      },
+      {
+        "seed": 16890039,
+        "return_sum": -27.857905965949524,
+        "deadline_success": 0.74,
+        "tasks_generated": 1200,
+        "tasks_on_time": 888,
+        "workload_sha256": "3336db111ba8f3184812dbab1a34526c34d67e42e87ab0e4d6f933a36998486b"
+      },
+      {
+        "seed": 16890040,
+        "return_sum": -24.654063895340638,
+        "deadline_success": 0.7866666666666666,
+        "tasks_generated": 1200,
+        "tasks_on_time": 944,
+        "workload_sha256": "11442c224580ce9b3abd133e9557cf5dbf494a78fef6734235fb6c64c8611fcb"
+      },
+      {
+        "seed": 16890041,
+        "return_sum": -31.926350042497525,
+        "deadline_success": 0.765,
+        "tasks_generated": 1200,
+        "tasks_on_time": 918,
+        "workload_sha256": "1981b277e1465e0cb32210832d648c5d6608c9edf7e5983316fb0018283d0b64"
+      },
+      {
+        "seed": 16890042,
+        "return_sum": -60.92182066258334,
+        "deadline_success": 0.7358333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 883,
+        "workload_sha256": "d7d6b9b3727b31de958323b69b4be412961f27af0f1e447cff60394d29929031"
+      },
+      {
+        "seed": 16890043,
+        "return_sum": -26.44837598325896,
+        "deadline_success": 0.7408333333333333,
+        "tasks_generated": 1200,
+        "tasks_on_time": 889,
+        "workload_sha256": "5a2a7401ce280361c9a7cd9f2dd9263100b4c77788acdc216fca8efab67ffc09"
+      },
+      {
+        "seed": 16890044,
+        "return_sum": -27.67610475038866,
+        "deadline_success": 0.7758333333333334,
+        "tasks_generated": 1200,
+        "tasks_on_time": 931,
+        "workload_sha256": "a5204bc16b6877b996b14c2982892c79d319ba9195df9d55f580390d9ab964a8"
+      },
+      {
+        "seed": 16890045,
+        "return_sum": -67.69160507582319,
+        "deadline_success": 0.6425,
+        "tasks_generated": 1200,
+        "tasks_on_time": 771,
+        "workload_sha256": "72274e8c07085abe4eceba9a119d156d71c508f662ef25d21fa6d39e1520f374"
+      },
+      {
+        "seed": 16890046,
+        "return_sum": -39.009207379632606,
+        "deadline_success": 0.765,
+        "tasks_generated": 1200,
+        "tasks_on_time": 918,
+        "workload_sha256": "ebb5da674e6d232de1f6523ab334012d1b6ff747df9cd2f8336aa1f703faa499"
+      },
+      {
+        "seed": 16890047,
+        "return_sum": -112.57610705364783,
+        "deadline_success": 0.6441666666666667,
+        "tasks_generated": 1200,
+        "tasks_on_time": 773,
+        "workload_sha256": "d5dcbe3519c5d75b2b2214420aa2d158b06e1432b1235aaddee9b02d92aac161"
+      }
+    ]
+  },
+  "paired_workloads": true,
+  "evaluation_state_invariance": true,
+  "all_checkpoints_frozen_before_fresh": true,
+  "quality_screen_applied": true,
+  "new_full_quality_claim": false,
+  "wall_seconds": 2233.4927499000914,
+  "shared_wall_seconds": {
+    "timing": 1.1783882000017911,
+    "probe_generation": 3.8771109003573656,
+    "heuristic_evaluation": 60.63662949996069
+  }
+}

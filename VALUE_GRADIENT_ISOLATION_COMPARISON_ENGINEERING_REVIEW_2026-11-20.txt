@@ -1,0 +1,150 @@
+VALUE-GRADIENT ISOLATION: PAIRED RUNNER AND INDEPENDENT AUDITOR
+20 November 2026
+ENGINEERING FIXTURE ONLY - NO RESEARCH LAUNCH
+
+RESULT
+The new nine-controller runner and independent saved-artifact auditor passed
+the complete declared two-initialization, 2,200-slot isolated workflow.
+All 20 integration and semantic-corruption tests passed: zero failures and
+zero errors. The frozen 67,120-slot development study remains disabled.
+This is implementation evidence, not a successful scientific comparison.
+
+FROZEN CONTRACT AND IMPLEMENTATION
+Protocol: VALUE_GRADIENT_ISOLATION_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 2a3a4cd58f3f04eabf1d54958e058af7294fbb73a2f41000c3242999bcc4f683
+Runner: run_value_gradient_isolation_comparison.py
+Auditor: audit_value_gradient_isolation_comparison.py
+Tests: test_value_gradient_isolation_comparison.py
+Verifier: verify_value_gradient_isolation_comparison_engineering_2026_11_20.py
+
+No frozen reward, seed reservation, threshold, optimizer setting, model
+definition or scientific decision rule was changed. The preceding mechanics
+tests were not rerun. Historical mixed/failed studies and every fit remain
+preserved. The completed return-calibrated study remains policy=false,
+value=true, promising=false. No Word thesis changes were made.
+
+The runner binds the tested value_gradient_isolation.ddqn_retention_step
+and explicit Critic.td_prediction path. Every TD update records its rule.
+P remains the sole primary, R the adapted shared-gradient control and A the
+unchanged isolation ablation; the remaining B/C/D/E/F/G definitions remain
+unchanged. BC/calibration/inference use ordinary forward operations.
+Using an ordinary inherited step or replacing the routed method is blocked.
+
+ISOLATED WORKFLOW AND EXACT EXPOSURE
+Evidence directory:
+validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/
+Evidence label: ENGINEERING_SYNTHETIC_NOT_RESEARCH
+Uses only the frozen 988... fixture streams; no 978... development stream
+or final evaluation reservation was consumed.
+
+The same paired orchestration exercised all nine students, the shared
+teacher, both initializations and all output stages:
+demonstrations -> BC/calibration -> online TD/retention -> final checkpoint
+and deployment export/parity -> global freeze -> evaluation -> comparisons
+and timing -> full independent saved-artifact audit.
+
+Actual fixture counts:
+  Demonstrations: 800 slots; online training: 640; evaluation: 760.
+  Total: 2,200 simulated slots, exactly as frozen.
+  BC: 32 updates; DDQN: 512; total: 544 optimizer steps.
+  Retention: 256 batches / 1,024 examples inside those DDQN updates.
+  Ridge: 10 solves; initial target copies: 16; scheduled copies: 64.
+  Final training checkpoints: 18; deployment-only weight files: 18.
+  Measured action calls: 76; warmup calls: 19.
+  Core run manifest: 370 files, excluding the manifest itself.
+
+The full audit independently reconstructed P/R/A's first update in each
+initialization: six contexts, four parameter gradients checked per context.
+The runner captures preclip gradients during the actual first joint backward;
+it does not perform another training step to obtain them. The auditor uses
+a full affine TD forward, explicit hidden-gradient chain rules and ordinary
+independent imitation derivatives. It never calls the production custom
+backward as its derivative reference. It verifies predictions, targets,
+successor actions, losses, parameter/group gradients and clipping, including
+P's removed V-to-feature path and R's TD-only shared rescaling.
+
+Audit derivative work is separate from training: 12 derivative evaluations
+in the initial full audit and 74 during corruption tests; zero additional
+optimizer updates or simulator slots in those tests. The initial full audit
+also made 845 reference-teacher recomputations on saved observations. These
+are audit computations, not new training or new simulator episodes.
+
+DEPLOYMENT AND COMPLETE AUDIT
+All deployment files contain standalone state dictionaries, reload into the
+original return_calibrated_handoff.Critic and exactly match final online
+tensors. P/R deployment classes have no training-only TD method. Exports
+have independent storage. The prescribed 128-state synthetic corpus checks
+each single state and the entire batch separately for exact action/Q parity.
+No cross-batch bit-exactness claim is made. All 18 training and 18 deployment
+file hashes freeze globally before any evaluation. Evaluation and timing use
+the exported original-class controllers only.
+
+Every student retains 16,841 parameters / 67,364 FP32 parameter bytes and
+20 buffer bytes. Deployment-file sizes are reported separately from full
+target/optimizer checkpoints. Timing includes validation, mask, forward,
+action selection, selected-Q conversion and output copy; raw calls, warmup
+actions, shuffled order, median/p95 and round summaries are retained.
+
+The auditor verifies exact inventory/hashes/source snapshots; paired workload
+seeds and task descriptors; episode/unfinished/reward accounting; BC/replay/
+retention/action draws and final RNG/replay states; independent augmented
+ridge, split/scale and handoff parity; target and gradient-log arithmetic;
+final and exported actions/Q; all primary contrasts, factorial interactions,
+P-A/P-R/R-A mechanism contrasts and scientific screens without tolerance.
+
+Its receipt reports terminal/nonterminal/slot-quarter value-error and target
+distributions, positive/nearzero-Q fractions, gradient/clipping tails and
+deadline misses. Saved task diagnostics include per-slot destination task/
+cycle loads, comparator-to-primary destination transitions, paired new and
+avoided misses, same-destination CPU-wait changes and delay/energy/reward
+decomposition. These describe saved outcomes; alternative decisions are
+not simulated counterfactual outcomes.
+
+TESTS AND LIMITATIONS
+The 20 tests include the complete positive workflow and corruption checks
+for return split, retention draws/targets, handoff parity, decision screens,
+global freeze order, undeclared checkpoints/files, plain-control data access,
+budget/seed overrides, ridge metadata, gradient partition/decomposition,
+rule tags, parameter gradients, deployment weights/inventory, warmup calls
+and mechanism contrasts. Corrupted artifacts are rehashed before audit so
+semantic checks must reject them as well. Missing research confirmation,
+confirmation with release disabled and final mode all stop before outputs
+or model construction. Fixture output inside development_runs is rejected.
+
+The evidence-pack verifier's first attempt incorrectly excluded every
+manifest.json basename, omitting three legitimate nested source manifests.
+That assertion failure is preserved in engineering_verifier_initial_failure.txt.
+The verifier now excludes only the root run manifest by exact path, matching
+the already-correct runner and independent auditor. Only this read-only
+evidence-pack check was repeated; no fixture training was rerun.
+
+The native PowerShell redirection wrapper reported a nonzero status when
+PyTorch emitted a scalar-conversion warning in diagnostic comparisons. The
+Python workflow wrote ENGINEERING_AUDITED_COMPLETE; the independent audit
+passed, and the test runner wrote 20 passed / zero failures / zero errors.
+The warning and wrapper logs are preserved. Conversion is read-only loss
+reporting after derivative calculation, not an optimizer or gradient change.
+Launch-readiness monitoring must capture the Python child exit code directly
+and distinguish warnings from failed computations.
+
+This auditor reconstructs only the first P/R/A update per fit. It does not
+replay the complete historical parameter, optimizer or gradient trajectory.
+BC hashes bind paired endpoints; approximate inverse scaling used for BC
+probe reconstruction is not independent BC weight replay. Seed checks cover
+explicit root JSON and validation/development runtime-plan reservations,
+not every historical text/log file. Refresh those checks before launch.
+
+No fixture result establishes policy quality, calibration accuracy, novelty,
+compression or the full low-complexity thesis claim. Larger DDQN references,
+adapted BDQ, specified full DQfD, wider heuristics and untouched final testing
+remain broader required work. Security/trust stays deferred; cloud and
+charging remain excluded from contribution-one experiments.
+
+NEXT BOUNDED GATE
+Perform a separate launch-readiness review: rehash exact implementation and
+fixture/test evidence, recheck numerical environment and seed reservations,
+estimate output/archive space on E:/D:, verify output absence and implement
+readable numeric monitoring with correct child-process exit-code handling.
+Do not consume research seeds or launch the 67,120-slot study in that review.
+The research CLI still requires explicit confirmation AND a later separate
+release/launch decision. Final mode remains disabled. The thesis is unchanged.

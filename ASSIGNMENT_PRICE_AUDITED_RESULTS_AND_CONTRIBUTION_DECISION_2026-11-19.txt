@@ -1,0 +1,172 @@
+ASSIGNMENT-PRICE AUDITED RESULTS AND CONTRIBUTION DECISION BRIEF
+Date: 2026-11-19 (Asia/Shanghai)
+
+DECISION: DO NOT ADVANCE THIS CONTROLLER TO FINAL EVALUATION OR CLAIM REVISION.
+This is a saved-results review, not a new experiment or a protocol amendment.
+The research direction remains efficient DDQN offloading in UAV-IoV.
+Security/trust is deferred. Cloud and charging remain excluded.
+
+EVIDENCE AND LIMITS
+600,000 training slots; 151,680 evaluation slots; five initializations.
+The saved artifact audit passed. Completion is not scientific acceptance.
+All seven scientific screens were independently recomputed from saved summaries
+and the frozen numerical rules and exactly match analysis.json.
+This review does not repeat the full artifact audit or archive hashing.
+No training, optimizer updates, simulation, export or retiming performed.
+No final seeds consumed; no frozen artifacts or Word thesis changed.
+
+1. WHAT IMPROVED
+Primary minus comparator, equal-fit mean; deadline differences in percentage points.
+Arm | Return difference | Deadline pp | Fits with both differences >= 0
+coupled_no_sweep | 0.5890 | 1.0660 | 2/5
+separable64 | 5.1860 | 1.4396 | 3/5
+fixed_price_plain_sweep | 1.6513 | 1.6899 | 3/5
+screened_price24 | 5.3338 | 1.9510 | 3/5
+unmasked_price24 | 12.5488 | 25.9052 | 5/5
+screened_no_price24 | 0.8109 | 0.8885 | 3/5
+screened_plain24_anchored | 27.3630 | 7.3944 | 5/5
+screened_compact64_anchored | 405.8009 | 47.8010 | 5/5
+screened_plain24 | 118.5472 | 18.1854 | 5/5
+unmasked_plain24 | 22.7606 | 36.3368 | 5/5
+screened_wide128 | 39.7808 | 15.1576 | 5/5
+unmasked_wide128 | 26.6374 | 20.7472 | 5/5
+screened_bdq64 | 193.1764 | 23.8788 | 5/5
+unmasked_compact64 | 4.4324 | 10.4608 | 5/5
+nearest_rsu | 5.6982 | 14.5177 | 5/5
+uav_selective | 2.8593 | 9.7278 | 5/5
+observed_load_radio | -2.5006 | -2.2010 | 0/5
+all_local | 22.5774 | 41.2052 | 5/5
+
+These comparisons concern this simulator, training budget and development set.
+They do not establish superiority over well-tuned DDQN methods generally.
+The primary beats plain small DDQN, both wide references, compact64,
+nearest-RSU and UAV-selective in both outcomes in all five initializations.
+It loses to observed-load/radio in both outcomes in all five.
+
+2. EXACT PERFORMANCE FAILURES
+Fit indices below are 0-4, matching saved artifacts (not best-fit selection).
+Required learned-reference tolerance: return >= -2; deadline >= -1 pp.
+Strong-heuristic tolerance: both differences >= 0.
+screened_price24 fit 1: return -0.9104; deadline -1.1233 pp
+screened_price24 fit 3: return -0.6052; deadline -1.5608 pp
+screened_no_price24 fit 3: return -0.8556; deadline -1.5660 pp
+observed_load_radio fit 0: return -1.5857; deadline -0.7691 pp
+observed_load_radio fit 1: return -2.2249; deadline -1.8368 pp
+observed_load_radio fit 2: return -1.5460; deadline -0.4618 pp
+observed_load_radio fit 3: return -2.2960; deadline -2.5972 pp
+observed_load_radio fit 4: return -4.8503; deadline -5.3403 pp
+
+3. MECHANISMS
+Each proposed mechanism must avoid regression in every initialization,
+and achieve mean return gain >= 2 and mean deadline gain >= 1 pp.
+sweep: mean return 0.5890; deadline 1.0660 pp; regressions at fits [1, 2, 4]
+coupling_and_selection: mean return 5.1860; deadline 1.4396 pp; regressions at fits [1, 3]
+learned_prices: mean return 1.6513; deadline 1.6899 pp; regressions at fits [3, 4]
+The coupling mean is dominated by fit 4: gains in the other four fits
+are 1.2483, -0.8759, 0.4123 and -0.3031. The mean does not prove robustness.
+The original screening auxiliary contrast improves deadline performance
+in all five fits, but return regresses at fit 4. Screening alone is
+therefore not evidence of a reliable joint return/deadline improvement.
+
+4. VALUE CALIBRATION AND TRAINING DIAGNOSTICS
+Fit | NRMSE (max .25) | abs bias (max 2) | terminal p95 (max 2) | clip fraction
+0 | 0.648716 | 4.561172 | 0.511612 | 1.000000
+  Mean Q-G by slot bins 0-9/10-19/20-29/30-39: -6.3839, -5.8005, -4.2918, -1.7686
+1 | 0.556548 | 2.690070 | 0.789533 | 1.000000
+  Mean Q-G by slot bins 0-9/10-19/20-29/30-39: -2.3358, -3.4444, -3.3493, -1.6309
+2 | 0.412541 | 0.175407 | 0.709693 | 1.000000
+  Mean Q-G by slot bins 0-9/10-19/20-29/30-39: 1.8611, -0.2185, -1.3404, -1.0039
+3 | 0.508069 | 3.630467 | 0.571676 | 1.000000
+  Mean Q-G by slot bins 0-9/10-19/20-29/30-39: -4.4477, -4.6243, -3.7673, -1.6825
+4 | 0.568521 | 4.533700 | 0.869276 | 1.000000
+  Mean Q-G by slot bins 0-9/10-19/20-29/30-39: -3.9984, -5.9741, -5.5807, -2.5816
+NRMSE fails in all five fits; absolute bias fails in four.
+Terminal error, nonpositive values and near-zero collapse checks pass.
+Boundary control has improved, but full-horizon calibration remains poor.
+All primary optimizer updates are clipped at the frozen norm limit 10.
+The p95 preclip norm is about 214-245. All four main mechanism/control
+arms examined also have clipping fraction 1.0 in every fit.
+This is a diagnostic lead, not proof that clipping causes the failure.
+Saved target-Q is the frozen target critic on the current chosen action;
+it is not the Bellman target. Bellman targets and TD residuals are
+separately retained in optimizer distributions. Signed TD means are
+aggregated across training and cannot establish final convergence.
+Q-G measures realized own-policy consistency under stochastic rollouts,
+not exact conditional optimal-value error or proven divergence.
+
+5. DEPLOYMENT COST
+Fit | parameters bytes | median ms | p95 ms | median / screened wide | median / unmasked wide
+0 | 68264 | 0.03490 | 0.04291 | 0.98310 | 1.00576
+1 | 68264 | 0.03500 | 0.05181 | 0.94980 | 1.00865
+2 | 68264 | 0.03430 | 0.04090 | 0.92954 | 1.00292
+3 | 68264 | 0.03480 | 0.03901 | 0.97753 | 1.00578
+4 | 68264 | 0.03670 | 0.03830 | 1.03380 | 1.04708
+Storage passes: 68,264 parameter bytes versus 194,944 for compact64
+(about 65% fewer) and 422,016 for wide128 (about 84% fewer).
+Primary has more parameter bytes than plain24 (67,364). Buffers,
+serialized graphs, libraries, target, optimizer and replay are separate.
+The median gate fails against at least one wide reference in every fit.
+The absolute p95 <= 1 ms gate passes. It is not a p95 speedup claim.
+A faster laptop may change timing, but cannot resolve the observed
+performance and calibration failures. Retiming is not a rescue analysis.
+Three eager/export action disagreements also prevent exact deployment
+equivalence; policy evaluation used the frozen eager policy.
+
+6. SAVED DESTINATION DIAGNOSIS
+Destination order: local, UAV1, UAV2, RSU1, RSU2.
+Counts below are descriptive associations, not causal counterfactuals.
+coupled_sweep fit 0: decisions [23861, 0, 834, 19142, 13763]; not-on-time counts [0, 0, 129, 304, 13]
+coupled_sweep fit 1: decisions [22553, 1627, 6, 19150, 14264]; not-on-time counts [0, 744, 0, 310, 7]
+coupled_sweep fit 2: decisions [25044, 29, 239, 13520, 18768]; not-on-time counts [0, 3, 85, 31, 150]
+coupled_sweep fit 3: decisions [20237, 839, 811, 13607, 22106]; not-on-time counts [0, 135, 185, 2, 1177]
+coupled_sweep fit 4: decisions [16608, 3626, 1689, 18386, 17291]; not-on-time counts [0, 2792, 182, 58, 47]
+coupled_no_sweep fit 0: decisions [19965, 1544, 3507, 15309, 17275]; not-on-time counts [0, 666, 2502, 5, 84]
+coupled_no_sweep fit 1: decisions [22150, 403, 165, 17282, 17600]; not-on-time counts [0, 74, 15, 71, 170]
+coupled_no_sweep fit 2: decisions [23418, 31, 857, 15487, 17807]; not-on-time counts [0, 1, 114, 68, 118]
+coupled_no_sweep fit 3: decisions [20702, 0, 5, 13480, 23413]; not-on-time counts [0, 0, 2, 0, 2029]
+coupled_no_sweep fit 4: decisions [12823, 2799, 2903, 19584, 19491]; not-on-time counts [0, 1588, 1714, 58, 145]
+separable64 fit 0: decisions [23471, 0, 2090, 19321, 12718]; not-on-time counts [0, 0, 1030, 477, 6]
+separable64 fit 1: decisions [19314, 704, 25, 19393, 18164]; not-on-time counts [0, 93, 5, 317, 144]
+separable64 fit 2: decisions [23099, 0, 1378, 17281, 15842]; not-on-time counts [0, 0, 586, 152, 50]
+separable64 fit 3: decisions [21155, 951, 48, 14641, 20805]; not-on-time counts [0, 265, 10, 1, 877]
+separable64 fit 4: decisions [15784, 5925, 126, 13476, 22289]; not-on-time counts [0, 5443, 24, 0, 1020]
+fixed_price_plain_sweep fit 0: decisions [24162, 870, 2849, 18404, 11315]; not-on-time counts [0, 173, 1551, 148, 5]
+fixed_price_plain_sweep fit 1: decisions [24596, 678, 3734, 14061, 14531]; not-on-time counts [0, 224, 2981, 22, 51]
+fixed_price_plain_sweep fit 2: decisions [25254, 2396, 1804, 11899, 16247]; not-on-time counts [0, 1322, 855, 1, 40]
+fixed_price_plain_sweep fit 3: decisions [21435, 1059, 1334, 17989, 15783]; not-on-time counts [0, 394, 495, 118, 36]
+fixed_price_plain_sweep fit 4: decisions [23102, 2238, 2717, 14458, 15085]; not-on-time counts [0, 1131, 1663, 0, 11]
+screened_price24 fit 0: decisions [22501, 0, 444, 22970, 11685]; not-on-time counts [0, 0, 38, 1877, 0]
+screened_price24 fit 1: decisions [21056, 702, 794, 17368, 17680]; not-on-time counts [0, 93, 118, 114, 89]
+screened_price24 fit 2: decisions [22268, 186, 2127, 14406, 18613]; not-on-time counts [0, 11, 1312, 41, 180]
+screened_price24 fit 3: decisions [24029, 302, 121, 14308, 18840]; not-on-time counts [0, 63, 16, 1, 520]
+screened_price24 fit 4: decisions [13627, 5912, 29, 13306, 24726]; not-on-time counts [0, 5383, 5, 0, 2112]
+Primary fit 4 has 2,792 UAV1 not-on-time tasks; fit 3 has 1,177 at RSU2.
+The screened-price comparator fit 4 has 5,383 at UAV1 and 2,112 at RSU2.
+This helps locate failures and explains why one bad comparator fit
+can dominate a mean gain. It does not prove queue load or radio was
+the cause; the stored statistic counts tasks with on_time=False,
+including unfinished tasks, not just observed deadline-miss events.
+
+7. CONTRIBUTION DECISION AND NEXT BOUNDED GATE
+Retain the implemented DDQN controller and measured storage reduction
+as supported engineering results. Robust mechanism benefit, the full
+low-complexity claim and novelty against literature remain unproven.
+Do not select an alternative arm or best initialization as a successful
+predeclared primary after inspecting these outcomes.
+Before one prospective correction brief, inspect loss/gradient geometry
+by horizon on saved checkpoints and matched saved states, and inspect
+arrival/link/queue/deadline timelines for the concentrated misses.
+These are offline diagnostics: no optimizer steps, new task seeds or
+threshold changes. Test whether horizon scaling, gradient allocation
+or decoder ranking actually supplies evidence for a targeted correction.
+No confirmed root cause is established by aggregate summaries alone.
+Then freeze one correction and its ablations with fresh development
+seeds and a literature check before a separately authorized new run.
+Keep all historical failures and the final reservations protected.
+
+SOURCES
+E:\Fitz Thesis docs\Low Complexity\ASSIGNMENT_PRICE_RESEARCH_PROTOCOL_2026-11-15.json
+E:\Fitz Thesis docs\Low Complexity\development_runs\assignment_price_development_2026-11-16_01\run\analysis.json
+E:\Fitz Thesis docs\Low Complexity\development_runs\assignment_price_development_2026-11-16_01\run\costs.json
+E:\Fitz Thesis docs\Low Complexity\development_runs\assignment_price_development_2026-11-16_01\run\optimizer_distributions.json
+E:\Fitz Thesis docs\Low Complexity\development_runs\assignment_price_development_2026-11-16_01\audited_completion\completion.json

@@ -1,0 +1,26 @@
+{
+  "state": "passed_cost_artifact_audit",
+  "cost_gate_state": "cost_gate_failed",
+  "raw_timing_rows": 5120,
+  "manifest_entries_checked": 20,
+  "simulator_steps_added": 0,
+  "optimizer_updates_added": 0,
+  "source_scope": {
+    "excluded": true,
+    "active_source_paths": [
+      "Source/chapter3_iov_env.py",
+      "Source/chapter3_iov_env_v2.py",
+      "controller_redesign_v2.py"
+    ],
+    "execution_destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "cloud_nodes": 0,
+    "charging_stations": 0,
+    "security_trust_enabled": false
+  }
+}

@@ -1,0 +1,68 @@
+NONPOSITIVE-Q VALUE-BOUND PAIRED SMOKE REVIEW
+Date: November 4, 2026
+Scope: Frozen five-arm integration smoke and read-only artifact audit.
+
+DECISION
+The bounded-model implementation, focused tests, paired runner and reserved
+smoke passed the integration gate. This does not establish policy quality,
+low-complexity superiority, novelty, statistical significance or deployment
+performance. No development run was launched. The Word thesis was not edited.
+
+IMPLEMENTATION
+The separate runner is run_value_bound_tradeoff.py. Its five arms are the
+frozen additive128 unbounded, additive64 unbounded, EMC-Q unbounded,
+additive64 nonpositive and EMC-Q nonpositive variants. For bounded arms,
+Q_b(s,a) = -softplus(Q_raw(s,a)); the existing architecture parameter counts
+are unchanged. Additive action selection minimizes each raw head. Bounded EMC-Q
+negates its unary, movement and rank-2 factor tables and uses the existing exact
+max decoder, which produces the exact raw-score minimum. Double-DQN target
+evaluation applies the same transform at the online-selected action, under
+no-grad, and terminal successors are skipped.
+
+Eight focused tests passed. They checked the transform's sign and monotonicity,
+additive raw-argmin selection, exhaustive small-space EMC decoder equivalence,
+Double-DQN target selection and terminal handling, all five model/checkpoint
+round-trips, paired exploration and update counters, a paired physical
+episode, and that this runner refuses development mode.
+
+SMOKE AND AUDIT
+The reserved smoke used model seed 3091 and its frozen disjoint task seeds.
+Each of five arms trained for 80 slots, 73 optimizer updates and 9 target
+copies: 400 training slots and 365 updates total. Validation, fixed probes,
+fresh episodes and timing ran as predeclared; no development training followed.
+
+The read-only audit passed. It checked all five checkpoint hashes and source
+snapshots, 365 optimizer rows, paired training and fresh workloads, bounded
+greedy-value signs, replay and saved trajectory shapes, 30 evaluation-state
+invariance checks, and the run manifest. The audit itself performed zero
+simulator steps and zero optimizer updates.
+
+Two fresh smoke episodes per arm produced these descriptive averages:
+
+Arm                         Mean return   Mean deadline fraction
+additive128_unbounded          -426.03              0.4271
+additive64_unbounded           -399.92              0.4808
+emc_q_unbounded                -279.23              0.5475
+additive64_nonpositive         -515.00              0.4379
+emc_q_nonpositive              -492.63              0.4283
+
+These tiny-sample outcomes are not suitable for ranking, tuning or selecting
+an architecture. The bounded EMC-Q fresh-terminal absolute-error p95 was
+24.51 reward units, above the frozen development calibration screen of 10;
+the smoke does not pass or fail that development screen. It only shows that
+the constrained path runs and enforces the known sign bound. The bounded
+EMC-Q measured median action time was 0.545 ms on this local smoke protocol;
+this is diagnostic, not a device-independent latency claim.
+
+ARTIFACTS
+Protocol: LOW_COMPLEXITY_VALUE_BOUND_PROTOCOL_2026-11-04.json
+Runner: run_value_bound_tradeoff.py
+Tests: test_value_bound_tradeoff.py
+Smoke: validation/value_bound_smoke_2026-11-04_01/
+Audit: validation/value_bound_smoke_2026-11-04_01/saved_artifact_audit.json
+
+NEXT GATE
+Review the smoke and runner implementation before separately deciding whether
+to authorize the frozen 120,000-slot development experiment. Do not change
+rewards, seeds, thresholds, optimizer settings or checkpoints based on these
+smoke outcomes. Keep the thesis unchanged.

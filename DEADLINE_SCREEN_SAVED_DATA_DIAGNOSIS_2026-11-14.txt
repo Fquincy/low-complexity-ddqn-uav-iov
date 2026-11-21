@@ -1,0 +1,119 @@
+DEADLINE SCREEN: SAVED DEVELOPMENT TRACE DIAGNOSIS
+Date: November14,2026
+
+OUTCOME
+Saved evidence localizes the remaining policy failures to different remote
+choices across initializations. Impossible-local execution is no longer the
+observed failure mode. The price critic also systematically predicts returns
+more negatively than those realized by its greedy policy. This diagnosis
+does not establish the learning cause or justify an untested remedy.
+
+EVIDENCE AND CONSISTENCY
+720 saved evaluation traces:3 screened controllers x5fits x48task episodes;
+864,000 task records across policy traces, with576,000 paired task comparisons
+(primary vs each of2 controls, all5fits). Every JSON/NPZ input hash matched
+its original run manifest. Relevant15checkpoint hashes match the frozen set.
+Task IDs, cycles, input bits, deadlines, vehicle IDs and arrival times match
+across each paired task block. Paired on-time outcome differences reproduce
+all original deadline contrasts. Destination/failure counts and return residual
+summaries reconcile with the audited run. No simulator stepping, optimizer
+updates, new tasks, timing or fitting. Historical final seeds remain untouched.
+
+LOCAL SCREEN: OBSERVED SUCCESS AND LIMIT
+All15screened fits executed zero provably locally infeasible tasks and had
+zero local deadline misses in these720traces. The original screening ablation
+gain is retained. This is an empirical observation under these workloads,
+not a guarantee that the conservative screen prevents queue-related local
+misses in other conditions or that any retained remote is deadline-feasible.
+
+PRIMARY FAILURE LOCALIZATION
+fit | deadline success% | all misses | local | UAV1 | UAV2 | RSU1 | RSU2
+0 | 85.581597 | 8305 | 0 | 116 | 0 | 8189 | 0
+1 | 97.565972 | 1402 | 0 | 70 | 794 | 44 | 494
+2 | 95.279514 | 2719 | 0 | 216 | 490 | 0 | 2013
+3 | 96.720486 | 1889 | 0 | 1560 | 145 | 0 | 184
+4 | 98.729167 | 732 | 0 | 0 | 423 | 5 | 304
+
+Fit0:8,189 of8,305 primary misses occurred at RSU1. Primary sent31,560
+of57,600tasks there (54.79%) vs22,768for screened anchored plain24 (39.53%).
+Primary RSU2 received6,857tasks vs18,360for plain24. Among all primary misses,
+6,350started CPU after the deadline and1,925started before but completed late;
+only30finished upload after deadline. Plain24 had1,133total misses.
+The primary/no-price0comparison has697net additional misses; the primary/
+plain24comparison has7,172net additional misses. Among discordant tasks against
+plain24,3,732failed under primary RSU1 but succeeded under plain24 RSU1.
+Same-destination disagreement demonstrates differing queue histories matter;
+it does not prove changing a task destination alone would fix its outcome.
+
+Fit3:1,560 of1,889 primary misses occurred at UAV1. Across all its misses,
+1,441finished upload after the deadline and2remained unfinished in upload.
+No-price3had1,353total misses, including677at UAV1; plain24had1,305misses.
+Primary/no-price3has536net additional misses; primary/plain24has584.
+Fit0 RSU congestion and fit3 UAV uplink behavior are different patterns;
+a single diagnosis of all misses as CPU congestion is not supported.
+
+Other fits show tradeoffs too: primary fit1 has864UAVmisses and538RSUmisses;
+fit2has706UAVmisses and2,013RSU2misses;fit4has423UAV2misses and309RSUmisses.
+All destination, time-bin, completed-delay, upload/CPU stage and movement
+counts are saved in trace_diagnosis.json. These classify observed failure
+stages, not independent causal effects of individual queue or movement choices.
+
+VALUE CALIBRATION: DIRECTION AND HORIZON
+fit | primary mean Q-G | mean target/online difference Q-target | mean Q-G in slots0..9
+0 | -7.051281 | 1.055559 | -9.157508
+1 | -21.214356 | 1.612250 | -33.025779
+2 | -17.067408 | 0.864508 | -27.419544
+3 | -8.084272 | 0.501142 | -12.192111
+4 | -8.363957 | 0.758191 | -13.108933
+Primary predictions are systematically too negative under its own recorded
+greedy trajectories in all5fits. No-price predictions are also too negative
+in all5fits, so this is not exclusive to the explicit price term. Plain24
+has mixed signed errors and is also not uniformly calibrated. Primary early
+episode bias is large even though terminal p95 error passed the frozen gate.
+
+On saved trajectories, e_t=Q_t-r_t-Q_(t+1), Q_40=0, obeys exactly
+Q_t-G_t=sum_(k=t)^39 e_k (verified to<1e-10). Thus persistent stepwise
+inconsistency accumulates through the horizon. This is a mathematical
+decomposition, not proof of an optimizer, loss, target-copy or representation
+cause. Reported target-based residuals use the same future executed greedy
+actions and frozen target network; they are not replay-time training losses.
+Primary online-minus-target means range+.501..+1.612: the target is on average
+more negative. This association alone cannot establish target lag caused bias.
+Exact saved gradient/loss/target/residual/clipping distributions from the
+completed independent audit are included per fit for all3controllers.
+
+PRICE DECOMPOSITION: WHAT IT DOES AND DOES NOT EXPLAIN
+Frozen primary networks were evaluated only on their already saved states.
+Chosen price cost is about0.162%,0.327%,0.227%,0.669%,0.784% of total
+predicted per-remaining-step cost on average in fits0..4. It is a small share
+of the chosen-value magnitude; this does not establish a negligible effect
+on greedy action rankings, especially near ties. Neural unary/bias terms
+and future training visitation differ between separately trained ablations.
+Do not attribute the whole global calibration bias to this small explicit
+additive term, nor infer deleting it from the trained primary will reproduce
+a trained no-price controller. Descriptive decomposition uses batch inference;
+it does not replace recorded batch-one Q, audited predictions or thresholds.
+
+RECOMMENDED NEXT DECISION
+Keep the full low-complexity DDQN goal and this failed combined decision intact.
+Do not immediately launch more training or choose only the best initialization.
+The evidence supports considering one prospective controller-design brief
+addressing remote service/link interactions and horizon-wide return consistency.
+Any mechanism must be defined against observed information and computational
+cost, then distinguished from equally informed small DDQN alternatives.
+The present evidence does not justify merely increasing training time, changing
+price strength, adding stronger masks or modifying losses without declaration.
+
+Before implementation, decide whether to retain a separately justified price
+mechanism or simplify the architecture; screened anchored plain24 is a useful
+control but its fit2deadline/return failure prevents treating it as a ready
+replacement. Write the equations, intended benefit, information limits and
+bounded comparison amendment first. Fresh disjoint development seeds would
+be required for any later scientific run. Keep final confirmation separate.
+Literature comparison and supervisor agreement remain open. No thesis claim
+is promoted by this diagnostic analysis; security/trust remains deferred.
+
+FILES
+validation/deadline_screen_saved_data_diagnosis_2026-11-14_01/trace_diagnosis.json
+validation/deadline_screen_saved_data_diagnosis_2026-11-14_01/primary_price_decomposition.json
+analysis/diagnose_deadline_screen_saved_data_2026_11_14.py

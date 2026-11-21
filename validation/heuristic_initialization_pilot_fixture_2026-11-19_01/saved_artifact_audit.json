@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "kind": "ENGINEERING_FIXTURE_NOT_RESEARCH",
+  "files_checked": 75,
+  "simulation_slots_recorded": 440,
+  "historical_ddqn_updates": 128,
+  "historical_bc_updates": 4,
+  "value_distributions": {
+    "teacher_bc_then_ddqn/0": {
+      "bias": 187.9875655889511,
+      "rmse": 205.5560845181254,
+      "nrmse": 0.9964457369137728,
+      "terminal_p95": 12.520692586898804,
+      "error_quantiles": [
+        12.520692586898804,
+        125.7727888673544,
+        209.09584644436836,
+        261.99914905428886,
+        286.6226926445961
+      ],
+      "clip_fraction": 0.0
+    },
+    "common_demo_no_bc/0": {
+      "bias": 199.9094274148345,
+      "rmse": 218.28851724246047,
+      "nrmse": 0.9967952891269617,
+      "terminal_p95": 12.602787256240845,
+      "error_quantiles": [
+        12.602787256240845,
+        135.5078062415123,
+        222.86165845394135,
+        277.0945625901222,
+        303.9526644349098
+      ],
+      "clip_fraction": 0.0
+    },
+    "teacher_bc_then_ddqn/1": {
+      "bias": 323.67188252061607,
+      "rmse": 353.8198430623015,
+      "nrmse": 0.9980463575374475,
+      "terminal_p95": 22.14390140771866,
+      "error_quantiles": [
+        22.14390140771866,
+        216.33752231299877,
+        358.68823087215424,
+        451.9768995195627,
+        491.8164886236191
+      ],
+      "clip_fraction": 0.0
+    },
+    "common_demo_no_bc/1": {
+      "bias": 219.0369831800461,
+      "rmse": 241.19075231463432,
+      "nrmse": 0.9971432085097535,
+      "terminal_p95": 13.862407863140106,
+      "error_quantiles": [
+        13.862407863140106,
+        139.6697235405445,
+        240.63641574978828,
+        311.6018096655607,
+        340.43334835767746
+      ],
+      "clip_fraction": 0.0
+    }
+  },
+  "storage": {
+    "teacher_bc_then_ddqn/0": {
+      "parameter_bytes": 67364,
+      "buffer_bytes": 20,
+      "checkpoint_bytes": 277033
+    },
+    "common_demo_no_bc/0": {
+      "parameter_bytes": 67364,
+      "buffer_bytes": 20,
+      "checkpoint_bytes": 277033
+    },
+    "teacher_bc_then_ddqn/1": {
+      "parameter_bytes": 67364,
+      "buffer_bytes": 20,
+      "checkpoint_bytes": 277033
+    },
+    "common_demo_no_bc/1": {
+      "parameter_bytes": 67364,
+      "buffer_bytes": 20,
+      "checkpoint_bytes": 277033
+    }
+  },
+  "timing": {
+    "teacher_bc_then_ddqn/0": {
+      "median_ns": 465600.0,
+      "p95_ns": 476395.0
+    },
+    "common_demo_no_bc/0": {
+      "median_ns": 469700.0,
+      "p95_ns": 484025.0
+    },
+    "teacher_bc_then_ddqn/1": {
+      "median_ns": 466900.0,
+      "p95_ns": 521940.0
+    },
+    "common_demo_no_bc/1": {
+      "median_ns": 494500.0,
+      "p95_ns": 514920.0
+    },
+    "teacher": {
+      "median_ns": 65537750.0,
+      "p95_ns": 66824140.0
+    }
+  },
+  "recorded_promising": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "limitation": "No replay of historical gradients/weights; recorded arithmetic and final policy recomputed",
+  "research_launch_authorized": false
+}

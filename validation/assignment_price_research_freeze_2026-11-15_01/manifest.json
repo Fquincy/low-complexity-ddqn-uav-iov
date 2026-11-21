@@ -1,0 +1,18 @@
+{
+  "seed_declaration_audit.json": "af075bc69c491d8d7f6f92cf3ea7e416cdb4733dca56406e669e5ce7a19c76bc",
+  "verification.json": "4c3a67601a449f50f37c97bf99bd7e133c12b8585c36f5dbac91c4ca2ac4007d",
+  "source_snapshot/ASSIGNMENT_DEPENDENT_PRICE_DESIGN_BRIEF_2026-11-15.txt": "5b18c68561ec1ac60381fb3775f359ec2f75535cdef1d0c7a4e18c3f665d8ea8",
+  "source_snapshot/assignment_price_deployment_runtime.py": "96095dd1dc054e66da974a353664bdc98585f8dd0976cac7643c228b589bb183",
+  "source_snapshot/assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+  "source_snapshot/ASSIGNMENT_PRICE_IOV_FIXTURE_REVIEW_2026-11-15.txt": "76f96079344992cf8b254192ad9a68e11c8cf22e0b7038b03a96635aa27181d8",
+  "source_snapshot/ASSIGNMENT_PRICE_LITERATURE_POSITION_2026-11-15.txt": "141a010eed27dccfd711afe75b0d65be036c7cfef71363981ffe4c8f63edf9c9",
+  "source_snapshot/ASSIGNMENT_PRICE_NATIVE_HEADS_REVIEW_2026-11-15.txt": "45db4481a9902715b61063b8c18e3533970e248c72e249b4fe49fef8e8c38a15",
+  "source_snapshot/assignment_price_native_heads_runtime.py": "2a27a90a30e0c4148505ef0436e554bf3073b1d3392dd3b50e7fa40b729bd1b8",
+  "source_snapshot/ASSIGNMENT_PRICE_OBSERVED_LOAD_HEURISTIC_2026-11-15.txt": "c7ad3cd29360b5b72d92a4e57a60a6991e19a479bb997fb0327819aa18f56bff",
+  "source_snapshot/assignment_price_prototype.py": "acd6d0264da80a4c4ccab136c46e2911ba88c1f7453fbd078655c276fb642543",
+  "source_snapshot/assignment_price_reference_deployment.py": "282c509c988a9ff22fb642a7d5212c9bf03719d0913f2514ff1e47754a5d4ffb",
+  "source_snapshot/ASSIGNMENT_PRICE_RESEARCH_PROTOCOL_2026-11-15.json": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "source_snapshot/audit_assignment_price_fixture_v2.py": "52266e4cd3d22bc9d22f7bb4ab7ed7f4ef7e38d9ae1e9fa6b3c630351da07ef2",
+  "source_snapshot/run_assignment_price_fixture.py": "82db9f4ea2ec1376c321403deda7c0e59599ea63ec7f2fb82c1c642716f22820",
+  "source_snapshot/verify_assignment_price_fixture.py": "cc8c11f17fbf1859efaf5181c40e7824438eb41053c74bfa28a761354ffa8101"
+}

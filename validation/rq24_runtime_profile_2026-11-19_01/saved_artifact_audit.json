@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "readings_verified": 4320,
+  "source_and_graph_hashes_verified": true,
+  "original_failed_cost_result_preserved": true,
+  "original_graphs_verified": 24,
+  "profile_is_not_acceptance_retiming": true,
+  "research_released": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_timing_readings": 0
+}

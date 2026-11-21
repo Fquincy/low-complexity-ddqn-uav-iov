@@ -1,0 +1,205 @@
+{
+  "id": "chapter3-nonpositive-q-ablation-v1",
+  "date": "2026-11-04",
+  "status": "predeclared_design_only_no_code_or_training",
+  "purpose": "test_shared_nonpositive_value_bound_and_measure_policy_quality_cost",
+  "claim_boundary": "development engineering screen only_not novelty_noninferiority_or_deployment proof",
+  "physical_model": "Source/chapter3_iov_env_v2.py_default_configuration",
+  "inherited_run": "validation/emc_tradeoff_development_2026-11-04_01",
+  "inherited_run_audit": "validation/emc_tradeoff_development_2026-11-04_01/saved_artifact_audit.json",
+  "inherited_q_diagnosis": "validation/emc_q_value_diagnostics_2026-11-04_02/diagnostics.json",
+  "observation_size": 533,
+  "vehicles": 30,
+  "uavs": 2,
+  "rsus": 2,
+  "episode_slots": 40,
+  "action_sizes": {
+    "vehicle_destinations": 30,
+    "uav_movements": 2,
+    "choices_per_action_component": 5
+  },
+  "arms": [
+    {
+      "id": "additive128_unbounded",
+      "architecture": "existing_factorized_q_128_128",
+      "value_transform": "identity",
+      "purpose": "original_wide_reference"
+    },
+    {
+      "id": "additive64_unbounded",
+      "architecture": "existing_factorized_q_64_64",
+      "value_transform": "identity",
+      "purpose": "original_compact_architecture_reference"
+    },
+    {
+      "id": "emc_q_unbounded",
+      "architecture": "existing_emc_q_original_exact_decoder",
+      "value_transform": "identity",
+      "purpose": "original_emc_architecture_ablation"
+    },
+    {
+      "id": "additive64_nonpositive",
+      "architecture": "existing_factorized_q_64_64",
+      "value_transform": "negative_softplus_of_joint_raw_q",
+      "purpose": "test_bound_on_compact_additive_architecture"
+    },
+    {
+      "id": "emc_q_nonpositive",
+      "architecture": "existing_emc_q_original_exact_decoder",
+      "value_transform": "negative_softplus_of_joint_raw_q",
+      "purpose": "primary_value_bound_treatment"
+    }
+  ],
+  "value_bound": {
+    "definition": "Q_b(s,a) = -softplus(Q_raw(s,a))",
+    "guarantee": "Q_b(s,a) <= 0 for every finite raw network output",
+    "additional_parameters": 0,
+    "additive_greedy": "minimize_each_independent_raw_head_then_transform_the_sum",
+    "emc_greedy": "exactly_minimize_the_raw_joint_score_by_exactly_maximizing_its_negation_then_transform",
+    "emc_negation_tables": "negate_unary_motion_and_rank2_factor_tables_keep_gates_and_movement_embeddings",
+    "online_double_q_selection": "argmin_raw_joint_q_for_nonpositive_arms",
+    "target_evaluation": "transform_target_raw_q_at_online_selected_action_under_no_grad",
+    "terminal_successor": "skip_bootstrap_as_in_inherited_runner",
+    "decoder_warning": "do_not_maximize_raw_q_then_apply_decreasing_negative_softplus",
+    "mathematical_basis": "all simulator rewards are nonpositive and the finite-horizon return is a sum of nonpositive rewards"
+  },
+  "training": {
+    "episodes_per_model": 200,
+    "slots_per_episode": 40,
+    "slots_per_model": 8000,
+    "optimizer_updates_per_model": 6977,
+    "gamma": 1.0,
+    "learning_rate": 0.0001,
+    "optimizer": "Adam_defaults",
+    "batch_size": 128,
+    "replay_capacity_physical_records": 50000,
+    "warmup_physical_records": 1024,
+    "first_update": "after_adding_record1024_inclusive",
+    "updates_per_physical_slot_after_warmup": 1,
+    "loss": "Huber_beta1_chosen_scalar_q",
+    "gradient_clip": 10.0,
+    "target_copy_every_updates": 200,
+    "target_copies_per_model": 34,
+    "target_requires_grad": false,
+    "epsilon": "warmup_1_else_1_minus0.95_min(t_before_decision/8000,1)",
+    "epsilon_decay_slots": 8000,
+    "action_rng_seed_offset": 100000,
+    "replay_rng_seed_offset": 200000,
+    "paired_actions": "one_shared_exploration_decision_and_uniform_joint_vector_per_physical_slot_with_independent_replay_rng",
+    "checkpoint_selection": "final_episode200_only",
+    "cpu_threads": 1,
+    "cpu_interop_threads": 1,
+    "reward_scale_or_optimizer_retuning": "none"
+  },
+  "replicates": 3,
+  "model_seeds": [3109, 3119, 3121],
+  "seeds": {
+    "train_blocks": [
+      {"replicate": 0, "start": 24100000, "count": 200},
+      {"replicate": 1, "start": 24200000, "count": 200},
+      {"replicate": 2, "start": 24300000, "count": 200}
+    ],
+    "scheduled_validation": [24800000, 24800001, 24800002, 24800003, 24800004],
+    "timing_probe": [24850000, 24850001, 24850002, 24850003, 24850004, 24850005, 24850006, 24850007],
+    "fresh_development_gate": [
+      24890000, 24890001, 24890002, 24890003, 24890004, 24890005, 24890006, 24890007,
+      24890008, 24890009, 24890010, 24890011, 24890012, 24890013, 24890014, 24890015,
+      24890016, 24890017, 24890018, 24890019, 24890020, 24890021, 24890022, 24890023,
+      24890024, 24890025, 24890026, 24890027, 24890028, 24890029, 24890030, 24890031,
+      24890032, 24890033, 24890034, 24890035, 24890036, 24890037, 24890038, 24890039,
+      24890040, 24890041, 24890042, 24890043, 24890044, 24890045, 24890046, 24890047
+    ]
+  },
+  "diagnostic_episodes": [0, 50, 100, 150, 200],
+  "heuristics": ["all_local", "nearest_rsu", "uav_selective"],
+  "heuristic_rollouts": "once_per_fresh_seed_shared_across_all_learned_models",
+  "fresh_gate": "only_after_all15_final_models_saved_and_hashed_no_updates_or_checkpoint_selection",
+  "quality_screen": {
+    "primary_arm": "emc_q_nonpositive",
+    "all3_primary_initializations_must_pass": true,
+    "comparators": ["additive128_unbounded", "additive64_nonpositive", "emc_q_unbounded", "nearest_rsu", "uav_selective"],
+    "versus_additive128_unbounded": {"mean_episode_return_difference_at_least": -2.0, "deadline_fraction_difference_at_least": -0.01},
+    "versus_additive64_nonpositive": {"mean_episode_return_difference_at_least": 2.0, "deadline_fraction_difference_at_least": 0.01},
+    "versus_emc_q_unbounded": {"mean_episode_return_difference_at_least": -2.0, "deadline_fraction_difference_at_least": -0.01},
+    "versus_each_heuristic": {"mean_episode_return_difference_at_least": 0.0, "deadline_fraction_difference_at_least": 0.0},
+    "return_definition": "sum_of_40_physical_slot_rewards_higher_is_better",
+    "deadline_definition": "on_time_tasks_divided_by_all_generated_episode_tasks",
+    "all_margins": "point_estimate_development_screens_not_formal_noninferiority_or_significance",
+    "calibration": {
+      "primary_greedy_q_positive_fraction": 0.0,
+      "all_probe_and_fresh_terminal_q_values_must_be_nonpositive": true,
+      "fresh_final_slot_abs_error_p95_at_most": 10.0,
+      "finite_online_and_target_values_required": true
+    }
+  },
+  "cost_screen": {
+    "all3_primary_models_must_pass": true,
+    "online_parameter_bytes_at_most_ratio_additive128": 0.7,
+    "complete_action_median_ratio_vs_additive128_at_most": 5.0,
+    "complete_action_p95_ms_at_most": 2.0,
+    "interpretation": "local_engineering_screen_not_device_independent_runtime_or_energy_claim"
+  },
+  "cost_measurement": {
+    "common_probe_states": 128,
+    "rounds": 5,
+    "warmup_calls_per_path_round": 32,
+    "timed_calls_per_path_round": 128,
+    "path_order_rng_seed": 25261112,
+    "include": "observation_conversion_model_exact_decoder_and_action_conversion",
+    "exclude": "environment_step_and_file_io",
+    "report": ["online_target_optimizer_replay_bytes", "training_validation_fresh_and_probe_wall_time", "raw_timing_quantiles"],
+    "not_measured": ["peak_process_memory", "energy"]
+  },
+  "uncertainty": {
+    "bootstrap_draws": 2000,
+    "rng_seed": 25261113,
+    "unit": "paired_fresh_episode_within_each_fitted_model_pair",
+    "report_each_model_seed": true,
+    "training_seed_uncertainty_claim": false,
+    "do_not_pool_training_initializations": true
+  },
+  "run_order_rng_seed": 25261111,
+  "smoke": {
+    "model_seed": 3091,
+    "arms": 5,
+    "episodes_per_arm": 2,
+    "train_seeds": [24110000, 24110001],
+    "validation_seeds": [24900000, 24900001],
+    "probe_seeds": [24950000, 24950001],
+    "fresh_seeds": [24990000, 24990001],
+    "warmup": 8,
+    "batch": 4,
+    "capacity": 64,
+    "target_interval": 8,
+    "epsilon_decay_slots": 80,
+    "diagnostic_episodes": [0, 1, 2],
+    "expected_slots_per_arm": 80,
+    "expected_updates_per_arm": 73,
+    "expected_target_copies_per_arm": 9,
+    "total_training_slots": 400,
+    "total_optimizer_updates": 365,
+    "purpose": "integration_only_never_select_model_or_tune_thresholds"
+  },
+  "total_development_training_slots": 120000,
+  "total_development_optimizer_updates": 104655,
+  "logging": [
+    "full_episode_task_reward_energy_motion_records",
+    "training_replay_states_actions_rewards_next_states_done",
+    "optimizer_loss_gradient_norm_and_replay_indices",
+    "per_episode_return_deadline_and_workload_fingerprint",
+    "validation_fresh_probe_outputs_and_raw_latency",
+    "all15_checkpoint_optimizer_rng_and_replay_states",
+    "source_input_hashes_partial_failures_and_run_manifest"
+  ],
+  "stop": "fixed_budget_or_nonfinite_exception_preserve_partial_outputs_no_retry_or_extension",
+  "value_sign_note": "nonpositive parameterization imposes the known sign constraint but does not guarantee accurate value magnitude or good policy",
+  "runner_status": "not_implemented",
+  "launch_authorized": false,
+  "source_sha256": {
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a",
+    "Source/validate_chapter3_model.py": "0354f9ea137579120716911977bb06b279fc67dcfa86f3f453b81aad252852bb"
+  }
+}

@@ -1,0 +1,2901 @@
+{
+  "date": "2026-11-21",
+  "studies": [
+    {
+      "study": "development_runs/assignment_price_development_2026-11-16_01",
+      "local_file_count": 38146,
+      "local_bytes": 25233804062,
+      "extension_counts": {
+        ".json": 187,
+        ".txt": 4,
+        ".py": 70,
+        ".npy": 1,
+        ".gz": 18792,
+        ".npz": 18867,
+        ".onnx": 75,
+        ".pt": 75,
+        ".jsonl": 75
+      },
+      "included_evidence_files": [
+        "development_runs/assignment_price_development_2026-11-16_01/audited_completion/completion.json",
+        "development_runs/assignment_price_development_2026-11-16_01/audited_completion/manifest.json",
+        "development_runs/assignment_price_development_2026-11-16_01/audited_completion/saved_artifact_audit.json",
+        "development_runs/assignment_price_development_2026-11-16_01/run/PRE_RUN_FREEZE.json",
+        "development_runs/assignment_price_development_2026-11-16_01/run/analysis.json",
+        "development_runs/assignment_price_development_2026-11-16_01/run/runtime_plan.json",
+        "development_runs/assignment_price_development_2026-11-16_01/run/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/centered_linear_correction_comparison_2026-11-20_01",
+      "local_file_count": 2760,
+      "local_bytes": 3285327518,
+      "extension_counts": {
+        ".txt": 3,
+        ".json": 1424,
+        ".npy": 1,
+        ".pt": 21,
+        ".npz": 1300,
+        ".py": 11
+      },
+      "included_evidence_files": [
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/archive_verification.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/completion.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/saved_artifact_audit.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/CHECKPOINT_FREEZE.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/DEMONSTRATION_FREEZE.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/PRE_RUN_FREEZE.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/TIMING_FREEZE.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/analysis.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/manifest.json",
+        "development_runs/centered_linear_correction_comparison_2026-11-20_01/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/controller_v3_development_2026-11-06_01",
+      "local_file_count": 30563,
+      "local_bytes": 4750341827,
+      "extension_counts": {
+        ".json": 23,
+        ".gz": 15159,
+        ".npz": 15160,
+        ".pt": 55,
+        ".jsonl": 55,
+        ".npy": 35,
+        ".onnx": 55,
+        ".txt": 1,
+        ".py": 20
+      },
+      "included_evidence_files": [
+        "development_runs/controller_v3_development_2026-11-06_01/runtime_plan.json",
+        "development_runs/controller_v3_development_2026-11-06_01/saved_artifact_audit.json",
+        "development_runs/controller_v3_development_2026-11-06_01/verification.json",
+        "development_runs/controller_v3_development_2026-11-06_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/deadline_screen_development_2026-11-14_01",
+      "local_file_count": 27796,
+      "local_bytes": 18174172153,
+      "extension_counts": {
+        ".json": 22,
+        ".bin": 55,
+        ".npz": 13785,
+        ".gz": 13784,
+        ".pt": 55,
+        ".jsonl": 55,
+        ".txt": 3,
+        ".py": 37
+      },
+      "included_evidence_files": [
+        "development_runs/deadline_screen_development_2026-11-14_01/deployment_storage/manifest.json",
+        "development_runs/deadline_screen_development_2026-11-14_01/run/PRE_RUN_FREEZE.json",
+        "development_runs/deadline_screen_development_2026-11-14_01/run/analysis.json",
+        "development_runs/deadline_screen_development_2026-11-14_01/run/runtime_plan.json",
+        "development_runs/deadline_screen_development_2026-11-14_01/run/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01",
+      "local_file_count": 961,
+      "local_bytes": 1107173725,
+      "extension_counts": {
+        ".json": 495,
+        ".txt": 2,
+        ".npy": 1,
+        ".pt": 6,
+        ".npz": 448,
+        ".py": 9
+      },
+      "included_evidence_files": [
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/archive_verification.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/completion.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/saved_artifact_audit.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/CHECKPOINT_FREEZE.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/DEMONSTRATION_FREEZE.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/PRE_RUN_FREEZE.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/TIMING_FREEZE.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/analysis.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/manifest.json",
+        "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/horizon_loss_development_2026-11-14_01",
+      "local_file_count": 35373,
+      "local_bytes": 22804103445,
+      "extension_counts": {
+        ".json": 100,
+        ".bin": 70,
+        ".npz": 17505,
+        ".gz": 17504,
+        ".pt": 70,
+        ".jsonl": 70,
+        ".txt": 3,
+        ".py": 51
+      },
+      "included_evidence_files": [
+        "development_runs/horizon_loss_development_2026-11-14_01/startup_verification.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/workflow_verification.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/deployment_storage/manifest.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/run/PRE_RUN_FREEZE.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/run/analysis.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/run/runtime_plan.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/run/saved_artifact_audit.json",
+        "development_runs/horizon_loss_development_2026-11-14_01/comparison/run/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/return_calibrated_handoff_comparison_2026-11-20_01",
+      "local_file_count": 2798,
+      "local_bytes": 3389723309,
+      "extension_counts": {
+        ".json": 1453,
+        ".txt": 6,
+        ".npy": 1,
+        ".pt": 21,
+        ".npz": 1300,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/archive_verification.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/completion.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/phase_timings.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/saved_artifact_audit.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/CHECKPOINT_FREEZE.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/DEMONSTRATION_FREEZE.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/PRE_RUN_FREEZE.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/TIMING_FREEZE.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/analysis.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/manifest.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/runtime_plan.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "development_runs/return_calibrated_handoff_comparison_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/terminal_anchor_development_2026-11-06_01",
+      "local_file_count": 38464,
+      "local_bytes": 6386044166,
+      "extension_counts": {
+        ".json": 15,
+        ".pt": 85,
+        ".jsonl": 85,
+        ".gz": 19125,
+        ".npz": 19126,
+        ".npy": 2,
+        ".onnx": 2,
+        ".txt": 1,
+        ".py": 23
+      },
+      "included_evidence_files": [
+        "development_runs/terminal_anchor_development_2026-11-06_01/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/terminal_anchor_development_continuation_2026-11-11_01",
+      "local_file_count": 47097,
+      "local_bytes": 7525005563,
+      "extension_counts": {
+        ".json": 25,
+        ".gz": 23349,
+        ".npz": 23350,
+        ".pt": 85,
+        ".jsonl": 85,
+        ".txt": 2,
+        ".py": 51,
+        ".npy": 65,
+        ".onnx": 85
+      },
+      "included_evidence_files": [
+        "development_runs/terminal_anchor_development_continuation_2026-11-11_01/runtime_plan.json",
+        "development_runs/terminal_anchor_development_continuation_2026-11-11_01/saved_artifact_audit.json",
+        "development_runs/terminal_anchor_development_continuation_2026-11-11_01/verification.json",
+        "development_runs/terminal_anchor_development_continuation_2026-11-11_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "development_runs/value_gradient_isolation_comparison_2026-11-20_01",
+      "local_file_count": 3728,
+      "local_bytes": 4501331245,
+      "extension_counts": {
+        ".json": 1926,
+        ".txt": 9,
+        ".npy": 2,
+        ".pt": 54,
+        ".npz": 1711,
+        ".py": 26
+      },
+      "included_evidence_files": [
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/archive_verification.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/completion.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/phase_timings.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/CHECKPOINT_FREEZE.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/DEMONSTRATION_FREEZE.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/PRE_RUN_FREEZE.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/TIMING_FREEZE.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/analysis.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/manifest.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/runtime_plan.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_brief_2026-11-20_01/manifest.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_brief_2026-11-20_01/verification.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_mechanics_2026-11-20_01/manifest.json",
+        "development_runs/value_gradient_isolation_comparison_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_mechanics_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_development_completion_check_2026-11-11_01",
+      "local_file_count": 9,
+      "local_bytes": 121622,
+      "extension_counts": {
+        ".json": 7,
+        ".txt": 1,
+        ".log": 1
+      },
+      "included_evidence_files": [
+        "validation/anchor_development_completion_check_2026-11-11_01/diagnosis.json",
+        "validation/anchor_development_completion_check_2026-11-11_01/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_development_launch_2026-11-06_01",
+      "local_file_count": 12,
+      "local_bytes": 32659,
+      "extension_counts": {
+        ".json": 7,
+        ".txt": 1,
+        ".log": 4
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_development_results_review_2026-11-11_01",
+      "local_file_count": 3,
+      "local_bytes": 52380,
+      "extension_counts": {
+        ".json": 3
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_evaluation_launch_2026-11-11_01",
+      "local_file_count": 2,
+      "local_bytes": 27196,
+      "extension_counts": {
+        ".json": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_evaluation_monitor_2026-11-11_01",
+      "local_file_count": 12,
+      "local_bytes": 62606,
+      "extension_counts": {
+        ".json": 7,
+        ".txt": 1,
+        ".log": 4
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_evaluation_readiness_fixture_2026-11-11_01",
+      "local_file_count": 692,
+      "local_bytes": 87279132,
+      "extension_counts": {
+        ".json": 25,
+        ".gz": 244,
+        ".npz": 245,
+        ".pt": 34,
+        ".jsonl": 34,
+        ".txt": 2,
+        ".py": 48,
+        ".npy": 26,
+        ".onnx": 34
+      },
+      "included_evidence_files": [
+        "validation/anchor_evaluation_readiness_fixture_2026-11-11_01/runtime_plan.json",
+        "validation/anchor_evaluation_readiness_fixture_2026-11-11_01/saved_artifact_audit.json",
+        "validation/anchor_evaluation_readiness_fixture_2026-11-11_01/verification.json",
+        "validation/anchor_evaluation_readiness_fixture_2026-11-11_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_numerical_correction_2026-11-11_01",
+      "local_file_count": 208,
+      "local_bytes": 17323391,
+      "extension_counts": {
+        ".json": 12,
+        ".npz": 1,
+        ".npy": 85,
+        ".onnx": 85,
+        ".txt": 1,
+        ".py": 24
+      },
+      "included_evidence_files": [
+        "validation/anchor_numerical_correction_2026-11-11_01/saved_artifact_audit.json",
+        "validation/anchor_numerical_correction_2026-11-11_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_posttraining_continuation_fixture_2026-11-11_01",
+      "local_file_count": 663,
+      "local_bytes": 86914179,
+      "extension_counts": {
+        ".json": 21,
+        ".gz": 244,
+        ".npz": 245,
+        ".pt": 34,
+        ".jsonl": 34,
+        ".py": 24,
+        ".npy": 26,
+        ".onnx": 34,
+        ".txt": 1
+      },
+      "included_evidence_files": [
+        "validation/anchor_posttraining_continuation_fixture_2026-11-11_01/runtime_plan.json",
+        "validation/anchor_posttraining_continuation_fixture_2026-11-11_01/saved_artifact_audit.json",
+        "validation/anchor_posttraining_continuation_fixture_2026-11-11_01/verification.json",
+        "validation/anchor_posttraining_continuation_fixture_2026-11-11_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_research_preparation_2026-11-06_01",
+      "local_file_count": 657,
+      "local_bytes": 86812025,
+      "extension_counts": {
+        ".json": 20,
+        ".gz": 244,
+        ".npz": 245,
+        ".pt": 34,
+        ".jsonl": 34,
+        ".npy": 26,
+        ".onnx": 34,
+        ".txt": 1,
+        ".py": 19
+      },
+      "included_evidence_files": [
+        "validation/anchor_research_preparation_2026-11-06_01/runtime_plan.json",
+        "validation/anchor_research_preparation_2026-11-06_01/saved_artifact_audit.json",
+        "validation/anchor_research_preparation_2026-11-06_01/verification.json",
+        "validation/anchor_research_preparation_2026-11-06_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_research_route_v2_2026-11-06_01",
+      "local_file_count": 661,
+      "local_bytes": 86852735,
+      "extension_counts": {
+        ".json": 22,
+        ".gz": 244,
+        ".npz": 245,
+        ".pt": 34,
+        ".jsonl": 34,
+        ".npy": 26,
+        ".onnx": 34,
+        ".txt": 1,
+        ".py": 21
+      },
+      "included_evidence_files": [
+        "validation/anchor_research_route_v2_2026-11-06_01/runtime_plan.json",
+        "validation/anchor_research_route_v2_2026-11-06_01/saved_artifact_audit.json",
+        "validation/anchor_research_route_v2_2026-11-06_01/verification.json",
+        "validation/anchor_research_route_v2_2026-11-06_01/frozen_checkpoint_inference/verification.json",
+        "validation/anchor_research_route_v2_2026-11-06_01/supplemental_provenance/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_runtime_single_validation_2026-11-06_01",
+      "local_file_count": 4,
+      "local_bytes": 3674148,
+      "extension_counts": {
+        ".json": 4
+      },
+      "included_evidence_files": [
+        "validation/anchor_runtime_single_validation_2026-11-06_01/saved_artifact_audit.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_saved_trace_diagnosis_2026-11-11_01",
+      "local_file_count": 6,
+      "local_bytes": 577142,
+      "extension_counts": {
+        ".json": 6
+      },
+      "included_evidence_files": [
+        "validation/anchor_saved_trace_diagnosis_2026-11-11_01/diagnosis.json",
+        "validation/anchor_saved_trace_diagnosis_2026-11-11_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/anchor_torch_core_runtime_2026-11-11_01",
+      "local_file_count": 214,
+      "local_bytes": 24313840,
+      "extension_counts": {
+        ".json": 17,
+        ".npz": 1,
+        ".npy": 85,
+        ".onnx": 85,
+        ".txt": 1,
+        ".py": 25
+      },
+      "included_evidence_files": [
+        "validation/anchor_torch_core_runtime_2026-11-11_01/saved_artifact_audit.json",
+        "validation/anchor_torch_core_runtime_2026-11-11_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/ar24_engineering_2026-11-19_01",
+      "local_file_count": 39,
+      "local_bytes": 4823628,
+      "extension_counts": {
+        ".json": 7,
+        ".onnx": 30,
+        ".npy": 2
+      },
+      "included_evidence_files": [
+        "validation/ar24_engineering_2026-11-19_01/SOURCE_FREEZE.json",
+        "validation/ar24_engineering_2026-11-19_01/saved_artifact_audit.json",
+        "validation/ar24_engineering_2026-11-19_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/ar24_runtime_profile_2026-11-19_01",
+      "local_file_count": 5,
+      "local_bytes": 358607,
+      "extension_counts": {
+        ".json": 5
+      },
+      "included_evidence_files": [
+        "validation/ar24_runtime_profile_2026-11-19_01/saved_artifact_audit.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_design_algebra_2026-11-15_01",
+      "local_file_count": 6,
+      "local_bytes": 71100,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 4,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_design_algebra_2026-11-15_01/algebra_verification.json",
+        "validation/assignment_price_design_algebra_2026-11-15_01/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_evaluation_continuation_readiness_2026-11-17_01",
+      "local_file_count": 4,
+      "local_bytes": 3478,
+      "extension_counts": {
+        ".json": 2,
+        ".log": 2
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_evaluation_continuation_readiness_2026-11-17_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_evaluation_continuation_v2_readiness_2026-11-17_01",
+      "local_file_count": 7,
+      "local_bytes": 4237,
+      "extension_counts": {
+        ".json": 3,
+        ".log": 4
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_evaluation_continuation_v2_readiness_2026-11-17_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_evaluation_stop_2026-11-17_01",
+      "local_file_count": 1,
+      "local_bytes": 19507,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_evaluation_stop_2026-11-17_01/diagnosis.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_full_engineering_2026-11-15_01",
+      "local_file_count": 276,
+      "local_bytes": 30747322,
+      "extension_counts": {
+        ".json": 45,
+        ".txt": 4,
+        ".py": 69,
+        ".gz": 49,
+        ".npz": 49,
+        ".onnx": 30,
+        ".pt": 15,
+        ".jsonl": 15
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_full_engineering_2026-11-15_01/fixture_evidence/PRE_RUN_FREEZE.json",
+        "validation/assignment_price_full_engineering_2026-11-15_01/fixture_evidence/manifest.json",
+        "validation/assignment_price_full_engineering_2026-11-15_01/fixture_evidence/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_fused_2026-11-15_01",
+      "local_file_count": 67,
+      "local_bytes": 4122278,
+      "extension_counts": {
+        ".json": 18,
+        ".prof": 1,
+        ".txt": 2,
+        ".onnx": 29,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_fused_2026-11-15_01/cost_gate/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_iov_fixture_2026-11-15_01",
+      "local_file_count": 182,
+      "local_bytes": 16923408,
+      "extension_counts": {
+        ".json": 34,
+        ".py": 66,
+        ".txt": 4,
+        ".gz": 27,
+        ".npz": 27,
+        ".onnx": 8,
+        ".pt": 8,
+        ".jsonl": 8
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_iov_fixture_2026-11-15_01/fixture_evidence/PRE_RUN_FREEZE.json",
+        "validation/assignment_price_iov_fixture_2026-11-15_01/fixture_evidence/manifest.json",
+        "validation/assignment_price_iov_fixture_2026-11-15_01/fixture_evidence/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_launch_review_2026-11-15_01",
+      "local_file_count": 23,
+      "local_bytes": 216882,
+      "extension_counts": {
+        ".json": 18,
+        ".txt": 1,
+        ".py": 4
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_launch_review_2026-11-15_01/source_environment_verification.json",
+        "validation/assignment_price_launch_review_2026-11-15_01/verified_fixture_completion/completion.json",
+        "validation/assignment_price_launch_review_2026-11-15_01/verified_fixture_completion/manifest.json",
+        "validation/assignment_price_launch_review_2026-11-15_01/verified_fixture_completion/saved_artifact_audit.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_matched_deployment_2026-11-15_01",
+      "local_file_count": 66,
+      "local_bytes": 9768255,
+      "extension_counts": {
+        ".json": 13,
+        ".onnx": 36,
+        ".txt": 1,
+        ".py": 16
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_matched_deployment_2026-11-15_01/cost_gate/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_matched_profile_2026-11-15_01",
+      "local_file_count": 18,
+      "local_bytes": 1522458,
+      "extension_counts": {
+        ".json": 5,
+        ".onnx": 4,
+        ".prof": 4,
+        ".txt": 4,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_matched_profile_2026-11-15_01/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_native_heads_2026-11-15_01",
+      "local_file_count": 62,
+      "local_bytes": 4945696,
+      "extension_counts": {
+        ".json": 13,
+        ".onnx": 27,
+        ".txt": 3,
+        ".py": 19
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_native_heads_2026-11-15_01/cost_gate/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_offline_diagnosis_2026-11-19_01",
+      "local_file_count": 3,
+      "local_bytes": 230599,
+      "extension_counts": {
+        ".json": 3
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_offline_diagnosis_2026-11-19_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_prototype_2026-11-15_01",
+      "local_file_count": 39,
+      "local_bytes": 4137670,
+      "extension_counts": {
+        ".txt": 3,
+        ".py": 6,
+        ".json": 14,
+        ".pt": 16
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_prototype_2026-11-15_01/cost_gate/CHECKPOINT_FREEZE.json",
+        "validation/assignment_price_prototype_2026-11-15_01/cost_gate/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_q_tolerance_stop_2026-11-17_01",
+      "local_file_count": 1,
+      "local_bytes": 7625,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_q_tolerance_stop_2026-11-17_01/diagnosis.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_release_gate_2026-11-16_01",
+      "local_file_count": 7,
+      "local_bytes": 5265,
+      "extension_counts": {
+        ".json": 3,
+        ".log": 4
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_release_gate_2026-11-16_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_research_binding_2026-11-15_01",
+      "local_file_count": 564,
+      "local_bytes": 67724523,
+      "extension_counts": {
+        ".json": 98,
+        ".txt": 4,
+        ".py": 85,
+        ".npy": 1,
+        ".gz": 128,
+        ".npz": 158,
+        ".onnx": 30,
+        ".pt": 30,
+        ".jsonl": 30
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_research_binding_2026-11-15_01/fixture_evidence/PRE_RUN_FREEZE.json",
+        "validation/assignment_price_research_binding_2026-11-15_01/fixture_evidence/analysis.json",
+        "validation/assignment_price_research_binding_2026-11-15_01/fixture_evidence/manifest.json",
+        "validation/assignment_price_research_binding_2026-11-15_01/fixture_evidence/runtime_plan.json",
+        "validation/assignment_price_research_binding_2026-11-15_01/fixture_evidence/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_research_freeze_2026-11-15_01",
+      "local_file_count": 24,
+      "local_bytes": 253161,
+      "extension_counts": {
+        ".json": 8,
+        ".txt": 6,
+        ".py": 10
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_research_freeze_2026-11-15_01/independent_design_verification.json",
+        "validation/assignment_price_research_freeze_2026-11-15_01/manifest.json",
+        "validation/assignment_price_research_freeze_2026-11-15_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_results_review_2026-11-19_01",
+      "local_file_count": 1,
+      "local_bytes": 70448,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_results_review_2026-11-19_01/review_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/assignment_price_runtime_2026-11-15_01",
+      "local_file_count": 43,
+      "local_bytes": 2590758,
+      "extension_counts": {
+        ".json": 16,
+        ".prof": 1,
+        ".txt": 2,
+        ".log": 1,
+        ".py": 15,
+        ".jit": 8
+      },
+      "included_evidence_files": [
+        "validation/assignment_price_runtime_2026-11-15_01/cost_gate/manifest.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_completion_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 21951,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_completion_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_fixture_2026-11-20_01",
+      "local_file_count": 196,
+      "local_bytes": 52127643,
+      "extension_counts": {
+        ".json": 127,
+        ".npy": 1,
+        ".pt": 14,
+        ".npz": 41,
+        ".txt": 2,
+        ".py": 11
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/completion.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/saved_artifact_audit.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/CHECKPOINT_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/DEMONSTRATION_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/PRE_RUN_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/TIMING_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/analysis.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/manifest.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_01/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_fixture_2026-11-20_02",
+      "local_file_count": 199,
+      "local_bytes": 52129944,
+      "extension_counts": {
+        ".json": 129,
+        ".txt": 3,
+        ".npy": 1,
+        ".pt": 14,
+        ".npz": 41,
+        ".py": 11
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/completion.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/engineering_verification.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/saved_artifact_audit.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/CHECKPOINT_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/DEMONSTRATION_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/PRE_RUN_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/TIMING_FREEZE.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/analysis.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/manifest.json",
+        "validation/centered_linear_comparison_fixture_2026-11-20_02/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_freeze_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 9475,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_freeze_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_launch_2026-11-20_01",
+      "local_file_count": 3,
+      "local_bytes": 1106,
+      "extension_counts": {
+        ".json": 1,
+        ".log": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_launch_checks_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 11209,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_launch_checks_2026-11-20_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_launch_checks_2026-11-20_02",
+      "local_file_count": 1,
+      "local_bytes": 11209,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_launch_checks_2026-11-20_02/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_comparison_readiness_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 11026,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_comparison_readiness_2026-11-20_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_mechanics_2026-11-20_01",
+      "local_file_count": 2,
+      "local_bytes": 811,
+      "extension_counts": {
+        ".json": 2
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_mechanics_2026-11-20_01/source_verification.json",
+        "validation/centered_linear_mechanics_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/centered_linear_saved_trace_diagnosis_2026-11-20_01",
+      "local_file_count": 4,
+      "local_bytes": 1503412,
+      "extension_counts": {
+        ".json": 4
+      },
+      "included_evidence_files": [
+        "validation/centered_linear_saved_trace_diagnosis_2026-11-20_01/diagnosis.json",
+        "validation/centered_linear_saved_trace_diagnosis_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/contribution_decision_brief_2026-11-15_01",
+      "local_file_count": 11,
+      "local_bytes": 146069,
+      "extension_counts": {
+        ".txt": 6,
+        ".json": 5
+      },
+      "included_evidence_files": [
+        "validation/contribution_decision_brief_2026-11-15_01/manifest.json",
+        "validation/contribution_decision_brief_2026-11-15_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_inference_optimization_2026-11-05_01",
+      "local_file_count": 64,
+      "local_bytes": 7431464,
+      "extension_counts": {
+        ".json": 17,
+        ".log": 1,
+        ".txt": 1,
+        ".py": 16,
+        ".npz": 2,
+        ".onnx": 27
+      },
+      "included_evidence_files": [
+        "validation/controller_inference_optimization_2026-11-05_01/focused_test_verification.json",
+        "validation/controller_inference_optimization_2026-11-05_01/compiled_gate_01/saved_artifact_audit.json",
+        "validation/controller_inference_optimization_2026-11-05_01/compiled_gate_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_redesign_engineering_2026-11-05_01",
+      "local_file_count": 42,
+      "local_bytes": 3009780,
+      "extension_counts": {
+        ".json": 11,
+        ".log": 1,
+        ".npz": 9,
+        ".gz": 8,
+        ".txt": 2,
+        ".py": 11
+      },
+      "included_evidence_files": [
+        "validation/controller_redesign_engineering_2026-11-05_01/test_verification.json",
+        "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/saved_artifact_audit.json",
+        "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_engineering_2026-11-05_01",
+      "local_file_count": 66,
+      "local_bytes": 7583238,
+      "extension_counts": {
+        ".json": 14,
+        ".npz": 2,
+        ".onnx": 33,
+        ".txt": 1,
+        ".py": 16
+      },
+      "included_evidence_files": [
+        "validation/controller_v3_engineering_2026-11-05_01/saved_artifact_audit.json",
+        "validation/controller_v3_engineering_2026-11-05_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_research_fixture_2026-11-05_01",
+      "local_file_count": 126,
+      "local_bytes": 13956447,
+      "extension_counts": {
+        ".json": 17,
+        ".gz": 25,
+        ".npz": 26,
+        ".pt": 11,
+        ".jsonl": 11,
+        ".npy": 7,
+        ".onnx": 11,
+        ".txt": 1,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "validation/controller_v3_research_fixture_2026-11-05_01/runtime_plan.json",
+        "validation/controller_v3_research_fixture_2026-11-05_01/saved_artifact_audit.json",
+        "validation/controller_v3_research_fixture_2026-11-05_01/verification.json",
+        "validation/controller_v3_research_fixture_2026-11-05_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_research_fixture_2026-11-05_02",
+      "local_file_count": 126,
+      "local_bytes": 13956554,
+      "extension_counts": {
+        ".json": 17,
+        ".gz": 25,
+        ".npz": 26,
+        ".pt": 11,
+        ".jsonl": 11,
+        ".npy": 7,
+        ".onnx": 11,
+        ".txt": 1,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "validation/controller_v3_research_fixture_2026-11-05_02/runtime_plan.json",
+        "validation/controller_v3_research_fixture_2026-11-05_02/saved_artifact_audit.json",
+        "validation/controller_v3_research_fixture_2026-11-05_02/verification.json",
+        "validation/controller_v3_research_fixture_2026-11-05_02/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_research_fixture_2026-11-05_03",
+      "local_file_count": 126,
+      "local_bytes": 13956575,
+      "extension_counts": {
+        ".json": 17,
+        ".gz": 25,
+        ".npz": 26,
+        ".pt": 11,
+        ".jsonl": 11,
+        ".npy": 7,
+        ".onnx": 11,
+        ".txt": 1,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "validation/controller_v3_research_fixture_2026-11-05_03/runtime_plan.json",
+        "validation/controller_v3_research_fixture_2026-11-05_03/saved_artifact_audit.json",
+        "validation/controller_v3_research_fixture_2026-11-05_03/verification.json",
+        "validation/controller_v3_research_fixture_2026-11-05_03/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_research_fixture_2026-11-05_04",
+      "local_file_count": 127,
+      "local_bytes": 13973490,
+      "extension_counts": {
+        ".json": 18,
+        ".gz": 25,
+        ".npz": 26,
+        ".pt": 11,
+        ".jsonl": 11,
+        ".npy": 7,
+        ".onnx": 11,
+        ".txt": 1,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "validation/controller_v3_research_fixture_2026-11-05_04/runtime_plan.json",
+        "validation/controller_v3_research_fixture_2026-11-05_04/saved_artifact_audit.json",
+        "validation/controller_v3_research_fixture_2026-11-05_04/verification.json",
+        "validation/controller_v3_research_fixture_2026-11-05_04/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_runtime_compatibility_2026-11-05_01",
+      "local_file_count": 109,
+      "local_bytes": 8719737,
+      "extension_counts": {
+        ".json": 15,
+        ".npz": 2,
+        ".onnx": 33,
+        ".npy": 33,
+        ".txt": 1,
+        ".py": 25
+      },
+      "included_evidence_files": [
+        "validation/controller_v3_runtime_compatibility_2026-11-05_01/saved_artifact_audit.json",
+        "validation/controller_v3_runtime_compatibility_2026-11-05_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_runtime_compatibility_2026-11-05_01_completion",
+      "local_file_count": 2,
+      "local_bytes": 4051,
+      "extension_counts": {
+        ".json": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/controller_v3_runtime_optimization_2026-11-05_01",
+      "local_file_count": 81,
+      "local_bytes": 25150232,
+      "extension_counts": {
+        ".json": 17,
+        "": 6,
+        ".npz": 3,
+        ".onnx": 18,
+        ".npy": 15,
+        ".txt": 1,
+        ".py": 21
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_audit_correction_2026-11-14_01",
+      "local_file_count": 16,
+      "local_bytes": 190047,
+      "extension_counts": {
+        ".txt": 2,
+        ".json": 9,
+        ".py": 2,
+        ".log": 3
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_audit_correction_2026-11-14_01/workflow_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_comparison_freeze_2026-11-12_01",
+      "local_file_count": 34,
+      "local_bytes": 410597,
+      "extension_counts": {
+        ".json": 5,
+        ".txt": 3,
+        ".py": 26
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_comparison_freeze_2026-11-12_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_development_completion_2026-11-14_01",
+      "local_file_count": 12,
+      "local_bytes": 61288,
+      "extension_counts": {
+        ".txt": 3,
+        ".json": 9
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_development_completion_2026-11-14_01/workflow_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_development_launch_2026-11-14_01",
+      "local_file_count": 6,
+      "local_bytes": 39870,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 2,
+        ".ps1": 1,
+        ".log": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_engineering_2026-11-11_01",
+      "local_file_count": 56,
+      "local_bytes": 4717537,
+      "extension_counts": {
+        ".json": 13,
+        ".py": 27,
+        ".npz": 1,
+        ".pt": 14,
+        ".txt": 1
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_engineering_2026-11-11_01/saved_artifact_audit.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_fast_runtime_2026-11-11_01",
+      "local_file_count": 61,
+      "local_bytes": 4727256,
+      "extension_counts": {
+        ".json": 17,
+        ".npz": 1,
+        ".pt": 14,
+        ".txt": 1,
+        ".py": 28
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_fast_runtime_2026-11-11_01/saved_artifact_audit.json",
+        "validation/deadline_screen_fast_runtime_2026-11-11_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_horizon_loss_design_2026-11-14_01",
+      "local_file_count": 5,
+      "local_bytes": 53779,
+      "extension_counts": {
+        ".json": 4,
+        ".txt": 1
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_horizon_loss_design_2026-11-14_01/manifest.json",
+        "validation/deadline_screen_horizon_loss_design_2026-11-14_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_iov_fixture_2026-11-11_01",
+      "local_file_count": 188,
+      "local_bytes": 27251054,
+      "extension_counts": {
+        ".json": 17,
+        ".npz": 57,
+        ".gz": 56,
+        ".pt": 14,
+        ".jsonl": 14,
+        ".txt": 1,
+        ".py": 29
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_iov_fixture_2026-11-11_01/PRE_RUN_FREEZE.json",
+        "validation/deadline_screen_iov_fixture_2026-11-11_01/saved_artifact_audit.json",
+        "validation/deadline_screen_iov_fixture_2026-11-11_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_launch_review_2026-11-14_01",
+      "local_file_count": 17,
+      "local_bytes": 31196828,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 8,
+        ".py": 8
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_prelaunch_l3tsyxav",
+      "local_file_count": 4,
+      "local_bytes": 31046386,
+      "extension_counts": {
+        ".json": 3,
+        ".py": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_research_engineering_2026-11-14_01",
+      "local_file_count": 323,
+      "local_bytes": 54538976,
+      "extension_counts": {
+        ".txt": 4,
+        ".json": 30,
+        ".bin": 22,
+        ".npz": 95,
+        ".gz": 94,
+        ".pt": 22,
+        ".jsonl": 22,
+        ".py": 34
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_research_engineering_2026-11-14_01/completion_verification.json",
+        "validation/deadline_screen_research_engineering_2026-11-14_01/deployment_storage/manifest.json",
+        "validation/deadline_screen_research_engineering_2026-11-14_01/fixture/PRE_RUN_FREEZE.json",
+        "validation/deadline_screen_research_engineering_2026-11-14_01/fixture/analysis.json",
+        "validation/deadline_screen_research_engineering_2026-11-14_01/fixture/runtime_plan.json",
+        "validation/deadline_screen_research_engineering_2026-11-14_01/fixture/saved_artifact_audit.json",
+        "validation/deadline_screen_research_engineering_2026-11-14_01/fixture/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_research_environment_2026-11-14_01",
+      "local_file_count": 3,
+      "local_bytes": 2144,
+      "extension_counts": {
+        ".txt": 2,
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_research_protocol_freeze_2026-11-12_01",
+      "local_file_count": 7,
+      "local_bytes": 26368236,
+      "extension_counts": {
+        ".json": 5,
+        ".txt": 1,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_research_protocol_freeze_2026-11-12_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/deadline_screen_saved_data_diagnosis_2026-11-14_01",
+      "local_file_count": 8,
+      "local_bytes": 466362,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 6,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/deadline_screen_saved_data_diagnosis_2026-11-14_01/manifest.json",
+        "validation/deadline_screen_saved_data_diagnosis_2026-11-14_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_cost_gate_2026-11-04_01",
+      "local_file_count": 2,
+      "local_bytes": 39712,
+      "extension_counts": {
+        ".csv": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_cost_gate_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_decoder_profile_2026-11-04_01",
+      "local_file_count": 4,
+      "local_bytes": 125820,
+      "extension_counts": {
+        ".csv": 2,
+        ".json": 2
+      },
+      "included_evidence_files": [
+        "validation/emc_decoder_profile_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_mechanics_2026-11-04_01",
+      "local_file_count": 2,
+      "local_bytes": 997,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_mechanics_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_q_value_diagnostics_2026-11-04_01",
+      "local_file_count": 1,
+      "local_bytes": 60552,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_q_value_diagnostics_2026-11-04_02",
+      "local_file_count": 1,
+      "local_bytes": 63715,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_development_2026-11-04_01",
+      "local_file_count": 3732,
+      "local_bytes": 1107273542,
+      "extension_counts": {
+        ".json": 37,
+        ".txt": 1,
+        ".npz": 1801,
+        ".gz": 1865,
+        ".pt": 9,
+        ".jsonl": 9,
+        ".py": 10
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_development_2026-11-04_01/saved_artifact_audit.json",
+        "validation/emc_tradeoff_development_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_reporting_tests_2026-11-04_01",
+      "local_file_count": 2,
+      "local_bytes": 501,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_reporting_tests_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_reporting_tests_2026-11-04_02",
+      "local_file_count": 2,
+      "local_bytes": 501,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_reporting_tests_2026-11-04_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_01",
+      "local_file_count": 2,
+      "local_bytes": 862,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_02",
+      "local_file_count": 2,
+      "local_bytes": 985,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_03",
+      "local_file_count": 2,
+      "local_bytes": 2032,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_03/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_04",
+      "local_file_count": 2,
+      "local_bytes": 2032,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_04/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_05",
+      "local_file_count": 2,
+      "local_bytes": 2123,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_05/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_06",
+      "local_file_count": 2,
+      "local_bytes": 2123,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_06/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_07",
+      "local_file_count": 2,
+      "local_bytes": 1362,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_07/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_08",
+      "local_file_count": 2,
+      "local_bytes": 1362,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_08/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_runner_tests_2026-11-04_09",
+      "local_file_count": 2,
+      "local_bytes": 1362,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_runner_tests_2026-11-04_09/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_smoke_2026-11-04_01",
+      "local_file_count": 49,
+      "local_bytes": 130803528,
+      "extension_counts": {
+        ".json": 17,
+        ".txt": 1,
+        ".npz": 7,
+        ".gz": 11,
+        ".pt": 3,
+        ".jsonl": 3,
+        ".py": 7
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_smoke_2026-11-04_01/saved_artifact_audit.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_smoke_2026-11-04_02",
+      "local_file_count": 53,
+      "local_bytes": 50646579,
+      "extension_counts": {
+        ".json": 18,
+        ".txt": 1,
+        ".npz": 7,
+        ".gz": 11,
+        ".pt": 3,
+        ".jsonl": 3,
+        ".py": 10
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_smoke_2026-11-04_02/saved_artifact_audit.json",
+        "validation/emc_tradeoff_smoke_2026-11-04_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_smoke_2026-11-04_03",
+      "local_file_count": 53,
+      "local_bytes": 50646828,
+      "extension_counts": {
+        ".json": 18,
+        ".txt": 1,
+        ".npz": 7,
+        ".gz": 11,
+        ".pt": 3,
+        ".jsonl": 3,
+        ".py": 10
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_smoke_2026-11-04_03/saved_artifact_audit.json",
+        "validation/emc_tradeoff_smoke_2026-11-04_03/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_smoke_2026-11-04_04",
+      "local_file_count": 53,
+      "local_bytes": 50648507,
+      "extension_counts": {
+        ".json": 18,
+        ".txt": 1,
+        ".npz": 7,
+        ".gz": 11,
+        ".pt": 3,
+        ".jsonl": 3,
+        ".py": 10
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_smoke_2026-11-04_04/saved_artifact_audit.json",
+        "validation/emc_tradeoff_smoke_2026-11-04_04/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/emc_tradeoff_spec_2026-11-04_01",
+      "local_file_count": 1,
+      "local_bytes": 2984,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/emc_tradeoff_spec_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_feasibility_2026-11-19_01",
+      "local_file_count": 21,
+      "local_bytes": 691536,
+      "extension_counts": {
+        ".json": 13,
+        ".html": 5,
+        ".txt": 3
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_feasibility_2026-11-19_01/decision_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_fixture_2026-11-19_01",
+      "local_file_count": 79,
+      "local_bytes": 18703793,
+      "extension_counts": {
+        ".json": 49,
+        ".npy": 1,
+        ".pt": 4,
+        ".npz": 15,
+        ".txt": 1,
+        ".py": 9
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/completion.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/saved_artifact_audit.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/CHECKPOINT_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/DEMONSTRATION_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/PRE_RUN_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/TIMING_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/analysis.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/manifest.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_fixture_2026-11-19_02",
+      "local_file_count": 81,
+      "local_bytes": 18711344,
+      "extension_counts": {
+        ".json": 50,
+        ".txt": 2,
+        ".npy": 1,
+        ".pt": 4,
+        ".npz": 15,
+        ".py": 9
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/completion.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/saved_artifact_audit.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/CHECKPOINT_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/DEMONSTRATION_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/PRE_RUN_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/TIMING_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/analysis.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/manifest.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_fixture_2026-11-19_03",
+      "local_file_count": 82,
+      "local_bytes": 18713220,
+      "extension_counts": {
+        ".json": 51,
+        ".txt": 2,
+        ".npy": 1,
+        ".pt": 4,
+        ".npz": 15,
+        ".py": 9
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/completion.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/engineering_verification.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/saved_artifact_audit.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/CHECKPOINT_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/DEMONSTRATION_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/PRE_RUN_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/TIMING_FREEZE.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/analysis.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/manifest.json",
+        "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/runtime_plan.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_launch_checks_2026-11-19_01",
+      "local_file_count": 1,
+      "local_bytes": 10190,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_launch_checks_2026-11-19_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_launch_checks_2026-11-19_02",
+      "local_file_count": 1,
+      "local_bytes": 10190,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_launch_checks_2026-11-19_02/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_plan_2026-11-19_01",
+      "local_file_count": 1,
+      "local_bytes": 8394,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_plan_2026-11-19_01/plan_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_process_2026-11-19_01",
+      "local_file_count": 3,
+      "local_bytes": 1170,
+      "extension_counts": {
+        ".json": 1,
+        ".log": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_readiness_2026-11-19_01",
+      "local_file_count": 1,
+      "local_bytes": 10003,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_readiness_2026-11-19_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_pilot_results_review_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 296,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_pilot_results_review_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/heuristic_initialization_saved_value_diagnosis_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 119807,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/heuristic_initialization_saved_value_diagnosis_2026-11-20_01/diagnosis.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_development_launch_2026-11-14_01",
+      "local_file_count": 16,
+      "local_bytes": 68880,
+      "extension_counts": {
+        ".txt": 2,
+        ".json": 7,
+        ".py": 2,
+        ".ps1": 1,
+        ".log": 4
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_development_results_2026-11-14_01",
+      "local_file_count": 6,
+      "local_bytes": 97815,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 4,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/horizon_loss_development_results_2026-11-14_01/manifest.json",
+        "validation/horizon_loss_development_results_2026-11-14_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_iov_integration_2026-11-14_01",
+      "local_file_count": 401,
+      "local_bytes": 66440155,
+      "extension_counts": {
+        ".txt": 4,
+        ".py": 45,
+        ".json": 31,
+        ".bin": 28,
+        ".npz": 119,
+        ".gz": 118,
+        ".pt": 28,
+        ".jsonl": 28
+      },
+      "included_evidence_files": [
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/workflow_verification.json",
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/deployment_storage/manifest.json",
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/run/PRE_RUN_FREEZE.json",
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/run/analysis.json",
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/run/runtime_plan.json",
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/run/saved_artifact_audit.json",
+        "validation/horizon_loss_iov_integration_2026-11-14_01/workflow/run/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_launch_review_2026-11-14_01",
+      "local_file_count": 8,
+      "local_bytes": 37132362,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 5,
+        ".py": 2
+      },
+      "included_evidence_files": [
+        "validation/horizon_loss_launch_review_2026-11-14_01/manifest.json",
+        "validation/horizon_loss_launch_review_2026-11-14_01/source_environment_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_prelaunch_5vzz5j8k",
+      "local_file_count": 70,
+      "local_bytes": 37816414,
+      "extension_counts": {
+        ".json": 9,
+        ".py": 57,
+        ".txt": 4
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_research_binding_2026-11-14_01",
+      "local_file_count": 501,
+      "local_bytes": 68558703,
+      "extension_counts": {
+        ".json": 68,
+        ".txt": 7,
+        ".py": 105,
+        ".bin": 28,
+        ".npz": 119,
+        ".gz": 118,
+        ".pt": 28,
+        ".jsonl": 28
+      },
+      "included_evidence_files": [
+        "validation/horizon_loss_research_binding_2026-11-14_01/release_review_verification.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/startup_fixture/startup_verification.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/workflow_verification.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/deployment_storage/manifest.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/run/PRE_RUN_FREEZE.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/run/analysis.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/run/runtime_plan.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/run/saved_artifact_audit.json",
+        "validation/horizon_loss_research_binding_2026-11-14_01/workflow/run/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_research_protocol_freeze_2026-11-14_01",
+      "local_file_count": 2,
+      "local_bytes": 31796552,
+      "extension_counts": {
+        ".py": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_research_protocol_freeze_2026-11-14_02",
+      "local_file_count": 59,
+      "local_bytes": 32487402,
+      "extension_counts": {
+        ".json": 10,
+        ".txt": 6,
+        ".py": 43
+      },
+      "included_evidence_files": [
+        "validation/horizon_loss_research_protocol_freeze_2026-11-14_02/manifest.json",
+        "validation/horizon_loss_research_protocol_freeze_2026-11-14_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_loss_saved_pair_diagnosis_2026-11-15_01",
+      "local_file_count": 6,
+      "local_bytes": 420224,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 4,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/horizon_loss_saved_pair_diagnosis_2026-11-15_01/diagnosis.json",
+        "validation/horizon_loss_saved_pair_diagnosis_2026-11-15_01/manifest.json",
+        "validation/horizon_loss_saved_pair_diagnosis_2026-11-15_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/horizon_normalized_loss_engineering_2026-11-14_01",
+      "local_file_count": 72,
+      "local_bytes": 17177465,
+      "extension_counts": {
+        ".json": 40,
+        ".txt": 2,
+        ".py": 2,
+        ".pt": 28
+      },
+      "included_evidence_files": [
+        "validation/horizon_normalized_loss_engineering_2026-11-14_01/final_verification.json",
+        "validation/horizon_normalized_loss_engineering_2026-11-14_01/manifest.json",
+        "validation/horizon_normalized_loss_engineering_2026-11-14_01/runtime_verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/incumbent_evidence_stage_2026-11-15_01",
+      "local_file_count": 37,
+      "local_bytes": 3092392,
+      "extension_counts": {
+        ".txt": 14,
+        ".json": 14,
+        ".py": 1,
+        ".html": 6,
+        ".xml": 2
+      },
+      "included_evidence_files": [
+        "validation/incumbent_evidence_stage_2026-11-15_01/manifest.json",
+        "validation/incumbent_evidence_stage_2026-11-15_01/verification.json",
+        "validation/incumbent_evidence_stage_2026-11-15_01/value_check/manifest.json",
+        "validation/incumbent_evidence_stage_2026-11-15_01/value_check/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/low_complexity_smoke_2026-11-01_03",
+      "local_file_count": 9,
+      "local_bytes": 8027035,
+      "extension_counts": {
+        ".json": 5,
+        ".pt": 4
+      },
+      "included_evidence_files": [
+        "validation/low_complexity_smoke_2026-11-01_03/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/radio_queue_design_literature_2026-11-19_01",
+      "local_file_count": 1,
+      "local_bytes": 102443,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_completion_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 37748,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_completion_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_fixture_2026-11-20_01",
+      "local_file_count": 261,
+      "local_bytes": 126514714,
+      "extension_counts": {
+        ".json": 164,
+        ".txt": 6,
+        ".npy": 1,
+        ".pt": 14,
+        ".npz": 59,
+        ".py": 17
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/completion.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/saved_artifact_audit.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/CHECKPOINT_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/DEMONSTRATION_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/PRE_RUN_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/TIMING_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/analysis.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/manifest.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/runtime_plan.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_fixture_2026-11-20_02",
+      "local_file_count": 269,
+      "local_bytes": 126684860,
+      "extension_counts": {
+        ".json": 167,
+        ".txt": 7,
+        ".py": 21,
+        ".npy": 1,
+        ".pt": 14,
+        ".npz": 59
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/completion.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/engineering_manifest.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/engineering_verification.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/saved_artifact_audit.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/CHECKPOINT_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/DEMONSTRATION_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/PRE_RUN_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/TIMING_FREEZE.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/analysis.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/manifest.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/runtime_plan.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "validation/return_calibrated_comparison_fixture_2026-11-20_02/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_launch_2026-11-20_01",
+      "local_file_count": 3,
+      "local_bytes": 2055,
+      "extension_counts": {
+        ".json": 1,
+        ".log": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_launch_checks_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 15420,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_launch_checks_2026-11-20_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_launch_checks_2026-11-20_02",
+      "local_file_count": 1,
+      "local_bytes": 15420,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_launch_checks_2026-11-20_02/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_launch_wrapper_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 228,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_launch_wrapper_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_comparison_readiness_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 15235,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_comparison_readiness_2026-11-20_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_diagnosis_harness_correction_2026-11-20_01",
+      "local_file_count": 2,
+      "local_bytes": 19179,
+      "extension_counts": {
+        ".py": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_handoff_brief_2026-11-20_01",
+      "local_file_count": 6,
+      "local_bytes": 190217,
+      "extension_counts": {
+        ".html": 4,
+        ".json": 2
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_handoff_brief_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_handoff_comparison_freeze_2026-11-20_01",
+      "local_file_count": 27,
+      "local_bytes": 291306,
+      "extension_counts": {
+        ".json": 7,
+        ".txt": 5,
+        ".py": 15
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_handoff_comparison_freeze_2026-11-20_01/manifest.json",
+        "validation/return_calibrated_handoff_comparison_freeze_2026-11-20_01/verification.json",
+        "validation/return_calibrated_handoff_comparison_freeze_2026-11-20_01/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "validation/return_calibrated_handoff_comparison_freeze_2026-11-20_01/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_handoff_mechanics_2026-11-20_01",
+      "local_file_count": 2,
+      "local_bytes": 156933,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_handoff_mechanics_2026-11-20_02",
+      "local_file_count": 25,
+      "local_bytes": 2263751,
+      "extension_counts": {
+        ".json": 6,
+        ".txt": 5,
+        ".py": 14
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01",
+      "local_file_count": 8,
+      "local_bytes": 8503781,
+      "extension_counts": {
+        ".json": 7,
+        ".npz": 1
+      },
+      "included_evidence_files": [
+        "validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/diagnosis.json",
+        "validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/first_update_verification.json",
+        "validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/independent_verification.json",
+        "validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/review_verification.json",
+        "validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/rq24_engineering_2026-11-19_01",
+      "local_file_count": 45,
+      "local_bytes": 18403349,
+      "extension_counts": {
+        ".json": 8,
+        ".onnx": 24,
+        ".npy": 1,
+        ".pdf": 4,
+        ".txt": 4,
+        ".png": 2,
+        ".html": 2
+      },
+      "included_evidence_files": [
+        "validation/rq24_engineering_2026-11-19_01/fixture/SOURCE_FREEZE.json",
+        "validation/rq24_engineering_2026-11-19_01/fixture/saved_artifact_audit.json",
+        "validation/rq24_engineering_2026-11-19_01/fixture/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/rq24_optimized_v1_2026-11-19_01",
+      "local_file_count": 4,
+      "local_bytes": 20635,
+      "extension_counts": {
+        ".json": 3,
+        ".npy": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/rq24_optimized_v1_2026-11-19_02",
+      "local_file_count": 8,
+      "local_bytes": 223081,
+      "extension_counts": {
+        ".json": 7,
+        ".npy": 1
+      },
+      "included_evidence_files": [
+        "validation/rq24_optimized_v1_2026-11-19_02/saved_artifact_audit.json",
+        "validation/rq24_optimized_v1_2026-11-19_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/rq24_runtime_profile_2026-11-19_01",
+      "local_file_count": 5,
+      "local_bytes": 462842,
+      "extension_counts": {
+        ".json": 5
+      },
+      "included_evidence_files": [
+        "validation/rq24_runtime_profile_2026-11-19_01/saved_artifact_audit.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/spi_beam_coverage_2026-11-01_01",
+      "local_file_count": 1,
+      "local_bytes": 109655,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/spi_beam_coverage_2026-11-01_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/spi_cost_gate_2026-11-01_02",
+      "local_file_count": 1,
+      "local_bytes": 1063,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/spi_cost_gate_2026-11-01_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/spi_ddqn_mechanics_2026-11-01_01",
+      "local_file_count": 2,
+      "local_bytes": 5823,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/spi_ddqn_mechanics_2026-11-01_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/terminal_anchor_engineering_2026-11-06_01",
+      "local_file_count": 22,
+      "local_bytes": 2150857,
+      "extension_counts": {
+        ".json": 7,
+        ".pt": 6,
+        ".npz": 1,
+        ".py": 8
+      },
+      "included_evidence_files": [
+        "validation/terminal_anchor_engineering_2026-11-06_01/CHECKPOINT_FREEZE.json",
+        "validation/terminal_anchor_engineering_2026-11-06_01/manifest.json",
+        "validation/terminal_anchor_engineering_2026-11-06_01/saved_artifact_audit.json",
+        "validation/terminal_anchor_engineering_2026-11-06_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/terminal_anchor_iov_fixture_2026-11-06_01",
+      "local_file_count": 136,
+      "local_bytes": 17748607,
+      "extension_counts": {
+        ".json": 13,
+        ".gz": 54,
+        ".npz": 55,
+        ".pt": 12,
+        ".npy": 1,
+        ".onnx": 1
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/terminal_anchor_iov_fixture_2026-11-06_02",
+      "local_file_count": 181,
+      "local_bytes": 19555327,
+      "extension_counts": {
+        ".json": 20,
+        ".gz": 54,
+        ".npz": 55,
+        ".pt": 12,
+        ".npy": 12,
+        ".onnx": 12,
+        ".py": 16
+      },
+      "included_evidence_files": [
+        "validation/terminal_anchor_iov_fixture_2026-11-06_02/saved_artifact_audit.json",
+        "validation/terminal_anchor_iov_fixture_2026-11-06_02/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/v3_development_launch_2026-11-06_01",
+      "local_file_count": 15,
+      "local_bytes": 81933,
+      "extension_counts": {
+        ".json": 10,
+        ".txt": 1,
+        ".log": 4
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/v3_engineering_gate_v2_completion_2026-11-06",
+      "local_file_count": 3,
+      "local_bytes": 101256,
+      "extension_counts": {
+        ".json": 3
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/v3_multifit_engineering_2026-11-06_01",
+      "local_file_count": 440,
+      "local_bytes": 58376094,
+      "extension_counts": {
+        ".json": 20,
+        ".gz": 160,
+        ".npz": 161,
+        ".pt": 22,
+        ".jsonl": 22,
+        ".npy": 14,
+        ".onnx": 22,
+        ".txt": 1,
+        ".py": 18
+      },
+      "included_evidence_files": [
+        "validation/v3_multifit_engineering_2026-11-06_01/runtime_plan.json",
+        "validation/v3_multifit_engineering_2026-11-06_01/saved_artifact_audit.json",
+        "validation/v3_multifit_engineering_2026-11-06_01/verification.json",
+        "validation/v3_multifit_engineering_2026-11-06_01/frozen_checkpoint_inference/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_bound_development_2026-11-04_01",
+      "local_file_count": 6198,
+      "local_bytes": 1912584988,
+      "extension_counts": {
+        ".json": 56,
+        ".txt": 1,
+        ".npz": 3001,
+        ".gz": 3101,
+        ".pt": 15,
+        ".jsonl": 15,
+        ".py": 9
+      },
+      "included_evidence_files": [
+        "validation/value_bound_development_2026-11-04_01/saved_artifact_audit.json",
+        "validation/value_bound_development_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_bound_protocol_2026-11-04_01",
+      "local_file_count": 1,
+      "local_bytes": 3084,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/value_bound_protocol_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_bound_smoke_2026-11-04_01",
+      "local_file_count": 71,
+      "local_bytes": 78339578,
+      "extension_counts": {
+        ".json": 24,
+        ".txt": 1,
+        ".npz": 11,
+        ".gz": 17,
+        ".pt": 5,
+        ".jsonl": 5,
+        ".py": 8
+      },
+      "included_evidence_files": [
+        "validation/value_bound_smoke_2026-11-04_01/saved_artifact_audit.json",
+        "validation/value_bound_smoke_2026-11-04_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_brief_2026-11-20_01",
+      "local_file_count": 17,
+      "local_bytes": 1091960,
+      "extension_counts": {
+        ".html": 8,
+        ".json": 9
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_brief_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_brief_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_completion_2026-11-21_01",
+      "local_file_count": 2,
+      "local_bytes": 75783,
+      "extension_counts": {
+        ".json": 1,
+        ".py": 1
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_completion_2026-11-21_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01",
+      "local_file_count": 384,
+      "local_bytes": 167201314,
+      "extension_counts": {
+        ".json": 228,
+        ".txt": 11,
+        ".py": 30,
+        ".npy": 2,
+        ".pt": 36,
+        ".npz": 77
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/completion.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/engineering_manifest.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/engineering_verification.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/saved_artifact_audit.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/CHECKPOINT_FREEZE.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/DEMONSTRATION_FREEZE.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/PRE_RUN_FREEZE.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/TIMING_FREEZE.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/analysis.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/manifest.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/runtime_plan.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_brief_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_brief_2026-11-20_01/verification.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_mechanics_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_fixture_2026-11-20_01/run/source_snapshot/validation/value_gradient_isolation_mechanics_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01",
+      "local_file_count": 45,
+      "local_bytes": 543750,
+      "extension_counts": {
+        ".json": 13,
+        ".txt": 8,
+        ".py": 24
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/verification.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/source_snapshot/validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/source_snapshot/validation/value_gradient_isolation_brief_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/source_snapshot/validation/value_gradient_isolation_brief_2026-11-20_01/verification.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/source_snapshot/validation/value_gradient_isolation_mechanics_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_freeze_2026-11-20_01/source_snapshot/validation/value_gradient_isolation_mechanics_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_freeze_review_2026-11-20_01",
+      "local_file_count": 1,
+      "local_bytes": 11230,
+      "extension_counts": {
+        ".json": 1
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_freeze_review_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_launch_2026-11-21_01",
+      "local_file_count": 6,
+      "local_bytes": 5044,
+      "extension_counts": {
+        ".json": 3,
+        ".txt": 1,
+        ".log": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_01",
+      "local_file_count": 30,
+      "local_bytes": 55689,
+      "extension_counts": {
+        ".json": 13,
+        ".txt": 5,
+        ".log": 8,
+        ".py": 4
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_02",
+      "local_file_count": 30,
+      "local_bytes": 55689,
+      "extension_counts": {
+        ".json": 13,
+        ".txt": 5,
+        ".log": 8,
+        ".py": 4
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_02/manifest.json",
+        "validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_02/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_launch_wrapper_2026-11-21_01",
+      "local_file_count": 5,
+      "local_bytes": 20735,
+      "extension_counts": {
+        ".txt": 1,
+        ".json": 1,
+        ".py": 3
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_launch_wrapper_2026-11-21_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_comparison_readiness_2026-11-21_01",
+      "local_file_count": 30,
+      "local_bytes": 55497,
+      "extension_counts": {
+        ".json": 13,
+        ".txt": 5,
+        ".log": 8,
+        ".py": 4
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_comparison_readiness_2026-11-21_01/manifest.json",
+        "validation/value_gradient_isolation_comparison_readiness_2026-11-21_01/readiness.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_launch_start_2026-11-21_01",
+      "local_file_count": 3,
+      "local_bytes": 1280,
+      "extension_counts": {
+        ".json": 1,
+        ".log": 2
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_mechanics_2026-11-20_01",
+      "local_file_count": 18,
+      "local_bytes": 4854247,
+      "extension_counts": {
+        ".pt": 4,
+        ".json": 8,
+        ".npz": 1,
+        ".txt": 1,
+        ".py": 4
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_mechanics_2026-11-20_01/manifest.json",
+        "validation/value_gradient_isolation_mechanics_2026-11-20_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_monitor_tests_2026-11-21_01",
+      "local_file_count": 24,
+      "local_bytes": 7011,
+      "extension_counts": {
+        ".txt": 5,
+        ".json": 11,
+        ".log": 8
+      },
+      "included_evidence_files": [],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    },
+    {
+      "study": "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01",
+      "local_file_count": 12,
+      "local_bytes": 12015454,
+      "extension_counts": {
+        ".json": 6,
+        ".npz": 1,
+        ".txt": 1,
+        ".py": 4
+      },
+      "included_evidence_files": [
+        "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/behavior_replay_coverage.json",
+        "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/diagnosis.json",
+        "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/independent_verification.json",
+        "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/manifest.json",
+        "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/review_verification.json",
+        "validation/value_gradient_isolation_saved_trace_diagnosis_2026-11-21_01/verification.json"
+      ],
+      "raw_artifacts_uploaded": false,
+      "raw_artifact_location": "Owner-maintained private original/archive; not publicly hosted by this export"
+    }
+  ],
+  "scope": "Metadata inventory of local research artifacts, with selected original manifests/audits. Raw traces, optimizer logs and checkpoint binaries are not uploaded.",
+  "local_file_count": 248077,
+  "local_bytes": 102403802252,
+  "full_archive_publicly_available": false
+}

@@ -1,0 +1,66 @@
+PAIRED HEURISTIC-INITIALIZATION PILOT: RUNNER ENGINEERING REVIEW
+2026-11-19
+STATUS: BOUNDED ENGINEERING WORKFLOW PASSES; PILOT REMAINS DISABLED.
+
+IMPLEMENTED
+run_heuristic_initialization_pilot.py executes shared teacher demonstrations,
+paired initial weights,BC initialization for one arm,fresh DDQN optimizers,
+uniform replay,final-only checkpoints,global checkpoint freeze,evaluation,
+complete eager action timing and the saved-artifact auditor. It verifies the
+fixed protocol SHA256 and definition hashes before constructing run artifacts.
+No historical model or reward definition changed. Protocol JSON remains frozen.
+
+heuristic_pilot_teacher_adapter.py binds the original frozen teacher function
+bodies to the public Chapter3Config with identity native decorators. This is
+the Python arithmetic reference backend,not a compiled performance equivalent.
+It avoids importing broken unrelated historical compiler/runner packages.
+This backend must be reviewed as an explicit implementation binding before
+research release; its costs are reported honestly,not compared with previous
+compiled timing sessions. It has stationary UAV motion and the historical
+extra empty-battery restriction. Student deployment contains no teacher.
+
+audit_heuristic_initialization_pilot.py independently checks manifest inventory
+and hashes,protocol/source bindings,seeded initial tensors,shared demo data,
+paired exogenous workloads,episode reward/task accounting,BC/RNG draws,replay
+sampling and final contents,DDQN update/target-copy/Adam counts,Bellman target
+and Huber arithmetic,terminal bypass,final checkpoint hashes,greedy action/Q
+reproduction,all per-fit policy/teacher contrasts and the promising flag.
+It reports value residual distributions by horizon,terminal residuals,clipping,
+storage and recorded timing median/p95. It performs zero optimizer/simulator
+steps. Recorded gradient histories are NOT independently replayed: the audit
+does not prove that every historical gradient update was reproduced exactly.
+This limitation is explicit in its receipt. Unit tests separately cover target
+gradient isolation and numeric online-selection/target-evaluation semantics.
+
+FINAL ENGINEERING EVIDENCE
+validation/heuristic_initialization_pilot_fixture_2026-11-19_03/
+Eight tests passed,including end-to-end orchestration,original teacher reference
+agreement,CLI/direct launch guards,missing freeze detection,unlisted/corrupt
+files,and semantic tampering after manifest rehash for comparisons,Bellman
+loss and paired workloads. Previous fixture01/02 outputs remain preserved.
+Final fixture:2fits,4students,440 simulator slots,4BC updates,128DDQN updates,
+4final checkpoints and75manifest files checked. These are engineering-only
+seeds and reduced budgets,NOT the reserved17,680-slot pilot. The final fixture
+promising flag is false. No fixture outcome changes pilot thresholds,budgets,
+model definitions,rewards or seeds. No claim about real policy quality follows.
+
+All three complete fixture executions used440slots each:1,320engineering
+simulator slots,12BC updates and384DDQN updates in total. Auditor/corruption
+checks did not add rollouts or learning. Tests never use pilot or final seeds.
+The prior baseline fixture counts are separate and not included in these totals.
+
+GUARD AND LIMITS
+--mode pilot without confirmation raises Explicit pilot confirmation required.
+Even with LAUNCH_FROZEN_HEURISTIC_INITIALIZATION_PILOT it remains disabled by
+PILOT_RELEASED=False. Both paths reject before output/model/task creation.
+Final mode is disabled. This engineering gate does not set releaseTrue.
+No pilot run,final evaluation or Word-thesis edit. Security/trust deferred;
+cloud/charging excluded. Failed historical evidence remains unchanged.
+
+NEXT SEPARATE DECISION
+Review the tested runner/auditor source binding and Python teacher execution
+backend,refresh the seed-reservation audit including fixture blocks,check
+runtime/storage requirements and decide whether this bounded exploratory pilot
+is ready for explicit launch authorization. Bind the exact tested sources and
+environment in a versioned readiness/release artifact before enabling a launch.
+Do not silently turn this fixture pass into permission to run the pilot.

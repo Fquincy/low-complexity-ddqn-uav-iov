@@ -1,0 +1,219 @@
+{
+  "status": "PROSPECTIVE_DESIGN_AND_LITERATURE_CHECK_COMPLETE_MECHANICS_NEXT",
+  "brief": "VALUE_GRADIENT_ISOLATION_DESIGN_BRIEF_2026-11-20.txt",
+  "brief_sha256": "5ae5bf25b22144155467ae4a17f6bed1447ad72e31c345c86dc2684b2d04e90d",
+  "inherited_protocol": "RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json",
+  "inherited_protocol_sha256": "1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1",
+  "change": "Block only V-to-hidden TD gradient; preserve forward function, trainable readout, branch TD and imitation gradients",
+  "primary": "value_gradient_isolated_ddqn",
+  "arms": [
+    {
+      "id": "value_gradient_isolated_ddqn",
+      "calibration": true,
+      "retention": true,
+      "bc": true,
+      "ddqn": true,
+      "role": "prospective_primary",
+      "TD_shared_rule": "branch path only"
+    },
+    {
+      "id": "dueling_shared_td_rescale_ddqn",
+      "calibration": true,
+      "retention": true,
+      "bc": true,
+      "ddqn": true,
+      "role": "adapted_known_gradient_rule_control",
+      "TD_shared_rule": "(value+branch)/sqrt(2)"
+    },
+    {
+      "id": "calibrated_retained_ddqn",
+      "calibration": true,
+      "retention": true,
+      "bc": true,
+      "ddqn": true,
+      "role": "primary",
+      "value_formula": "V-sum(z_selected-mean_all5(z))",
+      "demo_replay": true,
+      "retention_temperature": "fixed handoff alpha"
+    },
+    {
+      "id": "calibrated_no_retention_ddqn",
+      "calibration": true,
+      "retention": false,
+      "bc": true,
+      "ddqn": true,
+      "role": "retention_ablation",
+      "value_formula": "V-sum(z_selected-mean_all5(z))",
+      "demo_replay": true,
+      "retention_temperature": null
+    },
+    {
+      "id": "uncalibrated_retained_ddqn",
+      "calibration": false,
+      "retention": true,
+      "bc": true,
+      "ddqn": true,
+      "role": "calibration_ablation",
+      "value_formula": "V-sum(z_selected-mean_all5(z))",
+      "demo_replay": true,
+      "retention_temperature": 1.0
+    },
+    {
+      "id": "uncalibrated_no_retention_ddqn",
+      "calibration": false,
+      "retention": false,
+      "bc": true,
+      "ddqn": true,
+      "role": "previous_failed_centered",
+      "value_formula": "V-sum(z_selected-mean_all5(z))",
+      "demo_replay": true,
+      "retention_temperature": null
+    },
+    {
+      "id": "calibrated_bc_only",
+      "calibration": true,
+      "retention": false,
+      "bc": true,
+      "ddqn": false,
+      "role": "no_TD_control",
+      "value_formula": "V-sum(z_selected-mean_all5(z))",
+      "demo_replay": false,
+      "retention_temperature": null
+    },
+    {
+      "id": "old_softplus_bc_ddqn",
+      "calibration": false,
+      "retention": false,
+      "bc": true,
+      "ddqn": true,
+      "role": "previous_baseline",
+      "value_formula": "-softplus(b+sum(z_selected))",
+      "demo_replay": true,
+      "retention_temperature": null
+    },
+    {
+      "id": "plain_small_softplus_ddqn",
+      "calibration": false,
+      "retention": false,
+      "bc": false,
+      "ddqn": true,
+      "role": "ordinary_small_DDQN",
+      "value_formula": "-softplus(b+sum(z_selected))",
+      "demo_replay": false,
+      "retention_temperature": null
+    }
+  ],
+  "seeds": {
+    "model_seeds": [
+      978480001,
+      978480011,
+      978480021
+    ],
+    "demonstration_seed_blocks": [
+      {
+        "start": 978490000,
+        "count": 10
+      },
+      {
+        "start": 978491000,
+        "count": 10
+      },
+      {
+        "start": 978492000,
+        "count": 10
+      }
+    ],
+    "online_seed_blocks": [
+      {
+        "start": 978500000,
+        "count": 50
+      },
+      {
+        "start": 978501000,
+        "count": 50
+      },
+      {
+        "start": 978502000,
+        "count": 50
+      }
+    ],
+    "evaluation_seed_block": {
+      "start": 978510000,
+      "count": 16
+    },
+    "bc_sampler_seeds": [
+      978520001,
+      978520011,
+      978520021
+    ],
+    "epsilon_branch_seeds": [
+      978530001,
+      978530011,
+      978530021
+    ],
+    "replay_sampler_seeds": [
+      978540001,
+      978540011,
+      978540021
+    ],
+    "retention_sampler_seeds": [
+      978550001,
+      978550011,
+      978550021
+    ],
+    "job_order_seed": 978560001,
+    "timing_order_seed": 978560011
+  },
+  "seed_reservations_only": true,
+  "proposed_totals": {
+    "demonstration_slots": 1200,
+    "online_slots": 48000,
+    "evaluation_slots": 17920,
+    "bc_updates": 4800,
+    "ddqn_updates": 44928,
+    "retention_batches": 22464,
+    "ridge_solves": 15,
+    "final_checkpoints": 27,
+    "timing_calls": 10752,
+    "timing_warmups": 2688,
+    "simulated_slots": 67120
+  },
+  "paired_policy_controls": [
+    "calibrated_retained_ddqn",
+    "dueling_shared_td_rescale_ddqn",
+    "calibrated_bc_only",
+    "old_softplus_bc_ddqn"
+  ],
+  "prospective_policy_rule": "nonnegative return and deadline contrast every fit, positive equal-fit means in both for every required control",
+  "prospective_value_control": "uncalibrated_no_retention_ddqn",
+  "prospective_value_rule": "own-policy NRMSE and absolute Q-G bias strictly smaller every fit",
+  "broader_comparison_required": [
+    "64/128 capacity DDQN references",
+    "adapted BDQ",
+    "specified full DQfD-style reference",
+    "ordinary small DDQN",
+    "BC-only",
+    "old baseline",
+    "observed-load/radio",
+    "all-local",
+    "nearest-RSU",
+    "UAV-selective"
+  ],
+  "research_protocol_frozen": false,
+  "actual_controller_implemented": false,
+  "model_tested": false,
+  "novelty_established": false,
+  "seed_audit": {
+    "documents": 56,
+    "collisions": 0,
+    "coverage": "Root JSON and validation/development_runs */run/runtime_plan.json; not a full historical text/log scan"
+  },
+  "next_gate": "isolated synthetic routing/rescaling helpers, autograd/reference/forward/export checks; no research seeds or simulator",
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_teacher_calls": 0,
+  "research_launch_authorized": false,
+  "launched": false,
+  "final_seeds_consumed": false,
+  "word_thesis_changed": false
+}

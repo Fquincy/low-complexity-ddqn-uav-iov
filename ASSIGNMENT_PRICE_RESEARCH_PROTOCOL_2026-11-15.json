@@ -1,0 +1,706 @@
+{
+  "protocol_id": "ADP-DDQN-prospective-development-v1",
+  "created": "2026-11-15",
+  "status": "DESIGN_FREEZE_NOT_EXECUTABLE_RELEASE",
+  "primary": "coupled_sweep",
+  "parent_protocol": "HORIZON_LOSS_RESEARCH_PROTOCOL_2026-11-14.json",
+  "parent_sha256": "6cb86939d2b129e0df827bd71f89899ea4f78545d1e98a001ba97d33867eb6db",
+  "learned_arms": [
+    {
+      "id": "coupled_sweep",
+      "model_module": "assignment_price_prototype",
+      "model_key": "coupled_sweep",
+      "screened": true,
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "expected_online_parameter_count": 17066,
+      "expected_buffer_bytes": 20,
+      "scalar_precision": "FP64",
+      "neural_precision": "FP32",
+      "deployment": "assignment_price_native_heads_runtime.Runtime"
+    },
+    {
+      "id": "coupled_no_sweep",
+      "model_module": "assignment_price_prototype",
+      "model_key": "coupled_no_sweep",
+      "screened": true,
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "expected_online_parameter_count": 17066,
+      "expected_buffer_bytes": 20,
+      "scalar_precision": "FP64",
+      "neural_precision": "FP32",
+      "deployment": "assignment_price_native_heads_runtime.Runtime"
+    },
+    {
+      "id": "separable64",
+      "model_module": "assignment_price_prototype",
+      "model_key": "separable64",
+      "screened": true,
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "expected_online_parameter_count": 17066,
+      "expected_buffer_bytes": 20,
+      "scalar_precision": "FP64",
+      "neural_precision": "FP32",
+      "deployment": "assignment_price_native_heads_runtime.Runtime"
+    },
+    {
+      "id": "fixed_price_plain_sweep",
+      "model_module": "assignment_price_prototype",
+      "model_key": "fixed_price_plain_sweep",
+      "screened": true,
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "expected_online_parameter_count": 16841,
+      "expected_buffer_bytes": 20,
+      "scalar_precision": "FP64",
+      "neural_precision": "FP32",
+      "deployment": "assignment_price_native_heads_runtime.Runtime"
+    },
+    {
+      "id": "screened_price24",
+      "model_key": "price_both",
+      "base_model_key": "amortized_workload_price24",
+      "screened": true,
+      "role": "primary",
+      "description": "Proposed workload-price DDQN",
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "loss": "scalar_huber_plus_terminal_anchor",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 17066,
+      "expected_fp32_parameter_bytes": 68264,
+      "expected_buffer_bytes": 20
+    },
+    {
+      "id": "unmasked_price24",
+      "model_key": "price_both",
+      "base_model_key": "amortized_workload_price24",
+      "screened": false,
+      "role": "screening_ablation",
+      "description": "Identical primary without screen",
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "loss": "scalar_huber_plus_terminal_anchor",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 17066,
+      "expected_fp32_parameter_bytes": 68264,
+      "expected_buffer_bytes": 20
+    },
+    {
+      "id": "screened_no_price24",
+      "model_key": "no_price_both",
+      "base_model_key": "amortized_no_price24",
+      "screened": true,
+      "role": "price_ablation",
+      "description": "Price contribution zero; identical tensors",
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "loss": "scalar_huber_plus_terminal_anchor",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 17066,
+      "expected_fp32_parameter_bytes": 68264,
+      "expected_buffer_bytes": 20
+    },
+    {
+      "id": "screened_plain24_anchored",
+      "model_key": "plain_both",
+      "base_model_key": "plain24_nonpositive",
+      "screened": true,
+      "role": "same_width_architecture_control",
+      "description": "Plain24 with inherited horizon/anchor",
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "loss": "scalar_huber_plus_terminal_anchor",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 16841,
+      "expected_fp32_parameter_bytes": 67364,
+      "expected_buffer_bytes": 20
+    },
+    {
+      "id": "screened_compact64_anchored",
+      "model_key": "compact_both",
+      "base_model_key": "additive64_nonpositive",
+      "screened": true,
+      "role": "screened_capacity_control",
+      "description": "Compact64 with inherited horizon/anchor",
+      "horizon_scaling": true,
+      "terminal_anchor": true,
+      "loss": "scalar_huber_plus_terminal_anchor",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 48736,
+      "expected_fp32_parameter_bytes": 194944,
+      "expected_buffer_bytes": 0
+    },
+    {
+      "id": "screened_plain24",
+      "model_key": "plain24_nonpositive",
+      "base_model_key": "plain24_nonpositive",
+      "screened": true,
+      "role": "screened_plain_small_ddqn",
+      "description": "Ordinary scalar DDQN; no horizon/anchor",
+      "horizon_scaling": false,
+      "terminal_anchor": false,
+      "loss": "scalar_huber",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 16841,
+      "expected_fp32_parameter_bytes": 67364,
+      "expected_buffer_bytes": 20
+    },
+    {
+      "id": "unmasked_plain24",
+      "model_key": "plain24_nonpositive",
+      "base_model_key": "plain24_nonpositive",
+      "screened": false,
+      "role": "plain_small_ddqn",
+      "description": "Ordinary scalar DDQN; no horizon/anchor",
+      "horizon_scaling": false,
+      "terminal_anchor": false,
+      "loss": "scalar_huber",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 16841,
+      "expected_fp32_parameter_bytes": 67364,
+      "expected_buffer_bytes": 20
+    },
+    {
+      "id": "screened_wide128",
+      "model_key": "additive128_unbounded",
+      "base_model_key": "additive128_unbounded",
+      "screened": true,
+      "role": "screened_strong_reference",
+      "description": "Original wide128 scalar DDQN",
+      "horizon_scaling": false,
+      "terminal_anchor": false,
+      "loss": "scalar_huber",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 105504,
+      "expected_fp32_parameter_bytes": 422016,
+      "expected_buffer_bytes": 0
+    },
+    {
+      "id": "unmasked_wide128",
+      "model_key": "additive128_unbounded",
+      "base_model_key": "additive128_unbounded",
+      "screened": false,
+      "role": "strong_reference",
+      "description": "Original wide128 without screen",
+      "horizon_scaling": false,
+      "terminal_anchor": false,
+      "loss": "scalar_huber",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 105504,
+      "expected_fp32_parameter_bytes": 422016,
+      "expected_buffer_bytes": 0
+    },
+    {
+      "id": "screened_bdq64",
+      "model_key": "bdq64_uniform_adapted",
+      "base_model_key": "bdq64_uniform_adapted",
+      "screened": true,
+      "role": "branching_reference",
+      "description": "Adapted BDQ; original branchwise Huber",
+      "horizon_scaling": false,
+      "terminal_anchor": false,
+      "loss": "branchwise_huber",
+      "chosen_value": "mean_selected_branch_values",
+      "expected_online_parameter_count": 48801,
+      "expected_fp32_parameter_bytes": 195204,
+      "expected_buffer_bytes": 0
+    },
+    {
+      "id": "unmasked_compact64",
+      "model_key": "additive64_nonpositive",
+      "base_model_key": "additive64_nonpositive",
+      "screened": false,
+      "role": "compact_reference",
+      "description": "Original compact64; no horizon/anchor",
+      "horizon_scaling": false,
+      "terminal_anchor": false,
+      "loss": "scalar_huber",
+      "chosen_value": "existing_scalar_joint_value",
+      "expected_online_parameter_count": 48736,
+      "expected_fp32_parameter_bytes": 194944,
+      "expected_buffer_bytes": 0
+    }
+  ],
+  "heuristics": [
+    "nearest_rsu",
+    "uav_selective",
+    "observed_load_radio",
+    "all_local"
+  ],
+  "simulator": {
+    "module": "Source/chapter3_iov_env_v2.py",
+    "config": "Chapter3Config() without overrides",
+    "defaults": {
+      "num_vehicles": 30,
+      "episode_steps": 40,
+      "area_m": 1000.0,
+      "slot_s": 1.0,
+      "task_size_bytes": [
+        1000000.0,
+        3000000.0
+      ],
+      "task_cycles": [
+        300000000.0,
+        500000000.0
+      ],
+      "deadline_s": [
+        0.25,
+        0.3
+      ],
+      "vehicle_cpu_hz": 1500000000.0,
+      "uav_cpu_hz": [
+        10000000000.0,
+        10000000000.0
+      ],
+      "rsu_cpu_hz": [
+        20000000000.0,
+        20000000000.0
+      ],
+      "rsu_cpu_is_provisional": true,
+      "rsu_link_bps": 1000000000.0,
+      "rsu_link_is_provisional": true,
+      "g2a_bandwidth_hz": 20000000.0,
+      "g2a_allocation_mode": "per_link_with_interference",
+      "vehicle_tx_power_w": 1.0,
+      "noise_dbm": -100.0,
+      "carrier_hz": 2000000000.0,
+      "carrier_frequency_is_provisional": true,
+      "los_a": 9.61,
+      "los_b": 0.16,
+      "los_excess_loss_db": 1.0,
+      "nlos_excess_loss_db": 20.0,
+      "uav_altitude_m": 50.0,
+      "uav_max_step_m": 49.0,
+      "uav_battery_j": 500000.0,
+      "effective_switched_capacitance": 1e-28,
+      "vehicle_effective_switched_capacitance": 1e-28,
+      "vehicle_compute_energy_is_provisional": true,
+      "delay_reward_weight": 0.5,
+      "uav_energy_reward_weight": 0.5,
+      "uav_mass_kg": 10.19367991845056,
+      "air_density_kg_m3": 1.225,
+      "rotor_radius_m": 0.5,
+      "rotor_angular_speed_rad_s": 400.0,
+      "rotor_solidity": 0.05,
+      "fuselage_drag_ratio": 0.3,
+      "blade_drag_coefficient": 0.012,
+      "induced_power_correction": 0.1,
+      "deadline_miss_penalty": 1.0,
+      "deadline_normalizer_s": 0.3,
+      "model_version": "chapter3-timeline-v2",
+      "radio_update_interval_s": 0.05,
+      "horizon_policy": "stop_and_report_unfinished",
+      "uplink_scheduler": "one_fifo_transmitter_per_vehicle",
+      "observation_model": "compressed_partial_observation"
+    },
+    "reward_changed": false,
+    "normalization_changed": false
+  },
+  "training": {
+    "episodes_per_fit": 200,
+    "slots_per_episode": 40,
+    "slots_per_fit": 8000,
+    "warmup": 1024,
+    "batch_size": 128,
+    "replay_capacity": 50000,
+    "replay": "uniform with replacement; fixed chronological insertion/eviction",
+    "first_update": "after inserting physical slot 1024; one update each slot thereafter",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gamma": 1.0,
+    "gradient_clip": 10.0,
+    "huber_beta": 1.0,
+    "target_interval_updates": 200,
+    "optimizer_updates_per_fit": 6977,
+    "target_copies_per_fit": 34,
+    "threads": 1,
+    "epsilon": "1 during warmup, otherwise 1-.95*min(global_slot_before_action/8000,1)",
+    "target_initialization": "exact online state copy; eval mode; requires_grad False",
+    "final_checkpoint_only": true,
+    "checkpoint_selection": false,
+    "research_early_stopping": false,
+    "anchor": {
+      "batch": 32,
+      "weight": 1.0,
+      "terminal_pool": "uniform with replacement among un-evicted terminal transitions",
+      "empty_pool": "zero anchor loss and log event",
+      "separate_rng": true,
+      "one_optimizer_step": true
+    },
+    "loss_definitions": "All new arms: original-unit Huber(Q,y), gamma1, terminal anchor weight1. Original controls retain their frozen losses; no normalized-loss arms.",
+    "training_time": "Record wall time per fit, optimizer time and extra anchor sample counts; equal slots/steps do not imply equal compute"
+  },
+  "development": {
+    "model_seeds": [
+      87301,
+      87311,
+      87317,
+      87323,
+      87331
+    ],
+    "train_blocks": [
+      {
+        "start": 873000000,
+        "count": 200
+      },
+      {
+        "start": 873100000,
+        "count": 200
+      },
+      {
+        "start": 873200000,
+        "count": 200
+      },
+      {
+        "start": 873300000,
+        "count": 200
+      },
+      {
+        "start": 873400000,
+        "count": 200
+      }
+    ],
+    "evaluation_seeds": {
+      "start": 874000000,
+      "count": 48
+    },
+    "fits": 5,
+    "training_slots": 600000,
+    "optimizer_updates": 523275,
+    "target_copies": 2550,
+    "learned_evaluation_episodes": 3600,
+    "heuristic_evaluation_episodes": 192,
+    "evaluation_slots": 151680,
+    "final_checkpoints": 75,
+    "task_records": 22550400,
+    "checkpoint_selection": false
+  },
+  "rng": {
+    "arm_order_seed": 875000001,
+    "timing_order_seed": 875000003,
+    "bootstrap_seed": 875000007
+  },
+  "comparisons": {
+    "primary_report_against_each": [
+      "coupled_no_sweep",
+      "separable64",
+      "fixed_price_plain_sweep",
+      "screened_price24",
+      "unmasked_price24",
+      "screened_no_price24",
+      "screened_plain24_anchored",
+      "screened_compact64_anchored",
+      "screened_plain24",
+      "unmasked_plain24",
+      "screened_wide128",
+      "unmasked_wide128",
+      "screened_bdq64",
+      "unmasked_compact64",
+      "nearest_rsu",
+      "uav_selective",
+      "observed_load_radio",
+      "all_local"
+    ],
+    "required_reference_arms": [
+      "screened_price24",
+      "unmasked_price24",
+      "screened_no_price24",
+      "screened_plain24_anchored",
+      "screened_compact64_anchored",
+      "screened_plain24",
+      "unmasked_plain24",
+      "screened_wide128",
+      "unmasked_wide128",
+      "screened_bdq64",
+      "unmasked_compact64"
+    ],
+    "reference_each_fit": {
+      "return_difference_min": -2.0,
+      "deadline_fraction_difference_min": -0.01
+    },
+    "strong_heuristics": [
+      "nearest_rsu",
+      "uav_selective",
+      "observed_load_radio"
+    ],
+    "heuristic_each_fit": {
+      "return_difference_min": 0.0,
+      "deadline_fraction_difference_min": 0.0
+    },
+    "diagnostic_only_heuristics": [
+      "all_local"
+    ],
+    "mechanisms": [
+      {
+        "id": "sweep",
+        "left": "coupled_sweep",
+        "right": "coupled_no_sweep",
+        "each_fit_return_difference_min": 0.0,
+        "each_fit_deadline_fraction_difference_min": 0.0,
+        "equal_fit_mean_return_difference_min": 2.0,
+        "equal_fit_mean_deadline_fraction_difference_min": 0.01
+      },
+      {
+        "id": "coupling_and_selection",
+        "left": "coupled_sweep",
+        "right": "separable64",
+        "each_fit_return_difference_min": 0.0,
+        "each_fit_deadline_fraction_difference_min": 0.0,
+        "equal_fit_mean_return_difference_min": 2.0,
+        "equal_fit_mean_deadline_fraction_difference_min": 0.01
+      },
+      {
+        "id": "learned_prices",
+        "left": "coupled_sweep",
+        "right": "fixed_price_plain_sweep",
+        "each_fit_return_difference_min": 0.0,
+        "each_fit_deadline_fraction_difference_min": 0.0,
+        "equal_fit_mean_return_difference_min": 2.0,
+        "equal_fit_mean_deadline_fraction_difference_min": 0.01
+      }
+    ],
+    "auxiliary_contrasts": [
+      {
+        "left": "separable64",
+        "right": "screened_price24",
+        "question": "FP64 scalar/runtime route characterization, not one-factor price benefit"
+      },
+      {
+        "left": "coupled_no_sweep",
+        "right": "separable64",
+        "question": "Coupled evaluation/training without sweep"
+      },
+      {
+        "left": "screened_price24",
+        "right": "unmasked_price24",
+        "question": "Original screening"
+      },
+      {
+        "left": "screened_plain24",
+        "right": "unmasked_plain24",
+        "question": "Ordinary small DDQN screening"
+      },
+      {
+        "left": "screened_wide128",
+        "right": "unmasked_wide128",
+        "question": "Wide reference screening"
+      }
+    ]
+  },
+  "value_stability": {
+    "gated_arms": [
+      "normalized_screened_price24"
+    ],
+    "report_all_arms": true,
+    "Q_target": "Record frozen target value for the same online-selected action before every executed evaluation action",
+    "realized_return": "G_t=sum(rewards[t:40]) on that same arm trajectory; gamma1",
+    "normalized_rmse": "sqrt(mean((Q-G)^2))/max(1,sqrt(mean(G^2)))",
+    "normalized_rmse_max": 0.25,
+    "absolute_bias": "abs(mean(Q-G))",
+    "absolute_bias_max": 2.0,
+    "near_zero_threshold": 1e-06,
+    "large_return_threshold": 1.0,
+    "near_zero_large_return_fraction_max": 0.05,
+    "terminal_p95": "95th percentile of abs(Q_39-r_39) over episodes, numpy linear quantile",
+    "terminal_abs_error_p95_max": 2.0,
+    "nonpositive_primary": true,
+    "finite_all_arms_and_optimizer_diagnostics": true,
+    "distributions": [
+      "mean",
+      "median",
+      "p05",
+      "p95",
+      "min",
+      "max",
+      "count"
+    ],
+    "time_bins": [
+      [
+        0,
+        9
+      ],
+      [
+        10,
+        19
+      ],
+      [
+        20,
+        29
+      ],
+      [
+        30,
+        39
+      ]
+    ],
+    "save": [
+      "chosen_online_Q",
+      "chosen_target_Q",
+      "realized_return_to_go",
+      "Q_minus_G",
+      "target_minus_G",
+      "Bellman_targets",
+      "TD_residuals",
+      "gradient_norm_before_clip",
+      "clipping_fraction",
+      "uniform_loss",
+      "anchor_loss",
+      "terminal_and_nonterminal_predictions",
+      "destination_counts",
+      "local_infeasibility_counts",
+      "deadline_misses_by_destination"
+    ],
+    "interpretation": "Realized own-policy consistency under stochastic trajectories, not exact conditional optimal Q ground truth; comparator failures do not excuse primary failure"
+  },
+  "action_cost": {
+    "backend": "Matched ONNX CPU neural cores plus native Numba heads/decoders, one thread, fastmath false",
+    "route": "All fifteen arms receive same graph/compiler optimization opportunity; extend adapters and verify all original controls before release",
+    "common_inputs": "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+    "common_inputs_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+    "observations": 128,
+    "rounds": 5,
+    "warmups_per_path_per_round": 32,
+    "timed_calls_per_path_per_round": 128,
+    "raw_timed_calls": 48000,
+    "exact_actions": true,
+    "Q_atol": 1e-06,
+    "Q_rtol": 1e-05,
+    "measure": "Input validation/conversion, screen when enabled, neural forward, decoder and final action copy; diagnostic screen logging charged if in deployed path",
+    "exclude": "Simulator stepping, file I/O, compilation and startup; report cold startup separately",
+    "timing": "perf_counter_ns; save every reading and fixed randomized order; pool 640 observations/path for median and linear p95; no favorable retiming",
+    "primary_each_fit": {
+      "parameter_bytes_max_fraction_of_unmasked_compact64": 0.5,
+      "median_ms_max_fraction_of_each": [
+        "screened_wide128",
+        "unmasked_wide128"
+      ],
+      "median_ratio_max": 1.0,
+      "p95_ms_max": 1.0
+    },
+    "storage": "Confirm actual tensors; report online parameters, buffers, serialized deployment bytes, target/optimizer/replay separately. No device-memory or electrical energy claim.",
+    "checkpoint_order": "Freeze all 75 final online/target checkpoints; export/check action-value equivalence, freeze artifacts; time once before policy-quality evaluation",
+    "startup": "Record graph export/session construction and true fresh-process first-action timing separately; shared-process startup labeled; never subtract startup from end-to-end storage claims"
+  },
+  "uncertainty": {
+    "stage": "development continuation screen only; no final statistical claim",
+    "draws": 5000,
+    "resampling": "Paired crossed bootstrap of 5 initialization indices and 48 common task episode indices; same draws for both compared arms",
+    "comparisons": "All 16 primary and nine auxiliary contrasts; heuristics repeated by fit only for alignment, not independent models",
+    "intervals": "Two-sided descriptive percentile95%; no multiplicity-corrected superiority claim or gate on these intervals",
+    "units": "Episodes and trained initializations, never individual time slots; five initializations limit uncertainty estimates"
+  },
+  "final": {
+    "status": "existing_reservations_protected_untouched_no_new_final_protocol",
+    "historical_protocol": "TERMINAL_ANCHOR_RESEARCH_PROTOCOL_2026-11-06.json",
+    "model_seeds": [
+      51001,
+      51011,
+      51017,
+      51023,
+      51031
+    ],
+    "train_blocks": [
+      {
+        "start": 510000000,
+        "count": 200
+      },
+      {
+        "start": 511000000,
+        "count": 200
+      },
+      {
+        "start": 512000000,
+        "count": 200
+      },
+      {
+        "start": 513000000,
+        "count": 200
+      },
+      {
+        "start": 514000000,
+        "count": 200
+      }
+    ],
+    "evaluation_seeds": {
+      "start": 520000000,
+      "count": 200
+    },
+    "launch_authorized": false,
+    "note": "Reservations only; historical final arm counts/budgets are not silently imported into this comparison"
+  },
+  "scope": {
+    "security_trust": false,
+    "cloud": false,
+    "charging": false,
+    "word_thesis_changed": false
+  },
+  "decision": {
+    "all_scientific_screens_required": true,
+    "every_fit": true,
+    "best_initialization_selection": false,
+    "primary_value_failure_is_failure": true,
+    "fixture_outcomes_used_for_tuning": false,
+    "research_authorization": false,
+    "runner_bound": false,
+    "novelty_established": false,
+    "launch": "Separate explicit user instruction only after runner/heuristic/auditor implementation, fixture, seed refresh and launch review",
+    "failure": "Preserve all results; no outcome-driven retuning or unchanged-run retiming; new design requires a prospective amendment and fresh seeds"
+  },
+  "definition_sha256": {
+    "assignment_price_prototype.py": "acd6d0264da80a4c4ccab136c46e2911ba88c1f7453fbd078655c276fb642543",
+    "assignment_price_native_heads_runtime.py": "2a27a90a30e0c4148505ef0436e554bf3073b1d3392dd3b50e7fa40b729bd1b8",
+    "assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+    "assignment_price_deployment_runtime.py": "96095dd1dc054e66da974a353664bdc98585f8dd0976cac7643c228b589bb183",
+    "assignment_price_reference_deployment.py": "282c509c988a9ff22fb642a7d5212c9bf03719d0913f2514ff1e47754a5d4ffb",
+    "run_assignment_price_fixture.py": "82db9f4ea2ec1376c321403deda7c0e59599ea63ec7f2fb82c1c642716f22820",
+    "audit_assignment_price_fixture_v2.py": "52266e4cd3d22bc9d22f7bb4ab7ed7f4ef7e38d9ae1e9fa6b3c630351da07ef2",
+    "verify_assignment_price_fixture.py": "cc8c11f17fbf1859efaf5181c40e7824438eb41053c74bfa28a761354ffa8101",
+    "ASSIGNMENT_DEPENDENT_PRICE_DESIGN_BRIEF_2026-11-15.txt": "5b18c68561ec1ac60381fb3775f359ec2f75535cdef1d0c7a4e18c3f665d8ea8",
+    "ASSIGNMENT_PRICE_NATIVE_HEADS_REVIEW_2026-11-15.txt": "45db4481a9902715b61063b8c18e3533970e248c72e249b4fe49fef8e8c38a15",
+    "ASSIGNMENT_PRICE_IOV_FIXTURE_REVIEW_2026-11-15.txt": "76f96079344992cf8b254192ad9a68e11c8cf22e0b7038b03a96635aa27181d8",
+    "ASSIGNMENT_PRICE_OBSERVED_LOAD_HEURISTIC_2026-11-15.txt": "c7ad3cd29360b5b72d92a4e57a60a6991e19a479bb997fb0327819aa18f56bff",
+    "ASSIGNMENT_PRICE_LITERATURE_POSITION_2026-11-15.txt": "141a010eed27dccfd711afe75b0d65be036c7cfef71363981ffe4c8f63edf9c9"
+  },
+  "frozen_legacy_definition_sha256": {
+    "anchor_runtime_single_validation.py": "1d9dfef176c4349e7f0d8cdf9af7cd502e55f1c8805dca8e3772c63de0310c06",
+    "audit_anchor_development_v4.py": "80cb44df09a4a25953f8f8ee51476ec1fff68410f67397f7dcb2e523e42bed5f",
+    "audit_controller_redesign_engineering.py": "b08538847a41779c88b1efbca2825e1898bc7625202479ab0060e3e58350e80d",
+    "audit_deadline_screen_iov_fixture.py": "fd2b5d7e5825a0dba521eea0024c86fe1aab1929aa5bd7b83dc546b34e02f26e",
+    "audit_v3_research_gate_v2.py": "86f85e0c30d92fdce2cd0e167d9ddfa73f795c95b617803e6c6286705383e1c6",
+    "audit_value_bound_development.py": "d69e90c2a8d2dd2e16c8cb6b875c2bb7d02ab2ffaf85233275dcb00bc78a09a0",
+    "compiled_controller_inference.py": "512a77244463ce76127145d6c0852942ed162d9f75aa695a879ce4227dbc3f23",
+    "controller_redesign_v2.py": "76ee2cc5d40289401165ce4a610c9843e1d90117785077a73c2ead274111feb5",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "controller_v3_fused_runtime.py": "0727b94900369bd1dc7540cd4fcec2fe12a3d803b4a98462ebde48d8b5a24264",
+    "DEADLINE_AWARE_DDQN_DESIGN_CANDIDATE_2026-11-11.json": "e4a0195a37fbebb4a298cfbfa307243362d23e0fcce6c22fc62a353aa80e6a30",
+    "DEADLINE_AWARE_DDQN_LITERATURE_POSITION_2026-11-11.txt": "e3703c831d9fec25b1072405a685d2e64b4343f16e703b2a61939d7c7dc1e1bc",
+    "DEADLINE_AWARE_DDQN_PROSPECTIVE_DESIGN_BRIEF_2026-11-11.txt": "920f6e491210f8d48a631b675620c6ce1c59dc820402bbd30808b9d5589c991a",
+    "deadline_screen_fast_runtime.py": "852c32531326f2b202e6e64e81507536f8622d36d9ddbc7e7ae4fe74578014f3",
+    "deadline_screen_iov_episode.py": "7a27f7c2da09ee7b8ecad190b85e370235523ac1605fe82aa46dc60a9c375e0c",
+    "DEADLINE_SCREEN_IOV_FIXTURE_PROTOCOL_2026-11-11.json": "dc8c1f342f108a23ef6ca7d27cba82b5ccc72ab0f485c03eef7cc37dcea13133",
+    "DEADLINE_SCREEN_IOV_INTEGRATION_REVIEW_2026-11-11.txt": "31f3624d8bc2db56387885528a970710374daa783dec5dc628161b3f27af4e50",
+    "deadline_screen_prototype.py": "c3bf797233fe98ffca33b8ca757bdf7d82990ebc5596f3432cd1feb0aa5df7e7",
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "run_anchor_development_v4.py": "9782d6b63de28cd3ca76403b0dca81c74d9400f7d23bb523816ff563445a865d",
+    "run_controller_redesign_engineering.py": "b04e0793dc8d126ab8775f51673e7dccf7ce4f711c96e16cb1a59f72987c6021",
+    "run_controller_v3_engineering.py": "4bae5e7b998eaaf52bf54966a07d92f7a7e95ce64aa6b2ac931003a9cace93fa",
+    "run_deadline_screen_iov_fixture.py": "27a02175cbaf31d0b1288056dea40f66dd063dd1a2ad68178a3a9260b5b13378",
+    "run_v3_research_gate_v2.py": "ac234b99641c672900a181bbecc6f0f696f314278d665ffec2c6058bb5126909",
+    "run_value_bound_tradeoff.py": "afe2b9c94265c5f2e7a5fa9fdcf9c0aa0759623548323a92ce711827933ef4c4",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a",
+    "Source/validate_chapter3_model.py": "0354f9ea137579120716911977bb06b279fc67dcfa86f3f453b81aad252852bb",
+    "terminal_anchor_prototype.py": "1713a39f9c5890395ac22517c432a5845105e88f89b3b18ea6849a2bd2873f90",
+    "TERMINAL_ANCHOR_RESEARCH_PROTOCOL_2026-11-06.json": "dae10a458a8de3234615e7f013e71730b52d12e9d87c477606de0f23a809f868",
+    "test_deadline_screen_iov_fixture.py": "97e2ee3417c6a82eb8e67f9e4869cae2180f67827e3f790fc3ff77945a1dde00"
+  }
+}

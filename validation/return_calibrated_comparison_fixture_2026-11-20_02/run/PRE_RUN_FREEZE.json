@@ -1,0 +1,41 @@
+{
+  "protocol_sha256": "1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1",
+  "plan_sha256": "03b7c8176f5ca5c606ea79457141e64ea3ac6e05a7718809a9c62fc552a9bcb4",
+  "source_sha256": {
+    "CENTERED_LINEAR_CORRECTION_COMPARISON_PLAN_2026-11-20.txt": "bab466a4be5fef9062a5ef9773197f806d04976ba21035896d8c7dc2a56fdad0",
+    "CENTERED_LINEAR_CORRECTION_COMPARISON_PROTOCOL_2026-11-20.json": "95bd2737f8700378ced695bfaf4b9a3d457a2fbe54df2f6f7f829186ac7c674f",
+    "HEURISTIC_DDQN_VALUE_SEPARATION_CORRECTION_BRIEF_2026-11-20.txt": "72952b202d6d0f05f7d9ccbccb332a84ed350e11c7e0cacd1d2d36cc79ba4ad3",
+    "RETURN_CALIBRATED_DDQN_HANDOFF_DESIGN_BRIEF_2026-11-20.txt": "bb856926378a7e8b4f0c4029425fd3f3d91254f0dba03be979a09eb48a8d86eb",
+    "RETURN_CALIBRATED_DDQN_HANDOFF_DESIGN_STATUS_2026-11-20.json": "1bf747b5e5150b4b0ad93e21c181aadf16a3cbe986c44a8299dffb09e2170961",
+    "RETURN_CALIBRATED_HANDOFF_COMPARISON_PLAN_2026-11-20.txt": "133118e041eed224b738beca4204b5db221400600941547c4c161992c13fd9f8",
+    "RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json": "1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1",
+    "RETURN_CALIBRATED_HANDOFF_MECHANICS_REVIEW_2026-11-20.txt": "451d16f6f59d958987d2fdc4f9ff430db4c9a569bf2cd2aa9785f6f70c1cbf92",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+    "assignment_price_load_radio_heuristic.py": "925bdd21551bcd06186707af2b8a6751f61dd1e9a11ed26e3d3633fcea35f804",
+    "audit_centered_linear_comparison.py": "5e12cc71576c882307b4a7634fc8254dddc8fd54020fe56dce11d940230292f5",
+    "audit_return_calibrated_comparison.py": "8d1b9e485992923c789a27cfd96396592597a48e7d350e59e69a2e507cb75618",
+    "centered_linear_comparison_models.py": "2de20beb58242e40d876324fe6e5a7cbfa3e02f625cda0247ad09b01b196b734",
+    "centered_linear_ddqn_prototype.py": "7fa7cdcdf0c4b760d57071a7c4dcccbbd51aaa3efdfec4485188a42441de444a",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "freeze_return_calibrated_handoff_comparison_2026_11_20.py": "949cbb8b06b96b57b49f7ca1a593a5daffa0ad951b748cad63d039eac092ac73",
+    "heuristic_initialized_ddqn_baseline.py": "c13b0a437c7ecb6aa20d50605efd5b612e930a33472f3e031678970d0ddb2940",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "return_calibrated_handoff.py": "9bb136e888d3450ff4b244feef4822c52ecd260f8a9277d4f6fc11647972ea5e",
+    "run_centered_linear_comparison.py": "8e334ba7e38dbb5754255db1fc0915d8a27f9dc3729f9bdd2d6f2b6b155fa432",
+    "run_return_calibrated_comparison.py": "7a94bb026a6342fb74d94e75da5aae9f9c40ef04ce5d61568b58cbf8b7dd3293",
+    "test_return_calibrated_handoff.py": "dedc7cbd7ff49c8767fdc288541e5c688eca19b2939558e4b2f19a4ffd2d8702",
+    "validation/return_calibrated_handoff_mechanics_2026-11-20_02/manifest.json": "8193be6c80635a256c12f2b3df00392aa051efd8fb26af0436f6efdd642b715b",
+    "validation/return_calibrated_handoff_mechanics_2026-11-20_02/verification.json": "c3133a1d968cbf3002119e0a1950220338f48c7952d9a4cafe3bae5805447462",
+    "verify_return_calibrated_handoff_mechanics_2026_11_20.py": "640bf71a6a395362d5a3bf62261e62891435edbbb2bee054d02708e97ba44caf"
+  },
+  "teacher_backend": "Python reference: frozen function bodies, identity native decorators",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "torch": "2.15.0+cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "threads": 1
+  }
+}

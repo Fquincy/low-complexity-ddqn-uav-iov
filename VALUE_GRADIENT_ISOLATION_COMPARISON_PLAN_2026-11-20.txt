@@ -1,0 +1,282 @@
+FROZEN PLAN: VALUE-GRADIENT ISOLATION NINE-CONTROLLER DEVELOPMENT COMPARISON
+20 November 2026
+PROTOCOL FREEZE ONLY - NOT A RESEARCH LAUNCH OR FINAL-EVALUATION RELEASE
+
+PURPOSE AND EVIDENCE BOUNDARY
+Test the declared training-gradient correction in the SAME UAV-IoV
+offloading simulator/objective. The tested helper is value_gradient_isolation.py.
+The mechanics gate passed18synthetic tests; its verification and exact
+17-file inventory are bound in the companion JSON. Engineering fixtures
+are not policy evidence. Prior failed/mixed studies remain unchanged.
+
+MODEL, INFORMATION AND SCOPE
+533observations ->24ReLU features ->161affine outputs:150placement,
+10movement and one V readout. Placement scores divide by30; movement by2.
+For centered arms Q(s,a)=V(s)-sum_b(z_b,a_b-mean_all5 z_b).
+F/G retain their original -softplus(b+sum selected scores) formula.
+All students use the original exact separable masked argmin and first-index
+ties. The conservative local mask, simulator defaults, observation/reward,
+terminal handling and physical decisions are inherited without alteration.
+No new price, allocation repair, lookahead, deployment input or teacher call
+is added. Security/trust,cloud and charging remain excluded.
+
+Frozen chronological source of motivation: the completed return-calibrated
+study and saved-trace diagnosis. Its policy=false,value=true,promising=false
+remain historical outcomes. This study does not retrospectively change them.
+
+NINE STUDENTS AND ONE FIXED REFERENCE
+P value_gradient_isolated_ddqn: prospective primary,calibrated+retention+DDQN.
+R dueling_shared_td_rescale_ddqn: adapted known-gradient-rule comparator.
+A calibrated_retained_ddqn: UNMODIFIED previous controller/isolation ablation.
+B calibrated_no_retention_ddqn: no-retention component control.
+C uncalibrated_retained_ddqn: no-calibration component control.
+D uncalibrated_no_retention_ddqn: neither component; relative-value control.
+E calibrated_bc_only: independently trained/calibrated imitation,no TD.
+F old_softplus_bc_ddqn: preserved same-size old baseline.
+G plain_small_softplus_ddqn: ordinary no-demonstration small DDQN.
+Teacher: frozen observed-load/radio Python reference,stationary UAV movement,
+with its previously disclosed empty-battery restriction. Run teacher once
+on the common evaluation workloads; do not count it as3independent fits.
+
+P/R retain the original affine FORWARD and all output-row derivatives.
+Only online TD's hidden-feature derivative differs:
+P: remove the V-row contribution, retaining branch TD feature gradients.
+R: multiply BOTH V+branch TD feature gradients by1/sqrt(2).
+A/B/C/D/F/G: ordinary inherited gradient rule.
+Retention feature/branch derivatives remain ordinary and unscaled for P/R.
+BC,calibration,greedy inference and target evaluation use the ordinary path.
+P is fixed as primary; never promote R or another arm after seeing results.
+
+DATA, RANDOMIZATION AND FROZEN EXPOSURE
+Use exactly the three new model seeds and disjoint demonstration/online
+task blocks reserved in VALUE_GRADIENT_ISOLATION_DESIGN_STATUS_2026-11-20.json,
+copied verbatim into the protocol. Evaluation uses its separate16-workload
+block. BC,epsilon-branch,replay,retention,job-order and timing streams are
+separately reserved. Common per-fit seeds pair draws across eligible arms;
+their actual replays/trajectories may diverge. Do not import consumed research
+weights/data as new training inputs or use untouched final reservations.
+Seed audit coverage and legitimate same-study reservation aliases are saved.
+
+Generate10teacher demonstration episodes of40slots per fit. Freeze all
+episode/data hashes before fitting. All8BC arms share those400transitions
+and action labels and the exact same initial tensors. G receives no demo
+training,calibration,retention or demonstration-state diagnostic probes.
+G's own warmup states supply its raw/final probes. Common synthetic export
+checks are explicitly permitted for every arm and are not demonstrations.
+
+BC:200Adam steps,lr0.001,batch64,temperature1; sample without replacement
+within each batch,independent batches. Mean vehicle CE plus mean movement CE,
+with the inherited mask. Global clip10,betas(0.9,0.999),eps1e-8,decay0.
+All8BC endpoints must match by tensor hash for a given initialization.
+Discard the BC optimizer before online DDQN; do not transfer its moments.
+
+CALIBRATION AND RETENTION
+P/R/A/B/E apply the identical inherited positive branch-scale and V-row
+ridge calibration. Use only return targets from the first8demo episodes
+(320states) for fitting; the last2episodes(80states) withhold return targets.
+All400action labels remain available to BC/retention. This is not an entirely
+unseen generalization set. Record all split and data provenance.
+
+S_r=max(1e-6,median(abs(fitting rewards))); R_max is the maximum over fit
+states of the sum of all5-action branch ranges; alpha=S_r/(S_r+R_max).
+Scale branch output rows0..159 weights AND biases by alpha. Fit only V row160
+with the inherited FP64 standardized ridge,rho0.001,unpenalized intercept,
+folded back into existing FP32 parameters. Retain the complete equations and
+engineering export/range tolerances from the inherited protocol.
+Greedy actions must remain exactly unchanged on all400demo states.
+P/R/A/B/E handoff tensor hashes and alpha must match per fit.
+
+The existing warning compares AFTER_VALUE_FIT versus AFTER_BC RMSE on the
+80withheld-return states. Finite poor fits continue the fixed schedule with
+their warnings; no refit,rho/alpha adjustment,checkpoint selection or retry.
+Nonfinite,numerical/parity or action-preservation failures STOP and preserve
+the partial study; do not replace that initialization.
+
+Only P/R/A/C use retention: one separate batch64sampled with replacement
+from the400saved demonstrations per TD update. Temperature is fixed alpha
+for P/R/A and1for C; retention weight1. The independent retention RNG is
+not consumed by B/D/E/F/G. No additional teacher inference or optimizer step.
+
+ONLINE DDQN AND GRADIENT-ROUTING CONTRACT
+Each of the8DDQN arms receives50episodes*40slots=2,000online slots per fit.
+Append the current transition before updating; FIFO replay capacity4,096,
+preloaded demonstrations only for BC+DDQN arms. First update occurs at
+zero-based slot128; then one update per slot,1,872updates per arm/fit.
+Replay batches64use uniform sampling with replacement. Save transition IDs.
+
+Every slot consumes one epsilon uniform and32branch uniforms,including
+greedy slots. Epsilon=1 during t<128; otherwise1-0.95*min(t/2000,1).
+Random components sample uniformly from their allowed set; greedy actions
+use the original inference path. E consumes no online slots/action streams.
+
+y=r+(1-done)*Q_target(s_next,decode_online(s_next)),gamma1.
+Terminal rows bypass successor decoding/target evaluation and bootstrap0.
+Use scalar Huber_beta1 TD plus retention where declared,one joint backward,
+global clip10 and one Adam step,lr0.0001,betas(0.9,0.999),eps1e-8,decay0.
+Copy target initially and after every200updates(9scheduled copies/fit).
+Targets are detached,with independent parameter/buffer storage.
+
+All arms MUST use the tested new helper's ddqn_retention_step. It calls
+Critic.td_prediction for current TD values,which routes P/R and falls back
+to ordinary forward for the7legacy arms. Using the inherited ordinary step
+for P/R silently omits the mechanism and is an engineering failure even
+if forward Q/actions agree. Log the expected rule tag on EVERY update:
+P=isolate_value,R=rescale_shared_td,others=ordinary. E has no update log.
+No persistent routing mode or modifications to inference are permitted.
+
+Save the shuffled27job arm/fit order before training. Keep every FINAL
+training checkpoint,including target/optimizer where applicable,plus one
+standalone deployment state dictionary per endpoint. These27deployment
+copies are not27extra learned checkpoints. No intermediate/best weights.
+Keep raw/BC/handoff hashes and stage probes instead of intermediate weights.
+
+EXPORT AND GLOBAL FREEZE
+Export via deployment_model to the ORIGINAL inherited Critic class,
+with independent storage and no training-only TD method/custom backward.
+P/R export to the original centered/calibrated family; labels remain P/R in
+metadata. State dictionaries must match their final online tensor hashes.
+Store deployment-only files separately from full training checkpoints.
+
+Before evaluation,verify exact same-boundary action/Q parity on a common
+128state synthetic corpus: x=(arange(128*533).reshape(128,533)%37)/80 FP32;
+alternating vehicle cycle features0.9/0.6,deadline feature0.9;time=(row%40)/40.
+This is the tested deterministic mechanics corpus,not research evidence.
+Check all single states and the128state batch separately; do not compare
+cross-batch Q as if batching were bit-exact. Preserve masks,ties and FP32
+ordering. Do not relax parity or change decoders after observing results.
+
+Freeze hashes of all27final training checkpoints AND27deployment files
+globally BEFORE ANY development evaluation. Evaluate deployed original-class
+models only,with all27student and shared teacher workload lists frozen.
+
+EVALUATION, COMPARISONS AND SCIENTIFIC DECISION
+Every endpoint runs the same16new40slot workloads,epsilon0,no fitting,
+teacher corrections or reward changes. Preserve unfinished tasks and original
+deadline accounting. Higher return and deadline success are better.
+
+For EVERY initialization,P-minus-E,F,A,R must be>=0 in BOTH outcomes.
+For EACH of those4contrasts,equal-fit means must be strictly>0 in BOTH.
+This is the policy screen. No policy-loss allowance or scientific tolerance.
+P-A isolates the proposed correction; P-R compares selective isolation with
+the adapted known-gradient rule. A and R cannot substitute for P after results.
+
+Value screen: P own-policy NRMSE AND abs(mean(Q-G_own)) strictly below D
+in EVERY initialization. G_own is within-episode undiscounted realized return;
+NRMSE=sqrt(mean((Q-G_own)^2))/max(sqrt(mean(G_own^2)),1e-12),over640decision
+states/fit. This is a relative development screen,not proof of calibration.
+Report P-A/P-R/P-E value contrasts and all absolute distributions as well.
+Own-policy errors compare different trajectories; no causal calibration claim.
+
+Promising requires BOTH screens,finite complete evidence,all fits and the
+full artifact audit. Equality uses recorded values,without scientific eps.
+If either screen fails:HOLD expansion,keep all fits,no automatic retry,
+retuning,best-arm promotion or final-set consumption. A failed comparator
+does not excuse a failed P criterion. Complete all other scheduled outcomes
+despite scientific failure,unless an engineering/numerical failure stops them.
+
+Report per-fit/mean return and deadlines for every arm,teacher and every
+P-minus-arm contrast; A-B-C+D factorial interaction for policy/value metrics;
+R-A,P-A,P-R mechanism contrasts; all student-minus-teacher comparisons.
+Keep terminal/nonterminal/slot-quarter Q-G errors,positive-Q and nearzero-Q
+(absQ<1e-6) fractions,targets,gradient tails and clipping distributions.
+No statistical-significance or convergence claim from these3fits/16workloads.
+
+ALLOCATION DIAGNOSTICS AND COMPLETE ARTIFACT AUDIT
+Save each episode's FP32 states,actions,rewards,next states,dones,selected
+evaluation Q; JSON task IDs,exogenous workload descriptors,seed,completed/
+unfinished outcomes,queue/link/compute waits and reward components. Report
+server tasks/cycles per slot,destination transitions,paired new/avoided misses
+and delay/energy/deadline decomposition. Retain task-matched same-destination
+queue-delay changes. Same-state alternative choices are not simulated outcomes.
+
+Log BC draws/losses/preclip norms; calibration inputs/scales/ridge coefficients,
+rank/condition/residuals/warnings; raw,BC,handoff and final tensor hashes;
+fixed BEFORE_BC/AFTER_BC/AFTER_SCALE/AFTER_VALUE_FIT/FINAL probes for eligible
+arms,marking absent stages skipped. G uses only its saved own warmup states.
+Every TD update records replay and retention IDs/indices,prediction,rewards,
+next actions,target Q,targets,dones,losses,alpha,gradient rule,total/shared/
+branch/V preclip norms,clip flag and target-copy indicator. Save first-update
+action-gap decomposition,all final replay/RNG states,sources,environment,
+events,counts and global freeze order. No hidden extra checkpoints.
+
+Auditor: exact inventory/hashes/source snapshots; counts/data permissions,
+RNG/draw reconstruction,workload pairing; independent episode-local returns,
+calibration split/scale and augmented-ridge solve; all handoff/BC parity;
+targets/masks/logged arithmetic; exported/final actions/Q; all scientific
+metrics/contrasts/screens; timing calls/actions and checkpoint freeze order.
+
+Mechanism audit must reconstruct the FIRST saved update for P,R,A in each
+of3fits from retained E's identical handoff and saved sampled transitions.
+Recompute predictions,targets,losses and per-parameter/group gradients by
+independent full-affine forward and explicit derivative equations or an
+independent detached-feature reference. It must NOT call the production
+custom affine backward as its reference. Verify P removes exactly the V
+feature path,R scales only TD feature paths,and retention/readout gradients
+stay ordinary; compare logged norms and clipping. Record9reconstructed
+contexts and all audit gradient evaluations as audit computation,not training.
+
+Engineering tolerances: same-boundary forward/export actions and Q exact;
+independent parameter gradients rtol3e-5,atol2e-6; scalar norm/target arithmetic
+rtol3e-5,atol1e-5; ridge export rtol1e-5,atol1e-4 as inherited. Keep tests
+of original inference separate from cross-formula independent arithmetic.
+If engineering checks fail,STOP/preserve and review before research release;
+do not reinterpret an engineering discrepancy as a scientific improvement.
+Historical full-gradient/weight/optimizer replay is NOT claimed. Rule/source
+bindings,logged checks and first-update reconstruction are narrower evidence.
+
+COST, TIMING AND RETENTION
+All9students:16,841parameters,67,364FP32parameter bytes,20buffer bytes.
+Same-size comparisons cannot prove storage compression. Save deployment-only
+serialization separately from target/optimizer/replay/checkpoint/process data.
+Record demo generation,BC,ridge,online TD+retention,evaluation,export/parity,
+audit and archive time separately. No presumed training/runtime advantage.
+
+After all checkpoints/evaluations,freeze128saved evaluation states chosen
+without replacement by a seeded permutation of sorted episode-path/state
+order. Then shuffle all84policy/round blocks using the same timing RNG.
+Each block uses32warmups and128single-state measured calls;28policies*3rounds
+give10,752measured calls and2,688warmups. Save raw nanoseconds,actions,median,
+p95 and round distributions. Boundary includes validation,mask,forward,
+selection,chosen Q and output copy. Match CPU/FP32/one torch thread/backend;
+no batching,caching state work,acceptance retiming or dropped comparator.
+Teacher uses the disclosed Python reference; no compiled-equivalence or UAV
+hardware claim. Timing is descriptive,with no new speed pass threshold.
+
+Exact development budget:
+  1,200demo +48,000online +17,920evaluation =67,120simulated slots.
+  4,800BC +44,928TD =49,728optimizer steps.
+  22,464retention batches(1,437,696examples) are within those TD steps.
+  15ridge solves;27final training checkpoints;27deployment-only exports.
+  24initial target copies;216scheduled target copies.
+Do not count ridge,export,first-update reconstruction or auditing as free work.
+
+Reserve output development_runs/value_gradient_isolation_comparison_2026-11-20_01
+and independent archive D:\Fitz Thesis Research Archive\value_gradient_isolation_comparison_2026-11-20_01.
+This freeze creates neither research directory. Launch readiness must recheck
+source/seed/environment/output absence and E:/D: capacity. Archive every
+completed valid run after full artifact audit,including failed scientific
+screens; verify exact archive inventory and SHA256before declaring completion.
+Keep partial failures; no automatic overwriting,deletion or replacement fit.
+
+NEXT GATE AND CLAIM LIMITS
+Implement a NEW source-bound paired runner and independent results auditor
+for this protocol. Exercise the full orchestration/export/global-freeze/
+evaluation/analysis/timing/audit workflow on a reduced isolated synthetic plan,
+with disjoint fixture seeds,explicit ENGINEERING_NOT_RESEARCH labeling and
+declared reduced budgets. Fixture outputs are never policy-quality evidence.
+The frozen fixture override uses2fits,10demo episodes/fit (the8/2split stays),
+1online episode/TD arm,1evaluation episode/policy,2BC steps,batch4,warmup8,
+replay416,target interval8,and4timing states/1round/1warmup. Its distinct
+seeds are in the protocol. Expected fixture totals:2,200simulator slots,
+32BC+512TDsteps,256retention batches,10ridge solves,18final checkpoints
+and18deployment files;76timed calls+19warmups. None runs in this freeze gate.
+Research CLI must require explicit confirmation AND stay disabled until a
+separate readiness/launch release; final mode stays disabled.
+
+Stronger64/128DDQN,adapted BDQ,properly specified full DQfD and the wider
+heuristic panel remain mandatory broader comparison work before a thesis
+efficiency claim. This narrow mechanism study does not establish compression,
+novelty,general superiority,accurate finite-horizon values or final-set quality.
+No final evaluation or research launch is authorized by this frozen plan.
+Contribution one remains efficient DDQN offloading; security/trust is deferred,
+cloud/charging are excluded,and the Word thesis remains unchanged.

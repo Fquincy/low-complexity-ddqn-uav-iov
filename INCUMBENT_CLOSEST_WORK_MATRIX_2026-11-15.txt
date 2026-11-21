@@ -1,0 +1,160 @@
+INCUMBENT CONTROLLER: BOUNDED CLOSEST-WORK / MECHANISM MATRIX
+2026-11-15
+
+METHOD AND COVERAGE
+Live Crossref searches: UAV vehicular DDQN/lightweight; deadline/masking/queue;
+UAV low-complexity DDQN. One query returned HTTP429 and was recorded as failed.
+Live arXiv searches: UAV+vehicular+offloading; UAV+offloading+(masking/branching);
+vehicular+offloading+(lightweight/DDQN). Query URLs and returned records saved.
+Screened titles/abstracts; retrieved relevant full HTML texts. Inspected the
+referenced method/system/complexity sections below and existing local paper
+extracts. Full-text availability does not mean every equation was independently
+reproduced. No PDF layout-dependent equation extraction was needed for the
+conclusions below. Unicode/MathML duplicated equations require source care.
+
+This is a bounded comparison, not an exhaustive systematic literature review.
+arXiv versions may be preprints and differ from publication versions. Retrieval
+and year metadata alone do not establish peer review. Missing full text is
+explicitly unresolved. Never infer comparative measured speed/size or absent
+masking from a metadata-only record. Numerical results across different
+simulators are not controlled baselines for our controller.
+
+1. ACTION BRANCHING ARCHITECTURES FOR DEEP REINFORCEMENT LEARNING
+https://arxiv.org/abs/1711.08946
+Evidence: full HTML retrieved; existing full-text branching.txt inspected,
+especially introduction, action branching and BDQ architecture/update.
+Existing idea: shared representation with action branches, linear output growth,
+branching dueling Double Q-learning. Coordination through shared representation
+is already proposed. Our decomposition/linear output scaling is not new alone.
+Distinction under investigation: explicit workload marginal table and robust
+local feasibility predicate in a compact offloading controller. Need compare
+against an equally informed branching/small network, not only full joint DQN.
+No direct UAV-IoV performance or parameter advantage inferred from this paper.
+
+2. A CLOSER LOOK AT INVALID ACTION MASKING IN POLICY GRADIENT ALGORITHMS
+https://arxiv.org/abs/2006.14171
+Evidence: full HTML, relevant masking/gradient and experiment sections inspected.
+Existing idea: state-dependent masks and empirical benefit versus penalty-based
+handling. Its theoretical discussion concerns policy gradients, not a proof of
+masked-DDQN convergence, return calibration or remote-deadline guarantees.
+Our interval-safe predicate is a concrete engineering choice, not invention of
+masking. The same predicate must be supplied to appropriate neural controls.
+
+3. SUSTAINABLE TASK OFFLOADING IN SECURE UAV-ASSISTED SMART FARM NETWORKS:
+   A MULTI-AGENT DRL WITH ACTION MASK APPROACH
+https://arxiv.org/abs/2407.19657v1
+Evidence: full HTML retrieved; abstract, state/action definition, SectionIII-B
+Action Mask, learning section and hyperparameter table inspected.
+Direct overlap: multi-agent DDQN+action mask+UAV offloading; delay/energy
+objective; feasible action filtering from UAV battery/computational capacity.
+The state description includes task priority and knapsack selection outcomes.
+The article describes binary local-UAV/edge choices and2^K joint combinations;
+reported layer neuron settings include(32,64,128). Those settings alone do not
+give a matched executable parameter count or complete inference latency.
+Difference: our vehicles/local-UAV-RSU choices, movement branches, partial
+queue observations, separable compact price table and outward local service
+bound. Different scenario or width alone does not establish contribution.
+Implication: reject generic "first masked DDQN for UAV offloading" wording.
+Security is this source's scope, not an addition to our current experiment.
+
+4. COMPUTATION OFFLOADING FOR MULTI-SERVER MULTI-ACCESS EDGE VEHICULAR
+   NETWORKS: A DDQN-BASED METHOD
+https://arxiv.org/abs/2404.07215v1
+Evidence: full HTML retrieved; system queues, two-stage resource/offloading
+method and R-DDQN server scheduling/update/experiment sections inspected.
+Direct overlap: vehicular DDQN, queue/resource information, simultaneous
+requests and server congestion; device offloading plus server scheduling.
+The text explicitly notes independent terminals choosing the same server can
+increase congestion and make benefit evaluation inaccurate.
+Difference: ours jointly chooses vehicle destinations and UAV movements via
+compact tables, rather than reproducing its server-side request scheduler.
+Implication: queue-aware DDQN and congestion awareness are already established.
+A coupled workload decoder needs distinguishable equations and fair heuristic
+controls; the idea "avoid herding at a server" is not itself new.
+
+5. FLEXEDGE: DIGITAL TWIN-ENABLED TASK OFFLOADING FOR UAV-AIDED VEHICULAR
+   EDGE COMPUTING
+https://arxiv.org/abs/2305.01536v1
+Evidence: full HTML retrieved; system/MDP/PPO, SectionIII-C complexity and
+SectionIV experiments inspected. Full-text title/identifier matches retrieval.
+Direct overlap: UAV/vehicle/RSU offloading, trajectory decisions and explicit
+MLP training/one-step execution complexity discussion.
+Different method: digital-twin PPO framework; continuous/control formulation
+and different physical assumptions. It already discusses execution cost, so
+claiming complexity analysis itself as new is inappropriate.
+Its plotted reward/energy results are not directly comparable with our deadline
+fraction or host latency. Do not infer our controller is faster without a
+matched implementation and equivalent information/objective.
+
+6. HIERARCHICAL TASK OFFLOADING FOR UAV-ASSISTED VEHICULAR EDGE COMPUTING
+   VIA DEEP REINFORCEMENT LEARNING
+https://arxiv.org/abs/2507.05722v1
+Evidence: full HTML retrieved; network model, SectionIII policy/scheduling,
+node score Eq28, fallback description and experiment sections inspected.
+Direct overlap: UAV-IoV offloading with learned high-level control and
+resource-aware low-level selection. Its SAC chooses global offloading ratios/
+trajectories while priority scheduling handles node/resource decisions.
+Node candidates require reachable links and more than30% remaining computation;
+distance and remaining resource enter its scoring rule with fallback modes.
+Difference: our binary destination decisions, fixed-width DDQN, compressed
+observations and interval-conservative local mask; it has HUAV/LUAV/BS and
+partial offloading. Not a like-for-like executable reference without adaptation.
+Implication: mixing learned control and a resource-aware selection mechanism
+is already present in the same domain. Our future decoder needs a precise,
+tested distinction, rather than just renaming hierarchical/heuristic selection.
+
+7. JOINT TASK OFFLOADING, RESOURCE ALLOCATION, AND TRAJECTORY DESIGN FOR
+   MULTI-UAV COOPERATIVE EDGE COMPUTING WITH TASK PRIORITY
+https://doi.org/10.1109/TMC.2024.3350078
+Evidence: existing local full-paper extract hao2024_local_reference.txt;
+system/action-method and SectionC Complexity Analysis inspected.
+Overlap: multi-UAV joint offloading/resources/trajectory, task priority,
+hybrid action handling and explicit computational complexity analysis.
+Different method: latent-space DRL with encoding/decoding of hybrid actions.
+Our compact discrete branch decoder differs, but generic joint offloading,
+trajectory optimization or complexity discussion is not new.
+
+8. ENERGY-EFFICIENT MULTI-AGENT DEEP REINFORCEMENT LEARNING TASK OFFLOADING
+   AND RESOURCE ALLOCATION FOR UAV EDGE COMPUTING
+https://doi.org/10.3390/s25113403
+Evidence: existing local full-paper extract sensors2025_local_reference.txt;
+system objective, multi-agent twin-critic method and related-work inspected.
+Overlap: delay/energy offloading and UAV-resource coordination.
+Different method: MATD3-TORA actor/dual-critic learning with centralized
+training information. Do not compare its claimed energy improvements with our
+online neural storage, which is a different measurement and environment.
+
+9. IMPORTANT UNRESOLVED DOMAIN RECORDS
+Q-TOP: Queue-Aware Task Offloading and Path Planning for Multi-UAV Assisted
+Vehicular Edge Computing Networks. DOI10.1109/TVT.2026.3721145.
+Evidence: Crossref metadata and OpenAlex indexed abstract only. Publisher
+document URL returned an empty body; no full text obtained. Abstract describes
+Lyapunov decomposition and a genetic-based per-slot solution, queue stability
+and UAV-energy constraints. Full mechanism/latency comparison unresolved.
+
+Dynamic Offloading for Deadline-Aware Dependent Tasks in UAV-Empowered
+Multi-Access Edge Computing. DOI10.1109/TVT.2026.3676992.
+Evidence: metadata and indexed abstract only, no full-text repository URL.
+Abstract describes urgency/path ranking and energy/time-aware offloading.
+Do not assert absence of compact DDQN, screening or workload prices from it.
+Publication date fields differ across index sources; no precise date claim
+is needed for this decision. These records remain closest-work review items.
+
+DECISION
+Known overlap blocks generic novelty claims about DDQN, masking, queue-aware
+selection, branchwise linear growth, or learned-control/heuristic combinations.
+The existing explicit marginal table is a candidate contribution but not yet
+consistently better than same-width alternatives in the consumed experiments.
+The proposed next question is actual-assignment-dependent workload pricing at
+bounded decoding cost. Novelty and benefit remain unproven; the next brief
+must compare it with conventional load-aware greedy allocation and equally
+informed DDQN variants before implementation/training. This matrix grants
+no automatic GO for a new research launch or thesis claim revision.
+
+FILES
+validation/incumbent_evidence_stage_2026-11-15_01/literature_search.json
+validation/incumbent_evidence_stage_2026-11-15_01/literature/
+  retrieval.json, retrieval_fulltext.json, retrieval_closest.json,
+  targeted_search.json, source HTML/text and indexed metadata
+analysis/controller_redesign_2026-11-05/references/
+  branching.txt, hao2024_local_reference.txt, sensors2025_local_reference.txt

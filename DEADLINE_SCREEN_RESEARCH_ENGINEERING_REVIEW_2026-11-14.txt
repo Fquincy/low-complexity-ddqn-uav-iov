@@ -1,0 +1,134 @@
+DEADLINE SCREEN RESEARCH: ENGINEERING COMPLETION REVIEW
+Date: November 14, 2026
+
+OUTCOME
+The frozen eleven-learner / three-heuristic development path is implemented.
+The complete reduced fixture passed, followed by independent saved-artifact
+and deployment/storage audits. Five integration/guard tests and three focused
+update/decision tests passed. No research training/evaluation or final seed
+use occurred. The Word thesis is unchanged.
+
+PRESERVED SCIENTIFIC DEFINITIONS
+The November12 comparison-set freeze, research protocol and all32 pinned
+controller/simulator/design-reference files retain their hashes. No rewards,
+model definitions, seeds, thresholds or optimizer schedules were changed.
+The protocol hash is:
+23b1b292e80a4dadba99ee99b1f7151a80a37db4f6c8b5d03ac198729acf84de
+All11 actual model parameter and buffer counts match the frozen registry.
+Primary:17,066 parameters /68,264 FP32 parameter bytes +20 buffer bytes.
+
+ENVIRONMENT
+The prior environment contained an incomplete torch package (including missing
+torch._utils), not merely one missing dependency. A separate isolated venv was
+completed at C:/Users/OMEN/AppData/Local/Temp/deadline_screen_research_env_2026_11_12.
+Torch2.15.0+cpu was reinstalled from the official CPU wheel. NumPy2.4.6,
+Numba0.65.1 and llvmlite0.47.0 are retained. Imports and pip check passed.
+Package versions, actual import paths and a requirements lock are saved under
+validation/deadline_screen_research_environment_2026-11-14_01.
+The unchanged old fused module selects its historical Numba dependency path;
+actual paths are recorded in the fixture environment metadata. ONNX imports
+are transitive dependencies only; this inference path uses original PyTorch
+FP32 cores and native decoders. Historical environments remain preserved.
+
+IMPLEMENTED PATH
+Eleven named registry arms, with original architecture/loss distinctions.
+Unmasked adapters retain the original full action set for greedy behavior,
+exploration and online next-action selection. Screened arms consistently use
+the conservative observed-state screen. Four remote choices and all movements
+remain available. Target evaluates the online-selected action; terminal target
+is reward only, with no terminal decoding. Adapted BDQ keeps branchwise Huber;
+anchored arms keep the inherited extra terminal Huber and separate anchor RNG.
+All model families use one epsilon plus32 branch uniforms every training slot.
+Uniform replay indices, terminal-pool eviction and anchor draws are recorded.
+Heuristics use the V2 simulator and unchanged destination rules plus hover;
+unmasked and heuristic actions are not forced through screen membership checks.
+
+All final checkpoints are frozen before runtime equivalence, timing and greedy
+evaluation. Fixed randomized arm and timing orders are saved. All13 primary
+comparisons, six auxiliary contrasts,5,000-draw descriptive crossed-bootstrap
+intervals, value distributions/time bins and prospective screen calculations
+are produced. All fits remain represented. No favorable checkpoint selection.
+Training diagnostics retain chosen Q, target values, Bellman arithmetic,
+losses, terminal samples, gradients/clipping, replay/anchor indices and timings.
+
+FIXTURE EXECUTION
+Executed first in a newly created temporary directory and then preserved.
+Only protocol fixture models99921/99929, their two40-slot training episodes,
+and evaluation999390100/999390101 were used. No development/final seeds.
+Training:1,760slots;22 final checkpoints;1,606 updates;198 target copies.
+Evaluation:44 learned and6 heuristic episodes /2,000slots.
+Total:94episodes,112,800task records;2,816 engineering action comparisons;
+14,080 fixed raw timing readings. Three extra optimizer updates belong solely
+to the focused update-oracle unit test, with no simulator stepping.
+The full runner/analysis stages ran once. The later deployment/storage stage
+reused the frozen checkpoints; there was no refitting or retiming. The workflow
+wrapper sequences the same runner, storage export and independent audits.
+Its CLI/API guard paths and finishing stages were additionally exercised.
+
+MEASURED ENGINEERING COST
+fit | primary median ms | primary p95 ms | screened wide median | unmasked wide median
+0 | 0.078900 | 0.139860 | 0.086600 | 0.088900
+1 | 0.081150 | 0.131120 | 0.086700 | 0.085650
+Both fits passed payload<=half original compact64, median<=both wide references,
+and p95<=1ms. Timing includes input checks, screening where enabled, forward,
+decoder and action copy. Startup/compilation are excluded and not deployment
+latency claims. Host/load and fixed inputs limit generalization.
+Deployment bundles contain exact frozen online weights and reconstruction
+metadata. All22 exports passed weight equality/storage checks. Parameter,
+buffer, serialized deployment/checkpoint, target, optimizer and preallocated
+replay bytes are reported separately, with training/optimizer wall time and
+anchor sample counts. Bundles require external Python/framework/runtime code;
+these sizes do not establish peak process/device memory or a standalone binary.
+
+INDEPENDENT AUDIT AND TEST EVIDENCE
+Independent summary code recomputes paired differences, value distributions,
+bootstrap intervals, costs and decisions; it does not merely call the runner's
+summary function. It verifies complete manifests, source/weight freezes,
+workload identities, interval containment, actions, saved evaluation values,
+RNG schedules, replay/anchor membership, terminal Bellman arithmetic, scalar
+or branchwise Huber arithmetic and invariance. It runs zero simulator or
+optimizer steps. It does not reconstruct historical weights by replaying every
+optimizer update; the separate controlled-batch oracle tests the actual update
+against independent DDQN/anchor/branch-loss calculations.
+
+Five integration tests passed:
+- model/tie/terminal/mask semantics across all11 arms;
+- CLI/API development confirmation and final/release guards before output;
+- full reduced runner and independent audit;
+- existing-output, changed summary, extra/missing artifact rejection;
+- manipulated comparison rejected even after its manifest hash was updated.
+Three focused tests passed:
+- actual update matches independent DDQN and loss oracles, target never selects;
+- one failed initialization cannot hide behind a favorable mean;
+- latency ceiling failure and synthetic quality-label suppression.
+The workflow wrapper's API/CLI guards, existing-output guard and finishing
+storage/artifact stages also passed. Storage audit recomputed all22 exports.
+
+INTERPRETATION AND NEXT DECISION
+This is engineering evidence only. Synthetic return/deadline outcomes are not
+research evidence and were not used to tune/select models or budgets. Fixture
+scientific screens are calculated for exercising the code but not applied as
+a research decision. Competitive deadline/return performance and value
+calibration remain unproven. Low-complexity/novelty claims remain unestablished.
+
+Next: conduct a separate launch-readiness review of these artifacts and the
+frozen440,000-slot research plan. Refresh actual seed consumption immediately
+before a research launch; the November12 audit is a historical local check.
+An explicit launch instruction and versioned release are still required.
+The CLI still requires the exact development confirmation token; even that
+token is currently blocked by DEVELOPMENT_RELEASED=False. Final mode remains
+disabled. No launch or full development seed is consumed in this gate.
+Broader UAV-IoV related-work review and supervisor contribution discussion
+remain open before promoting any claim. Security/trust stays deferred;
+cloud/charging excluded; historical runs and Word thesis unchanged.
+
+MAIN FILES
+run_deadline_screen_research.py
+deadline_screen_research_models.py
+deadline_screen_research_analysis.py
+audit_deadline_screen_research.py
+deadline_screen_research_storage.py
+deadline_screen_research_workflow.py
+test_deadline_screen_research.py
+test_deadline_screen_research_decisions.py
+validation/deadline_screen_research_engineering_2026-11-14_01

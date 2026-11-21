@@ -1,0 +1,32 @@
+{
+  "kind": "SYNTHETIC_ENGINEERING_ONLY",
+  "model_seeds": [
+    99731,
+    99737
+  ],
+  "observation_seed": 997310001,
+  "arms": [
+    "price_both",
+    "no_price_both",
+    "plain_both",
+    "compact_both",
+    "plain24_nonpositive",
+    "additive128_unbounded",
+    "bdq64_uniform_adapted"
+  ],
+  "observations": 128,
+  "timing_rounds": 5,
+  "warmups": 32,
+  "calls_per_round": 128,
+  "order_seed": 997310003,
+  "interval_random_samples": 100000,
+  "invalid_state_rejection": true,
+  "exact_action_equivalence": true,
+  "Q_atol": 1e-06,
+  "Q_rtol": 1e-05,
+  "no_research_checkpoint_loading": true,
+  "no_simulator": true,
+  "no_heldout_tasks": true,
+  "cost_report_only": "Synthetic screens do not authorize research or support trained-policy quality; no retiming",
+  "screen": "Outward adjacent FP32 intervals and FP64 directed rounding; mask only local when lower service exceeds upper deadline plus1e-10"
+}

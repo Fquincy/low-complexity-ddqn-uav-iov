@@ -1,0 +1,78 @@
+RADIO/QUEUE COMPACT DDQN: BOUNDED LITERATURE POSITION
+Date: 2026-11-19 (Asia/Shanghai)
+
+STATUS
+Live public arXiv and Crossref searches were completed for DDQN foundations,
+coordination graphs, UAV offloading and vehicular interference/offloading.
+Four queries returned records; one Crossref graph query was rate-limited429.
+Complete retrieved metadata, abstracts, queries and failures are preserved:
+validation/radio_queue_design_literature_2026-11-19_01/search_evidence.json
+No absence-of-prior-art conclusion follows from sparse search results.
+
+CURRENTLY VERIFIED OVERLAP
+1. Deep Reinforcement Learning with Double Q-learning.
+   https://arxiv.org/abs/1509.06461
+   Live abstract: online selection/target evaluation and reducing overestimation
+   are established. Retaining DDQN is not our new contribution.
+2. Action Branching Architectures for Deep Reinforcement Learning.
+   https://arxiv.org/abs/1711.08946
+   Live abstract: shared decision layers, per-action branches and linear output
+   growth already exist. Small branching DDQN alone is insufficient novelty.
+3. Deep Coordination Graphs.
+   https://arxiv.org/abs/1910.00091
+   Live abstract: pairwise factorized learned payoffs, message passing, parameter
+   sharing and low-rank approximation are existing mechanisms. A sparse pair
+   potential is not new simply because it is used in a DDQN architecture.
+4. Optimizing vehicular edge computing: graph-based double-DQN approaches
+   for intelligent task offloading.
+   https://doi.org/10.1007/s11227-024-06599-4
+   Crossref verifies publication metadata. The associated preprint record
+   https://doi.org/10.21203/rs.3.rs-4917636/v1 includes an abstract describing
+   GCN+Double-DQN for offloading. Do not assume journal and preprint methods
+   are identical without their full texts. Graph-based DDQN in VEC exists.
+5. Joint Task Offloading and Resource Optimization in NOMA-based Vehicular
+   Edge Computing: A Game-Theoretic DRL Approach.
+   https://arxiv.org/abs/2209.12749
+   Live abstract includes interference and stringent deadlines. Its NOMA
+   channel differs from ours; radio/deadline-aware DRL is still established.
+6. Intelligent Offloading in Vehicular Edge Computing: A Comprehensive
+   Review of Deep Reinforcement Learning Approaches and Architectures.
+   https://arxiv.org/abs/2502.06963
+   Live abstract identifies a survey of DRL offloading; use its references
+   to widen the review, not as primary proof of a particular algorithm.
+
+HISTORICAL LOCAL EVIDENCE, NOT FRESH FULL-TEXT REVIEW
+ASSIGNMENT_PRICE_LITERATURE_POSITION_2026-11-15.txt records previously saved
+full-text overlap on UAV masked DDQN(arXiv2407.19657), vehicular congestion-
+aware DDQN(arXiv2404.07215), resource-aware hierarchical IoV(arXiv2507.05722),
+FlexEdge(arXiv2305.01536) and DOI10.1109/TMC.2024.3350078.
+That position document was reread here. Its underlying full papers were not
+all reread for this new design. Those works remain in the closest-work set.
+Existing metadata-only Q-TOP and dependent-task offloading gaps remain open.
+
+NARROW HYPOTHESIS TO CHECK AGAINST FULL METHODS
+One 24-unit DDQN critic combining correctable signed residuals with a
+deadline-weighted two-signal radio interaction proxy, deterministic K4 donor
+sparsification and cached single-pass exact surrogate coordinate updates.
+The intended gain is measured policy/cost tradeoff in the existing UAV-IoV
+problem, not invention of graphs, residual learning, interference equations,
+coordinate descent, masking or Double DQN.
+
+FULL-TEXT QUESTIONS BEFORE CLAIMING NOVELTY
+- Does an existing offloading controller use the same pair interference
+  marginal, deadline-slack weighting and sparse donor selection?
+- Does prior coordination-graph RL already provide the same bounded decoder
+  or a cheaper/better equivalent? Compare equations and operation counts.
+- What do graph-DDQN offloading methods learn: topology embeddings, independent
+  branch values, pair payoffs or physical residual costs? Avoid title-based
+  claims of difference. Extract exact state/actions, cost, decoder and losses.
+- What is lost by sparse current-position pairs versus joint upload histories
+  and coupled UAV movement? Can the proposed comparison isolate that loss?
+- Does the advantage survive plain-small, fixed-physics, observed-load/radio,
+  incumbent and pair-removal controls on matched fresh workloads?
+
+DECISION
+The literature supports a concrete overlap warning and a testable candidate,
+not novelty clearance. Complete the closest-method matrix before a research
+release. An engineering prototype cannot settle priority, policy quality,
+departmental scope approval or whether the thesis contribution is sufficient.

@@ -1,0 +1,862 @@
+{
+  "state": "development_screen_failed",
+  "run_kind": "RESEARCH",
+  "fixture": false,
+  "checkpoint_count": 85,
+  "counts": {
+    "price_both_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "no_price_both_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "price_horizon_only_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "price_anchor_only_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "plain_both_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "compact_both_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "amortized_workload_price24_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "amortized_no_price24_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "plain24_nonpositive_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "shared_congestion_cost_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "shared_no_congestion_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "untied_congestion_cost_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "shared_joint_bound_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "additive64_nonpositive_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "additive128_unbounded_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "emc_q_nonpositive_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "bdq64_uniform_adapted_fit_00": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61001,
+      "train_seed_start": 610000000
+    },
+    "price_both_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "no_price_both_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "price_horizon_only_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "price_anchor_only_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "plain_both_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "compact_both_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "amortized_workload_price24_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "amortized_no_price24_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "plain24_nonpositive_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "shared_congestion_cost_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "shared_no_congestion_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "untied_congestion_cost_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "shared_joint_bound_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "additive64_nonpositive_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "additive128_unbounded_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "emc_q_nonpositive_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "bdq64_uniform_adapted_fit_01": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61011,
+      "train_seed_start": 611000000
+    },
+    "price_both_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "no_price_both_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "price_horizon_only_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "price_anchor_only_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "plain_both_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "compact_both_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "amortized_workload_price24_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "amortized_no_price24_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "plain24_nonpositive_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "shared_congestion_cost_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "shared_no_congestion_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "untied_congestion_cost_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "shared_joint_bound_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "additive64_nonpositive_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "additive128_unbounded_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "emc_q_nonpositive_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "bdq64_uniform_adapted_fit_02": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61017,
+      "train_seed_start": 612000000
+    },
+    "price_both_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "no_price_both_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "price_horizon_only_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "price_anchor_only_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "plain_both_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "compact_both_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "amortized_workload_price24_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "amortized_no_price24_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "plain24_nonpositive_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "shared_congestion_cost_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "shared_no_congestion_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "untied_congestion_cost_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "shared_joint_bound_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "additive64_nonpositive_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "additive128_unbounded_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "emc_q_nonpositive_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "bdq64_uniform_adapted_fit_03": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61023,
+      "train_seed_start": 613000000
+    },
+    "price_both_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "no_price_both_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "price_horizon_only_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "price_anchor_only_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "plain_both_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "compact_both_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "amortized_workload_price24_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "amortized_no_price24_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "plain24_nonpositive_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "shared_congestion_cost_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "shared_no_congestion_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "untied_congestion_cost_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "shared_joint_bound_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "additive64_nonpositive_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "additive128_unbounded_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "emc_q_nonpositive_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    },
+    "bdq64_uniform_adapted_fit_04": {
+      "slots": 8000,
+      "updates": 6977,
+      "target_copies": 34,
+      "checkpoints": 1,
+      "optimizer_rows": 6977,
+      "model_seed": 61039,
+      "train_seed_start": 614000000
+    }
+  },
+  "training_slots": 680000,
+  "optimizer_updates": 593045,
+  "target_copies": 2890,
+  "checkpoints_frozen_before_evaluation": true,
+  "heldout_evaluation_seeds": [
+    620000000,
+    620000001,
+    620000002,
+    620000003,
+    620000004,
+    620000005,
+    620000006,
+    620000007,
+    620000008,
+    620000009,
+    620000010,
+    620000011,
+    620000012,
+    620000013,
+    620000014,
+    620000015,
+    620000016,
+    620000017,
+    620000018,
+    620000019,
+    620000020,
+    620000021,
+    620000022,
+    620000023,
+    620000024,
+    620000025,
+    620000026,
+    620000027,
+    620000028,
+    620000029,
+    620000030,
+    620000031,
+    620000032,
+    620000033,
+    620000034,
+    620000035,
+    620000036,
+    620000037,
+    620000038,
+    620000039,
+    620000040,
+    620000041,
+    620000042,
+    620000043,
+    620000044,
+    620000045,
+    620000046,
+    620000047
+  ],
+  "frozen_checkpoint_inference_screens": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "1": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "2": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "3": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "4": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "frozen_checkpoint_inference_all_fit_screens_pass": true,
+  "research_training_launched": false,
+  "new_training_slots": 0,
+  "new_optimizer_updates": 0,
+  "policy_quality_claim": false,
+  "thesis_changed": false,
+  "all_failed_fits_retained": true,
+  "empirical_protocol_screens_passed": false
+}

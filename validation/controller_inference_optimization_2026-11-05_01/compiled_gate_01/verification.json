@@ -1,0 +1,243 @@
+{
+  "state": "compiled_cost_gate_failed",
+  "screens": {
+    "online_storage": true,
+    "complete_action_median": false,
+    "complete_action_p95": true
+  },
+  "metrics": {
+    "eager": {
+      "shared_congestion_cost": {
+        "median_ms": 2.0431999999999997,
+        "p95_ms": 2.681229999999999,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "parameters": 4052,
+        "onnx_serialized_bytes": null
+      },
+      "shared_no_congestion": {
+        "median_ms": 0.44945,
+        "p95_ms": 1.097885,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "parameters": 4052,
+        "onnx_serialized_bytes": null
+      },
+      "untied_congestion_cost": {
+        "median_ms": 3.9317,
+        "p95_ms": 6.092309999999999,
+        "calls": 640,
+        "parameter_bytes": 215380,
+        "parameters": 53845,
+        "onnx_serialized_bytes": null
+      },
+      "shared_joint_bound": {
+        "median_ms": 2.0584,
+        "p95_ms": 3.1545099999999984,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "parameters": 4052,
+        "onnx_serialized_bytes": null
+      },
+      "additive64_nonpositive": {
+        "median_ms": 0.1037,
+        "p95_ms": 0.2572,
+        "calls": 640,
+        "parameter_bytes": 194944,
+        "parameters": 48736,
+        "onnx_serialized_bytes": null
+      },
+      "additive128_unbounded": {
+        "median_ms": 0.1028,
+        "p95_ms": 0.18522499999999986,
+        "calls": 640,
+        "parameter_bytes": 422016,
+        "parameters": 105504,
+        "onnx_serialized_bytes": null
+      },
+      "emc_q_nonpositive": {
+        "median_ms": 0.53855,
+        "p95_ms": 0.7931549999999995,
+        "calls": 640,
+        "parameter_bytes": 277444,
+        "parameters": 69361,
+        "onnx_serialized_bytes": null
+      },
+      "bdq64_uniform_adapted": {
+        "median_ms": 0.1542,
+        "p95_ms": 0.23580500000000001,
+        "calls": 640,
+        "parameter_bytes": 195204,
+        "parameters": 48801,
+        "onnx_serialized_bytes": null
+      }
+    },
+    "compiled": {
+      "shared_congestion_cost": {
+        "median_ms": 0.38965,
+        "p95_ms": 0.5344299999999998,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "parameters": 4052,
+        "onnx_serialized_bytes": 93669
+      },
+      "shared_no_congestion": {
+        "median_ms": 0.0976,
+        "p95_ms": 0.1328999999999997,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "parameters": 4052,
+        "onnx_serialized_bytes": 32325
+      },
+      "untied_congestion_cost": {
+        "median_ms": 0.5971,
+        "p95_ms": 0.9962149999999994,
+        "calls": 640,
+        "parameter_bytes": 215380,
+        "parameters": 53845,
+        "onnx_serialized_bytes": 351792
+      },
+      "shared_joint_bound": {
+        "median_ms": 0.387,
+        "p95_ms": 0.94344,
+        "calls": 640,
+        "parameter_bytes": 16208,
+        "parameters": 4052,
+        "onnx_serialized_bytes": 93529
+      },
+      "additive64_nonpositive": {
+        "median_ms": 0.0355,
+        "p95_ms": 0.04586499999999994,
+        "calls": 640,
+        "parameter_bytes": 194944,
+        "parameters": 48736,
+        "onnx_serialized_bytes": 197136
+      },
+      "additive128_unbounded": {
+        "median_ms": 0.0384,
+        "p95_ms": 0.0417,
+        "calls": 640,
+        "parameter_bytes": 422016,
+        "parameters": 105504,
+        "onnx_serialized_bytes": 424096
+      },
+      "emc_q_nonpositive": {
+        "median_ms": 0.1113,
+        "p95_ms": 0.1615,
+        "calls": 640,
+        "parameter_bytes": 277444,
+        "parameters": 69361,
+        "onnx_serialized_bytes": 295592
+      },
+      "bdq64_uniform_adapted": {
+        "median_ms": 0.0403,
+        "p95_ms": 0.059705,
+        "calls": 640,
+        "parameter_bytes": 195204,
+        "parameters": 48801,
+        "onnx_serialized_bytes": 197641
+      }
+    }
+  },
+  "orders": [
+    [
+      "compiled/untied_congestion_cost",
+      "compiled/emc_q_nonpositive",
+      "eager/shared_congestion_cost",
+      "eager/bdq64_uniform_adapted",
+      "eager/additive64_nonpositive",
+      "compiled/shared_no_congestion",
+      "compiled/additive128_unbounded",
+      "eager/emc_q_nonpositive",
+      "eager/shared_joint_bound",
+      "eager/shared_no_congestion",
+      "eager/additive128_unbounded",
+      "compiled/shared_congestion_cost",
+      "eager/untied_congestion_cost",
+      "compiled/bdq64_uniform_adapted",
+      "compiled/shared_joint_bound",
+      "compiled/additive64_nonpositive"
+    ],
+    [
+      "eager/shared_joint_bound",
+      "compiled/shared_congestion_cost",
+      "eager/bdq64_uniform_adapted",
+      "compiled/bdq64_uniform_adapted",
+      "compiled/additive64_nonpositive",
+      "compiled/additive128_unbounded",
+      "compiled/emc_q_nonpositive",
+      "eager/emc_q_nonpositive",
+      "eager/additive128_unbounded",
+      "eager/additive64_nonpositive",
+      "compiled/shared_joint_bound",
+      "eager/untied_congestion_cost",
+      "eager/shared_congestion_cost",
+      "compiled/untied_congestion_cost",
+      "compiled/shared_no_congestion",
+      "eager/shared_no_congestion"
+    ],
+    [
+      "eager/bdq64_uniform_adapted",
+      "compiled/shared_congestion_cost",
+      "eager/additive128_unbounded",
+      "eager/untied_congestion_cost",
+      "compiled/shared_joint_bound",
+      "eager/shared_congestion_cost",
+      "eager/shared_joint_bound",
+      "compiled/shared_no_congestion",
+      "eager/shared_no_congestion",
+      "compiled/additive128_unbounded",
+      "compiled/bdq64_uniform_adapted",
+      "compiled/untied_congestion_cost",
+      "compiled/additive64_nonpositive",
+      "eager/additive64_nonpositive",
+      "eager/emc_q_nonpositive",
+      "compiled/emc_q_nonpositive"
+    ],
+    [
+      "compiled/emc_q_nonpositive",
+      "eager/bdq64_uniform_adapted",
+      "eager/additive128_unbounded",
+      "compiled/shared_joint_bound",
+      "eager/emc_q_nonpositive",
+      "compiled/additive128_unbounded",
+      "compiled/bdq64_uniform_adapted",
+      "eager/shared_no_congestion",
+      "eager/untied_congestion_cost",
+      "compiled/untied_congestion_cost",
+      "eager/additive64_nonpositive",
+      "compiled/shared_congestion_cost",
+      "compiled/shared_no_congestion",
+      "eager/shared_joint_bound",
+      "eager/shared_congestion_cost",
+      "compiled/additive64_nonpositive"
+    ],
+    [
+      "eager/untied_congestion_cost",
+      "eager/shared_joint_bound",
+      "compiled/shared_congestion_cost",
+      "eager/bdq64_uniform_adapted",
+      "compiled/shared_joint_bound",
+      "compiled/shared_no_congestion",
+      "eager/additive128_unbounded",
+      "eager/shared_congestion_cost",
+      "eager/additive64_nonpositive",
+      "compiled/emc_q_nonpositive",
+      "compiled/additive128_unbounded",
+      "eager/emc_q_nonpositive",
+      "eager/shared_no_congestion",
+      "compiled/untied_congestion_cost",
+      "compiled/bdq64_uniform_adapted",
+      "compiled/additive64_nonpositive"
+    ]
+  ],
+  "total_timing_records": 10240,
+  "equivalence_passed": true,
+  "compilation_and_session_startup_excluded_from_timing": true,
+  "optimizer_updates": 0,
+  "new_simulator_steps": 0,
+  "research_training_started": false,
+  "all_research_training_and_gate_seeds_unconsumed": true,
+  "frozen_model_and_scope_unchanged": true,
+  "backend": "ONNX Runtime CPU FP32 1thread for all8 arms"
+}

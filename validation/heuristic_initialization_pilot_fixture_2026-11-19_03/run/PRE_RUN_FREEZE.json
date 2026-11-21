@@ -1,0 +1,25 @@
+{
+  "protocol_sha256": "a73994fdfea9eda763232fa4c86d52e6a1317f421c40fd6f25ddb0f78c1745fc",
+  "plan_sha256": "aeb2a2c5ffc9b06a8c5e227041e57162d004ba6bdc9c94feb8711b8213569316",
+  "source_sha256": {
+    "HEURISTIC_INITIALIZED_DDQN_PAIRED_PILOT_PLAN_2026-11-19.txt": "c684612d00fb27c6d9332fdadd7f761ae299cfe321058f88ec2b33dfe6802d5e",
+    "HEURISTIC_INITIALIZED_DDQN_PAIRED_PILOT_PROTOCOL_2026-11-19.json": "a73994fdfea9eda763232fa4c86d52e6a1317f421c40fd6f25ddb0f78c1745fc",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+    "assignment_price_load_radio_heuristic.py": "925bdd21551bcd06186707af2b8a6751f61dd1e9a11ed26e3d3633fcea35f804",
+    "audit_heuristic_initialization_pilot.py": "1b8b81c68eb448627af85f1ceb83614ac095e8b0d7095d88cb1e241049eb89f2",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "heuristic_initialized_ddqn_baseline.py": "c13b0a437c7ecb6aa20d50605efd5b612e930a33472f3e031678970d0ddb2940",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "run_heuristic_initialization_pilot.py": "b1fe6bda08a5e0f22a36ccc6444037119e896e21c20acf687fd272da1b75e277"
+  },
+  "teacher_backend": "Python reference: frozen function bodies, identity native decorators",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "threads": 1
+  }
+}

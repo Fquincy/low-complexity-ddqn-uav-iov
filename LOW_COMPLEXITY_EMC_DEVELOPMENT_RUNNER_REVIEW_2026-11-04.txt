@@ -1,0 +1,85 @@
+EMC-Q DEVELOPMENT REPORTING RUNNER REVIEW
+Date: November 4, 2026
+Status: implementation complete and reviewed against the frozen protocol;
+unit-tested; latest smoke and saved-artifact audit passed. The 72,000-slot
+development pilot has not been launched.
+
+SCOPE AND CLAIM
+This note reviews the development-mode execution and reporting implementation
+against LOW_COMPLEXITY_EMC_TRADEOFF_SPEC_2026-11-04.json. A completed pilot
+would be a bounded development engineering screen. It would not by itself
+establish formal noninferiority, broad generalization, a deployment guarantee,
+or thesis novelty.
+
+FROZEN RUN DESIGN
+Three model initialization seeds (2309, 2333, 2351) each train all three arms
+on their assigned disjoint 200-episode task block. Each model receives 8,000
+physical training slots, 6,977 optimizer updates and 34 target copies. Across
+nine models this is 72,000 training slots, 62,793 updates and 306 copies.
+The final episode-200 checkpoint is used; no best-checkpoint selection is
+implemented. Training/evaluation task seeds, rewards, architectures, epsilon,
+optimizer, replay, target interval, thresholds and timing protocol are read
+from the frozen JSON specification. Runtime checks reject source/spec hash
+drift.
+
+REPORTING AND PRESERVATION
+The runner records every episode's full slot/task/energy/reward trajectory,
+training states/actions/rewards/next states/done masks, optimizer loss and
+gradient norm, replay sample indices, counters, checkpoints, RNG streams,
+paired workload fingerprints, fixed probes, raw timing durations and
+pre/post learner-state digests. Development trajectories are streamed to
+compressed episode files to avoid retaining all task records in memory.
+Status is updated during the run. On exceptions, the traceback and current
+partial checkpoints are preserved and the run is marked failed without retry.
+
+All nine final checkpoints and their hashes are written before any fresh-gate
+episodes. Fresh comparisons use the same 48 exogenous seeds for each learned
+model and each heuristic. Checkpoint hashes and learner-state digests are
+checked during and after fresh evaluation and timing. A final manifest hashes
+the saved run outputs. The separate read-only auditor verifies that manifest,
+model/source/spec hashes, exact training counters, episode/task/reward/energy
+accounting, paired workloads, terminal masks, raw timing quantiles, and
+pre/post evaluation invariants; it performs no simulator steps or training.
+
+PREDECLARED ANALYSIS
+For each of the three EMC initialization seeds separately, the runner reports
+paired episode return and deadline-success differences against additive128,
+additive64, nearest-RSU and UAV-selective. It applies every frozen point-estimate
+screen independently to every EMC seed, plus the terminal-Q, fixed-probe,
+storage, median-latency-ratio and p95-latency screens. It does not pool the
+three training seeds. A 2,000-draw paired episode bootstrap (seed 20261113)
+reports percentile intervals within each fitted model pair. These intervals
+do not describe initialization-seed uncertainty and do not turn the stated
+engineering screens into statistical noninferiority tests.
+
+TEST EVIDENCE
+Nine runner tests pass at
+validation/emc_tradeoff_runner_tests_2026-11-04_09/verification.json,
+including frozen bootstrap arithmetic, all-three-seed screen application,
+threshold failure cases, and a test that the regular
+development launch entry point refuses to create output unless the explicit
+--confirm-development-run flag is supplied. Separate development-reporting
+unit tests also pass at
+validation/emc_tradeoff_reporting_tests_2026-11-04_02/verification.json. The
+latest fixed-budget smoke re-exercises the runner and its saved-artifact audit
+passed at validation/emc_tradeoff_smoke_2026-11-04_04/.
+
+RESIDUAL LIMITS
+The main experiment still has only three fitted initialization seeds. The
+paired bootstrap is conditional on those fitted models and the 48 shared
+episodes. Local CPU timings depend on this machine and are not real-time or
+deployment guarantees. The simulator's provisional assumptions and all
+modeling limitations remain. A screen pass is only a reason to discuss
+follow-up research; it is not a novelty or low-complexity proof.
+
+LAUNCH PROCEDURE
+Development mode has an explicit command-line acknowledgement gate:
+
+  python run_emc_tradeoff.py --mode development --output validation/emc_tradeoff_development_2026-11-04_01 --confirm-development-run
+
+The output directory must not already exist. Review this note, the frozen
+protocol, passing tests, and latest smoke audit before using that command.
+The runner deliberately does not auto-start development after smoke completion.
+
+Word thesis unchanged. No development training was launched while preparing
+this implementation review.

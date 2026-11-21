@@ -1,0 +1,66 @@
+TERMINAL-ANCHOR RUNTIME OVERHEAD REVIEW
+Date: November 6, 2026
+
+OUTCOME
+The fixed saved-weight engineering benchmark passed all declared storage,
+median-latency and p95-latency criteria in both synthetic initializations.
+No training, simulator calls, model changes or research launch occurred.
+The original median-latency failure remains preserved. This result verifies
+a runtime correction on existing engineering weights, not policy quality.
+
+CORRECTION
+The old corrected wrapper called np.asarray/isfinite, then the underlying
+native.values repeated conversion/finite validation. The new independent
+adapter validates once, invokes the unchanged ORT core and native decoder,
+then applies the original separate FP32 rounding/scaling operations.
+Shape, complete finite checks and nonterminal time-grid checks remain.
+No acceptance thresholds, rewards, seed schedules or neural weights changed.
+The old runner/adapters and their hash-covered evidence were not edited.
+
+PROSPECTIVE FIXED CHECK
+ANCHOR_RUNTIME_CHECK_PROTOCOL_2026-11-06.json was written before measurement.
+Use all17 saved controller arms and both synthetic initializations, the
+same128 fixed engineering observations, five randomized timing rounds,
+32 warmups and128 calls per path/round. Time corrected six with both old
+and new routes, and the other eleven with their existing routes:46 paths
+and29,440 measurements. Include final action copying uniformly. The fixed
+single-thread backend, graphs, extra arrays, sources and order freeze before
+timing. No favorable retiming or fit/weight selection was performed.
+
+EQUIVALENCE AND AUDIT
+4,352 saved-model eager/export action checks passed. For the corrected six,
+1,536 old/new actions and FP32 Q values matched exactly. Eager/export Q
+matched atol1e-6/rtol1e-5. All36 invalid-state/time cases were rejected.
+The artifact auditor reverified payload/source hashes and recomputed all
+29,440 raw timing rows and thresholds without new measurements. Deliberate
+summary-statistic corruption was rejected; original bytes were restored.
+Recomputing median/p95 alone cannot detect every single raw-sample change;
+the completion manifest below separately seals all final timing bytes.
+
+PRIMARY RESULTS
+fit | old wrapper median ms | new wrapper median ms | wide128 median ms | new p95 ms
+0 | 0.041800 | 0.037000 | 0.040900 | 0.041705
+1 | 0.041800 | 0.036900 | 0.040800 | 0.041410
+Primary online FP32 parameter bytes remain68,264; compact64 bytes194,944.
+Storage<=50% compact64, median<=wide128 and p95<=1ms pass in both fits.
+Small absolute timing differences remain machine/load/input dependent.
+Do not extrapolate this engineering benchmark to unseen trained policies
+or infer return/deadline/calibration success from runtime measurements.
+
+NEXT ENGINEERING STEP
+The runtime amendment is recorded separately and is not yet installed
+in the frozen seventeen-arm research runner. Integrate it into a new
+versioned runner and auditor, preserving all previous artifacts. Verify
+the reduced shared workflow and amended source freezes, then make a
+separate launch-readiness decision. Research modes remain disabled.
+Do not rerun engineering timing simply to seek a better result.
+
+FILES
+anchor_runtime_single_validation.py
+check_anchor_runtime.py
+ANCHOR_RUNTIME_CHECK_PROTOCOL_2026-11-06.json
+ANCHOR_RUNTIME_ROUTE_AMENDMENT_2026-11-06.json
+validation\anchor_runtime_single_validation_2026-11-06_01
+
+Historical failed research results, final seeds and Word thesis unchanged.
+Cloud/charging stations excluded; security/trust remains deferred.

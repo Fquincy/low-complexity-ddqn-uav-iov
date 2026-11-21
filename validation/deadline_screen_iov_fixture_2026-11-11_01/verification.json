@@ -1,0 +1,97 @@
+{
+  "state": "synthetic_fixture_completed_not_research",
+  "counts": {
+    "price_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "no_price_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "plain_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "compact_both_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "plain24_nonpositive_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "additive128_unbounded_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "bdq64_uniform_adapted_fit_00": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "price_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "no_price_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "plain_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "compact_both_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "plain24_nonpositive_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "additive128_unbounded_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    },
+    "bdq64_uniform_adapted_fit_01": {
+      "slots": 80,
+      "updates": 73,
+      "copies": 9
+    }
+  },
+  "training_slots": 1120,
+  "evaluation_slots": 1120,
+  "optimizer_updates": 1022,
+  "checkpoints": 14,
+  "engineering_equivalence_checks": 1792,
+  "timing_rows": 8960,
+  "cost_screens": [
+    {
+      "fit": 0,
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    {
+      "fit": 1,
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  ],
+  "quality_evidence": false,
+  "research_launched": false
+}

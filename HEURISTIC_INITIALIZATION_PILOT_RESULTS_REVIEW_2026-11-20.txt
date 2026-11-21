@@ -1,0 +1,105 @@
+HEURISTIC-INITIALIZATION PAIRED PILOT: VERIFIED RESULTS
+2026-11-20 (Asia/Shanghai)
+
+DECISION: THE FROZEN EXPLORATORY PROMISING SCREEN PASSED.
+Preserve this positive pilot result. Do not call it a confirmed low-complexity
+or novel-controller contribution,launch final evaluation or automatically
+extend/retrain this pilot. Value calibration remains unresolved.
+
+COMPLETION AND INTEGRITY
+17,680simulated slots:12,000student online,1,200shared teacher demonstration,
+4,480evaluation. Sixfinal student checkpoints;11,232DDQN and600BC updates.
+Saved-artifact audit passed. This review independently rehashed all953primary
+manifest files and all957archived payload files against BOTH the primary
+output and D:archive,checked archive inventory and matching archive receipt.
+Archived payload:1,107,057,221bytes. No new simulation,learning or timing.
+Archive:D:\Fitz Thesis Research Archive\heuristic_initialization_paired_pilot_2026-11-19_01
+
+FINAL POLICY RESULTS
+fit | BC->DDQN return | control return | BC deadline% | control deadline% | deadline gain pp
+0   | -14.9131       | -51.2697       | 96.1563      | 84.9063           | +11.2500
+1   | -16.5600       | -163.8474      | 91.9740      | 82.6042           | +9.3698
+2   | -13.5138       | -42.7789       | 99.6198      | 83.9167           | +15.7031
+All three improve BOTH outcomes. Equal-fit mean gain:+70.9697return,
++12.1076deadline percentage points. This satisfies the exact predeclared
+descriptive screen. The large return mean is influenced by controlfit1;
+retain per-fit contrasts rather than presenting it as a typical guarantee.
+
+The control is identical small DDQN WITH the same demonstration transitions
+preloaded in replay but WITHOUT the BC stage. The result estimates additional
+supervised initialization under this budget,not teacher access versus ordinary
+no-demo DDQN. BC adds200updates per fit;total training compute is not equal.
+Threefits on16shared evaluation episodes are not a confirmatory significance
+or formal noninferiority result. No passing fit alone is selected.
+
+TEACHER REMAINS STRONGER
+Teacher mean return-12.2662;deadline success100% on this evaluation set.
+BC-DDQN return deficits by fit:2.6469,4.2937,1.2476.
+Deadline deficits:3.8438,8.0260,0.3802percentage points.
+No superiority over the teacher or broad service guarantee is supported.
+It uses stationary UAV motion and its declared extra empty-battery restriction.
+
+VALUE LIMITATION: IMPORTANT BEFORE EXPANSION
+BC-DDQN own-policy normalized RMSE:1.0000,1.0000,0.9569;
+absolute bias:7.6177,8.5097,6.5337. These are realized-return diagnostics,
+not exact conditional-Q or optimal-value ground truth. They are poor evidence
+of scalar calibration. The pilot prospectively reports them as diagnostics;
+their failure must not be hidden behind the promising policy screen.
+
+Saved evaluation Q ranges:
+fit0:-2.7940e-15..-9.7729e-18;100% haveabs(Q)<1e-6.
+fit1:-8.5819e-11..-1.6936e-14;100% haveabs(Q)<1e-6.
+fit2:-0.7741..-0.1802;0% haveabs(Q)<1e-6.
+Thus two fitted critics have effectively near-zero chosen scalar values while
+their executed policies still improve over the control. Action selection uses
+branch costs before the outer softplus; useful ranking and collapsed scalar
+magnitude can coexist. This observation does NOT prove the cause of saturation,
+the effect of BC versus TD on it,or that DDQN improved a BC-only policy.
+BC-only closed-loop evaluation was not part of this frozen pilot.
+
+BC demo-state branch agreement before/after BC/final:
+fit0:22.33% /50.48% /45.76%;fit1:18.97% /49.61% /40.73%;
+fit2:20.83% /49.16% /47.18%. Joint teacher agreement is0% throughout.
+These are training-distribution diagnostics,not held-out label accuracy.
+Do not equate agreement with reward or assume labels describe unique optima.
+
+DEPLOYMENT COST AND SCOPE
+Bothstudent arms:67,364parameter bytes+20buffer bytes. Teacher not in student
+deployment. Complete eager BC-DDQN median0.4726..0.47855ms;
+p950.578685..0.95486ms. Same-session Python teacher median68.2315ms.
+This is descriptive timing for the declared Python reference backend,NOT a
+speedup over the historical compiled teacher or stronger optimized DDQN.
+BC training changed no architecture;online storage equals the paired control.
+No measured storage/speed superiority versus stronger neural models is tested
+by this pilot. Ordinary imitation/DQfD/distillation precedent remains relevant;
+the positive result does not by itself establish algorithmic novelty.
+
+NEXT WORK: SAVED-ARTIFACT DIAGNOSIS BEFORE AN EXPANDED PROTOCOL
+Use all six saved final critics,training logs and saved demonstration/evaluation
+states to inspect raw branch scores,scalar preactivation,softplus derivative,
+Bellman residuals and gradient/clipping histories by horizon. Locate whether
+near-zero Q arises during BC or subsequent DDQN where records permit;do not
+claim temporal causality when intermediate weights were not retained.
+Check whether logged TD targets/predictions indicate useful value learning
+or preservation/drift of initialized action preferences. No new rollout,
+checkpoint selection,optimizer step,retiming or research seed consumption.
+Then prospectively decide whether one justified correction and expanded
+comparison is warranted. Include BC-only,ordinary no-demo DDQN,stronger neural
+references and the teacher in any later claim-appropriate comparison. Changes
+require a new freeze and fresh development seeds;no automatic launch now.
+
+STATUS RECORD CLARIFICATION
+The generic completion JSON contains research_launch_authorized:false as a
+hardcoded output field even though this run WAS explicitly authorized. The
+authorization is recorded in LAUNCH_RECEIPT.json,launch_authorization.json and
+the versioned launch binding. Preserve that historical field;do not interpret
+it as proof of unauthorized execution or silently rewrite archived records.
+
+Word thesis unchanged;final reservations untouched. Security/trust deferred;
+cloud/charging excluded. All prior failed gates remain failed.
+
+SOURCES
+development_runs/heuristic_initialization_paired_pilot_2026-11-19_01/
+  completion.json,run/analysis.json,saved_artifact_audit.json,
+  archive_verification.json,run/*/fit_*/probes.json,evaluation traces.
+Review verification:validation/heuristic_initialization_pilot_results_review_2026-11-20_01/verification.json

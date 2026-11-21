@@ -1,0 +1,121 @@
+SAVED-TRACE CONTROLLER DIAGNOSIS
+Date: 2026-11-05
+Status: retrospective exploratory diagnosis; no new evaluation or training.
+
+READ THIS FIRST
+The completed value-bound run and its failed aggregate screen are preserved.
+This document proposes explanations to test, not a successful new controller.
+The Word thesis and existing source, checkpoints and frozen protocol are unchanged.
+
+1. EVIDENCE AND METHOD
+Run: validation/value_bound_development_2026-11-04_01/
+Independent existing saved-artifact audit: passed_development_saved_artifact_audit.
+This analysis reads all 15 saved fresh evaluation traces (48 episodes/model),
+all training summaries, scheduled-validation summaries and model counters,
+plus the three heuristic traces. Each learned trace contains 57,600 tasks.
+All learned models and heuristics have identical ordered fresh workload
+fingerprints. Task totals and on-time counts were independently recomputed.
+The 15 fresh trace hashes match the original run manifest. All inputs to this
+analysis were rehashed at completion and remained unchanged. This is a focused
+trace check, not a second full audit of all original artifacts.
+New simulator steps: 0. Optimizer updates: 0. Checkpoints loaded: 0.
+Reproduction: python analysis/diagnose_value_bound_saved_2026_11_05.py
+Machine-readable results and exact input hashes:
+analysis/controller_redesign_2026-11-05/saved_trace_diagnosis.json
+
+2. FINAL POLICY RESULTS: ALL INITIALIZATIONS
+Model seed | arm                        | mean return | on-time tasks
+3109 | additive128_unbounded      |  -37.8166 |  74.882%
+3109 | additive64_unbounded       |  -33.2231 |  77.684%
+3109 | additive64_nonpositive     |  -22.9662 |  78.438%
+3109 | emc_q_unbounded            |  -39.8617 |  76.238%
+3109 | emc_q_nonpositive          |  -16.8897 |  90.530%
+3119 | additive128_unbounded      |  -33.4778 |  77.345%
+3119 | additive64_unbounded       |  -24.9203 |  82.622%
+3119 | additive64_nonpositive     |  -19.3394 |  85.595%
+3119 | emc_q_unbounded            |  -37.1404 |  76.332%
+3119 | emc_q_nonpositive          |  -24.6982 |  75.115%
+3121 | additive128_unbounded      |  -28.2675 |  75.833%
+3121 | additive64_unbounded       |  -33.5473 |  80.137%
+3121 | additive64_nonpositive     |  -30.4628 |  76.203%
+3121 | emc_q_unbounded            |  -73.0585 |  69.469%
+3121 | emc_q_nonpositive          |  -17.0233 |  90.431%
+Heuristics, same 48 workloads:
+all_local: return -37.6187; deadline 55.917%.
+nearest_rsu: return -20.7651; deadline 82.670%.
+uav_selective: return -17.9522; deadline 87.384%.
+
+The compact bounded additive model also varies across initializations:
+78.437%, 85.595% and 76.203% deadline success. It is not an already solved,
+reliable teacher. Do not assume distillation from it fixes the problem.
+
+3. WHERE THE UNSUCCESSFUL PRIMARY INITIALIZATION LOSES DEADLINES
+Seed 3119 bounded EMC, over 57,600 generated tasks:
+Destination 0: 6372 tasks (11.062%); on-time 55.901%; mean completed CPU queue wait 0.000000 s.
+Destination 2: 489 tasks (0.849%); on-time 88.344%; mean completed CPU queue wait 0.000000 s.
+Destination 3: 14715 tasks (25.547%); on-time 100.000%; mean completed CPU queue wait 0.061098 s.
+Destination 4: 36024 tasks (62.542%); on-time 68.168%; mean completed CPU queue wait 0.171183 s.
+
+Destination mapping: 0 local; 1 UAV1; 2 UAV2; 3 RSU1; 4 RSU2.
+Total missed tasks: 14334. Of these, 11467 occurred
+at RSU2 (79.999% of all misses).
+The same policy sends 62.542% of tasks to RSU2 and only 25.547% to RSU1.
+The compact bounded additive comparator sends 46.439% and 51.759% to the two
+RSUs and reaches 85.595% deadline success, versus the primary's 75.115%.
+Successful bounded EMC seeds distribute about 37.5-41.3% to each RSU and reach
+about 90.4-90.5% success. These are selected-destination conditional statistics,
+not randomized causal estimates of which destination is intrinsically better.
+
+The loss is present throughout the episode: seed 3119 success is about 74.7%
+for tasks arriving in slot 0, 75.0% in slot 10, 75.3% in slot 20 and 75.1%
+in slot 39. It is not only unfinished work at the final horizon.
+Its scheduled-validation success is 82.7% at episode 100, 76.2% at 150 and
+74.317% at 200. This shows regression before the fresh gate, not simply a
+newly encountered fresh-workload problem. The final-only checkpoint rule stays;
+episode 100 must not be retrospectively selected as the research result.
+
+Across all bounded models, each vehicle keeps its modal destination on roughly
+94-96% of these saved evaluation decisions. This suggests limited adaptation
+and possible vehicle-index specialization, but is not itself proof of a bug:
+the current workload distribution may favor stable routes. A causal test must
+compare a shared representation and an explicit load mechanism prospectively.
+
+4. VALUE CALIBRATION: WHY THE PREVIOUS PASS IS LIMITED
+All bounded primary models pass the old nonpositive-sign and terminal-error
+screens. However, their fixed-probe greedy-Q medians are near zero: negative
+zero, about -4.74e-24 and about -5.01e-32. The bounded additive probes are also
+near zero. These fixed probes come from heuristic trajectories, so they are
+not the models' own on-policy state distribution and cannot be compared
+directly to another policy's return as a calibration error.
+The primary fresh-terminal absolute-error p95 values are 0.506, 0.683 and
+0.512. Their corresponding final-slot rewards are themselves small negative
+values. A near-zero predictor can pass an absolute threshold of 10; this test
+does not establish accurate values over the rest of a 40-slot episode.
+
+The existing outer transform Q=-softplus(C_raw) has derivative
+dQ/dC_raw=-sigmoid(C_raw). Very negative raw scores attenuate gradients and can
+underflow to zero in finite precision. This is a mathematical risk consistent
+with the probes; the saved analysis does not establish it caused the seed's
+policy regression. Correct raw-score action selection can still rank actions
+even when displayed transformed values are nearly tied at zero.
+Follow-up needs own-trajectory chosen Q and realized return-to-go at every
+slot, value/target/TD distributions, and a prospective transform ablation.
+
+5. COST AND MODEL LIMITATIONS
+Online FP32 bytes: additive128 422,016; additive64 194,944; EMC 277,444.
+The bounded EMC is smaller than the wide model but larger and slower than
+the compact additive model. Shrinking stored weights alone has not established
+lower complete action-selection cost or reliable policy quality.
+The current observation is compressed/partially observed, not a demonstrated
+complete Markov state. RSU CPU capacities and the fixed 1 Gbit/s RSU link are
+explicit provisional assumptions; RSU preference must be interpreted in that
+setting. The reward uses delay, missed deadlines and UAV energy. It is not a
+measurement of all system or controller electrical energy. Security is absent.
+
+6. DESIGN RESPONSE AND LIMITS
+Test one candidate with shared vehicle processing, explicit bounded-work
+server-load coordination and a sum of nonnegative cost contributions rather
+than an outer transform over an unrestricted joint sum. Three separate
+ablations isolate these changes. No causal attribution or novelty is claimed
+from this retrospective diagnosis. All consumed seeds remain development data.
+The design and comparison files specify the next prospective tests.

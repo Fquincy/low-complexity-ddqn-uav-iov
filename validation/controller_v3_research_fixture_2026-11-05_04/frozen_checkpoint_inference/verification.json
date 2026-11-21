@@ -1,0 +1,358 @@
+{
+  "protocol": {
+    "reexport_every_final_checkpoint_before_heldout_evaluation": true,
+    "retest_complete_action_equivalence": true,
+    "equivalence_inputs": "existing 128 saved engineering common observations, never used for policy-quality or checkpoint selection",
+    "equivalence_observations_path": "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+    "equivalence_observations_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+    "all_11_models_same_fixed_family_routes_as_compatibility_protocol": true,
+    "backend": "ORT CPU FP32 1thread plus native Numba FP32 decoder where predeclared",
+    "timing_rounds": 5,
+    "warmups": 32,
+    "calls_per_round": 128,
+    "order_seed": 423600003,
+    "require_exact_actions_and_Q_atol1e-6_rtol1e-5": true,
+    "report_median_p95_per_fit_no_weight_selection": true,
+    "run_before_any_heldout_evaluation": true,
+    "no_model_changes_after_checkpoint_freeze": true
+  },
+  "observation_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+  "exports": {
+    "fit_00": {
+      "amortized_workload_price24": {
+        "graph_sha256": "c5e902d480d3d922e4fb5022557b0f6419b5418b1fc272573ea5a7d4becce53c",
+        "graph_bytes": 68847,
+        "parameter_sha256": "a543dbeffce3e2ecb5f6aff0146badc588a6ba9f8929aa83f138d6adb6d62cb2",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_workload_price24_fit_00.onnx",
+        "export_seconds": 0.03826189995743334,
+        "session_startup_seconds": 0.005092900013551116
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "23349a50fd1762091218381c953cfe97086f4d961e958ff0dc12d2cb6b748a93",
+        "graph_bytes": 68847,
+        "parameter_sha256": "e77eb0f02719802f9d96085fce4ba809d21645e6d0c2a843bc7b7775d91e3013",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_no_price24_fit_00.onnx",
+        "export_seconds": 0.016480299993418157,
+        "session_startup_seconds": 0.0011091000633314252
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "2c74d1ce80349649e6009f87853af0697fbb86929bef3ed60911023071b0cd3e",
+        "graph_bytes": 67947,
+        "parameter_sha256": "2adac90098c5e43c61a4409ec496523ea4b25d9fc8a00efbb091fe8408f8e6a9",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder",
+        "graph": "plain24_nonpositive_fit_00.onnx",
+        "export_seconds": 0.006007599993608892,
+        "session_startup_seconds": 0.0011535000521689653
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "dff1631572f83e8a99026e875105eda4985d51b5dddbcc2e8f08a663fbc5df8d",
+        "graph_bytes": 93669,
+        "parameter_sha256": "cdfc734840e32d394ba3830fe9f7147dc0bb7ac20d0c58476eef36f69c424eaf",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_00.onnx",
+        "export_seconds": 0.5156045999610797,
+        "session_startup_seconds": 0.08053669997025281
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "b46fc7223229612fcea812048b33aa452b7dcd6fea7abebd501aaf17ef91e74c",
+        "graph_bytes": 32325,
+        "parameter_sha256": "970c31db106f37e4191c6a34c6a70ecb8faa1ccd00b296df43ea827169412a2a",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_00.onnx",
+        "export_seconds": 0.11993889999575913,
+        "session_startup_seconds": 0.013195900013670325
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "ca5dd46518f29e3c869f08744a6fdf6556f723b74872bf40739af200d6b233fb",
+        "graph_bytes": 351792,
+        "parameter_sha256": "46dc86ad280f2c0963c297c41dd9422033535ae787840b96b263477b1bf2ba34",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_00.onnx",
+        "export_seconds": 0.8317884000716731,
+        "session_startup_seconds": 0.14734340005088598
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "028e8e486c0b081d8a8602e89c7fa9aeb1e735fc21a4760ebb9b341b08efeed1",
+        "graph_bytes": 93529,
+        "parameter_sha256": "8ed3b17f534d6890766270d3b6a5a9fcc53dd644605d02eb43bef15513ebd80e",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_00.onnx",
+        "export_seconds": 0.509809699957259,
+        "session_startup_seconds": 0.08276979997754097
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "dfdafed1ea57a1fe7ba257fe4688e5d72152333afa2ba25f427a440294cbb245",
+        "graph_bytes": 196275,
+        "parameter_sha256": "9fda9a1e39e2b429999874759237678729ec186994780cae070837c7063cad62",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder",
+        "graph": "additive64_nonpositive_fit_00.onnx",
+        "export_seconds": 0.009161100024357438,
+        "session_startup_seconds": 0.0013911999994888902
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "5df8dd3e72d3b08600a10bfde6297b4f3027794542bdd0c5dbc48cdd8420b039",
+        "graph_bytes": 423353,
+        "parameter_sha256": "051abf1e519fcdce8497e67154607af7c4e014b68613d2702917a4e4f6ec2cc9",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder",
+        "graph": "additive128_unbounded_fit_00.onnx",
+        "export_seconds": 0.009159700013697147,
+        "session_startup_seconds": 0.0019826999632641673
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "4e6ded067b9319c7a902d0d5b492b0d3d50a7d13f6e441aca8a4d10855c9ae46",
+        "graph_bytes": 278373,
+        "parameter_sha256": "fecf59bb8751747dc760750d5a4fa66a8977155226bafb1544a1e62a4a35f48e",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder",
+        "graph": "emc_q_nonpositive_fit_00.onnx",
+        "export_seconds": 0.0075017999624833465,
+        "session_startup_seconds": 0.0014109000330790877
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "1970d94878e9cccf63ffbbfc6162998d225ece6b40635b8e27df45366bdd6297",
+        "graph_bytes": 196402,
+        "parameter_sha256": "1b87490b9f0dcddd2794cb5367dd1dd0a2b11c219d31fcbcd46833cebf053077",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder",
+        "graph": "bdq64_uniform_adapted_fit_00.onnx",
+        "export_seconds": 0.00903060007840395,
+        "session_startup_seconds": 0.001354200066998601
+      }
+    }
+  },
+  "metrics": {
+    "amortized_workload_price24": [
+      {
+        "fit": 0,
+        "median_ms": 0.0338,
+        "p95_ms": 0.0374,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "amortized_no_price24": [
+      {
+        "fit": 0,
+        "median_ms": 0.0336,
+        "p95_ms": 0.0372,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "plain24_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.031,
+        "p95_ms": 0.034104999999999996,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "shared_congestion_cost": [
+      {
+        "fit": 0,
+        "median_ms": 0.3943,
+        "p95_ms": 0.463005,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "shared_no_congestion": [
+      {
+        "fit": 0,
+        "median_ms": 0.0981,
+        "p95_ms": 0.105305,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "untied_congestion_cost": [
+      {
+        "fit": 0,
+        "median_ms": 0.59735,
+        "p95_ms": 0.86813,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "shared_joint_bound": [
+      {
+        "fit": 0,
+        "median_ms": 0.3907,
+        "p95_ms": 0.46733499999999994,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "additive64_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0363,
+        "p95_ms": 0.041604999999999996,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "additive128_unbounded": [
+      {
+        "fit": 0,
+        "median_ms": 0.0408,
+        "p95_ms": 0.04710999999999999,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "emc_q_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0407,
+        "p95_ms": 0.0443,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "bdq64_uniform_adapted": [
+      {
+        "fit": 0,
+        "median_ms": 0.0377,
+        "p95_ms": 0.042905,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ]
+  },
+  "orders": [
+    {
+      "fit": 0,
+      "round": 0,
+      "order": [
+        "additive128_unbounded",
+        "shared_congestion_cost",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "shared_joint_bound",
+        "emc_q_nonpositive"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 1,
+      "order": [
+        "untied_congestion_cost",
+        "shared_no_congestion",
+        "amortized_no_price24",
+        "bdq64_uniform_adapted",
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "amortized_workload_price24",
+        "shared_joint_bound",
+        "additive128_unbounded"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 2,
+      "order": [
+        "untied_congestion_cost",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "additive64_nonpositive",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 3,
+      "order": [
+        "additive64_nonpositive",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "untied_congestion_cost",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 4,
+      "order": [
+        "additive64_nonpositive",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "shared_joint_bound",
+        "untied_congestion_cost",
+        "emc_q_nonpositive",
+        "plain24_nonpositive"
+      ]
+    }
+  ],
+  "raw_rows": 7040,
+  "screens_per_fit": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "all_fit_cost_screens_pass": true,
+  "equivalence_models": 11,
+  "equivalence_actions": 1408,
+  "research_training_launched": false,
+  "optimizer_updates_added": 0,
+  "new_simulator_steps_added": 0
+}

@@ -1,0 +1,126 @@
+{
+  "mode": "development",
+  "kind": "RESEARCH_DEVELOPMENT",
+  "model_seeds": [
+    71001,
+    71011,
+    71017,
+    71023,
+    71039
+  ],
+  "train_blocks": [
+    {
+      "start": 710000000,
+      "count": 200
+    },
+    {
+      "start": 711000000,
+      "count": 200
+    },
+    {
+      "start": 712000000,
+      "count": 200
+    },
+    {
+      "start": 713000000,
+      "count": 200
+    },
+    {
+      "start": 714000000,
+      "count": 200
+    }
+  ],
+  "evaluation_seeds": [
+    720000000,
+    720000001,
+    720000002,
+    720000003,
+    720000004,
+    720000005,
+    720000006,
+    720000007,
+    720000008,
+    720000009,
+    720000010,
+    720000011,
+    720000012,
+    720000013,
+    720000014,
+    720000015,
+    720000016,
+    720000017,
+    720000018,
+    720000019,
+    720000020,
+    720000021,
+    720000022,
+    720000023,
+    720000024,
+    720000025,
+    720000026,
+    720000027,
+    720000028,
+    720000029,
+    720000030,
+    720000031,
+    720000032,
+    720000033,
+    720000034,
+    720000035,
+    720000036,
+    720000037,
+    720000038,
+    720000039,
+    720000040,
+    720000041,
+    720000042,
+    720000043,
+    720000044,
+    720000045,
+    720000046,
+    720000047
+  ],
+  "cfg": {
+    "episodes_per_fit": 200,
+    "slots_per_episode": 40,
+    "slots_per_fit": 8000,
+    "warmup": 1024,
+    "batch_size": 128,
+    "replay_capacity": 50000,
+    "replay": "uniform with replacement; fixed chronological insertion/eviction",
+    "first_update": "after inserting physical slot 1024; one update each slot thereafter",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gamma": 1.0,
+    "gradient_clip": 10.0,
+    "huber_beta": 1.0,
+    "target_interval_updates": 200,
+    "optimizer_updates_per_fit": 6977,
+    "target_copies_per_fit": 34,
+    "threads": 1,
+    "epsilon": "1 during warmup, otherwise 1-.95*min(global_slot_before_action/8000,1)",
+    "target_initialization": "exact online state copy; eval mode; requires_grad False",
+    "final_checkpoint_only": true,
+    "checkpoint_selection": false,
+    "research_early_stopping": false,
+    "anchor": {
+      "batch": 32,
+      "weight": 1.0,
+      "terminal_pool": "uniform with replacement among un-evicted terminal transitions",
+      "empty_pool": "zero anchor loss and log event",
+      "separate_rng": true,
+      "one_optimizer_step": true
+    },
+    "loss_definitions": "Exactly per frozen arm: scalar Huber, scalar plus anchor, or adapted BDQ branchwise Huber. No loss substitutions.",
+    "training_time": "Record wall time per fit, optimizer time and extra anchor sample counts; equal slots/steps do not imply equal compute",
+    "epsilon_decay": 8000
+  },
+  "order_seed": 720600001,
+  "timing_seed": 723600003
+}

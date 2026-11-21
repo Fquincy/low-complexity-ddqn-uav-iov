@@ -1,0 +1,37 @@
+{
+  "kind": "PROSPECTIVE_EVALUATION_NUMERICAL_CONTINUATION_AMENDMENT_V2",
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "supersedes_only": "The aggregate eager/exported Q abort tolerance in the evaluation-only continuation; scientific policy, rewards, seeds, thresholds and trained weights remain unchanged.",
+  "observed_stop": {
+    "arm": "unmasked_plain24",
+    "fit": 2,
+    "evaluation_seed": 874000000,
+    "slot": 16,
+    "actions_identical": true,
+    "eager_q": -0.5854772329330444,
+    "native_q": -0.5854697823524475,
+    "absolute_difference": 7.450580596923828e-06,
+    "original_relative_difference": 1.2725653839003987e-05,
+    "raw_max_absolute_difference": 8.58306884765625e-06,
+    "conservative_32_term_float32_bound": 0.00011834817996714264
+  },
+  "policy_action": "Frozen eager DDQN action",
+  "exact_action_equivalence": "Record every eager/exported action disagreement; exact deployment equivalence fails if any occur.",
+  "original_q_tolerance": {
+    "rtol": 1e-05,
+    "atol": 1e-06,
+    "use": "Retain as a reported diagnostic distribution and exceedance count, not an evaluation abort."
+  },
+  "continuation_q_guard": {
+    "rtol": 1e-05,
+    "atol": 0.0002,
+    "basis": "Above the reproduced 0.00011835 conservative float32 32-term accumulation bound; catches materially larger divergence without changing actions or policy quality."
+  },
+  "complete_postevaluation_scan": "Recheck all 151,680 learned evaluation states using frozen eager and exported paths; report action disagreements, original-tolerance exceedances and maximum absolute Q difference.",
+  "completed_evaluation_artifacts_before_v2": 1824,
+  "remaining_learned_episodes_before_v2": 1776,
+  "new_training_slots": 0,
+  "new_optimizer_updates": 0,
+  "retraining": false,
+  "word_thesis_changed": false
+}

@@ -1,0 +1,62 @@
+RQ24 CLOSEST FULL-METHOD COMPARISON
+Date: 2026-11-19
+Evidence: validation/rq24_engineering_2026-11-19_01/literature/
+
+1. Deep Coordination Graphs, arXiv1910.00091v4
+Retrieved full16-page PDF; methods on PDF pages3-4 and Algorithms1-3 in
+appendix inspected. Rendered method page4 checked against extracted text.
+Eq3-4: max-sum messages repeated for a fixed iteration count; graph cycles
+do not imply a convergence guarantee. Eq5 low-rank learned pair payoffs;
+Eq6 averages individual utilities and symmetric pair payoffs. Shared RNN
+histories and pair networks; Q-learning with double selection/evaluation.
+Rq24 difference: physical sparse same-UAV pair costs with a learned common
+scale and signed unary residuals; one coordinate sweep with cached exact
+surrogate deltas. No learned general action-by-action payoff matrix or RNN.
+LIMIT: factorized Q, shared parameters, sparse interaction representations
+and approximate greedy decoding are established. Our restricted physical
+form is not automatically a new coordination-graph method.
+
+2. Action Branching Architectures, arXiv1711.08946v2
+Retrieved full9-page PDF; PDF pages3-4 specify shared representation,
+state-value/per-branch advantages, branch argmaxes and DDQN targets/losses.
+The method already avoids joint exponential output enumeration. RQ24's
+explicit pair potential differs from independent branch selection. A small
+branching network or linear output count is not our new idea. Retain the
+adapted BDQ comparator; adaptation here is not an exact paper reproduction.
+
+3. Optimizing Vehicular Edge Computing: Graph-Based Double-DQN Approaches
+for Intelligent Task Offloading, Research Square rs-4917636 preprint
+Retrieved linked latest.pdf,24pages. PDF pages11-14 (printed10-13): directed
+task/vehicle/RSU/cloud graph, GCN embeddings Eq19-20, state adjacency Eq21,
+task/server action, delay-sensitive reward Eq22, training Algorithm1.
+The graph is an input representation processed by GCN, rather than our
+explicit assignment-dependent radio-cost graph. Table2 gives2 GCN layers
+and64 GCN hidden units; no matched local runtime is inferred from that.
+Eq18 and Algorithm1's target descriptions are not fully consistent; do not
+silently resolve this or claim an exact baseline reproduction from them.
+Journal DOI10.1007/s11227-024-06599-4 returned a Client Challenge page,
+NOT full text. The preprint and journal are not treated as verified identical.
+RQ24 differs structurally, but full journal comparison remains outstanding.
+
+4. Joint Task Offloading and Resource Optimization in NOMA-based Vehicular
+Edge Computing: A Game-Theoretic DRL Approach, arXiv2209.12749v2
+Retrieved full45-page PDF; system/method passages reviewed. PDF page13
+Eq4-5 explicitly models interference and upload duration, with NOMA/SIC;
+intro/methods split task offloading into an exact-potential-game/MAD4PG
+subproblem and convex power/computing allocation. These channel/action and
+learning assumptions differ from our fixed-power UAV radio and DDQN.
+Overlap: interference-aware offloading, delay objectives, potential methods
+and learned-plus-analytic allocation are established. No inherited optimality
+or convergence guarantee applies to RQ24.
+
+BOUNDARY OF REVIEW
+This is a targeted method/equation comparison, not exhaustive literature
+clearance. Exact sparse physical-pair surrogate priority remains unresolved.
+Cross-paper return/latency numbers are not directly comparable. Historical
+UAV masking and congestion-aware DDQN overlap remains recorded in the
+November15 matrix. No claim of first-of-its-kind is justified.
+
+ENGINEERING CONSEQUENCE
+Only a specific, measured policy/cost improvement could support the proposed
+application contribution. The isolated RQ24 cost fixture FAILED; do not move
+this design into large-scale training or claim novelty on engineering tests.

@@ -1,0 +1,15 @@
+{
+  "state": "prospective_design_and_component_literature_review_recorded",
+  "files": {
+    "analysis/deadline_design_literature_2026-11-11/1509.06461.html": "781ca8a8d5d3d34d7da1b94ccfb7bdf62bfebddd07c94b5eefbeae9ed847bb09",
+    "analysis/deadline_design_literature_2026-11-11/1705.10528.html": "6c778e89dd9aa0b4b213e4c4e438efba038224c42ba14031a41dec21adaace73",
+    "analysis/deadline_design_literature_2026-11-11/1711.08946.html": "4c77b0acdecfdc42efbd71918966ece9613492c5386eac2e58900363f2cdb229",
+    "analysis/deadline_design_literature_2026-11-11/2006.14171.html": "6128aae33746a6f0677fa38d29de7db314db5803f8177613815ab69d669b7a6a",
+    "analysis/deadline_design_literature_2026-11-11/PROJECT_STATUS_BEFORE_DESIGN.json": "6a926e49b9d8a66504bf860b4d17d59983397f36ef60618030ac9465084f3a96",
+    "analysis/deadline_design_literature_2026-11-11/retrieval.json": "61d92e5a400d9801423da67225ff66d9c57759898d0a13e522598e68406eac0c",
+    "DEADLINE_AWARE_DDQN_PROSPECTIVE_DESIGN_BRIEF_2026-11-11.txt": "920f6e491210f8d48a631b675620c6ce1c59dc820402bbd30808b9d5589c991a",
+    "DEADLINE_AWARE_DDQN_LITERATURE_POSITION_2026-11-11.txt": "e3703c831d9fec25b1072405a685d2e64b4343f16e703b2a61939d7c7dc1e1bc",
+    "DEADLINE_AWARE_DDQN_DESIGN_CANDIDATE_2026-11-11.json": "e4a0195a37fbebb4a298cfbfa307243362d23e0fcce6c22fc62a353aa80e6a30",
+    "analysis/write_deadline_aware_design_2026_11_11.py": "8bbfb3bc7fe44c3ae5ef759981b1e2eefb394b65487d7dd00faa8a94ca85abf5"
+  }
+}

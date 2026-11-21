@@ -1,0 +1,11 @@
+{
+  "checkpoints": {
+    "price_both": "359dc5752af56b7515f7ca76e3e9736ce75a47aba29deb722751465a43da6993",
+    "no_price_both": "c976e2dea2010bd3fd72d3a8128484b5f8fbbbfd84dcd5a81b823fe65896760f",
+    "price_horizon_only": "9e1178e938863a2b4db251d75081f2aac28f93386becdb431eeb492b06f0f1da",
+    "price_anchor_only": "0f56542f499d97d2ffc025ae9ece502df3ce433358d80a927e62d847f720439e",
+    "plain_both": "12e66cf88619694aeee4ed8ac105897c74ecd62f5ca02cb1974cc89fdadb570f",
+    "compact_both": "4e508512d5b15e0fc894bec36d649688df8e6995c172241773f4fd7d6271e1d9"
+  },
+  "before_verification": true
+}

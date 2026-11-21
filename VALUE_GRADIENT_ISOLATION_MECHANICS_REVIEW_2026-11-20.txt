@@ -1,0 +1,136 @@
+VALUE-GRADIENT ISOLATION: ISOLATED MECHANICS REVIEW
+20 November 2026
+
+RESULT
+PASSED: 18 synthetic tests, zero failures/errors; deployment artifacts and
+all 17 manifest entries rehashed with exact inventory verification.
+This is implementation evidence, not improved research policy performance.
+Development and final modes remain disabled. No research run was launched.
+
+New implementation: value_gradient_isolation.py
+Tests: test_value_gradient_isolation.py
+Retained evidence driver: verify_value_gradient_isolation_mechanics_2026_11_20.py
+Evidence: validation/value_gradient_isolation_mechanics_2026-11-20_01/
+  verification.json: counters, exports, environment and source hashes.
+  tests.txt and test_results.json: all 18 outcomes, including negative cases.
+  input_bindings.json and source_snapshot/: input and implementation bindings.
+  synthetic_inputs.npz: deterministic formula-generated test data.
+  *_deployment_weights.pt: standalone original-model state dictionaries.
+  *_SYNTHETIC_training_checkpoint.pt: separate target/optimizer artifacts.
+  *_calibration.json and *_step.json: retained synthetic handoff/update reports.
+  manifest.json: exact inventory/SHA256 for the 17 other files.
+
+Binding design: VALUE_GRADIENT_ISOLATION_DESIGN_BRIEF_2026-11-20.txt
+The brief, its reserved seeds and the completed research sources remain
+unchanged. This mechanics gate does not freeze or release a research protocol.
+
+WHAT WAS IMPLEMENTED
+The proposal and the adapted dueling-gradient rescaling control are new
+adapters of the preserved calibrated critic. The module also exposes the
+seven inherited controls without mutating the original arm registry.
+Every model retains the original parameter/buffer layout and deployment
+forward. Only the explicit td_prediction method invokes a custom affine
+backward for the two new arms:
+
+P: readout weight/bias gradients are ordinary; the feature gradient excludes
+   the last/V output row. Branch TD gradients remain active.
+R: all TD feature-gradient paths remain, multiplied by 1/sqrt(2).
+   Readout gradients are ordinary.
+
+Retention uses its ordinary separate forward graph. Its hidden/branch
+gradients are not rescaled or blocked. BC, calibration, greedy selection,
+selected-Q evaluation and target forward use the preserved ordinary path.
+There is no persistent routing mode that can leak into those operations.
+
+The online step uses one detached DDQN target, one joint TD+retention
+backward, global norm clipping at 10 and exactly one Adam step. It does not
+copy target weights: the later runner must control the frozen target-copy
+schedule. Parameters AND buffers are checked for online/target aliasing.
+
+VALIDATION COVERAGE
+1. FP32/FP64 full-affine forward is bit-exact to torch linear, including
+   noncontiguous input/weight views. Custom gradients are checked as declared
+   semi-gradients, not incorrectly tested as ordinary forward derivatives.
+2. Pure V upstream: P's hidden gradient is exactly zero, while V row/bias
+   gradients remain correct. R has its declared hidden rescaling.
+3. Branch-only derivatives preserve readout gradients and P feature gradients;
+   R changes only its specified TD feature factor.
+4. Mixed model-level TD+retention derivatives match an independent construction
+   using detached features and ordinary PyTorch primitives. It does not call
+   the custom affine. Per-parameter gradient tolerance: rtol3e-5,atol2e-6.
+5. All nine adapters retain exact same-weight forward/action/Q behavior against
+   their original family, for batches of 1,8,40. Exact ties and local masks
+   preserve first-index selection. Terminal greedy decoding is rejected.
+6. Identical BC optimizer steps reproduce the preserved BC endpoint exactly.
+   Calibration handoffs match across P/R/A and do not mutate their inputs.
+7. Complete P/R TD steps match independent detached-feature reference updates
+   (parameter rtol1e-5,atol2e-7). Targets remain detached, unmodified and
+   separately stored; the optimizer step is called once, with step counters1.
+8. All-terminal replay batches bypass successor decoding and target evaluation;
+   targets equal rewards and next-action sentinel values remain -1.
+9. A deliberately large synthetic retention gradient is clipped correctly;
+   losses, norm and resulting update match the independent reference.
+10. Invalid objectives, alpha, masks, terminal flags, optimizer settings,
+    target-arm mismatch and parameter/buffer aliases fail before an update.
+    Deliberate nonfinite gradients are rejected before Adam, preserving weights.
+11. The ordinary ablation's complete update reproduces the frozen inherited
+    step and tensor hash exactly. Original source hashes remain unchanged.
+12. Deployment export uses the ORIGINAL return_calibrated_handoff.Critic class,
+    with independent tensor storage and no td_prediction/custom routing node.
+    Serialized state dictionaries reload into that original class with exact
+    actions and selected-Q values, including after a synthetic TD update.
+13. Both development/final CLI modes reject execution with or without a
+    confirmation argument, and create no requested research output directory.
+
+No engineering tolerance was substituted for a scientific pass criterion.
+Exact forward/action/export assertions use exact equality at the same batch
+boundary; numerical gradient/reference arithmetic uses the declared tolerances.
+The custom backward supports first-order training only; higher-order
+differentiation is explicitly unsupported.
+
+STORAGE AND COST SCOPE
+Both new models: 16,841 parameters,67,364 FP32 parameter bytes,20 buffer bytes.
+Standalone deployment files:70,105 bytes each in this serialization format.
+Separate synthetic training checkpoints:279,285 bytes(P),279,405 bytes(R),
+including target/optimizer state and explicit engineering labels. File-format
+overhead and training checkpoints are not parameter-storage reductions.
+
+The exported inference class/function is the original one. No latency
+advantage, convergence, trained value calibration, deadline improvement or
+UAV deployment result is established. Native/ONNX export was not exercised.
+
+SYNTHETIC WORK ACCOUNTING
+3 BC optimizer steps;6 new-helper TD steps in tests;3 independent reference
+steps;1 preserved-baseline reference step;2 artifact-generation TD steps.
+Total:15 synthetic optimizer steps. Seven synthetic ridge solves.
+These counts are engineering work and are not hidden as zero computation.
+Research optimizer updates:0. Simulator steps:0. Teacher calls:0.
+The simulator/teacher modules were not imported. All fixtures use modular/
+sine arrays with parameters overwritten inside forked RNG state. No research
+seed was selected; ambient Torch/NumPy RNG state was verified unchanged.
+No research checkpoint/trajectory was used as training input in these tests.
+
+REVIEW DECISION AND NEXT GATE
+Proceed to a separate full nine-arm comparison protocol/plan freeze, binding
+these tested sources, the helper's explicit TD path and original inference
+interface, the inherited settings, all objectives/comparisons, fresh reserved
+seed blocks and the proposed 67,120-slot accounting. The adapted R reference
+must continue rescaling TD feature gradients only, not imitation gradients.
+
+The later runner must call this module's ddqn_retention_step for the new
+arms: calling the inherited ordinary training step would omit the intended
+mechanism even though inference outputs still match. The future auditor and
+isolated orchestration fixture must verify that binding, not only model shape.
+No new runner or full results auditor has been implemented in this gate.
+
+After protocol freeze: implement runner/auditor, test the complete workflow on
+an isolated synthetic plan, review launch readiness, then require separate
+explicit research launch authorization. Do not launch from these test results.
+The broader reference comparison and untouched final evaluation remain
+required before a thesis efficiency/novelty claim.
+
+The previous research result remains policy-screen FAILED, relative-value
+screen PASSED and promising=false. No successful contribution is inferred
+from mechanics tests. Security/trust is deferred; cloud/charging remain
+excluded. Frozen evidence and final seed reservations are preserved.
+The Word thesis remains unchanged.

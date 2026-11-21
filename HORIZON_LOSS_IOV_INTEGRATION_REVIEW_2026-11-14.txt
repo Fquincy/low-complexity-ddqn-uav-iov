@@ -1,0 +1,82 @@
+HORIZON-NORMALIZED LOSS: ISOLATED SIMULATOR INTEGRATION REVIEW
+2026-11-14
+
+DECISION
+The isolated engineering integration gate passed. This establishes that the
+new loss can run through the simulator, checkpoint freeze, deployed runtime,
+paired evaluation, comparison calculation, storage export and independent
+artifact audit. It does not establish improved policy quality or a successful
+low-complexity thesis contribution. No research experiment was launched.
+
+SCOPE AND IMPLEMENTATION
+The fixture contains all eleven original learners, three normalized-loss
+variants and three heuristics. The proposed primary is
+normalized_screened_price24; normalized no-price24 and anchored plain24
+provide prospective mechanism comparisons. Existing controls retain their
+original updates, including adapted BDQ's branchwise Huber calculation.
+
+The normalized update minimizes Huber(Q/h, stopgrad(y)/h), using each replay
+sample's CURRENT remaining horizon. The DDQN target, terminal bypass,
+gamma=1, Q=-h*c parameterization, local deadline screen and rewards remain
+as specified in the prospective brief. Terminal-anchor loss stays in original
+units, with batch32 and weight1. Original-unit value acceptance is unchanged.
+
+The instrumented adapter records detached next-action and target evidence by
+additional forward computations. Exact update equivalence to the previously
+tested adapter passed. These diagnostic computations have training overhead;
+this review makes no claim of equal measured training cost. The mathematical
+loss change itself does not require additional network forward passes.
+
+ISOLATED PLAN AND EVIDENCE
+Protocol: HORIZON_LOSS_IOV_FIXTURE_PROTOCOL_2026-11-14.json
+Evidence: validation/horizon_loss_iov_integration_2026-11-14_01
+Model seeds: 99941 and 99949. Two 40-slot training episodes per fit use
+engineering task blocks beginning 999410000 and 999490000. Evaluation uses
+999590100 and 999590101. These are fixture-only seeds, not research results.
+
+Four tests passed in 184.559 seconds. They verify adapter update equivalence,
+API/CLI rejection of research and final modes even with a confirmation token,
+the complete workflow, and rejection of altered normalization evidence even
+after its file hash is replaced. Unrecorded artifacts and output reuse also
+reject. Fixture scientific screens are not applied; combined acceptance is
+null and quality_evidence is false.
+
+Completed and audited:
+  28 final checkpoints; 2,240 training slots; 2,044 optimizer updates;
+  252 target copies; 2,480 evaluation slots;
+  118 total episodes and 141,600 task records;
+  3,584 runtime engineering action checks; 17,920 timing readings;
+  16 primary comparisons and nine auxiliary contrasts.
+
+The independent auditor verifies replay/RNG evidence, targets, normalized
+losses, unchanged control losses, runtime decisions, saved predictions,
+comparison/bootstrap calculations, timings and source/artifact manifests.
+The deployment storage audit passed for all28 models, with exact online
+weights. Export/audit adds no simulator or optimizer updates or repeated
+timing. Saved predictions are checked with the corrected batch-one path.
+The original32 pinned source hashes remain preserved.
+
+Supplemental residual distributions are grouped by current horizon and fit
+in supplemental_residual_distributions.json, in both original and normalized
+units. They describe this fixture only. The completion script verifies the
+original evidence manifest before adding supplemental files outside it.
+
+RUNTIME LIMITS
+The single fixture benchmark recorded primary median action latencies of
+0.0774 and 0.0773ms for its two fits, with p95 of 0.227185 and 0.13273ms.
+Primary parameter storage was68,264 bytes plus20 buffer bytes. Both fixture
+cost screens passed. These short engineering measurements do not establish
+research latency, generalization, calibration, or return/deadline gains.
+No retiming or policy selection was performed from these outcomes.
+
+NEXT GATE
+Prospectively freeze the fresh 14-learner/3-heuristic research comparison:
+training/evaluation budget, development blocks and model seeds, collision
+audit against prior and final reservations, and every decision rule. Do not
+inherit the old440,000-slot budget automatically. Review this new freeze
+before a separate explicit launch decision. No research seeds are reserved
+by this engineering fixture and no research launch is authorized here.
+
+Old successful and failed runs remain preserved. The final reserved seed set
+and Word thesis remain untouched. Security/trust, cloud and charging stations
+remain excluded from contribution-one experiments.

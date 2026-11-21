@@ -1,0 +1,28 @@
+{
+  "state": "passed_paired_iov_engineering_audit",
+  "episodes_checked": 54,
+  "updates_checked": 876,
+  "training_simulator_slots": 960,
+  "checkpoints": 12,
+  "export_equivalence_checks_replayed": 1536,
+  "timing_rows_recomputed": 4608,
+  "policy_quality_evidence": false,
+  "scope": {
+    "excluded": true,
+    "active_source_paths": [
+      "Source/chapter3_iov_env.py",
+      "Source/chapter3_iov_env_v2.py",
+      "controller_redesign_v2.py"
+    ],
+    "execution_destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "cloud_nodes": 0,
+    "charging_stations": 0,
+    "security_trust_enabled": false
+  }
+}

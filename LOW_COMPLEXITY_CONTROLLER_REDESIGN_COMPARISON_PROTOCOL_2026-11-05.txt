@@ -1,0 +1,190 @@
+PROSPECTIVE CONTROLLER COMPARISON PROTOCOL - VERSION 1
+Date: 2026-11-05
+Status: design-stage predeclaration, not an executable frozen research runner.
+No new learning, simulator evaluation, thesis editing or research launch occurred.
+The earlier November 4 protocol and its results are NOT changed by this plan.
+
+1. HYPOTHESES AND PRIMARY OUTCOME
+Primary candidate: shared_congestion_cost, exactly as the design brief specifies.
+Hypothesis: weight sharing reduces online storage, while explicit assignment-load
+coupling preserves return/deadline performance at lower complete decision cost.
+Separately test whether termwise nonnegative costs improve value consistency.
+Smaller storage, stable Q, good policy and faster inference are different claims.
+All four must be evaluated and all predeclared failures reported.
+
+2. EIGHT LEARNED ARMS: NO POST-HOC ADDITION/SELECTION
+A shared_congestion_cost: full proposed 4,052-parameter controller, two passes.
+B shared_no_congestion: same network and termwise cost, beta forced to zero;
+  decoder reduces to independent minima. Keep/load-head parameters in declared
+  storage accounting (zero-gradient masked outputs intentional). Isolates the
+  congestion mechanism and its decoder as a combined treatment.
+C untied_congestion_cost: per-vehicle phi AND placement networks independently
+  parameterized; same dimensions, pooling, cost, two passes and schedule.
+  Expected 53,845 parameters. Tests sharing, not a claim that removing sharing
+  is a competitive new baseline. Do not add vehicle information to either arm.
+D shared_joint_bound: same shared network/beta/decoder budget as A, but
+  Q=-softplus(b+mean_i l_i,d_i+mean_j m_j,b_j+P). Decoder uses raw l/N in
+  the same price passes and scores the complete RAW inner cost; minimizes it
+  before applying the decreasing transform. Tests the cost parameterization.
+E additive64_nonpositive: existing 64-64 additive DDQN with its joint outer
+  negative-softplus transform and correct raw argmin. Plain compact reference.
+F additive128_unbounded: original 128-128 additive DDQN. Primary cost/quality
+  reference; old results on different seeds are not substituted for new fits.
+G emc_q_nonpositive: existing bounded EMC with its exact raw-min decoder.
+  Stronger motion-placement representation comparator, with mixed prior results.
+H bdq64_uniform_adapted: explicitly adapted BDQ, not the original paper's full
+  implementation or a reproduction of published performance. Trunk 533->64->64;
+  ReLU, output V (64->1) plus 32x5 advantages (64->160); 48,801 parameters.
+  Q_j=V+A_j-mean_d A_j,d. Action per branch argmax. Target y=r+gamma*(1/32)
+  sum_j Q_target,j(s',argmax Q_online,j(s')). Mean per-branch Huber_beta1 loss;
+  shared-trunk gradient scaled 1/33 as in the paper's gradient-rescaling rule.
+  Uniform replay, Huber instead of paper MSE, widths, schedule and simulator are
+  disclosed adaptations for this paired comparison; do not call it original BDQ.
+  Joint-value diagnostic = branch mean (not sum). No nonpositive constraint.
+Heuristics: existing all_local, nearest_rsu and uav_selective, unchanged.
+Optional untrained forced-no-correction A decoder is a diagnostic only, clearly
+separated from B, which is independently trained without congestion.
+
+3. FIXED TRAINING CONDITIONS AND ACCOUNTING
+All arms: 200 episodes x40 physical slots=8,000 slots/model; final checkpoint
+only; uniform replay capacity50,000, warmup1,024, batch128. One update after
+each new record starting at1,024 =>6,977 updates/model; target copy every200
+updates =>34 copies. Adam lr1e-4, betas(.9,.999), eps1e-8, weight_decay0;
+gamma1; Huber beta1; global gradient clip10 (BDQ trunk rescale before clip).
+All hidden layers ReLU. Exploration: epsilon1 during warmup, otherwise
+1-.95*min(t_before_decision/8000,1). No random action space reduction.
+CPU intra/inter-op threads1; final-only checkpoints; no early stopping based
+on rewards, validation-selected weights, seed removal or budget extension.
+Paired exogenous tasks and exploration coin/uniform joint vector per replicate;
+separate replay RNG. Gradient/representation differences remain part of each arm.
+Actual arm source hashes, package versions and full hardware/backend must be
+frozen in a new executable manifest after the implementation gate, before run.
+
+4. RESERVED SEEDS AND BUDGET
+Development model seeds: 41001,41011,41017,41023,41039.
+Paired training blocks, respectively: 410000000,411000000,412000000,
+413000000,414000000, each 200 consecutive seeds.
+Validation:421000000..421000004 at episodes0,50,100,150,200, diagnostics only.
+Common timing/probe workloads:422000000..422000007.
+Development evaluation:420000000..420000047 (48 workloads), after ALL40 final
+checkpoints are saved and hashed. No model changes after viewing this gate.
+Development budget:8 arms x5 fits x8,000=320,000 physical training slots,
+279,080 optimizer updates,1,360 target copies.
+
+Untouched final phase: new model seeds51001,51011,51017,51023,51031;
+training blocks510000000,511000000,512000000,513000000,514000000, each200.
+Final evaluation:520000000..520000199 (200 workloads). Same eight arms, budget
+and source definitions; no validation or selection on final tasks. Train these
+only after development passes and a separate final launch is authorized.
+Both phases combined:640,000 training slots,558,160 updates,2,720 copies.
+This is a prospective research budget, NOT authority to start it.
+
+Integration-only smoke: model43001; train430000000..001; eval430000100..101.
+Synthetic fixture: model99001; train990000000; eval990000100; outputs marked
+SYNTHETIC_NOT_RESEARCH and stored temporarily. Neither is quality evidence.
+Action/replay RNG offsets100000/200000. Order420600001; bootstrap420600002;
+timing-order420600003. Final bootstrap520600002.
+seed_reservation_check.json records a conservative historical literal scan.
+Compressed/binary/unlogged external runs were not exhaustively searched.
+Before any launch, validate actual frozen run manifests and seed ranges for
+all workloads/model/RNG streams. A collision blocks launch and requires a
+documented protocol amendment BEFORE using any new seed. No seed was consumed
+by the saved-trace diagnosis or design checks.
+
+5. MECHANICS/COST GATE BEFORE ANY RESEARCH TRAINING
+Unit checks plus full reduced orchestration/auditor fixture must pass.
+No quality inference or selection from the integration smoke.
+Predeclared cost screens for A on the same CPU/backend as references:
+  online FP32 parameter bytes <=50% of E;
+  complete-action median latency <=100% of F;
+  complete-action p95 <=1.0 ms.
+Timing:128 common observations, five rounds,32 warmups/path/round,128 timed
+calls/path/round, predeclared randomized order; save every nanosecond reading.
+Include parsing, conversions, pooling, all heads, load passes, scoring and
+action conversion; exclude simulator stepping/file I/O. All arms same dtype,
+threads, backend and device. No optimized candidate versus deliberately slow
+reference. Log compilation/startup separately if any compilation is used;
+backend is chosen before timing and then fixed. Do not benchmark until the
+implementation gate; no timing-derived architecture choice in this stage.
+Report target, optimizer, replay, activation and serialized checkpoint sizes
+separately; FP32 tensor bytes are not file size or peak process memory.
+If A misses the runtime gate, stop before research training. Smaller weights
+with slower inference cannot be rebranded as a faster controller. A later
+memory/runtime tradeoff study would need a new explicit protocol.
+
+6. DEVELOPMENT QUALITY SCREEN - ALL FIVE FITS
+For EACH A initialization, compared on paired episodes with each of E,F,G,H:
+  mean episode return difference >=-2.0;
+  deadline-success fraction difference >=-.01 (one percentage point).
+Against each declared heuristic:both mean differences >=0 for every fit.
+Mechanism check vs B:each fit has both differences>=0, and across five fitted
+pairs the equally weighted mean return improvement>=2 and deadline improvement
+>=.01. Report C and D comparisons completely; do not cherry-pick whichever
+ablation happens to favor the story. Passing the development screen is an
+engineering continuation decision, not statistical proof of novelty.
+Thresholds are prospective design choices motivated by meaningful return,
+deadline and cost tolerances, informed by completed development diagnosis.
+They are NOT independently established universal standards or chosen from a
+new smoke. No change to the previous experiment's thresholds is made.
+
+7. VALUE STABILITY AND OWN-POLICY RETURN CONSISTENCY
+Save chosen online Q and target Q at every state along each fresh greedy
+trajectory, before action execution. Compute G_t=sum_{k=t}^{39} r_k for the
+same trajectory. For each fit, across all its evaluation episodes/slots:
+  chosen online/target values and all optimizer diagnostics finite;
+  A chosen Q<=0; report zero/positive fractions for every arm;
+  sqrt(mean((Q-G)^2))/max(1,sqrt(mean(G^2))) <=.25;
+  abs(mean(Q-G)) <=2.0;
+  fraction with abs(Q)<=1e-6 AND abs(G)>=1 <=.05;
+  final-slot abs(Q-r) p95 <=2.0.
+Report all-slot and per-time-bin Q,target,TD residual,gradient norms/clipping,
+return residuals, mean/median/p05/p95/extrema. Bootstrap episode summaries,
+not individual time slots. These measure consistency with realized returns of
+the evaluated greedy policy; single realized returns have stochastic noise and
+are not exact conditional Q-star ground truth. No sign-only calibration claim.
+Fixed heuristic-state probes remain useful coverage/stability diagnostics;
+do not compare their Q to a different policy's realized trajectory as truth.
+
+8. FINAL CONFIRMATION AND UNCERTAINTY
+Freeze all model definitions/settings before final fitting. Freeze all40 final
+checkpoints and hashes before evaluating final tasks. No fallback to successful
+seeds, repeated final gates, best checkpoint or favorable workload subsets.
+Primary final quality comparator:F. Co-primary metrics:return and deadline
+fraction, margins -2 and-.01. Report per-fit paired differences, plus5,000-draw
+paired crossed bootstrap:resample the five model pairs and the200 common task
+episode indices, sharing sampled indices across the compared arms. Use one-sided
+97.5% lower limits for each of the two co-primary metrics; require each lower
+limit>=its margin. Also require every fit's development-style point screens
+and the predeclared cost/value screens. Secondary comparisons/ablations remain
+fully reported; no uncorrected many-comparison statistical superiority claim.
+Five initializations give limited training-variability evidence; do not treat
+the1,000 fit-episode combinations as1,000 independent trained controllers.
+Final failure means the claim is not established; preserve it without retuning.
+
+9. MODELING ASSUMPTIONS AND FINAL CLAIM SCOPE
+Keep the existing physical model for controlled controller development. Before
+thesis results, justify or explicitly declare RSU CPU/link/radio assumptions
+and the partial observation, finite horizon, FIFO service and UAV energy scope.
+Reserve a separate robustness extension in the final report:RSU CPU10/20/40
+Gcycles/s crossed with RSU link100Mbit/s/1Gbit/s (six settings), all other
+constants unchanged. Evaluate the already frozen final policies and heuristics
+on the same final workload seeds in every setting with zero updates. This is
+out-of-distribution sensitivity (default setting repeated for invariance), not
+retraining at each setting or validation of a realistic vehicle-to-RSU channel.
+Claim default-setting performance only if sensitivity is weak; report where
+the controller loses quality. No robustness model selection is permitted.
+Default model assumptions may be retained as simulation assumptions if clearly
+declared; do not call the2024 source an exact reproduction of this IoV system.
+No attack/security contribution or controller electrical-energy saving is tested.
+No automated rewriting of the thesis or the published conference paper.
+
+10. DECISION AND STOPPING RULES
+Design complete != implementation ready != training authorized != thesis claim.
+Next gate:review the equations/decoder and scope, then implement A-H and their
+tests in new files, confirm mechanics/cost, run reduced synthetic orchestration
+and an independent auditor, and preserve a new hashed executable protocol.
+An explicit launch instruction is required for either research phase.
+Stop on nonfinite values, mismatched workloads, illegal actions or failed audit;
+keep partial outputs; no silent restart. All failed designs stay in the record.
+If design changes after this declaration, save v2 with reasons before training;
+keep v1 and its hash. Do not reuse consumed final workloads as untouched evidence.

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "tests": 6,
+  "fixture_models": 28,
+  "synthetic_transition_insertions": 224,
+  "actual_fixture_updates": 140,
+  "oracle_clone_updates_additional": true,
+  "runtime_checks": 3584,
+  "normalized_rows_audited": 30,
+  "original_definitions_and_release_evidence_preserved": true,
+  "CLI_development_rejected": true,
+  "new_simulator_steps": 0,
+  "research_seeds_reserved": false,
+  "research_launched": false,
+  "word_thesis_changed": false,
+  "report_sha256": "b4b97dabfcbfc6fa222108edcdafcaac3c7fd132b1f3cf7fdb77aefb5010d100"
+}

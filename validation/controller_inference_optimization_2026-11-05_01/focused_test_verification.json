@@ -1,0 +1,7 @@
+{
+  "tests_passed": 6,
+  "command": "python -m unittest test_compiled_inference_checks -v",
+  "observed_process_exit_code": 0,
+  "source_sha256": "7be465cbcc37a3121827b254c32e8452703c96e7c3a1170b6207648580909fbe",
+  "new_benchmark_run": false
+}

@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-19",
+  "review": "LOW_COMPLEXITY_MECHANISM_FEASIBILITY_ASSESSMENT_2026-11-19.md",
+  "decision": "HOLD_NO_EXISTING_CANDIDATE_RECOMMENDED_FOR_FRESH_RUN",
+  "sources": [
+    {
+      "path": "LOW_COMPLEXITY_PROSPECTIVE_VALIDATION_RATIONALE_2026-11-19.txt",
+      "sha256": "31252fb00f06eeb3d434ec1fea29d0bf2912443f0d434aef98c67ba5663c781b"
+    },
+    {
+      "path": "DEADLINE_AWARE_DDQN_PROSPECTIVE_DESIGN_BRIEF_2026-11-11.txt",
+      "sha256": "920f6e491210f8d48a631b675620c6ce1c59dc820402bbd30808b9d5589c991a"
+    },
+    {
+      "path": "deadline_screen_prototype.py",
+      "sha256": "c3bf797233fe98ffca33b8ca757bdf7d82990ebc5596f3432cd1feb0aa5df7e7"
+    },
+    {
+      "path": "DEADLINE_SCREEN_DEVELOPMENT_RESULTS_REVIEW_2026-11-14.txt",
+      "sha256": "4c673780464baaa429c14fe960621612046b3e2325cd112a9204c41451ad2da3"
+    },
+    {
+      "path": "ASSIGNMENT_DEPENDENT_PRICE_DESIGN_BRIEF_2026-11-15.txt",
+      "sha256": "5b18c68561ec1ac60381fb3775f359ec2f75535cdef1d0c7a4e18c3f665d8ea8"
+    },
+    {
+      "path": "ASSIGNMENT_PRICE_AUDITED_RESULTS_AND_CONTRIBUTION_DECISION_2026-11-19.txt",
+      "sha256": "a027167ce8b659615af9b805c78347d21bdf551fa98f6526ee738a6b210724a1"
+    },
+    {
+      "path": "ASSIGNMENT_PRICE_OFFLINE_GRADIENT_TIMELINE_DIAGNOSIS_2026-11-19.txt",
+      "sha256": "6f0200c694681e5d624a3d8cc54e11b729b793ec445feaa16591f1e13ce7ab61"
+    },
+    {
+      "path": "RQ24_DESIGN_AND_CLAIM_DECISION_MEMO_2026-11-19.txt",
+      "sha256": "26b4b95f55bf3feb3c293b60914ddc0ae8058b8439b20ef006a8674b02c124c3"
+    },
+    {
+      "path": "AR24_PROFILE_AND_PARK_DECISION_2026-11-19.txt",
+      "sha256": "c905fd7fc905caa788360656d0f737cc97c411464f5b1a4fa9e3f635370efb88"
+    },
+    {
+      "path": "INCUMBENT_CLOSEST_WORK_MATRIX_2026-11-15.txt",
+      "sha256": "ab22bb5dced8c44bb43ff607cbbaccb549a0bdc9d120ad1a9a4884c39fab3427"
+    },
+    {
+      "path": "validation/incumbent_evidence_stage_2026-11-15_01/literature/branching_full.txt",
+      "sha256": "3c235695f8610024d79324f86f86bdf3b6f92261ecfec349fd3efa792581c2ed"
+    },
+    {
+      "path": "validation/incumbent_evidence_stage_2026-11-15_01/literature/uav_masking.txt",
+      "sha256": "a1c1de8d7c1ea9a7e68dd7796f511b4ebdaa6c57afe53f3a69a833ae3a05f533"
+    },
+    {
+      "path": "validation/incumbent_evidence_stage_2026-11-15_01/literature/vehicular_ddqn.txt",
+      "sha256": "a50e3acf6e32ddc7f3ab736030c8a763c4920e936a0d789ba82ca017969d702d"
+    },
+    {
+      "path": "validation/incumbent_evidence_stage_2026-11-15_01/literature/hierarchical_iov.txt",
+      "sha256": "09397f38b5a5a083054ec43ee9f542cd2f159bb492e7c8aa73dd996032f8ad9a"
+    }
+  ],
+  "local_method_passages": {
+    "branching_full.txt": [
+      203,
+      211,
+      292,
+      336
+    ],
+    "uav_masking.txt": [
+      667,
+      679
+    ],
+    "vehicular_ddqn.txt": [
+      155,
+      484
+    ],
+    "hierarchical_iov.txt": [
+      807,
+      812,
+      821
+    ]
+  },
+  "new_literature_retrieval": false,
+  "full_audits_repeated": false,
+  "candidate_selected": false,
+  "new_training_slots": 0,
+  "new_simulator_steps": 0,
+  "new_timing_readings": 0,
+  "final_seeds_used": false,
+  "word_thesis_changed": false
+}

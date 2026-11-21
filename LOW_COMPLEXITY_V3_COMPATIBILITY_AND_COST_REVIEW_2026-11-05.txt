@@ -1,0 +1,171 @@
+VERSION 3 NUMERICAL COMPATIBILITY AND COST GATE REVIEW
+Date: November 5, 2026
+
+DECISION
+PASS: the numerical regression, full finite-case equivalence, declared storage
+and runtime screens, and independent saved-artifact audit all passed.
+The implementation is ready for the next research-engineering preparation gate.
+No research training was launched. Return/deadline performance, trained value
+consistency and a sufficient thesis contribution remain unproven.
+The Word thesis remains unchanged.
+
+1. THE COMPATIBILITY AMENDMENT
+Protocol: LOW_COMPLEXITY_V3_RUNTIME_COMPATIBILITY_PROTOCOL_v2_2026-11-05.json
+Saved before the new implementation and before any timing under this amendment.
+The first native-fusion failure is preserved with its full diagnosis and hashes.
+The offending older controller is sensitive to small FP32 changes when its
+tables are exported separately. We removed that new export boundary for the
+ENTIRE four-model historical shared-critic family: every input uses its original,
+validated complete ONNX policy graph. All 12 graphs (four arms, three seeds)
+were copied byte-for-byte and independently verified. This does not fix native
+table-split arithmetic universally; it avoids that numerical boundary for these
+historical controls. Their parameters and action-selection policy did not change.
+
+Seven arms use the same ORT neural-core plus native-decoder treatment: primary
+Version3, its no-price ablation, plain24, compact64, wide128, EMC and adapted BDQ.
+The route is fixed by model family before measurement; no per-input, mismatch-
+triggered or timing-selected fallback is permitted. This differs from the first
+attempt's all-native plan and is explicitly declared, not hidden.
+Do not attribute cross-route speed differences versus the historical four arms
+to architectural superiority. The primary cost gate uses equally native-treated
+compact64 and wide128 references. All routes and all timing results are reported.
+
+The mathematical critics, weights, old two-pass/four-repair decoder and1e-6
+repair threshold, rewards, training settings, research seeds and acceptance
+thresholds remain unchanged. No tie tolerance was introduced.
+
+2. WHAT PASSED
+Fourteen tests passed: the previous eight native mechanics/rejection tests plus
+the saved mismatch regression, fixed historical-family routes, equal native
+treatment of principal references, wrong-weight/graph rejection, unchanged
+relative-speed screen and both research CLI guards. Development/final commands
+remain disabled both with and without explicit confirmation flags.
+
+All 33 model/initialization combinations were checked on the same192 inputs:
+128 saved engineering observations plus64 previously saved synthetic numerical
+observations. Synthetic model seeds:99021,99023,99029.
+ALL 6,336 complete joint actions (202,752 individual choices) matched exactly.
+Chosen Q values met rtol1e-5/atol1e-6; values were finite and nonpositive where
+required. Graph save/reload and repeat were deterministic, and model parameter
+hashes remained unchanged.
+The former seed99023, observation187, vehicle-index2 regression now chooses
+destination2 (UAV2), agreeing with the original complete action and Q.
+These are finite engineering checks, not a universal numerical guarantee or
+performance evaluation of trained offloading policies. Every final trained
+checkpoint will need its own export/equivalence and runtime verification.
+
+3. FAIR SAME-RUN TIMING
+CPU inference, FP32, ORT1.31.0 CPUExecutionProvider, sequential execution and
+one intra/inter-op thread; native Numba0.65.1/llvmlite0.47.0, nopython,
+fast-math OFF, parallel OFF, bounds checks ON, cache OFF. No new dependency
+installation or framework upgrade was required in this gate.
+22 paths:11 original complete-ORT policies plus11 declared compatibility routes.
+Five randomized rounds,32 warmups and128 measured calls/path/round:640 readings
+per path and14,080 raw timing records in total. Timing-order seed99048.
+Input conversion and finite-input checks, all neural computation, all cost and
+decoder work, chosen value, and final action copy are included.
+Export, session startup and first dispatch/JIT compilation are logged separately
+and excluded. No simulator stepping or file I/O is included. One frozen timing
+attempt; no favorable rerun or performance-driven model/threshold adjustment.
+
+Arm                                  Original ORT  Declared route   Route p95
+                                         median ms      median ms          ms
+amortized_workload_price24              0.08580        0.03490     0.03850
+amortized_no_price24                    0.08640        0.03455     0.03860
+plain24_nonpositive                     0.04970        0.03190     0.03520
+shared_congestion_cost                  0.39620        0.40070     0.67532
+shared_no_congestion                    0.10280        0.10360     0.10992
+untied_congestion_cost                  0.60100        0.60330     0.99646
+shared_joint_bound                      0.39515        0.39330     0.49187
+additive64_nonpositive                  0.04000        0.03870     0.04240
+additive128_unbounded                   0.04300        0.04200     0.04740
+emc_q_nonpositive                       0.11720        0.04150     0.04570
+bdq64_uniform_adapted                   0.04460        0.03900     0.04210
+
+The historical shared four use retained complete policies; the other seven
+use native cost/decoding. Read their route labels in verification.json.
+For the primary, median complete selection is 0.03490ms,
+versus 0.04200ms for the equally native-treated wide reference:
+ratio 0.830952, or 16.90% lower measured median latency.
+Its p95 is 0.03850ms, below the unchanged1ms limit.
+Compared with its own same-run original full-graph implementation, its median
+is 2.46x faster. This is implementation improvement for the same critic.
+
+Online FP32 parameter bytes: primary68,264 versus compact64 194,944,
+or 64.98% fewer. Primary parameters:17,066; public buffer:20 bytes.
+Each target copy would add another68,264 parameter bytes plus20 buffer bytes.
+Serialized ONNX sizes and startup costs are in metadata.json; none of these
+quantities measures total process RAM, replay memory or controller energy.
+All three unchanged engineering screens PASS: <=50% compact parameter bytes;
+median <=wide-reference median; p95 <=1ms.
+
+IMPORTANT MATCHED-SMALL COMPARISON
+Plain24 is smaller and faster than the proposed primary in this run:
+67,364 parameter bytes and 0.03190ms median, versus68,264 and
+0.03490ms. The proposed price mechanism therefore has an
+additional resource cost. It must earn that cost through fresh return/deadline
+and ablation evidence. Do not claim that the primary is the fastest/smallest
+controller, or that faster runtime alone proves a useful novel contribution.
+The learned reference fractions still do not guarantee balanced assignments.
+
+4. INDEPENDENT AUDIT AND PRESERVATION
+Audit state:passed_compatibility_artifact_audit.
+The auditor reconstructed and replayed all6,336 cases, independently recomputed
+all14,080 timing records, reproduced the regression, verified routes/provider/
+thread settings, preserved graph hashes, native modes, principal-reference
+fairness and106 pre-audit manifest entries.
+It verified92 prior completion artifacts against their frozen versions.
+This review also verified all66 original saved research-input hashes unchanged.
+The mutable tracker's prior bytes are archived in PROJECT_STATUS_BEFORE.json;
+the other prior completion artifacts remain unchanged. Previous manifests
+continue to describe their historical tracker versions. Old failed gates are
+retained, and this successful engineering amendment does not rewrite them.
+
+The dependency hardware object includes an inherited legacy eager-backend text
+label. The protocol, per-arm route labels and audited ORT/native settings state
+the actual measured runtime; an explicit annotation is saved in the completion
+folder. These timings are on this desktop CPU, not a UAV embedded deployment.
+No trained-policy quality, generalization, novelty or publication outcome is
+established. Zero new simulator slots and zero optimizer updates in this gate.
+Cloud and charging stations are absent. Security/trust is deferred contribution2.
+No Word thesis edit or automated thesis text replacement occurred.
+
+5. NEXT GATE: RESEARCH RUNNER PREPARATION, THEN SEPARATE LAUNCH DECISION
+Freeze a complete eleven-arm prospective research protocol, implement its
+development-only runner and independent saved-artifact auditor, and exercise
+the same orchestration in a small isolated synthetic fixture. Cover training,
+terminal DDQN updates, paired workload/exploration schedules, final-only
+checkpoints, checkpoint freeze before held-out evaluation, every comparison per
+initialization, value-stability/own-trajectory diagnostics and all saved files.
+Keep research launch guarded and disabled until the implementation review.
+
+Retain the predeclared return/deadline margins and own-policy value screens.
+Add the plain24 reference and same-size no-price ablation to the full report.
+The mechanism needs its own useful-effect evidence; no best-seed/checkpoint
+selection, dropped failed initialization or post-hoc threshold tuning.
+Perform a seed-collision check and freeze disjoint development and untouched
+final fits/workloads, including new research timing inputs. These reused saved
+engineering observations are not an untouched research evaluation set.
+
+At the proposed inherited schedule (200 episodes x40 slots/model, five fits,
+11 arms), EACH research phase would require440,000 physical training slots,
+383,735 optimizer updates and1,870 target copies. A later equally sized final
+phase would be separate. These are prospective accounting numbers, not a launch
+authorization. Review the full protocol and implementation evidence before any
+explicit research-launch decision. A failed quality gate must remain a failure.
+Literature comparison and supervisor discussion are still needed before making
+novelty or thesis-sufficiency claims.
+
+FILES
+LOW_COMPLEXITY_V3_RUNTIME_COMPATIBILITY_PROTOCOL_v2_2026-11-05.json
+controller_v3_runtime_compatibility.py
+run_controller_v3_compatibility_gate.py
+test_controller_v3_compatibility.py
+audit_controller_v3_compatibility_gate.py
+validation/controller_v3_runtime_compatibility_2026-11-05_01/
+  mechanics_tests.json,regression.json,equivalence.json,metadata.json
+  PRE_EXPORT_FREEZE.json,PRE_TIMING_FREEZE.json,raw_timings.json
+  verification.json,run_manifest.json,saved_artifact_audit.json
+  audited_vectors.npz,exports/,source_snapshot/,PROJECT_STATUS_BEFORE.json
+validation/controller_v3_runtime_compatibility_2026-11-05_01_completion/
+  preservation.json,actual_runtime_annotation.json

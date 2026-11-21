@@ -1,0 +1,114 @@
+CENTERED-LINEAR CORRECTION COMPARISON: COMPLETION AND RESULTS
+2026-11-20
+
+DECISION
+The authorized comparison is complete, audited and independently archived.
+The proposed centered-linear BC+DDQN controller FAILED both frozen policy
+and value screens. Preserve every arm and initialization. Do not advance
+this correction to final evaluation or revise the thesis claim from it.
+This is a completed experiment with a negative scientific result.
+
+VERIFIED EVIDENCE
+Primary output:
+development_runs/centered_linear_correction_comparison_2026-11-20_01
+Independent archive:
+D:/Fitz Thesis Research Archive/centered_linear_correction_comparison_2026-11-20_01
+New independent verification:
+validation/centered_linear_comparison_completion_2026-11-20_01/verification.json
+Checker: verify_centered_linear_completion_2026_11_20.py
+
+Rehashed 2,753 manifest artifacts and 2,758 archive files, including the
+archive verification receipt. Checked exact archive inventory, source
+bindings, protocol and explicit launch authorization; all passed.
+All 21 final student checkpoints remain retained. Recorded exposure:
+1,200 demo slots + 36,000 student training slots + 14,080 evaluation slots
+= 51,280 total; 3,000 BC updates and 33,696 historical DDQN updates.
+No new simulator steps or optimizer updates were used for this review.
+The completed full auditor recomputed final policy decisions, recorded
+target arithmetic, comparisons and timing summaries. This verification
+rehashes its evidence and independently checks the frozen screen logic;
+neither verification replays historical gradients/weight trajectories.
+
+PROVENANCE NOTE
+The runner's generic completion/audit receipt contains
+research_launch_authorized:false. That field is a static runner output,
+not the authorization record for this execution. The separate launch
+binding and launch_authorization.json explicitly authorize this frozen
+development comparison, and their hashes were verified. Frozen files
+and completion receipts were not edited to reconcile that field.
+
+MEAN POLICY RESULTS (all three initializations; same evaluation block)
+Controller                            Return        Deadline success
+Primary centered-linear BC+DDQN       -19.0663          86.9427%
+Old softplus BC+DDQN                  -13.9373          98.2083%
+Centered softplus BC+DDQN             -16.0019          93.2049%
+Uncentered linear BC+DDQN             -14.1911          97.5503%
+Centered-linear BC-only              -14.3302          99.4861%
+Centered-linear demo/no-BC DDQN       -18.6659          87.4462%
+Centered-linear no-demo/no-BC DDQN   -202.4287          72.0347%
+Observed-load/radio teacher           -12.2493         100.0000%
+Higher return is better. Means are descriptive, not significance claims.
+
+FROZEN POLICY SCREEN: FAILED
+The primary was worse in BOTH return and deadline success than old
+softplus BC+DDQN and BC-only in EVERY initialization. Mean primary-minus-
+old differences: -5.1291 return and -11.2656 percentage points deadlines.
+Mean primary-minus-BC-only: -4.7361 return and -12.5434 percentage points.
+
+Fit     Primary deadlines    Old deadlines    BC-only deadlines
+0          96.7188%           99.6719%           99.9479%
+1          86.5417%           97.6198%           98.6146%
+2          77.5677%           97.3333%           99.8958%
+Primary-minus-old return: -0.8991, -4.7825, -9.7056.
+Primary-minus-BC-only return: -0.2130, -4.2185, -9.7769.
+
+FROZEN VALUE SCREEN: FAILED
+Fit    Primary NRMSE     Old NRMSE    Primary Q-G bias    Old Q-G bias
+0         10.2033          1.0000          +86.1682           +6.9160
+1          6.8925          1.0000          +75.8735           +7.2059
+2          6.8877          1.0000          +96.7690           +7.3180
+Linear output removed the enforced nonpositive transform but did not
+restore useful calibration. These own-policy metrics use different
+realized returns; they are not a causal decomposition of the error.
+Old softplus NRMSE around one is NOT proof of calibrated values: its
+near-zero prediction behavior remains a limitation. Neither arm can
+be described as having solved value learning from these results.
+
+STORAGE AND LATENCY
+Every student has 67,364 FP32 parameter bytes plus 20 buffer bytes.
+Thus this correction has no parameter-storage advantage over the matched
+old architecture. Optimizer-containing checkpoints are training artifacts,
+not deployed model storage; BC-only checkpoint sizes are not comparable
+to full training checkpoint sizes as a deployment-efficiency claim.
+Primary median complete action-selection latency across fits: 0.56145
+to 0.70400 ms. Old baseline: 0.51595 to 0.52050 ms on this host/backend.
+Timing is descriptive; no predeclared speed gate or cross-device claim.
+These observations do not establish a new low-complexity improvement.
+
+WHAT THE CONTROLS ESTABLISH
+The BC-only arm starts from the independently verified same BC-end
+weights as the primary. Its better final policy in every fit shows that
+the specified DDQN continuation degraded policy relative to stopping
+after BC in this study. The cause is not yet established.
+Demonstration-using arms substantially outperform the ordinary no-demo
+small controller here. That useful observation is distinct from proving
+the proposed centered-linear correction improves the existing baseline.
+The stronger teacher remains better than every learned arm on both means.
+Do not select a winning fit or retrospectively promote a secondary arm.
+Stronger compact64/wide128/BDQ/full-DQfD comparisons remain deferred.
+
+NEXT BOUNDED GATE
+Use saved probes, Bellman targets, gradients and action traces to locate
+when primary values and decisions diverge after BC. Compare its paired
+BC-only, old softplus and uncentered-linear controls; quantify value-head
+drift versus branch-ranking changes and resulting deadline misses.
+Keep that analysis offline first. Do not infer a proven cause from these
+aggregate outcomes. Only after diagnosis consider one prospective design
+decision, with fresh development seeds and unchanged historical criteria.
+No new training or final evaluation is authorized by this completion review.
+
+The efficient-DDQN contribution remains the research focus, but this
+correction does not validate it. The earlier promising pilot is preserved
+as exploratory evidence with its original calibration limitations.
+Security/trust is deferred; cloud/charging remain excluded. The Word
+thesis and final evaluation seed reservations remain unchanged.

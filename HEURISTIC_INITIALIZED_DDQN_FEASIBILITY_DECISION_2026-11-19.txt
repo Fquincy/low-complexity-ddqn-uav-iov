@@ -1,0 +1,166 @@
+HEURISTIC-INITIALIZED COMPACT DDQN: FOCUSED FEASIBILITY / LITERATURE DECISION
+2026-11-19 | Contribution one: UAV-IoV computational offloading
+
+IMPLEMENT-OR-REJECT DECISION
+REJECT the current generic proposal as a standalone novelty implementation.
+Retain heuristic initialization as an established technique / possible future
+baseline. Do not implement or train a new candidate under a new algorithm name
+merely by attaching this initialization to the existing small DDQN.
+This rejects the PRESENT NOVELTY RATIONALE, not the technical possibility of
+learning a compact offloading policy or the overall low-complexity objective.
+
+The deployment idea is technically plausible: move the expensive teacher work
+to training and keep the student runtime unchanged. However, demonstration
+pretraining, compact policy distillation, and even heuristic-demonstration
+offloading followed by Q-learning already have directly relevant prior work.
+No specific improvement beyond those methods has yet been identified here.
+
+1. LIVE LITERATURE CHECK: WHAT WAS VERIFIED
+Retrieved and inspected method passages in:
+
+A. Deep Q-learning from Demonstrations (DQfD), arXiv:1704.03732.
+https://arxiv.org/html/1704.03732
+Saved readable extract dqfd.txt, lines125-149: pretrain from demonstrations,
+then improve from self-generated interaction. Lines330-405: supervised
+large-margin loss, TD/n-step/regularization losses, retained demonstrations
+and replay treatment. The text explicitly warns that supervised-only
+pretraining does not establish Bellman-consistent values. Our proposed pure
+behavior-cloning warm start would be a simpler variant, NOT a reproduction
+of the complete DQfD algorithm or a new general principle.
+
+B. Policy Distillation, arXiv:1511.06295.
+https://arxiv.org/html/1511.06295
+Saved policy_distillation.txt, lines175-195: teacher-to-student transfer,
+softmax targets and the distinction between action preferences and unstable
+Q-value scales. Compact neural execution learned from a teacher is established.
+Hard heuristic action labels are not the same as distilling teacher Q values;
+our heuristic does not provide a calibrated long-term Q function.
+
+C. Enhanced Task Offloading in Mobile Edge Computing: A Hybrid Approach Using
+Deep Q-Learning from Demonstrations and Heuristic Optimization.
+Zhao et al.; Crossref publication date January10,2025.
+https://doi.org/10.1109/ICEAAI64185.2025.10956500
+Crossref confirms title/authors/publication metadata. OpenAlex's reconstructed
+abstract explicitly describes DQfD-DECO: heuristic demonstrations improve
+initial offloading decisions, then adaptive reinforcement learning refines
+them with energy/deadline objectives. This closely overlaps the proposed
+generic workflow, not merely its application title.
+
+Evidence limit: the publisher request returned an EMPTY body; no publisher
+full method was obtained. OpenAlex reports closed access and no repository
+full text. The abstract is not equation-level equivalence proof, evidence of
+its architecture, or an independently reproduced performance result. Do not
+claim our exact joint-action formulation is identical, or that this paper
+exhausts all possible distinctions. It is sufficient to reject an unsupported
+claim that heuristic initialization plus offloading Q-learning is itself new.
+
+Two bounded Crossref queries returned16 ranked entries (including duplicates
+and irrelevant records). This is targeted reconnaissance, not an exhaustive
+systematic review. Query URLs, raw responses, extraction and failures are saved.
+
+2. LOCAL IMPLEMENTATION FEASIBILITY: SOURCE REVIEW ONLY
+Teacher: assignment_price_load_radio_heuristic.Runtime.values(state).
+It consumes the same533 FP32 observed features and public constants; no
+environment object or hidden exact task records. It accounts approximately
+for current-assignment interference, radio backlog and CPU work. It returns
+30 destination labels and two motion labels fixed at0. It additionally
+excludes empty-battery UAV assignments; that restriction is not currently
+shared by every neural control. Its surrogate is not true simulator return.
+
+Possible student: existing plain24_nonpositive,533->24->161.
+Parameter count =533*24+24+24*161+161=16,841; FP32 payload67,364bytes.
+The161 outputs are150 placement scores,10 movement scores and1bias.
+All branches see a shared representation of the complete observation, so
+independent output selection does not imply that each label uses local-only
+information. But a24-unit hidden representation may still fail to approximate
+the teacher's coupled decisions. No capacity/performance guarantee follows.
+
+For placement costs c_i,d, a conventional supervised initialization could use
+L_BC = mean_i[-log softmax(-c_i/T over allowed d)[a_teacher,i]], T>0.
+This is a feasibility illustration, NOT a frozen loss/temperature/schedule.
+Its action ordering agrees with branchwise cost minimization. A masked teacher
+label must be checked against the student's allowed set before use. Motion
+labels require a separately declared policy: teacher motion0 cannot teach
+useful UAV movement or substantiate a joint-trajectory improvement claim.
+
+If an existing horizon-scaled/anchored wrapper is used, its exact definition
+must be inherited consistently by controls and targets. Nonterminal action
+labels do not train a terminal policy. The shared scalar bias has no direct
+gradient from branch classification; classification also leaves relevant
+value offsets/scales underdetermined. Warm-start action accuracy is therefore
+NOT a solution to the existing calibration failures. Later DDQN may improve,
+erase or destabilize the initialized policy. These are empirical questions.
+
+Training the same architecture adds no mandatory online teacher invocation,
+pair potential, coordinate sweep or inference head. This establishes a source-
+level cost route, not a measured speed pass. All input checks, inherited
+screen, neural forward and decoder still belong in the measured boundary.
+Training-only teacher/label computation is additional cost, not free savings.
+
+3. SCIENTIFIC RISKS THE SIMPLE PROPOSAL DOES NOT SOLVE
+- Teacher trajectories cover its own state distribution; student errors alter
+  queues, links and later inputs. High label accuracy on teacher states does
+  not establish low closed-loop deadline failure. Dataset aggregation is an
+  established alternative, not a new fallback to add silently after failure.
+- One equally plausible destination label per branch can produce brittle
+  imitation of a particular joint schedule. Joint-action agreement and actual
+  task outcomes must be reported, not only average branch accuracy.
+- Fixed teacher movement and extra battery restrictions confound full-policy
+  claims unless the protocol explicitly separates those factors.
+- The current heuristic's development advantage does not establish a universal
+  expert, optimality or generalization to unseen loads/scales.
+- Matching simulator slots while giving only one arm extra teacher trajectories
+  and gradient updates is not equal data/training compute. Report all costs.
+- All historical failures, including calibration, remain failed. No threshold
+  exemptions, best-fit selection or consumed-seed confirmation is permitted.
+
+4. WHAT A DISTINCT FUTURE PROPOSAL WOULD HAVE TO ADD
+An equation-level mechanism and explicit reason it improves over standard
+demonstration initialization in this problem, supported against the closest
+full methods. A different heuristic name, UAV scenario, small width or new
+combination of established labels is insufficient by itself.
+It must preserve the inexpensive student deployment path and specify a
+testable advantage beyond plain small DDQN AND ordinary teacher initialization.
+Do not invent a loss tweak now solely to create a novelty label. Obtain the
+closest offloading method or an adequate accessible author version before
+asserting how its equations differ. Access uncertainty remains an open gap,
+not proof of originality or a requirement to purchase a paper.
+
+If a defensible extension is later proposed, minimum control questions include:
+same student random initialization; ordinary BC->DDQN; the exact new-mechanism
+ablation; frozen heuristic; stronger neural references; BC-only student where
+needed to isolate the added DDQN stage. Use common data access and report extra
+teacher-label and supervised-update budgets. Include an appropriate established
+demonstration-learning baseline if superiority over that family is claimed;
+do not call BC->DDQN a complete DQfD reproduction. Exact arms/budgets remain
+unfrozen until there is a defensible candidate.
+
+5. PRACTICAL CONCLUSION
+This check prevented a technically implementable but weakly justified new
+novelty claim from becoming another expensive training experiment. It supplied
+a credible training-versus-deployment separation, but no new contribution
+mechanism. No bounded implementation is released from this check.
+
+The existing compact architecture can still be used for a transparent
+reproduction/engineering benchmark if explicitly chosen, with novelty claims
+excluded. Such a benchmark would answer whether teacher initialization helps
+in OUR simulator; it would not alone establish the requested algorithmic
+contribution. Do not silently substitute that narrower objective for the user's
+goal. A novel-controller route requires a specific extension before coding.
+This decision creates no automatic successor experiment or generic redesign.
+
+BOUNDARIES
+No model imports/execution, prototype, fitting, optimizer steps, simulator
+rollouts, new training seeds, timing or final evaluation. No Word-thesis edits.
+Security/trust deferred; cloud/charging excluded. Original models/protocols,
+failures and final reservations remain unchanged. No subagents were used.
+
+EVIDENCE
+validation/heuristic_initialization_feasibility_2026-11-19_01/
+  retrieval.json, closest_prior_art_retrieval.json,
+  dqfd.html/.txt, policy_distillation.html/.txt,
+  closest_crossref.json, closest_openalex.json,
+  closest_prior_art_abstract.txt, decision_verification.json.
+Local source inputs: assignment_price_load_radio_heuristic.py;
+controller_v3_amortized.py; ASSIGNMENT_PRICE_OBSERVED_LOAD_HEURISTIC_2026-11-15.txt;
+LOW_COMPLEXITY_PROSPECTIVE_VALIDATION_RATIONALE_2026-11-19.txt.

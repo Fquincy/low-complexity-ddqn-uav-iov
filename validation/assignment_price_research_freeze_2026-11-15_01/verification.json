@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "learned_controllers": 15,
+  "heuristics": 4,
+  "training_slots": 600000,
+  "evaluation_slots": 151680,
+  "optimizer_updates": 523275,
+  "checkpoints": 75,
+  "thresholds_retained": true,
+  "seed_declaration_audit_passed": true,
+  "research_launched": false,
+  "runner_ready": false,
+  "novelty_established": false
+}

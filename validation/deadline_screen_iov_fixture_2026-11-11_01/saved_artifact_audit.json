@@ -1,0 +1,29 @@
+{
+  "state": "passed_paired_synthetic_simulator_artifact_audit",
+  "checkpoints": 14,
+  "episodes": 56,
+  "task_records_checked": 67200,
+  "certified_infeasible_local_records_checked": 29603,
+  "optimizer_rows_checked": 1022,
+  "engineering_action_checks": 1792,
+  "workload_pairing": true,
+  "action_uniform_rng_pairing": true,
+  "replay_rng_pairing": true,
+  "evaluation_invariance": true,
+  "timing_rows_recomputed": 8960,
+  "cost_screens": [
+    {
+      "fit": 0,
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    {
+      "fit": 1,
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  ],
+  "research_launched": false
+}

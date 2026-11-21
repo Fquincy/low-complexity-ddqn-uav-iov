@@ -1,0 +1,164 @@
+HEURISTIC-INITIALIZED COMPACT DDQN: PAIRED DEVELOPMENT-PILOT PLAN
+2026-11-19 | PLAN FREEZE ONLY: NO RUNNER OR LAUNCH RELEASE
+
+QUESTION AND ESTIMAND
+Does supervised teacher initialization improve subsequent closed-loop DDQN
+performance relative to the IDENTICAL randomly initialized student when both
+arms receive the same teacher transitions in replay and the same online budget?
+This isolates the extra BC stage, not the total effect of access to a teacher.
+It is a baseline adaptation of established methods, not a claimed new algorithm.
+The control is therefore named common_demo_no_bc, not ordinary data-free DDQN.
+An ordinary no-demonstration small DDQN and stronger neural controls remain
+necessary in any later full contribution comparison. No best arm is selected
+as a confirmed novel primary from this exploratory pilot.
+
+ARMS AND FIXED MODEL
+teacher_bc_then_ddqn: initialize the compact student, run fixed supervised
+updates on demonstration states/actions, then run online DDQN.
+common_demo_no_bc: identical initial state_dict and demonstration replay,
+no supervised updates, then the same DDQN algorithm/budget.
+observed_load_radio: frozen no-learning heuristic evaluated as a reference.
+
+Both student arms use the current isolated implementation:
+533->24 ReLU->161,16,841 parameters,67,364 FP32 parameter bytes plus20buffer
+bytes, scalar Q=-softplus(bias+sum placement/30+sum motion/2), existing local
+screen,32 five-choice branches. No assignment-price heads, physical decoder,
+horizon scaling or auxiliary terminal-anchor loss. This differs explicitly
+from anchored historical arms and does not modify their definitions.
+No privileged observations, reward change, security, cloud or charging.
+Terminal transitions use y=r; next-state decoding is forbidden at terminal.
+
+TEACHER DATA AND INFORMATION PARITY
+For each fit, collect10 teacher-policy episodes of40slots on its separate
+demonstration block:400transitions. Save FP32 s/s_next, teacher joint action,
+actual simulator reward/done, legal masks and physical accounting. Use only
+the existing533 observed features and public config; no hidden task values
+enter label generation. Hash/freeze the complete dataset BEFORE arm training.
+Both arms preload the identical400 transitions in chronological order into
+uniform replay. No teacher labels are queried on later student states.
+The teacher generates these rollouts once per fit; do not count shared data
+twice as physical simulation. Charge/report its generation cost separately.
+
+Use the frozen teacher's exact source equations/config. Its stationary motion0
+and extra empty-battery UAV restriction are disclosed; students retain their
+existing screen and movement choices. The teacher is an approximate competitor,
+not an optimal expert or deadline oracle. It remains a reference even if better.
+The fixture's Python arithmetic reference is not compiled-teacher validation.
+Before launch, the pilot must bind and validate one real teacher execution
+adapter on saved engineering states, with fixed tolerances/actions; do not
+silently choose whichever backend gives favorable policy or timing.
+
+SUPERVISED INITIALIZATION
+BC arm:200 Adam steps, batch64, temperature1.0, learning rate0.001,
+betas(0.9,0.999),eps1e-8,weight_decay0,clipnorm10. Sample64 distinct dataset
+indices per step using the reserved BC RNG; repeats across steps are allowed.
+Loss: mean masked vehicle cross-entropy plus mean motion cross-entropy,
+exactly the current implementation. BC deliberately learns stationary teacher
+motion initially. No teacher Q targets, auxiliary head or loss sweep.
+The scalar bias has no direct BC supervision; do not infer calibration.
+Control gets zero BC updates. This is extra compute for the BC arm, not equal
+gradient exposure. Report200 steps,12,800 state presentations per fit and wall
+time. No training-only stage is claimed free or novel.
+Discard BC optimizer state; create fresh online Adam for BOTH arms. Initialize
+each target as an exact copy of its own post-initialization online student,
+requires_gradFalse/eval. Preloaded replay is identical; optimizer/target
+initialization details must be audited to avoid an unintended Adam-state effect.
+
+ONLINE DDQN
+50episodes*40slots=2,000online slots per arm/fit. Adam learning_rate0.0001,
+betas(0.9,0.999),eps1e-8,weight_decay0; gamma1; scalar Huber beta1;
+gradient clipnorm10; replay capacity4096,uniform with replacement,batch64.
+Insert each physical transition first. No DDQN update for zero-based online
+slots0..127; exactly one update per slot128..1999:1,872updates/arm/fit.
+Copy target every200DDQN updates:9 scheduled copies, plus initial target copy.
+Online replay starts with the400shared demonstrations. Chronological eviction;
+no permanent demo retention, prioritized replay, anchor batch or n-step target.
+Use independently reset matching per-fit epsilon/branch/replay RNG streams
+across arms; save draws/indices. Matching RNG does not force identical actions,
+replay contents or queue trajectories after policies diverge.
+Epsilon before action:1 for slots0..127, otherwise
+1-.95*min(zero_based_online_slot/2000,1). Consume one epsilon uniform and32
+branch uniforms every slot. Exploration selects uniformly from each inherited
+allowed branch using ordered-choice rank; no teacher-driven exploration.
+CPU FP32 eager,one torch thread,deterministic algorithms. Runtime/environment
+versions must be bound in the later engineering freeze. No native speed claim.
+
+PAIRED RANDOMNESS AND FINAL-ONLY RETENTION
+Three paired model initializations. Within fit, construct one state_dict and
+clone exactly into both arms before BC. Hash initial tensors, but do not save
+initial/intermediate model checkpoints. Store metrics/probe actions for BC
+before/after and final, without selecting on them. Retain ONLY each arm's final
+online/target/optimizer checkpoint and required final replay/RNG state for audit.
+Freeze all six final checkpoint hashes before ANY held-out evaluation starts.
+No early stopping, fit retry, budget extension or best-checkpoint selection.
+Engineering fixture seeds must be separate from pilot reservations.
+All reserved final task/model seeds remain unused; refresh the seed audit
+immediately before any later launch. Machine-readable reservations accompany
+this plan and are not evidence that they have been executed.
+
+EVALUATION AND COST ACCOUNTING
+Common16 held-out workload episodes (640slots) per policy; all three fits use
+this same evaluation set. Evaluate each student's final policy at epsilon0,
+without updates or teacher assistance. Evaluate the teacher once on those16
+episodes, shared as a fixed reference across fits. Save task/episode accounting.
+Student evaluation:6*640=3,840slots. Teacher evaluation:640slots. Total4,480.
+Teacher demonstration:3*400=1,200slots. Student online:6*2,000=12,000slots.
+Unique simulated total:17,680slots. BC600updates; DDQN11,232updates;
+total11,832gradient updates. Shared demonstration loading is not another rollout.
+
+Record each fit's absolute return/deadline success and paired differences,
+including unfinished tasks, destination/motion/battery decisions and miss stages.
+Report BC branch AND joint agreement on saved demo states, before/after/final;
+these are training diagnostics, not held-out policy accuracy. Report actual
+closed-loop outcomes independently of agreement. No repeated evaluation to
+pick a checkpoint or alter budgets. No confidence/significance/noninferiority
+claim from threefits; any episode resampling is explicitly conditional on fits.
+
+Keep Q sign/finite checks, own-policy return-to-go error by horizon, terminal
+prediction residual Q(s,a)-r, gradient/preclip distributions, clipping fractions,
+Bellman targets and target-copy logs. Q at a current last-slot state is not
+forced to0 by this unscaled model; terminal continuation target is0. Do not
+compare terminal current-state Q directly to0 as if it were terminal-state Q.
+Global calibration remains reported diagnostic for this LIMITED baseline pilot,
+which makes no calibrated-value or complete historical-criteria success claim.
+Every historical calibration failure and criterion remains unchanged.
+
+Storage: online parameters/buffers,checkpoint bytes,target/Adam/replay separately.
+Costs: teacher rollouts/label time,BC time,DDQN time,environment time,peak memory
+if instrumented,not just student training wall time. Label time within teacher
+rollouts must not be added twice to inclusive rollout wall time.
+After final policy evaluation freeze, measure complete student-only eager
+action selection on the same128saved nonterminal observation states,using
+32warmups,3shuffled rounds,128calls/round/path. Include validation,screen,
+forward,decode,copy. Both student arms and teacher get their complete paths
+measured with identical host/thread disclosure. Record raw ns,median/p95;
+teacher uses its bound adapter. Timing is descriptive; no faster-than-wide
+claim or cross-session speedup. No repeat to rescue a failed timing result.
+Freeze the observation selection/order RNG before those measurements.
+
+PREDECLARED PILOT DECISION
+STOP execution on nonfinite loss/value/gradient,invalid actions,accounting
+invariant failure,source/seed mismatch or corrupted artifacts. Keep partial
+outputs; no automatic retry or threshold change.
+After full artifact audit, label the initialization signal PROMISING only if
+BC-DDQN minus common-demo-no-BC final return AND deadline differences are>=0
+in EVERY fit,and the equal-fit means are>0 for BOTH outcomes. This is a
+conservative zero-loss descriptive screen,not a hypothesis-test guarantee or
+an independently deployed service margin. It may miss real but noisy benefits.
+If it fails,record mixed/negative evidence and HOLD expansion; do not tune the
+BC schedule on these seeds or call the whole research objective impossible.
+If it passes,prepare a separately frozen expanded comparison including ordinary
+no-demo DDQN,stronger neural references,heuristics and BC-only/DQfD controls
+as required by the eventual claim. It does NOT prove novelty or authorize
+final evaluation,full research training or Word-thesis claim changes.
+Report teacher comparisons even when not primary to this incremental-BC test.
+Any advantage over the weak paired control alone is insufficient contribution.
+
+NEXT ENGINEERING GATE, NOT A LAUNCH
+Implement the bound paired pilot runner,teacher adapter and independent saved-
+artifact auditor; test their full orchestration on reduced synthetic fixtures,
+including corrupted artifacts,exact update counts,target isolation,final-only
+checkpoint freeze,all saved comparisons and a fail-closed explicit launch guard.
+No pilot research seed may be consumed by that fixture. Require a separate
+readiness review and explicit launch instruction afterwards. No pilot/full
+research execution is authorized by this plan.

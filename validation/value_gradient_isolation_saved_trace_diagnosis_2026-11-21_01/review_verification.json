@@ -1,0 +1,236 @@
+{
+  "status": "SAVED_TRACE_DIAGNOSIS_REVIEW_VERIFIED_NO_NEW_RESEARCH",
+  "protocol_sha256": "2a3a4cd58f3f04eabf1d54958e058af7294fbb73a2f41000c3242999bcc4f683",
+  "prior_completion_receipt_sha256": "d0420a2504e10278fcad7cfbc29f2fb373afb7efd01bbe24dfb1cd1cd294c9fd",
+  "prior_results_review_sha256": "a7d321765bd03d395a83c40829f1174d0c5e2831600b3de686a28c26d8bf8a69",
+  "main_input_files": 602,
+  "coverage_input_files": 836,
+  "union_input_files_rehashed": 1203,
+  "union_input_map_sha256": "21b690e0762cea8c0b8bd17b9e3ddd4880909472cf3506ac7239ee1bc4480b02",
+  "decoded_saved_states_in_main_analysis": 54000,
+  "fixed_state_population_model_entries_verified": 90,
+  "paired_task_comparisons_verified": 12,
+  "overlapping_comparator_task_queue_identities_verified": 723,
+  "final_checkpoint_hashes_verified": 27,
+  "deployment_hashes_verified": 27,
+  "frozen_source_files_verified": 45,
+  "primary_coverage_independent_counters": {
+    "0": {
+      "populations": {
+        "demonstrations": {
+          "states": 400,
+          "empty_states": 400,
+          "empty_fraction": 1.0,
+          "terminal_reward_mean": -0.3049634277820587
+        },
+        "online_behavior": {
+          "states": 2000,
+          "empty_states": 243,
+          "empty_fraction": 0.1215,
+          "terminal_reward_mean": -25.58135367035866
+        },
+        "greedy_evaluation": {
+          "states": 640,
+          "empty_states": 640,
+          "empty_fraction": 1.0,
+          "terminal_reward_mean": -0.34978428669273853
+        }
+      },
+      "replay_windows": {
+        "all": {
+          "sampled_transitions": 119808,
+          "demo_samples": 38527,
+          "empty_samples": 42626,
+          "online_samples": 81281,
+          "online_empty_samples": 4099,
+          "terminal": {
+            "demo": {
+              "count": 956,
+              "target_mean": -0.30571935992984095,
+              "prediction_mean": -3.5057645625430918
+            },
+            "online": {
+              "count": 1986,
+              "target_mean": -32.67111292349368,
+              "prediction_mean": 165.98395150857868
+            }
+          }
+        },
+        "last_200": {
+          "sampled_transitions": 12800,
+          "demo_samples": 2205,
+          "empty_samples": 3201,
+          "online_samples": 10595,
+          "online_empty_samples": 996,
+          "terminal": {
+            "demo": {
+              "count": 55,
+              "target_mean": -0.3061081891710108,
+              "prediction_mean": -4.217870651591908
+            },
+            "online": {
+              "count": 272,
+              "target_mean": -27.273643592043836,
+              "prediction_mean": 131.23109080861596
+            }
+          }
+        }
+      }
+    },
+    "1": {
+      "populations": {
+        "demonstrations": {
+          "states": 400,
+          "empty_states": 400,
+          "empty_fraction": 1.0,
+          "terminal_reward_mean": -0.30800109207630155
+        },
+        "online_behavior": {
+          "states": 2000,
+          "empty_states": 250,
+          "empty_fraction": 0.125,
+          "terminal_reward_mean": -25.311804968714714
+        },
+        "greedy_evaluation": {
+          "states": 640,
+          "empty_states": 640,
+          "empty_fraction": 1.0,
+          "terminal_reward_mean": -0.34830167703330517
+        }
+      },
+      "replay_windows": {
+        "all": {
+          "sampled_transitions": 119808,
+          "demo_samples": 38870,
+          "empty_samples": 42954,
+          "online_samples": 80938,
+          "online_empty_samples": 4084,
+          "terminal": {
+            "demo": {
+              "count": 975,
+              "target_mean": -0.3081948105494181,
+              "prediction_mean": -32.48632837051
+            },
+            "online": {
+              "count": 2067,
+              "target_mean": -33.02842196233906,
+              "prediction_mean": 49.27513275372273
+            }
+          }
+        },
+        "last_200": {
+          "sampled_transitions": 12800,
+          "demo_samples": 2211,
+          "empty_samples": 3271,
+          "online_samples": 10589,
+          "online_empty_samples": 1060,
+          "terminal": {
+            "demo": {
+              "count": 43,
+              "target_mean": -0.30831315766933354,
+              "prediction_mean": -34.1570487355077
+            },
+            "online": {
+              "count": 290,
+              "target_mean": -25.868037928075626,
+              "prediction_mean": 32.504340167292234
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "populations": {
+        "demonstrations": {
+          "states": 400,
+          "empty_states": 400,
+          "empty_fraction": 1.0,
+          "terminal_reward_mean": -0.3045659363269806
+        },
+        "online_behavior": {
+          "states": 2000,
+          "empty_states": 265,
+          "empty_fraction": 0.1325,
+          "terminal_reward_mean": -26.238850009441375
+        },
+        "greedy_evaluation": {
+          "states": 640,
+          "empty_states": 640,
+          "empty_fraction": 1.0,
+          "terminal_reward_mean": -0.36285078525543213
+        }
+      },
+      "replay_windows": {
+        "all": {
+          "sampled_transitions": 119808,
+          "demo_samples": 38483,
+          "empty_samples": 42424,
+          "online_samples": 81325,
+          "online_empty_samples": 3941,
+          "terminal": {
+            "demo": {
+              "count": 994,
+              "target_mean": -0.3046001746980717,
+              "prediction_mean": -23.110199197197343
+            },
+            "online": {
+              "count": 1948,
+              "target_mean": -33.361446251476934,
+              "prediction_mean": 36.0679218532246
+            }
+          }
+        },
+        "last_200": {
+          "sampled_transitions": 12800,
+          "demo_samples": 2224,
+          "empty_samples": 3299,
+          "online_samples": 10576,
+          "online_empty_samples": 1075,
+          "terminal": {
+            "demo": {
+              "count": 55,
+              "target_mean": -0.30541866421699526,
+              "prediction_mean": -24.74322124827992
+            },
+            "online": {
+              "count": 244,
+              "target_mean": -28.303207710996027,
+              "prediction_mean": 21.271841149349683
+            }
+          }
+        }
+      }
+    }
+  },
+  "evidence_sha256": {
+    "diagnosis.json": "c059ffc70624db719fe8bdadb9dda29d8ae830448e3e9ca2b3b92bd9f68a3714",
+    "fixed_state_predictions.npz": "fa27a9f7c5c6ba16f7b2064fdf4af1efcb0f17633bf76984b56d649943332c78",
+    "verification.json": "0bd0b84c6d5420bbebf51e611bdbbe514c15e3ee41fa32e325ada3c0deee243e",
+    "independent_verification.json": "9e3453be9a05785de6cbf188950771462f08770498551f527479772e3ec1fd85",
+    "behavior_replay_coverage.json": "d1091983831e2a4a3fc37fb89bbadd7d52d81428b265ea2316596f3ab0f38cdf"
+  },
+  "review_and_source_sha256": {
+    "diagnose_value_gradient_isolation_saved_traces_2026_11_21.py": "a4082eb0b56799e3b86fe20aca133a12328291b6cbe2e9638d0e6ccc860affc4",
+    "verify_value_gradient_isolation_diagnosis_2026_11_21.py": "ac331223d3fb138e7b30b4a85dbc75922d2c367cb54cfe25d97c8f2f9ca99548",
+    "analyze_value_gradient_isolation_replay_coverage_2026_11_21.py": "cbe77af82d00e7d9263d8f135d4cd1d51d457c200cffe6831c61c585751af4a9",
+    "verify_value_gradient_isolation_diagnosis_review_2026_11_21.py": "1de9c135f1535610e42d442f2cfe579cccf0bf89f2d6e2a78c5631fddb39b898",
+    "VALUE_GRADIENT_ISOLATION_SAVED_TRACE_DIAGNOSIS_2026-11-21.txt": "3d40db2aa72461250fc36fee07da3a761a344a68a5dfc290fa4768a6e5e5bcb8"
+  },
+  "script_sha256": "1de9c135f1535610e42d442f2cfe579cccf0bf89f2d6e2a78c5631fddb39b898",
+  "new_models_created_by_this_verifier": 0,
+  "new_inference_evaluations_by_this_verifier": 0,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_teacher_calls": 0,
+  "new_autograd_evaluations": 0,
+  "policy_screen": false,
+  "value_screen": true,
+  "promising": false,
+  "single_failure_cause_proven": false,
+  "final_seeds_consumed": false,
+  "new_research_launch_authorized": false,
+  "final_phase_launched": false,
+  "word_thesis_changed": false,
+  "archive_verification_scope": "Prior independent archive receipt remains bound; no full archive rehash repeated in this diagnosis gate.",
+  "next_gate": "prospective_controller_design_decision_brief_only"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "ENGINEERING_RELEASE_REQUIRES_EXPLICIT_LAUNCH_CONFIRMATION",
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "launch_source_sha256": {
+    "launch_assignment_price_development_2026_11_16.py": "7ee66103606fef2def54842e724693709c7dfd1798b91dfd7db3908267dbd42e",
+    "archive_assignment_price_run.py": "159adf95c616c8876fa2d62e9be216c49cbc0acc81ea7d60727a48e7e96738f5",
+    "assignment_price_audited_completion.py": "b863cfff0d90ec676fed9cbf2839f37c24e67193a46f3a203eb0fad95ba4cea0",
+    "run_assignment_price_research_bound.py": "1c1a287b2df5d18e1bdb4d6d274c23949a06ef08b12ebb5aed215cb3c369bb1f",
+    "audit_assignment_price_research_bound_v2.py": "cf1972feae1c631b6cfe6bf67dda60766e60737bba245ae91215bd3c31570fd7",
+    "ASSIGNMENT_PRICE_OUTPUT_RETENTION_PLAN_2026-11-16.json": "f650230b5255f5f04ef1d3463638c93678f135b88db6e1938274d30871dba0a0"
+  },
+  "test_source_sha256": "523c10a5bec8826dc064a3cea94f3eea4666e91ab61a6f4ad8c9d0d46db7b18b",
+  "primary_volume": "E:",
+  "independent_archive_volume": "D:",
+  "development_released_by_versioned_launcher_only": true,
+  "explicit_confirmation": "LAUNCH_FROZEN_ADP_DEVELOPMENT",
+  "research_launched": false,
+  "final_phase_released": false,
+  "scientific_thresholds_changed": false,
+  "word_thesis_changed": false
+}

@@ -1,0 +1,179 @@
+RETURN-CALIBRATED HANDOFF: DEVELOPMENT RESULTS REVIEW
+Date: 2026-11-20
+
+DECISION
+The frozen 51,280-slot comparison is complete, audited and independently
+reverified against its D: archive. The value screen PASSED; the policy
+screen FAILED. The frozen combined decision is promising=false. Preserve
+every fit and comparator. Hold expansion and final evaluation. This is a
+measured improvement over the uncalibrated correction, but it does not yet
+establish the proposed low-complexity DDQN contribution.
+
+EVIDENCE AND SCOPE OF THIS REVIEW
+Protocol: RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1
+Run: development_runs/return_calibrated_handoff_comparison_2026-11-20_01
+Archive: D:\Fitz Thesis Research Archive\return_calibrated_handoff_comparison_2026-11-20_01
+Independent verification:
+validation/return_calibrated_comparison_completion_2026-11-20_01/verification.json
+Verifier: verify_return_calibrated_completion_2026_11_20.py
+
+Verified source/protocol/authorization bindings, the exact run inventory
+(2,787 manifest entries), all original hashes, and the exact archive inventory
+and hashes (2,795 files including the archive receipt). Checked the global
+freeze and counts through the completed auditor; independently recomputed
+saved episode outcomes, returns, own-policy value errors, every per-fit
+policy contrast, the factorial interactions and both scientific screens.
+The completed auditor also reproduced final checkpoint actions/Q and checked
+logged update arithmetic and independent augmented-ridge reconstruction.
+Neither audit claims full historical optimizer/gradient/weight replay.
+This completion review performed zero simulator steps, teacher calls or
+optimizer updates. It did not change any frozen scientific definition.
+
+Completed budget: 1,200 demonstration + 36,000 student online + 14,080
+evaluation slots = 51,280. There were 3,600 BC updates, 33,696 DDQN updates,
+11,232 retention batches within DDQN steps, nine ridge solves and 21 final
+student checkpoints. All three initializations are retained. The final
+evaluation seed set remains untouched.
+
+ALL CONTROLLERS: EQUAL-INITIALIZATION MEANS
+ID  Controller                         Mean return    Deadline success
+A   Calibrated + retention DDQN          -14.347213       98.743056%
+B   Calibrated, no retention DDQN       -197.065189       73.644097%
+C   Uncalibrated + retention DDQN        -17.171354       90.940972%
+D   Uncalibrated, no retention DDQN      -18.079428       88.732639%
+E   Calibrated BC only, no TD            -14.088230       99.913194%
+F   Old softplus BC + DDQN               -14.223234       97.795139%
+G   Plain small softplus DDQN           -295.909393       67.815972%
+    Observed-load/radio teacher          -12.239570      100.000000%
+
+Higher return and deadline success are better. Teacher was evaluated once
+on the common 16 workloads and is a shared reference, not three independent
+teacher initializations. Student means weight all three fits equally.
+
+POLICY SCREEN: FAILED
+The frozen requirement was A-E and A-F nonnegative in BOTH outcomes for
+EVERY initialization, with strictly positive equal-fit means in both
+outcomes for both comparisons. No scientific tolerance was added.
+
+Fit   A-E return   A-E deadline pp   A-F return   A-F deadline pp
+0      +0.338508       -0.531250       -0.413645       +0.031250
+1      +0.291703       -0.583333       -0.054268       +0.921875
+2      -1.407161       -2.395833       +0.095975       +1.890625
+Mean   -0.258983       -1.170139       -0.123979       +0.947917
+
+A misses E's deadline result in all fits, E's return in fit 2, and F's
+return in fits 0 and 1. Its mean return is below both E and F. The higher
+deadline mean than F does not override these failures. The BC-only control
+therefore remains an unresolved obstacle: this declared DDQN continuation
+has not established a policy advantage over retaining the imitation policy.
+
+VALUE SCREEN: PASSED, WITH RESIDUAL LIMITATIONS
+Required: A's own-policy NRMSE and absolute mean(Q-G) strictly below D's
+in every initialization. G is realized undiscounted within-episode return.
+
+Fit   A NRMSE   D NRMSE    A signed Q-G bias   D signed Q-G bias
+0     1.584894   7.362613       -9.750628          +82.492477
+1     1.133363  11.699946       -4.009762          +98.808154
+2     0.755010   6.932311       -3.356356          +84.606794
+
+These improvements pass the declared relative value screen. A still has
+worse NRMSE and absolute bias than E in every fit. Own-policy metrics use
+different trajectories and returns; they do not causally isolate calibration
+or establish convergence. F's NRMSE near one coexists with near-zero values
+and does not establish calibrated value learning.
+
+Primary signed error distributions (min / median / max):
+Fit 0: -30.209275 / -9.682517 / +14.864844
+Fit 1: -22.619942 / -5.275116 / +20.775431
+Fit 2: -17.630858 / -3.202998 /  +9.472237
+Terminal-error ranges: [-30.172376,+1.777461], [-22.619942,+11.839535],
+and [-17.630858,-4.077410]. All primary TD updates logged gradient clipping.
+These observations motivate diagnosis, not a newly invented pass criterion.
+Complete per-fit/all-arm error quantiles, terminal errors, slot-quarter
+distributions, target/gradient tails, clipping and signed-Q fractions remain
+in saved_artifact_audit.json under value_distributions.
+
+ABLATIONS AND HANDOFF OBSERVATIONS
+A improves BOTH return and deadlines over B, C, D and G in every fit.
+Mean A-B differences: +182.717976 return, +25.098958 deadline pp.
+Mean A-C differences:   +2.824140 return,  +7.802083 deadline pp.
+Mean A-D differences:   +3.732214 return, +10.010417 deadline pp.
+Mean A-G differences: +281.562179 return, +30.927083 deadline pp.
+This supports complementary policy benefits of calibration and retention
+within this declared factorial study. It does not override the E/F screen
+or establish a broader algorithmic novelty. Per-fit A-B-C+D interactions,
+all student-minus-teacher contrasts and all absolute results are preserved
+in run/analysis.json and independently checked in verification.json.
+
+Handoff scale alpha by fit: 0.003527600, 0.003438108, 0.003967135.
+Withheld-return RMSE: after BC -> after scale -> after value fit:
+Fit 0: 30.159777 ->  3.849192 -> 5.667472
+Fit 1: 45.616936 -> 12.731496 -> 5.072981
+Fit 2: 40.995627 -> 11.159081 -> 5.319040
+All declared after-value-fit-versus-after-BC warning flags are false.
+Fit 0 worsens after value fitting relative to scaling alone; this is a
+diagnostic observation, not a failed frozen warning or added criterion.
+These return-withheld episodes supplied action labels to BC/retention;
+they are not an entirely unseen generalization set. A/B/E handoffs match
+within each fit before their different continuation rules.
+
+Primary deadline misses per 19,200 evaluated tasks: 118, 123 and 483.
+E misses: 16, 11 and 23; F misses: 124, 300 and 846. No primary task is
+unfinished at horizon. All 483 primary misses in fit 2 have destination
+index 4. This identifies a location to inspect, not a proven root cause.
+Destination and miss counts for every arm/fit are in verification.json.
+
+STORAGE, LATENCY AND TRAINING COST
+Every student has 16,841 FP32 parameters: 67,364 parameter bytes plus
+20 buffer bytes. Thus this study supplies no parameter-storage reduction
+against its matched controls. Full A/F checkpoints are 277,353 bytes;
+E checkpoints are 70,787 bytes. Those files contain different training
+state and cannot be compared as evidence of deployment compression.
+No standalone serialized deployment-only file is claimed by this review.
+
+Complete action-selection latency on the common CPU/FP32/one-thread host:
+Arm   Median across fits (ms)    p95 across fits (ms)
+A       0.56895-0.57145            0.676295-0.720230
+B       0.57390-0.58815            0.709150-0.827695
+C       0.56935-0.58575            0.688550-1.224720
+D       0.56945-0.57290            0.672855-0.712390
+E       0.57245-0.58505            0.779380-0.798185
+F       0.51590-0.52190            0.646160-0.679495
+G       0.52680-0.53515            0.749775-1.007795
+Teacher median 69.199950 ms; p95 73.378515 ms (Python reference).
+Each interval is the range of three per-fit statistics, not a confidence
+interval. Timing includes validation, screening, forward/selection, chosen
+Q and output copy. Raw calls and round summaries are preserved. These are
+descriptive host/backend results; no speed threshold or compiled-teacher
+equivalence was declared. A is not faster than F by these medians.
+
+A online stage took 56.66-58.11 seconds per fit; F 49.46-50.39 seconds.
+A's BC stage took about 0.57-0.59 seconds and calibration 0.048-0.055
+seconds. Retention is additional computation inside an optimizer step,
+not free work. Per-fit stage times are in verification.json/costs. Total
+launch-to-base-archive verification took about 33.33 minutes, including
+6.24 minutes full audit and 2.62 minutes archive copy/base verification;
+final small receipt writes are outside that last timing boundary.
+
+NEXT BOUNDED GATE
+Diagnose saved data before proposing another change. Compare A against E
+and F on paired workloads, concentrating on fit 2 and the observed deadline
+destinations; separate action-ranking changes from common value shifts and
+inspect saved Bellman targets, TD/retention losses, gradient groups and
+terminal/nonterminal errors. Include B/C/D to examine component interactions.
+Use fixed saved states for checkpoint comparisons; trajectories diverge,
+so raw trajectory differences alone do not establish a causal mechanism.
+Specify what the saved data can and cannot resolve without new rollouts.
+
+Do not retrain, select a best fit, promote E as the proposed DDQN result,
+alter historical thresholds, or start final evaluation. A prospective
+design/comparison decision follows diagnosis only. Stronger compact64/
+wide128, adapted BDQ/full DQfD, novelty assessment and untouched final
+evaluation remain requirements before a broad thesis efficiency claim.
+Related imitation/DQfD/distillation/kickstarting work prevents treating
+the mere combination of familiar mechanisms as established novelty.
+
+Contribution one remains efficient DDQN offloading in UAV-IoV. Security/
+trust is deferred; cloud and charging remain excluded. No new research
+launch is authorized by this review. The Word thesis remains unchanged.

@@ -1,0 +1,171 @@
+{
+  "status": "prospective_design_and_comparison_amendment_only",
+  "date": "2026-11-14",
+  "brief": "DEADLINE_SCREEN_HORIZON_LOSS_PROSPECTIVE_BRIEF_2026-11-14.txt",
+  "base_protocol": "deadline-screen-eleven-learner-development-v1",
+  "base_protocol_sha256": "23b1b292e80a4dadba99ee99b1f7151a80a37db4f6c8b5d03ac198729acf84de",
+  "primary": "normalized_screened_price24",
+  "control_arms": [
+    "screened_price24",
+    "unmasked_price24",
+    "screened_no_price24",
+    "screened_plain24_anchored",
+    "screened_compact64_anchored",
+    "screened_plain24",
+    "unmasked_plain24",
+    "screened_wide128",
+    "unmasked_wide128",
+    "screened_bdq64",
+    "unmasked_compact64"
+  ],
+  "new_arms": [
+    {
+      "id": "normalized_screened_price24",
+      "base_definition": {
+        "id": "screened_price24",
+        "model_key": "price_both",
+        "base_model_key": "amortized_workload_price24",
+        "screened": true,
+        "role": "primary",
+        "description": "Proposed workload-price DDQN",
+        "horizon_scaling": true,
+        "terminal_anchor": true,
+        "loss": "scalar_huber_plus_terminal_anchor",
+        "chosen_value": "existing_scalar_joint_value",
+        "expected_online_parameter_count": 17066,
+        "expected_fp32_parameter_bytes": 68264,
+        "expected_buffer_bytes": 20
+      },
+      "uniform_loss": "mean Huber1(Q(s,a)/h_current - stopgrad(y)/h_current)",
+      "terminal_anchor": "unchanged unit-weight terminal Huber, batch32",
+      "changes_only_training_loss": true
+    },
+    {
+      "id": "normalized_screened_no_price24",
+      "base_definition": {
+        "id": "screened_no_price24",
+        "model_key": "no_price_both",
+        "base_model_key": "amortized_no_price24",
+        "screened": true,
+        "role": "price_ablation",
+        "description": "Price contribution zero; identical tensors",
+        "horizon_scaling": true,
+        "terminal_anchor": true,
+        "loss": "scalar_huber_plus_terminal_anchor",
+        "chosen_value": "existing_scalar_joint_value",
+        "expected_online_parameter_count": 17066,
+        "expected_fp32_parameter_bytes": 68264,
+        "expected_buffer_bytes": 20
+      },
+      "uniform_loss": "mean Huber1(Q(s,a)/h_current - stopgrad(y)/h_current)",
+      "terminal_anchor": "unchanged unit-weight terminal Huber, batch32",
+      "changes_only_training_loss": true
+    },
+    {
+      "id": "normalized_screened_plain24_anchored",
+      "base_definition": {
+        "id": "screened_plain24_anchored",
+        "model_key": "plain_both",
+        "base_model_key": "plain24_nonpositive",
+        "screened": true,
+        "role": "same_width_architecture_control",
+        "description": "Plain24 with inherited horizon/anchor",
+        "horizon_scaling": true,
+        "terminal_anchor": true,
+        "loss": "scalar_huber_plus_terminal_anchor",
+        "chosen_value": "existing_scalar_joint_value",
+        "expected_online_parameter_count": 16841,
+        "expected_fp32_parameter_bytes": 67364,
+        "expected_buffer_bytes": 20
+      },
+      "uniform_loss": "mean Huber1(Q(s,a)/h_current - stopgrad(y)/h_current)",
+      "terminal_anchor": "unchanged unit-weight terminal Huber, batch32",
+      "changes_only_training_loss": true
+    }
+  ],
+  "heuristics": [
+    {
+      "id": "all_local",
+      "screened": false,
+      "implementation": "Source/train_chapter3_ddqn.py:evaluate_policy and Source/validate_chapter3_model.py:select_destinations",
+      "role": "diagnostic_floor_not_acceptance_reference"
+    },
+    {
+      "id": "nearest_rsu",
+      "screened": false,
+      "implementation": "Source/train_chapter3_ddqn.py:evaluate_policy and Source/validate_chapter3_model.py:select_destinations",
+      "role": "strong_policy_reference"
+    },
+    {
+      "id": "uav_selective",
+      "screened": false,
+      "implementation": "Source/train_chapter3_ddqn.py:evaluate_policy and Source/validate_chapter3_model.py:select_destinations",
+      "role": "strong_policy_reference"
+    }
+  ],
+  "learned_controller_count": 14,
+  "heuristic_count": 3,
+  "primary_ablations": {
+    "correction": "screened_price24",
+    "price": "normalized_screened_no_price24",
+    "same_width": "normalized_screened_plain24_anchored"
+  },
+  "thresholds": {
+    "reference": {
+      "return_difference_min": -2.0,
+      "deadline_fraction_difference_min": -0.01
+    },
+    "heuristics": {
+      "return_difference_min": 0.0,
+      "deadline_fraction_difference_min": 0.0
+    },
+    "primary_mechanism_each_fit": {
+      "return_difference_min": 0.0,
+      "deadline_difference_min": 0.0
+    },
+    "primary_mechanism_equal_fit_mean": {
+      "return_difference_min": 2.0,
+      "deadline_difference_min": 0.01
+    },
+    "value": {
+      "normalized_rmse_max": 0.25,
+      "absolute_bias_max": 2.0,
+      "near_zero_large_return_fraction_max": 0.05,
+      "terminal_abs_error_p95_max": 2.0
+    },
+    "cost": {
+      "parameter_bytes_max_fraction_of_unmasked_compact64": 0.5,
+      "median_ms_max_fraction_of_each": [
+        "screened_wide128",
+        "unmasked_wide128"
+      ],
+      "median_ratio_max": 1.0,
+      "p95_ms_max": 1.0
+    }
+  },
+  "research_budget_declared": false,
+  "seeds_reserved": false,
+  "implementation_complete": false,
+  "novelty_established": false,
+  "launch_authorized": false,
+  "new_training_slots": 0,
+  "new_evaluation_slots": 0,
+  "new_optimizer_updates": 0,
+  "word_thesis_changed": false,
+  "unchanged": [
+    "critic architecture",
+    "observations",
+    "rewards",
+    "decoder",
+    "local screen",
+    "remote/movement action sets",
+    "DDQN selection/evaluation",
+    "terminal anchor formula",
+    "existing control losses"
+  ],
+  "limitations": [
+    "No proven causal explanation from saved traces",
+    "Does not guarantee remote deadlines or global calibration",
+    "Broader literature review and supervisor contribution agreement outstanding"
+  ]
+}

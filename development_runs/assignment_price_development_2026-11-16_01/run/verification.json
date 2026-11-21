@@ -1,0 +1,16 @@
+{
+  "kind": "RESEARCH_DEVELOPMENT",
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "fits": 5,
+  "controllers": 15,
+  "final_checkpoints": 75,
+  "training_slots": 600000,
+  "evaluation_slots": 151680,
+  "optimizer_updates": 523275,
+  "target_copies": 2550,
+  "raw_timing_rows": 48000,
+  "quality_evidence": true,
+  "research_launched": true,
+  "final_phase_launched": false,
+  "word_thesis_changed": false
+}

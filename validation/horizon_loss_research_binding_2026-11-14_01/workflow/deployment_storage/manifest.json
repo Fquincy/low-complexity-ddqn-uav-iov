@@ -1,0 +1,33 @@
+{
+  "files": {
+    "normalized_screened_no_price24_fit_00.deployment.bin": "13a1491ff9ee25f00b1d3637130442a9aabbc9711d05920096c11fef3601920c",
+    "normalized_screened_no_price24_fit_01.deployment.bin": "492ede9417d85a35b9ffaf26ddb294d7d49f699fe640b40706f69f512cab5af6",
+    "normalized_screened_plain24_anchored_fit_00.deployment.bin": "0727a69b3e827b731f66a4b692626a3c977be12aa4c0d50a175df7bd1bc902ba",
+    "normalized_screened_plain24_anchored_fit_01.deployment.bin": "8ebee896d43fc8f1aee4ccf24ec4e0451960f05168a3cc9b69242d9ca5e2f47d",
+    "normalized_screened_price24_fit_00.deployment.bin": "13f8ee46054473ca6d009049cf7b432d5c2d4c9fc50713b6cf10822a82cd1220",
+    "normalized_screened_price24_fit_01.deployment.bin": "f6e9ace4562a24e3463672f431f1140ae997be16308abb60f56e2bead49fd89d",
+    "screened_bdq64_fit_00.deployment.bin": "211fefc8f9aea4c26e14ee3d6eff3fdc2bb07ca55a2af77320179d7b5b093ecc",
+    "screened_bdq64_fit_01.deployment.bin": "6b149dd1eab98455c193f43ce612ced80017cd2f4d6664d26ce0694bc3ebd4ad",
+    "screened_compact64_anchored_fit_00.deployment.bin": "4b002be5e4781d17717a3b64f1ae326f3f498d64a51b2a32cda382932fbe79f7",
+    "screened_compact64_anchored_fit_01.deployment.bin": "2f4f4028f476bc1bc48720c14bc656c6f14a231f742a4f46f0cdd732d29ed3b9",
+    "screened_no_price24_fit_00.deployment.bin": "076607ebc031f8ad070fd4bc3be208ccfcc20f210e22ecd2c470013bb23d23d8",
+    "screened_no_price24_fit_01.deployment.bin": "30c99825400d5644c630224a263c71f6aff2134c3a747d17abde6b95b7029b1f",
+    "screened_plain24_anchored_fit_00.deployment.bin": "301eb10ea9da75daf4d17029133fbb161d889f355ad1b15dee87b3d8c8e114c8",
+    "screened_plain24_anchored_fit_01.deployment.bin": "8c4ead596eb97c323c7fd2b7124001ce6b41f2d10cdceb60784d84b615c142ee",
+    "screened_plain24_fit_00.deployment.bin": "28d63786cc2a44ead057e42ae862c71759d5ca8dbbf1ac6c46b369eccc6721de",
+    "screened_plain24_fit_01.deployment.bin": "4b555f1b32197f2dd28ae890833266127a838a0b8a016a2bbd0fc9059b7d205e",
+    "screened_price24_fit_00.deployment.bin": "b040179778e2ae3da17e268ee56ded16fcea4806de52c70f6b159c37bce3aa78",
+    "screened_price24_fit_01.deployment.bin": "a05afa6f62c7230b604abafca46908a106da346e4f9d02d522a0aee17b0318e8",
+    "screened_wide128_fit_00.deployment.bin": "40e96d6bc9a6647f50360a3a4b456f76daf9581c3597b8624079f3b9e85ac655",
+    "screened_wide128_fit_01.deployment.bin": "29c23011348d882f613a7dc84b870b51150ce856b7d4a9b48d3f638748061a75",
+    "storage_and_training_cost.json": "a1e8ffba51928e2d201cb2821032faa437bfb560110ec809b3a4390fd86dc54e",
+    "unmasked_compact64_fit_00.deployment.bin": "3d5cbbfa8e3917091171e2519a8ce1fc17c6fd4e907ba0d62f0e63d4d2b5ed40",
+    "unmasked_compact64_fit_01.deployment.bin": "aa9109e8db7bc4cf4684043650eb241a2976dfbc8971b33028f2eb23f1b5721a",
+    "unmasked_plain24_fit_00.deployment.bin": "bac9fe3ec19dec10d8b4a56791f7845865cf071bef77b6d488a6aa3a50af9dd3",
+    "unmasked_plain24_fit_01.deployment.bin": "7a8be98e0ac086bc78d3d4b14574cad6172d31727e200f50b36f0d086eba3bb8",
+    "unmasked_price24_fit_00.deployment.bin": "e6261552b19d518ed60efe4e4eb802eea5c45613c06384c830fe6bf6947167a3",
+    "unmasked_price24_fit_01.deployment.bin": "1612298bf947182547cebb7cf4447365314f0983e368fe736c700a3fa15bb048",
+    "unmasked_wide128_fit_00.deployment.bin": "e0fc91b0d6020576ae69aab5d425ac9269a6527f55449ca21e5c17423f694b99",
+    "unmasked_wide128_fit_01.deployment.bin": "2e6ee85932d88b675462212d3433105c00341b9745fa4903614e894f583647ff"
+  }
+}

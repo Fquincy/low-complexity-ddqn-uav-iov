@@ -1,0 +1,144 @@
+ADP FIFTEEN-CONTROLLER ENGINEERING WORKFLOW REVIEW
+Date: 2026-11-15
+
+DECISION
+Expanded heuristic, all-original-control CPU deployment and complete small
+fifteen-controller fixture PASS their tests and saved-artifact audit. No
+research experiment is launched. This confirms a larger engineering path,
+not policy superiority, novelty, scientific acceptance or full launch readiness.
+The next required gate is binding and exercising the full five-initialization
+research orchestration/release against the frozen prospective specification.
+The current executable remains fixture-only even with correct confirmation.
+
+IMPLEMENTATION
+assignment_price_load_radio_heuristic.py implements the frozen observed-load/
+radio surrogate: observed task bits/cycles/deadlines, CPU workloads, serial
+radio backlog, observed positions, public channel/CPU constants, current-
+assignment UAV interference, fixed descending-cycle initialization and one
+coordinate sweep. It obeys the local screen, excludes empty-battery UAVs for
+new assignments, always allows RSUs and returns stationary UAV movement.
+No fitting, future arrivals, exact simulator task information or env object
+enters its interface. Queue/radio estimates are approximate; stationary
+movement and surrogate wait/energy accounting remain declared limitations.
+It is not an exact deadline/return oracle or an optimal/lightweight scheduler.
+
+assignment_price_all_reference_deployment.py extends matched ONNX CPU/neural
+and native decode execution to all eleven original controls, including
+no-price/plain, anchored compact, screened/unmasked and adapted BDQ. It
+retains each original objective, horizon scaling and mask/decoder semantics.
+BDQ's forward-only identity is exported directly; training gradient scaling
+stays in the existing original critic. Head/runtime values use existing
+atol1e-6/rtol1e-5 and exact action equality gates on tested states.
+Prior frozen definitions and runtime sources were not edited.
+
+run_assignment_price_full_fixture.py checks the exact ADP specification hash
+and its frozen definitions. It runs all fifteen declared learned arms and
+four heuristics on a tiny engineering plan. New original-loss DDQN candidate
+updates and all original controls retain their declared arithmetic/losses.
+It snapshots source/plan, final checkpoints, trained exports, paired traces,
+actor/replay/anchor/optimizer diagnostics and evaluation accounting.
+All final checkpoint hashes are frozen before evaluation; each graph is an
+immutable trained snapshot. Reloaded online/target and optimizer states are
+exercised. No checkpoint selection or controller tuning from fixture outcomes.
+
+ENGINEERING PLAN AND COUNTS
+Engineering model867250001, training tasks867251000/867251001, evaluation
+task867252000, arm order867253000, tiny-timing order867254003 and reporting
+bootstrap867254007. Action/replay/anchor offsets remain100000/200000/300000.
+Checked before fixture use against root protocol/spec/amendment/release
+points/start-count intervals, including new ADP research and protected final
+reservations. Local declaration check only, not every historical trace.
+Two episodes/arm, warmup8, batch4, replay32, anchor batch4, target interval8
+and epsilon decay80. Scientific optimizer/reward/architecture/thresholds
+unchanged; these reduced sizes are engineering settings only.
+
+15 arms x80 slots =1,200 training slots. 15 learned plus4 heuristic episodes
+=760 evaluation slots. Total1,960 simulator slots;49 episodes;58,800 tasks.
+73 updates/arm =1,095 updates;9 target copies/arm =135 copies. Fifteen final
+checkpoints, fifteen trained exports, and fifteen reporting graph snapshots.
+All600 learned evaluation states pass original versus deployment actions and
+values. Test verification performs no extra simulator or optimizer steps.
+
+Every primary-versus-comparator contrast, auxiliary contrast and mechanism/
+value/cost screen calculation is exercised. Reports retain all/terminal/
+nonterminal/time-bin value distributions and optimizer Q/target/TD/gradient/
+uniform-loss/anchor distributions plus clipping fractions for every arm.
+Fixture labels: quality_evidence=false, screens_applied=false,
+all_scientific_screens_passed=null. No successful or failed tiny policy outcome
+changes the primary, arms, scientific thresholds, optimizer or reservations.
+
+One small instrumentation sample:16 states/path,4 warmups,1 round,15 paths,
+240 raw timing rows. It tests freeze/order/summary/auditor plumbing only and
+does not rerun or override the previous matched-cost acceptance benchmark.
+Storage reports actual neural parameter/buffer tensors, final serialized
+checkpoints, graph sizes and optimizer tensors. Process peak/shared-library
+memory and true fresh-process startup remain unmeasured in this fixture.
+
+UNIT TESTS: FOUR GROUPS PASS
+1. Eleven original-control exports x128 shared engineering states =1,408
+   exact-action/value-tolerance checks against original eager critics.
+2. Heuristic feature indices, independently reconstructed public channel gain,
+   assignment-sensitive interference, exhaustive125 small joint assignments
+   against a separate objective calculation, CPU/backlog monotonic examples.
+3. Deterministic equal-cost ties, masks, depleted batteries, finite fixed pass
+   candidate counts, repeated-output agreement and terminal input rejection.
+4. Frozen15-arm protocol identity and API rejection of development with both
+   missing and correct confirmation, plus final-mode rejection before output.
+No optimizer/simulator execution in these unit tests.
+
+INTEGRATION/AUDITOR TESTS: FOUR GROUPS PASS
+1. All full fixture artifacts and independent saved accounting/analysis audit.
+2. Auditor rejects a modified artifact hash and a corrupted comparison result;
+   temporary mutations restored before remaining tests and archiving.
+3. API and subprocess CLI reject missing development confirmation, reject
+   correctly confirmed development while unreleased, and reject final/unknown
+   modes. No blocked output directories are created. CLI errors preserved.
+4. All forty observed-load/radio heuristic choices reproduced from saved
+   observations with deterministic candidate counts and masks/battery rules.
+
+audit_assignment_price_full_fixture.py verifies inventory/hashes, source/plan,
+pairing, per-task/action/reward/energy/summary arithmetic, observation/horizon
+continuity and all1,095 optimizer rows. Replay ring and all fifteen terminal
+pool evictions, replay/anchor RNG indices, Bellman targets, native dtype TD
+arithmetic, branchwise BDQ Huber versus scalar Huber, anchor loss and copies
+are checked. Final optimizer step counts, ONNX validity and exact exported
+initializer equality to trained parameter tensors are checked. It recomputes
+all600 eager batch-one saved Q/target values and actions without stepping
+the simulator. It independently reconstructs comparison/value/cost/uncertainty
+reports through the established saved-analysis auditor and verifies optimizer
+distributions and all240 instrumentation rows/order. No tolerance widened.
+All eight test groups passed on their first execution in this expanded stage.
+Shared established analysis/audit utilities are reused; not all reporting
+arithmetic is an independent algorithm. Task accounting audit is not an
+independent event-engine re-simulation. Numerical equivalence is tested,
+not guaranteed for all possible near ties or future trained checkpoints.
+
+RELEASE BOUNDARY AND REMAINING WORK
+This stage binds fixture definitions/arm list to the ADP protocol, but it does
+not yet implement the entire five-fit/200-episode research execution/release.
+It is deliberately impossible to launch research through the fixture runner.
+The full comparison must additionally exercise multiple-fit task block/model
+seed mapping, one global all75-checkpoint/export freeze before timing and
+policy-quality evaluation, the full48000 timing schedule, required true
+fresh-process startup reporting, all checkpoint/optimizer/replay storage and
+prospective comparisons/uncertainty in a scale-reduced version of that exact
+orchestration. Do not silently patch/monkeypatch this fixture into research.
+Use a versioned full runner/auditor binding and a small multi-fit fixture,
+then a separate source/seed/environment/launch readiness review. Research
+confirmation must still be explicit and final mode remain locked.
+
+The saved exact-overlap literature work is still incomplete; no new live
+literature search occurred here. Generic DDQN+mask/congestion/branching is
+not novelty. Actual learned-price/sweep benefit, competitive return/deadline,
+value calibration and training stability require fresh scientific evidence.
+No supervisor availability dependency is introduced for technical progress.
+Word thesis and final seed reservations remain untouched. Security/trust
+deferred; no cloud or charging introduced. Low-complexity contribution remains
+unproven; the earlier narrow matched engineering cost pass remains preserved.
+
+FILES
+validation/assignment_price_full_engineering_2026-11-15_01/unit_tests.json
+validation/assignment_price_full_engineering_2026-11-15_01/integration_tests.json
+validation/assignment_price_full_engineering_2026-11-15_01/independent_audit.json
+validation/assignment_price_full_engineering_2026-11-15_01/fixture_evidence/
+validation/assignment_price_full_engineering_2026-11-15_01/cli_guard_evidence.json

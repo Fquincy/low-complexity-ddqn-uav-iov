@@ -1,0 +1,28 @@
+{
+  "protocol_sha256": "95bd2737f8700378ced695bfaf4b9a3d457a2fbe54df2f6f7f829186ac7c674f",
+  "plan_sha256": "15d026abd504e8c6f4d5ae7997124d66dd08abd83a1f285824aad64be023fc42",
+  "source_sha256": {
+    "CENTERED_LINEAR_CORRECTION_COMPARISON_PLAN_2026-11-20.txt": "bab466a4be5fef9062a5ef9773197f806d04976ba21035896d8c7dc2a56fdad0",
+    "CENTERED_LINEAR_CORRECTION_COMPARISON_PROTOCOL_2026-11-20.json": "95bd2737f8700378ced695bfaf4b9a3d457a2fbe54df2f6f7f829186ac7c674f",
+    "HEURISTIC_DDQN_VALUE_SEPARATION_CORRECTION_BRIEF_2026-11-20.txt": "72952b202d6d0f05f7d9ccbccb332a84ed350e11c7e0cacd1d2d36cc79ba4ad3",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+    "assignment_price_load_radio_heuristic.py": "925bdd21551bcd06186707af2b8a6751f61dd1e9a11ed26e3d3633fcea35f804",
+    "audit_centered_linear_comparison.py": "5e12cc71576c882307b4a7634fc8254dddc8fd54020fe56dce11d940230292f5",
+    "centered_linear_comparison_models.py": "2de20beb58242e40d876324fe6e5a7cbfa3e02f625cda0247ad09b01b196b734",
+    "centered_linear_ddqn_prototype.py": "7fa7cdcdf0c4b760d57071a7c4dcccbbd51aaa3efdfec4485188a42441de444a",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "heuristic_initialized_ddqn_baseline.py": "c13b0a437c7ecb6aa20d50605efd5b612e930a33472f3e031678970d0ddb2940",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "run_centered_linear_comparison.py": "8e334ba7e38dbb5754255db1fc0915d8a27f9dc3729f9bdd2d6f2b6b155fa432"
+  },
+  "teacher_backend": "Python reference: frozen function bodies, identity native decorators",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "threads": 1
+  }
+}

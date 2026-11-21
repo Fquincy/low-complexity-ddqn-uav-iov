@@ -1,0 +1,82 @@
+HORIZON-LOSS DEVELOPMENT: SEPARATE LAUNCH-READINESS DECISION
+2026-11-14
+
+DECISION
+Technically ready. Recommend proceeding with the frozen 560,000-slot
+development comparison after a separate explicit launch instruction. No
+technical blocker was found in this review. The source release remains
+disabled; no research training, evaluation or final phase was launched.
+
+WHAT WAS CHECKED
+All63 reviewed source files match the current files and archived release
+copies. All500 frozen evidence artifacts match their manifest. The protocol hash
+is 6cb86939d2b129e0df827bd71f89899ea4f78545d1e98a001ba97d33867eb6db.
+The exact Python version/executable, serialized package inventory, PyTorch and
+NumPy versions, and actual PyTorch/Numba runtime module paths match the tested
+environment. An initial direct package-dictionary comparison differed because
+JSON turns an unnamed metadata key into the string null; applying identical
+serialization yields an exact match. No package or runtime was changed.
+
+The four core tests, complete paired fixture, independent artifact audit,
+deployment-storage audit, diagnostic reconstruction, corruption rejection and
+confirmation/release guards passed. Separate startup reporting passed for all
+28 saved fixture checkpoints. The outer workflow's added completion stage was
+exercised on those already audited checkpoints without repeating training.
+Fixture results remain engineering evidence; quality_evidence is false.
+
+The fresh actual-use audit examined86035 records:
+85880 compressed episode headers and155 runtime metadata files.
+No development-reservation collision, protected-final episode seed hit, read
+error or development/final overlap was found. The earlier declaration audit
+also remains valid. The new actual-use scan excludes archived source copies,
+including release_source_snapshot, so declarations are not misreported as
+execution. Scope is the four recorded local run roots, bounded episode-header
+prefixes and runtime schedules; this is not proof about external/unlogged runs.
+
+FIXED EXPERIMENT
+Primary: normalized_screened_price24.14 learners plus three heuristics;
+five paired initializations;200 episodes of40 slots per learner/fit.
+70 final-only checkpoints;560,000 training slots;488,390 optimizer updates;
+2,380 target copies.48 shared evaluation tasks give140,160 evaluation slots.
+The complete simulator budget is700,160 slots. The full audit should cover
+17,504 episodes and21,004,800 task records.8,960 engineering action checks,
+44,800 steady timing readings and70 separate startup records are expected.
+
+All16 primary and nine auxiliary contrasts remain required. Controls, rewards,
+seeds, optimizer settings, architecture and thresholds were not changed.
+Original-unit value stability, policy/deadline, correction/price/architecture,
+cost and integrity gates must all pass. No best fit or favorable retiming.
+All models retain final checkpoints, including scientifically failed fits.
+
+LIMITS OF THIS APPROVAL
+This approves technical readiness, not controller success or thesis novelty.
+The earlier failed research result stays preserved. Loss normalization remains
+a hypothesis and has not yet been judged on the fresh development evidence.
+Routine normalization alone is not a novelty claim. Literature positioning and
+supervisor agreement remain separate from this engineering decision.
+Startup readings include full training-checkpoint reconstruction, fresh Python
+imports and a first action with existing caches. They are not cold-machine or
+minimal deployment-bundle startup measurements and have no acceptance gate.
+
+EXECUTION BOUNDARY
+The reviewed entry point is horizon_loss_research_complete_workflow.py.
+Its underlying runner requires LAUNCH_FROZEN_HORIZON_LOSS_DEVELOPMENT and a reviewed source release.
+Keep the development guard closed until the explicit launch instruction.
+On authorized launch, verify and archive the complete63-file reviewed release
+before any model/task initialization, use the recorded Python executable,
+and retain live progress/error logs. Activate only the existing development
+release guard; do not change the frozen scientific design. If other runs or
+reservations occur first, refresh the seed audit. Final execution stays disabled.
+
+To authorize the next action, the explicit instruction is:
+Launch the frozen 560,000-slot horizon-loss development comparison.
+
+The Word thesis, protected final seeds and previous successful/failed runs
+remain unchanged. Cloud/charging remain excluded; security/trust is deferred.
+
+EVIDENCE
+validation/horizon_loss_launch_review_2026-11-14_01/
+  launch_decision.json
+  source_environment_verification.json
+  seed_refresh.json
+The prior binding review and ENGINEERING_RELEASE_MANIFEST.json remain preserved.

@@ -1,0 +1,30 @@
+{
+  "state": "passed_compiled_artifact_audit",
+  "compiled_cost_gate": "compiled_cost_gate_failed",
+  "complete_actions_independently_replayed": 4608,
+  "timing_rows_recomputed": 10240,
+  "manifest_entries_checked": 49,
+  "equivalence_vectors_sha256": "ce882b57d9c640e9b9b1a959f3b75608fbf81adc798fdd80e929f8eafd29ea20",
+  "all_frozen_source_hashes_unchanged": true,
+  "simulator_steps_added": 0,
+  "optimizer_updates_added": 0,
+  "research_training_started": false,
+  "scope": {
+    "excluded": true,
+    "active_source_paths": [
+      "Source/chapter3_iov_env.py",
+      "Source/chapter3_iov_env_v2.py",
+      "controller_redesign_v2.py"
+    ],
+    "execution_destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "cloud_nodes": 0,
+    "charging_stations": 0,
+    "security_trust_enabled": false
+  }
+}

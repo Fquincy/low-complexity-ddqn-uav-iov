@@ -1,0 +1,10 @@
+{
+  "state": "passed",
+  "tests_run": 6,
+  "source_sha256": {
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "test_emc_q.py": "cc9fa0b5fc08f9700c76c80414be0e3f7822f35afb144c9c9e1666fc13cdcd40"
+  },
+  "optimizer_updates": 0,
+  "simulator_steps": 0
+}

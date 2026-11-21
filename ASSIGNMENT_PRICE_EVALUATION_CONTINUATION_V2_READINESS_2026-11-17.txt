@@ -1,0 +1,54 @@
+ADP-DDQN EVALUATION-ONLY CONTINUATION V2 READINESS
+Date: 2026-11-17
+
+DECISION: READY FOR A SEPARATE EXPLICIT V2 RESUME
+
+Training remains complete: 600,000 slots, 523,275 optimizer updates and 75
+final checkpoints. The first continuation preserved and completed 1,824 of
+3,600 learned evaluation episodes before stopping. No heuristic evaluation,
+final reporting, saved-artifact audit or archive has run. No retraining is needed.
+
+SECOND STOP DIAGNOSIS
+At unmasked_plain24 fit 2, evaluation seed 874000000, slot 16, eager and exported
+actions are identical for all 32 branches. Aggregate Q differs by 7.4505806e-06.
+The original relative tolerance fails because Q is near zero. Raw output maximum
+difference is 8.5830688e-06. A conservative float32 accumulation bound for this
+state is 1.1834818e-04, over fifteen times the observed aggregate difference.
+
+PROSPECTIVE V2 RULE
+The original rtol 1e-5 / atol 1e-6 remains reported as a diagnostic. Every
+exceedance is saved. It no longer aborts evaluation. The continuation abort guard
+is prospectively fixed at rtol 1e-5 / atol 2e-4, above the reproduced conservative
+float32 accumulation bound. Exact action disagreements remain separately recorded
+and cause exact deployment equivalence to fail. Policy evaluation continues to
+use the frozen eager DDQN action; no policy, reward or threshold is retuned.
+
+After all episodes, the runner rechecks every one of the 151,680 learned
+evaluation states through both eager and exported paths. It reports exact action
+disagreements, all original-tolerance Q exceedances and the maximum absolute Q
+difference before reporting and audit.
+
+ENGINEERING EVIDENCE
+1. All 75 checkpoints and 75 exports reverify.
+2. All 3,648 files belonging to the 1,824 completed learned episodes are frozen.
+3. Check-only passes and creates no new simulation or training output.
+4. Three tests pass: confirmation guard, the first action near-tie episode, and
+   the second aggregate-Q episode through all 40 slots.
+5. Remaining work is 1,776 learned episodes, 192 heuristic episodes, reporting,
+   complete equivalence scan, saved-artifact audit and independent archive.
+
+UNCHANGED
+Training artifacts, rewards, controller definitions, training/evaluation seeds,
+optimizer settings and scientific quality screens remain unchanged. Security is
+deferred; cloud and charging stations remain absent. The Word thesis is unchanged.
+
+NEXT DECISION
+Issue a separate explicit instruction to resume the frozen assignment-price
+evaluation-only continuation V2. It performs no training or optimizer update.
+
+EVIDENCE
+validation/assignment_price_q_tolerance_stop_2026-11-17_01/diagnosis.json
+validation/assignment_price_evaluation_continuation_v2_readiness_2026-11-17_01/verification.json
+ASSIGNMENT_PRICE_EVALUATION_NUMERICAL_AMENDMENT_2026-11-17.json
+continue_assignment_price_evaluation_2026_11_17.py
+test_assignment_price_evaluation_continuation_2026_11_17.py

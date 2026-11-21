@@ -1,0 +1,80 @@
+DEADLINE SCREEN: SEPARATE DEVELOPMENT LAUNCH READINESS REVIEW
+Date: November 14, 2026
+
+DECISION
+Technically ready for a separately confirmed launch using the released V2
+workflow. The frozen eleven-controller, five-initialization comparison is
+440,000 training slots plus111,360 evaluation slots. It has NOT launched.
+This decision concerns implementation readiness, not policy quality or novelty.
+
+REVIEW FINDING AND CORRECTION
+The original reduced fixture passed, but scale review found that runner/auditor
+retained full task/slot dictionaries across2,784 evaluation episodes and loaded
+whole optimizer logs. A saved episode occupied about2,483,809 Python heap bytes:
+approximately6,914,926,483bytes projected for evaluation records alone. Host
+snapshot showed about3.1GB free physical RAM. This was a concrete launch risk.
+
+A separate V2 source set preserves all original tested source/artifact hashes.
+Every full trace remains saved on disk. After saving/validating one episode,
+only trajectory values and exact per-destination counts remain in memory.
+Optimizer logs stream one JSON record at a time; only numeric arrays needed
+for exact distributions remain. Storage export/audit streams its log totals.
+There is no change to controller weights/architecture, reward, features,
+mask semantics, target/loss arithmetic, seeds, optimizer, thresholds or budget.
+The frozen November12 protocol and all32 pinned definition hashes are intact.
+
+VALIDATION
+Original eight tests and their full fixture/audits remain preserved.
+Five new scale/readiness tests passed without simulator steps, optimizer
+updates or retiming:
+1. AST comparison verifies every original runner function except compact()
+   remains identical, including training, targets, ordering and timing.
+2. V2 recomputes the original saved analysis exactly: all13 primary contrasts,
+   auxiliary contrasts, value statistics, bootstrap intervals and screens.
+3. Retaining2,784 compact summaries used6,160,832 traced heap bytes in the
+   synthetic allocation fixture. This is not whole-process peak memory.
+4. V2 auditor matches the original full saved fixture audit exactly; storage
+   audit passes all22 exports. All original artifact hashes remain intact.
+5. Streaming6,977 research-sized synthetic log rows (88,768,371bytes) used
+   114,416bytes peak traced allocation for log totals. Log values are generated
+   fixtures, not research evidence. Auditor numeric distributions use additional
+   bounded arrays per fit, not nested histories for every fit simultaneously.
+
+The unchanged core training/runtime was already exercised by the reduced
+end-to-end fixture. Changed summary/audit/storage functions were exercised on
+its complete saved artifacts, plus full-count allocation/log fixtures. No
+second training/timing run was used to choose a favorable cost measurement.
+
+SEED AND ARTIFACT CHECKS
+Fresh local audit:72,011 checked files, including71,860 compressed episode
+headers and151 actual runtime metadata files. No reserved development-seed
+collisions, no protected final-episode seed hits, and no read errors.
+The refresh deliberately separates actual run metadata from prospective
+protocol reservations. It is bounded local evidence, not proof about external
+or unlogged runs. Launch adapter refreshes it again before research seed use.
+Original completion manifest, frozen protocol, pinned definitions, v2 sources,
+review evidence and environment checks are hashed in the engineering release.
+
+LAUNCH BOUNDARY
+Use launch_deadline_screen_development.py with the recorded research Python.
+--check-only verifies the release without fitting or stepping the simulator.
+Actual execution requires --confirm-development followed by the exact token:
+LAUNCH_FROZEN_DEADLINE_SCREEN_DEVELOPMENT
+A separate explicit user launch instruction is still required in this session.
+Ordinary runner/workflow entry points remain blocked by DEVELOPMENT_RELEASED=False.
+The launch adapter verifies source/evidence hashes, refreshes seed consumption,
+records the confirmed request and only then releases development in that process.
+Final mode remains disabled. No authorization is inferred from this review.
+
+LIMITATIONS AND SCIENTIFIC DECISION
+Research can still fail the predeclared return/deadline, mechanism, value or
+cost screens; fixture success is not policy performance. Retain all fits and
+failed comparisons. Full artifacts and optimizer logs consume material disk
+space; host review snapshot showed about114.8GB free. Whole-process memory and
+long-run duration are not established by compact-summary allocation tests.
+No research data have been used for tuning, no thresholds were relaxed, and
+no best initialization is selected. Domain literature review and supervisor
+contribution discussion remain open before a thesis novelty claim.
+Cloud/charging excluded; security/trust deferred; final seeds and Word thesis
+unchanged. Recommended next action: explicitly authorize the frozen440,000-slot
+development comparison when ready to run it.

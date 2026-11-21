@@ -1,0 +1,83 @@
+CENTERED-LINEAR COMPARISON: SEPARATE LAUNCH-READINESS REVIEW
+2026-11-20
+
+DECISION
+Technically ready for the separately authorized frozen 51,280-slot,
+seven-arm centered-linear correction comparison. NOT LAUNCHED.
+DEVELOPMENT_RELEASED remains False; the final phase remains disabled.
+This decision establishes engineering readiness, not policy quality,
+novelty, or a proven low-complexity thesis contribution.
+
+BOUND EVIDENCE
+Protocol: CENTERED_LINEAR_CORRECTION_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 95bd2737f8700378ced695bfaf4b9a3d457a2fbe54df2f6f7f829186ac7c674f
+Receipt: validation/centered_linear_comparison_readiness_2026-11-20_01/readiness.json
+Receipt SHA256: 9412ccce2bee2607a76f498b2aa4f24537cc24ef501ceec04539f2e69a5bda4a
+Checker: check_centered_linear_comparison_readiness.py
+Engineering evidence:
+validation/centered_linear_comparison_fixture_2026-11-20_02/
+
+Nine engineering tests passed. All 192 fixture manifest artifacts were
+rehashed, and tested model, runner, auditor, test and review hashes match.
+The checker confirmed missing-confirmation rejection and rejection with
+the correct confirmation while development release remains disabled.
+No new simulator slots, optimization updates or research timing calls
+were executed in this readiness gate.
+
+ENVIRONMENT AND BACKEND
+Python 3.11.9, torch 2.15.0+cpu, numpy 2.4.6, Windows, one torch thread;
+the recorded environment matches the engineering fixture. The executable
+is the deadline_screen_research_env_2026_11_12 Python recorded in the receipt.
+The teacher uses the Python reference of frozen function bodies, with
+identity native decorators. This binds the new comparison's teacher
+backend; it does not establish equivalence to the historical compiled
+runtime. Teacher stationarity and its extra battery mask remain disclosed.
+
+SEEDS AND RETENTION
+No collisions were found against explicit seed values/start-count blocks
+in 39 checked root JSON documents and five saved fixture runtime plans.
+This is bounded reservation checking, not an exhaustive historical log
+scan. Refresh it at launch, including the updated project status file.
+Final evaluation reservations remain untouched.
+
+Projected output: 3,348,360,395 bytes (approximately 3.35 GB).
+Conservative free-space requirement: 14,467,183,404 bytes, using four times
+the estimate plus 1 GiB. At checking, E: had 520,370,565,120 bytes free;
+D: had 114,096,005,120 bytes free. Both exceed that requirement.
+Keep primary research output on E: and an independent D: archive after
+the completed audit. Verify inventory and hashes before claiming archive
+completion. Projection from a reduced fixture is not a hard output cap.
+
+FROZEN EXPOSURE AND INTERPRETATION
+Three paired initializations; 1,200 shared teacher demonstration slots,
+36,000 student training slots, and 14,080 evaluation slots: 51,280 total.
+Retain all 21 final student checkpoints, including unsuccessful fits;
+freeze them globally before evaluation. Report all predeclared policy
+and value comparisons without selecting the best initialization.
+The separate policy and value screens remain unchanged. Own-policy
+return-based value diagnostics do not prove causal calibration effects.
+Short fixture timings do not validate full-schedule duration; no precise
+full-run ETA is established here.
+
+AUDIT AND SCIENTIFIC LIMITS
+The auditor recomputes saved actions/Q, targets, counts, data/RNG checks,
+comparisons and timing summaries. It does not independently replay the
+historical gradient/weight trajectory. The independently trained BC-only
+final checkpoint checks BC-end equality, not replay of BC optimization.
+Fixture outcomes were not used to tune frozen scientific rules.
+Compact64, wide128, adapted BDQ and full DQfD remain deferred stronger
+controls. Passing this correction study alone would not establish
+superiority over those methods or complete the thesis novelty case.
+The centered value/advantage construction uses established ideas.
+
+NEXT AUTHORIZED ACTION
+A separate explicit instruction is required, for example:
+"Launch the frozen 51,280-slot centered-linear correction comparison."
+After that authorization, prepare a versioned launcher that validates
+this receipt, exact source hashes and environment; refresh seed/storage
+checks; choose a nonexistent output directory; enable the bound runner
+only in memory and preserve its on-disk default False. Retain all results,
+complete the full artifact audit, and verify the independent D: archive.
+
+Contribution one remains efficient DDQN UAV-IoV offloading. Security/trust
+is deferred; cloud and charging are excluded. The Word thesis is unchanged.

@@ -1,0 +1,1562 @@
+{
+  "protocol": {
+    "reexport_every_final_checkpoint_before_heldout_evaluation": true,
+    "retest_complete_action_equivalence": true,
+    "equivalence_inputs": "existing 128 saved engineering common observations, never used for policy-quality or checkpoint selection",
+    "equivalence_observations_path": "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+    "equivalence_observations_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+    "all_11_models_same_fixed_family_routes_as_compatibility_protocol": true,
+    "backend": "ORT CPU FP32 1thread plus native Numba FP32 decoder where predeclared",
+    "timing_rounds": 5,
+    "warmups": 32,
+    "calls_per_round": 128,
+    "order_seed": 423600003,
+    "require_exact_actions_and_Q_atol1e-6_rtol1e-5": true,
+    "report_median_p95_per_fit_no_weight_selection": true,
+    "run_before_any_heldout_evaluation": true,
+    "no_model_changes_after_checkpoint_freeze": true
+  },
+  "observation_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+  "exports": {
+    "fit_00": {
+      "amortized_workload_price24": {
+        "graph_sha256": "478b7c35ad851d4be4b306ea9f222bfa755567498ed136ae497aa54f83799c70",
+        "graph_bytes": 68847,
+        "parameter_sha256": "cc61198a5b7aaf96c8f3283642f2865c6072dbbd6aa13d7b3bf3ab0cd125bc21",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_workload_price24_fit_00.onnx",
+        "export_seconds": 0.1033371000085026,
+        "session_startup_seconds": 0.05690049997065216
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "664dfa3b4346b7ba92fb3fb8822ee292ec07e19d8a6f93ba34a916e4d186a2b9",
+        "graph_bytes": 68847,
+        "parameter_sha256": "604ecf355c533cec9bd6da0575a5c38b3557945982eb47b211e22a70fef5c212",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_no_price24_fit_00.onnx",
+        "export_seconds": 0.006632999982684851,
+        "session_startup_seconds": 0.0013963999226689339
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "c7b08b7f9f9953a896dad542ed49867e42a738e88c634805b1ba59017909b4d8",
+        "graph_bytes": 67947,
+        "parameter_sha256": "080f52c629880125eb78aec4d8871aa68cbee71f2f309d326f1b98617e910ea1",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder",
+        "graph": "plain24_nonpositive_fit_00.onnx",
+        "export_seconds": 0.005706800031475723,
+        "session_startup_seconds": 0.0011301999911665916
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "53258ebbc20b2b221e2e83ec7f544f2dd0cd30a9a029ee13411b059b7f683400",
+        "graph_bytes": 93669,
+        "parameter_sha256": "aab4d53e1d03d2cd979fb1c2b52749ff735b744dade26cc1461a26885b85a87e",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_00.onnx",
+        "export_seconds": 0.5932898999890313,
+        "session_startup_seconds": 0.09879190009087324
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "077d677334a5bbab146285b6bb16f41557fcc00930eeb776efc3abc5c666616a",
+        "graph_bytes": 32325,
+        "parameter_sha256": "3bb861d04ebc731390c98ba724c7422f3a2023f791435db3f81c400573396af4",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_00.onnx",
+        "export_seconds": 0.11700420000124723,
+        "session_startup_seconds": 0.013628700049594045
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "ecc08ddad25fcbf0151a704896484c2c174e9180a17c0514f6ecfd5ab9db7b4f",
+        "graph_bytes": 351792,
+        "parameter_sha256": "9116913c6a4d5cc1f0e961fe78a8247c3c98c8ce952d54d5193a4fc71fa85c17",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_00.onnx",
+        "export_seconds": 0.8305447000311688,
+        "session_startup_seconds": 0.15012219990603626
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "b7662804522223f791a5fc38f499c76eb96a202c08286d30df6de65a6f996bb0",
+        "graph_bytes": 93529,
+        "parameter_sha256": "bcf485f3243972c106cead5f1683e725a715d570d4bb61ed503d6c316bdc6af7",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_00.onnx",
+        "export_seconds": 0.5171214999863878,
+        "session_startup_seconds": 0.0829782000510022
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "031c5bc9b9dc05e52e80c23b226266b1d09ea8e3a5823bff3b29b503cce8e379",
+        "graph_bytes": 196275,
+        "parameter_sha256": "530d0fa80ba1c8a7eb85f8fc21eddb615cb3bff569608ceef74c8ca94d387417",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder",
+        "graph": "additive64_nonpositive_fit_00.onnx",
+        "export_seconds": 0.009678000002168119,
+        "session_startup_seconds": 0.00196749996393919
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "e584c82770f919717ca0534ad97595e4b333cb0c937e558ddc8b0de28130ad28",
+        "graph_bytes": 423353,
+        "parameter_sha256": "da3b46dd888ea6750164ad2bd122a593af617622bc60aacb6bb29e3efd1986b0",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder",
+        "graph": "additive128_unbounded_fit_00.onnx",
+        "export_seconds": 0.008917000028304756,
+        "session_startup_seconds": 0.0017044999403879046
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "492284d991170d52e48420ebb893996ecfb26557e2afa67f36d1e3cca17fbd89",
+        "graph_bytes": 278373,
+        "parameter_sha256": "47bbb742f39b0d6a1fbe2278fa5094e5b2479929ed2b247b6acaf1fd956c548b",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder",
+        "graph": "emc_q_nonpositive_fit_00.onnx",
+        "export_seconds": 0.008463499951176345,
+        "session_startup_seconds": 0.0015063999453559518
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "9fb2471fabaa8662c04fafb69c981eb07c944c131fcb8f8cd949b848e0521a39",
+        "graph_bytes": 196402,
+        "parameter_sha256": "058b7a156ab3982cb1a2694833d9f2a680f2ef9652ba7d111654a6aaf92db3e1",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder",
+        "graph": "bdq64_uniform_adapted_fit_00.onnx",
+        "export_seconds": 0.008323300047777593,
+        "session_startup_seconds": 0.0015321000246331096
+      }
+    },
+    "fit_01": {
+      "amortized_workload_price24": {
+        "graph_sha256": "19ba1b8980e550ea1969dcccc37b9579ef5c3532d30d3d2c729a231a79336dc7",
+        "graph_bytes": 68847,
+        "parameter_sha256": "34e642ece9c38b6ed0d37d9a38edee27987272af14136282a65ac0df1f12a0db",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_workload_price24_fit_01.onnx",
+        "export_seconds": 0.00609819998499006,
+        "session_startup_seconds": 0.0015505000483244658
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "25cee053fc1ed3409d9d231717bebc00fbd5f991853af9bab80d6f2d51f10f85",
+        "graph_bytes": 68847,
+        "parameter_sha256": "7734137fb400b9883eb3b20ce1830b477cf68afc4964f06504bd017dd6b98255",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_no_price24_fit_01.onnx",
+        "export_seconds": 0.005258599994704127,
+        "session_startup_seconds": 0.0013810000382363796
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "4126a78757fc6f39427a3780a66a918faf2cc817a692c69c0bdb43735ef9d78a",
+        "graph_bytes": 67947,
+        "parameter_sha256": "f37cfb5ae2167080ea8dc3f03f890f2456ff55e9494eb8c0cf94f4ad86d4badf",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder",
+        "graph": "plain24_nonpositive_fit_01.onnx",
+        "export_seconds": 0.005797300022095442,
+        "session_startup_seconds": 0.0011394999455660582
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "530a98359a0dc303097931187d71f122629d479f6314e0e99c69d360bab2a21c",
+        "graph_bytes": 93669,
+        "parameter_sha256": "57612163effefd254b48ad8084337815f6793b443fece596a607ada1492405d5",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_01.onnx",
+        "export_seconds": 0.5186429000459611,
+        "session_startup_seconds": 0.09033739997539669
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "1b392edd40cac17e44be198fa566fee45781d9317bc66dd79e2b51e0cf2cf210",
+        "graph_bytes": 32325,
+        "parameter_sha256": "1143b118090a395091cde4e899b9434429dff0cb6bf6de62ca956e3b4d8e9d16",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_01.onnx",
+        "export_seconds": 0.12821389990858734,
+        "session_startup_seconds": 0.013105400023050606
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "6c37f1fe039daa04a0a812588c81e18a25912f38de01e6f379e567780a3e385e",
+        "graph_bytes": 351792,
+        "parameter_sha256": "ccff669882b35d8225d1b84a1500415955384699e82b2329e363bbd4b1e4173e",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_01.onnx",
+        "export_seconds": 0.8362834999570623,
+        "session_startup_seconds": 0.14558400004170835
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "e12af602b2b8e956fdaafce5ee3efa35edc099adaf932f95ce231bbf281eb714",
+        "graph_bytes": 93529,
+        "parameter_sha256": "037df5665bf31c072fdc163e81fd3dab398bfe5e8669af21a419ef003cd14624",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_01.onnx",
+        "export_seconds": 0.5113189000403509,
+        "session_startup_seconds": 0.08300420001614839
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "d2ad429d5182c804a4923124878930958208c1aa6cebec6116edfceb873fc098",
+        "graph_bytes": 196275,
+        "parameter_sha256": "b7288fe07c63f028d4d5589b0770628178c5c71e788cf03610928bb2bc56fc86",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder",
+        "graph": "additive64_nonpositive_fit_01.onnx",
+        "export_seconds": 0.008462800062261522,
+        "session_startup_seconds": 0.001700800028629601
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "ebfea6e19a87e10b7777071c241fe0bcf7a95cfd0720b5bd2c7ffba130eed841",
+        "graph_bytes": 423353,
+        "parameter_sha256": "5de77dd270dbbd73d146d5a87e304830dc0d8430afabe78f7ce31c90727d8126",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder",
+        "graph": "additive128_unbounded_fit_01.onnx",
+        "export_seconds": 0.00967329996638,
+        "session_startup_seconds": 0.0018230999121442437
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "5bf4ad686aa6fb05f33db85d8b0ec09f78c4ef146a5b3fc0fe6ef0c2b24cdda0",
+        "graph_bytes": 278373,
+        "parameter_sha256": "dc1317b00bf7dd95ed8cb614b8b8199d78d823bef3778f3731a5a8af7de029c7",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder",
+        "graph": "emc_q_nonpositive_fit_01.onnx",
+        "export_seconds": 0.007841199985705316,
+        "session_startup_seconds": 0.002021700027398765
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "3de942f3c355587435523b4c41e1e96c0ce8a858a2836657b678f3a9d48631e3",
+        "graph_bytes": 196402,
+        "parameter_sha256": "9b257925425a749bf7d531770161aad4f29a444f8ca9592fa3f3168d3dc57ec5",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder",
+        "graph": "bdq64_uniform_adapted_fit_01.onnx",
+        "export_seconds": 0.018112899968400598,
+        "session_startup_seconds": 0.0013419000897556543
+      }
+    },
+    "fit_02": {
+      "amortized_workload_price24": {
+        "graph_sha256": "f2274d341450efc666dc7dcf1c47e4222a127c972fa92d45191ab82f33033e7e",
+        "graph_bytes": 68847,
+        "parameter_sha256": "6b3739f27ac5524169a430375196e869123b29bcd3df4ff40832bfa19e64b6b9",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_workload_price24_fit_02.onnx",
+        "export_seconds": 0.00525550008751452,
+        "session_startup_seconds": 0.0011566000757738948
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "1fa3d4a821775adbbd05d2186fd298c95b69ec1a0034a40009d3c6d67d69cef5",
+        "graph_bytes": 68847,
+        "parameter_sha256": "baed1526d36293b4b529e7a6c417bf29ead68e29056ced3d53dbf2cb73f5c168",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_no_price24_fit_02.onnx",
+        "export_seconds": 0.006322900066152215,
+        "session_startup_seconds": 0.0012125000357627869
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "a01fc60938dfaea533f49c7f2614dd74a23c8ea792d95b163092dce6a21355b0",
+        "graph_bytes": 67947,
+        "parameter_sha256": "81a7dd9e17fd40e2a9c9441ec022d60a0baa568d0030ab9b8ca17bcbf57a110b",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder",
+        "graph": "plain24_nonpositive_fit_02.onnx",
+        "export_seconds": 0.005746199982240796,
+        "session_startup_seconds": 0.0017818000633269548
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "31afa53610a3b2ab7ad37f461fdf23119c2a9e80b7580fbadab0395bf44c7013",
+        "graph_bytes": 93669,
+        "parameter_sha256": "2f16a2166c8325ab29886cb60379a42ba5501138bd3b86e2af4515e95b8eed42",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_02.onnx",
+        "export_seconds": 0.5256395000033081,
+        "session_startup_seconds": 0.08487699995748699
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "96fe56d249639d5bae1453b079ee6be387c7a5754be30327492b30b5798a72d7",
+        "graph_bytes": 32325,
+        "parameter_sha256": "a7e0dae53abfabba071e96d95e78aa18dd7676d13bbcfc0a1a96962c4e3891be",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_02.onnx",
+        "export_seconds": 0.12618949997704476,
+        "session_startup_seconds": 0.013399300049059093
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "e348f7be28c9862b50035c3d4892dfc2ea782c7b4c708f01c304669e36b116a6",
+        "graph_bytes": 351792,
+        "parameter_sha256": "20ea50b914f487cb4a1b16d54f86973cd6c5e3ace396d10ff51d955204565c9f",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_02.onnx",
+        "export_seconds": 0.8340956999454647,
+        "session_startup_seconds": 0.1535037000430748
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "4f95c6799eecc8bd55e8fe357cba08ce6f9395559d7ba0fdc87af7e7de7daa07",
+        "graph_bytes": 93529,
+        "parameter_sha256": "1eff29b9d64b0039b8ccfa3ceb8ceb906013803b20e334eab5892617f2c6d317",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_02.onnx",
+        "export_seconds": 0.527913200086914,
+        "session_startup_seconds": 0.08194349997211248
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "a84e46e5b7a76bf880182e9ceed56b31bea2392885713459a5774df44454351e",
+        "graph_bytes": 196275,
+        "parameter_sha256": "e20d51dcae87a7e206194250eefadfade030f79011283c62998acd61ff2a8643",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder",
+        "graph": "additive64_nonpositive_fit_02.onnx",
+        "export_seconds": 0.009389600018039346,
+        "session_startup_seconds": 0.001368100056424737
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "3d121807e1a26a727f980c114fa32b8b990326e3b408f731a6690c3f253d9b79",
+        "graph_bytes": 423353,
+        "parameter_sha256": "97c215e74faaaf82262bdf42ba4a43e41e9a764ff453cdcad988f7d443335965",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder",
+        "graph": "additive128_unbounded_fit_02.onnx",
+        "export_seconds": 0.009008700028061867,
+        "session_startup_seconds": 0.00167859997600317
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "8b974bf8130945d13b2520da25595dbf27cfac2df9557b5a0d79a8315fb4ea08",
+        "graph_bytes": 278373,
+        "parameter_sha256": "6c477c1c094720f7493ccaf6c3c08a8d3b2544e71ca54594ee4e2a373ca8e44b",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder",
+        "graph": "emc_q_nonpositive_fit_02.onnx",
+        "export_seconds": 0.008266499964520335,
+        "session_startup_seconds": 0.0014359999913722277
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "6fbac63fddc49f80b77367af6f7c52e9f53d2139ceab77b0470c5bb3bf5bf719",
+        "graph_bytes": 196402,
+        "parameter_sha256": "f2b418b4c96deae3df1bf5f27e4fea6268c24fc9b0b41e3700634e1f990805ff",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder",
+        "graph": "bdq64_uniform_adapted_fit_02.onnx",
+        "export_seconds": 0.008386599947698414,
+        "session_startup_seconds": 0.0014625999610871077
+      }
+    },
+    "fit_03": {
+      "amortized_workload_price24": {
+        "graph_sha256": "6b96800e3b8582389112934393abc2cea56bf9baae59927c3a166ec5797f9706",
+        "graph_bytes": 68847,
+        "parameter_sha256": "b983b6fa71bd5c9f64a5154eabc45ba45ec845e63417d7816f8be30b904592ca",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_workload_price24_fit_03.onnx",
+        "export_seconds": 0.005898499977774918,
+        "session_startup_seconds": 0.0017788000404834747
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "660fa6c4ecafc8985f79b8810e27e33bb1e012107c8932a1b869f07399686f79",
+        "graph_bytes": 68847,
+        "parameter_sha256": "e8ea1fa2840a006d1d5d7c5357ceb62406d76554c8bdb2d7e3e38b71a9d6f37e",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_no_price24_fit_03.onnx",
+        "export_seconds": 0.005505599896423519,
+        "session_startup_seconds": 0.0011554000666365027
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "f60e9087fede462c6e6b6e2c800554abfb00693b5787ff488d6e79011eaa2bd0",
+        "graph_bytes": 67947,
+        "parameter_sha256": "47c432a65a4563a6d7e5a0cb8c2f7d478527d79c0a89e55f727cb1c8059cd883",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder",
+        "graph": "plain24_nonpositive_fit_03.onnx",
+        "export_seconds": 0.005899999989196658,
+        "session_startup_seconds": 0.0013400999596342444
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "e3c4c9a5fdd9de0fce45a265e881dddbdd9ca98fc91645d2aeaeacba46691a9d",
+        "graph_bytes": 93669,
+        "parameter_sha256": "a72252ca6efd738c7af6a78015eba6f55eedf592ab13b0ff5683fcc1551142e0",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_03.onnx",
+        "export_seconds": 0.5382966001052409,
+        "session_startup_seconds": 0.08274230000097305
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "002bb8a7b7e32c58a660c8fa0d6463dc430b421d230feaa2f74c6f849a631f59",
+        "graph_bytes": 32325,
+        "parameter_sha256": "a6592cb4284d2cdd1a507f264840544c0f9514714a1e7c5980b22a7dab30896c",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_03.onnx",
+        "export_seconds": 0.12748870009090751,
+        "session_startup_seconds": 0.013459500041790307
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "d657afbf6a8ebcfedcf29c37de0f4192044d1ac74aa7bf04cdb24efa5b2299a0",
+        "graph_bytes": 351792,
+        "parameter_sha256": "8ce96eddd941002e2f50a265cdfd57331bd9e1099239097d6fe714a63c95a71c",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_03.onnx",
+        "export_seconds": 0.8292124000145122,
+        "session_startup_seconds": 0.15136520005762577
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "547b6427040c80a487ebdfc52815f02bc60b1753092cfb888c72c9afcd54f3af",
+        "graph_bytes": 93529,
+        "parameter_sha256": "c1a5ddccef6f4093823865dbfc93c9f6c5d5e5938cf9f6a678799b5c69116efe",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_03.onnx",
+        "export_seconds": 0.5215306000318378,
+        "session_startup_seconds": 0.08365200005937368
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "197ef8a727bf3411654800e71339894162ef8291395748ce9fd2d936305f9204",
+        "graph_bytes": 196275,
+        "parameter_sha256": "fdfba71d79d680652a6bfafcdc5eb1db991356a4435594cd564ab50a18f65b33",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder",
+        "graph": "additive64_nonpositive_fit_03.onnx",
+        "export_seconds": 0.008811800042167306,
+        "session_startup_seconds": 0.0014118000399321318
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "d2ee41445b6cdca7e24b3b0fef8c354aca1356b2c14209fec8ef7548fd86a6b7",
+        "graph_bytes": 423353,
+        "parameter_sha256": "04d56c02fca5a8369e40ab743e46c650e5e55d0e74b8e92debd221fcea147e63",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder",
+        "graph": "additive128_unbounded_fit_03.onnx",
+        "export_seconds": 0.00929249997716397,
+        "session_startup_seconds": 0.0015996999572962523
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "4cf966aac3e7b54e7045f3d095c78024e7cc9737479dafbd87c2b405e9bb6897",
+        "graph_bytes": 278373,
+        "parameter_sha256": "3ad2742a6ab7e5b5ddc97cf521235aa2004f861ae187577f77ef4ac2f2482834",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder",
+        "graph": "emc_q_nonpositive_fit_03.onnx",
+        "export_seconds": 0.007608099956996739,
+        "session_startup_seconds": 0.001900700037367642
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "9e7d96a714388b8bf3095c6b879acf2d0144e7f4312c40a081019e10704127b0",
+        "graph_bytes": 196402,
+        "parameter_sha256": "84f96203e31f8db1b73ebda3e36cb4370a4290f7b37bff2b07672e038bd7def9",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder",
+        "graph": "bdq64_uniform_adapted_fit_03.onnx",
+        "export_seconds": 0.008820999995805323,
+        "session_startup_seconds": 0.0014352999860420823
+      }
+    },
+    "fit_04": {
+      "amortized_workload_price24": {
+        "graph_sha256": "705e77a9ddf774971346ff09526c35ccb804c212cff7c050221945c0d606beb6",
+        "graph_bytes": 68847,
+        "parameter_sha256": "0c589c8f80e2fba09ca3accde8b482cdc3213e6c8745f557b06048932e0393bd",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_workload_price24_fit_04.onnx",
+        "export_seconds": 0.01612290006596595,
+        "session_startup_seconds": 0.0012661999789997935
+      },
+      "amortized_no_price24": {
+        "graph_sha256": "cbf000d76dfd835a97065293214a612a7897055b24f51c8a39d7fae4d194975d",
+        "graph_bytes": 68847,
+        "parameter_sha256": "9779f4de3b6472d3e796ec24011cc5b0a1fced5872277fcc4c6a32adb78f4c1a",
+        "parameters": 17066,
+        "parameter_bytes": 68264,
+        "route": "native_core_and_decoder",
+        "graph": "amortized_no_price24_fit_04.onnx",
+        "export_seconds": 0.006135700037702918,
+        "session_startup_seconds": 0.0014205999905243516
+      },
+      "plain24_nonpositive": {
+        "graph_sha256": "f8465cc9d7cff726353171ca4348afca186baa9da5cfbad73fa3fe190bab2ce5",
+        "graph_bytes": 67947,
+        "parameter_sha256": "ee2855f0477167b1d0fb1ab218c368dcae1ecda97bbd748fd1ba2b77fa0919a5",
+        "parameters": 16841,
+        "parameter_bytes": 67364,
+        "route": "native_core_and_decoder",
+        "graph": "plain24_nonpositive_fit_04.onnx",
+        "export_seconds": 0.005420199944637716,
+        "session_startup_seconds": 0.0013257000828161836
+      },
+      "shared_congestion_cost": {
+        "graph_sha256": "344e8540c4b98931f07c7120bdc8ebe679b7b8c76c7d31d746ed19b57d411f8f",
+        "graph_bytes": 93669,
+        "parameter_sha256": "67e886d1aa438240dab4a1800aefa59f65aa5f7bd05b920112f14b5c2ff2cfb8",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_congestion_cost_fit_04.onnx",
+        "export_seconds": 0.5179425000678748,
+        "session_startup_seconds": 0.08280570001807064
+      },
+      "shared_no_congestion": {
+        "graph_sha256": "fb08db6049e3af7dcbc6587d4688c1e68d5d4396372a5b48fa156f3b534d0505",
+        "graph_bytes": 32325,
+        "parameter_sha256": "f3437348158689846be2ad36eb7a972dac9f120e8e1b68bd71743fdd9f64242b",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_no_congestion_fit_04.onnx",
+        "export_seconds": 0.11951790004968643,
+        "session_startup_seconds": 0.014110799995251
+      },
+      "untied_congestion_cost": {
+        "graph_sha256": "7a545740929b47319e4e79a42d5e026b08827da915cfce800487f2bc664f2484",
+        "graph_bytes": 351792,
+        "parameter_sha256": "3c4f953674e8f7d4fbe6a45469c502e2c9dc47a2baf4c855aad7b0700b61514f",
+        "parameters": 53845,
+        "parameter_bytes": 215380,
+        "route": "validated_complete_ORT_policy",
+        "graph": "untied_congestion_cost_fit_04.onnx",
+        "export_seconds": 0.8217466999776661,
+        "session_startup_seconds": 0.14859090000391006
+      },
+      "shared_joint_bound": {
+        "graph_sha256": "d8b6170e38861db01fd36b314dfce1fc71fb8de84063d6214b764a4557bf7d7d",
+        "graph_bytes": 93529,
+        "parameter_sha256": "a6c8a04cc4c22e6749f87312abdf2a0bc089ca4490606ea5cba1a5fc38b8269f",
+        "parameters": 4052,
+        "parameter_bytes": 16208,
+        "route": "validated_complete_ORT_policy",
+        "graph": "shared_joint_bound_fit_04.onnx",
+        "export_seconds": 0.5223889000480995,
+        "session_startup_seconds": 0.08484559995122254
+      },
+      "additive64_nonpositive": {
+        "graph_sha256": "434e3b99bf6f22c1dd69ede1a306ae704ce9ffd2f74087e4eff9cab0d4e5e12e",
+        "graph_bytes": 196275,
+        "parameter_sha256": "bd9da1a779d2028d381ada084e6c81273dc7d500677f4852d21aab73fd51ad21",
+        "parameters": 48736,
+        "parameter_bytes": 194944,
+        "route": "native_core_and_decoder",
+        "graph": "additive64_nonpositive_fit_04.onnx",
+        "export_seconds": 0.008972399984486401,
+        "session_startup_seconds": 0.0014321999624371529
+      },
+      "additive128_unbounded": {
+        "graph_sha256": "5df2c1b5eae1b9e1697004d5932a778c7b107ca0e05932c7560678a701656869",
+        "graph_bytes": 423353,
+        "parameter_sha256": "1fc1f05563c21a7e0396651990c5d0f000fdcd9faaee651bdadbd5adba218df9",
+        "parameters": 105504,
+        "parameter_bytes": 422016,
+        "route": "native_core_and_decoder",
+        "graph": "additive128_unbounded_fit_04.onnx",
+        "export_seconds": 0.009470999939367175,
+        "session_startup_seconds": 0.001618299982510507
+      },
+      "emc_q_nonpositive": {
+        "graph_sha256": "86a6c54818474dd79521f406554c8718c4f610d5619aab63eec0d571535a3014",
+        "graph_bytes": 278373,
+        "parameter_sha256": "61bb71e146ad0222351680aa9a3e066450cc7002f5840cd9a076431d18b0b155",
+        "parameters": 69361,
+        "parameter_bytes": 277444,
+        "route": "native_core_and_decoder",
+        "graph": "emc_q_nonpositive_fit_04.onnx",
+        "export_seconds": 0.0075376000022515655,
+        "session_startup_seconds": 0.0013939000200480223
+      },
+      "bdq64_uniform_adapted": {
+        "graph_sha256": "bf9f824dd632e55ef172876130e972751ed79bec505c0ea9adbf80f184ebc7be",
+        "graph_bytes": 196402,
+        "parameter_sha256": "e723f26a16bfb7df22e3a7cc016b0ba17e230c40a8250d467ebf7d6d2d8a60d7",
+        "parameters": 48801,
+        "parameter_bytes": 195204,
+        "route": "native_core_and_decoder",
+        "graph": "bdq64_uniform_adapted_fit_04.onnx",
+        "export_seconds": 0.009193699923343956,
+        "session_startup_seconds": 0.00148760003503412
+      }
+    }
+  },
+  "metrics": {
+    "amortized_workload_price24": [
+      {
+        "fit": 0,
+        "median_ms": 0.0333,
+        "p95_ms": 0.0367,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.034,
+        "p95_ms": 0.0379,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0333,
+        "p95_ms": 0.037405,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0334,
+        "p95_ms": 0.03750999999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0339,
+        "p95_ms": 0.0376,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "amortized_no_price24": [
+      {
+        "fit": 0,
+        "median_ms": 0.0335,
+        "p95_ms": 0.0377,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0333,
+        "p95_ms": 0.0357,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0333,
+        "p95_ms": 0.0389,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0332,
+        "p95_ms": 0.037405,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0336,
+        "p95_ms": 0.03960999999999999,
+        "parameter_bytes": 68264,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "plain24_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0317,
+        "p95_ms": 0.035105,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0315,
+        "p95_ms": 0.0347,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0317,
+        "p95_ms": 0.036314999999999986,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0318,
+        "p95_ms": 0.0355,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0317,
+        "p95_ms": 0.0352,
+        "parameter_bytes": 67364,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "shared_congestion_cost": [
+      {
+        "fit": 0,
+        "median_ms": 0.3991,
+        "p95_ms": 0.496815,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.39795,
+        "p95_ms": 0.44743499999999997,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.4017,
+        "p95_ms": 0.48223499999999986,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.4017,
+        "p95_ms": 0.4618899999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.4009,
+        "p95_ms": 0.46527999999999986,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "shared_no_congestion": [
+      {
+        "fit": 0,
+        "median_ms": 0.0994,
+        "p95_ms": 0.106805,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0992,
+        "p95_ms": 0.10611,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0998,
+        "p95_ms": 0.11101999999999998,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0997,
+        "p95_ms": 0.109605,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0992,
+        "p95_ms": 0.10711999999999998,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "untied_congestion_cost": [
+      {
+        "fit": 0,
+        "median_ms": 0.6147,
+        "p95_ms": 0.8012399999999996,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.6172,
+        "p95_ms": 0.8976699999999999,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.6156,
+        "p95_ms": 0.9500599999999997,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.61215,
+        "p95_ms": 0.8042449999999998,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.6031,
+        "p95_ms": 0.7786599999999998,
+        "parameter_bytes": 215380,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "shared_joint_bound": [
+      {
+        "fit": 0,
+        "median_ms": 0.39515,
+        "p95_ms": 0.46041999999999994,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.393,
+        "p95_ms": 0.45930499999999996,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.39775,
+        "p95_ms": 0.5467449999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.3957,
+        "p95_ms": 0.4481199999999999,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.3964,
+        "p95_ms": 0.45871999999999996,
+        "parameter_bytes": 16208,
+        "calls": 640,
+        "route": "validated_complete_ORT_policy"
+      }
+    ],
+    "additive64_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0371,
+        "p95_ms": 0.0422,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0369,
+        "p95_ms": 0.039805,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0371,
+        "p95_ms": 0.047105,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0371,
+        "p95_ms": 0.046409999999999986,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0372,
+        "p95_ms": 0.0419,
+        "parameter_bytes": 194944,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "additive128_unbounded": [
+      {
+        "fit": 0,
+        "median_ms": 0.0415,
+        "p95_ms": 0.0473,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0414,
+        "p95_ms": 0.0449,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0418,
+        "p95_ms": 0.0458,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0417,
+        "p95_ms": 0.04631499999999999,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.04665,
+        "p95_ms": 0.04940999999999999,
+        "parameter_bytes": 422016,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "emc_q_nonpositive": [
+      {
+        "fit": 0,
+        "median_ms": 0.0418,
+        "p95_ms": 0.04620999999999999,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0416,
+        "p95_ms": 0.04541499999999999,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.0419,
+        "p95_ms": 0.0464,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0417,
+        "p95_ms": 0.047705,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0419,
+        "p95_ms": 0.045905,
+        "parameter_bytes": 277444,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ],
+    "bdq64_uniform_adapted": [
+      {
+        "fit": 0,
+        "median_ms": 0.039,
+        "p95_ms": 0.042605,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 1,
+        "median_ms": 0.0388,
+        "p95_ms": 0.043705,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 2,
+        "median_ms": 0.039,
+        "p95_ms": 0.045905,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 3,
+        "median_ms": 0.0391,
+        "p95_ms": 0.044305,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      },
+      {
+        "fit": 4,
+        "median_ms": 0.0389,
+        "p95_ms": 0.042705,
+        "parameter_bytes": 195204,
+        "calls": 640,
+        "route": "native_core_and_decoder"
+      }
+    ]
+  },
+  "orders": [
+    {
+      "fit": 0,
+      "round": 0,
+      "order": [
+        "additive128_unbounded",
+        "shared_congestion_cost",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "shared_joint_bound",
+        "emc_q_nonpositive"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 1,
+      "order": [
+        "untied_congestion_cost",
+        "shared_no_congestion",
+        "amortized_no_price24",
+        "bdq64_uniform_adapted",
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "amortized_workload_price24",
+        "shared_joint_bound",
+        "additive128_unbounded"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 2,
+      "order": [
+        "untied_congestion_cost",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "additive64_nonpositive",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 3,
+      "order": [
+        "additive64_nonpositive",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "untied_congestion_cost",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 0,
+      "round": 4,
+      "order": [
+        "additive64_nonpositive",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "shared_joint_bound",
+        "untied_congestion_cost",
+        "emc_q_nonpositive",
+        "plain24_nonpositive"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 0,
+      "order": [
+        "shared_congestion_cost",
+        "bdq64_uniform_adapted",
+        "untied_congestion_cost",
+        "plain24_nonpositive",
+        "shared_no_congestion",
+        "emc_q_nonpositive",
+        "amortized_no_price24",
+        "additive64_nonpositive",
+        "additive128_unbounded",
+        "amortized_workload_price24",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 1,
+      "order": [
+        "amortized_no_price24",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "shared_joint_bound",
+        "additive128_unbounded",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "shared_no_congestion"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 2,
+      "order": [
+        "shared_joint_bound",
+        "untied_congestion_cost",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "amortized_no_price24",
+        "emc_q_nonpositive",
+        "additive64_nonpositive",
+        "shared_congestion_cost",
+        "plain24_nonpositive",
+        "additive128_unbounded"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 3,
+      "order": [
+        "shared_joint_bound",
+        "shared_no_congestion",
+        "amortized_no_price24",
+        "emc_q_nonpositive",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "amortized_workload_price24",
+        "plain24_nonpositive",
+        "additive128_unbounded",
+        "untied_congestion_cost",
+        "additive64_nonpositive"
+      ]
+    },
+    {
+      "fit": 1,
+      "round": 4,
+      "order": [
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "amortized_workload_price24",
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "shared_joint_bound",
+        "shared_no_congestion",
+        "additive128_unbounded",
+        "bdq64_uniform_adapted",
+        "amortized_no_price24"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 0,
+      "order": [
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "untied_congestion_cost",
+        "amortized_no_price24",
+        "shared_joint_bound",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "additive64_nonpositive"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 1,
+      "order": [
+        "emc_q_nonpositive",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "additive128_unbounded",
+        "shared_joint_bound",
+        "amortized_no_price24",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "amortized_workload_price24",
+        "untied_congestion_cost"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 2,
+      "order": [
+        "shared_joint_bound",
+        "emc_q_nonpositive",
+        "amortized_no_price24",
+        "untied_congestion_cost",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "plain24_nonpositive",
+        "amortized_workload_price24",
+        "additive64_nonpositive"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 3,
+      "order": [
+        "additive64_nonpositive",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted",
+        "emc_q_nonpositive",
+        "amortized_workload_price24",
+        "shared_joint_bound",
+        "plain24_nonpositive",
+        "untied_congestion_cost",
+        "additive128_unbounded"
+      ]
+    },
+    {
+      "fit": 2,
+      "round": 4,
+      "order": [
+        "plain24_nonpositive",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "shared_congestion_cost",
+        "shared_joint_bound",
+        "emc_q_nonpositive",
+        "amortized_no_price24",
+        "shared_no_congestion",
+        "additive128_unbounded",
+        "untied_congestion_cost",
+        "additive64_nonpositive"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 0,
+      "order": [
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_no_congestion",
+        "additive64_nonpositive",
+        "additive128_unbounded",
+        "amortized_workload_price24",
+        "bdq64_uniform_adapted",
+        "shared_joint_bound",
+        "untied_congestion_cost"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 1,
+      "order": [
+        "emc_q_nonpositive",
+        "additive64_nonpositive",
+        "amortized_no_price24",
+        "shared_congestion_cost",
+        "untied_congestion_cost",
+        "amortized_workload_price24",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "shared_joint_bound",
+        "bdq64_uniform_adapted",
+        "plain24_nonpositive"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 2,
+      "order": [
+        "amortized_workload_price24",
+        "shared_congestion_cost",
+        "emc_q_nonpositive",
+        "additive128_unbounded",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "untied_congestion_cost",
+        "shared_joint_bound",
+        "additive64_nonpositive",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 3,
+      "order": [
+        "additive128_unbounded",
+        "amortized_workload_price24",
+        "additive64_nonpositive",
+        "untied_congestion_cost",
+        "shared_no_congestion",
+        "shared_joint_bound",
+        "emc_q_nonpositive",
+        "bdq64_uniform_adapted",
+        "plain24_nonpositive",
+        "shared_congestion_cost",
+        "amortized_no_price24"
+      ]
+    },
+    {
+      "fit": 3,
+      "round": 4,
+      "order": [
+        "shared_joint_bound",
+        "additive64_nonpositive",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "untied_congestion_cost",
+        "shared_no_congestion",
+        "amortized_no_price24",
+        "additive128_unbounded"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 0,
+      "order": [
+        "amortized_no_price24",
+        "additive128_unbounded",
+        "additive64_nonpositive",
+        "untied_congestion_cost",
+        "shared_congestion_cost",
+        "amortized_workload_price24",
+        "shared_no_congestion",
+        "bdq64_uniform_adapted",
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_joint_bound"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 1,
+      "order": [
+        "shared_congestion_cost",
+        "amortized_workload_price24",
+        "additive64_nonpositive",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "emc_q_nonpositive",
+        "bdq64_uniform_adapted",
+        "shared_joint_bound",
+        "amortized_no_price24",
+        "plain24_nonpositive",
+        "untied_congestion_cost"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 2,
+      "order": [
+        "amortized_no_price24",
+        "emc_q_nonpositive",
+        "shared_joint_bound",
+        "untied_congestion_cost",
+        "additive64_nonpositive",
+        "plain24_nonpositive",
+        "shared_no_congestion",
+        "additive128_unbounded",
+        "bdq64_uniform_adapted",
+        "amortized_workload_price24",
+        "shared_congestion_cost"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 3,
+      "order": [
+        "plain24_nonpositive",
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "shared_joint_bound",
+        "additive64_nonpositive",
+        "additive128_unbounded",
+        "shared_no_congestion",
+        "amortized_workload_price24",
+        "untied_congestion_cost",
+        "amortized_no_price24",
+        "bdq64_uniform_adapted"
+      ]
+    },
+    {
+      "fit": 4,
+      "round": 4,
+      "order": [
+        "bdq64_uniform_adapted",
+        "emc_q_nonpositive",
+        "shared_congestion_cost",
+        "untied_congestion_cost",
+        "amortized_no_price24",
+        "additive64_nonpositive",
+        "shared_joint_bound",
+        "shared_no_congestion",
+        "additive128_unbounded",
+        "plain24_nonpositive",
+        "amortized_workload_price24"
+      ]
+    }
+  ],
+  "raw_rows": 35200,
+  "screens_per_fit": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "1": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "2": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "3": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "4": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "all_fit_cost_screens_pass": true,
+  "equivalence_models": 55,
+  "equivalence_actions": 7040,
+  "research_training_launched": false,
+  "optimizer_updates_added": 0,
+  "new_simulator_steps_added": 0
+}

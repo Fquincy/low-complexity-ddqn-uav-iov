@@ -1,0 +1,221 @@
+VERSION 3 DEVELOPMENT RESULTS REVIEW
+Date: November 6, 2026
+
+DECISION
+The experiment completed and passed the saved-artifact audit. The frozen
+development performance gate FAILED. Do not launch the reserved final phase
+or present this controller as preserving performance under the agreed rules.
+This is valid negative development evidence, retained in full. It does not
+prove that a successful low-complexity controller is impossible.
+
+COMPLETION AND INTEGRITY
+440,000 training slots;383,735 optimizer updates;55 final checkpoints.
+Auditor checked15,159 episodes,7,040 exported decisions and35,200 timing rows.
+This review rehashed all30,561 run-manifest entries successfully.
+All five initializations and all eleven arms were retained. No additional
+training, threshold changes or thesis edits were performed in this review.
+
+WHAT PASSED
+Primary online FP32 parameters: 68,264 bytes; compact64: 194,944; wide128: 422,016.
+Storage reduction: 64.98% versus compact64; 83.82% versus wide128.
+All five fits passed the declared storage, median-latency and p95-latency
+screens on the saved128 engineering observations with the fixed runtime.
+These are CPU benchmark results for the declared inputs and backend.
+The smaller plain24 reference remains smaller/faster than the primary.
+
+PRIMARY COST PER FIT (complete action selection)
+seed | median ms | p95 ms
+41001 | 0.03330 | 0.03670
+41011 | 0.03400 | 0.03790
+41017 | 0.03330 | 0.03741
+41023 | 0.03340 | 0.03751
+41039 | 0.03390 | 0.03760
+
+PRIMARY ABSOLUTE HELD-OUT PERFORMANCE
+Each fit uses the same48 development workloads.
+seed | mean episode return | deadline success %
+41001 | -27.1255 | 71.3125
+41011 | -21.9018 | 80.4323
+41017 | -31.2699 | 65.2917
+41023 | -38.9390 | 60.8281
+41039 | -22.6792 | 79.1302
+
+PREDECLARED SCREEN RESULTS
+references_each_fit: FAIL
+heuristics_each_fit: FAIL
+mechanism_each_fit: FAIL
+mechanism_mean: PASS
+value_each_fit: FAIL
+
+ALL PAIRED CONTRASTS
+Differences are primary minus comparator; higher is better. Deadline
+differences below are percentage points, not relative percentage changes.
+Required neural-reference margins: return>=-2 and deadline>=-1 point
+in EVERY fit. Heuristics and no-price ablation require both>=0 per fit.
+No-price across-fit means also require return>=2 and deadline>=1 point.
+
+amortized_no_price24
+seed | return difference | deadline difference (points)
+41001 | +60.5805 | +8.9687
+41011 | +23.3381 | +10.7674
+41017 | +18.0292 | +5.6111
+41023 | +7.5057 | -6.3177
+41039 | +25.9588 | +16.2708
+All-fit mean: +27.0825 return; +7.0601 deadline points.
+
+plain24_nonpositive
+seed | return difference | deadline difference (points)
+41001 | +25.7425 | +13.8542
+41011 | +27.7873 | +19.0955
+41017 | +18.2667 | +9.4028
+41023 | -0.3792 | +5.5035
+41039 | +5.4881 | +9.2413
+All-fit mean: +15.3811 return; +11.4194 deadline points.
+
+shared_congestion_cost
+seed | return difference | deadline difference (points)
+41001 | +10.5169 | +15.3906
+41011 | +15.7406 | +24.5104
+41017 | +6.3617 | +9.3698
+41023 | -1.1522 | +4.9062
+41039 | +15.0327 | +23.2083
+All-fit mean: +9.3000 return; +15.4771 deadline points.
+
+shared_no_congestion
+seed | return difference | deadline difference (points)
+41001 | +10.5169 | +15.3906
+41011 | +15.7406 | +24.5104
+41017 | +6.3617 | +9.3698
+41023 | -1.1522 | +4.9062
+41039 | +15.0327 | +23.2083
+All-fit mean: +9.3000 return; +15.4771 deadline points.
+
+untied_congestion_cost
+seed | return difference | deadline difference (points)
+41001 | +3.6238 | +5.3316
+41011 | +14.6000 | +22.3142
+41017 | +4.0196 | +5.4809
+41023 | +16.1024 | +7.3542
+41039 | +32.2857 | +24.0486
+All-fit mean: +14.1263 return; +12.9059 deadline points.
+
+shared_joint_bound
+seed | return difference | deadline difference (points)
+41001 | +10.5169 | +15.3906
+41011 | +15.7406 | +24.5104
+41017 | +6.3617 | +9.3698
+41023 | -1.1522 | +4.9062
+41039 | +15.1238 | +23.2083
+All-fit mean: +9.3182 return; +15.4771 deadline points.
+
+additive64_nonpositive
+seed | return difference | deadline difference (points)
+41001 | -5.1609 | -8.9340
+41011 | +14.8306 | -5.0208
+41017 | +3.0801 | -10.5521
+41023 | -20.2662 | -26.2014
+41039 | -5.1701 | -10.3819
+All-fit mean: -2.5373 return; -12.2181 deadline points.
+
+additive128_unbounded
+seed | return difference | deadline difference (points)
+41001 | +23.5027 | -3.1823
+41011 | +2.2132 | -2.8681
+41017 | -1.1266 | -12.8750
+41023 | -6.7687 | -17.6476
+41039 | +25.7789 | +2.8941
+All-fit mean: +8.7199 return; -6.7358 deadline points.
+
+emc_q_nonpositive
+seed | return difference | deadline difference (points)
+41001 | +0.1377 | +0.0330
+41011 | +9.5802 | +0.1007
+41017 | -12.8511 | -22.0156
+41023 | -19.3378 | -26.0868
+41039 | -3.2954 | -6.3021
+All-fit mean: -5.1533 return; -10.8542 deadline points.
+
+bdq64_uniform_adapted
+seed | return difference | deadline difference (points)
+41001 | +4.0568 | +5.3819
+41011 | +10.0994 | +15.7049
+41017 | -0.3589 | -0.9080
+41023 | +84.8443 | +7.5694
+41039 | +49.9709 | +28.3646
+All-fit mean: +29.7225 return; +11.2226 deadline points.
+
+all_local
+seed | return difference | deadline difference (points)
+41001 | +10.4954 | +15.3906
+41011 | +15.7191 | +24.5104
+41017 | +6.3510 | +9.3698
+41023 | -1.3181 | +4.9062
+41039 | +14.9417 | +23.2083
+All-fit mean: +9.2378 return; +15.4771 deadline points.
+
+nearest_rsu
+seed | return difference | deadline difference (points)
+41001 | -6.4032 | -11.4392
+41011 | -1.1795 | -2.3194
+41017 | -10.5476 | -17.4601
+41023 | -18.2167 | -21.9236
+41039 | -1.9569 | -3.6215
+All-fit mean: -7.6608 return; -11.3528 deadline points.
+
+uav_selective
+seed | return difference | deadline difference (points)
+41001 | -9.2230 | -16.1771
+41011 | -3.9993 | -7.0573
+41017 | -13.3675 | -22.1979
+41023 | -21.0365 | -26.6615
+41039 | -4.7768 | -8.3594
+All-fit mean: -10.4806 return; -16.0906 deadline points.
+
+INTERPRETATION
+The primary fails the deadline margin against compact64 in all five fits.
+Its average deadline deficit is12.2181 points against compact64 and6.7358
+points against wide128. It also trails the nearest-RSU and UAV-selective
+heuristics on both metrics in every fit. The primary meets the declared
+joint margins versus plain24 and adapted BDQ in all five fits, but success
+against these references does not offset failure against stronger ones.
+Pricing beats the matched no-price arm on average by27.0825 return units
+and7.0601 deadline points. However seed41023 loses6.3177 deadline points
+against that ablation, so the required per-fit mechanism screen fails.
+These comparisons are development observations, not final superiority tests.
+
+VALUE ESTIMATES
+Primary values are finite and nonpositive, but every primary fit fails
+the normalized RMSE, absolute-bias and terminal-error thresholds.
+Nonpositive values alone do not ensure calibration or stable magnitude.
+The diagnostic compares learned Q to realized return on its own greedy
+trajectories. It is not a proof of Q-star accuracy or a causal diagnosis.
+seed | normalized RMSE (limit .25) | abs bias (limit2) | terminal p95 (limit2)
+41001 | 9.1395 | 145.1439 | 167.5322
+41011 | 3.6519 | 46.2832 | 67.4596
+41017 | 9.0161 | 165.2974 | 193.6543
+41023 | 8.0324 | 186.7768 | 217.7481
+41039 | 2.9427 | 38.1844 | 58.0424
+
+NEXT WORK
+1. Preserve this completed run, including failed fits and all comparator
+   results. Keep the final evaluation seed set untouched.
+2. Diagnose saved terminal/nonterminal predictions, Bellman targets,
+   gradient histories and action/destination decisions. Compare the
+   primary with compact64, wide128, no-price and the strong heuristics.
+   Check why finite-horizon values remain very negative near termination
+   and which decisions account for deadline misses. Investigate using
+   saved data first; the present evidence does not establish the cause.
+3. Only after that diagnosis, write one prospective correction/design
+   brief and comparison amendment. Any later change must be declared
+   before a new run, with fresh development seeds. Do not change the
+   frozen rules retrospectively or select the best initialization.
+4. Judge the amended controller on fresh evidence before considering
+   the separately authorized final phase or thesis claim revision.
+
+Scope remains local/UAV/RSU offloading, with no cloud or charging station.
+Security/trust stays deferred to contribution two. Word thesis unchanged.
+No new training or final experiment was launched by this review.
+
+DETAILS
+validation\v3_development_results_review_2026-11-06.json
+development_runs\controller_v3_development_2026-11-06_01

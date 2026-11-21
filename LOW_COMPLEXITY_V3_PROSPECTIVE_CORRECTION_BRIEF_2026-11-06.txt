@@ -1,0 +1,145 @@
+PROSPECTIVE FINITE-HORIZON ANCHORING CORRECTION BRIEF
+Date: November 6, 2026
+Status: design proposal only; no models changed or new runs authorized.
+
+EVIDENCE AND PRIORITY
+The completed Version3 run remains frozen and failed its declared gate.
+Saved-data diagnosis covers all five initializations of primary, no-price,
+compact64, wide128 and plain24 and all three heuristics.
+For the primary, terminal mean Q is approximately -50.69 to -207.34 while
+terminal mean realized reward is approximately -0.53 to -0.98. Nonterminal
+signed Bellman residual means range from -0.77 to1.94. Signed means can hide
+cancellation; full distributions are in the diagnosis JSON.
+Terminal replay samples are2.456%-2.526% of all sampled transitions. In the
+last500 updates, primary gradient clipping occurs92.8%-98.0% of the time.
+The terminal target mask is correct and the observation includes time.
+These facts support testing terminal anchoring and horizon scaling. They do
+not establish a unique cause or prove this correction will improve deadlines.
+
+The primary locally executes43.33%-74.67% of tasks; local deadline success is
+about55.6%-56.0%. Local tasks contribute65.8%-99.6% of all misses. Seed41023
+also has poor UAV success. Existing price terms explicitly encode CPU work
+and CPU queues, but do not explicitly calculate radio/deadline feasibility.
+Radio and deadline inputs are available to the learned head. The behavior
+requires a later action-ranking diagnosis if anchoring does not improve it.
+Do not infer that an unchosen RSU would have succeeded: different actions
+would change its queue, so saved destination rates are not counterfactuals.
+
+ONE PROPOSED CORRECTION: FINITE-HORIZON TERMINAL ANCHORING
+Retain the Version3 priced architecture and its action decoder. Let
+C_theta(s,a) be the existing nonnegative additive placement, movement,
+bias and workload-price cost. Let H=40, and t be the discrete slot index
+recovered from the existing normalized time input. Define h(s)=H-t for
+nonterminal states, and h(s)=0 at terminal states.
+
+Candidate critic:
+Q_theta(s,a) = -h(s) * C_theta(s,a).
+For plain24/compact controls, use h(s)*Q_base(s,a) with their original
+nonpositive output definitions. No extra model parameters are introduced.
+At a fixed state h>0, scaling does not change the greedy action of the same
+weights. It changes training gradients and learned weights. At h=0 the
+value is exactly zero; do not call the decoder on terminal states.
+This enforces horizon scaling and terminal boundary zero, not a finite lower
+bound or correct last-slot calibration. Learned C can still become too large.
+No mathematical bounded-value or optimality claim is made.
+
+Keep DDQN selection/evaluation:
+a_star = argmax_a Q_online(s_next,a)
+y = r + (1-done)*gamma*Q_target(s_next,a_star), gamma=1.
+Done handling must skip next-state decoding exactly as in the tested runner.
+Uniform-replay DDQN loss remains mean Huber(Q(s,a)-y), beta=1.
+
+Add one separately normalized terminal anchor to the objective:
+L = L_uniform_DDQN + 1.0 * L_terminal,
+where L_terminal is the mean Huber(Q(s_T,a_T)-r_T) over a separate sample
+of32 terminal transitions, sampled uniformly with replacement from stored
+terminal transitions. If none are available, record an empty-anchor event
+and use zero anchor loss; never fabricate terminal data. Do not add optimizer
+steps: combine both terms before the existing single backward/update.
+Terminal transitions are already in replay; keep a parallel index list and
+verify eviction handling. No additional environment transitions are generated.
+The coefficient1.0 and batch32 are prospective fixed choices for engineering
+review, not tuned against subsequent outcomes. This changes the training
+objective explicitly and must not be described as unchanged uniform DDQN.
+
+Decoder and complexity:
+At h>0 the original exact separable argmin remains valid; use original stable
+tie behavior. Complexity remains neural forward O(d*w+w*k) plus O(N*K)
+placement argmins and two motion argmins, with N=30,K=5,w=24,d=533.
+Horizon scaling adds constant work. Terminal sampling/loss adds training work
+and replay bookkeeping. Measure total training time and replay storage too;
+do not describe it as computationally free. Inference/storage must be measured
+on the complete frozen deployment path after retraining.
+
+PRECISE STATUS OF THE CONTRIBUTION
+Horizon conditioning, terminal replay and DDQN are established ideas. This
+brief proposes an experimentally testable correction to the current controller;
+it does not establish literature novelty. Any eventual contribution remains
+the measured efficient offloading controller and its justified pricing
+mechanism, contingent on successful comparisons and a literature check.
+An implementation plus ablation evidence is necessary, but does not alone
+guarantee thesis sufficiency or supervisor acceptance.
+
+PROSPECTIVE COMPARISON AMENDMENT (DRAFT FOR ENGINEERING REVIEW)
+Preserve all original eleven controllers and failed results. On a fresh common
+development schedule, add these six arms:
+1. Priced primary with horizon scaling and terminal anchoring (new candidate).
+2. Matched no-price with both corrections (pricing ablation).
+3. Priced primary with horizon scaling only (anchor ablation).
+4. Priced primary with terminal anchoring only (horizon ablation).
+5. Plain24 with both corrections (small architecture control).
+6. Compact64 with both corrections (training-correction control).
+This gives17 learned arms. The unchanged wide128, EMC, BDQ and all other
+original arms remain reported. Keep all three heuristics. The controls test
+whether benefits arise from general training correction rather than pricing.
+
+For comparability propose the same200 episodes x40 slots, five paired fits,
+warmup1024, replay capacity50,000, batch128, Adam1e-4, gamma1, Huber1,
+clip10, target interval200 and epsilon schedule. Only the declared objective
+and horizon scaling differ in their specified arms. Proposed budget if all17
+are rerun:680,000 training slots and593,045 optimizer updates, not launched.
+Record added terminal-anchor forward/backward cost separately.
+
+Fresh development schedule CANDIDATE, subject to a collision audit before freeze:
+model seeds61001,61011,61017,61023,61039;
+200 task episodes per fit at610000000,611000000,612000000,613000000,614000000;
+diagnostic validation621000000..621000004;
+48 paired evaluation workloads620000000..620000047.
+These numbers have not been consumed, collision-audited or declared final.
+All currently reserved final seeds remain untouched. Do not repurpose the old
+410xx/420xx development outcomes as independent validation of this correction.
+
+Keep the original numeric return/deadline margins, cost thresholds and value
+diagnostic thresholds. The proposed candidate must meet the neural-reference
+margins in every fit, beat heuristics on both metrics per fit, and pass its
+own value screens. Pricing must beat the corrected matched no-price arm in
+every fit and meet the original across-fit mechanism mean margins.
+Report original-primary and correction-ablation contrasts separately. No
+best-fit selection or retrospective threshold changes are permitted.
+
+IMPORTANT SCIENTIFIC AMENDMENT TO REVIEW BEFORE ANY NEW RESEARCH RUN
+The frozen Version3 rule gates value thresholds over ALL eleven arms, including
+legacy unbounded/failed controls. That rule is retained for the completed run,
+which remains failed. For a later corrected-candidate experiment, this draft
+proposes gating candidate values while reporting every comparator's value
+diagnostics. This is a substantive prospective change of claim scope, not
+an engineering fix. It requires explicit review and freezing before new
+research evidence. Without that review the amended research gate is unresolved.
+The untouched final protocol must not silently inherit this draft change.
+
+NEXT ENGINEERING GATE
+First review this draft objective and screen scope. Implement only an isolated
+prototype after design resolution. Test t/H decoding, h=0 behavior, exact
+greedy equivalence for positive h, terminal mask, combined gradients, terminal
+sample distribution, replay-index integrity and matched parameter counts.
+Use synthetic seeds and no research-performance interpretation. Produce an
+independent auditor and freeze all final-weight inference routes before any
+new launch decision. Keep research and final modes blocked in that gate.
+
+If the candidate still prefers locally infeasible choices, consider a separate
+prospective physics-informed deadline-ranking mechanism with a matched ablation.
+Do not add it during this experiment or assert that anchoring fixes the
+observed local-routing weakness. No new architectural novelty is claimed here.
+
+Word thesis unchanged. Cloud and charging stations excluded. Security/trust
+remains deferred to the second contribution.

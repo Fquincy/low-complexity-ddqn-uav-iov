@@ -1,0 +1,22 @@
+{
+  "authorization": "USER_EXPLICIT_LAUNCH_RETURN_CALIBRATED_51280",
+  "user_instruction": "Launch the frozen 51,280-slot return-calibrated handoff development comparison.",
+  "output": "development_runs/return_calibrated_handoff_comparison_2026-11-20_01",
+  "archive": "D:/Fitz Thesis Research Archive/return_calibrated_handoff_comparison_2026-11-20_01",
+  "python_executable": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Scripts\\python.exe",
+  "sha256": {
+    "RETURN_CALIBRATED_COMPARISON_ENGINEERING_REVIEW_2026-11-20.txt": "5d980d6c676e7b312297f8209b093ae9575f972cc03114375da278b86dd4332d",
+    "RETURN_CALIBRATED_COMPARISON_LAUNCH_READINESS_2026-11-20.txt": "238ead7c758f287ab3024579bb2fd0ab713f74a665dbc7fa465b4e9877bce782",
+    "RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json": "1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1",
+    "audit_return_calibrated_comparison.py": "8d1b9e485992923c789a27cfd96396592597a48e7d350e59e69a2e507cb75618",
+    "check_return_calibrated_comparison_readiness.py": "23cb9c8194b531f606f1030309c8b22378a832c48c00c0afe6df49d829e5f526",
+    "freeze_heuristic_initialization_pilot_plan_2026_11_19.py": "8c79ed7c2e0328282bd1dd00e67ca4886beb362c0cb52c6091a2bbe1a020536f",
+    "launch_return_calibrated_comparison_2026_11_20.py": "baaed016f858f345d478f1b6c921e85cd1dbd027734293a9c98744dba0a787f0",
+    "return_calibrated_progress.py": "81f1b6d4a773276be1cde1d01d00c81efcd6fdad801c17aedaa038fa69346c4c",
+    "run_return_calibrated_comparison.py": "7a94bb026a6342fb74d94e75da5aae9f9c40ef04ce5d61568b58cbf8b7dd3293",
+    "test_return_calibrated_comparison.py": "22e75ed62b73926e56f94cd9b17906aab16d7d10b3643bf9b03a96b8f21fd7df",
+    "validation/return_calibrated_comparison_readiness_2026-11-20_01/readiness.json": "25c93e3a891395f940d4c2b86bcaa9a331c797e178bd30239355b1667488345f",
+    "verify_return_calibrated_comparison_engineering_2026_11_20.py": "2f1f3d2371916ef75063adbc696b42184cf4a14a8514519ec16cc0fb5eb31b02"
+  },
+  "word_thesis_changed": false
+}

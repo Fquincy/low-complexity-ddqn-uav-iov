@@ -1,0 +1,59 @@
+{
+  "per_fit": {
+    "0": {
+      "bc": {
+        "return_value": -287.4661003082361,
+        "deadline": 0.6383333333333333
+      },
+      "control": {
+        "return_value": -304.7457832777182,
+        "deadline": 0.6241666666666666
+      },
+      "teacher": {
+        "return_value": -12.269482439350512,
+        "deadline": 1.0
+      },
+      "difference": {
+        "return_value": 17.27968296948211,
+        "deadline": 0.01416666666666666
+      },
+      "bc_minus_teacher": {
+        "return_value": -275.1966178688856,
+        "deadline": -0.3616666666666667
+      },
+      "control_minus_teacher": {
+        "return_value": -292.4763008383677,
+        "deadline": -0.37583333333333335
+      }
+    },
+    "1": {
+      "bc": {
+        "return_value": -492.50597008234166,
+        "deadline": 0.5333333333333333
+      },
+      "control": {
+        "return_value": -341.08727720582107,
+        "deadline": 0.6083333333333333
+      },
+      "teacher": {
+        "return_value": -12.269482439350512,
+        "deadline": 1.0
+      },
+      "difference": {
+        "return_value": -151.4186928765206,
+        "deadline": -0.07499999999999996
+      },
+      "bc_minus_teacher": {
+        "return_value": -480.23648764299116,
+        "deadline": -0.4666666666666667
+      },
+      "control_minus_teacher": {
+        "return_value": -328.81779476647057,
+        "deadline": -0.3916666666666667
+      }
+    }
+  },
+  "promising": false,
+  "kind": "ENGINEERING_FIXTURE_NOT_RESEARCH",
+  "quality_claim": false
+}

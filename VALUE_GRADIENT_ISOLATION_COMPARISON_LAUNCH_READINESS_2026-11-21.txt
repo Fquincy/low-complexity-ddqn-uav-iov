@@ -1,0 +1,145 @@
+VALUE-GRADIENT ISOLATION: DEVELOPMENT LAUNCH READINESS
+21 November 2026 (Asia/Shanghai)
+
+DECISION
+The frozen nine-controller development comparison is technically ready,
+pending separate explicit launch authorization. Proceeding is recommended
+as a prospective test of the declared gradient-isolation hypothesis. This
+review does not predict a scientific pass or authorize research execution.
+Research and final release defaults remain false. The Word thesis is unchanged.
+
+Protocol: VALUE_GRADIENT_ISOLATION_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 2a3a4cd58f3f04eabf1d54958e058af7294fbb73a2f41000c3242999bcc4f683
+Readiness checker: check_value_gradient_isolation_comparison_readiness.py
+Receipt: validation/value_gradient_isolation_comparison_readiness_2026-11-21_01/readiness.json
+Receipt SHA256: f57fd80dd528d7bc417c72d47eea34355995987b51522332f921c391e98a1e3d
+Readiness manifest: same directory, manifest.json (29 entries).
+
+EVIDENCE AND ENVIRONMENT
+Rehashed all 383 engineering manifest artifacts, including 370 immutable run
+files, snapshots and the completed full artifact audit. Verified the original
+20 passing integration/rejection tests without rerunning training or those
+tests. The six first-update gradient reconstructions, 18 final checkpoints
+and 18 deployment exports remain verified engineering evidence.
+
+Exact tested runner/auditor/test/verifier/review sources match their bound
+hashes. The 42 frozen definitions remain unchanged. Interpreter/environment
+match the fixture and protocol: Python 3.11.9, torch 2.15.0+cpu, numpy 2.4.6,
+Windows and one torch thread. The readiness check created no model, episode,
+optimizer step or teacher inference and drew no reserved research seed.
+
+Missing development confirmation, correct confirmation while release is
+disabled, and final mode all reject before outputs or model construction.
+The completed return-calibrated study remains policy=false, value=true,
+promising=false. No failed fit, old result or frozen scientific rule changed.
+
+SEEDS AND OUTPUTS
+Compared development reservations with 57 other root JSON and saved
+validation/development */run/runtime_plan.json documents. Two exact same-study
+aliases were verified: the frozen protocol and its prior design reservation.
+No external or internal collision was found. Fixture seeds remain disjoint.
+Coverage is explicit JSON reservations/runtime plans, not every historical
+text/log file; refresh this check at launch. Final evaluation stays untouched.
+
+Confirmed both reserved research directories absent:
+E:\Fitz Thesis docs\Low Complexity\development_runs\value_gradient_isolation_comparison_2026-11-20_01
+D:\Fitz Thesis Research Archive\value_gradient_isolation_comparison_2026-11-20_01
+The protocol's 20 November path identifiers are retained; this review is dated
+21 November. Neither research nor archive directory was created by this gate.
+
+STORAGE
+Projected research output: 5,649,537,540 bytes (about 5.65 GB).
+Required free space per drive: 23,671,891,984 bytes (about 23.67 GB), using
+four times the projection plus 1 GiB. At checking, E: had 513,208,893,440 bytes
+free (about 513.21 GB); D: had 107,399,311,360 (about 107.40 GB). Both pass.
+GB figures here are decimal. This estimate is not an exact output-size bound.
+
+Projection scales fixture episode data by slot exposure, optimizer logs by
+sampled-transition exposure and other artifacts tenfold. Refresh space before
+launch. Keep primary data on E:; independently archive on D: after full audit.
+Verify exact archive inventory and every SHA256 before declaring archived
+completion, even if scientific screens fail. Preserve partial failures and
+every initialization; no automatic retry, overwrite or best-fit selection.
+
+MONITORING AND PYTHON EXIT STATUS
+Read-only numeric helper: value_gradient_isolation_progress.py
+Child-process wrapper: value_gradient_isolation_process_monitor.py
+Tests: test_value_gradient_isolation_monitoring.py
+Evidence: validation/value_gradient_isolation_monitor_tests_2026-11-21_01/
+
+Ten new tests passed with zero failures/errors and no simulator/model work.
+They verify complete-fixture counts, research denominators on a synthetic
+empty plan, partial saved counts and text, distinct audit/archive/failure
+stages, warning stderr with child exit 0, silent child exit 7, preserved
+process-start failure, rejection of existing monitor directories, prevention
+of writes into immutable run data and missing/transient progress handling.
+
+The wrapper uses an explicit argument list and no shell, hides Windows child
+windows and saves stdout/stderr separately. It records the actual child exit
+code and numeric LIVE_STATUS.txt/JSON in a separate monitoring directory.
+It neither launches a research job by itself nor changes release defaults.
+A warning on stderr is not a failed exit; exit 0 is not an audit/archive pass.
+Failure records are retained; there is no automatic retry or termination.
+
+The helper displays saved demonstration/training/evaluation/total slots,
+final checkpoints, deployment exports and BC/TD/retention updates from saved
+fit counts. Active episodes/fits can be ahead of these counters. Completed
+artifacts mean audit running/pending until a completion receipt exists.
+An archive receipt is a status signal, not independent archive rehashing.
+
+A later authorized, versioned launcher must bind these exact sources and
+this receipt, refresh readiness, publish numeric progress automatically and
+record full audit/archive phase wall times outside immutable run data.
+The process tests resolve the earlier PowerShell stderr/exit-code reporting
+ambiguity without altering the tested runner, auditor or optimization rules.
+
+DURATION
+No reliable full-run ETA is established. Fixture component extrapolations
+give an unvalidated planning range of roughly 0.46 to 6.19 hours for training
+and evaluation under different linear scaling assumptions. This is not a
+confidence interval or completion promise. Full audit, hashing, archive,
+source copies, thermal behavior and other overhead are excluded. Use actual
+progress after launch to update timing expectations.
+
+FROZEN STUDY AND SCIENTIFIC LIMITS
+Nine student controllers across three paired initializations, plus one
+shared observed-load/radio teacher evaluated once on the shared workloads.
+P is the sole primary; R is the adapted known shared-gradient comparator;
+A is the unmodified controller/isolation ablation. B/C/D/E/F/G retain their
+declared component/control roles. No arm or initialization may be promoted
+after results, and failed scientific screens do not stop other valid outcomes.
+
+1,200 demonstration + 48,000 online training + 17,920 evaluation slots
+= 67,120 total simulated slots. These are not all training slots.
+4,800 BC + 44,928 DDQN = 49,728 optimizer steps; 22,464 retention batches
+within DDQN, 15 ridge solves, 27 final training checkpoints and 27 deployment
+copies. All training/deployment hashes freeze before any evaluation.
+
+P-minus-E/F/A/R must be nonnegative in both return and deadline performance
+in every fit, with each contrast's equal-fit means strictly positive in both.
+P own-policy NRMSE and absolute Q-G bias must be strictly below D in every
+fit. No scientific tolerance or loss allowance is introduced. Promising
+requires both screens plus complete finite evidence and full artifact audit.
+
+This is a narrow mechanism study. Passing engineering checks does not prove
+policy improvement, novelty, compression or the full low-complexity claim.
+Same-size controls have identical parameter storage. Larger DDQN references,
+adapted BDQ, specified full DQfD, broader heuristics, literature positioning
+and untouched final testing remain later work. First-update reconstruction
+is not complete historical gradient/weight/optimizer replay. Laptop CPU
+timing is not a UAV hardware measurement. Security/trust remains deferred;
+cloud and charging remain excluded from contribution-one experiments.
+
+NEXT ACTION
+The frozen protocol explicitly requires a separate readiness and explicit
+launch decision (authorization.separate_readiness_and_explicit_launch_required).
+No research has launched. The user may authorize this exact study with:
+
+"Launch the frozen 67,120-slot value-gradient-isolation development comparison."
+
+After that instruction, prepare and test a versioned source-bound launcher,
+refresh preflight evidence/seed/storage checks, and enable only the bound
+development runner in memory. Keep on-disk defaults false and final mode
+closed. Run all declared outcomes, complete the full artifact audit and
+independently verify the D: archive before interpreting results. Do not tune
+settings from fixture outcomes. The Word thesis remains unchanged.

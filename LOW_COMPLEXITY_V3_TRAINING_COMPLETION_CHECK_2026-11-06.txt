@@ -1,0 +1,36 @@
+VERSION 3 TRAINING COMPLETION CHECK
+Checked: November 6, 2026, approximately18:58 Asia/Shanghai.
+
+Training is complete, but the full development experiment is still running.
+The live supervisor reported11,000 saved training episodes,440,000 saved
+training slots and55 final checkpoints. The worker and supervisor processes
+were present and the status heartbeat was current.
+
+The frozen-checkpoint inference report records55 checked models and7,040
+complete action-equivalence checks. All five fits passed the predeclared
+storage, median-latency and p95-latency screens. These cost results do not
+establish return or deadline performance.
+
+The latest runner event was heldout_evaluation_started with48 common workload
+seeds. At the check,3 controller evaluation episodes were saved, out of the
+planned55 fits x48 workloads =2,640 controller evaluation episodes. Counts
+will continue changing. The experiment also evaluates the three heuristics.
+
+The final verification.json, comparisons_and_value_stability.json and
+saved_artifact_audit.json were not yet available. The inspected worker error
+log had no reported error. No failure artifact was observed.
+
+NEXT STEP
+Allow the existing process to finish held-out evaluation, calculate every
+predeclared comparison/value diagnostic and run the saved-artifact audit.
+Monitor validation/v3_development_launch_2026-11-06_01/LIVE_STATUS.txt.
+The expected successful process state is completed_and_audited. A successful
+artifact audit can coexist with failed performance screens; inspect both.
+Do not restart training or infer policy success from100% training progress.
+
+After completion, review every initialization against the declared return,
+deadline, mechanism, value-stability and cost criteria. Then make the separate
+decision about the reserved final experiment. No final experiment was launched
+or authorized by this check, and no Word thesis content was changed.
+
+This is a time-stamped progress check, not a final results report.

@@ -1,0 +1,18 @@
+{
+  "kind": "PROSPECTIVE_OPERATIONAL_RETENTION_PLAN_NOT_SCIENTIFIC_CRITERION",
+  "experiment": "frozen_assignment_price_development_comparison",
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "projected_output_bytes": 34357466944.178078,
+  "minimum_free_bytes_per_volume": 45094885120,
+  "minimum_free_basis": "projected output plus 10 GiB operational buffer; engineering preflight only",
+  "primary_run": "E:\\Fitz Thesis docs\\Low Complexity\\development_runs\\assignment_price_development_2026-11-16_01\\run",
+  "audited_completion": "E:\\Fitz Thesis docs\\Low Complexity\\development_runs\\assignment_price_development_2026-11-16_01\\audited_completion",
+  "prelaunch_evidence": "E:\\Fitz Thesis docs\\Low Complexity\\development_runs\\assignment_price_development_2026-11-16_01\\prelaunch",
+  "independent_archive": "D:\\Fitz Thesis Research Archive\\assignment_price_development_2026-11-16_01",
+  "archive_required_after_audit": true,
+  "archive_verification": "Exact relative-file inventory, byte size and SHA256 against the frozen run and completion trees",
+  "retention": "Keep primary raw run, audited completion, and independent verified archive through thesis examination and acceptance; do not prune raw diagnostics before a documented later retention decision.",
+  "scientific_thresholds_changed": false,
+  "research_seeds_changed": false,
+  "word_thesis_changed": false
+}

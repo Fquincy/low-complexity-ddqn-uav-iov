@@ -1,0 +1,253 @@
+CONTRIBUTION ONE: DECISION BRIEF AND BOUNDED CONTINUATION
+2026-11-15
+Status: research direction decision; no implementation, seed reservation or launch.
+
+1. DECISION
+Continue pursuing the original idea: an implemented, measurably efficient
+DDQN controller for computational offloading in a UAV-IoV system. Retain
+local/UAV/RSU destinations, with no cloud or charging station. Security/trust
+remains the separate second contribution, deferred until contribution one
+has adequate evidence. The Word thesis and prior experiments stay unchanged.
+
+The immediate decision does not depend on supervisor availability. Technical
+work can continue through documented, bounded decisions. This brief records
+the rationale for later review; it cannot certify departmental acceptance.
+
+Retain the ORIGINAL-LOSS screened workload-price controller as a development
+INCUMBENT to investigate, not a newly confirmed winner. Close horizon-loss
+normalization as an unsuccessful correction under its frozen budget/settings.
+Do not automatically add a new model, tune reward weights or start training.
+Use the next bounded evidence stage to decide whether the incumbent deserves
+a fresh confirmation study, a single justified change, or simplification.
+
+2. THE INTENDED CONTRIBUTION
+Working contribution statement, conditional on future evidence:
+  A compact DDQN offloading controller combining a decomposed joint-action
+  critic, a workload-dependent marginal-cost term and conservative local
+  feasibility screening, with measured reductions in online parameter storage
+  and complete action-selection cost while retaining competitive return and
+  deadline success against equally informed compact, wide and heuristic controls.
+
+This is an implemented controller-improvement claim within the approved
+offloading problem. Simulation supplies the evaluation evidence. It is not
+merely a proposal to create an experiment, and it is not yet a proven claim.
+Use "compact" as a factual architecture description and "measured efficiency"
+with named comparators. Decide whether "lightweight" or "low complexity" is
+the stronger defensible thesis wording only after the specified evidence.
+Neither label automatically follows from a small parameter count.
+
+No claim here that DDQN, branching, action masks, terminal anchoring or loss
+normalization is new. The candidate novelty is the specific controller
+mechanism/implementation for this offloading problem and a demonstrated useful
+performance-cost tradeoff beyond simpler alternatives. That distinction needs
+closest-paper comparison and mechanism evidence; integration alone is not
+automatically sufficient novelty. Thesis sufficiency is not guaranteed.
+
+3. WHAT EXISTS AS AN IMPLEMENTATION
+N=30 vehicles, five destination choices, two UAV motion branches with five
+choices, 533 observed features, hidden width24 and a40-slot finite horizon.
+For the original screened price controller, write its deployed critic as
+  Q_theta(s,a) = -h(s)[ b_theta(s) + sum_i g_theta,i,a_i(s)
+                                      + sum_j v_theta,j,a_j(s) ],
+  h(s)=40-round(40*s[-1]).
+g contains the implemented nonnegative task cost and workload-price marginal
+term; b and v use the existing nonnegative parameterization. Screening only
+excludes a local choice certified infeasible using outward observation bounds
+on task cycles/deadline and local CPU service time. All remote/motion choices
+remain available. Remote deadlines are not guaranteed. The screen does not
+guarantee zero local misses near uncertainty boundaries or under queueing.
+
+The decoder independently minimizes the stored allowed branch-cost tables.
+It is exact for this DECOMPOSED learned critic, not the true coupled scheduling
+problem. Actual offloading actions interact through shared radio/CPU queues.
+This structural approximation is a possible limitation, not a solved optimality
+claim. Workload prices use observations; private task completion labels and
+future workloads are never policy inputs.
+
+Original DDQN update remains:
+  a_next=argmax_allowed Q_online(s_next,a),
+  y=r+Q_target(s_next,a_next) if nonterminal, otherwise y=r (gamma1),
+  L=mean Huber_1(Q_online(s,a)-stopgrad(y))
+        +1.0*mean_terminal Huber_1(Q_online(s,a)-r).
+Uniform batch128, terminal batch32 and the existing optimizer schedule remain
+as documented in their frozen protocols. This brief changes no formula.
+
+For fixed width and destination count, the branch decoder scales linearly
+with vehicle count; the network input/output sizes also grow with vehicle
+count. The present timing evidence is atN=30. It does not demonstrate empirical
+scalability across system sizes or superior asymptotic complexity to branching
+or additive controls, which also avoid exponential joint-action enumeration.
+
+4. EVIDENCE LEDGER: SUPPORT AND LIMITS
+A. IMPLEMENTED EFFICIENCY: supported under the tested configuration.
+Primary online parameters:17,066;68,264 FP32 bytes plus20 buffer bytes.
+Original compact64:194,944 parameter bytes; wide128:422,016 bytes.
+The primary has64.98% fewer parameter bytes than compact64 and83.82% fewer
+than wide128. Report full action selection, buffers, deployment files, startup
+and training cost separately. CPU timings are host/backend/input-specific;
+do not present them as UAV hardware, total device memory or energy savings.
+
+B. SCREENING EFFECT: positive audited DEVELOPMENT evidence.
+The earlier deadline-screen primary improved five-fit mean return by11.297719
+and deadline success by24.055208 percentage points over its unmasked counterpart.
+Every paired initialization improved both. In the later horizon-loss study,
+the original-loss screened control again beat its unmasked price counterpart
+in both metrics in all five fits. This later assessment is exploratory control
+evidence, not promotion to primary or independent untouched final confirmation.
+
+C. PRACTICAL POLICY QUALITY: promising, not complete proof.
+On the later fresh study's consumed development set, the original-loss screened
+price control achieved deadline success96.1337%,95.8247%,96.4392%,99.6441%,97.6250%
+and episode returns -15.2959,-15.5172,-15.8633,-13.6312,-14.1842.
+It exceeded original compact64, both wide128 variants, ordinary plain24,
+adapted BDQ and both strong heuristics in both metrics in every fit in that
+study. These are observed sampled results, not deployment reliability bounds.
+The earlier run had weaker fits; do not silently discard the earlier variation.
+
+D. DISTINCT PRICE/ARCHITECTURE ADVANTAGE: unresolved.
+In the later study the original-price controller lost both metrics to original
+no-price in fits0,1,2. It also missed the same policy margin versus screened,
+anchored plain24 in fit0. Its large mean advantage over no-price is strongly
+affected by no-price fit4's poor result. Means alone cannot establish consistent
+price benefit. Plain24 also has fewer parameters. A more complicated price
+term needs positive evidence or a defensible reason to retain it.
+
+E. GLOBAL VALUE CONSISTENCY: unresolved.
+All five original-price fits in the later study failed the normalized-RMSE
+limit.25; values were1.1299,.4016,1.1094,.2559,1.4157. Absolute biases were
+8.7879,1.9807,9.2103,.9511,10.2988 versus limit2. Original policy performance
+does not erase these failures. The horizon-normalized primary also failed.
+Return prediction calibration and useful action ranking are different properties;
+a policy-efficiency claim does not logically require exact optimal-Q calibration.
+However the existing protocols explicitly required these limits and remain failed.
+Do not reinterpret their failure as a pass or remove limits retrospectively.
+
+F. NORMALIZATION CORRECTION: rejected under its tested setup.
+Normalized minus original: primary -7.753247 return/-13.984028 deadline points;
+no-price -300.846349/-31.931944; plain -460.738173/-42.233333.
+Both metrics worsened for every architecture pair and initialization. Reduced
+clipping did not establish learning success. Price primary misses concentrated
+at overloaded RSUs; no-price/plain had heavy late/unfinished UAV uploads.
+Saved associations do not prove a single causal optimizer explanation.
+
+G. NOVELTY AND FINAL GENERALIZATION: open.
+The available literature note checked four established component papers using
+limited abstracts/metadata. It explicitly is not a full-paper UAV-IoV novelty
+review. Final model/task reservations remain unconsumed and protected.
+
+5. ALTERNATIVES AND RECOMMENDATION
+Route A - recommended: retain the original-loss compact screened design as
+incumbent, then resolve its value interpretation and mechanism distinction.
+This preserves useful implementation work and investigates the strongest
+current policy candidate without pretending the failed primary succeeded.
+Risk: price may not justify its added complexity, and calibration/robustness
+may still prevent the intended claim. Evaluate against those risks directly.
+
+Route B - conditional: simplify or make ONE evidence-driven controller change.
+This becomes appropriate only if the next diagnosis identifies a concrete
+mechanism worth testing, or finds price redundant. A simpler successful compact
+controller could satisfy measured efficiency, but its novel improvement over
+ordinary small DDQN must still be established. No architecture is chosen here.
+
+Route C - retain modeling/negative experimental findings as supporting material.
+These results remain useful but are not being substituted for the requested
+implemented-controller contribution. They document why simpler interventions
+failed and prevent unsupported thesis statements.
+
+6. NEXT BOUNDED EVIDENCE STAGE: NO NEW TRAINING
+Produce one evidence package with two deliverables before further design:
+
+6a. Fixed-checkpoint value interpretation check.
+Use ALL five original screened-price, no-price and anchored-plain fits from
+the latest run; retain earlier findings for context. Use only consumed saved
+development trajectories and checkpoints. Reconstruct one-step DDQN targets
+on saved next states with the correct online mask and target evaluation,
+batch-one FP32 path, terminal bypass and unchanged tolerances. Compare the
+frozen online/target predictions, reward, one-step residual and own-policy
+return-to-go by current horizon and terminal status. Separate executed-action
+ranking from scalar offset/scale error where the saved-state information
+supports it. Report any limitation: one realized rollout is not conditional
+expected return, the observation is compressed/partially observed, target
+network lag differs from online self-consistency, and exact optimal Q is unknown.
+Do not infer Q-star error or convergence from these probes. No new rollout,
+model fitting, reward change, checkpoint selection or hyperparameter sweep.
+Raw training logs need only a targeted temporal check if required to answer a
+specific onset question; do not repeat the expensive full audit by default.
+
+6b. Closest-work and mechanism decision matrix.
+Search/read the closest full papers on compact/branching DDQN, UAV-assisted
+vehicular offloading, queue-aware allocation and deadline feasibility masks.
+Record exact sources, supported overlap/differences, state information,
+joint-action handling, objective, parameter counts, complete inference cost
+and ablations. Distinguish verified full-paper evidence from abstracts and
+unavailable claims. Select one explicit difference we can implement/test and
+explain why a plain small DDQN, identical mask or queue-aware heuristic cannot
+already account for the claimed benefit. If no difference survives, say so and
+choose simplification or one justified change before spending another run.
+Do not claim a systematic/exhaustive search without documenting that coverage.
+
+The two deliverables end in a written GO/CHANGE/STOP decision for the incumbent:
+  GO: bounded mechanism/claim is defensible and the relevant remaining question
+      can be resolved by one prospective fresh experiment.
+  CHANGE: one specific cause/limitation motivates one named correction, with an
+      ablation and cost prediction declared before implementation/training.
+  STOP candidate: evidence does not justify this mechanism; preserve the code
+      and results and select a different bounded route within offloading DDQN.
+Stopping a candidate is not abandoning contribution one or changing thesis topic.
+This brief itself does not authorize implementing a new controller or training.
+
+7. WHAT A LATER EXPERIMENT MUST ESTABLISH
+Freeze its primary/controller definitions, equal information, training exposure,
+model/task seed blocks, all baselines, metrics, thresholds and decision rules
+before new research outcomes. Fresh controls must be paired on fresh development
+seeds; consumed results may motivate a design but cannot confirm it. Continue
+protecting the reserved final phase until a separate final protocol/decision.
+
+Comparison menu to resolve at that future freeze, not secretly shrink now:
+incumbent or declared successor; its exact no-mechanism ablation; same-width
+plain DDQN with the SAME feasibility screen and inherited training mechanisms;
+plain small DDQN; compact64 and wide128; adapted branching DDQN; strong existing
+heuristics and an equally informed queue-aware heuristic if the price mechanism
+claims queue-awareness as its advantage. Compare with and without masking where
+screen benefit is claimed. Avoid a straw-man exponential-output-only reference.
+State each comparator's question; do not create uncontrolled endless arm growth.
+
+Primary evidence must include return, deadline success, variation across fits,
+online parameter/buffer/deployment storage and COMPLETE action-selection latency.
+Also report all value/gradient stability and finite/sign/terminal diagnostics,
+training cost, failure destinations/stages and cold-start measurement scope.
+If a future claim makes global calibration a primary or secondary endpoint,
+declare and justify that choice prospectively. All old gates remain unchanged.
+Do not just relabel a failed criterion to obtain acceptance. Separately justify
+performance margins and whether an every-fit or population-level criterion is
+appropriate; no guarantee that a less demanding rule is sufficient or will pass.
+Require evidence of the claimed mechanism beyond a weak ablation and compare
+price/same-width effects honestly; a smaller architecture is not automatically new.
+
+8. CLAIMS TO USE AND AVOID TODAY
+Supported: an implemented compact controller; measured parameter/storage and
+CPU action-selection results under named conditions; audited development
+screening gains; negative evidence about normalized loss; all observed limits.
+Provisional: a promising original-loss screened DDQN incumbent for further study.
+Unsupported: proven lightweight/low-complexity thesis contribution, consistent
+price superiority, globally accurate Q, deadline guarantees, optimal scheduling,
+UAV-hardware energy savings, unseen-scale superiority or established novelty.
+
+9. PRACTICAL COMMITMENT
+We will keep working toward the controller contribution, using one bounded
+question at a time. The next work is the evidence package above, not another
+large exploratory training run. Successful components and unsuccessful results
+both stay preserved. Supervisor input can be incorporated when available;
+absence of it does not stop the authorized technical evidence stage. No external
+message is sent by this document. Word thesis and final seeds remain unchanged.
+
+SOURCE LEDGER
+HORIZON_LOSS_SAVED_PAIR_DIAGNOSIS_2026-11-15.txt
+validation/horizon_loss_saved_pair_diagnosis_2026-11-15_01/diagnosis.json
+HORIZON_LOSS_DEVELOPMENT_RESULTS_REVIEW_2026-11-14.txt
+validation/horizon_loss_development_results_2026-11-14_01/results_summary.json
+DEADLINE_SCREEN_DEVELOPMENT_RESULTS_REVIEW_2026-11-14.txt
+DEADLINE_AWARE_DDQN_PROSPECTIVE_DESIGN_BRIEF_2026-11-11.txt
+DEADLINE_AWARE_DDQN_LITERATURE_POSITION_2026-11-11.txt
+HORIZON_LOSS_RESEARCH_PROTOCOL_2026-11-14.json
+controller_v3_amortized.py; terminal_anchor_prototype.py; deadline_screen_prototype.py

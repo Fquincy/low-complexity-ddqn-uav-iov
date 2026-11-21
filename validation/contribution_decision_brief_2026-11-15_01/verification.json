@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_diagnosis_manifest_verified": true,
+  "all_30_fits_retained": true,
+  "all_three_pairs_negative_confirmed": true,
+  "original_policy_and_value_claims_checked": true,
+  "storage_percentages_checked": true,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_inference": false,
+  "no_external_messages_sent": true,
+  "word_thesis_changed": false
+}

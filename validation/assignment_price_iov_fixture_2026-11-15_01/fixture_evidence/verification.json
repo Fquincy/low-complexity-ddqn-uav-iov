@@ -1,0 +1,12 @@
+{
+  "kind": "ENGINEERING_FIXTURE_NOT_RESEARCH_OR_POLICY_EVIDENCE",
+  "quality_evidence": false,
+  "research_launched": false,
+  "training_slots": 640,
+  "evaluation_slots": 440,
+  "updates": 584,
+  "copies": 72,
+  "deployment_equivalence_states": 320,
+  "final_checkpoint_only": true,
+  "evaluation_no_updates": true
+}

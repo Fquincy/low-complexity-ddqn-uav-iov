@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "tested_binding_manifest_sha256": "d98a3d1efba75e7b77982640ccfb27f42bc8b654c442b87a468b855a630034de",
+  "protocol_sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef",
+  "sources": {
+    "assignment_price_all_reference_deployment.py": "e47ca698b2f959a29ba79f28c84321b09591e83c9037000deeab4d1bd9a490cb",
+    "assignment_price_bound_reports.py": "979a1711c216bb86881f219bb45f3c80909ebf309567f3f6936dae9d1fa0dad1",
+    "assignment_price_deployment_runtime.py": "96095dd1dc054e66da974a353664bdc98585f8dd0976cac7643c228b589bb183",
+    "assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+    "assignment_price_fresh_startup.py": "2d57bfae2f0f8bd2ebfd59d8c61e3ecf0fdae9da220caa957684f5fbf79f6dc2",
+    "assignment_price_full_fixture_analysis.py": "079dd3d4d4ac04d83bcc106f67b90f55703dca77ba63d766dc989ce85ed42d79",
+    "assignment_price_load_radio_heuristic.py": "925bdd21551bcd06186707af2b8a6751f61dd1e9a11ed26e3d3633fcea35f804",
+    "assignment_price_native_heads_runtime.py": "2a27a90a30e0c4148505ef0436e554bf3073b1d3392dd3b50e7fa40b729bd1b8",
+    "assignment_price_prototype.py": "acd6d0264da80a4c4ccab136c46e2911ba88c1f7453fbd078655c276fb642543",
+    "assignment_price_reference_deployment.py": "282c509c988a9ff22fb642a7d5212c9bf03719d0913f2514ff1e47754a5d4ffb",
+    "audit_assignment_price_fixture_v2.py": "52266e4cd3d22bc9d22f7bb4ab7ed7f4ef7e38d9ae1e9fa6b3c630351da07ef2",
+    "audit_assignment_price_full_fixture.py": "24bcb4643dc827fcb22a3e6872950414fd66f045a9db329dff34043a308bae05",
+    "audit_assignment_price_research_bound.py": "fe11574451c7312a14fcb58f55f14e2e3ef964522287b00ddffc3bfc27d7c8f1",
+    "audit_assignment_price_research_bound_v2.py": "cf1972feae1c631b6cfe6bf67dda60766e60737bba245ae91215bd3c31570fd7",
+    "run_assignment_price_full_fixture.py": "0dfc7a8ebba3dba1186f13ad441c58ec531b60c748496930913efbbad20ba484",
+    "run_assignment_price_research_bound.py": "1c1a287b2df5d18e1bdb4d6d274c23949a06ef08b12ebb5aed215cb3c369bb1f",
+    "test_assignment_price_research_bound.py": "6b10664d699fd635394c01372e40ec181c781d6a9185cc7bf921523e32db0080",
+    "verify_assignment_price_research_bound.py": "3824a7027676d8107d3df87d4e4ea405ce010483cdc2139c9df37a85199f152b"
+  },
+  "environment": {
+    "executable": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Scripts\\python.exe",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.4.6",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.1",
+    "torch_path": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Lib\\site-packages\\torch\\__init__.py",
+    "numpy_path": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Lib\\site-packages\\numpy\\__init__.py",
+    "torch_threads": 1,
+    "interop_threads": 1
+  },
+  "environment_scope": "Matches the version/path fields captured at binding; no OS scheduler or unchanged installed-binary proof",
+  "development_released": false
+}

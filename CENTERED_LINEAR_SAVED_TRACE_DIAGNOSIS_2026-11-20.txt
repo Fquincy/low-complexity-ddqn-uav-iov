@@ -1,0 +1,154 @@
+CENTERED-LINEAR COMPARISON: SAVED-TRACE DIAGNOSIS
+2026-11-20
+
+FINDING
+The BC-to-DDQN handoff begins with useful action preferences but values
+that are already on the wrong return scale. The first DDQN update then
+receives predominantly upward scalar pressure on nonterminal samples.
+By the end, both the value head and branch contributions have grown on
+fixed demonstration states, and the primary has changed many vehicle
+destination rankings. Its realized policies shift work from local CPUs
+to RSUs, where all its observed evaluation deadline misses occur.
+This identifies an observed failure sequence and a concrete initialization
+problem. It does not prove one mechanism explains every later failure.
+
+EVIDENCE AND BOUNDARY
+Source: development_runs/centered_linear_correction_comparison_2026-11-20_01
+Output: validation/centered_linear_saved_trace_diagnosis_2026-11-20_01/
+  diagnosis.json
+  value_decomposition.json
+  first_update_decomposition.json
+  verification.json
+Scripts:
+  diagnose_centered_linear_saved_traces_2026_11_20.py
+  decompose_centered_linear_saved_values_2026_11_20.py
+  check_centered_linear_first_update_2026_11_20.py
+
+Main analysis consumed and verified 388 unchanged research artifacts and
+performed 20,160 saved state/model decodings. Combined with supplementary
+checks, 400 consumed research artifacts were verified unchanged. Final actions and Q
+were reproduced for the selected controls on their fixed demo/evaluation
+states. Supplementary analysis reconstructs first-update predictions and
+successor greedy targets using the retained BC-only weights, which match
+the primary's BC-end tensor hash. No historical optimizer step was replayed.
+No simulator, teacher, new evaluation episode, training update or final
+evaluation seed was used. All original fits and archives are preserved.
+
+1. THE SCALE PROBLEM EXISTS BEFORE DDQN
+On each fit's same 400 demonstration states, primary greedy Q means:
+Fit                    0           1           2
+Before BC             0.498       0.300       0.288
+After BC             43.229      33.359      39.155
+After DDQN           89.406      72.141      91.555
+These are fixed-state probes, not rollout returns. Under this experiment's
+nonpositive reward definition, true finite-horizon remaining returns cannot
+be positive. The supervised imitation objective gives no return target.
+It trains branch preference logits; the value output has no direct imitation
+loss term, although the shared hidden representation changes during BC.
+
+For the centered model, Q = V + placement advantage + movement advantage,
+where advantage is minus selected score plus the mean of all five scores.
+BC makes selected actions distinct from alternatives, increasing the scalar
+contributions without calibrating them to returns. Exact mean decomposition:
+Fit/stage           V       Placement contribution   Movement contribution
+0 BC               0.696          23.744                    18.789
+0 final           28.343          26.487                    34.575
+1 BC               0.902          16.992                    15.465
+1 final           20.054          23.294                    28.792
+2 BC              -4.625          24.372                    19.408
+2 final           19.113          30.911                    41.531
+Both value output and branch contributions drift; this is not just a
+constant offset at the end. A state-only V offset cannot change greedy
+actions directly, because every action in that state receives the same V.
+The shared network can still couple value fitting and branch rankings.
+
+2. FIRST-UPDATE TARGETS REINFORCE THE INITIAL SCALE MISMATCH
+At online slot 128, before any DDQN optimizer update, reconstruct the exact
+primary first minibatch from saved demo/online transition IDs and BC weights.
+For each nonterminal transition:
+target - prediction = reward
+  + [Q(current state, greedy) - Q(current state, sampled action)]
+  + [Q(next state, greedy) - Q(current state, greedy)].
+There is no target/online weight difference yet: the target is the BC copy.
+
+Fit       Mean reward      Same-state gap     State-change term    Residual
+0           -5.141             15.077               0.047             9.983
+1           -5.286             10.650               0.129             5.493
+2           -6.536             16.757              -0.223             9.998
+Nonterminal samples: 63, 63 and 62 out of 64. The large learned action gap,
+not improvement in realized return, dominates these initial targets.
+Mean clipped target-minus-prediction (Huber scalar pressure) is +1.000,
++0.951 and +0.968 on those nonterminal samples. The old softplus control
+starts with negative average residual pressure on the same paired setup.
+This is direct arithmetic evidence about initialization, not a proof that
+all subsequent parameter updates increase Q or that exploration is a bug.
+
+3. TERMINAL MASKING IS CORRECT; LATER TRAINING IS NOT MONOTONIC
+Every inspected logged target equals reward + target_q within FP32
+tolerance; terminal target_q is zero. No missing terminal-mask error found.
+Terminal samples are 2.482%, 2.457%, 2.420% of replay draws in the primary.
+Large terminal errors and unit-Huber saturation coexist with numerous
+nonterminal samples. Their frequency alone does not establish that changing
+sampling/weights would solve the problem.
+Primary gradient norms exceed the frozen clip of 10 on 48.18%, 69.50% and
+61.54% of updates. These are recorded preclip norms, not nonfinite failures.
+Two-hundred-update summaries show initial upward pressure followed by mixed
+or negative pressure. In fit 1, sampled-action prediction means eventually
+become negative while greedy fixed-state values stay positive. Replay
+prediction means must not be treated as a fixed-state Q trajectory.
+Only before-BC, after-BC and final fixed-state probes/checkpoints exist;
+we cannot date the exact first policy-ranking error or evaluate intermediate
+policies without new experiments. The old control still has near-zero greedy
+Q despite negative sampled-action replay predictions; neither is calibrated.
+The uncentered-linear control also has badly inflated values yet much better
+policy outcomes. Value inflation alone does not explain the primary's ranking
+damage; the centering/control contrast matters and remains part of diagnosis.
+
+4. THE DECISION FAILURE IS VEHICLE PLACEMENT AND RSU QUEUING
+On the unchanged demonstration states, primary placement decisions changed
+from BC to final on 58.13%, 70.63%, 65.66% of vehicle branches. Movement
+decisions did not change. Teacher branch agreement fell from 50.48%, 48.85%,
+51.39% to 42.01%, 38.27%, 40.74%. Branch agreement is not a policy return.
+On primary evaluation states, comparing the final primary with BC-only
+on EXACTLY THE SAME states changes 63.53%, 72.28%, 64.52% of placements;
+movement differences are zero. The saved rollout actions were reproduced.
+
+Each fit evaluates 19,200 tasks. Destination counts (local / RSU1 / RSU2):
+Fit        BC-only                       Primary
+0          10847 / 4415 / 3938            3820 / 7916 / 7464
+1           9393 / 6571 / 3236             358 /10112 / 8730
+2          10846 / 3646 / 4708            2718 /12457 / 4025
+Neither of these policies sends evaluation tasks to UAV compute nodes.
+All primary deadline misses are at the RSUs, not local execution or UAV
+offloading: 630, 2,584, 4,307 misses, versus BC-only 10, 266, 20.
+In fit 2, all 4,307 primary misses occur at RSU1. Its mean queue delay is
+0.1800 seconds, before adding transmission and compute delay, under task
+deadlines of 0.25-0.30 seconds. New primary-only misses versus BC-only:
+622, 2,381, 4,292; BC-only misses avoided by primary: 2, 63, 5.
+Primary misses appear throughout the episode, not only at termination.
+
+The paired records have identical task IDs, sizes, cycles, arrivals and
+deadlines. Their queues and physical states evolve under different actions.
+Therefore destination/miss associations do not establish counterfactual
+task-level causation or prove that any single replacement action is optimal.
+
+CONTRIBUTION DECISION AND NEXT GATE
+Keep both frozen scientific screens FAILED. Keep the earlier pilot's
+promising result and its limitations; do not promote BC-only or another
+secondary controller retrospectively as a validated new DDQN contribution.
+The low-complexity focus remains; a measured DDQN improvement is unresolved.
+
+The next bounded step should be ONE prospective brief addressing the
+BC-to-DDQN handoff: put initial scalar values/action gaps on a defensible
+return scale and explicitly test retention of the useful BC policy during
+DDQN continuation. Specify the equations, role of fixed vs learned outputs,
+mechanism ablation, BC-only and previous-baseline comparisons, calibration
+and policy checks, costs, fresh seeds and stopping decision BEFORE training.
+Any use of return calibration or imitation retention must be checked against
+existing methods; those familiar tools are not automatically new novelty.
+Do not patch the frozen model, add another architecture, tune from this run
+or launch a new study in this diagnostic gate. A design brief is a hypothesis,
+not a claim that this next attempt will work.
+
+The final evaluation set and Word thesis remain unchanged. Security/trust
+is deferred; cloud/charging are excluded from contribution-one experiments.

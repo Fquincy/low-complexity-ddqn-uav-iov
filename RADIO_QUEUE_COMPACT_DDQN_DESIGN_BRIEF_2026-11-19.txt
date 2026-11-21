@@ -1,0 +1,265 @@
+PROSPECTIVE RADIO/QUEUE-AWARE COMPACT DDQN DESIGN BRIEF
+Date: 2026-11-19 (Asia/Shanghai)
+Status: DESIGN CANDIDATE; NOT A RESEARCH PROTOCOL OR LAUNCH RELEASE
+Working name: RQ24-DDQN (a local identifier, not a novelty claim).
+
+DECISION
+Specify one candidate for a bounded engineering assessment. The hypothesis is
+that deadline-sensitive upload costs and sparse radio interactions can improve
+assignment decisions without the full cost of repeated global radio scoring.
+Whether its policy, calibration and complete latency improve remains unknown.
+Keep all prior evidence. No historical result is relabeled as a success.
+
+1. PROBLEM AND EVIDENCE
+Contribution one remains efficient DDQN computational offloading in UAV-IoV.
+Use the existing 30-vehicle, two-UAV, two-RSU finite-horizon environment and
+533-dimensional observation. Destinations: local,UAV1,UAV2,RSU1,RSU2. Keep
+the existing two five-choice movement branches. Security/trust is deferred;
+cloud and charging are excluded. The Word thesis is unchanged.
+
+The audited ADP experiment gives a concrete lead: primary fit4 missed 3,079
+of 57,600 tasks; transmission alone exceeded deadlines in 2,631 missed tasks.
+The matched observed-load/radio heuristic missed three tasks. Fit3 instead
+had 1,177 not-on-time tasks at RSU2. Radio and queue contention both matter.
+These are realized bottlenecks, not proof that a new cost model will fix them.
+
+Terminal errors already pass. Whole-horizon value calibration does not.
+The early-bin Huber gradient opposes the terminal-anchor gradient in all five
+primary fits. This is a separate limitation. The previously failed normalized-
+horizon-loss experiment rules out treating normalization as an automatic fix.
+
+2. OBSERVED-STATE PHYSICAL FEATURES
+Reuse the documented feature decoding and physical constants in
+assignment_price_load_radio_heuristic.prepare: input bits B_i, cycles L_i,
+deadline tau_i, observed local work in seconds, remote compute work in
+seconds, upload backlog by observed destination, geometry and radio gains.
+No future arrivals, private simulator queues, realized completion labels,
+final evaluation data or hidden channel state are permitted.
+
+For UAV destination d, set single-current-task reference rate
+  r_id(I) = W log2(1 + P G_id/(sigma^2 + I)),
+  t_id(I) = B_i/r_id(I).
+For RSU destinations use the existing configured link rate. For d=local
+there is no upload. Rate evaluation must use stable log1p arithmetic, positive
+physical noise and explicit finite checks; do not invent a rate cap based on
+the development outcomes. Extreme-value behavior needs engineering tests.
+
+The unary delay estimate is
+  T_i0 = observed_local_seconds_i + L_i/f_vehicle,
+  T_id = observed_uplink_backlog_seconds_i
+         + B_i/r_id(0) + observed_remote_seconds_d + L_i/f_d.
+Decode each backlog's seconds using its corresponding reference link rate,
+as in the existing observed-state preparation. Backlog observations are
+compressed: these expressions are approximations, not reconstructed FIFOs.
+
+Define a dimensionless unary deadline-sensitive proxy
+  phi_i(T) = .5*T/.300 + max(T/tau_i - 1, 0).
+Use the frozen delay weight .5, normalizer .300 and miss weight1 here. This
+proxy is NOT the simulator reward: the hinge is a differentiable scheduling
+surrogate, not an actual deadline-miss indicator, and does not include all
+future delay or propulsion effects. Rewards themselves remain unchanged.
+
+3. SPARSE RADIO INTERACTION GRAPH (K=4, PROSPECTIVE DESIGN CHOICE)
+For each UAV destination d and vehicle i, take the K strongest-gain OTHER
+vehicles j that are eligible for that UAV under the original action rules.
+Sort by descending G_jd and ascending vehicle ID for ties. If fewer than K
+exist, take all. Eligibility means the unchanged original action mask; it
+does not add a battery or radio-feasibility mask. Battery is an observed
+network input, while zero-battery upload behavior remains a known limitation
+of the reference-rate proxy and must be covered by engineering tests.
+
+E_d is the union of these directed selections as UNIQUE unordered pairs.
+Every node's directed selection has at most K neighbors; the undirected
+degree need NOT be bounded by K. However |E_d|<=N*K. Select donors using a
+cached top-(K+1) list per destination; do not compute an N-by-N distance table.
+
+For each {i,j} in E_d precompute the nonnegative coefficient
+  kappa_ijd = [phi_i(T_id+t_id(P G_jd)-t_id(0))-phi_i(T_id)]
+             + [phi_j(T_jd+t_jd(P G_id)-t_jd(0))-phi_j(T_jd)].
+It charges a pair when both current tasks choose the same UAV. Define
+  Psi_radio(s,a) = (1/N) sum_d sum_{ {i,j} in E_d }
+                         kappa_ijd * 1[a_i=d and a_j=d].
+
+This uses exact two-signal reference-rate differences inside a sparse pair
+SURROGATE. It is not the exact many-transmitter simulator latency. Multiple
+interferers, upload overlap, channel evolution, omitted pairs and backlog
+interference may invalidate the approximation; sparse pair costs are neither
+upper nor lower bounds on actual task delays. No radio-derived hard action
+mask or deadline guarantee is claimed. K=4 has not been tested or optimized.
+
+4. ONE SMALL CRITIC WITH CORRECTABLE PHYSICAL PRIORS
+Use one FP32 MLP: Linear(533,24), ReLU, Linear(24,171).
+Raw outputs: 150 placement residuals,10 movement residuals,1 bias,
+4 positive compute-price coefficients,5 eta logits,1 positive radio scale.
+Use softplus for the four beta values and radio scale lambda; beta_local=0.
+Use softmax for eta. Keep the existing 20-byte cycle-to-work buffer.
+
+Placement residuals u_id, movement residuals v_jm and bias b are SIGNED,
+unlike the previous all-positive component costs. Approximate physical
+priors can overpredict costs; a signed residual must be able to correct them.
+This change is explicit and must be held fixed in the mechanism ablations.
+It is not claimed to be a new residual-learning principle or to cure clipping.
+
+Retain the existing compute-work potential from ADP without changing its
+formula or physical feature scales:
+  W_d(a)=sum_{i:a_i=d} w_id, S_d(a)=sum_{i:a_i=d} w_id^2,
+  P_cpu = sum_d beta_d/(4N) *
+          [2 q_d W_d + eta_d W_d^2 + (1-eta_d) S_d].
+This duplicates some unary queue/service information intentionally: the
+signed residual can correct overlap. It remains a scheduling surrogate,
+not a physical latency identity. Duplication and saturation are test risks.
+
+Define the shared scalar surrogate
+  C_theta(s,a,m)=b + sum_i [u_i,a_i + phi_i(T_i,a_i)]/N
+                  + sum_j v_j,m_j/2 + P_cpu(s,a)
+                  + lambda_theta(s)*Psi_radio(s,a),
+  Q_theta(s,a,m)=-h(s)*softplus(C_theta(s,a,m)).
+For h=0 return zero without decoding. Q<=0; all legal joint actions have
+defined values, including actions excluded from the greedy local screen.
+For h>0, minimizing C is equivalent to maximizing this Q because softplus
+is strictly increasing. Signed residuals do not invalidate that equivalence.
+There is no guaranteed lower finite-horizon value bound or calibration result.
+
+5. DETERMINISTIC BOUNDED ACTION DECODER
+One neural forward obtains residuals and price/scale heads. Compute physical
+unaries, sparse edges and coefficients once from the observed state.
+Keep the original certified-local-infeasibility screen unchanged.
+
+Initialize each placement independently from residual+physical unary+the
+existing expected-other compute marginal; ignore sparse pairs only during
+this initialization. Select movement branches by their residual minima.
+Maintain W_d and sparse adjacency. Sort tasks by decreasing cycles, then
+vehicle ID. Perform EXACTLY ONE coordinate sweep, visiting each task once.
+For each allowed destination calculate the exact change in C from:
+  - its unary term;
+  - the inherited compute insertion/removal marginal using cached W_d;
+  - incident radio edges, lambda*kappa/N, whose other endpoint has that d.
+Keep the old choice on a tie; otherwise select the lowest destination ID.
+Update W_d and continue. Return the assignment and its same scalar Q.
+No iterative-until-converged loop, beam search or additional neural pass.
+
+Subtracting/removing task i before evaluating its new destination is essential.
+Each accepted move cannot increase C; therefore it cannot reduce the model's
+Q for that state. This is a property of the SURROGATE, not an actual return or
+deadline guarantee. The single sweep is not a global argmax.
+
+Movement remains learned and decoupled from the explicit radio graph, which
+uses CURRENT UAV positions. The simulator moves UAVs during the slot. This
+known approximation must be tested, not hidden by forcing hover. No new UAV
+trajectory objective or movement restriction is introduced by this design.
+
+6. DDQN UPDATE AND CALIBRATION
+  a_next = D_theta(s_next),
+  y = r + 1[not done]*Q_target(s_next,a_next), gamma=1,
+  L_uniform = mean Huber_beta1(Q_theta(s,a)-y),
+  L_anchor = mean_terminal Huber_beta1(Q_theta(s_terminal,a)-r_terminal),
+  L = L_uniform + L_anchor.
+The same graph construction, C definition and decoder are used for online
+selection and target evaluation at that selected action. Target weights
+are detached; no gradient is taken through discrete selection/top-K edges.
+State-only physical coefficients are constants with respect to theta.
+
+Retain original-unit Huber, terminal-anchor weight1, Adam1e-4, uniform replay,
+target copy every200 updates and norm10 clipping as the prospective starting
+specification, not a claim that the known gradient conflict has been solved.
+Do not alter the failed run. Any future research settings must be separately
+frozen. Report calibration, saturation, gradient-by-horizon and anchor conflict;
+a controller that merely fixes assignments while failing required calibration
+still does not pass the full research claim. No loss-normalization variant.
+
+7. COMPUTATIONAL COST AND LIMITS
+Trainable parameters: (533+1)*24 + (24+1)*171 = 17,091.
+FP32 parameter bytes=68,364; known buffer bytes=20, excluding file/runtime
+overheads. This is 100 more parameter bytes than ADP24, 1,000 more than
+plain24, about65% fewer than compact64, about84% fewer than wide128.
+Model storage reduction is not total process-memory or training-memory proof.
+
+Let N vehicles, D destinations, U=2 UAVs and K=4. Observation processing and
+neural forward grow linearly in N for fixed hidden width and D. Sparse donor
+selection costs O(U*N*log K) with bounded-list selection. There are at most
+U*N*K unordered destination-specific edges. Coefficient construction costs
+O(N*D+U*N*K), including logarithms. One initialization and one exact cached
+sweep cost O(N*D+|E|); summing incident edges avoids a full scan per candidate.
+Scratch storage is O(N*D+|E|), not O(N^2*D). The derivation requires cached
+adjacency contributions, no repeated global rate calculation and fixed U,D,K.
+
+For N30,U2,K4, the loose edge bound is240. Two reference transmission
+increments per edge can require up to480 extra rate evaluations per state,
+plus base rates. That constant factor may erase any decoder speed advantage.
+Neither a speedup nor passing the ~.035ms wide-reference median is assumed.
+Do not compare a compiled primary with unoptimized references. Measure the
+complete observation conversion, physical features, edges, network, screen,
+decoder, scalar evaluation and action copy; report compile/startup separately.
+
+8. PRECISE DIFFERENCE AND CLAIM HYPOTHESIS
+Against plain small DDQN: the learned scalar contains explicit radio/deadline
+priors and assignment-dependent sparse edges, not just independent branches.
+Against ADP24: upload/interference/deadline costs are explicit, and signed
+residuals can correct priors; compute coupling and bounded sweep are retained.
+Against observed-load/radio: the critic learns a cost-to-go residual and uses
+cached sparse pair updates rather than scoring every candidate with the full
+global radio objective. It remains a centralized DDQN offloading controller.
+Against DCG: pair costs are physical state-derived coefficients with a shared
+learned scalar scale, not learned generic pair payoff networks; decoding is
+one exact-delta sweep, not graph message passing. DCG already establishes
+pairwise factorized Q learning. These differences do not by themselves prove
+publication novelty or performance improvement.
+
+Candidate claim ONLY IF SUPPORTED LATER: an implemented compact DDQN with a
+deadline-sensitive sparse radio/queue assignment decoder that provides a
+measured policy/cost improvement over matched small, wide, branching,
+incumbent, physical-heuristic and mechanism-removal controls. Do not yet use
+the words proven lightweight, robustly faster, first, optimal or guaranteed.
+
+9. PROPOSED COMPARISON SET (NOT YET A FROZEN TRAINING PROTOCOL)
+Eleven learned arms, subject to the later protocol's binding checks:
+  RQ24 primary; identical RQ24 with radio PAIR term zero;
+  identical RQ24 with unary PHYSICAL and radio terms zero;
+  identical RQ24 without coordinate sweep;
+  incumbent coupled_sweep;
+  screened plain24 DDQN; unmasked plain24 DDQN;
+  screened wide128; unmasked wide128; unmasked compact64; adapted screened BDQ.
+The radio-pair ablation retains physical unaries, tensors, signed residuals,
+DDQN loss and decoder pass. The physical-bundle ablation retains compute
+coupling and signed residuals. The no-sweep contrast isolates the sweep.
+Removing physical terms changes values AND decisions; interpret it as that
+mechanism bundle, not a claim about one individual radio equation.
+
+Relevant heuristics: observed-load/radio (mandatory strong reference),
+nearest-RSU, UAV-selective, all-local (diagnostic). Add a non-learning fixed-
+physics decoder: residual placement/movement/bias=0, beta1, eta.2, lambda1,
+same physical proxy and sweep. It is an analytic controller, not a DDQN fit.
+This checks whether learning improves on this design's deterministic prior.
+
+Use fresh task blocks/model seeds, paired evaluation workloads, all fits and
+final checkpoints only. No best-initialization selection. Retain failures.
+Report return, deadline success, value calibration distributions, gradients,
+storage and complete latency. Calibration and scientific success remain a
+conjunction; strong-heuristic failures cannot be hidden by beating weak DDQN.
+Exact seeds, budgets, new protocol hashes, numerical criteria, optimizer
+binding and statistical comparisons remain to be frozen BEFORE a new run.
+Do not silently import budgets, pass margins or controller counts from ADP.
+
+10. LITERATURE POSITION AND NEXT GATE
+See RADIO_QUEUE_COMPACT_DDQN_LITERATURE_POSITION_2026-11-19.txt and saved
+live search evidence. Metadata/abstract reconnaissance plus historical
+full-text overlap notes is NOT full-text clearance for this new mechanism.
+Most importantly, graph-based DDQN offloading and pairwise Q graphs already
+exist. A full-paper equation/decoder/cost comparison remains necessary.
+
+Next gate: obtain/review the closest full methods, then perform an isolated
+synthetic algebra and decoder-cost assessment for THIS candidate only.
+Verify sparse/dense scalar equality when all edges are retained, exact cached
+coordinate deltas against direct recomputation, surrogate nonincrease,
+terminal behavior, finite gradients, input limits, all ablations and full
+runtime accounting. If cost fails or no specific distinction survives, stop
+this candidate before simulator collection. A new task/model seed inventory
+and prospective protocol amendment must precede any development training.
+No research launch or final evaluation is authorized here.
+
+EVIDENCE
+ASSIGNMENT_PRICE_OFFLINE_GRADIENT_TIMELINE_DIAGNOSIS_2026-11-19.txt
+validation/assignment_price_offline_diagnosis_2026-11-19_01/verification.json
+ASSIGNMENT_PRICE_AUDITED_RESULTS_AND_CONTRIBUTION_DECISION_2026-11-19.txt
+assignment_price_prototype.py; assignment_price_load_radio_heuristic.py
+HORIZON_LOSS_DEVELOPMENT_RESULTS_REVIEW_2026-11-14.txt

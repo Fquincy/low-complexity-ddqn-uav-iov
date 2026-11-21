@@ -1,0 +1,13 @@
+{
+  "state": "passed_paired_count_reward_and_frozen_summary_reconciliation",
+  "per_fit_arm_rows": 30,
+  "unique_input_files": 1056,
+  "matched_task_pairs": 1440000,
+  "original_manifest_hash_entries_matched": 1056,
+  "bucket_totals_reconcile": true,
+  "paired_outcome_totals_reconcile": true,
+  "all_frozen_comparison_differences_match": true,
+  "reward_components_reconstruct_saved_returns": true,
+  "new_simulator_slots": 0,
+  "new_optimizer_updates": 0
+}

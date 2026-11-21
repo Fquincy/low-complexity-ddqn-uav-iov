@@ -1,0 +1,148 @@
+RQ24 FIXED-PATH PROFILE AND PROSPECTIVE ENGINEERING OPTIMIZATION PLAN
+Date: 2026-11-19 (Asia/Shanghai)
+Decision: PROFILING COMPLETE; ONE BOUNDED IMPLEMENTATION-OPTIMIZATION GATE
+IS JUSTIFIED, BUT SPEED SUCCESS IS UNCERTAIN. NO RESEARCH RELEASE.
+
+1. WHAT RAN
+The preserved RQ24 ONNX graphs and original32 synthetic observations were
+loaded, with the original K4 graph, equations, scalar arithmetic and one
+sweep unchanged. No simulator states, task seeds or new weights were created.
+Three fixed untrained initializations,9 diagnostic stages,5 randomized
+rounds and32 observations:4,320 diagnostic readings. All native code was
+warmed before readings. The plan and input hashes were saved beforehand.
+96 decomposed-path actions and scalar Q values reproduced the full path.
+Sources and consumed inputs were rehashed unchanged. The independent saved-
+artifact check recomputes summary statistics and verifies all24 old graphs.
+
+This profiles the existing path; it is NOT acceptance retiming. References
+were not remeasured. The failed matched benchmark remains unchanged.
+Components use separate Python/native calls and prepared preceding inputs;
+they overlap, and medians do not add exactly. Parent/substage measurements
+must never be added together. Neural/physical outputs are cached ONLY for
+component attribution; full_path recomputes everything for each observation.
+
+2. OBSERVED COMPONENT MEDIANS (milliseconds)
+stage                           fit0      fit1      fit2
+validation                      .00260    .00250    .00240
+ONNX neural forward             .01740    .01730    .01730
+complete physical features      .03130    .03125    .03110
+neural output heads             .00360    .00340    .00340
+cached coordinate decoder       .01085    .01120    .01110
+complete Runtime.values + copy  .06800    .06870    .06850
+
+Physical subprobes (overlap with complete physical features):
+observed-state/geometry prepare .01590    .01580    .01580
+edge topology only              .00490    .00490    .00490
+features without radio pairs    .01800    .01790    .01800
+
+Every synthetic state has220 destination-specific undirected edges under
+K4. The number is below the loose240 bound, but K4 is not a four-edge-per-
+node graph: donor vertices can have large undirected degree. Pair weights
+require440 two-signal rate evaluations at this observed edge count.
+
+Physical features account for roughly46% of the full-path median; neural
+forward about25%, decoder about16%. These are rough dispatch-affected
+attributions, not a proven Amdahl model or mutually exclusive CPU samples.
+Features with/without pairs differ by about.013ms. Dropping pairs would
+change the mechanism and would not by itself establish the required speed.
+
+3. FEASIBILITY AND HONEST LIMITS
+The failed original matched wide-reference medians were about.035-.037ms;
+these are historical comparison values, not new same-session measurements.
+RQ24's present path needs roughly46-49% less time to reach that range.
+Even ideally eliminating the measured feature cost leaves a rough.037ms
+residual. That subtraction is not an exact bound, but it shows why a small
+single-loop tweak is unlikely to suffice. Neural dispatch, allocation and
+decoder overhead must also be considered. No speed success is promised.
+
+4. PROSPECTIVE OPTIMIZATION BOUNDARY
+Version a NEW runtime implementation. Preserve rq24_prototype.py, the old
+graphs, the failed fixture and this profile. Do not edit either old timing
+result. The mathematical critic, raw graph weights, K4 edge selections,
+edge order, deadline proxy, precision, mask, one-sweep order, tie-breaking,
+stable scalar evaluation and output contract remain the specification.
+No training, loss changes, clipping changes, parameter pruning, quantization,
+mask tightening, physical approximation or cross-state feature memoization.
+fastmath remains false; one-thread backend and complete-cost accounting.
+
+Permitted engineering work, declared before its measurement:
+A. Fuse observed-state preparation into scalar loops: avoid per-link temporary
+   delta arrays, repeated normalization copies and avoidable small-array
+   allocations. Preserve arithmetic order and validate intermediate gains,
+   unaries and coefficients, not just final actions.
+B. Reuse EACH STATE'S already evaluated reference link rate inside that
+   invocation. In the old code the same reference log-rate is evaluated for
+   transmission and again for backlog conversion. Store the rate itself so
+   no algebraic reciprocal rearrangement is needed. Do not cache across states.
+C. Build the fixed-K donor lists and output edge arrays in bounded workspace,
+   retaining the original exact edge order. Avoid allocating donors anew
+   inside nested routines. Reuse private workspace only if every active entry
+   is overwritten and output arrays are copied; document thread/reentrancy
+   limits or keep scratch local to each call.
+D. Fuse head conversion, work/queue extraction and decoder preparation where
+   allocation/dispatch can be removed without changing operation order.
+   Keep initial/final surrogate checks and finite validation in measured cost.
+E. If network execution is changed, provide the SAME optimization opportunity
+   to every timed reference. Do not compare a native primary with slower
+   references or assume a tiny BLAS rewrite preserves near-tie decisions.
+
+The first implementation should focus on A-D with preserved ONNX cores.
+Do not keep trying multiple timing variants and report only the fastest.
+Allow one versioned measured optimization attempt after equivalence passes;
+report the result whether it passes or fails. A failed attempt motivates a
+new written decision, not unlimited tuning or an automatic training run.
+
+5. REQUIRED CHECKS BEFORE ANY NEW COST BENCHMARK
+- Compare old/new intermediate geometry gains, deadlines, rates, topology,
+  edge coefficients, compute marginals, scalar costs, actions and Q.
+- Require identical edge selections/order and exact actions on original
+  synthetic states for all three initializations and all four RQ24 arms.
+- Use fixed additional synthetic stress vectors declared BEFORE execution:
+  tied gains/cycles, coincident horizontal positions, legal feature extremes,
+  zero/full battery, invalid inputs and terminal rejection. No research seeds.
+- Check repeated alternating inputs for stale-workspace data; output ownership
+  and model-weight immutability; finite gradients in the untouched critic.
+- For this attempt, require exact raw FP32 ONNX outputs (same graphs), exact
+  integer topology/actions, and rtol1e-12/atol1e-12 for FP64 intermediate
+  features/scalars and old/new Q. Finite fixture coverage is not a general
+  floating-point identity proof. If action changes or excessive intermediate
+  differences occur, stop the speed gate and diagnose;
+  do not widen tolerances after seeing the failure. Exact general equivalence
+  cannot be proven from a finite fixture; expose numerical limitations.
+- Reuse the old algebra/direct-delta tests and stable tie cases. Freeze
+  optimized code, input hashes and graphs before timing.
+
+6. ONE MATCHED OPTIMIZATION BENCHMARK, NOT A RESEARCH LAUNCH
+Prospective benchmark: same32 saved synthetic inputs, same3 model seeds,
+3 shuffled rounds,16 warmups per path/round. Include original RQ24,
+optimized RQ24, screened plain24, screened/unmasked wide128 and unmasked
+compact64 in the SAME session. Same compiler/ONNX/thread opportunities.
+Record all1,728 complete-call readings (6 paths x3 fits x3 rounds x32 states).
+Include validation, rate/edge construction, neural inference, screen,
+decoder, scalar evaluation and copied final action. Exclude compile/startup
+from steady-state timing and report those scopes separately. No favorable
+retiming; preserve both original and optimized results.
+
+Engineering acceptance stays: parameters<=half compact64; optimized median
+<=EACH wide reference in EVERY synthetic initialization; p95<=1ms. Also
+report change from same-session original RQ24, model/serialized bytes and
+all equivalence discrepancies. Successful synthetic timing would authorize
+only consideration of a later research-protocol preparation gate, not a
+policy/calibration claim or research launch. Research runner integration,
+fresh-seed collision review and untouched final reservations remain separate.
+
+7. CURRENT STATE
+No optimized runtime has been built or measured in this gate. Original
+synthetic correctness passed; median cost failed; novelty, policy quality
+and value calibration for RQ24 remain unestablished. The next gate is the
+single declared implementation/equivalence/benchmark attempt above.
+Word thesis unchanged. Security/trust deferred; cloud/charging excluded.
+
+EVIDENCE
+validation/rq24_runtime_profile_2026-11-19_01/PLAN.json
+validation/rq24_runtime_profile_2026-11-19_01/INPUT_FREEZE.json
+validation/rq24_runtime_profile_2026-11-19_01/profile.json
+validation/rq24_runtime_profile_2026-11-19_01/raw_profile.json
+validation/rq24_runtime_profile_2026-11-19_01/saved_artifact_audit.json
+profile_rq24_fixed_path_2026_11_19.py
+audit_rq24_runtime_profile_2026_11_19.py

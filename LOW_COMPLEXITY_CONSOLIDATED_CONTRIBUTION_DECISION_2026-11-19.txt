@@ -1,0 +1,162 @@
+CONSOLIDATED CONTRIBUTION EVIDENCE AND CLAIM-SCOPE DECISION
+Date: 2026-11-19 (Asia/Shanghai)
+Decision: HOLD the full low-complexity claim and final research phase.
+Complete this review gate; do not automatically implement another controller.
+
+1. WHERE WE ARE
+We have implemented DDQN controllers, audited development experiments and
+measured substantial parameter reductions. We do not yet have a controller
+that satisfies its complete frozen scientific acceptance requirements.
+An audit pass verifies saved evidence; it does not certify policy superiority.
+Our topic remains efficient computational offloading in UAV-assisted IoV.
+Parking a candidate does not abandon that topic or erase useful results.
+
+2. EVIDENCE BY FAMILY, NOT BY EVERY CODE REVISION
+This ledger covers the principal Low Complexity experimental families found
+in the cited reviews. It is not a count of every historical Chapter 3 model,
+engineering correction, ablation, smoke or timing attempt.
+
+SPI / candidate-beam prototype: smoke and offline decoder checks, no full
+research pilot. Much slower than additive DDQN. Early beam-coverage concerns
+were subsequently qualified by the objective/gradient diagnosis; do not use
+beam disagreement alone as proof that wider actions improve physical reward.
+
+EMC-Q: completed 72,000-slot development comparison. Saved-artifact audit
+passed; policy and value screens failed. Storage and the declared local cost
+ceilings passed, but the primary remained slower than additive references.
+
+Value-bound models: completed 120,000-slot comparison; audit passed. Of three
+primary initializations, one passed every screen, one passed policy/calibration
+but narrowly failed the median-ratio limit (5.009 versus 5.0), and one failed
+all five policy comparisons. Aggregate acceptance failed. Preserve all three;
+the passing initialization is not a confirmed successful method by itself.
+
+Version 3: completed 440,000-slot comparison; audit passed. Storage and declared
+cost screens passed. Deadline performance trailed compact64 by 12.2181 points
+on the five-fit mean; strong heuristics and calibration comparisons failed.
+
+Terminal anchor: completed 680,000-slot comparison with evaluation-only
+continuation and audit. Cost and terminal-error checks passed; global value,
+reference, heuristic and mechanism screens failed. Mean deadline deficits were
+10.9854 points versus compact64 and 8.7236 versus wide128. Fixing the boundary
+did not establish good whole-horizon policy/value behavior.
+
+Deadline screen: completed 440,000-slot comparison and corrected full audit.
+The declared screening mechanism passed: +11.297719 mean return and +24.055208
+deadline percentage points versus its exact unmasked arm, both positive in
+all five fits. Cost passed. Overall acceptance failed because stronger
+same-width controls, some heuristic comparisons, price and calibration did
+not meet their rules. This is useful measured component evidence, not proof
+that generic feasibility masking is novel.
+
+Horizon-normalized loss: completed 560,000-slot comparison; audit passed.
+The correction reduced return and deadline success versus fresh paired
+original-loss controls in every fit: means -7.753247 return and -13.984028
+deadline points. Some mechanism and cost screens passed, but the proposed
+correction and combined claim failed. Original-loss screened price24 controls
+had deadline success 95.8247-99.6441%; those are exploratory control results,
+not a replacement primary or final generalization evidence.
+
+Assignment-dependent pricing (ADP): completed 600,000 training slots and
+151,680 evaluation slots. Completion records AUDITED_COMPLETE. All seven
+scientific screens failed. Primary beats plain small DDQN, compact/wide
+references, nearest-RSU and UAV-selective on both outcomes in all five fits.
+It loses to the stronger observed-load/radio heuristic in all five: mean
+-2.5006 return and -2.2010 deadline points. Mechanism benefits are inconsistent.
+Primary storage is 68,264 parameter bytes versus 194,944 compact64 and 422,016
+wide128: 64.98% and 83.82% fewer bytes. It is larger than plain24 (67,364).
+The matched median-cost screen fails; absolute p95 <=1ms passes. Three
+eager/export action disagreements prevent exact deployment equivalence.
+
+RQ24 and AR24: two subsequent synthetic engineering candidates, NOT completed
+research-training failures. Correctness checks passed, matched median latency
+failed. RQ24's one equivalent optimization still failed. AR24's fixed-path
+profile did not establish sufficient removable overhead; its stop rule was
+applied without another optimized implementation. Both remain parked. Neither
+has measured trained-policy, deadline or calibration evidence.
+
+3. WHAT WE CAN DEFEND NOW
+Implemented compact DDQN offloading architectures and reproducible evaluation
+in the named simulator; substantial online parameter-payload reduction versus
+named compact/wide references; screening-related development policy gains;
+terminal-value improvements; and clearly documented negative comparisons.
+These are substantive implementation and experimental results worth retaining.
+They do not yet establish the intended combined controller contribution.
+
+Storage is not total deployment memory. Sub-millisecond latency is not speed
+superiority. Earlier and later cost gates used different declared routes;
+do not rank controllers by latency numbers from different sessions/backends.
+Do not average unrelated seed studies to manufacture a confirmation result.
+Large gains against a failed comparator fit do not establish robustness.
+
+4. WHY ANOTHER AUTOMATIC REDESIGN IS NOT THE NEXT STEP
+Different stages tested different hypotheses, rather than one universal
+failure: approximation/training defects, value boundaries, deadline screening,
+loss normalization, assignment interactions and complete runtime overhead.
+Small networks can lose their speed advantage to physical feature/decoder
+work. Good terminal values can coexist with poor policy or horizon-wide values.
+Clipping and deadline-failure concentrations are diagnostic associations;
+saved evidence does not establish a single causal optimizer explanation.
+A faster computer cannot resolve the already observed policy/mechanism errors.
+
+5. CLAIM-SCOPE DECISION
+Original combined target: retain it as UNMET. Do not claim proven lightweight
+or low-complexity performance preservation, reliable price/coupling superiority,
+global value accuracy, optimal scheduling, deadline guarantees or UAV energy
+savings. No final launch or Word-thesis claim revision is justified today.
+
+Recommended route to assess prospectively: a storage-efficient DDQN controller
+with an explicitly measured policy/latency tradeoff within the same offloading
+problem. This is a proposed scope for review, not a successful result, topic
+approval, automatic promotion of AR24 or permission to weaken old criteria.
+Only use the wording if its scientific rationale and fresh evidence support it.
+The stronger heuristic must remain in a future comparison; specify whether
+the claim is dominance or an explicit tradeoff and why that serves deployment.
+Keeping the original faster-than-wide target instead requires a materially
+justified new mechanism/runtime idea before spending another training budget.
+
+Value interpretation must be resolved explicitly. Realized own-policy Q-G
+error is not exact conditional expected Q or Q-star error. Useful action
+ranking need not imply accurate scalar calibration. Nevertheless calibration
+was mandatory in the completed protocols: those decisions remain FAILED.
+A future role for calibration must be scientifically justified before fresh
+outcomes, with finite/sign/terminal/scale diagnostics still reported. Do not
+reclassify an endpoint merely because it failed.
+
+Novelty is separate from all these metrics. Branching DDQN, action masks,
+congestion awareness and coordinate/potential methods have prior literature.
+Existing targeted literature notes do not establish full priority clearance.
+An exact implemented distinction and an informative matched ablation remain
+necessary. Thesis sufficiency and approved-scope acceptance cannot be promised.
+
+6. NEXT BOUNDED STEP: ONE PROSPECTIVE CLAIM/VALIDATION RATIONALE
+Write a design-neutral rationale before selecting a successor or new seeds:
+(a) State the offloading deployment need and primary claim: original joint
+    dominance target versus explicitly justified storage/policy/cost tradeoff.
+(b) Define complete storage and action-latency boundaries, acceptable policy
+    margins, initialization uncertainty and calibration interpretation from
+    scientific/deployment requirements, not by choosing limits that pass old fits.
+(c) Map the precise proposed improvement against closest full papers; state
+    the indispensable same-width/no-mechanism control and equally informed
+    observed-load/radio comparator. No generic masking novelty claim.
+(d) Specify GO only if a defensible distinction, affordable runtime path and
+    meaningful fresh test can all be stated. Otherwise HOLD; do not start a
+    width sweep or add another physical surrogate by default.
+This deliverable is not a frozen research protocol or authorization to train.
+Only after it passes review should one candidate be selected, a fresh paired
+development protocol frozen and a separate explicit launch decision made.
+Previously consumed data can motivate that plan but cannot confirm it.
+
+7. PRESERVATION AND VERIFICATION
+This review reads existing summaries and the ADP completion receipt; it does
+not repeat full historical artifact audits or independently rehash archives.
+Source-report SHA256 values are recorded in the companion evidence ledger.
+No simulation, optimizer update, timing repeat, model/export change, reserved
+final evaluation or Word-thesis edit is performed. Frozen run records stay
+unchanged. Local/UAV/RSU only; cloud/charging excluded; security/trust deferred.
+Historical status fields remain historical. The current review pointer is
+updated separately so stale audit-monitor instructions do not guide next work.
+
+SOURCE LIST
+See LOW_COMPLEXITY_CONSOLIDATED_EVIDENCE_LEDGER_2026-11-19.json for named source
+reviews, their content hashes, scope and verification limits.

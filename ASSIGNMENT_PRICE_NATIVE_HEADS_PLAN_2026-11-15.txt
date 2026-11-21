@@ -1,0 +1,33 @@
+PROSPECTIVE NATIVE-HEADS ENGINEERING PLAN
+Date: 2026-11-15
+
+Measured hypothesis: matched-path diagnostic graph time was about 45-46 us
+for ADP versus 30 us for the wide reference; native finishing about 13 us
+versus 3 us. Export only ADP's existing two-layer neural core, returning one
+FP32 raw vector. Fuse softplus/division, softmax, workload preparation and
+the existing FP64 cost/coordinate decoder into a native invocation. No change
+to equations, number of sweeps, mask, ties, loss or architecture.
+FP32 transformations stay FP32 and cost arithmetic stays FP64, fastmath off.
+Backend transcendental/reduction rounding may differ; this is numerical
+equivalence within existing tolerances, not universal bitwise identity.
+
+Five correctness groups passed before timing: saved-model action/value and
+head checks, mask/horizon boundaries, invalid/noncontiguous states, ownership/
+equal-head ties, adjacent biases and near-zero queues. No research policy.
+Keep all old experiments, failed timing gates and checkpoint files unchanged.
+
+One matched benchmark of this version: four candidate arms plus the same four
+compiled reference arms, original engineering seeds 99861/99869, 128 shared
+observations, five rounds, 32 warmups, 640 calls per path, 10,240 readings;
+order seed 99929. Freeze executable sources, plan, graphs, checkpoints and
+order before timing. Recheck action equality and unchanged value tolerance
+on all setup states. References retain their already tested ONNX/native route.
+Complete Runtime.values and copied action measured. Same CPU provider,
+one-thread graph session configuration and graph optimization for every path.
+
+Keep <= half compact64 parameter payload, median <= each wide reference and
+p95 <= 1 ms in each fit. Independently audit artifacts and saved arithmetic.
+No retiming for acceptance, simulator, optimizer updates, research seeds or
+thesis edits. If the same median screen still fails, hold integration and
+write a stopping/continuation decision using the remaining measured gap;
+do not automatically implement another version within this engineering gate.

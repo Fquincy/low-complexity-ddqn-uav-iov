@@ -1,0 +1,94 @@
+FINITE-HORIZON TERMINAL-ANCHOR PROTOTYPE REVIEW
+Date: November 6, 2026
+
+OUTCOME
+The isolated prototype and small synthetic fixture passed all eight tests.
+No IoV simulator episodes, new research training or final-seed evaluation
+were run. The Word thesis and historical research sources/results are unchanged.
+The fixture uses artificial feature vectors, random legal actions and negative
+surrogate rewards. It is engineering evidence only, not an offloading result.
+
+DESIGN REVIEW AND FROZEN ENGINEERING RULES
+Protocol: TERMINAL_ANCHOR_ENGINEERING_PROTOCOL_2026-11-06.json.
+Use Q(s,a)=h(s)*Qbase(s,a), where h=40-round(40*normalized_time).
+Validate time lies on the discrete slot grid; terminal value is exactly zero.
+For positive h use the unchanged base decoder. Reject terminal decoding.
+Keep the DDQN online-selection/target-evaluation update and skip terminal
+next-state decoding. Train with the uniform DDQN Huber loss plus a separate
+mean terminal Huber loss of weight1, using32 terminal samples with replacement.
+An empty terminal pool contributes zero anchor loss and is explicitly logged.
+Use an independent terminal-sampling RNG and remove evicted terminal indices.
+No extra optimizer steps are introduced. Training cost increases because of
+the additional terminal loss; inference parameter storage is unchanged.
+
+SCIENTIFIC SCREEN SCOPE DECISION
+For a future corrected-candidate protocol, candidate value thresholds should
+gate candidate claims while all comparator value distributions remain fully
+reported. A comparator's poor calibration should not be described as evidence
+that the candidate is calibrated. Likewise, a candidate cannot pass its own
+value criteria merely because a comparator is worse. This is an explicit
+prospective scientific amendment, not a reinterpretation of the old run.
+The original ALL-ARM value rule remains in force for the completed Version3
+experiment, which stays failed. The engineering protocol freezes this design
+direction, but does not authorize or freeze a new research experiment or
+silently change the untouched final protocol. Before new research, incorporate
+the precise candidate/ablation/reference screens into a separate reviewed
+protocol, with fresh collision-audited seeds and unchanged numeric thresholds.
+
+IMPLEMENTATION
+terminal_anchor_prototype.py: six variants covering priced/no-price critics,
+the two separate mechanism ablations, plain24 and compact64 controls.
+run_terminal_anchor_engineering.py: isolated synthetic fixture and artifact
+auditor. The original research runner is imported for model definitions only.
+It is not patched or launched. Development/final CLI modes reject execution
+before output creation. No deployment export path is implemented here.
+
+VERIFICATION
+Eight tests passed:
+1. Remaining-horizon grid validation and exact terminal boundary zero.
+2. Exact unchanged greedy actions for positive h, expected Q scaling and
+   unchanged trainable parameter counts across all six variants.
+3. Terminal targets equal reward, detach gradients and skip the decoder.
+4. Nonterminal DDQN uses online greedy selection and target evaluation.
+5. Terminal sampling is approximately uniform across valid stored terminals;
+   circular replay eviction removes stale terminal indices and handles empty
+   pools correctly.
+6. Combined terminal/uniform gradients match their sum; target gradients stay
+   absent. The empty-anchor path is checked.
+7. Development/final CLI guards prevent research execution and output creation.
+8. Full six-arm fixture, saved-checkpoint replay and artifact-tampering rejection.
+
+Fixture:80 synthetic transitions per arm x6 variants,438 optimizer updates,
+six final online/target checkpoints and480 saved greedy action vectors.
+The synthetic replay capacity48 exercises buffer wrapping; target copies occur
+every8 updates. Its shortened batch/warmup settings apply only to this fixture.
+The auditor verifies file hashes, checkpoint freeze hashes, update/copy counts,
+recorded terminal membership, loss arithmetic, finite recorded losses/norms,
+and exact checkpoint prediction reproduction. It does not independently
+retrain the optimizer or reconstruct each historical gradient from checkpoints.
+Unit tests establish the tested objective/gradient and replay mechanics.
+
+Artifacts: validation/terminal_anchor_engineering_2026-11-06_01/
+Test evidence: validation/terminal_anchor_engineering_tests_2026-11-06.json
+Test source: test_terminal_anchor_engineering.py
+No synthetic reward, return or calibration outcome was used to tune settings.
+No performance pass/fail screen is assigned to this synthetic fixture.
+
+WHAT REMAINS BEFORE RESEARCH
+The next engineering step is a paired simulator integration fixture for the
+corrected controller and controls, with recorded actions/tasks, real reward
+equations, independent saved-episode auditing and checkpoint invariance.
+Measure complete inference and training costs, implement/export the deployment
+route and check action equivalence before claiming runtime savings. Then
+freeze a complete research comparison and fresh seed reservation audit, and
+make a separate launch decision. Do not jump directly to the proposed680,000-
+slot study. Its research CLI has not been implemented or enabled here.
+
+The correction does not encode deadline feasibility, repair local routing by
+definition, bound Q from below, or establish novelty. Horizon scaling is a
+structural bias; terminal anchoring must be tested with its ablations and
+corrected baseline controls. General effectiveness remains unestablished.
+
+Cloud and charging stations remain excluded. Security/trust remains deferred
+to contribution two. The historical440,000-slot run remains preserved and
+failed under its original declared criteria. Final seeds remain untouched.

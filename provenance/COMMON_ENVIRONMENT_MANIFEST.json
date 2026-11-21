@@ -1,0 +1,12 @@
+{
+  "source": "Low Complexity/Source",
+  "model_version": "chapter3-timeline-v2",
+  "files_sha256": {
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33"
+  },
+  "active_cloud": false,
+  "active_charging": false,
+  "security_trust": false,
+  "initial_energy_and_consumption_constraints_retained": true
+}

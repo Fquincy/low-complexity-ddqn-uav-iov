@@ -1,0 +1,271 @@
+{
+  "id": "emcq-storage-quality-development-v1",
+  "date": "2026-11-04",
+  "status": "specified_not_implemented_or_launched",
+  "purpose": "bounded_storage_quality_tradeoff_development_screen_not_confirmatory_or_novelty_evidence",
+  "arms": [
+    "additive128",
+    "additive64",
+    "emc_q_original_exact"
+  ],
+  "model_seeds": [
+    2309,
+    2333,
+    2351
+  ],
+  "physical_model": "Source/chapter3_iov_env_v2.py_default_configuration",
+  "observation_size": 533,
+  "vehicles": 30,
+  "uavs": 2,
+  "rsus": 2,
+  "episode_slots": 40,
+  "claim": {
+    "online_parameter_bytes_reduction_vs_additive128_at_least": 0.3,
+    "lower_latency_claim": false,
+    "lower_peak_memory_or_energy_claim": false,
+    "quality_unestablished": true
+  },
+  "decoder": "original_emc_q.decode_tables_einsum_fixed_no_posthoc_variant_selection",
+  "training": {
+    "episodes": 200,
+    "gamma": 1.0,
+    "learning_rate": 0.0001,
+    "optimizer": "Adam_defaults",
+    "batch_size": 128,
+    "replay_capacity_physical_records": 50000,
+    "warmup_physical_records": 1024,
+    "first_update": "after_adding_record1024_inclusive",
+    "updates_per_physical_slot": 1,
+    "loss": "Huber_beta1_chosen_joint_scalar",
+    "gradient_clip": 10.0,
+    "target_copy_every_updates": 200,
+    "target_requires_grad": false,
+    "target_construction": "entire_target_under_no_grad_skip_absorbing_successors",
+    "epsilon": "warmup_1_else_1_minus0.95_min(t_before_decision/8000,1)",
+    "epsilon_decay_slots": 8000,
+    "action_rng_seed_offset": 100000,
+    "replay_rng_seed_offset": 200000,
+    "paired_actions": "one_exploration_coin_per_physical_slot_uniform_joint_vector_when_exploring",
+    "paired_weights_claim": false,
+    "cpu_threads": 1,
+    "cpu_interop_threads": 1
+  },
+  "seeds": {
+    "train_blocks": [
+      {
+        "replicate": 0,
+        "start": 16100000,
+        "count": 200
+      },
+      {
+        "replicate": 1,
+        "start": 16200000,
+        "count": 200
+      },
+      {
+        "replicate": 2,
+        "start": 16300000,
+        "count": 200
+      }
+    ],
+    "scheduled_validation": [
+      16800000,
+      16800001,
+      16800002,
+      16800003,
+      16800004
+    ],
+    "timing_probe": [
+      16850000,
+      16850001,
+      16850002,
+      16850003,
+      16850004,
+      16850005,
+      16850006,
+      16850007
+    ],
+    "fresh_development_gate": [
+      16890000,
+      16890001,
+      16890002,
+      16890003,
+      16890004,
+      16890005,
+      16890006,
+      16890007,
+      16890008,
+      16890009,
+      16890010,
+      16890011,
+      16890012,
+      16890013,
+      16890014,
+      16890015,
+      16890016,
+      16890017,
+      16890018,
+      16890019,
+      16890020,
+      16890021,
+      16890022,
+      16890023,
+      16890024,
+      16890025,
+      16890026,
+      16890027,
+      16890028,
+      16890029,
+      16890030,
+      16890031,
+      16890032,
+      16890033,
+      16890034,
+      16890035,
+      16890036,
+      16890037,
+      16890038,
+      16890039,
+      16890040,
+      16890041,
+      16890042,
+      16890043,
+      16890044,
+      16890045,
+      16890046,
+      16890047
+    ]
+  },
+  "diagnostic_episodes": [
+    0,
+    50,
+    100,
+    150,
+    200
+  ],
+  "checkpoint_selection": "final_episode200_only",
+  "fresh_gate": "only_after_all9_final_models_saved_and_hashed_no_updates_or_selection",
+  "heuristics": [
+    "all_local",
+    "nearest_rsu",
+    "uav_selective"
+  ],
+  "heuristic_rollouts": "once_per_fresh_seed_shared_across_all_models",
+  "quality_screen": {
+    "all3_emc_initializations_must_pass": true,
+    "versus_paired_additive128": {
+      "mean_episode_return_difference_at_least": -2.0,
+      "deadline_fraction_difference_at_least": -0.01
+    },
+    "versus_paired_additive64": {
+      "mean_episode_return_difference_at_least": 2.0,
+      "deadline_fraction_difference_at_least": 0.01
+    },
+    "versus_each_nearest_rsu_and_uav_selective": {
+      "mean_episode_return_difference_at_least": 0.0,
+      "deadline_fraction_difference_at_least": 0.0
+    },
+    "own_greedy_terminal_abs_error_p95_at_most": 10.0,
+    "fixed_probe_positive_greedy_Q_fraction_at_most": 0.05,
+    "interpretation": "all_point_estimate_engineering_margins_not_formal_noninferiority_significance_or_theorem"
+  },
+  "cost_screen": {
+    "all3_emc_models": true,
+    "online_parameter_bytes_at_most_ratio_additive128": 0.7,
+    "complete_action_median_ratio_vs_additive128_at_most": 5.0,
+    "complete_action_p95_ms_at_most": 2.0,
+    "interpretation": "local_engineering_latency_ceiling_not_hardware_independent_deployment_deadline"
+  },
+  "cost_measurement": {
+    "common_probe_states": 128,
+    "rounds": 5,
+    "warmup_calls_per_path_round": 32,
+    "timed_calls_per_path_round": 128,
+    "path_order_rng_seed": 20261112,
+    "include": "conversion_network_exact_argmax_action_dictionary",
+    "exclude": "environment_step_loading_IO",
+    "additional_metrics": [
+      "online_target_optimizer_replay_array_bytes",
+      "training_wall_time",
+      "evaluation_wall_time"
+    ],
+    "not_measured": [
+      "peak_process_memory",
+      "energy"
+    ]
+  },
+  "uncertainty": {
+    "bootstrap_draws": 2000,
+    "rng_seed": 20261113,
+    "cluster": "48_shared_fresh_workload_episodes_per_fitted_pair",
+    "report_each_model_seed": true,
+    "training_seed_uncertainty_claim": false,
+    "no_pooling_as144_independent_workload_seeds": true
+  },
+  "run_order_rng_seed": 20261111,
+  "smoke": {
+    "model_seed": 2399,
+    "replicates": 1,
+    "arms": 3,
+    "episodes_per_arm": 2,
+    "train_seeds": [
+      17100000,
+      17100001
+    ],
+    "validation_seeds": [
+      17800000,
+      17800001
+    ],
+    "probe_seeds": [
+      17850000,
+      17850001
+    ],
+    "fresh_seeds": [
+      17890000,
+      17890001
+    ],
+    "warmup": 8,
+    "batch": 4,
+    "capacity": 64,
+    "target_interval": 8,
+    "epsilon_decay_slots": 80,
+    "diagnostic_episodes": [
+      0,
+      1,
+      2
+    ],
+    "first_update_record": 8,
+    "expected_slots_per_arm": 80,
+    "expected_updates_per_arm": 73,
+    "expected_target_copies_per_arm": 9,
+    "use": "integration_only_do_not_select_architecture_from_smoke"
+  },
+  "logging": [
+    "per_episode_final_return_on_time_generated_fraction",
+    "physical_replay_states_actions_rewards_next_states_done",
+    "task_records_reward_components_actual_motion",
+    "exogenous_predecision_task_fingerprints",
+    "optimizer_step_loss_grad_norm_sample_record_ids",
+    "final_online_target_optimizer_rng_counters_checkpoints",
+    "source_spec_input_hashes",
+    "all_errors_and_partial_results"
+  ],
+  "evaluation_invariance": [
+    "weights",
+    "target",
+    "optimizer",
+    "replay",
+    "training_action_rng",
+    "replay_rng",
+    "counters"
+  ],
+  "stop": "fixed_budget_or_nonfinite_exception_no_auto_retry_extension_or_favorable_checkpoint_seed_selection",
+  "next_gate": "implement_runner_tests_then_disjoint_smoke_only_before_development_launch",
+  "source_sha256": {
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a",
+    "Source/validate_chapter3_model.py": "0354f9ea137579120716911977bb06b279fc67dcfa86f3f453b81aad252852bb"
+  }
+}

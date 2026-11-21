@@ -1,0 +1,2 @@
+# Preserve exact frozen source/evidence bytes across platforms.
+* -text

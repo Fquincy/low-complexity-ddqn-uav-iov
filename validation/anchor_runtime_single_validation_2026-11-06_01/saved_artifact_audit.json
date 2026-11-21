@@ -1,0 +1,20 @@
+{
+  "state": "passed_runtime_artifact_audit",
+  "cost_screens": {
+    "0": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    "1": {
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  },
+  "all_cost_screens_pass": true,
+  "timing_rows_checked": 29440,
+  "training_updates": 0,
+  "simulator_steps": 0,
+  "research_launched": false
+}

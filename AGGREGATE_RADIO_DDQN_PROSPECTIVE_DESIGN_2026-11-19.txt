@@ -1,0 +1,286 @@
+AGGREGATE-RADIO COMPACT DDQN: PROSPECTIVE DESIGN v1
+Date: 2026-11-19 (Asia/Shanghai)
+Local identifier: AR24-DDQN; not a publication novelty claim.
+Status: EQUATION/ENGINEERING DESIGN; NO IMPLEMENTATION OR RESEARCH RELEASE.
+
+DECISION AND HYPOTHESIS
+Assess one replacement for the parked RQ24-v1 radio mechanism. An inexpensive
+payload/deadline/geometry interaction potential might improve joint offloading
+with less complete inference cost than an explicit physical-pair graph.
+Policy performance, speed, calibration and novelty remain unknown. This
+semantic redesign does not retrospectively change or pass the ADP/RQ24 tests.
+
+1. SCOPE AND INFORMATION
+Same existing533-dimensional observation,30 vehicle task branches with5
+destinations(local,UAV1,UAV2,RSU1,RSU2),2 five-choice UAV movement branches,
+40-slot horizon, simulator rewards and observation model. Security/trust
+deferred; cloud and charging excluded. Word thesis unchanged.
+Use current observed task/vehicle coordinates, UAV coordinates, payload,
+cycles, deadlines and compressed compute queues. No private simulator state,
+future arrivals, teacher labels, new task rollouts or final-set information.
+Retain original certified local-infeasibility mask; no new radio/deadline
+or battery mask. Full Q is defined for every legal joint action even when
+the decoder mask excludes an otherwise legal local action.
+
+2. EXACT FEATURE EQUATIONS AND UNITS
+Convert observed FP32 scalars to FP64 BEFORE feature arithmetic. Let A=1000m
+and H=50m be the existing area and altitude. For normalized vehicle position
+(p_ix,p_iy) and UAV position (p_dx,p_dy), d=1,2:
+  rho_id^2 = ((p_ix-p_dx)*A)^2 + ((p_iy-p_dy)*A)^2,
+  g_id = H^2/(rho_id^2+H^2),
+  x_id = b_i/t_i/g_id, y_id=g_id,
+where b_i is task feature5 = B_i/B_max and t_i is feature7 = tau_i/.300.
+This is algebraically the memo's (B/B_max)*(.300/tau)/g, expressed directly
+in the existing normalized input coordinates to avoid unnecessary unit
+conversion. B_max is the existing24,000,000-bit task payload scale.
+
+For physically valid tasks: b_i in[1/3,1], normalized cycles in[.6,1],
+t_i in[.25/.300,1]; normalized x/y positions in[0,1]. H>0 implies g>0
+even at coincident horizontal positions. Reject nonfinite/invalid inputs;
+do not clip valid features or substitute hidden rates. Stress tests may
+exercise documented observation bounds beyond the default task support,
+but must identify those as synthetic rather than simulator-reachable.
+
+For inherited compute potential, form FP64
+  w_id = normalized_cycles_i * stored_cycle_to_work_d,
+  cycle_to_work = FP32[0,500e6/10e9/.3,500e6/10e9/.3,
+                       500e6/20e9/.3,500e6/20e9/.3],
+  q_0=0, q_d=expm1(FP64(observation[270+d-1])), d=1..4.
+The buffer stores the same20-byte rounded FP32 scales as the incumbent;
+promote its stored values to FP64, not a recomputed higher-precision scale.
+No physical radio rates, LoS/NLoS functions, trigonometry, edge lists,
+donor selection, pair coefficient arrays or RQ24 physical unary proxy remain.
+
+g is a geometry ranking proxy, NOT the environment's actual channel gain.
+x weights the relative burden of weak-link, large-payload, tight-deadline
+tasks. This is not a task-delay estimator or deadline-feasibility bound.
+A single UAV task has zero radio PAIR cost; its single-user link impairment
+must be represented by the learned unary residual. This is an explicit risk.
+
+3. NETWORK AND SAME-ACTION VALUE
+One FP32 MLP: Linear(533,24),ReLU,Linear(24,172).
+Outputs:150 signed placement residuals u,10 signed movement residuals v,
+1 signed bias b,4 compute-price raw values,5 eta logits,2 radio-scale raw
+values. Placement/movement/bias remain signed as in RQ24; no extra heads.
+After neural forward promote raw outputs to FP64 BEFORE head nonlinearities:
+  beta_0=0, beta_1..4=softplus(raw161..164),
+  eta=softmax(raw165..169), lambda_1..2=softplus(raw170..171).
+Compute softplus with max(z,0)+log1p(exp(-abs(z))) in FP64. Softmax subtracts
+its maximum and uses a fixed left-to-right FP64 sum. Reject nonfinite heads.
+
+For assignments a and movements m:
+  W_d=sum_{i:a_i=d} w_id, S_d=sum_{i:a_i=d} w_id^2,
+  P_cpu = sum_d beta_d/(4N) *
+          [2*q_d*W_d+eta_d*W_d^2+(1-eta_d)*S_d].
+For d=UAV1,UAV2 only:
+  X_d=sum_{i:a_i=d} x_id, Y_d=sum_{i:a_i=d} y_id,
+  Z_d=sum_{i:a_i=d} x_id*y_id,
+  P_radio=sum_d lambda_d*(X_d*Y_d-Z_d)/N.
+Define
+  C_theta=b+sum_i u_i,a_i/N+sum_j v_j,m_j/2+P_cpu+P_radio,
+  Q_theta(s,a,m)=-h(s)*softplus(C_theta).
+h=40-round(40*observation[-1]); require an on-grid time in[0,40].
+At h=0, return Q=0 after shape/action/finite checks without physical
+feature/decoder work. Greedy action decoding at h=0 is forbidden.
+Q<=0; there is no finite lower value bound, calibration or deadline guarantee.
+
+4. RADIO ALGEBRA AND NUMERICAL CONTRACT
+Exactly in real arithmetic,
+  X*Y-Z = sum_{i<j, both assigned d}(x_i*y_j+x_j*y_i)>=0.
+The value implementation MUST evaluate this without subtracting nearly
+equal products. Visit assigned tasks in increasing vehicle ID, maintaining
+prefix X,Y; add x_i*prefixY+y_i*prefixX before updating the prefixes. This
+prefix evaluation is O(N*U), allocates no dense pairs, is nonnegative for
+valid nonnegative features and has the SAME real-valued function. The
+autograd implementation uses that same differentiable prefix expression.
+Do not implement max(0,X*Y-Z) or a different clamped surrogate.
+
+For cached decoder sums X,Y,W, add/remove in FP64. Track integer destination
+occupancies. When a removal empties a destination, set its sums to exactly0.
+For a nonempty destination, a negative cached sum is an error; do not clamp
+it. Removing/readding positive terms may cause tiny roundoff, so identical
+prefix/delta values are not claimed bit-for-bit for all possible states.
+The exact insertion formula below is a real-arithmetic identity.
+
+Predeclared synthetic tolerance: FP64 scalar/features/deltas rtol1e-12,
+atol1e-12; exact action legality/topology-free branch decisions for well-
+separated cases and EXACT tie fixtures. For floating near ties, record every
+decision discrepancy versus direct-recomputation reference. ANY such
+discrepancy blocks cost release pending a written numerical diagnosis;
+do not silently widen tolerances or reinterpret it as a passing decision.
+No fastmath, no altered precision, no post-hoc score epsilon/tolerance tie rule.
+
+5. INITIALIZATION AND ONE-PASS DECODER
+One neural forward. Compute features/heads once. Initialize each task using
+the incumbent expected-other CPU score, with RADIO IGNORED ONLY HERE:
+  score_id = u_id/N + beta_d/(4N)*
+             [2*(q_d+eta_d*sum_{k!=i} w_kd)*w_id+w_id^2].
+Pick the lowest score among original-mask allowed destinations, choosing
+lowest destination ID on exact ties. Pick each movement argmin v_jm,
+lowest movement ID on ties. No new hover or battery restriction.
+
+Order task visits by decreasing observed cycles, ascending vehicle ID for
+ties, using stable sorting. Save initial scalar C using the prefix radio
+evaluation. Initialize caches W for5 destinations, X,Y for2 UAVs and counts.
+Perform EXACTLY ONE coordinate sweep:
+  remove i's old contributions;
+  Delta_cpu(i,d)=beta_d/(4N)*
+       [2*(q_d+eta_d*W_minus_i,d)*w_id+w_id^2],
+  Delta_radio(i,d)=lambda_d/N*
+       [x_id*Y_minus_i,d+y_id*X_minus_i,d] for d in{1,2}, otherwise0,
+  candidate_id=u_id/N+Delta_cpu+Delta_radio.
+Start from the old destination's candidate value. Replace only for a
+strictly smaller score; on an exact tie retain old if still among minima,
+otherwise choose lowest destination ID. Add i to the selected destination.
+No repeated-to-convergence pass, global rate reevaluation or neural call.
+Return final action copy and Q from DIRECT same-action scalar C, not an
+accumulated difference estimate. Record surrogate nonincrease as a check.
+Use an FP64 check C_final<=C_initial+1e-12*max(1,abs(C_initial)); failure is
+an engineering error, not permission to undo/retry favorable decisions.
+
+Each coordinate minimizes this single surrogate conditional on others in
+real arithmetic, so it cannot increase C and cannot decrease model Q for
+h>0. It is NOT a globally optimal argmax or a simulator-return improvement
+proof. Motion remains decoupled: radio uses CURRENT positions whereas UAVs
+move during the next slot; original movement heads must learn that effect.
+Pending uploads, compressed queues and future joint actions remain imperfectly
+represented. Battery is observed but not explicitly modeled in pair costs.
+
+6. DDQN TARGET, LOSS AND CALIBRATION
+For nonterminal transitions:
+  a_next=D_online(s_next),
+  y=r+Q_target(s_next,a_next), gamma=1.
+For terminal transitions y=r; never decode terminal next states.
+The target evaluates the exact same chosen action with its own learned
+heads and the same state-feature/scalar rules. Detach targets; no gradient
+through discrete actions, sorting or the task's physical observations.
+  L_uniform=mean Huber_beta1(Q_online(s,a)-y),
+  L_anchor=mean_{sampled last-slot transitions}
+                    Huber_beta1(Q_online(s,a)-r),
+  L=L_uniform+1*L_anchor.
+Only one optimizer step for the combined loss. An empty terminal pool
+produces0 anchor loss and an explicit log. Evaluate off-policy masked-out
+actions through the scalar; masking restricts selection, not value definition.
+
+Prospective optimizer definition inherits Adam lr1e-4,betas(.9,.999),eps1e-8,
+weight_decay0,norm10 global clipping; target exact initial copy and copies
+every200 updates. Uniform chronological replay with replacement, capacity
+50,000,batch128,warmup1024; anchor batch32 uniform among un-evicted terminal
+transitions, separate RNG, final checkpoints only. Epsilon schedule and
+training duration are NOT set here; freeze with new seeds in a future
+research protocol before any collection. No normalized-loss variant.
+
+Horizon sensitivity and anchor gradient conflict can persist unchanged.
+The outer softplus can saturate for negative residual costs. Report original-
+unit Q/G/target distributions, calibration NRMSE/bias, terminal errors,
+near-zero collapse, gradients by horizon, clipping and anchor conflict.
+This design does not assert a calibration solution. Passing cost alone is
+not grounds to remove stability requirements or launch final evaluation.
+
+7. COMPUTATIONAL ACCOUNTING
+Parameters=(533+1)*24+(24+1)*172=17,116; FP32 parameter bytes68,464.
+Known FP32 cycle buffer20bytes. No trainable per-pair tensors or graph data.
+Actual serialized artifacts/runtime/target/optimizer/replay storage remain
+separate. Compared with compact64(194,944bytes), this is about64.9% fewer
+parameter bytes; compared with wide128(422,016), about83.8% fewer. It is
+1,100bytes MORE than plain24, not smaller than every baseline.
+
+For U UAVs,D destinations,N vehicles,hidden width L:
+feature construction O(N*U+N*D), scratch O(N*(U+D)); cached CPU/radio
+candidate evaluation and updates O(N*D+N*U); final scalar O(N*(D+U));
+fixed two-layer forward scales O(input_dim*L+L*output_dim). Stable task
+sorting adds O(N log N). No explicit O(N^2) storage, donor selection,
+pair-rate logs or per-edge coefficients. Some expm1 for observed queues
+and softplus/softmax for learned heads remain. Do not claim no nonlinear
+operations or a strictly linear whole algorithm while sorting is present.
+
+These counts support a cost hypothesis, not a runtime measurement. ADP's
+already-cheap aggregate decoder failed its strict median gate; this design
+may also exceed the narrow7.3-8.7us small-to-wide margin in the saved fixture.
+No promised latency, startup, energy or hardware-independent bound.
+
+8. MECHANISM ABLATIONS AND REFERENCES (PROPOSED, NOT RESEARCH-FROZEN)
+13 learned arms for a later prospective comparison:
+1 AR24 primary.
+2 AR24 no radio: lambda term multiplied by0; same tensors/features computed
+  and same optimizer/loss/decoder pass for policy-mechanism isolation.
+3 AR24 no deadline weighting: x=b/g (remove1/t), all else identical.
+4 AR24 homogeneous radio geometry: g=1 so x=b/t,y=1. Not a no-radio arm;
+  pair cost becomes payload/slack weighted same-UAV congestion.
+5 AR24 no CPU coupling: multiply P_cpu and its decoder marginal by0;
+  keep inherited heads/tensors, original mask and radio term.
+6 AR24 no sweep: return initialized assignment and SAME full scalar Q.
+7 incumbent coupled_sweep.
+8 screened plain24 DDQN;9 unmasked plain24 DDQN.
+10 screened wide128;11 unmasked wide128;12 unmasked compact64;
+13 adapted screened BDQ.
+Unused heads in zero-term ablations may have zero gradients by design;
+report that instead of treating it as an implementation defect.
+
+Heuristics: observed-load/radio mandatory strong control, nearest-RSU,
+UAV-selective, all-local diagnostic; plus an AR fixed-physics allocator
+with u=v=b=0,beta_1..4=1,eta=.2,lambda_1..2=1, same compute/radio
+features,mask,initialization and sweep. It is non-learning, not a DDQN fit.
+Compare learned benefit against it; do not credit a physical prior to DDQN.
+RQ24-v1 remains an optional reported engineering-cost reference, not an
+automatically added expensive training arm or a retroactively trained model.
+
+Attribution: radio removal tests an interaction bundle, no-deadline and
+homogeneous controls test factor contributions, no-sweep tests approximate
+selection, no-CPU tests coupling. Main primary versus incumbent also changes
+residual/value architecture, so it is not a one-factor radio experiment.
+All performance comparisons must include every initialization, all failed
+fits, final checkpoints and paired workloads. Do not select the best arm
+after results as a replacement predeclared primary.
+
+9. CLOSEST-METHOD POSITION
+DCG(1910.00091),eq5-6 already has learned low-rank pair payoffs and
+approximate graph maximization. AR24 restricts payoffs to physical proxy
+factors with two state-dependent learned scales and uses aggregate exact
+marginals in one pass; it does not invent low-rank Q or pair factorization.
+BDQ(1711.08946) already has shared small branches and DDQN. AR24 adds joint
+same-UAV costs absent in independent branch argmax, but that alone is not
+first-of-its-kind. The graph-DDQN vehicular preprint uses GCN embeddings,
+not this potential; journal text is still blocked, so priority is unresolved.
+Interference/deadline offloading and potential allocation already exist.
+The specific application-level cost/performance improvement must be measured;
+no novelty or supervisor/department approval can be inferred from equations.
+Use RQ24_FULL_METHOD_COMPARISON_2026-11-19.txt as existing evidence; no new
+full-text literature clearance or exhaustive search was performed this gate.
+
+10. NEXT ENGINEERING GATE AND STOP RULES
+Implement only in NEW isolated files, preserving ADP,RQ24,optimized-v1
+and their failed artifacts. Before execution, write a synthetic fixture plan
+with independent engineering-only seeds and numerical contracts above.
+Tests: aggregate/prefix sum versus explicit dense pairs; same-action Q
+versus decoder scalar; cached marginal versus direct recomputation for
+every candidate; tie behavior; terminal targets/boundary; legal masks;
+empty/singleton destinations; highly unequal positive features; finite
+gradients and detached targets; all six mechanism variants; invalid input.
+Do not claim the six new learned variants are implemented by this brief.
+
+Only after correctness passes: ONE complete same-session synthetic latency
+comparison, including observation validation, feature formation, neural
+forward, mask,sort,decoder,scalar and output copy. Use identical synthetic
+inputs, compiler opportunities and one-thread backend for primary and
+plain/compact/wide references. Freeze plan/graphs/order before timing;
+report compilation/setup separately. No unreported favorable repeats.
+Keep engineering storage<=half compact64, median<=EACH wide reference
+in EVERY synthetic initialization, absolute p95<=1ms. No policy quality
+claim from such a fixture. If cost fails, stop for a decision; no automatic
+width/order/physics/loss tuning or research collection.
+
+Fresh development seeds, collisions against history, new training/evaluation
+budgets, statistical comparisons and numerical/scientific criteria remain
+UNASSIGNED until a separate future research-protocol gate. Calibration,
+mechanism benefit and strong-heuristic comparisons remain necessary, not
+optional hurdles discarded after observing failure. Do not silently import
+old budgets or launch commands. Existing final reservations protected.
+No implementation, simulator collection, research launch, final evaluation
+or thesis claim revision is carried out by this design-only deliverable.
+
+EVIDENCE
+RQ24_DESIGN_AND_CLAIM_DECISION_MEMO_2026-11-19.txt
+RQ24_OPTIMIZED_RUNTIME_V1_REVIEW_2026-11-19.txt
+RQ24_FULL_METHOD_COMPARISON_2026-11-19.txt
+ASSIGNMENT_PRICE_OFFLINE_GRADIENT_TIMELINE_DIAGNOSIS_2026-11-19.txt

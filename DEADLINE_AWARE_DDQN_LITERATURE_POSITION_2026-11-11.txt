@@ -1,0 +1,41 @@
+BOUNDED LITERATURE POSITION CHECK
+Date: November11,2026
+
+SCOPE
+Retrieved arXiv landing-page metadata and abstracts for four known relevant
+works. HTML evidence and URLs are saved under
+analysis\deadline_design_literature_2026-11-11
+Existing local extracted DDQN/branching texts were also inspected.
+This is a limited component-overlap check, NOT an exhaustive UAV-IoV
+related-work search, full-paper verification or novelty clearance. No
+full-text theoretical conclusion is inferred from a landing-page abstract.
+
+A Closer Look at Invalid Action Masking in Policy Gradient Algorithms
+https://arxiv.org/abs/2006.14171
+Invalid action masking is established; this paper concerns policy-gradient algorithms. Its abstract does not prove masked-DDQN convergence or deadline guarantees.
+
+Action Branching Architectures for Deep Reinforcement Learning
+https://arxiv.org/abs/1711.08946
+Shared branching architectures with linear output growth and BDQ are established. Linear decoder scaling alone is not a new contribution.
+
+Deep Reinforcement Learning with Double Q-learning
+https://arxiv.org/abs/1509.06461
+Separating online action selection and target evaluation is established Double DQN. It does not guarantee calibration in this simulator.
+
+Constrained Policy Optimization
+https://arxiv.org/abs/1705.10528
+Reward-plus-constraint formulations are established. This proposal is not CPO and inherits no CPO constraint-satisfaction guarantee.
+
+OPEN DOMAIN WORK
+Search UAV-assisted vehicular offloading papers for deadline-feasibility
+masking, queue-aware action screening, branching DDQN and model-based
+local execution lower bounds. Read closest full papers, compare state
+information, joint-action handling, guarantee assumptions, objective,
+cost measurement and ablation standards. Do not claim no prior art.
+The project already contains narrower IoV paper extracts; those are not
+a complete review of this new masking/feasibility design.
+
+PROVISIONAL CLAIM
+A measured implementation improvement in the approved offloading problem
+is a research hypothesis. The simple local test itself is not a novelty.
+Department/supervisor approval and empirical success remain unresolved.

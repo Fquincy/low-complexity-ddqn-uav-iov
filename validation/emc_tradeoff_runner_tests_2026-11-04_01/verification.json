@@ -1,0 +1,7 @@
+{
+  "state": "passed",
+  "tests_run": 5,
+  "runner_sha256": "50e8c31d929254585cc36c1bb83e80579ac01d119096cb64840ca751b2f414a1",
+  "synthetic_optimizer_updates": 219,
+  "physical_evaluation_steps": 120
+}

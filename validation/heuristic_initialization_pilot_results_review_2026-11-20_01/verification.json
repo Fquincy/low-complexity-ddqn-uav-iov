@@ -1,0 +1,11 @@
+{
+  "verified": true,
+  "primary_manifest_files": 953,
+  "archive_files": 957,
+  "archive_bytes": 1107057221,
+  "promising_screen": true,
+  "mean_return_gain": 70.96970700176875,
+  "mean_deadline_gain_pp": 12.107638888888886,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0
+}

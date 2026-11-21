@@ -1,0 +1,109 @@
+CENTERED-LINEAR COMPARISON: SEVEN-ARM ENGINEERING REVIEW
+2026-11-20
+STATUS: END-TO-END ENGINEERING FIXTURE AND NINE TESTS PASSED.
+51,280-SLOT DEVELOPMENT COMPARISON NOT RELEASED OR LAUNCHED.
+
+IMPLEMENTED
+centered_linear_comparison_models.py supplies all7frozen model adapters:
+centered-linear BC->DDQN,old-softplus BC->DDQN,centered-softplus control,
+uncentered-linear control,independent BC-only,common-demo/no-BC DDQN,and
+ordinary no-demo/no-BC DDQN. Same161outputs/16,841parameters and inherited
+screen. Numeric reference tests verify the four scalar formulas and exact
+old-baseline formula/summation-order equivalence. Signed linear Q is reported
+without clipping;softplus-only sign constraints apply only to those arms.
+
+run_centered_linear_comparison.py binds the immutable protocol hash and all
+definition sources before execution. It generates shared teacher transitions,
+clones per-fit initial tensors,runs matched BC draws,fresh TD optimizers and
+targets for online arms,retains final checkpoints only,and freezes all hashes
+before any held-out evaluation. BC-only creates no TD optimizer,target,replay
+or online episodes. The ordinary control starts with empty replay;its sample
+indices differ when replay lengths differ despite matched random streams.
+
+The primary and BC-only must have identical BC-end tensor hashes BEFORE TD.
+All5BC variants share identical initialization/data/loss and therefore their
+BC-end weights also match. BC-only final weights must retain that hash.
+Before/after-BC/final probes save Q,scalar inputs/derivatives,value outputs,
+branch means,teacher-action agreement and chosen actions without saving extra
+intermediate checkpoints. The teacher remains the explicitly bound Python
+reference of frozen equations,not historical compiled-runtime equivalence.
+
+The runner evaluates every student and the teacher,saves all absolute outcomes,
+all primary-minus-comparator contrasts and every student-minus-teacher contrast.
+Policy and relative-value screens are computed separately before their joint
+promising decision. Timing includes complete eager chosen-Q paths and has no
+speed acceptance threshold. Full planned timing inventory is22policies*128
+states*3rounds=8,448calls;the reduced fixture exercises the same stage with
+15policies*4states*1round=60calls.
+
+INDEPENDENT AUDITOR
+audit_centered_linear_comparison.py verifies inventory/hashes,protocol/source
+bindings,plan budgets,seeded initialization,demo freezes,BC/RNG/sample draws,
+shared exogenous tasks,episode reward/task accounting,DDQN scalar target/Huber
+arithmetic,terminal next-action bypass,copy/update/Adam counters,final replay
+and RNG contents,BC-only isolation,final checkpoint/action/Q reproduction,
+final scalar probes,allcomparison values and independent decision arithmetic.
+It recomputes value residual/slot-bin distributions,positive/nearzeroQ fractions,
+gradient-norm quantiles and clipping fractions from saved records,and timing
+median/p95/inventory/order from saved readings. Audit adds no simulation or
+optimizer steps and does not remeasure timing. It does NOT replay historical
+gradients/weights or reproduce every BC gradient from an intermediate checkpoint.
+Thus saved BC-end hashes are checked against independently retained BC-only
+final weights and shared algorithm/data,not reconstructed BC optimization.
+Recorded gradient/time histories remain measurement records,not universal proof.
+
+FINAL TEST EVIDENCE
+validation/centered_linear_comparison_fixture_2026-11-20_02/
+Nine tests passed:
+- complete7-arm orchestration and final-only checkpoint inventory;
+- development/final rejection before model/output/task construction;
+- allfour scalar formulas and old-baseline arithmetic;
+- missing global checkpoint freeze detection;
+- no-demo preload and BC-only-update tamper rejection;
+- altered value-screen result rejection;
+- primary/BC-only BC-end weight-hash mismatch rejection;
+- altered recorded TD target rejection after manifest rehash;
+- unlisted intermediate checkpoint and altered exogenous workload rejection.
+The fixture uses2fits,14students,1,160simulator slots,20BC updates,384TD
+updates,14final checkpoints and192manifest files. The artifact auditor passed.
+The earlier complete fixture01is preserved. Both executions together used
+2,320engineering slots,40BC updates and768TD updates. These are engineering
+fixtures with separate seeds,not the51,280-slot development comparison.
+Bothfixture promising decisions were false;neither is policy-quality evidence
+and no model,seed,budget or criterion was tuned in response.
+
+UNEXECUTED DEVELOPMENT PATH
+The plan still specifies3fits,21final checkpoints,36,000online student slots,
+1,200teacher-demo slots,14,080evaluation slots=51,280unique simulator slots;
+3,000BC+33,696TD=36,696gradient updates. This full budget was verified by
+arithmetic/plan inspection only;it was NOT executed. Reduced orchestration
+tests do not establish long-run runtime,storage use,learning quality or novelty.
+
+GUARDS
+Correct confirmation text alone is insufficient. DEVELOPMENT_RELEASED=False
+stays the default;the CLI rejects with disabled pending separate review.
+Missing confirmation rejects explicitly;final mode is disabled. No temporary
+release enabling or research task seed use occurred in this gate.
+
+NEXT SEPARATE DECISION
+Review the exact tested adapter/runner/auditor/source/environment bindings,
+refresh development-versus-fixture/final seed reservations,check projected
+runtime/storage and decide whether this correction study is technically ready.
+Only after that decision may a separate explicit launch instruction authorize
+the frozen51,280-slot comparison. This engineering pass is not launch permission.
+Stronger compact64/wide128/BDQ references remain deferred as declared;no full
+low-complexity contribution claim can be established from this reduced scope.
+
+PRESERVATION
+Historical runner,models,protocols,checkpoints,failed gates and positive prior
+pilot are unchanged. Word thesis and final reservations untouched. Security/
+trust deferred;cloud and charging excluded. No subagents or model delegation.
+
+FILES
+centered_linear_comparison_models.py
+run_centered_linear_comparison.py
+audit_centered_linear_comparison.py
+test_centered_linear_comparison.py
+validation/centered_linear_comparison_fixture_2026-11-20_02/tests.json
+validation/centered_linear_comparison_fixture_2026-11-20_02/saved_artifact_audit.json
+validation/centered_linear_comparison_fixture_2026-11-20_02/engineering_verification.json

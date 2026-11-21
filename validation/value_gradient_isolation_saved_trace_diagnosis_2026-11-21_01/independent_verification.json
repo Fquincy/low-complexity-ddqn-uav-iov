@@ -1,0 +1,327 @@
+{
+  "status": "SAVED_DIAGNOSIS_INPUT_HASHES_EXPORTS_TASK_QUEUE_AND_REWARD_ARITHMETIC_VERIFIED",
+  "consumed_files_rehashed": 602,
+  "fixed_state_population_model_entries_verified": 90,
+  "paired_task_comparisons_verified": 12,
+  "same_RSU_new_miss_queue_identities_verified": 723,
+  "cross_population": {
+    "0": {
+      "calibrated_bc_only": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "calibrated_retained_ddqn": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "dueling_shared_td_rescale_ddqn": {
+        "saved_states_different_fraction": 0.1390625,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.00010416666666666667,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.00026041666666666666,
+            "movement": 0.0015625
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.00015625,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "old_softplus_bc_ddqn": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      }
+    },
+    "1": {
+      "calibrated_bc_only": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "calibrated_retained_ddqn": {
+        "saved_states_different_fraction": 0.2125,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "dueling_shared_td_rescale_ddqn": {
+        "saved_states_different_fraction": 0.4015625,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "old_softplus_bc_ddqn": {
+        "saved_states_different_fraction": 0.975,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0178125,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0034375,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0040104166666666665,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0005729166666666667,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0013541666666666667,
+            "movement": 0.0
+          }
+        }
+      }
+    },
+    "2": {
+      "calibrated_bc_only": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "calibrated_retained_ddqn": {
+        "saved_states_different_fraction": 0.0265625,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "dueling_shared_td_rescale_ddqn": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      },
+      "old_softplus_bc_ddqn": {
+        "saved_states_different_fraction": 0.0,
+        "policy_changes_across_observed_populations": {
+          "value_gradient_isolated_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "dueling_shared_td_rescale_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_retained_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "calibrated_bc_only": {
+            "placement": 0.0,
+            "movement": 0.0
+          },
+          "old_softplus_bc_ddqn": {
+            "placement": 0.0,
+            "movement": 0.0
+          }
+        }
+      }
+    }
+  },
+  "diagnosis_receipt_sha256": "0bd0b84c6d5420bbebf51e611bdbbe514c15e3ee41fa32e325ada3c0deee243e",
+  "script_sha256": "ac331223d3fb138e7b30b4a85dbc75922d2c367cb54cfe25d97c8f2f9ca99548",
+  "new_models_created": 0,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_teacher_calls": 0,
+  "new_autograd_evaluations": 0,
+  "policy_screen": false,
+  "value_screen": true,
+  "promising": false,
+  "new_research_launch_authorized": false,
+  "word_thesis_changed": false
+}

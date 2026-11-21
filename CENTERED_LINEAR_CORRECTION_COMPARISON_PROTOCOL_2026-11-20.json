@@ -1,0 +1,339 @@
+{
+  "protocol_id": "centered-linear-correction-development-v1",
+  "date": "2026-11-20",
+  "status": "PLAN_FREEZE_NOT_EXECUTABLE_RELEASE",
+  "plan": "CENTERED_LINEAR_CORRECTION_COMPARISON_PLAN_2026-11-20.txt",
+  "scope": "Correction-study descriptive screen; not full low-complexity contribution validation",
+  "primary": "centered_linear_bc_ddqn",
+  "arms": [
+    {
+      "id": "centered_linear_bc_ddqn",
+      "formula": "V-sum(z_selected-mean_all5(z))",
+      "bc": true,
+      "ddqn": true,
+      "demo_replay": true,
+      "role": "primary"
+    },
+    {
+      "id": "old_softplus_bc_ddqn",
+      "formula": "-softplus(b+sum(z_selected))",
+      "bc": true,
+      "ddqn": true,
+      "demo_replay": true,
+      "role": "old_baseline"
+    },
+    {
+      "id": "centered_softplus_bc_ddqn",
+      "formula": "-softplus(-V+sum(z_selected-mean_all5(z)))",
+      "bc": true,
+      "ddqn": true,
+      "demo_replay": true,
+      "role": "transform_control"
+    },
+    {
+      "id": "uncentered_linear_bc_ddqn",
+      "formula": "V-sum(z_selected)",
+      "bc": true,
+      "ddqn": true,
+      "demo_replay": true,
+      "role": "centering_control"
+    },
+    {
+      "id": "centered_linear_bc_only",
+      "formula": "V-sum(z_selected-mean_all5(z))",
+      "bc": true,
+      "ddqn": false,
+      "demo_replay": false,
+      "role": "TD_benefit_control"
+    },
+    {
+      "id": "centered_linear_demo_no_bc",
+      "formula": "V-sum(z_selected-mean_all5(z))",
+      "bc": false,
+      "ddqn": true,
+      "demo_replay": true,
+      "role": "BC_control"
+    },
+    {
+      "id": "centered_linear_no_demo_no_bc",
+      "formula": "V-sum(z_selected-mean_all5(z))",
+      "bc": false,
+      "ddqn": true,
+      "demo_replay": false,
+      "role": "ordinary_no_demo_control"
+    }
+  ],
+  "reference": "observed_load_radio",
+  "fits": 3,
+  "seeds": {
+    "model_seeds": [
+      948200001,
+      948200011,
+      948200021
+    ],
+    "demonstration_seed_blocks": [
+      {
+        "start": 948210000,
+        "count": 10
+      },
+      {
+        "start": 948211000,
+        "count": 10
+      },
+      {
+        "start": 948212000,
+        "count": 10
+      }
+    ],
+    "online_seed_blocks": [
+      {
+        "start": 948220000,
+        "count": 50
+      },
+      {
+        "start": 948221000,
+        "count": 50
+      },
+      {
+        "start": 948222000,
+        "count": 50
+      }
+    ],
+    "evaluation_seed_block": {
+      "start": 948230000,
+      "count": 16
+    },
+    "bc_sampler_seeds": [
+      948240001,
+      948240011,
+      948240021
+    ],
+    "epsilon_branch_seeds": [
+      948250001,
+      948250011,
+      948250021
+    ],
+    "replay_sampler_seeds": [
+      948260001,
+      948260011,
+      948260021
+    ],
+    "job_order_seed": 948270001,
+    "timing_order_seed": 948270011
+  },
+  "deferred_controls": [
+    "compact64",
+    "wide128",
+    "adapted_BDQ",
+    "full_DQfD"
+  ],
+  "deferred_claims": [
+    "superiority_or_speed_against_stronger_neural_controls",
+    "algorithmic_novelty",
+    "final_generalization"
+  ],
+  "model": {
+    "architecture": [
+      533,
+      24,
+      161
+    ],
+    "parameters": 16841,
+    "parameter_bytes": 67364,
+    "buffer_bytes": 20,
+    "paired_raw_initial_tensors": true,
+    "V_sign_flip": false,
+    "V_reset_after_BC": false,
+    "centering": "all five declared actions, independent of mask",
+    "gamma": 1.0,
+    "horizon_scaling": false,
+    "terminal_anchor": false
+  },
+  "demonstrations": {
+    "episodes_per_fit": 10,
+    "slots_per_episode": 40,
+    "shared_generation": true,
+    "teacher_backend": "Python reference frozen teacher functions",
+    "teacher_stationary_motion": true,
+    "extra_empty_battery_restriction": true
+  },
+  "bc": {
+    "steps_per_fit": 200,
+    "batch_size": 64,
+    "temperature": 1.0,
+    "learning_rate": 0.001,
+    "sampling": "without replacement within batch; independent batches",
+    "optimizer_reset_before_ddqn": true
+  },
+  "online": {
+    "episodes_per_fit": 50,
+    "slots_per_fit": 2000,
+    "warmup_slots": 128,
+    "first_update_zero_based_slot": 128,
+    "updates_per_fit": 1872,
+    "batch_size": 64,
+    "replay_capacity": 4096,
+    "learning_rate": 0.0001,
+    "replay": "uniform with replacement",
+    "target_interval_updates": 200,
+    "scheduled_target_copies_per_fit": 9,
+    "initial_target_copy": true,
+    "loss": "scalar smooth_l1 beta1, detached DDQN target",
+    "epsilon": "1 if t<128 else 1-.95*min(t/2000,1); t zero-based before action"
+  },
+  "optimizer_common": {
+    "type": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "clipnorm": 10.0
+  },
+  "evaluation": {
+    "episodes_per_policy": 16,
+    "student_policies": 21,
+    "teacher_policies": 1,
+    "epsilon": 0,
+    "checkpoint_freeze": "all21finalcheckpoints before evaluation",
+    "BC_only": "separate final arm endpoint, not selected intermediate primary checkpoint"
+  },
+  "diagnostics": {
+    "signed_Q_report": true,
+    "nearzero_absQ_threshold": 1e-06,
+    "nrmse": "sqrt(mean((Q-G)^2))/max(sqrt(mean(G^2)),1e-12)",
+    "terminal_error": "Q(last physical state,action)-last reward",
+    "probe_stages": [
+      "before",
+      "after_bc",
+      "final"
+    ],
+    "BC_end_primary_equals_BC_only": true,
+    "clipnorm": 10,
+    "horizon_distributions": true,
+    "softplus_derivative_where_applicable": true
+  },
+  "decision": {
+    "policy": "A-B and A-E: both outcome differences >=0 in every fit, mean >0 for both outcomes in each contrast",
+    "value": "A NRMSE and absolute Q-G bias strictly below B in every fit",
+    "promising": "policy AND value AND finite artifacts AND full audit",
+    "secondary_contrasts": [
+      "A-C",
+      "A-D",
+      "A-F",
+      "A-G",
+      "each arm minus teacher"
+    ],
+    "on_failure": "HOLD expansion; no retuning, retries or best-arm promotion",
+    "calibration_guarantee": false,
+    "statistical_confirmatory_claim": false
+  },
+  "cost": {
+    "states": 128,
+    "warmups": 32,
+    "rounds": 3,
+    "policies": 22,
+    "timed_calls": 8448,
+    "boundary": "validation,screen,forward,selection,chosenQ,copy",
+    "descriptive_only": true,
+    "acceptance_retiming": false
+  },
+  "totals": {
+    "student_online_slots": 36000,
+    "teacher_demo_slots": 1200,
+    "evaluation_slots": 14080,
+    "all_simulated_slots": 51280,
+    "BC_updates": 3000,
+    "DDQN_updates": 33696,
+    "all_gradient_updates": 36696,
+    "final_checkpoints": 21
+  },
+  "retention": {
+    "final_only": true,
+    "fit_retry": false,
+    "best_checkpoint_selection": false
+  },
+  "definition_sha256": {
+    "CENTERED_LINEAR_CORRECTION_COMPARISON_PLAN_2026-11-20.txt": "bab466a4be5fef9062a5ef9773197f806d04976ba21035896d8c7dc2a56fdad0",
+    "HEURISTIC_DDQN_VALUE_SEPARATION_CORRECTION_BRIEF_2026-11-20.txt": "72952b202d6d0f05f7d9ccbccb332a84ed350e11c7e0cacd1d2d36cc79ba4ad3",
+    "centered_linear_ddqn_prototype.py": "7fa7cdcdf0c4b760d57071a7c4dcccbbd51aaa3efdfec4485188a42441de444a",
+    "heuristic_initialized_ddqn_baseline.py": "c13b0a437c7ecb6aa20d50605efd5b612e930a33472f3e031678970d0ddb2940",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "assignment_price_load_radio_heuristic.py": "925bdd21551bcd06186707af2b8a6751f61dd1e9a11ed26e3d3633fcea35f804",
+    "assignment_price_fast_runtime.py": "98cec6bb5da047aeb45c7279fd131c47a678d2c9ecbf761fd075dc8a5def9b08",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33"
+  },
+  "simulator_defaults": {
+    "num_vehicles": 30,
+    "episode_steps": 40,
+    "area_m": 1000.0,
+    "slot_s": 1.0,
+    "task_size_bytes": [
+      1000000.0,
+      3000000.0
+    ],
+    "task_cycles": [
+      300000000.0,
+      500000000.0
+    ],
+    "deadline_s": [
+      0.25,
+      0.3
+    ],
+    "vehicle_cpu_hz": 1500000000.0,
+    "uav_cpu_hz": [
+      10000000000.0,
+      10000000000.0
+    ],
+    "rsu_cpu_hz": [
+      20000000000.0,
+      20000000000.0
+    ],
+    "rsu_cpu_is_provisional": true,
+    "rsu_link_bps": 1000000000.0,
+    "rsu_link_is_provisional": true,
+    "g2a_bandwidth_hz": 20000000.0,
+    "g2a_allocation_mode": "per_link_with_interference",
+    "vehicle_tx_power_w": 1.0,
+    "noise_dbm": -100.0,
+    "carrier_hz": 2000000000.0,
+    "carrier_frequency_is_provisional": true,
+    "los_a": 9.61,
+    "los_b": 0.16,
+    "los_excess_loss_db": 1.0,
+    "nlos_excess_loss_db": 20.0,
+    "uav_altitude_m": 50.0,
+    "uav_max_step_m": 49.0,
+    "uav_battery_j": 500000.0,
+    "effective_switched_capacitance": 1e-28,
+    "vehicle_effective_switched_capacitance": 1e-28,
+    "vehicle_compute_energy_is_provisional": true,
+    "delay_reward_weight": 0.5,
+    "uav_energy_reward_weight": 0.5,
+    "uav_mass_kg": 10.19367991845056,
+    "air_density_kg_m3": 1.225,
+    "rotor_radius_m": 0.5,
+    "rotor_angular_speed_rad_s": 400.0,
+    "rotor_solidity": 0.05,
+    "fuselage_drag_ratio": 0.3,
+    "blade_drag_coefficient": 0.012,
+    "induced_power_correction": 0.1,
+    "deadline_miss_penalty": 1.0,
+    "deadline_normalizer_s": 0.3,
+    "model_version": "chapter3-timeline-v2",
+    "radio_update_interval_s": 0.05,
+    "horizon_policy": "stop_and_report_unfinished",
+    "uplink_scheduler": "one_fifo_transmitter_per_vehicle",
+    "observation_model": "compressed_partial_observation"
+  },
+  "launch_authorized": false,
+  "launched": false,
+  "runner_implemented": false,
+  "auditor_implemented": false,
+  "final_seeds_consumed": false,
+  "word_thesis_changed": false,
+  "next_gate": "Implement bound seven-arm adapters/runner/auditor; reduced isolated orchestration fixture and fail-closed CLI; no research launch"
+}

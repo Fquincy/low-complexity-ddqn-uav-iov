@@ -1,0 +1,20 @@
+{
+  "status": "prospective_design_only_not_frozen_research_protocol",
+  "brief": "DEADLINE_AWARE_DDQN_PROSPECTIVE_DESIGN_BRIEF_2026-11-11.txt",
+  "literature_position": "DEADLINE_AWARE_DDQN_LITERATURE_POSITION_2026-11-11.txt",
+  "primary": "screened_compact_price24_horizon_terminal_anchor",
+  "change": "conservative_interval_local_infeasibility_screen",
+  "mask_remote_actions": false,
+  "remote_deadline_guarantee": false,
+  "reward_changed": false,
+  "weights_changed": false,
+  "architecture_changed": false,
+  "observed_features_changed": false,
+  "seeds_reserved": false,
+  "research_budget_declared": false,
+  "novelty_established": false,
+  "full_domain_literature_complete": false,
+  "new_training_slots": 0,
+  "new_simulator_slots": 0,
+  "word_thesis_changed": false
+}

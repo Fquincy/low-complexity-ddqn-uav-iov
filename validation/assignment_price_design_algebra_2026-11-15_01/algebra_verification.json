@@ -1,0 +1,137 @@
+{
+  "passed": true,
+  "exact_potential_assignments": 216,
+  "exact_marginal_differences": 1728,
+  "deterministic_cases": [
+    {
+      "case": 0,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "267/1600",
+      "exact_optimum": "267/1600"
+    },
+    {
+      "case": 1,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "373/2880",
+      "exact_optimum": "373/2880"
+    },
+    {
+      "case": 2,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "2417/19200",
+      "exact_optimum": "2417/19200"
+    },
+    {
+      "case": 3,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "125/2688",
+      "exact_optimum": "125/2688"
+    },
+    {
+      "case": 4,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "197/2400",
+      "exact_optimum": "197/2400"
+    },
+    {
+      "case": 5,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "1777/33600",
+      "exact_optimum": "1777/33600"
+    },
+    {
+      "case": 6,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "2287/33600",
+      "exact_optimum": "2287/33600"
+    },
+    {
+      "case": 7,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "1769/9600",
+      "exact_optimum": "1769/9600"
+    },
+    {
+      "case": 8,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "31301/172800",
+      "exact_optimum": "31301/172800"
+    },
+    {
+      "case": 9,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "1591/8064",
+      "exact_optimum": "1591/8064"
+    },
+    {
+      "case": 10,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "1589/19200",
+      "exact_optimum": "1589/19200"
+    },
+    {
+      "case": 11,
+      "assignments": 18,
+      "nonincrease": true,
+      "candidate_evaluations": 8,
+      "final_cost": "807/6400",
+      "exact_optimum": "807/6400"
+    }
+  ],
+  "suboptimal_counterexample": {
+    "weights": [
+      "2/25",
+      "7/100",
+      "3/50",
+      "1/20"
+    ],
+    "initial": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "one_pass": [
+      2,
+      2,
+      1,
+      1
+    ],
+    "final_cost": "9947/240000",
+    "better_assignment": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "exact_optimum": "9943/240000",
+    "gap": "1/60000"
+  },
+  "scope": "Exact rational algebra only. Reference enumeration is deliberately slow and is not the bounded production decoder or a model/gradient/runtime test.",
+  "simulator_steps": 0,
+  "optimizer_updates": 0,
+  "model_initializations": 0,
+  "research_seeds_reserved": false
+}

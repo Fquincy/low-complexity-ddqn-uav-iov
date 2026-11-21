@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "fixed_checkpoint_fits": 15,
+  "episodes": 720,
+  "states": 28800,
+  "saved_prediction_and_action_reproduction": true,
+  "self_residual_telescoping_verified": true,
+  "price_same_state_removal_inference_only": true,
+  "paper_excerpts_archived": true,
+  "literature_search_exhaustive": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "retiming": false,
+  "final_seeds_used": false,
+  "word_thesis_changed": false
+}

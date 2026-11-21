@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_files": 63,
+  "artifact_files": 500,
+  "package_distributions": 21,
+  "python_executable": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Scripts\\python.exe",
+  "python_and_packages_match": true,
+  "runtime_module_paths_match": true,
+  "package_key_comparison": "Same JSON serialization as original recorder; unnamed distribution key becomes null string",
+  "protocol_sha256": "6cb86939d2b129e0df827bd71f89899ea4f78545d1e98a001ba97d33867eb6db",
+  "source_release_enabled": false,
+  "research_launched": false
+}

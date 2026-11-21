@@ -1,0 +1,6 @@
+{
+  "audit_wall_ns": 374538595200,
+  "archive_copy_and_base_verification_wall_ns": 157467362000,
+  "elapsed_to_base_archive_verification_ns": 1999679893900,
+  "limitation": "Archive phase excludes final small timing/verification receipt writes"
+}

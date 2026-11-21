@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "stage": "design_freeze_only",
+  "model_comparison_and_threshold_checks": true,
+  "budget_checks": true,
+  "unchanged_control_and_simulator_checks": true,
+  "protected_final_unchanged": true,
+  "source_hashes_checked": 52,
+  "protocol_sha256": "6cb86939d2b129e0df827bd71f89899ea4f78545d1e98a001ba97d33867eb6db",
+  "simulator_steps": 0,
+  "optimizer_updates": 0,
+  "research_executable_bound": false,
+  "launch_authorized": false
+}

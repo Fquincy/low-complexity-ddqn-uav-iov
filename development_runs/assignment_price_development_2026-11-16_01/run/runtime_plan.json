@@ -1,0 +1,134 @@
+{
+  "mode": "development",
+  "kind": "RESEARCH_DEVELOPMENT",
+  "model_seeds": [
+    87301,
+    87311,
+    87317,
+    87323,
+    87331
+  ],
+  "train_blocks": [
+    {
+      "start": 873000000,
+      "count": 200
+    },
+    {
+      "start": 873100000,
+      "count": 200
+    },
+    {
+      "start": 873200000,
+      "count": 200
+    },
+    {
+      "start": 873300000,
+      "count": 200
+    },
+    {
+      "start": 873400000,
+      "count": 200
+    }
+  ],
+  "evaluation_seeds": [
+    874000000,
+    874000001,
+    874000002,
+    874000003,
+    874000004,
+    874000005,
+    874000006,
+    874000007,
+    874000008,
+    874000009,
+    874000010,
+    874000011,
+    874000012,
+    874000013,
+    874000014,
+    874000015,
+    874000016,
+    874000017,
+    874000018,
+    874000019,
+    874000020,
+    874000021,
+    874000022,
+    874000023,
+    874000024,
+    874000025,
+    874000026,
+    874000027,
+    874000028,
+    874000029,
+    874000030,
+    874000031,
+    874000032,
+    874000033,
+    874000034,
+    874000035,
+    874000036,
+    874000037,
+    874000038,
+    874000039,
+    874000040,
+    874000041,
+    874000042,
+    874000043,
+    874000044,
+    874000045,
+    874000046,
+    874000047
+  ],
+  "order_seed": 875000001,
+  "timing_seed": 875000003,
+  "bootstrap_seed": 875000007,
+  "cfg": {
+    "episodes_per_fit": 200,
+    "slots_per_episode": 40,
+    "slots_per_fit": 8000,
+    "warmup": 1024,
+    "batch_size": 128,
+    "replay_capacity": 50000,
+    "replay": "uniform with replacement; fixed chronological insertion/eviction",
+    "first_update": "after inserting physical slot 1024; one update each slot thereafter",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gamma": 1.0,
+    "gradient_clip": 10.0,
+    "huber_beta": 1.0,
+    "target_interval_updates": 200,
+    "optimizer_updates_per_fit": 6977,
+    "target_copies_per_fit": 34,
+    "threads": 1,
+    "epsilon": "1 during warmup, otherwise 1-.95*min(global_slot_before_action/8000,1)",
+    "target_initialization": "exact online state copy; eval mode; requires_grad False",
+    "final_checkpoint_only": true,
+    "checkpoint_selection": false,
+    "research_early_stopping": false,
+    "anchor": {
+      "batch": 32,
+      "weight": 1.0,
+      "terminal_pool": "uniform with replacement among un-evicted terminal transitions",
+      "empty_pool": "zero anchor loss and log event",
+      "separate_rng": true,
+      "one_optimizer_step": true
+    },
+    "loss_definitions": "All new arms: original-unit Huber(Q,y), gamma1, terminal anchor weight1. Original controls retain their frozen losses; no normalized-loss arms.",
+    "training_time": "Record wall time per fit, optimizer time and extra anchor sample counts; equal slots/steps do not imply equal compute",
+    "epsilon_decay": 8000
+  },
+  "timing": {
+    "states": 128,
+    "rounds": 5,
+    "warmups": 32
+  },
+  "quality_evidence": true,
+  "research_seed_use": true
+}

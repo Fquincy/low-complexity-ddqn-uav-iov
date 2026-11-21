@@ -1,0 +1,47 @@
+LOW COMPLEXITY PAIRED LEARNING SMOKE REVIEW
+Date: 2026-11-01
+Status: smoke complete; no full pilot promotion.
+
+The SPI-DDQN candidate completed a paired 80-slot smoke against additive DDQN
+for two model seeds. Both arms used the same workload seeds, 73 optimizer
+updates, nine target copies and the same physical-slot budget per replicate.
+The smoke logged exogenous pre-step workloads and beam candidate counts.
+
+RESULTS (development smoke only)
+Replicate | Arm | Slots | Updates | Mean slot reward | Deadline success
+0 | additive | 80 | 73 | -18.498 | 26.72%
+0 | SPI | 80 | 73 | -18.288 | 29.33%
+1 | additive | 80 | 73 | -17.530 | 25.98%
+1 | SPI | 80 | 73 | -18.659 | 22.13%
+
+SPI was slightly better in replicate0 and worse in replicate1. The smoke is
+far too small to establish noninferiority, training stability or a contribution.
+The reported mean is an average of physical slot rewards, not a confirmatory
+episode-level performance estimate. No heuristic or fresh final gate was run.
+Beam candidate counts averaged4.24 and4.50 in the two replicates, below the
+nominal maximum8 because duplicate candidates occur during top-k expansion.
+This is an implementation detail, not evidence of adequate beam coverage.
+
+DECISION
+Do not launch the full low-complexity pilot yet. The candidate has passed the
+mechanics and paired integration gates, but the learning smoke is mixed. Before
+spending a larger budget, add a beam-coverage diagnostic against a wider
+candidate reference and make the training/evaluation accounting episode-based.
+The current SPI target uses a bounded candidate action set; its semantics and
+coverage must be documented before a full DDQN comparison.
+
+The smoke does not prove or disprove the low-complexity contribution. The
+measured untrained cost gate remains: SPI4.917ms median, additive0.092ms,
+sequential10.472ms. SPI is much faster than sequential but still much slower
+than additive. Its parameter storage is lower, but quality is not established.
+
+PRESERVATION
+The first failed smoke attempt (incorrectly comparing post-action completed
+task records) is preserved. The second attempt stopped on an existing output
+folder. The successful run is validation/low_complexity_smoke_2026-11-01_03.
+No existing October31 evidence or Word thesis was changed.
+
+NEXT GATE
+Implement a read-only beam-coverage and candidate-set target audit using the
+saved smoke checkpoints and common observations. Then decide whether a larger
+paired pilot is justified. Keep the additive baseline and simulator fixed.

@@ -1,0 +1,117 @@
+ASSIGNMENT-PRICE OFFLINE GRADIENT AND TASK-TIMELINE DIAGNOSIS
+Date: 2026-11-19 (Asia/Shanghai)
+
+DECISION: RADIO/ASSIGNMENT PHYSICS IS THE MAIN POLICY-DESIGN LEAD;
+GRADIENT CONFLICT IS A SEPARATE CALIBRATION LEAD, NOT A PROVEN ROOT CAUSE.
+
+SCOPE AND VERIFICATION
+Four checkpoint arms, all five initializations, 80 gradient batches.
+Gradient states/actions come from primary episodes 0,12,24,36: four
+fixed, evenly spaced saved episodes, with ten slots per horizon bin.
+Each arm sees identical primary states and executed primary actions.
+Other arms are therefore probed off-policy; this is not their own-policy
+gradient distribution or a reconstruction of past replay sampling.
+All 48 primary evaluation episodes per fit are used for task diagnosis.
+All workload/task identities are matched against saved heuristic traces.
+329 consumed inputs were hashed before and after diagnosis: unchanged.
+Frozen model-definition hashes verified against the protocol.
+All 800 primary checkpoint predictions reproduce saved chosen Q.
+Terminal Bellman targets equal saved terminal rewards; Q at h=0 is zero.
+Task miss counts reproduce saved analysis; reward-component differences
+reproduce all five saved primary-minus-heuristic return differences.
+No optimizer steps, task generation, simulator rollout, exports or timing.
+
+1. GRADIENT GEOMETRY
+The implemented critic has Q=-h*C. Holding the state/action fixed,
+dQ/dtheta=-h*dC/dtheta. This algebra amplifies sensitivity with horizon;
+it does not itself establish a defective objective.
+On the primary probe, norm(grad mean Q)/norm(grad mean Q/h) is about
+35.3,25.3,15.4,5.4 in successive ten-slot bins, consistent with the
+remaining-horizon factor. This is not a normalized-loss experiment.
+Fit | early-bin Huber grad norm | terminal-anchor grad norm | early-anchor cosine
+0 | 50.0779 | 1.0983 | -0.8975
+1 | 19.2953 | 3.2879 | -0.5987
+2 | 43.1488 | 1.4040 | -0.9850
+3 | 96.3035 | 1.5411 | -0.9629
+4 | 34.4402 | 2.8894 | -0.9167
+Early-bin original-unit gradients exceed norm10 in all primary fits.
+Early-bin gradients oppose the anchor in all five fits. Across four
+bins per fit, 12/20 primary uniform-anchor cosines are negative.
+Some final-checkpoint bins are below the clipping threshold even
+though historical mixed replay updates were all clipped. These are
+different batches, states and times, so there is no contradiction.
+Clipping limits the combined vector, not each objective separately.
+These probes show gradient imbalance/conflict; they do not prove
+that changing clipping, loss weights or training duration will help.
+
+2. MATCHED DEADLINE OUTCOMES
+Fit | primary not on time / 57,600 | heuristic not on time | transmission alone > deadline | queue alone > deadline
+0 | 446 | 3 | 40 | 26
+1 | 1061 | 3 | 597 | 20
+2 | 269 | 3 | 52 | 6
+3 | 1499 | 3 | 152 | 206
+4 | 3079 | 3 | 2631 | 1
+Component counts can overlap and are not an exhaustive partition.
+Fit4: 2,792 of 3,079 not-on-time tasks go to UAV1; 2,631 have
+transmission duration alone above the deadline. Six are unfinished.
+Fit3: 1,177 of 1,499 not-on-time tasks go to RSU2; queue time alone
+exceeds the deadline for 206 tasks across all destinations.
+Compute duration alone exceeds no deadline among the missed tasks.
+This identifies realized transmission/queue bottlenecks, not a
+counterfactual proof that changing a single destination fixes a task.
+The matched heuristic has different histories, joint assignments and
+UAV movements. It is a workload-matched policy comparison.
+
+3. CONCRETE RECORDED TIMELINE
+Fit4, episode3, task340: deadline .257661s; assigned to UAV1.
+Uplink wait 1.234749s + transmission 2.649466s + compute .042017s
+= total 3.926232s (zero compute queue). In the matched heuristic
+trajectory the same task goes to RSU1 and completes in .223247s.
+This is a post-hoc worst-lateness example, not a typical-task estimate.
+
+4. WHY THE CURRENT COST MODEL MAY MISS THESE DECISIONS
+The learned joint potential explicitly aggregates assigned compute
+work and observed remote compute queues. It does not explicitly
+calculate assigned-set UAV interference, upload service or task deadlines.
+The neural network receives relevant observations and could learn them;
+absence of an explicit term does not prove those effects are ignored.
+The simulator computes UAV interference from simultaneous active uploads.
+The heuristic explicitly estimates radio/link/backlog and shared compute
+effects. Its near-perfect deadline result makes radio/queue-aware
+assignment a stronger concrete design lead than merely increasing CPU.
+The heuristic is not free: preserved standalone engineering timing is
+.5378ms median, .68924ms p95. That was not a same-session learned-
+controller speed comparison and cannot establish a speedup ratio.
+
+5. RETURN GAP IS NOT JUST A MISS-COUNT ISSUE
+Across all five fits, primary delay accrual and UAV energy components
+are also larger than the heuristic. Their weighted sums plus miss
+penalties exactly reproduce the saved return gap. Therefore fixing
+only the calibration metric or relabeling unfinished tasks is insufficient.
+
+6. AVOID REPEATING THE FAILED CORRECTION
+HORIZON_LOSS_DEVELOPMENT_RESULTS_REVIEW_2026-11-14.txt already reports
+failed normalized-horizon-loss policy/calibration results. The present
+sensitivity probe does not override that experiment. Do not automatically
+normalize the loss again, raise clipping, extend training or relax screens.
+
+NEXT BOUNDED GATE
+Write ONE prospective radio/queue-aware compact DDQN design brief.
+Specify how an efficient action decoder accounts for upload/interference
+and deadline slack while retaining DDQN learning and bounded inference.
+State the difference from the existing observed-load/radio heuristic,
+the current compute-work coupling and plain small DDQN explicitly.
+Do not assume adding physics or a safety mask is novel; check literature.
+Include a mechanism-removal ablation and the strong observed-load/radio
+heuristic. Treat calibration as a separate measured requirement.
+Before implementation/training, justify computational cost and choose
+fresh development seeds through an explicit prospective amendment.
+No architecture, new run, final evaluation or thesis claim is authorized
+by this diagnostic report. Preserve all historical evidence.
+
+EVIDENCE
+E:\Fitz Thesis docs\Low Complexity\validation\assignment_price_offline_diagnosis_2026-11-19_01\DIAGNOSTIC_PLAN.json
+E:\Fitz Thesis docs\Low Complexity\validation\assignment_price_offline_diagnosis_2026-11-19_01\diagnostics.json
+E:\Fitz Thesis docs\Low Complexity\development_runs\assignment_price_development_2026-11-16_01\run\analysis.json
+E:\Fitz Thesis docs\Low Complexity\development_runs\assignment_price_development_2026-11-16_01\run\optimizer_distributions.json
+E:\Fitz Thesis docs\Low Complexity\HORIZON_LOSS_DEVELOPMENT_RESULTS_REVIEW_2026-11-14.txt

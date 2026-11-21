@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "manifest_checks": [
+    {
+      "manifest": "development_runs\\horizon_loss_development_2026-11-14_01\\completion_manifest.json",
+      "entries": 35372,
+      "sha256": "c39816e011cf0d59de30f6ff7baf0f67cc293d43b169af453adb51d62a783477"
+    },
+    {
+      "manifest": "development_runs\\horizon_loss_development_2026-11-14_01\\comparison\\workflow_manifest.json",
+      "entries": 35299,
+      "sha256": "d7d63715fa2840d84f4e4baff2bb2f046c9c007199801046c0fbf98b9d2e773b"
+    },
+    {
+      "manifest": "development_runs\\horizon_loss_development_2026-11-14_01\\comparison\\run\\run_manifest.json",
+      "entries": 35224,
+      "sha256": "2bbbe7462d0f56f6b4528f14885790c60eb9f536e40317122c35473095176af0"
+    },
+    {
+      "manifest": "development_runs\\horizon_loss_development_2026-11-14_01\\comparison\\deployment_storage\\manifest.json",
+      "entries": 71,
+      "sha256": "786858e4f3ab6187a8f402fbcac6f03468f1ca94f9392bce0bfdbf5ca418ab33"
+    }
+  ],
+  "protocol_and_source_hashes_verified": true,
+  "mechanism_decisions_recomputed": true,
+  "absolute_means_recomputed_all_learners": true,
+  "combined_scientific_screen_passed": false,
+  "new_training_slots": 0,
+  "new_evaluation_slots": 0,
+  "retiming": false,
+  "word_thesis_changed": false
+}

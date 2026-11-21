@@ -1,0 +1,216 @@
+CURRENT DESIGN: VERSION 2, 2026-11-05
+This is the recommended design for the next engineering review. Version 1 is
+retained as a superseded design draft; no version has been trained or launched.
+Amendment reason: a symmetric synthetic algebra fixture makes the original two
+parallel price passes oscillate between equally unbalanced assignments. Their
+cost is 0.5 versus exhaustive optimum 0.25. Version 2 adds four deterministic
+single-move repair rounds and reaches 0.25 in that fixture. This is mechanics
+evidence only; it proves neither real-world performance nor global optimality.
+No old research results, seeds, rewards or model definitions were altered.
+The 4,052-parameter network and reserved research seeds/budgets are unchanged.
+
+CONTROLLER DESIGN BRIEF - VERSION 2
+Date: 2026-11-05
+Status: prospective design specification; not implemented, trained or validated.
+Working name: shared-entity congestion-cost DDQN (descriptive, not a novelty claim).
+
+1. PURPOSE AND CLAIM BOUNDARY
+Implement a smaller centralized action-value controller for the existing UAV-IoV
+offloading simulator, then test whether it preserves return/deadline performance
+at lower complete action-selection cost. The candidate is a DDQN-style learner
+with a bounded approximate joint-action decoder; it does NOT have exact joint
+argmax and must never be described as exact DDQN optimization.
+The proposed contribution is the tested combination of resource-aware value
+factorization, shared entity processing and a bounded-work decoder. The field's
+known DDQN, parameter sharing, pooling, and congestion-pricing ideas are credited.
+No first-in-literature claim is established by this design stage.
+
+2. SCOPE DECISION FOR THIS ENGINEERING BRANCH
+Keep local vehicle CPUs, two UAV servers, two RSUs and five UAV movements.
+No cloud, charging, trust, attacks or security-aware policy is introduced.
+Keep the current simulator, physical transition, task distribution, reward,
+observation and 40-slot horizon for controlled controller comparisons.
+Describe the controller as a centralized simulated scheduler; no UAV-board
+deployment, embedded inference or controller power measurement is demonstrated.
+This decision supports an efficiency/offloading chapter. It cannot substantiate
+a security-aware thesis title or contribution. Supervisor discussion must settle
+whether security belongs elsewhere or needs a separately specified extension.
+No administrative approval or thesis-title change is assumed here.
+
+3. INFORMATION AND EXACT OBSERVATION MAPPING
+The existing vector has 17N+23 entries, N=30. Parse, without changing values:
+  features: 8N (position x,y; speed; sin/cos heading; task bits/cycles/deadline)
+  CPU workloads: N local plus 4 remote log1p-normalized workload entries
+  radio summaries: 8N
+  remote queue/count/age/availability summaries: 12
+  UAV position/battery summaries: 6
+  normalized time: 1.
+For vehicle i, x_i has its 8 features, 1 local CPU workload and 8 radio entries
+(17). Global g has 4 remote workloads, 12 queue entries, 6 UAV entries and time
+(23). Capacities/normalizers are public configuration constants available to
+every comparator. No full hidden queue, future arrival, task completion, or
+simulator peek is allowed. Preserve the same partial-observation limitation.
+
+4. NETWORK: ALL DIMENSIONS FIXED FOR VERSION 2
+All Linear layers include biases; hidden activations are ReLU.
+  z_i = phi(x_i), shared MLP 17 -> 32 -> 16.
+  pooled = mean_i z_i.
+  h = rho(concat(pooled,g)), MLP 39 -> 32 -> 16.
+  l_i = shared MLP(concat(z_i,h)), 32 -> 16 -> 5.
+  m = mobility MLP(h), 16 -> 16 -> 10, reshaped [2,5].
+  [b,v_1,...,v_4] = Linear(h), 16 -> 5.
+No attention, recurrence, vehicle-ID embedding, learned per-vehicle head, or
+repeated neural forward pass per decoder iteration is added.
+Use framework-default Linear initialization, with identical paired seeds and
+documented construction order. No outcome-driven initialization selection.
+
+5. VALUE FUNCTION
+Let sp(x)=log(1+exp(x)), evaluated with numerically stable softplus.
+Vehicle destination d_i is in {0,...,4}; UAV movement b_j in {0,...,4}.
+For remote destination d=1,...,4:
+  L_d = expm1(existing remote normalized log-workload entry).
+  w_i,d = task_required_cycles_i / (CPU_frequency_d * deadline_normalizer_s).
+Both L and w have units of service time / deadline_normalizer_s.
+Reconstruct current task cycles from the existing feature and fixed normalizer.
+Let A_d(a)=sum_i w_i,d * 1[d_i=d], and beta_d(s)=sp(v_d).
+Define a nonnegative incremental congestion term
+  P(s,a)=sum_{d=1}^4 beta_d(s)/(4N) * [(L_d+A_d(a))^2-L_d^2].
+The subtraction removes pre-existing queue cost independent of the new action;
+L_d,A_d>=0 make P>=0. This is a learned inductive bias in the Q approximation,
+not a change to the simulator reward or an exact queue-delay equation.
+  C_theta(s,a)=sp(b) + mean_i sp(l_i,d_i)
+               + (1/2)sum_{j=1}^2 sp(m_j,b_j) + P(s,a).
+  Q_theta(s,a)=-C_theta(s,a) <= 0.
+The cost form places softplus on individual contributions, avoiding cancellation
+inside one outer joint softplus. Individual terms can still saturate: improved
+calibration or learning stability must be measured, not assumed.
+It cannot represent every joint Q-function. In particular, at a fixed state,
+mobility and placement are separable; the architecture does not represent the
+current EMC model's direct same-slot motion-placement interactions. Compare
+against EMC and reject the design if this restriction materially hurts quality.
+
+6. BOUNDED-WORK APPROXIMATE DECODER D_theta(s)
+Compute all neural outputs once. Let u_i,d=sp(l_i,d)/N.
+Movement choices independently minimize sp(m_j,b)/2.
+  a^(0): each destination minimizes u_i,d; ties choose lowest legal index.
+Perform exactly two synchronous price-refinement passes, k=0,1:
+  A_d^(k)=sum_i w_i,d*1[a_i^(k)=d].
+  H_i,d^(k)=L_d+A_d^(k)-w_i,d*1[a_i^(k)=d].
+  p_i,d^(k)=beta_d/(4N) * [2*H_i,d^(k)*w_i,d + w_i,d^2].
+  Set p_i,0=0 (independent local CPUs).
+  a_i^(k+1)=argmin_d [u_i,d+p_i,d^(k)] simultaneously for all i.
+Score a^(0),a^(1),a^(2) with the FULL C above and retain the minimum;
+ties choose earliest candidate. Keep the selected independent movements.
+Then perform exactly four single-move repair rounds. In each round, for EVERY
+vehicle i and destination d, recompute the leave-one-out marginal price at the
+currently retained assignment and calculate the EXACT single-move cost change:
+  Delta_i,d = u_i,d-u_i,a_i + p_i,d-p_i,a_i.
+Choose the lowest Delta over all N*5 options; ties choose lowest vehicle index,
+then lowest destination index. If Delta < -1e-6, form that one changed assignment;
+otherwise use the unchanged assignment. Compute its full C and accept the move
+only if C decreases by more than 1e-6. Otherwise retain the old assignment.
+Always execute all four rounds; no variable retries or extra network calls.
+This requires three initial plus four repair full-cost calculations, seven
+in total. Report both predicted Delta and actual full-score change for audits.
+The output costs no more under this model than a^(0), because it is retained
+and every accepted repair reduces full cost. The symmetric oscillation example
+is fixed, but other local minima, multi-task swaps and movement-placement
+interactions remain limitations. No real-return/deadline improvement or exact
+global minimization is guaranteed. Record assignment/load changes, repair
+acceptance rates and reduced-fixture exhaustive optimality gaps. No beam search,
+environment look-ahead, hidden queue simulation or adaptive retry occurs.
+Keep all five destinations legal; do not invent a deadline-feasibility oracle.
+
+7. DDQN-STYLE LEARNING
+For replay tuple (s,a,r,s',done), define a'=D_theta(s') under no_grad.
+  y = r                              if done
+      r + gamma*Q_target(s',a')       otherwise.
+  loss = mean Huber_beta1(Q_theta(s,a)-stop_gradient(y)).
+Use the SAME decoder for behavior and online successor selection; evaluate the
+target network at that complete selected action. Target parameters have no
+gradient. Because D is approximate, this is an approximate-greedy DDQN update;
+no exact Bellman-optimality backup, convergence guarantee or optimality theorem
+is claimed. Zero terminal bootstrap is essential; gamma remains 1.0.
+Use uniform replay and the inherited optimizer schedule without reward changes.
+Terminal next states must not invoke a decoder or a target forward call.
+
+8. EXPECTED COST - ANALYTICAL, NOT A BENCHMARK
+Parameter accounting including biases:
+  phi 1,104; rho 1,808; shared placement head 613;
+  mobility head 442; bias/load head 85. TOTAL 4,052 parameters.
+FP32 online tensors: 16,208 bytes. Target: another 16,208 bytes.
+Dense Linear multiply-accumulates at N=30: 51,696 per state, excluding nonlinear
+operations, pooling, feature parsing and all decoder work.
+Existing flat64: 48,736 parameters / 194,944 bytes / 48,448 Linear MACs.
+Existing flat128: 105,504 parameters / 422,016 bytes / 105,088 Linear MACs.
+Thus the proposal is much smaller in stored weights, but its neural MAC count
+is about 6.7% ABOVE flat64. Parameter sharing is not automatically faster.
+Decoder work is O((K+R)*N*D), K=2 price passes,R=4 repairs,D=5,
+plus seven full score calculations;
+workspace O(N*D+N*16), no 5^(N+2) table. Widths/server count are fixed here.
+Parameter storage is independent of N, but work and activation storage grow
+with N; performance at unseen vehicle counts is not established.
+The same replay allocation remains about 215 MB at the current capacity;
+do not translate online-weight savings into a similar total training-RAM saving.
+Complete measured inference includes parsing/conversion, pooling, every neural
+module, price passes, four repair rounds, full scoring and final action conversion.
+
+9. REQUIRED IMPLEMENTATION GATE BEFORE LEARNING
+Implement in new files only after design review. Check observation parsing,
+units, shapes, legal actions, nonpositive finite Q, known-cost examples,
+correct fixed candidate scoring, target detach, terminal handling and gradients
+through every intended module. Test decoder against exhaustive small fixtures;
+report gaps honestly and verify retained-candidate dominance. Check permutation
+behavior with ties called out; do not assume the simulator's ID tie breaking is
+fully permutation invariant. Check exact parameter/MAC arithmetic against code.
+Run a complete reduced runner+auditor fixture with nonresearch seeds and no
+long-run launch. Benchmark every comparator on the same machine/backend.
+If the predeclared runtime/storage gate fails, stop before training and record
+that failure. Do not silently change two passes/four repairs or choose the best timing run.
+
+10. LITERATURE CHECK AND NOVELTY LIMIT
+[1] Van Hasselt, Guez and Silver, Deep Reinforcement Learning with Double
+Q-learning, AAAI 2016; arXiv:1509.06461. Source of separated online selection
+and target evaluation. Neither DDQN nor its two networks is a new contribution.
+[2] Tavakoli, Pardo and Kormushev, Action Branching Architectures for Deep
+Reinforcement Learning, AAAI 2018; arXiv:1711.08946, especially equations 1,6,7.
+Already uses shared decisions and action branches with linear output growth.
+Our shared per-vehicle weights plus explicit action-dependent congestion cost
+and bounded approximate decoder with four single-move repairs differ from independent branch greedy
+selection; replacing heads alone is not novelty. A BDQ adaptation is required.
+[3] Zaheer et al., Deep Sets, NeurIPS 2017; arXiv:1703.06114.
+Shared entity encoders and symmetric pooling are established. No claim to have
+invented permutation-invariant pooling or variable-size network processing.
+[4] Rashid et al., QMIX: Monotonic Value Function Factorisation for Deep
+Multi-Agent Reinforcement Learning, ICML 2018, PMLR 80:4295-4304.
+Already coordinates factored values with a monotonic mixer and tractable greedy
+consistency. Here the controller is centralized with explicit assignment-load
+coupling and an approximate decoder; do not claim QMIX's exact greedy property.
+[5] Hao et al., Joint Task Offloading, Resource Allocation, and Trajectory Design
+for Multi-UAV Cooperative Edge Computing With Task Priority, IEEE TMC 23(9),
+8649-8663, 2024; DOI 10.1109/TMC.2024.3350078. Relevant workload/model reference,
+not a lightweight DDQN baseline. Its cloud/cooperation/hybrid-action system is
+different; our task, cycle and deadline adoption is an adaptation, not reproduction.
+[6] Xu et al., Energy-Efficient Multi-Agent Deep Reinforcement Learning Task
+Offloading and Resource Allocation for UAV Edge Computing, Sensors 25,3403,
+2025; DOI 10.3390/s25113403. Uses MATD3-TORA and joint UAV-MEC resource decisions.
+It establishes that UAV-MEC coordination/latency-energy optimization is already
+studied. It does not by itself validate the proposed DDQN architecture.
+
+The full texts of [1]-[4] were retrieved from arXiv/PMLR primary sites; [5]-[6]
+were read from the user's local full papers. Copies/extractions are under
+analysis/controller_redesign_2026-11-05/references/. This is a bounded comparison
+with these six papers, not an exhaustive recent UAV-IoV novelty search. Before
+calling the mechanism novel in a thesis or publication, perform a targeted
+recent search for shared-parameter, congestion-aware, branching and compressed
+DDQN offloading, and compare the exact equations/decoder to the closest methods.
+Neither a narrower network nor a successful experiment alone establishes novelty.
+
+11. SUPERVISOR DISCUSSION POINT
+Proposed extension within UAV-IoV computational offloading: implement a compact
+shared controller with explicit resource-load coordination and measure its full
+policy/cost tradeoff against plain small DDQN, a wider DDQN, EMC and adapted BDQ.
+Ask whether this engineering extension is within the approved topic and what
+evidence is required for the degree. Agree where security is handled. The title,
+the old conference paper and historical experiments must not be rewritten to
+imply that this new architecture was previously implemented or validated.

@@ -1,0 +1,19 @@
+{
+  "authorization": "USER_EXPLICIT_LAUNCH_17680_SLOT_PILOT",
+  "user_instruction": "Launch the frozen 17,680-slot heuristic-initialization paired pilot",
+  "output": "development_runs/heuristic_initialization_paired_pilot_2026-11-19_01",
+  "archive": "D:/Fitz Thesis Research Archive/heuristic_initialization_paired_pilot_2026-11-19_01",
+  "python_executable": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Scripts\\python.exe",
+  "sha256": {
+    "run_heuristic_initialization_pilot.py": "b1fe6bda08a5e0f22a36ccc6444037119e896e21c20acf687fd272da1b75e277",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "audit_heuristic_initialization_pilot.py": "1b8b81c68eb448627af85f1ceb83614ac095e8b0d7095d88cb1e241049eb89f2",
+    "test_heuristic_initialization_pilot.py": "dfcd6de4eea0903bafa90d185f160bfc6c8a7e3503771d9df65b7e460fe8eab4",
+    "HEURISTIC_INITIALIZATION_PILOT_RUNNER_ENGINEERING_REVIEW_2026-11-19.txt": "a762f63b6a6c88115681fe88b31ccf9d5701239d0c7e7ac96006ba2acfbcd982",
+    "check_heuristic_initialization_pilot_readiness.py": "ae8a45dda9a3e6db674ceac624919e7730ce751bf36dd57c2b40351a1519c855",
+    "freeze_heuristic_initialization_pilot_plan_2026_11_19.py": "8c79ed7c2e0328282bd1dd00e67ca4886beb362c0cb52c6091a2bbe1a020536f",
+    "launch_heuristic_initialization_pilot_2026_11_19.py": "9d08f4d07d0e041c4113b822aff19cf74dda28dbb361ef243d990f4162f25dd8",
+    "validation/heuristic_initialization_pilot_readiness_2026-11-19_01/readiness.json": "b9cfb403370d1658a2fe3816e838bacf0863548ea5166d6503e78015181b4eb4"
+  },
+  "word_thesis_changed": false
+}

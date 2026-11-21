@@ -1,0 +1,68 @@
+TERMINAL-ANCHOR DEVELOPMENT COMPLETION REVIEW
+Date: November 11, 2026
+
+OUTCOME
+Training completed; the full development comparison did not complete.
+17,000 saved training episodes account for all 680,000 training slots.
+All 85 final checkpoint file hashes match the pre-evaluation freeze.
+Every checkpoint's online state matches its recorded parameter digest.
+All 28 runtime source files match their originals and source snapshots.
+These checks establish checkpoint/source integrity, not a full trace audit.
+
+The worker stopped on November 7 at the frozen-checkpoint export equivalence
+gate. LIVE_STATUS correctly says failed_requires_review, not completed.
+There is no COMPLETION.json, development comparison summary or final saved-
+artifact audit. Held-out development evaluation never started according to
+the stage events. Final evaluation was not launched. The trained checkpoints
+are usable for further engineering diagnosis; no training rerun is needed
+for the observed export failure.
+
+REPRODUCED SAVED-WEIGHT FAILURE
+Replayed the two already exported fit-0 graphs over all 128 fixed engineering
+observations. Primary price_both matched all 128 joint actions. Comparator
+no_price_both disagreed on one branch of one observation: observation 110,
+vehicle branch 18, destination 4 in PyTorch versus destination 0 in runtime.
+No other fits/arms were export-tested in this diagnosis. Do not extrapolate
+the primary's fit-0 match to full-run equivalence or cost-screen success.
+
+PyTorch branch costs for destinations 0 and 4:
+0.006834309082478285 and 0.006834303494542837.
+Export/native costs for those destinations:
+0.006834306754171848 and 0.006834306754171848.
+PyTorch distinguishes these nearly tied choices; exported arithmetic rounds
+them to a tie and the decoder selects destination 0. Neural core raw outputs
+also differ at FP32 precision. Supplying the original PyTorch core output
+to the same native decoder restores destination 4. This localizes the observed
+action change to core numerical differences at a near tie; it does not show
+that all potential failures share this cause.
+Q at that observation is -2.839221477508545 in PyTorch versus
+-2.839221954345703 in runtime. Small value error does not satisfy the separate
+exact-action condition. The frozen acceptance condition was not relaxed.
+No evidence yet supports declaring the controller successful or unsuccessful
+on return, deadlines, calibration or complete deployment cost.
+
+NEXT ENGINEERING STEP
+Preserve this failed attempt and all checkpoints. Diagnose and predeclare a
+numerically faithful runtime correction using fixed engineering observations
+and these saved weights. Investigate backend arithmetic and action margins;
+do not alter critic weights, rewards, task seeds, objective or thresholds.
+Test the correction on all 85 frozen models and all 128 fixed observations,
+including an explicit near-tie regression. If equivalence passes, measure
+complete action latency/storage using the declared fixed procedure and every
+fit. Retain all failures. Do not repeat timings to seek a favorable result.
+If exact equivalence cannot be obtained, record that the original deployment
+gate remains failed; a route change requires an explicit prospective amendment
+and new honest cost evidence, not retrospective acceptance-rule changes.
+Then implement and verify a post-training continuation that loads only these
+frozen checkpoints, adds no optimizer steps, preserves original failure files,
+and runs the remaining comparison and full artifact audit in separately
+tracked outputs. Review that continuation before opening reserved held-out
+development tasks. Keep the untouched final evaluation separate.
+This review does not authorize retraining, new research runs or thesis claims.
+
+PRESERVATION AND SCOPE
+Original run, failure, exports and live-status files were not edited.
+Copies and diagnosis are under validation/anchor_development_completion_check_2026-11-11_01.
+No simulator calls, optimizer updates or new export/timing measurements were
+performed in this diagnosis; existing graphs were replayed for equivalence.
+Cloud/charging stations excluded; security/trust deferred. Word thesis unchanged.

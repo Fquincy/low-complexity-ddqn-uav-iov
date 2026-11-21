@@ -1,0 +1,161 @@
+ORIGINAL-LOSS INCUMBENT: FIXED-CHECKPOINT VALUE AND MECHANISM EVIDENCE
+2026-11-15
+
+RESULT
+The bounded evidence stage is complete. Saved predictions/actions reproduced,
+but global value consistency remains unresolved. The literature comparison
+finds substantial component overlap, including an existing UAV-offloading
+DDQN with action masking. Therefore a generic masked compact DDQN claim is
+insufficiently distinguished. Decision: CHANGE the proposed mechanism brief
+before another research run; do not automatically retrain or claim success.
+This means refine one testable controller difference within the same offloading
+topic, not abandon the compact DDQN goal or change the thesis topic.
+
+1. READ-ONLY CHECKPOINT CHECK
+Arms: original-loss screened_price24, screened_no_price24 and
+screened_plain24_anchored. All five fits,48 consumed development episodes per
+fit:15 fixed models,720 episodes,28,800 states. No new task seeds or rollout.
+Every input trace/array hash was checked against the saved run manifest;
+checkpoints matched the final freeze. Frozen batch-one FP32 online/target
+predictions reproduced saved values at unchanged atol1e-6/rtol1e-5. Executed
+greedy actions and following-state actions matched exactly. Weights unchanged.
+Terminal next-state decoding was bypassed; y=r at terminal transitions.
+No simulator steps, optimizer updates, retiming or final-seed use occurred.
+
+For each executed action at saved state s_t:
+  e_DDQN = Q_online(s_t,a_t)-r_t-Q_target(s_next,argmax Q_online(s_next,.))
+  e_self = Q_online(s_t,a_t)-r_t-Q_online(s_next,argmax Q_online(s_next,.))
+Both next-state terms are zero at termination. These are fixed-checkpoint
+diagnostics, not training-log TD residuals computed with evolving weights.
+The full saved trajectory telescoping identity was verified:
+  Q_online(s_t,a_t)-G_t = sum_(k=t..39) e_self,k.
+Thus small systematic errors across several steps can yield substantial
+return bias. This algebra locates the discrepancy, not its optimizer cause.
+Training summaries and frozen-evaluation summaries describe different states,
+actions and weights; do not compare them as identical residual distributions.
+
+2. PRICE PRIMARY: FROZEN VALUE CHECK
+fit | signed mean Q-G | DDQN residual mean/RMSE | self residual mean/RMSE
+0 | -8.7879 | +.378/.806 | -.356/.581
+1 | -1.9807 | +.346/.642 | -.012/.364
+2 | -9.2103 | +.450/1.026 | -.358/.772
+3 | +.9511 | +.200/.390 | +.087/.318
+4 | -10.2988 | +.649/1.234 | -.425/.792
+
+The original price controller is not uniformly pessimistic: fit3's signed
+global bias is positive. Fits0/2/4 have larger negative bias, especially early
+in the episode. Opposite signed errors across horizon can cancel in the mean;
+an acceptable mean bias does not establish acceptable RMSE. All five still
+fail the previously declared global RMSE limit, including fit3 at.2559>.25.
+
+Self residual and frozen-target residual differ. This shows target-network
+lag/disagreement is relevant to interpreting the numbers; it does not prove
+target lag caused the training outcome. Changing target updates is not
+authorized or justified as an automatic fix by these observations.
+
+At a saved primary state, the target network's branch choices differed from
+the online choices on approximately1.63%-3.17% of branch decisions per fit.
+Mean target-model value advantage of its own greedy joint action over the
+online joint action ranged approximately.0089-.0187. This is consistency
+between two learned models, not true action regret or validated scheduling
+optimality. Joint-action disagreement can exceed branch disagreement.
+
+Branch table margins are often small: primary median best/second-best cost
+margin ranges.00228-.00594 in per-step table units. All32 branches are included.
+These are not complete joint Q gaps and are not an implementation fault: exact
+recorded eager/runtime decisions already passed. No margin threshold is used
+to change actions or reinterpret old acceptance decisions.
+
+3. DOES THE PRICE TERM ACTUALLY CHANGE ACTIONS?
+Remove only the explicit marginal-price table from the SAME frozen primary
+core, retain its learned neural tables and screen, and decode the same state.
+States with at least one changed action, out of1920 saved states per fit:
+fit0:832;fit1:444;fit2:1042;fit3:1918;fit4:1920.
+
+The price term can affect action ranking despite a small contribution to total
+predicted cost. It is therefore incorrect to call it behaviorally irrelevant
+from its value percentage alone. However this probe changes no environment
+trajectory and retrains no network. It cannot establish whether these changed
+actions improve return/deadlines. The existing fully retrained no-price controls
+remain necessary; they beat the original primary in both metrics in three fits.
+No true best-action labels or counterfactual action returns are available here.
+
+4. WHAT THE EVIDENCE DOES NOT RESOLVE
+One realized rollout is not a conditional expected optimal-Q label. The state
+is a compressed observation of a queueing system; hidden histories can affect
+outcomes. Target and online critics are not ground truth. These limitations
+do not excuse documented sign/terminal/integrity failures or erase the old
+global consistency criteria. No post-hoc offset calibration, scaling or
+checkpoint selection was performed. A constant bias correction is not justified:
+errors vary with horizon, fit and observations, and useful action ranking
+cannot be inferred from scalar error alone.
+
+5. LITERATURE POSITION: NEW MATERIAL CHANGES THE NOVELTY BOUNDARY
+See INCUMBENT_CLOSEST_WORK_MATRIX_2026-11-15.txt and the archived retrieval
+records. The bounded search obtained full texts and inspected relevant
+model/method/complexity/experiment sections. It is not an exhaustive or
+systematic review, and no absence-of-prior-art claim is made.
+
+Most directly relevant overlap:
+Sustainable Task Offloading in Secure UAV-assisted Smart Farm Networks:
+A Multi-Agent DRL with Action Mask Approach, arXiv:2407.19657v1.
+Its abstract and SectionsIII/III-B explicitly combine DDQN with feasibility
+action masks for UAV offloading. The paper's scenario/security and mask details
+differ from ours, but "DDQN+UAV+action mask" is already present. Reading its
+security scenario does not add security to contribution-one experiments.
+
+Branching DDQN with linearly growing output heads is also established.
+Queue-aware/priority-based learned offloading, DDQN server scheduling and
+hierarchical decisions are present in the retrieved domain papers.
+Our observed-state outward-rounded local predicate and explicit workload
+marginal-cost table are specific implementation distinctions to investigate;
+the former alone is routine numerical robustness, and the latter still lacks
+consistent ablation superiority. No novelty clearance is granted.
+
+6. GO / CHANGE / STOP DECISION
+STOP the unsuccessful horizon-normalized-loss candidate under its tested setup.
+CONTINUE the contribution-one goal and retain original-loss FS-DDQN as incumbent.
+CHANGE the mechanism brief before another research run. Do not relabel old
+failed experiments, promote a control to confirmed primary, or lower thresholds.
+
+Recommended next bounded design question:
+  Can explicitly allocation-dependent workload pricing coordinate simultaneous
+  destination choices better than the current separable expected-load table,
+  while retaining a measured, bounded decoding cost?
+
+The current price table uses expected other assignments rather than the actual
+joint assignment under construction. Once tables are computed, independent
+branch minimization is exact only for that separable learned objective. Real
+queue costs depend on simultaneous assignments. A decoder that explicitly
+tracks candidate assigned load is a concrete difference from the incumbent
+and plain branchwise DDQN, but NOT established as novel or beneficial here.
+The observed RSU concentration motivates testing the limitation; it does not
+prove missing coupling caused it. Do not claim an allocation-dependent decoder
+would fix calibration or deadlines. Generic load-aware greedy allocation is
+also established and must be treated as a strong baseline, not hidden novelty.
+
+The next brief should define ONE mechanism: the exact workload potential,
+observed-state inputs, action objective, deterministic allocation/order rule,
+termination and worst-case work bound, DDQN behavior/next-action consistency,
+and what is exact versus approximate. Keep original rewards, observation,
+original-unit loss and architecture fixed initially to isolate the decoder.
+No exact joint-optimality or remote deadline guarantee may be invented.
+If the mechanism can be explained entirely by a simple load-aware heuristic,
+or the required search is too expensive, simplify/stop that candidate before
+training. Require same-information heuristic and plain-small-DDQN+same-decoder
+controls, plus a mechanism-removed incumbent, before attributing benefit to
+learned price architecture. Verify behavior first on isolated engineering data.
+
+No architecture, decoder code, research budget or seeds are selected/changed
+by this report. A prospective design brief and exact literature overlap check
+are the next deliverable; implementation and training remain later decisions.
+Independent final confirmation and thesis wording remain separate boundaries.
+Supervisor unavailability does not block the authorized technical work.
+Word thesis and final reservations unchanged; cloud/charging excluded;
+security/trust remains deferred to contribution two.
+
+EVIDENCE
+validation/incumbent_evidence_stage_2026-11-15_01/value_check/
+  results.json, verification.json, input_manifest.json, manifest.json
+validation/incumbent_evidence_stage_2026-11-15_01/literature/
+  retrieved full texts and search/retrieval records

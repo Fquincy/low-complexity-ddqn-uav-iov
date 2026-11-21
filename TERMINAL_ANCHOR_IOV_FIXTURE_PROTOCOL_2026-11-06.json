@@ -1,0 +1,18 @@
+{
+  "id":"terminal-anchor-paired-iov-engineering-v1",
+  "research_enabled":false,
+  "model_seeds":[99501,99509],
+  "training_starts":[995010000,995090000],
+  "evaluation_seeds":[995090100,995090101],
+  "episodes_per_arm_fit":2,
+  "arms":["price_both","no_price_both","price_horizon_only","price_anchor_only","plain_both","compact_both"],
+  "arm_order_seed":995090300,
+  "timing_order_seed":995090301,
+  "observations":"validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+  "observations_sha256":"2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+  "observations_role":"existing fixed engineering inputs; not policy quality evaluation",
+  "timing":{"rounds":3,"warmups":32,"calls_per_round":128,"backend":"ORT CPU single thread plus existing Numba decoder, full state/time validation and scaling"},
+  "fixture_training":{"warmup":8,"batch":8,"capacity":48,"target_interval":8,"epsilon_decay":80,"anchor_batch":32,"anchor_weight":1.0,"gamma":1.0,"optimizer":"Adam default betas/eps, lr1e-4, no decay","clip":10},
+  "interpretation":"engineering integration and descriptive cost only; no performance screens or selection; deployment measurements specific to synthetic-trained weights",
+  "scope":{"cloud":false,"charging_stations":false,"security_trust":false,"thesis_changed":false}
+}

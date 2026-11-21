@@ -1,0 +1,43 @@
+{
+  "state": "passed_read_only_objective_audit",
+  "date": "2026-11-04",
+  "results": {
+    "spi_0": {
+      "generator_head_unchanged_from_initialization": true,
+      "generator_head_gradients_absent": true,
+      "target_gradients_present_in_original_loss_graph": true,
+      "mean_wider_minus_base_score": 0.0001630624756217003,
+      "p95_wider_minus_base_score": 0.00031484365463256835,
+      "max_wider_minus_base_score": 0.0003161430358886719,
+      "min_wider_minus_base_score": 4.9114227294921875e-05,
+      "old_gap_field_is_forced_placeholder": true,
+      "all_greedy_candidates_count8": true
+    },
+    "spi_1": {
+      "generator_head_unchanged_from_initialization": true,
+      "generator_head_gradients_absent": true,
+      "target_gradients_present_in_original_loss_graph": true,
+      "mean_wider_minus_base_score": 0.00013002846390008926,
+      "p95_wider_minus_base_score": 0.00020086169242858885,
+      "max_wider_minus_base_score": 0.00023871660232543945,
+      "min_wider_minus_base_score": 7.015466690063477e-05,
+      "old_gap_field_is_forced_placeholder": true,
+      "all_greedy_candidates_count8": true
+    }
+  },
+  "actual_training_slots_all_four_runs": 320,
+  "actual_updates_all_four_runs": 292,
+  "reported_totals160_and146_omit_one_arm": true,
+  "beam128_is_not_exhaustive_5power32": true,
+  "new_optimizer_updates": 0,
+  "new_simulator_steps": 0,
+  "input_sha256": {
+    "spi_ddqn.py": "ba450c20857fe1644582a3bd3df4546d80a7c4e883836443a722593f9b09f65e",
+    "run_low_complexity_smoke.py": "ef1dc73498cfe0d590937dc20199d4e818444a57ae69f9f7d74cbda33bb929e2",
+    "audit_spi_beam_coverage.py": "8f04384c50c5696fc2ee5f7ab6c3b0728da8ea94fd056d800ccfffe99841c44e",
+    "validation\\spi_beam_coverage_2026-11-01_01\\verification.json": "6d0c531afbb2d9ba1d68b69237698f43cc9f5443b4ac71285c3a760130aee0d2",
+    "validation\\low_complexity_smoke_2026-11-01_03\\spi_0\\final.pt": "878d769016d0ecd940700e054a604d61525fedfd06bc3ca94b2ff6b116945350",
+    "validation\\low_complexity_smoke_2026-11-01_03\\spi_1\\final.pt": "80820e33d8ff97ea45258516882d46f7422ec80069b486a5b7a028363ab0d95b"
+  },
+  "script_sha256": "18aed7033ff54d7ecc8e3d36f097858e237cb2a8afa8ecd8f1426a3b4b0f390a"
+}

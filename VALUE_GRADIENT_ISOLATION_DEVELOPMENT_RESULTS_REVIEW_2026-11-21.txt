@@ -1,0 +1,196 @@
+VALUE-GRADIENT ISOLATION: DEVELOPMENT RESULTS REVIEW
+21 November 2026 (Asia/Shanghai)
+
+DECISION
+The frozen 67,120-slot comparison is complete. Its full artifact audit
+passed and the completed output was archived on D:. The independent
+completion verifier rehashed all 3,717 original manifest entries and 3,725
+archive files, then recomputed saved outcomes and all frozen scientific
+decisions. Its completed receipt is the evidence reference below.
+The policy screen FAILED, the relative value screen PASSED and the
+combined decision remains promising=false. Hold expansion and final testing.
+
+The controller has a measured advantage over the old softplus baseline on
+mean return and deadlines, but it does not reliably improve on imitation,
+the unmodified calibrated controller or the adapted gradient comparator.
+Do not label this study a successful low-complexity contribution, select
+another primary or a favorable initialization, or change a failed threshold.
+The Word thesis remains unchanged.
+
+EVIDENCE
+Protocol: VALUE_GRADIENT_ISOLATION_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 2a3a4cd58f3f04eabf1d54958e058af7294fbb73a2f41000c3242999bcc4f683
+Run: development_runs/value_gradient_isolation_comparison_2026-11-20_01
+Archive: D:\Fitz Thesis Research Archive\value_gradient_isolation_comparison_2026-11-20_01
+Independent verification:
+validation/value_gradient_isolation_comparison_completion_2026-11-21_01/verification.json
+Verifier: verify_value_gradient_isolation_completion_2026_11_21.py
+
+The original full auditor verified 3,717 manifest entries, exact source/
+environment/data bindings, replay/retention/action RNG draws, calibration,
+final policies, original-class deployment parity and all comparisons.
+It independently reconstructed the first P/R/A update in each of three
+fits: nine contexts and 18 audit derivative evaluations, zero audit training
+updates. This is evidence that the intended gradient routing executed, not
+proof that it improves the policy. Full historical gradient/weight/optimizer
+replay is not claimed. The completion verifier does no additional fitting,
+teacher inference, simulator execution or checkpoint/gradient replay.
+
+Actual completed budget: 1,200 demonstrations + 48,000 student online +
+17,920 evaluation slots = 67,120. Recorded 4,800 BC and 44,928 DDQN updates,
+22,464 retention batches within DDQN, 15 ridge solves, 24 initial and 216
+scheduled target copies, 27 final training checkpoints and 27 standalone
+deployment exports. All training/export hashes freeze before evaluation.
+All fits remain preserved. The untouched final evaluation set was not used.
+The supervised Python child exited with code 0. Its scalar-loss diagnostic
+warning is retained in stderr and is not a failed computation or pass claim.
+
+ALL STUDENTS AND SHARED TEACHER: EQUAL-FIT MEANS
+ID  Controller                          Mean return   Deadline success
+P   Value-gradient isolation DDQN        -14.221350       99.227431%
+R   Adapted shared-TD-gradient rescale   -14.255692       99.147569%
+A   Unmodified calibrated retained DDQN -14.147078       99.234375%
+B   Calibrated DDQN, no retention       -426.597616       57.782986%
+C   Uncalibrated retained DDQN           -16.485945       92.130208%
+D   Uncalibrated DDQN, no retention      -19.228077       86.107639%
+E   Calibrated imitation only            -14.329009       99.760417%
+F   Old softplus BC + DDQN               -15.473692       94.932292%
+G   Plain small softplus DDQN           -425.792263       57.637153%
+    Observed-load/radio teacher          -12.242679      100.000000%
+
+Higher return/deadline success is better. Teacher was evaluated once on the
+common 16 workloads, not as three independent teacher fits. These are paired
+development means, not statistical significance or final-set results. The
+previous study used different seeds; it is not a matched intervention control.
+
+POLICY SCREEN: FAILED
+Required: P-minus-E/F/A/R nonnegative in BOTH outcomes in EVERY fit, plus
+strictly positive equal-fit means in BOTH outcomes for EACH contrast.
+No scientific epsilon or deadline-loss allowance applies.
+
+Fit     P-E return  P-E deadline pp   P-F return  P-F deadline pp
+0        +0.068154       -0.036458      +0.140943       +2.885417
+1        +0.442429       +0.187500      +3.609705      +10.119792
+2        -0.187608       -1.750000      +0.006376       -0.119792
+Mean     +0.107659       -0.532986      +1.252341       +4.295139
+
+Fit     P-A return  P-A deadline pp   P-R return  P-R deadline pp
+0        +0.378289       +1.010417      +0.819992       +1.562500
+1        +0.082903       +0.479167      +0.010982       +0.270833
+2        -0.684009       -1.510417      -0.727950       -1.593750
+Mean     -0.074272       -0.006944      +0.034342       +0.079861
+
+Eight required per-fit metric comparisons fail: E deadline in fits 0/2,
+E return in fit 2, F deadline in fit 2, and both metrics against A/R in fit 2.
+Three equal-fit requirements fail: E deadlines, A return and A deadlines.
+P improves on A and R in fits 0/1 but reverses in fit 2. Positive average
+P-R or P-F results cannot override the predeclared all-fit requirements.
+
+VALUE SCREEN: PASSED, RELATIVE IMPROVEMENT ONLY
+Required: P own-policy NRMSE and absolute mean(Q-G) strictly below D for
+EVERY fit, where G is realized within-episode undiscounted return.
+
+Fit    P NRMSE   D NRMSE     P signed Q-G bias   D signed Q-G bias
+0      1.196954  8.252694         -3.710180          +90.887577
+1      2.638796  8.503281        -20.849081          +86.285775
+2      2.310020  7.141176        -18.046524          +90.864005
+
+All six required inequalities pass. However, P NRMSE and absolute bias
+are worse than E in every fit. E NRMSE: 1.087732, 0.956176, 0.867275;
+absolute bias: 0.724641, 6.047443, 0.922524. P improves these two metrics
+over A/R in fit 0 and worsens both in fits 1/2. Relative improvement over
+an inaccurate D does not establish calibrated finite-horizon values or
+value stability. These metrics compare each policy's own trajectories;
+they are not a causal estimate of calibration accuracy on common returns.
+
+P terminal Q-G error ranges:
+  Fit 0: -27.021228 to +8.828079
+  Fit 1: -38.943368 to -15.215691
+  Fit 2: -36.025058 to -15.352640
+P preclip gradient-clipping fractions: 98.130342%, 99.786325%, 100%.
+The complete error/target/gradient quantiles, terminal/nonterminal and
+slot-quarter results, positive/nearzero-Q fractions and all ablation
+contrasts are retained in saved_artifact_audit.json and run/analysis.json.
+F NRMSE near one accompanies values collapsed near zero; it is not evidence
+of successful value calibration or an alternative primary to promote.
+
+OBSERVATIONS TO DIAGNOSE, NOT NEW PASS RULES
+P misses per 19,200 evaluation tasks in fits 0/1/2: 24, 54, 367.
+E: 17, 90, 31. A: 218, 146, 77. R: 324, 106, 61. F: 578, 1997, 344.
+No task is unfinished at the horizon for these five controllers.
+In P fit 2, 366 of 367 misses occur at destination index 4 (RSU 2).
+This is a location for saved-trace diagnosis, not a proven cause. Compare
+matched task identities, within-slot allocation and actual CPU/link waits
+before attributing the failure to congestion, reward design or architecture.
+
+All calibrated arms share the same pre-DDQN handoff within a fit. Alpha:
+0.0032903181, 0.0031781331, 0.0033318443. Withheld-return RMSE after BC ->
+after scale -> after value fit:
+  Fit 0: 41.624088 -> 5.310582 -> 3.653542
+  Fit 1: 33.877547 -> 3.863334 -> 5.162083
+  Fit 2: 40.681207 -> 6.875108 -> 5.371223
+The frozen after-value-fit-versus-after-BC warning is false in each fit.
+Fit 1 worsens relative to scale-only, a diagnostic observation rather than
+a new failed criterion. Return-withheld states supplied action labels to
+BC/retention; they are not an entirely unseen generalization set.
+
+Calibration plus retention remains much better in policy outcomes than
+calibration without retention or plain small DDQN in this study. That
+component evidence does not establish the added isolation mechanism: A is
+the relevant paired ablation and P-A fails the declared screen. Keep the
+full factorial and P-A/P-R/R-A results; do not conflate the old mechanism's
+benefits with novelty of the proposed extension.
+
+STORAGE, LATENCY AND COST
+All nine students have the same 16,841 parameters, 67,364 FP32 parameter
+bytes and 20 buffer bytes. Every standalone deployment file is 70,290 bytes.
+No compression versus these equal-size controls is established. Full
+target/optimizer checkpoints are training artifacts, not deployment sizes.
+
+Complete action-selection latency, range of three fit-specific statistics:
+Arm    Median ms range       p95 ms range
+P      0.595200-0.624000      0.883330-0.944870
+R      0.587350-0.713400      0.744450-1.542410
+A      0.587950-0.593700      0.793900-0.890005
+B      0.589950-0.592550      0.849300-1.010915
+C      0.590250-0.702750      0.799940-1.343685
+D      0.589700-0.615350      0.839800-0.978525
+E      0.599900-0.632050      0.944835-1.489135
+F      0.532150-0.580700      0.783090-1.039880
+G      0.525650-0.642800      0.745105-1.114505
+Teacher median 70.855100 ms, p95 75.336450 ms (Python reference).
+
+These are host/backend-specific descriptions, not confidence intervals or
+UAV deployment measurements. Teacher compiled equivalence is unestablished.
+No speed threshold was declared. P is not consistently faster than the
+matched small references, and unchanged inference offers no structural
+storage advantage. Training-gradient changes do not themselves lighten
+the deployed architecture. Larger reference comparisons remain necessary.
+
+P's online stage took about 57.92-58.97 seconds per fit; A about 57.50-60.19;
+R about 58.75-59.38; F about 50.99-52.76. Retention and independent auditing
+are counted computation. Total launch to base archive verification was
+about 44.59 minutes, including 8.00 minutes of full audit and 3.58 minutes
+archive copy/base verification. Final small receipt writes are outside that
+archive timing boundary. Raw timings and boundaries remain saved.
+
+NEXT BOUNDED GATE
+Preserve this completed, mixed-result experiment and its archive. Diagnose
+the saved fit-2 task/destination/queue/deadline outcomes against E, A and R,
+and the value drift in fits 1/2. Use the already verified first-update
+mechanism evidence to distinguish correct routing from scientific efficacy;
+the present result does not prove a single failure cause.
+
+Do not implement a new controller or launch another run from this review.
+Only after saved-data diagnosis, decide whether a prospective amendment has
+a specific evidence-backed rationale. Any later design/comparison change
+requires declaration before fitting, fresh development reservations and a
+separate explicit launch. No automatic retry, best-arm promotion or changing
+the meaning of a failed screen is allowed.
+
+The low-complexity DDQN objective remains active but unproven. Broader DDQN,
+adapted BDQ/full-DQfD/heuristic comparisons, literature positioning and the
+untouched final evaluation remain required before a thesis efficiency claim.
+Security/trust stays deferred; cloud/charging remain excluded. The Word
+thesis is unchanged. This result should guide the next decision, not be
+recast as success to satisfy the original proposed claim.

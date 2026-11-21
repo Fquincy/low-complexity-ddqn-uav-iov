@@ -1,0 +1,98 @@
+TERMINAL-ANCHOR DEVELOPMENT RESULTS REVIEW
+Date: November 11, 2026
+
+DECISION
+The continuation completed and its full artifact audit passed. The
+controller did NOT pass the frozen development acceptance criteria.
+Do not launch final evaluation or claim a proven low-complexity policy
+improvement from this run. Preserve all fits and failed comparisons.
+
+VERIFIED COMPLETION
+Completed November11 at04:12:59 +08:00; elapsed approximately1.50hours.
+4,080 controller evaluation episodes and144 heuristic episodes saved.
+85 checkpoints,23,349 total saved episodes and593,045 historical optimizer
+updates audited;10,880 runtime equivalence checks and54,400 timing rows.
+The continuation added zero training slots and optimizer updates.
+This review rehashed all47,095 files in the completed run manifest
+and matched the completion receipt to its saved result and audit. No
+second simulation, training or timing measurement was performed.
+
+COST EVIDENCE
+Storage and measured complete action-selection median/p95 gates passed
+in all five initializations under the declared runtime amendment.
+Primary online FP32 parameter payload68,264bytes versus compact64194,944
+bytes: approximately65% fewer bytes. Payload excludes framework/process
+memory and does not prove lower total deployment memory.
+Primary median0.0742-0.0747ms; p950.0790-0.08382ms on this CPU/input set.
+
+POLICY COMPARISONS
+Differences below are primary minus comparator, averaged over all five
+initializations; higher is better. Acceptance still applies per fit,
+so a favorable overall mean cannot offset a failed initialization.
+comparator | return difference | deadline difference percentage points
+additive64_nonpositive | 37.4612 | -10.9854
+additive128_unbounded | 4.8092 | -8.7236
+no_price_both | -1.8640 | -2.4295
+all_local | 8.6431 | 13.3656
+nearest_rsu | -8.2548 | -13.4590
+uav_selective | -11.0880 | -18.2281
+The primary has higher mean return than the compact/wide references,
+but lower mean deadline success by10.9854 and8.7236 percentage points.
+Reference noninferiority requires return difference>=-2 and deadline
+difference>=-1percentage point in EVERY fit; the combined screen failed.
+Nearest-RSU and UAV-selective heuristics outperform the primary in both
+return and deadline success in every fit. The all-local baseline is
+outperformed, but this does not satisfy the stronger heuristic screen.
+
+MECHANISM AND ABLATIONS
+Against corrected no-price, primary mean return is1.8640 lower and
+deadline success2.4295 percentage points lower. The required positive
+mean mechanism improvement and per-fit nondegradation are unsupported.
+The primary does not dominate both correction ablations in every fit.
+These results do not establish a useful workload-price mechanism.
+
+VALUE STABILITY
+seed | normalized RMSE | absolute bias | nearzero fraction | terminal error p95
+61001 | 0.513319 | 7.023503 | 0.000000 | 0.399819
+61011 | 0.287901 | 2.349263 | 0.000000 | 0.360606
+61017 | 0.555214 | 7.196646 | 0.000000 | 0.410874
+61023 | 0.636051 | 10.556619 | 0.000000 | 0.586075
+61039 | 0.512635 | 6.264894 | 0.000000 | 0.510029
+Terminal error p95 passes<=2 and nearzero/large-return fraction passes
+<=.05 in all fits. However all five fits fail normalized RMSE<=.25 and
+absolute bias<=2. Finite-horizon/terminal handling has not established
+adequate whole-trajectory value calibration. Saved residual means show
+overoptimistic Q relative to realized greedy return-to-go. This is an
+empirical policy-return diagnostic, not a direct test of optimal Q.
+
+PREDECLARED SCREEN OUTCOMES
+references_each_fit: False
+heuristics_each_fit: False
+mechanism_each_fit: False
+mechanism_mean: False
+value_each_fit: False
+correction_ablations_each_fit: False
+All six combined quality screens failed; the separate cost gate passed.
+
+NEXT WORK
+Use the saved evaluation/training traces to diagnose deadline misses by
+destination, queue/load, task deadline and time stage; compare primary
+against corrected no-price, compact64, wide128 and the strong heuristics.
+Check whether long-horizon optimistic values, local/offload allocation
+or workload-price behavior explain the deficits. These are hypotheses;
+this results review does not establish their cause. Do not start another
+training run simply by increasing budget or tuning against these seeds.
+After diagnosis, prospectively declare one justified correction and its
+comparison on fresh development seeds. The48 development evaluation
+seeds are now consumed; they are not an untouched final test set.
+Keep final seeds unused, retain every fit, and do not retroactively alter
+thresholds, drop comparators or choose a winning initialization.
+
+THESIS IMPLICATION
+We now have audited evidence of smaller parameter payload and faster
+measured action selection under the declared routes, but not equal or
+better deadline performance or the proposed mechanism benefit. The
+intended combined low-complexity contribution is not yet demonstrated.
+Do not revise the thesis to claim that combined improvement on this basis.
+No security/trust claim is tested; that contribution remains deferred.
+Cloud/charging stations excluded. Word thesis and final evaluation unchanged.

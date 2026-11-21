@@ -1,0 +1,121 @@
+LOW COMPLEXITY OBJECTIVE CORRECTION AND REDESIGN
+Date: November 4, 2026
+Status: read-only audit and algebraic design; no new fitting or simulator steps.
+
+CORRECTION TO THE NOVEMBER 1 CONCLUSION
+The earlier0% action agreement between narrow and wider beams does not by itself
+prove inadequate physical action coverage. Many actions can have nearly equal
+predicted values; no physical counterfactual reward was measured in that audit.
+Beam128 is still a bounded reference, not exhaustive search over5^32 vectors.
+Mean wider-minus-base learned-score gaps were0.000163 and0.000130 for the two
+saved models. The old base_full_score_gap field was forced to zero by a code
+placeholder; do not use it as a measured gap. This review supersedes the prior
+claim that action disagreement alone established decoder unreliability.
+
+IMPLEMENTATION PROBLEMS FOUND AND VERIFIED
+1. SPIDDQN.component_head generates top-k candidates but joint_values() never
+   calls that head. The smoke loss therefore gives its parameters no gradients.
+   Both saved heads exactly match their seeded initialization. The shared encoder
+   changes, but the head weights themselves were never trained. This is a
+   material flaw in the claimed learned candidate generator.
+2. The smoke target y was not detached. Backward propagates into the target
+   network (and the additive online successor branch). Target parameters were
+   not in the optimizer, but this is still an invalid semigradient DDQN graph.
+3. Aggregate smoke counters omitted one arm: four runs at80 slots/73 updates
+   each total320 training slots/292 updates, not160/146.
+4. Reported mean_return was mean slot reward, and reported deadline_success was
+   mean cumulative within-episode ratios. Neither is final episode performance.
+5. Random exploration branches were logged with candidate_count1, which diluted
+   the reported beam averages. Actual greedy candidate counts were8; below8
+   averages are not evidence of duplicate beam vectors. That earlier explanation
+   was incorrect. Beam prefix construction uses distinct choices.
+6. Two replicate workload blocks overlap at task seed14100001. Future comparisons
+   must explicitly distinguish common evaluation workloads from training blocks.
+
+Preserve existing SPI files and checkpoints as historical implementation
+artifacts, not evidence for or against a soundly trained algorithm. The full
+pilot remains blocked for these reasons, not solely for beam disagreement.
+
+RECOMMENDED NEXT PROTOTYPE: EXACT MOVEMENT-CONDITIONED COMPACT Q
+Working label EMC-Q is a project label, not a novelty claim. Use one shared
+533->64->64 ReLU encoder. Predict:
+- unary destination values u_i(d),30 vehicles x5 destinations =150 outputs;
+- joint movement values m(b1,b2),25 outputs;
+- destination interaction factors c_i(d,l),30x5x2 =300 outputs;
+- state gates g_l,2 outputs.
+Use learned UAV-specific movement embeddings e_1(b1,l),e_2(b2,l),20 scalars.
+For a complete physical action a=(d_1..d_30,b1,b2), define
+Q(o,a)=m_o(b1,b2)+sum_i[u_o,i(d_i)
+       +sum_l c_o,i(d_i,l)*g_o,l*(e_1(b1,l)+e_2(b2,l))].
+All heads directly affect the chosen Q and therefore the training loss. There
+is no separate, untrained proposal head, top-k truncation or Python beam loop.
+
+EXACT DECODING FOR THIS MODEL CLASS
+Enumerate25 movement pairs in a tensor. Conditional on a pair, maximize each
+of30 destination terms over its five values; sum these maxima and add the
+movement score. Select the best pair and its30 maximizing destinations.
+This is exact argmax of this particular Q representation, not optimal physical
+control. It checks3750 conditional destination values plus their rank2 terms,
+instead of enumerating5^32 vectors. Batched implementation is essential.
+
+LIMITS OF THE REPRESENTATION
+Destination choices are separable once movements are fixed. General vehicle-
+vehicle interference, queue coupling and destination interactions are not fully
+represented. The state encoder can reflect current load, but does not eliminate
+that representational limit or observation aliasing. This is a deliberate
+restricted hypothesis to test, not a solution already established.
+
+TRAINING CONTRACT BEFORE ANY RUN
+Use chosen complete-action Q in a physical-slot replay loss. Compute DDQN next
+actions with the online model's exact decoder, evaluate them with the target,
+and build the entire target under no_grad. Skip absorbing successors. Frozen
+target parameters require_grad=False; verify no gradients in either successor
+path. One physical step/one replay record, gamma1, unchanged reward/horizon.
+Ensure all output blocks and movement embeddings receive loss gradients.
+Different-width architectures cannot have identical encoders; pair workload
+seeds, action/replay RNG streams and budgets, without claiming identical weights.
+
+COST AND QUALITY GATES
+Expected online parameters:69361 (277444 float32 bytes), versus105504/422016
+for the128x128 additive reference, approximately34.3% fewer parameter bytes.
+These are design arithmetic, to verify against the native model. Neither lower
+latency nor lower training cost is inferred from this count. Compare against a
+compact64x64 additive ablation as well as the original128x128 additive, so any
+benefit is not automatically credited to interactions when it comes from width.
+Time the complete physical action including all25 movement pairs and decoding,
+with common observations, paired block order, warmups and raw durations. Verify
+encoder call counts and weights unchanged. A single exact decode should replace
+the32 Python beam expansions; its actual speed remains to be measured.
+
+First implement and test mechanics only: exact enumeration on reduced toys,
+action legality/order, chosen-action gathering, ties, batch/single parity,
+interaction ablation, all-head gradients, target masks/detachment and accounting.
+Then benchmark full-slot latency against both additive widths and the historical
+SPI. No long learning run is justified until mechanics and cost gates pass.
+If it is slower than compact additive, do not call it lower-latency. The quality
+tradeoff may still be studied, but requires a separately declared objective.
+A small fresh learning smoke would then test integration only. Final quality
+needs multiple replicates, disjoint training seed blocks and fresh greedy
+episode evaluation with return and final on-time/generated task fraction.
+
+NOVELTY AND THESIS
+This design is not established as novel. A primary-literature comparison is
+required before making a novelty claim; it was not performed in this local
+code review. Keep all previous modeling evidence, physical equations and task
+parameters fixed. No guarantee of equal/better quality or low complexity.
+
+COMPLETED IN THIS STEP
+A saved-checkpoint/read-only loss-graph audit verified the untrained head and
+undesired target gradients without an optimizer update. The restricted argmax
+identity matched brute-force enumeration on100 seeded reduced random problems.
+No complete new EMC-Q model or learning runner is implemented in this step.
+
+NEXT WORK ITEM
+Implement EMC-Q and its mechanics tests in separate files, then run the native
+complete-slot cost gate against original and compact additive controls. Do not
+repair old checkpoints or resume the invalid SPI smoke.
+
+Evidence:
+analysis/spi_objective_review_2026-11-04/verification.json
+analysis/exact_movement_conditioned_design_2026-11-04/verification.json
+Word thesis unchanged. No simulator steps or optimizer updates.

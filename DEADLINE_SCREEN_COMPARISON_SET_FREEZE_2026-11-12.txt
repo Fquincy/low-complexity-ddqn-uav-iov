@@ -1,0 +1,95 @@
+DEADLINE-SCREENED DDQN: FROZEN COMPARISON SET
+Date: November 12, 2026
+
+OUTCOME
+Eleven learned controllers and three unchanged heuristics are frozen.
+This freezes comparison membership and definitions only. It is not the full
+research protocol and authorizes no training, evaluation or seed consumption.
+
+LEARNED CONTROLLERS
+ID | model key | screen | horizon | anchor | expected FP32 parameter bytes
+screened_price24 | price_both | True | True | True | 68264
+unmasked_price24 | price_both | False | True | True | 68264
+screened_no_price24 | no_price_both | True | True | True | 68264
+screened_plain24_anchored | plain_both | True | True | True | 67364
+screened_compact64_anchored | compact_both | True | True | True | 194944
+screened_plain24 | plain24_nonpositive | True | False | False | 67364
+unmasked_plain24 | plain24_nonpositive | False | False | False | 67364
+screened_wide128 | additive128_unbounded | True | False | False | 422016
+unmasked_wide128 | additive128_unbounded | False | False | False | 422016
+screened_bdq64 | bdq64_uniform_adapted | True | False | False | 195204
+unmasked_compact64 | additive64_nonpositive | False | False | False | 194944
+
+WHY THESE CONTROLLERS
+The unmasked primary differs only by disabling screening in greedy behavior,
+exploration and online next-action selection. Network, value definition and
+inherited horizon/anchor mechanisms remain identical. Paired randomness does
+not mean identical realized decisions, replay contents or queue histories.
+
+The screened no-price ablation retains identical tensors and inherited losses
+while zeroing the price contribution. The screened plain24 anchored baseline
+has the same hidden width and inherited losses; its parameter count and value
+parameterization differ, so it is an architecture control, not a price ablation.
+
+Plain small DDQN is included both screened and unmasked. It uses the existing
+plain24 nonpositive scalar critic without horizon scaling or extra anchor loss.
+It remains factorized: plain DDQN does not mean exponentially large joint-action
+enumeration. Screened baselines receive exactly the primary local screen.
+
+Screened compact64 inherits the primary horizon/anchor mechanisms. Unmasked
+compact64 is the original nonpositive reference without those corrections.
+This compact pair does not isolate screening. Wide128 screened/unmasked does
+isolate screening; neither wide arm gains horizon scaling or anchor loss.
+Screened adapted BDQ64 retains branchwise Huber and mean chosen branch value.
+It is a disclosed adaptation, not an exact replication of the full BDQ paper.
+
+FIXED HEURISTICS
+nearest_rsu and uav_selective are unchanged strong policy references. all_local
+is an unchanged diagnostic floor and is not an acceptance reference. These
+heuristics receive no learned screen or fallback. All-local may knowingly
+choose locally infeasible tasks. No arm uses future/private state information.
+
+FROZEN COMPARISON QUESTIONS
+screened_price24 vs unmasked_price24: Screening effect within proposed controller.
+screened_price24 vs screened_no_price24: Price contribution under same screen/tensors/losses.
+screened_price24 vs screened_plain24_anchored: Same-width architecture comparison; not one-factor ablation.
+screened_plain24 vs unmasked_plain24: Screening effect within ordinary small DDQN.
+screened_wide128 vs unmasked_wide128: Screening effect within wide128.
+screened_plain24_anchored vs screened_plain24: Combined horizon/anchor effect; does not separate mechanisms.
+Report primary return/deadline outcomes against all ten other learned arms
+and all three heuristics per initialization, irrespective of whether it wins.
+
+INTERPRETATION
+The focus remains a measured low-complexity DDQN implementation improvement.
+Engineering success does not establish competitive policy performance or
+calibration. If screened plain DDQN matches the primary, price superiority is
+unsupported. Masking alone is not new. Broader UAV-IoV literature comparison
+and supervisor discussion of the contribution remain outstanding.
+
+FREEZE AND VERIFICATION LIMITS
+The JSON pins arm definitions and source/reference SHA256 hashes. Copies of
+all files in the local Python import closure plus design references accompany
+this freeze. Counts were derived analytically from existing Linear layers;
+confirm actual parameter and buffer bytes during runner implementation.
+No forward pass, optimizer update or simulator rollout was performed.
+
+The older value_bound_smoke_env Python failed to import PyTorch because
+typing_extensions is missing; distutils-precedence startup errors also occurred.
+The environment was not modified. This blocks live checks until resolved,
+but does not prevent freezing source definitions and comparison membership.
+
+The existing seven-screened-arm fixture does not test the new unmasked fast
+runtime or original unmasked compact64 orchestration. Verify these routes
+with the future research runner and its reduced end-to-end fixture.
+
+NEXT STEP
+Prospectively declare fresh disjoint seeds, training budgets, optimizer
+schedules, acceptance thresholds and mechanism-effect margins. Tiny fixture
+policy outcomes must not guide tuning or selection. Implement/test the runner
+and independent auditor, then make a separate explicit launch decision.
+Final seeds untouched. Cloud/charging stations excluded; security/trust
+deferred. Existing runs and Word thesis unchanged.
+
+FILES
+DEADLINE_SCREEN_COMPARISON_SET_FREEZE_2026-11-12.json
+validation\deadline_screen_comparison_freeze_2026-11-12_01

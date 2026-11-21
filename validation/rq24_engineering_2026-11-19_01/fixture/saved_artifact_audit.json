@@ -1,0 +1,26 @@
+{
+  "saved_artifact_audit_passed": true,
+  "cost_screens": [
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    }
+  ],
+  "cost_gate_passed": false,
+  "research_release": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "new_timing_readings": 0,
+  "quality_evidence": false
+}

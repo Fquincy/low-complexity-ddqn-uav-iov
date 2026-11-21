@@ -1,0 +1,118 @@
+{
+  "kind": "AR24_SYNTHETIC_ENGINEERING_NOT_RESEARCH",
+  "correctness_passed": true,
+  "cost_gate_passed": false,
+  "cost_screens": [
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    },
+    {
+      "storage": true,
+      "median": false,
+      "p95": true
+    }
+  ],
+  "costs": {
+    "0": {
+      "ar24": {
+        "median_ms": 0.04125,
+        "p95_ms": 0.0433,
+        "parameter_bytes": 68464
+      },
+      "screened_plain24": {
+        "median_ms": 0.0271,
+        "p95_ms": 0.0281,
+        "parameter_bytes": 67364
+      },
+      "screened_wide128": {
+        "median_ms": 0.0356,
+        "p95_ms": 0.03825,
+        "parameter_bytes": 422016
+      },
+      "unmasked_wide128": {
+        "median_ms": 0.0348,
+        "p95_ms": 0.046475,
+        "parameter_bytes": 422016
+      },
+      "unmasked_compact64": {
+        "median_ms": 0.03,
+        "p95_ms": 0.0381,
+        "parameter_bytes": 194944
+      }
+    },
+    "1": {
+      "ar24": {
+        "median_ms": 0.0411,
+        "p95_ms": 0.05,
+        "parameter_bytes": 68464
+      },
+      "screened_plain24": {
+        "median_ms": 0.027,
+        "p95_ms": 0.028175,
+        "parameter_bytes": 67364
+      },
+      "screened_wide128": {
+        "median_ms": 0.0357,
+        "p95_ms": 0.03715,
+        "parameter_bytes": 422016
+      },
+      "unmasked_wide128": {
+        "median_ms": 0.03455,
+        "p95_ms": 0.038,
+        "parameter_bytes": 422016
+      },
+      "unmasked_compact64": {
+        "median_ms": 0.0298,
+        "p95_ms": 0.030975,
+        "parameter_bytes": 194944
+      }
+    },
+    "2": {
+      "ar24": {
+        "median_ms": 0.0414,
+        "p95_ms": 0.04685,
+        "parameter_bytes": 68464
+      },
+      "screened_plain24": {
+        "median_ms": 0.0274,
+        "p95_ms": 0.030425,
+        "parameter_bytes": 67364
+      },
+      "screened_wide128": {
+        "median_ms": 0.0358,
+        "p95_ms": 0.039875,
+        "parameter_bytes": 422016
+      },
+      "unmasked_wide128": {
+        "median_ms": 0.0343,
+        "p95_ms": 0.0366,
+        "parameter_bytes": 422016
+      },
+      "unmasked_compact64": {
+        "median_ms": 0.02965,
+        "p95_ms": 0.030225,
+        "parameter_bytes": 194944
+      }
+    }
+  },
+  "raw_readings": 1440,
+  "parameter_bytes": 68464,
+  "buffer_bytes": 20,
+  "serialized_primary_graph_bytes": [
+    68905,
+    68905,
+    68905
+  ],
+  "research_release": false,
+  "quality_evidence": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "word_thesis_changed": false
+}

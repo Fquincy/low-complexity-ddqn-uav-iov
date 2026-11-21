@@ -1,0 +1,11 @@
+{
+  "state": "passed_design_argmax_algebra",
+  "reduced_random_cases": 100,
+  "rng_seed": 20261104,
+  "decoder_exact_for_restricted_representation": true,
+  "physical_optimality_claim": false,
+  "expected_parameters": 69361,
+  "expected_float32_parameter_bytes": 277444,
+  "optimizer_updates": 0,
+  "simulator_steps": 0
+}

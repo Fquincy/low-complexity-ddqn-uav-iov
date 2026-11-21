@@ -1,0 +1,110 @@
+TERMINAL-ANCHOR SAVED-TRACE DIAGNOSIS
+Date: November 11, 2026
+
+FINDING
+Deadline losses concentrate on locally assigned tasks that cannot meet
+their deadline even with an empty local CPU queue. This is supported
+by saved task cycles, deadlines, destinations and outcomes. It does not
+prove why the learner selected those actions or that an arbitrary
+offloading replacement would succeed under the same system dynamics.
+
+SCOPE AND CHECKS
+Primary, corrected no-price, compact64, wide128, nearest-RSU and
+UAV-selective; all five initializations, all48 consumed development
+evaluation tasks.1,056 unique compressed traces read; original manifest
+hashes matched.1,440,000 paired task comparisons checked against task
+identity, size, cycles, deadline and arrival. Destination/time/feasibility
+bucket totals, paired deadline counts and component-return reconstruction
+reconcile with the frozen audited per-fit comparisons.
+Heuristic traces are reused across five learned fits for matching; these
+are48 unique heuristic workloads, not240 independent heuristic episodes.
+Per-fit results retained; pooled task counts are descriptive and are not
+independent statistical replicates or post-hoc acceptance criteria.
+
+TASK ALLOCATION
+controller | deadline success % | local allocation % | infeasible local % of all tasks
+price_both | 69.2181 | 66.5687 | 29.6431
+no_price_both | 71.6476 | 63.0458 | 27.8056
+additive64_nonpositive | 80.2035 | 10.3139 | 4.5556
+additive128_unbounded | 77.9417 | 26.5201 | 11.7601
+nearest_rsu | 82.6771 | 0.0000 | 0.0000
+uav_selective | 87.4462 | 0.0000 | 0.0000
+Primary: 85,372 infeasible local tasks / 88,652 deadline failures
+(96.300% of failures). All primary local failures equal
+the analytical local-infeasibility count in these saved traces.
+Test: required_cycles /1.5e9 > deadline_s. This is a necessary local
+feasibility condition, ignoring queue delay, not a counterfactual oracle.
+The observed equality indicates the chosen local tasks fail from their
+own service requirement in these traces; it does not establish a general
+absence of local queue effects in other workloads.
+Primary RSU1/RSU2 assignments succeeded at
+99.9676% / 99.6202%.
+That conditional success does not prove all rejected local tasks can be
+offloaded together without introducing congestion/radio delays.
+
+PAIRED DEADLINE ACCOUNTING
+Counts below match identical workload tasks under different policies.
+Policy-dependent queue and UAV histories differ, so they are descriptive
+outcome comparisons rather than isolated single-action interventions.
+reference | net extra primary failures on primary-local tasks | net total extra primary failures
+no_price_both | 19,200 | 6,997
+additive64_nonpositive | 48,679 | 31,638
+additive128_unbounded | 43,927 | 25,124
+nearest_rsu | 52,181 | 38,762
+uav_selective | 61,377 | 52,497
+Other destinations partially offset local losses. Thus local-allocation
+differences account for more than the net deadline gap against references.
+
+REWARD TRADEOFF
+controller | delay cost/episode | energy cost/episode | miss cost/episode | return
+price_both | 14.37331 | 2.31193 | 12.31278 | -28.99802
+no_price_both | 13.50107 | 2.29194 | 11.34097 | -27.13398
+additive64_nonpositive | 56.22991 | 2.31067 | 7.91861 | -66.45920
+additive128_unbounded | 22.64593 | 2.33791 | 8.82333 | -33.80718
+nearest_rsu | 11.62169 | 2.19240 | 6.92917 | -20.74326
+uav_selective | 10.68975 | 2.19878 | 5.02153 | -17.91006
+Reward is the negative sum of these three existing weighted costs.
+The primary gains mean return over compact64/wide128 mainly by reducing
+accumulated delay cost, while incurring more deadline-miss cost. Against
+no-price and the strong heuristics, this tradeoff is not an improvement.
+The reward includes a miss penalty, but no explicit hard deadline-success
+constraint. A scalar return gain alone cannot support the promised joint
+return/deadline claim. Do not retune frozen reward weights retrospectively.
+
+VALUE EVIDENCE
+Earlier audited primary normalized RMSE0.288-0.636 and absolute bias
+2.349-10.557 fail in every fit. Residual Q-minus-realized-return means
+are positive: predictions are overoptimistic along those trajectories.
+Terminal error p950.361-0.586 passes, so successful terminal anchoring
+has not established sufficient long-horizon policy-return calibration.
+The current traces localize the performance deficit but do not show
+whether value bias causes local selection or follows poor visitation.
+
+NEXT PROSPECTIVE DESIGN STAGE
+Write one justified deadline-aware controller extension within the same
+offloading problem before another research run. A concrete candidate is
+a necessary-feasibility feature/gate for provably impossible local tasks,
+with an explicitly specified fallback when no destination is certified.
+It must handle radio/remote congestion, preserve DDQN selection/target
+semantics, and include its full action-selection cost. A local test alone
+does not guarantee any remote deadline or improvement.
+Distinguish known feasibility masking from any genuinely new mechanism:
+review relevant literature before asserting novelty. Compare a plain small
+DDQN with the same feasibility information, mechanism-removed ablation,
+strong references and heuristics. This prevents attributing an information
+or safety-screen advantage solely to architectural novelty.
+Keep the present run and reward fixed. Declare any objective/constraint
+change prospectively as a new experiment with fresh development seeds.
+Investigate long-horizon target calibration separately using saved data;
+do not assume that terminal correction or more training solves it.
+No new architecture is selected, no thresholds relaxed, and no retraining
+or reserved final evaluation is authorized by this diagnosis.
+
+LIMITATIONS
+No off-policy simulator interventions were run. Conditional destination
+success rates confound allocation, workload and policy trajectories.
+Queue/upload wait sums are retained per destination in diagnosis.json;
+they describe final recorded task outcomes, not every causal queue effect.
+No formal uncertainty interval or new statistical acceptance test added.
+Security/trust deferred; cloud and charging stations excluded.
+Word thesis unchanged. Final evaluation remains unused.

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "mode": "fixture",
+  "fits": 2,
+  "episodes": 128,
+  "task_records": 153600,
+  "optimizer_rows": 2190,
+  "checkpoint_graphs": 30,
+  "fresh_process_startups": 30,
+  "timing_rows": 240,
+  "saved_eager_evaluation_states": 2400,
+  "global_freeze_order_verified": true,
+  "replay_and_training_storage_verified": true,
+  "all_comparisons_distributions_audited": true,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "retiming": false,
+  "research_launched": false
+}

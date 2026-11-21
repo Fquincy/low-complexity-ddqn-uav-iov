@@ -1,0 +1,725 @@
+{
+  "per_fit": {
+    "0": {
+      "absolute": {
+        "value_gradient_isolated_ddqn": {
+          "return_value": -14.131522621862914,
+          "deadline": 0.99875
+        },
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -14.951514610537949,
+          "deadline": 0.983125
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -14.509811892355104,
+          "deadline": 0.9886458333333333
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": -810.6993123245334,
+          "deadline": 0.289375
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": -14.163630905630924,
+          "deadline": 0.97421875
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": -18.69846197727312,
+          "deadline": 0.870625
+        },
+        "calibrated_bc_only": {
+          "return_value": -14.199677054400503,
+          "deadline": 0.9991145833333333
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -14.272465253697657,
+          "deadline": 0.9698958333333333
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": -367.9595164762968,
+          "deadline": 0.6120312499999999
+        }
+      },
+      "teacher": {
+        "return_value": -12.24267906526849,
+        "deadline": 1.0
+      },
+      "contrasts": {
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": 0.8199919886750351,
+          "deadline": 0.015625
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": 0.37828927049219097,
+          "deadline": 0.010104166666666692
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": 796.5677897026704,
+          "deadline": 0.7093750000000001
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": 0.03210828376801089,
+          "deadline": 0.024531250000000004
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": 4.566939355410206,
+          "deadline": 0.12812500000000004
+        },
+        "calibrated_bc_only": {
+          "return_value": 0.06815443253758957,
+          "deadline": -0.0003645833333332238
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": 0.14094263183474354,
+          "deadline": 0.028854166666666736
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": 353.8279938544339,
+          "deadline": 0.3867187500000001
+        }
+      },
+      "minus_teacher": {
+        "value_gradient_isolated_ddqn": {
+          "return_value": -1.8888435565944235,
+          "deadline": -0.0012499999999999734
+        },
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -2.7088355452694586,
+          "deadline": -0.016874999999999973
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -2.2671328270866145,
+          "deadline": -0.011354166666666665
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": -798.4566332592649,
+          "deadline": -0.7106250000000001
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": -1.9209518403624344,
+          "deadline": -0.025781249999999978
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": -6.455782912004629,
+          "deadline": -0.12937500000000002
+        },
+        "calibrated_bc_only": {
+          "return_value": -1.956997989132013,
+          "deadline": -0.0008854166666667496
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -2.029786188429167,
+          "deadline": -0.03010416666666671
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": -355.71683741102834,
+          "deadline": -0.3879687500000001
+        }
+      }
+    },
+    "1": {
+      "absolute": {
+        "value_gradient_isolated_ddqn": {
+          "return_value": -14.09200165239713,
+          "deadline": 0.9971875
+        },
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -14.10298397474181,
+          "deadline": 0.9944791666666667
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -14.174904416247571,
+          "deadline": 0.9923958333333334
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": -40.35955668744169,
+          "deadline": 0.8659895833333333
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": -16.094531757722244,
+          "deadline": 0.9276041666666667
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": -17.264620898983946,
+          "deadline": 0.9006770833333333
+        },
+        "calibrated_bc_only": {
+          "return_value": -14.534430865255295,
+          "deadline": 0.9953125
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -17.701706744808615,
+          "deadline": 0.8959895833333333
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": -522.3358384928679,
+          "deadline": 0.5169791666666667
+        }
+      },
+      "teacher": {
+        "return_value": -12.24267906526849,
+        "deadline": 1.0
+      },
+      "contrasts": {
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": 0.010982322344680995,
+          "deadline": 0.0027083333333333126
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": 0.08290276385044137,
+          "deadline": 0.0047916666666666385
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": 26.26755503504456,
+          "deadline": 0.1311979166666667
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": 2.002530105325114,
+          "deadline": 0.06958333333333333
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": 3.172619246586816,
+          "deadline": 0.09651041666666671
+        },
+        "calibrated_bc_only": {
+          "return_value": 0.4424292128581655,
+          "deadline": 0.00187499999999996
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": 3.6097050924114846,
+          "deadline": 0.10119791666666667
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": 508.24383684047075,
+          "deadline": 0.48020833333333335
+        }
+      },
+      "minus_teacher": {
+        "value_gradient_isolated_ddqn": {
+          "return_value": -1.8493225871286398,
+          "deadline": -0.0028124999999999956
+        },
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -1.8603049094733208,
+          "deadline": -0.005520833333333308
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -1.9322253509790812,
+          "deadline": -0.007604166666666634
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": -28.1168776221732,
+          "deadline": -0.1340104166666667
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": -3.851852692453754,
+          "deadline": -0.07239583333333333
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": -5.021941833715456,
+          "deadline": -0.0993229166666667
+        },
+        "calibrated_bc_only": {
+          "return_value": -2.2917517999868053,
+          "deadline": -0.004687499999999956
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -5.4590276795401245,
+          "deadline": -0.10401041666666666
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": -510.0931594275994,
+          "deadline": -0.48302083333333334
+        }
+      }
+    },
+    "2": {
+      "absolute": {
+        "value_gradient_isolated_ddqn": {
+          "return_value": -14.440526988340121,
+          "deadline": 0.9808854166666667
+        },
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -13.712577409615024,
+          "deadline": 0.9968229166666667
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -13.756517826667086,
+          "deadline": 0.9959895833333333
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": -428.7339778218091,
+          "deadline": 0.578125
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": -19.199672474889155,
+          "deadline": 0.8620833333333333
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": -21.72114775002451,
+          "deadline": 0.8119270833333334
+        },
+        "calibrated_bc_only": {
+          "return_value": -14.252918980990689,
+          "deadline": 0.9983854166666667
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -14.446903290376472,
+          "deadline": 0.9820833333333334
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": -387.0814337469252,
+          "deadline": 0.6001041666666667
+        }
+      },
+      "teacher": {
+        "return_value": -12.24267906526849,
+        "deadline": 1.0
+      },
+      "contrasts": {
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -0.7279495787250969,
+          "deadline": -0.015937499999999938
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -0.6840091616730355,
+          "deadline": -0.015104166666666585
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": 414.29345083346897,
+          "deadline": 0.40276041666666673
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": 4.759145486549034,
+          "deadline": 0.11880208333333342
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": 7.280620761684389,
+          "deadline": 0.16895833333333332
+        },
+        "calibrated_bc_only": {
+          "return_value": -0.18760800734943217,
+          "deadline": -0.01749999999999996
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": 0.006376302036350978,
+          "deadline": -0.0011979166666666874
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": 372.64090675858506,
+          "deadline": 0.38078125000000007
+        }
+      },
+      "minus_teacher": {
+        "value_gradient_isolated_ddqn": {
+          "return_value": -2.197847923071631,
+          "deadline": -0.019114583333333268
+        },
+        "dueling_shared_td_rescale_ddqn": {
+          "return_value": -1.469898344346534,
+          "deadline": -0.0031770833333333304
+        },
+        "calibrated_retained_ddqn": {
+          "return_value": -1.5138387613985955,
+          "deadline": -0.004010416666666683
+        },
+        "calibrated_no_retention_ddqn": {
+          "return_value": -416.49129875654063,
+          "deadline": -0.421875
+        },
+        "uncalibrated_retained_ddqn": {
+          "return_value": -6.956993409620665,
+          "deadline": -0.1379166666666667
+        },
+        "uncalibrated_no_retention_ddqn": {
+          "return_value": -9.47846868475602,
+          "deadline": -0.1880729166666666
+        },
+        "calibrated_bc_only": {
+          "return_value": -2.010239915722199,
+          "deadline": -0.0016145833333333082
+        },
+        "old_softplus_bc_ddqn": {
+          "return_value": -2.204224225107982,
+          "deadline": -0.01791666666666658
+        },
+        "plain_small_softplus_ddqn": {
+          "return_value": -374.8387546816567,
+          "deadline": -0.39989583333333334
+        }
+      }
+    }
+  },
+  "value_metrics": {
+    "value_gradient_isolated_ddqn/2": {
+      "bias": -18.046523519791663,
+      "nrmse": 2.310020028508112
+    },
+    "uncalibrated_retained_ddqn/1": {
+      "bias": 86.31684533152729,
+      "nrmse": 9.099311333731368
+    },
+    "uncalibrated_retained_ddqn/0": {
+      "bias": 91.3282352311071,
+      "nrmse": 10.977865222748875
+    },
+    "uncalibrated_retained_ddqn/2": {
+      "bias": 90.1695256463252,
+      "nrmse": 7.98580918962052
+    },
+    "plain_small_softplus_ddqn/0": {
+      "bias": 172.1500005803071,
+      "nrmse": 0.7983361476595245
+    },
+    "value_gradient_isolated_ddqn/1": {
+      "bias": -20.849080530600624,
+      "nrmse": 2.6387956487151616
+    },
+    "calibrated_retained_ddqn/1": {
+      "bias": -2.191206819145009,
+      "nrmse": 0.7920783033148953
+    },
+    "calibrated_retained_ddqn/0": {
+      "bias": 15.194364990526811,
+      "nrmse": 2.278289649527671
+    },
+    "calibrated_retained_ddqn/2": {
+      "bias": 4.884023475274444,
+      "nrmse": 1.1746338781424261
+    },
+    "plain_small_softplus_ddqn/2": {
+      "bias": 180.44548532962799,
+      "nrmse": 0.7963552607194144
+    },
+    "calibrated_no_retention_ddqn/1": {
+      "bias": 28.962498336844146,
+      "nrmse": 1.1973647774450975
+    },
+    "old_softplus_bc_ddqn/1": {
+      "bias": 9.039153658691793,
+      "nrmse": 1.0
+    },
+    "calibrated_no_retention_ddqn/2": {
+      "bias": 268.16089167492464,
+      "nrmse": 0.9827083085471681
+    },
+    "uncalibrated_no_retention_ddqn/1": {
+      "bias": 86.28577483780683,
+      "nrmse": 8.50328050371338
+    },
+    "dueling_shared_td_rescale_ddqn/2": {
+      "bias": 7.599988479353487,
+      "nrmse": 1.407882670191488
+    },
+    "calibrated_bc_only/0": {
+      "bias": 0.7246405854180921,
+      "nrmse": 1.0877318420118387
+    },
+    "uncalibrated_no_retention_ddqn/2": {
+      "bias": 90.86400529858656,
+      "nrmse": 7.141175623055031
+    },
+    "dueling_shared_td_rescale_ddqn/0": {
+      "bias": 14.522201670194045,
+      "nrmse": 2.099699271140719
+    },
+    "calibrated_bc_only/1": {
+      "bias": 6.04744337060256,
+      "nrmse": 0.9561761252309326
+    },
+    "calibrated_bc_only/2": {
+      "bias": 0.9225243821332697,
+      "nrmse": 0.8672751423387633
+    },
+    "old_softplus_bc_ddqn/0": {
+      "bias": 7.331657851067206,
+      "nrmse": 0.999999999999891
+    },
+    "calibrated_no_retention_ddqn/0": {
+      "bias": 499.48957977388056,
+      "nrmse": 0.9662453742331641
+    },
+    "plain_small_softplus_ddqn/1": {
+      "bias": 248.23522814083844,
+      "nrmse": 0.8092630338070016
+    },
+    "old_softplus_bc_ddqn/2": {
+      "bias": 7.393989048199687,
+      "nrmse": 0.9999999999999962
+    },
+    "value_gradient_isolated_ddqn/0": {
+      "bias": -3.710180035792291,
+      "nrmse": 1.1969540693704612
+    },
+    "dueling_shared_td_rescale_ddqn/1": {
+      "bias": -2.0225358457304536,
+      "nrmse": 0.8016922484536563
+    },
+    "uncalibrated_no_retention_ddqn/0": {
+      "bias": 90.88757673222571,
+      "nrmse": 8.252694201796224
+    }
+  },
+  "policy_screen": false,
+  "value_screen": true,
+  "promising": false,
+  "factorial_interaction": {
+    "0": {
+      "return_value": 791.6546693605361,
+      "deadline": 0.5956770833333332,
+      "nrmse": -1.4131267456581433,
+      "abs_bias": -484.73587328223505
+    },
+    "1": {
+      "return_value": 25.014563129932416,
+      "deadline": 0.09947916666666667,
+      "nrmse": -1.0013173041481895,
+      "abs_bias": -26.802362011419604
+    },
+    "2": {
+      "return_value": 412.45598472000665,
+      "deadline": 0.3677083333333334,
+      "nrmse": -0.6527079969702303,
+      "abs_bias": -262.58238854738886
+    }
+  },
+  "equal_fit_means": {
+    "value_gradient_isolated_ddqn": {
+      "return_value": -14.221350420866722,
+      "deadline": 0.9922743055555556
+    },
+    "dueling_shared_td_rescale_ddqn": {
+      "return_value": -14.25569199829826,
+      "deadline": 0.9914756944444445
+    },
+    "calibrated_retained_ddqn": {
+      "return_value": -14.14707804508992,
+      "deadline": 0.99234375
+    },
+    "calibrated_no_retention_ddqn": {
+      "return_value": -426.59761561126135,
+      "deadline": 0.5778298611111111
+    },
+    "uncalibrated_retained_ddqn": {
+      "return_value": -16.485945046080776,
+      "deadline": 0.9213020833333333
+    },
+    "uncalibrated_no_retention_ddqn": {
+      "return_value": -19.228076875427192,
+      "deadline": 0.8610763888888888
+    },
+    "calibrated_bc_only": {
+      "return_value": -14.329008966882162,
+      "deadline": 0.9976041666666666
+    },
+    "old_softplus_bc_ddqn": {
+      "return_value": -15.473691762960916,
+      "deadline": 0.9493229166666666
+    },
+    "plain_small_softplus_ddqn": {
+      "return_value": -425.79226290536326,
+      "deadline": 0.5763715277777778
+    }
+  },
+  "equal_fit_mean_contrasts": {
+    "dueling_shared_td_rescale_ddqn": {
+      "return_value": 0.034341577431539726,
+      "deadline": 0.0007986111111111249
+    },
+    "calibrated_retained_ddqn": {
+      "return_value": -0.07427237577680106,
+      "deadline": -6.944444444441829e-05
+    },
+    "calibrated_no_retention_ddqn": {
+      "return_value": 412.37626519039463,
+      "deadline": 0.41444444444444456
+    },
+    "uncalibrated_retained_ddqn": {
+      "return_value": 2.264594625214053,
+      "deadline": 0.07097222222222226
+    },
+    "uncalibrated_no_retention_ddqn": {
+      "return_value": 5.006726454560471,
+      "deadline": 0.1311979166666667
+    },
+    "calibrated_bc_only": {
+      "return_value": 0.10765854601544096,
+      "deadline": -0.005329861111111074
+    },
+    "old_softplus_bc_ddqn": {
+      "return_value": 1.2523413420941931,
+      "deadline": 0.04295138888888891
+    },
+    "plain_small_softplus_ddqn": {
+      "return_value": 411.5709124844966,
+      "deadline": 0.4159027777777779
+    }
+  },
+  "value_contrasts": {
+    "0": {
+      "dueling_shared_td_rescale_ddqn": {
+        "nrmse": -0.9027452017702577,
+        "abs_bias": -10.812021634401754
+      },
+      "calibrated_retained_ddqn": {
+        "nrmse": -1.08133558015721,
+        "abs_bias": -11.48418495473452
+      },
+      "calibrated_no_retention_ddqn": {
+        "nrmse": 0.23070869513729708,
+        "abs_bias": -495.7793997380883
+      },
+      "uncalibrated_retained_ddqn": {
+        "nrmse": -9.780911153378414,
+        "abs_bias": -87.61805519531481
+      },
+      "uncalibrated_no_retention_ddqn": {
+        "nrmse": -7.055740132425763,
+        "abs_bias": -87.17739669643342
+      },
+      "calibrated_bc_only": {
+        "nrmse": 0.10922222735862253,
+        "abs_bias": 2.985539450374199
+      },
+      "old_softplus_bc_ddqn": {
+        "nrmse": 0.19695406937057025,
+        "abs_bias": -3.6214778152749147
+      },
+      "plain_small_softplus_ddqn": {
+        "nrmse": 0.3986179217109367,
+        "abs_bias": -168.43982054451482
+      }
+    },
+    "1": {
+      "dueling_shared_td_rescale_ddqn": {
+        "nrmse": 1.8371034002615052,
+        "abs_bias": 18.82654468487017
+      },
+      "calibrated_retained_ddqn": {
+        "nrmse": 1.8467173454002663,
+        "abs_bias": 18.657873711455615
+      },
+      "calibrated_no_retention_ddqn": {
+        "nrmse": 1.441430871270064,
+        "abs_bias": -8.113417806243522
+      },
+      "uncalibrated_retained_ddqn": {
+        "nrmse": -6.460515685016206,
+        "abs_bias": -65.46776480092666
+      },
+      "uncalibrated_no_retention_ddqn": {
+        "nrmse": -5.864484854998219,
+        "abs_bias": -65.43669430720621
+      },
+      "calibrated_bc_only": {
+        "nrmse": 1.682619523484229,
+        "abs_bias": 14.801637159998064
+      },
+      "old_softplus_bc_ddqn": {
+        "nrmse": 1.6387956487151616,
+        "abs_bias": 11.80992687190883
+      },
+      "plain_small_softplus_ddqn": {
+        "nrmse": 1.8295326149081599,
+        "abs_bias": -227.38614761023783
+      }
+    },
+    "2": {
+      "dueling_shared_td_rescale_ddqn": {
+        "nrmse": 0.9021373583166241,
+        "abs_bias": 10.446535040438174
+      },
+      "calibrated_retained_ddqn": {
+        "nrmse": 1.135386150365686,
+        "abs_bias": 13.16250004451722
+      },
+      "calibrated_no_retention_ddqn": {
+        "nrmse": 1.327311719960944,
+        "abs_bias": -250.11436815513298
+      },
+      "uncalibrated_retained_ddqn": {
+        "nrmse": -5.675789161112408,
+        "abs_bias": -72.12300212653354
+      },
+      "uncalibrated_no_retention_ddqn": {
+        "nrmse": -4.831155594546919,
+        "abs_bias": -72.8174817787949
+      },
+      "calibrated_bc_only": {
+        "nrmse": 1.4427448861693488,
+        "abs_bias": 17.123999137658394
+      },
+      "old_softplus_bc_ddqn": {
+        "nrmse": 1.3100200285081158,
+        "abs_bias": 10.652534471591975
+      },
+      "plain_small_softplus_ddqn": {
+        "nrmse": 1.5136647677886976,
+        "abs_bias": -162.39896180983632
+      }
+    }
+  },
+  "mechanism_contrasts": {
+    "0": {
+      "P-A": {
+        "return_value": 0.37828927049219097,
+        "deadline": 0.010104166666666692,
+        "nrmse": -1.08133558015721,
+        "abs_bias": -11.48418495473452
+      },
+      "P-R": {
+        "return_value": 0.8199919886750351,
+        "deadline": 0.015625,
+        "nrmse": -0.9027452017702577,
+        "abs_bias": -10.812021634401754
+      },
+      "R-A": {
+        "return_value": -0.4417027181828441,
+        "deadline": -0.005520833333333308,
+        "nrmse": -0.17859037838695224,
+        "abs_bias": -0.6721633203327659
+      }
+    },
+    "1": {
+      "P-A": {
+        "return_value": 0.08290276385044137,
+        "deadline": 0.0047916666666666385,
+        "nrmse": 1.8467173454002663,
+        "abs_bias": 18.657873711455615
+      },
+      "P-R": {
+        "return_value": 0.010982322344680995,
+        "deadline": 0.0027083333333333126,
+        "nrmse": 1.8371034002615052,
+        "abs_bias": 18.82654468487017
+      },
+      "R-A": {
+        "return_value": 0.07192044150576038,
+        "deadline": 0.002083333333333326,
+        "nrmse": 0.009613945138761015,
+        "abs_bias": -0.16867097341455528
+      }
+    },
+    "2": {
+      "P-A": {
+        "return_value": -0.6840091616730355,
+        "deadline": -0.015104166666666585,
+        "nrmse": 1.135386150365686,
+        "abs_bias": 13.16250004451722
+      },
+      "P-R": {
+        "return_value": -0.7279495787250969,
+        "deadline": -0.015937499999999938,
+        "nrmse": 0.9021373583166241,
+        "abs_bias": 10.446535040438174
+      },
+      "R-A": {
+        "return_value": 0.04394041705206142,
+        "deadline": 0.0008333333333333526,
+        "nrmse": 0.2332487920490618,
+        "abs_bias": 2.7159650040790435
+      }
+    }
+  },
+  "kind": "EXPLORATORY_PAIRED_DEVELOPMENT",
+  "quality_claim": false
+}

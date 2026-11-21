@@ -1,0 +1,108 @@
+ASSIGNMENT-DEPENDENT PRICE PROTOTYPE: ENGINEERING REVIEW
+Date: 2026-11-15
+
+DECISION
+Correctness checks PASS; complete-action median latency gate FAILS in both
+engineering initializations. Hold simulator integration and research training.
+The next bounded step is profiling this implementation and proposing an
+equivalent inference route. This result does not establish a low-complexity
+contribution or policy improvement, and does not establish that the underlying
+assignment-dependent mechanism cannot work.
+
+IMPLEMENTED
+assignment_price_prototype.py implements the frozen assignment-dependent
+potential, differentiable replay-action evaluation and one-pass coordinate
+decoder. Initialization uses the prior expected-other price table; the sweep
+uses actual assigned workload, descending observed-cycle order and retained
+actions on exact ties. The chosen-action value includes the full coupled cost.
+Four arms: coupled_sweep, coupled_no_sweep, separable64 and
+fixed_price_plain_sweep. Network/head transforms use FP32; scalar potential
+and decoder use FP64. DDQN selects online actions and evaluates them with
+the target model, bypasses terminal decoding and retains original-unit Huber
+loss plus terminal anchor weight one. There is no research training launcher.
+
+The sweep is bounded approximate maximization. Neither global optimality nor
+a physical deadline guarantee follows. The saved suboptimal counterexample
+remains part of the engineering evidence. Standard congestion potentials and
+coordinate descent are established methods; novelty remains unconfirmed.
+
+CORRECTNESS EVIDENCE
+Six tests passed, zero failures/errors, including:
+- Parameter/buffer counts, masks, nonpositive values, chosen-action value
+  consistency and inference weight invariance.
+- Independent pairwise potential calculation and double-precision gradient
+  checks, including price and mixture transforms.
+- Independent full-cost coordinate oracle on 24 small assignment fixtures,
+  exhaustive objective bounds, candidate counts and nonincrease; a case
+  where coordinate descent is suboptimal is explicitly retained.
+- Exact ties, one-ULP distinctions, adjacent-FP32 local boundary and invalid
+  state/dtype handling.
+- DDQN online/target handling, terminal bypass, anchor formulas and four toy
+  optimizer updates with finite gradients and no target gradients.
+- Eager/native/runtime action and value agreement for four arms on 128
+  engineering observations, at declared value tolerances.
+These tests do not cover every possible numerical input or establish training
+stability. The independent oracle supplies evidence beyond comparing two
+routes sharing the same decoder algorithm.
+
+ONE FIXED ENGINEERING BENCHMARK
+Eight arms, engineering model seeds 99861 and 99869, sixteen untrained model
+checkpoints. Shared 128-state engineering input; five rounds, 32 warmups per
+path/round, 640 measured calls per model and 10,240 raw timings total.
+Randomized order seed 99877; saved plan and checkpoint freeze precede timing.
+Recorded runtime equivalence: 2,048 state/model checks. Complete measured
+path includes Runtime.values and returned action copy. No favorable retiming.
+
+Arm                         Fit  Median ms  p95 ms    Parameter bytes
+coupled_sweep                0    0.680100   0.929835       68,264
+coupled_sweep                1    0.697050   0.989735       68,264
+screened_price24             0    0.079000   0.088510       68,264
+screened_price24             1    0.079200   0.088010       68,264
+unmasked_compact64           0    0.086600   0.095515      194,944
+unmasked_compact64           1    0.086900   0.100315      194,944
+screened_wide128             0    0.086700   0.098510      422,016
+screened_wide128             1    0.090100   0.113705      422,016
+unmasked_wide128             0    0.085600   0.096505      422,016
+unmasked_wide128             1    0.086200   0.110740      422,016
+
+In each fit the primary passes the limit of half compact64 parameter bytes
+and p95 <= 1 ms, but fails median <= each wide reference. It takes roughly
+eight times the wide-reference median. A small network alone does not imply
+fast complete action selection. The separable64 route also takes 0.631 and
+0.66685 ms; the saved timings alone cannot identify the dominant overhead.
+No component profile has established its cause. Parameter storage excludes
+20 buffer bytes, FP64 heads, masks, work arrays and framework temporaries.
+Theoretical workspace O(ND+N+D), plus sorting workspace; actual process peak
+memory is unmeasured. First-action records share a process/import caches and
+are not fresh-process deployment startup measurements.
+
+INDEPENDENT SAVED-EVIDENCE AUDIT
+audit_assignment_price_prototype.py passed without rerunning model timing.
+It verified both original manifests (4 test artifacts and 26 cost artifacts),
+current and copied source hashes, observation hash, all sixteen checkpoint
+hashes and tensor payload sizes, predeclared order and all 10,240 raw rows.
+Python statistics and an explicit percentile interpolation independently
+reproduced medians/p95 and both failed median screens. The 2,048 equivalence
+count is recorded benchmark evidence, not a new independent execution here.
+Environment paths/versions are recorded for the audit process; historical
+one-thread benchmark configuration is checked from its source, not claimed
+as independently captured telemetry during timing.
+
+SCOPE AND NEXT STEP
+This gate used zero new simulator steps, four synthetic optimizer steps in
+tests, and no research training. Cost checkpoints were untrained objects
+separate from those toy updates. No return/deadline evidence was generated.
+Preserve this failed cost result and the existing scientific experiments.
+Keep the current mathematics, masks, tie rules and precision fixed while
+profiling the runtime. Any optimization needs action/value equivalence and
+a separate prospective benchmark with preserved old timings; no relaxation
+of the failed thresholds. Advance to simulator fixtures only after review
+of adequate cost evidence. Final evaluation seeds and the Word thesis remain
+unchanged. Security/trust, cloud and charging remain outside this branch.
+
+EVIDENCE
+validation/assignment_price_prototype_2026-11-15_01/tests.json
+validation/assignment_price_prototype_2026-11-15_01/tests_manifest.json
+validation/assignment_price_prototype_2026-11-15_01/cost_gate/
+validation/assignment_price_prototype_2026-11-15_01/completion/independent_audit.json
+validation/assignment_price_prototype_2026-11-15_01/completion/environment.json

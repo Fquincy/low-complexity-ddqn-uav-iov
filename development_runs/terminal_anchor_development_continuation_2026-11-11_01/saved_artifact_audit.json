@@ -1,0 +1,43 @@
+{
+  "state": "passed_posttraining_continuation_full_audit",
+  "phase": "development",
+  "run_kind": "RESEARCH",
+  "new_training_slots": 0,
+  "new_optimizer_updates": 0,
+  "checkpoints_checked": 85,
+  "episodes_checked": 23349,
+  "optimizer_updates_checked": 593045,
+  "training_workload_blocks_paired": true,
+  "evaluation_workloads_paired": true,
+  "all_failed_fits_retained": true,
+  "quality_screens_recomputed": true,
+  "final_inference": {
+    "complete_actions_replayed": 10880,
+    "timing_rows_recomputed": 54400,
+    "frozen_fit_count": 5,
+    "all_weight_hashes_verified": true,
+    "all_screens_recomputed": true
+  },
+  "manifest_entries": 47095,
+  "empirical_protocol_screens_passed": false,
+  "research_quality_evidence": true,
+  "thesis_changed": false,
+  "scope": {
+    "excluded": true,
+    "active_source_paths": [
+      "Source/chapter3_iov_env.py",
+      "Source/chapter3_iov_env_v2.py",
+      "controller_redesign_v2.py"
+    ],
+    "execution_destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "cloud_nodes": 0,
+    "charging_stations": 0,
+    "security_trust_enabled": false
+  }
+}

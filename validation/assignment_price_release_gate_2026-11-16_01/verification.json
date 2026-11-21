@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "release_sha256": "0a0989a8caff99162baf6343517f399f2cb7770c3b822c36e521bfda7ddfc794",
+  "launcher_sha256": "7ee66103606fef2def54842e724693709c7dfd1798b91dfd7db3908267dbd42e",
+  "retention_plan_sha256": "f650230b5255f5f04ef1d3463638c93678f135b88db6e1938274d30871dba0a0",
+  "runner_sha256": "1c1a287b2df5d18e1bdb4d6d274c23949a06ef08b12ebb5aed215cb3c369bb1f",
+  "auditor_sha256": "cf1972feae1c631b6cfe6bf67dda60766e60737bba245ae91215bd3c31570fd7",
+  "completion_sha256": "b863cfff0d90ec676fed9cbf2839f37c24e67193a46f3a203eb0fad95ba4cea0",
+  "archive_verifier_sha256": "159adf95c616c8876fa2d62e9be216c49cbc0acc81ea7d60727a48e7e96738f5",
+  "release_tests_passed": 4,
+  "check_only_passed": true,
+  "fresh_seed_audit_passed": true,
+  "seed_documents_checked": 48,
+  "seed_collisions": 0,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "research_seeds_consumed": false,
+  "research_launched": false,
+  "development_released_outside_launcher": false,
+  "word_thesis_changed": false
+}

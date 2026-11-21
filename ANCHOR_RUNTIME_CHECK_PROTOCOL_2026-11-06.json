@@ -1,0 +1,18 @@
+{
+ "id":"anchor-single-validation-engineering-v1",
+ "scope":"engineering runtime correction only, no training or policy selection",
+ "evidence":"validation/anchor_research_preparation_2026-11-06_01",
+ "fixed_fits":2,
+ "inputs":128,
+ "rounds":5,
+ "warmups":32,
+ "order_seed":997090301,
+ "paths":"all17 frozen controllers; corrected six each timed with old and single-validation route",
+ "equivalence":"exact eager/old/new actions, Q rtol1e-5 atol1e-6; exact old/new FP32 Q",
+ "input_contract":"same finite533 FP32 conversion, complete finite check and nonterminal grid validation; no checks removed",
+ "thresholds":{"primary_bytes_max_fraction_of_compact":0.5,"primary_median_max_fraction_of_wide":1.0,"primary_p95_max_ms":1.0},
+ "no_selection":"fixed two synthetic fits, no retiming for favorable results, no weight replacement",
+ "historical_failure":"retained, not overwritten; any later protocol route amendment must be explicit",
+ "research_enabled":false,
+ "thesis_changed":false
+}

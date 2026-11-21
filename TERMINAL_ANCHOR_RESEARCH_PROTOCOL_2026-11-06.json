@@ -1,0 +1,315 @@
+{
+  "id": "terminal-anchor-seventeen-arm-development-v1",
+  "date": "2026-11-06",
+  "status": "prospective_development_design_no_launch_authority",
+  "based_on": "LOW_COMPLEXITY_CONTROLLER_REDESIGN_COMPARISON_PROTOCOL_v2_2026-11-05.txt",
+  "engineering_cost_evidence": "validation/controller_v3_runtime_compatibility_2026-11-05_01",
+  "primary": "price_both",
+  "arms": [
+    "price_both",
+    "no_price_both",
+    "price_horizon_only",
+    "price_anchor_only",
+    "plain_both",
+    "compact_both",
+    "amortized_workload_price24",
+    "amortized_no_price24",
+    "plain24_nonpositive",
+    "shared_congestion_cost",
+    "shared_no_congestion",
+    "untied_congestion_cost",
+    "shared_joint_bound",
+    "additive64_nonpositive",
+    "additive128_unbounded",
+    "emc_q_nonpositive",
+    "bdq64_uniform_adapted"
+  ],
+  "simulator": "Source/chapter3_iov_env_v2.py",
+  "scope": {
+    "destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "movements": 2,
+    "choices_per_movement": 5,
+    "vehicles": 30,
+    "cloud": false,
+    "charging_stations": false,
+    "security_trust": false
+  },
+  "v3_models": {
+    "architecture": "533->24 ReLU->170 raw outputs for price arms; 533->24 ReLU->161 for plain24",
+    "parameter_counts": {
+      "amortized_workload_price24": 17066,
+      "amortized_no_price24": 17066,
+      "plain24_nonpositive": 16841
+    },
+    "critic": "frozen Version3 negative additive cost; workload-price split eta learned by softmax; no changes after trained weights are frozen",
+    "target_selection": "exact greedy for separable critic",
+    "no_price_ablation": "price outputs computed, beta-price mechanism masked identically zero; parameter tensors retained"
+  },
+  "existing_arms": "exact definitions in version2 protocol; no changes",
+  "training": {
+    "episodes_per_fit": 200,
+    "slots_per_episode": 40,
+    "slots_per_fit": 8000,
+    "optimizer_updates_per_fit": 6977,
+    "target_interval": 200,
+    "target_copies_per_fit": 34,
+    "replay_capacity": 50000,
+    "warmup": 1024,
+    "batch_size": 128,
+    "gamma": 1.0,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gradient_clip": 10,
+    "loss": "Huber beta1",
+    "replay": "uniform",
+    "checkpoint": "final only; no intermediate training checkpoints",
+    "threads": 1,
+    "epsilon": "1 during warmup, otherwise 1-.95*min(global_slot_before_action/8000,1)"
+  },
+  "paired_randomization": {
+    "model_seed_per_fit_paired_across_arms": true,
+    "same_200_training_task_seeds_per_fit_across_arms": true,
+    "same_action_rng_stream_per_fit_across_arms": true,
+    "each_arm_separate_replay_rng_with_same_initial_stream_and_record_sampling_trace": true,
+    "arm_order_rng_seed": 620600001,
+    "source_schedule_inherited_from_version2": false,
+    "all_85_final_checkpoints_frozen_and_hashed_before_any_gate_evaluation": true
+  },
+  "development": {
+    "model_seeds": [
+      61001,
+      61011,
+      61017,
+      61023,
+      61039
+    ],
+    "train_blocks": [
+      {
+        "start": 610000000,
+        "count": 200
+      },
+      {
+        "start": 611000000,
+        "count": 200
+      },
+      {
+        "start": 612000000,
+        "count": 200
+      },
+      {
+        "start": 613000000,
+        "count": 200
+      },
+      {
+        "start": 614000000,
+        "count": 200
+      }
+    ],
+    "diagnostic_validation_seeds": [
+      621000000,
+      621000001,
+      621000002,
+      621000003,
+      621000004
+    ],
+    "evaluation_seeds": {
+      "start": 620000000,
+      "count": 48
+    },
+    "training_slots": 680000,
+    "optimizer_updates": 593045,
+    "target_copies": 2890,
+    "status": "prospectively_reserved_pending_collision_audit"
+  },
+  "final": {
+    "model_seeds": [
+      51001,
+      51011,
+      51017,
+      51023,
+      51031
+    ],
+    "train_blocks": [
+      {
+        "start": 510000000,
+        "count": 200
+      },
+      {
+        "start": 511000000,
+        "count": 200
+      },
+      {
+        "start": 512000000,
+        "count": 200
+      },
+      {
+        "start": 513000000,
+        "count": 200
+      },
+      {
+        "start": 514000000,
+        "count": 200
+      }
+    ],
+    "evaluation_seeds": {
+      "start": 520000000,
+      "count": 200
+    },
+    "training_slots": 440000,
+    "optimizer_updates": 383735,
+    "target_copies": 1870,
+    "status": "reserved_untouched_no_launch",
+    "authorization": "not part of this prospective development protocol; existing reservations preserved only"
+  },
+  "comparisons": {
+    "primary_against_each_of": [
+      "additive64_nonpositive",
+      "additive128_unbounded",
+      "emc_q_nonpositive",
+      "bdq64_uniform_adapted",
+      "plain24_nonpositive",
+      "plain_both",
+      "compact_both"
+    ],
+    "every_fit_mean_return_difference_at_least": -2.0,
+    "every_fit_deadline_difference_at_least": -0.01,
+    "each_heuristic_each_fit_return_and_deadline_difference_at_least": 0.0,
+    "heuristics": [
+      "all_local",
+      "nearest_rsu",
+      "uav_selective"
+    ],
+    "no_price_mechanism_each_fit_return_and_deadline_difference_at_least": 0.0,
+    "no_price_mean_return_difference_at_least": 2.0,
+    "no_price_mean_deadline_difference_at_least": 0.01,
+    "report_all_other_arms_and_contrasts": true,
+    "no_selection_or_dropped_fit": true,
+    "no_price_arm": "no_price_both",
+    "correction_ablations": [
+      "price_horizon_only",
+      "price_anchor_only"
+    ],
+    "correction_ablations_rule": "each fit primary minus ablation return>=0 and deadline>=0; all contrasts reported"
+  },
+  "final_uncertainty": {
+    "primary_comparator": "additive128_unbounded",
+    "bootstrap_draws": 5000,
+    "fit_resampling": "paired_crossed_bootstrap_with_replacement_over_five_model_initializations",
+    "task_resampling": "paired_crossed_bootstrap_with_replacement_over200_common_workloads",
+    "share_fit_and_task_draws_between_arms": true,
+    "seed": 520600002,
+    "one_sided_lower_confidence": 0.975,
+    "return_lower_limit_minimum": -2.0,
+    "deadline_lower_limit_minimum": -0.01,
+    "status": "historical reference only; final amended protocol requires separate review"
+  },
+  "value_diagnostics_per_fit_per_arm": {
+    "same_greedy_trajectory_realized_return_to_go": true,
+    "Q_and_target_finite": true,
+    "bounded_arms_Q_nonpositive": true,
+    "normalized_rmse_max": 0.25,
+    "absolute_bias_max": 2.0,
+    "near_zero_Q_threshold": 1e-06,
+    "large_return_threshold": 1.0,
+    "near_zero_large_return_fraction_max": 0.05,
+    "terminal_abs_error_p95_max": 2.0,
+    "report_all_slots_and_each_time_bin": true,
+    "uncertainty_unit": "episodes_not_individual_slots"
+  },
+  "frozen_checkpoint_inference": {
+    "reexport_every_final_checkpoint_before_heldout_evaluation": true,
+    "retest_complete_action_equivalence": true,
+    "equivalence_inputs": "existing 128 saved engineering common observations, never used for policy-quality or checkpoint selection",
+    "equivalence_observations_path": "validation/controller_redesign_engineering_2026-11-05_01/cost_gate/common_observations.npz",
+    "equivalence_observations_sha256": "2acd6bf97d649df97e0084f6b61a265d3742a70421410c9ccabc6cfba1854ebb",
+    "backend": "ORT CPU FP32 1thread plus native Numba FP32 decoder where predeclared",
+    "timing_rounds": 5,
+    "warmups": 32,
+    "calls_per_round": 128,
+    "order_seed": 623600003,
+    "require_exact_actions_and_Q_atol1e-6_rtol1e-5": true,
+    "report_median_p95_per_fit_no_weight_selection": true,
+    "run_before_any_heldout_evaluation": true,
+    "no_model_changes_after_checkpoint_freeze": true,
+    "routes": "original eleven retain fixed routes; six corrected use underlying native route plus complete validated horizon wrapper"
+  },
+  "untouched_final_inference": {
+    "reexport_each_frozen_final_checkpoint": true,
+    "retest_complete_action_equivalence": true,
+    "remeasure_full_action_latency_all_11": true,
+    "same_fixed_family_route_as_compatibility_protocol": true,
+    "no_model_changes_after_freeze": true
+  },
+  "fixture": {
+    "model_seeds": [
+      99601,
+      99607
+    ],
+    "training_starts": [
+      996010000,
+      996070000
+    ],
+    "evaluation_seeds": [
+      996090100,
+      996090101
+    ],
+    "validation_seeds": [
+      996090200
+    ],
+    "episodes": 2,
+    "capacity": 64,
+    "warmup": 8,
+    "batch": 4,
+    "target_interval": 8,
+    "validation_interval": 1,
+    "excluded_from_quality_evidence": true
+  },
+  "authorization": {
+    "this_gate": "implementation_and_synthetic_fixture_only",
+    "research_development": "requires_later_explicit_launch_instruction_after_review",
+    "final": "disabled: no final amended protocol or launch authority",
+    "cli_research_modes": "disabled_even_with_confirmation"
+  },
+  "new_simulator_steps_this_gate": 0,
+  "optimizer_updates_this_gate": 0,
+  "word_thesis_changed": false,
+  "cost_gate_source_of_truth": "LOW_COMPLEXITY_V3_RUNTIME_COMPATIBILITY_PROTOCOL_v2_2026-11-05.json",
+  "notes": [
+    "No fixture policy outcome used for tuning or selection.",
+    "Old eleven rerun fresh; historical failed run retained.",
+    "Comparators all reported, but candidate-specific value gating is explicitly prospective.",
+    "No final execution in this protocol.",
+    "Peak memory not claimed; payload storage and measured training times reported."
+  ],
+  "value_screen_scope": {
+    "gated_arms": [
+      "price_both"
+    ],
+    "report_all_arms": true,
+    "amendment": "Candidate-specific gate prospectively replaces all-arm value gate ONLY for this new comparison; original run remains failed under original rules.",
+    "failures_of_comparators_do_not_excuse_candidate_failure": true
+  },
+  "terminal_anchor": {
+    "source": "terminal_anchor_prototype.py",
+    "horizon": 40,
+    "loss": "uniform DDQN Huber + 1.0 * mean terminal Huber",
+    "batch": 32,
+    "terminal_replay": "uniform with replacement; eviction checked",
+    "empty_pool": "zero anchor loss and recorded event",
+    "separate_rng_offset": 300000,
+    "one_optimizer_step": true,
+    "model_parameter_counts_unchanged": true
+  }
+}

@@ -1,0 +1,121 @@
+ASSIGNMENT-DEPENDENT PRICE: RUNTIME OPTIMIZATION ENGINEERING REVIEW
+Date: 2026-11-15
+
+DECISION
+Equivalent runtime implemented and checked. The one prospective paired cost
+benchmark FAILS the unchanged median requirement in both initializations.
+Storage and p95 screens pass. Hold simulator integration/research training.
+This is a measured implementation improvement, not demonstrated policy quality
+or a proven low-complexity thesis contribution.
+
+PROFILE AND IMPLEMENTATION
+The saved original-runtime profile covers 128 calls after 32 warmups, on the
+saved engineering coupled_sweep_0 checkpoint. It is diagnostic profiling, not
+a replacement acceptance timing. Instrumented cumulative time: heads 0.067 s,
+potential 0.028 s, allowed 0.027 s, remaining 0.020 s (nested inside heads),
+native decode 0.003 s, overall 0.157 s. Do not add nested cumulative times or
+interpret these instrumented durations as production latency. Preparation,
+validation and repeated value evaluation dominate this observed profile;
+the coordinate sweep is not the principal measured overhead in that trace.
+
+assignment_price_fast_runtime.py creates an immutable inference snapshot:
+- Script/freeze the same PyTorch neural/head operations, retaining the FP32
+  transforms and FP64 potential/decoder inputs. No neural architecture change.
+- Compile finite-state/time-grid validation and the local-feasibility mask,
+  retaining outward rounding and adjacent-FP32 intervals.
+- Reuse the existing native decoder and its full coupled cost instead of
+  constructing another one-hot tensor potential for selected actions.
+- Retain independent motion, stable ordering, old-action exact ties, masks,
+  finite-horizon factor and coupled/no-sweep/separable/fixed-price variants.
+Training definitions, DDQN targets and objectives in the original prototype
+are unchanged. Training must rebuild the snapshot after weight updates;
+this runtime is not a live view of mutable optimizer weights.
+
+CORRECTNESS
+Four test groups passed:
+1. All four prototype arms, both saved engineering initializations and all
+   128 shared states: 1,024 model/state checks. All seven prepared heads
+   match exactly; actions match exactly; selected values agree at the existing
+   atol 1e-6 / rtol 1e-5. Original model weights remain unchanged.
+2. 500 randomized/adjoining-boundary mask and remaining-horizon checks.
+3. Rejection of nonfinite, off-grid/terminal, invalid task and queue states,
+   wrong dtype/shape, plus noncontiguous input equivalence.
+4. Equal-head ties, returned-array ownership and snapshot independence from
+   subsequent training-model mutations.
+Native decode is the original tested function, preserving its earlier one-ULP,
+coordinate-oracle and counterexample tests. This does not prove equivalence
+on all possible numerical inputs or robustness after research training.
+
+An initial test attempt had three module-construction errors: the enclosing
+Heads wrapper needed eval() before freeze(). Its source, failed test report
+and source hashes are retained under attempt_01. Corrected tests report zero
+errors/failures. PowerShell returned status 1 when redirecting the second
+test command's deprecation warnings, despite unittest OK and tests.json true;
+the saved log records that distinction. No acceptance timings preceded this
+correction or were rerun to seek favorable results.
+
+PROSPECTIVE PAIRED BENCHMARK
+PRE_BENCHMARK_PLAN.json was written before setup/timing, PRE_TIMING_FREEZE.json
+before timings. Four optimized paths, four original prototype paths and four
+original reference paths, each on the same two existing engineering seeds
+(99861/99869): 24 paths, 16 original model checkpoints, eight serialized heads.
+No new models were trained. Shared 128 observations; five rounds; 32 warmups
+per path/round; 640 timed calls per path; 15,360 readings. Random order seed
+99889. One measurement attempt for this implementation. Measured full call:
+Runtime.values(state)[0][0].copy(), including validation, heads, mask, decode,
+chosen value and returned action copy. All 3,072 setup action/value checks
+passed before timing. Serialized-head round trips match on the setup state.
+
+Path                         Fit   Median ms   p95 ms
+Optimized coupled_sweep        0     0.309050   0.474840
+Original coupled_sweep         0     1.329150   1.676360
+Screened wide128               0     0.107800   0.273795
+Unmasked wide128               0     0.194750   0.502345
+Optimized coupled_sweep        1     0.363350   0.662340
+Original coupled_sweep         1     1.090900   1.646110
+Screened wide128               1     0.184600   0.290850
+Unmasked wide128               1     0.137750   0.271330
+
+Paired original/optimized median ratios: 4.30 and 3.00. The optimized route
+still exceeds both wide-reference medians in each fit. Its tensor payload is
+68,264 parameter bytes plus 20 buffer bytes; compact64 is 194,944 parameter
+bytes. Serialized primary head: 76,220 bytes in each fit. Pass <= half compact
+parameter payload and p95 <= 1 ms; fail median <= each wide reference.
+The old benchmark remains preserved; its absolute times are not the denominator
+for these speedup claims. Reference and original timings differ across sessions;
+use the paired new benchmark, not cross-session subtraction. No retiming.
+
+INDEPENDENT AUDIT
+audit_assignment_price_fast_runtime.py verified the new cost manifest and both
+original test/cost manifests, current source/test hashes, 16 checkpoint hashes,
+eight graph hashes, restored FP32 graph tensor payloads and serialized sizes.
+It independently reproduced seeded timing order, all 15,360 raw rows, medians,
+interpolated p95 values and both failed median screens. Recorded execution
+equivalence counts are distinguished from the read-only audit arithmetic.
+The audit passed. No extra model timing was done by the audit.
+
+LIMITS AND NEXT TECHNICAL STEP
+Zero simulator steps, optimizer updates or research training in this stage.
+No return/deadline evidence; final evaluation seeds and Word thesis untouched.
+The libraries emit TorchScript deprecation warnings; the tested environment
+and saved graph artifacts are retained. A future runtime migration requires
+new equivalence evidence. Model tensor payload does not include shared library
+code or process peak memory; first-action records share import/compilation
+caches and are not fresh-process cold start. Actual peak memory is unmeasured.
+
+Keep the controller equations, masks, precision and thresholds fixed. The next
+bounded step is diagnostic profiling of the optimized route, then deciding
+whether a fully fused deployment route can remove remaining tensor/framework
+dispatch at unchanged action/value semantics. It has not yet been profiled,
+so the current evidence does not identify its remaining dominant operation.
+If proceeding, declare a new version and benchmark before measuring; retain
+both failed gates. Do not launch a simulator fixture or research experiment
+while this cost gate fails. This route does not solve the separate outstanding
+novelty, policy-quality or value-calibration questions.
+
+EVIDENCE
+validation/assignment_price_runtime_2026-11-15_01/profile.txt
+validation/assignment_price_runtime_2026-11-15_01/tests.json
+validation/assignment_price_runtime_2026-11-15_01/test_attempt_02.log
+validation/assignment_price_runtime_2026-11-15_01/cost_gate/
+validation/assignment_price_runtime_2026-11-15_01/independent_audit.json

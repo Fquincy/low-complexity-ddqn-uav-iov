@@ -1,0 +1,38 @@
+{
+  "state": "complete",
+  "paths": {
+    "additive": {
+      "median_ms": 0.09205,
+      "p95_ms": 0.11915,
+      "calls": 256
+    },
+    "sequential_cached": {
+      "median_ms": 10.4722,
+      "p95_ms": 11.4267,
+      "calls": 256
+    },
+    "spi": {
+      "median_ms": 4.91675,
+      "p95_ms": 5.270975,
+      "calls": 256
+    }
+  },
+  "observations": 128,
+  "rounds": 2,
+  "warmup_slots": 32,
+  "timed_slots": 128,
+  "parameter_bytes": {
+    "additive": 422016,
+    "conditional": 385300,
+    "spi": 330788
+  },
+  "source_sha256": {
+    "spi_ddqn.py": "ba450c20857fe1644582a3bd3df4546d80a7c4e883836443a722593f9b09f65e",
+    "benchmark_spi_cost.py": "71190f12713cf97fdcbab2a323eb5356e00a32f9baebdb833b1c2e8239004e5a",
+    "chapter3_sequential_conditional.py": "73ec48acdfde49ae92a536fbbdfa0c64e8b18794b4526cfad521c34628707a67",
+    "train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a"
+  },
+  "env_step_in_timing": false,
+  "weights_trained": false,
+  "low_complexity_claim": false
+}

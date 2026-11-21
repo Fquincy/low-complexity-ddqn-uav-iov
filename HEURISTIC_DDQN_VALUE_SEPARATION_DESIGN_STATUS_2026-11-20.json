@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-20",
+  "decision": "PROSPECTIVE_CORRECTION_BRIEF_COMPLETE_ISOLATED_MECHANICS_GATE_RECOMMENDED",
+  "brief": "HEURISTIC_DDQN_VALUE_SEPARATION_CORRECTION_BRIEF_2026-11-20.txt",
+  "mechanism": "all-action mean-centered branch costs with signed linear scalar state-value output",
+  "expected_parameters": 16841,
+  "expected_parameter_bytes": 67364,
+  "expected_buffer_bytes": 20,
+  "model_implemented": true,
+  "research_protocol_frozen": false,
+  "development_seeds_assigned": false,
+  "research_launch_authorized": false,
+  "novelty_established": false,
+  "word_thesis_changed": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "source_sha256": {
+    "HEURISTIC_DDQN_VALUE_SEPARATION_CORRECTION_BRIEF_2026-11-20.txt": "72952b202d6d0f05f7d9ccbccb332a84ed350e11c7e0cacd1d2d36cc79ba4ad3",
+    "HEURISTIC_INITIALIZATION_SAVED_VALUE_DIAGNOSIS_2026-11-20.txt": "fa40853731d5b5db66ca1eb4789e30980ff8441663646affc88cb87463b4f5f9",
+    "validation/heuristic_initialization_saved_value_diagnosis_2026-11-20_01/diagnosis.json": "a827c8cbba7e2d1eafde5aa986a468c8a9d93fd3fc8c767f7ffba3d6f3c0fc65",
+    "heuristic_initialized_ddqn_baseline.py": "c13b0a437c7ecb6aa20d50605efd5b612e930a33472f3e031678970d0ddb2940",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "validation/incumbent_evidence_stage_2026-11-15_01/literature/branching_full.txt": "3c235695f8610024d79324f86f86bdf3b6f92261ecfec349fd3efa792581c2ed",
+    "validation/heuristic_initialization_feasibility_2026-11-19_01/dqfd.txt": "0f8164f60bea09609f45b59fb13373b1edefc1bd51af476bc08e8bd0920d9d3b",
+    "validation/heuristic_initialization_feasibility_2026-11-19_01/policy_distillation.txt": "af7a611e8f0defbe402160ffaf369817f4149c43fdeed81669abacfb9cbc0c9c"
+  },
+  "historical_source_hashes_unchanged": 15,
+  "next_gate": "Freeze minimal prospective corrected-controller comparison and fresh seeds; no launch",
+  "mechanics_tests_passed": 9,
+  "mechanics_review": "CENTERED_LINEAR_DDQN_MECHANICS_REVIEW_2026-11-20.txt"
+}

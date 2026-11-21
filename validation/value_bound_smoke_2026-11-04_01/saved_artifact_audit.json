@@ -1,0 +1,15 @@
+{
+  "state": "passed_saved_artifact_audit",
+  "simulator_steps": 0,
+  "optimizer_updates": 0,
+  "training_slots": 400,
+  "optimizer_rows_checked": 365,
+  "arms_checked": 5,
+  "paired_training_workloads": true,
+  "paired_fresh_workloads": true,
+  "bounded_greedy_values_nonpositive": true,
+  "evaluation_state_invariance_checks": 30,
+  "checkpoint_and_manifest_hashes_checked": true,
+  "thesis_modified": false,
+  "quality_claim": false
+}

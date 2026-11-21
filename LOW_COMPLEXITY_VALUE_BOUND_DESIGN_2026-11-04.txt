@@ -1,0 +1,116 @@
+PREDECLARED NONPOSITIVE-Q VALUE-STABILITY EXPERIMENT
+Date: November 4, 2026
+Protocol: LOW_COMPLEXITY_VALUE_BOUND_PROTOCOL_2026-11-04.json
+Status: design frozen; arithmetic, seed-scope and decoder mechanics checked.
+No runner implementation, simulation, training or thesis editing occurred.
+
+WHY THIS TEST
+The prior 72,000-slot run improved returns and deadline success during
+training, but all three model architectures violated the known nonpositive
+finite-horizon Q bound. Positive greedy Q occurred on every common heuristic
+probe state and roughly43%-59% of final replay states. The failure therefore
+was shared by EMC-Q, additive64 and additive128. The previous completed result
+and read-only diagnosis remain unchanged.
+
+TREATMENT
+Five arms isolate architecture from a value-sign constraint:
+
+- additive128_unbounded: original wide reference.
+- additive64_unbounded: original compact reference.
+- emc_q_unbounded: original exact-decoder EMC-Q ablation.
+- additive64_nonpositive: compact architecture with the sign constraint.
+- emc_q_nonpositive: primary treatment, same EMC-Q architecture with the sign
+  constraint.
+
+For each constrained arm, define Q_b(s,a) = -softplus(Q_raw(s,a)). This is
+finite and nonpositive for every finite raw output and introduces no learned
+parameters. It does not guarantee accurate magnitude or a good policy. The
+development screen must still test return, deadline success, calibration,
+storage and inference latency.
+
+EXACT ACTION SELECTION REQUIREMENT
+Negative softplus is monotonically decreasing. Therefore the action maximizing
+Q_b is the action minimizing Q_raw. For additive64, independently minimize
+each of its32 raw action heads, sum the selected raw scores, then transform
+that scalar. For EMC-Q, the exact restricted decoder must minimize the raw
+joint score. Equivalently, negate its unary, joint movement and rank-2 factor
+tables, leave gates and movement embeddings unchanged, and run the existing
+exact maximizer; then evaluate Q_b for that selected action. Transforming the
+value after the existing raw maximizer is wrong and will choose the wrong
+action. This decoder equivalence is checked by exhaustive enumeration on a
+small random action space before implementation.
+
+The same rule applies in Double DQN: online selection minimizes raw Q for
+constrained models; target evaluation uses that selected action and applies
+the identical negative-softplus output transform under no-grad. Absorbing
+successors remain excluded. Unbounded controls retain raw argmax. The runner
+must implement these paths independently and test them before any smoke.
+
+FROZEN TRAINING DESIGN
+All arms retain the previous simulator, state, five destinations/movements,
+reward, gamma1, Adam1e-4, batch128, replay50,000, inclusive warmup1024,
+Huber beta1, gradient clip10, target interval200, paired exploration streams,
+epsilon schedule and200 episodes x40 slots. No reward scaling, optimizer
+retuning, architecture-width change or post-hoc checkpoint selection. Three
+model seeds3109,3119,3121 use three new shared 200-task-seed blocks starting
+24100000,24200000,24300000. Each of the15 runs receives8,000 slots,6,977
+updates and34 target copies. Total budget is120,000 slots,104,655 updates and
+510 target copies.
+
+Scheduled validation seeds24800000..24800004, timing probes24850000..24850007,
+and shared 48-episode fresh gate24890000..24890047 are reserved. All15 final
+checkpoints must be saved and hashed before any fresh episode. No update or
+selection is permitted after that freeze. Each heuristic is evaluated once
+per fresh seed and shared across every model.
+
+PREDECLARED QUALITY AND COST SCREENS
+All three emc_q_nonpositive initializations must pass:
+
+- Versus additive128_unbounded: mean episode return difference at least-2 and
+  deadline-success difference at least-0.01.
+- Versus additive64_nonpositive: return difference at least+2 and deadline
+  difference at least+0.01. This requires value-bound treatment with EMC-Q to
+  justify its larger storage than compact additive64.
+- Versus emc_q_unbounded: return difference at least-2 and deadline difference
+  at least-0.01, to screen for loss from adding the sign constraint.
+- Versus both nearest-RSU and UAV-selective: neither return nor deadline
+  success may be lower.
+- On common probes and fresh final-slot states, bounded Q values must all be
+  finite and nonpositive. Fresh final-slot absolute error p95 must be at most
+  10 reward units.
+- Online parameter bytes at most70% of additive128; complete-action median at
+  most5x additive128 and p95 at most2ms on the declared local CPU protocol.
+
+These are predeclared point-estimate engineering screens, not formal
+noninferiority tests, significance thresholds or deployment guarantees.
+Report every arm and initialization. Use2,000 paired-episode bootstrap draws
+within each fitted model pair; do not pool model seeds. Report Q sign fraction,
+Q and Bellman target distributions, TD residuals, terminal calibration,
+loss and clipping trends alongside policy/cost outcomes. The bootstrap does
+not measure training-seed uncertainty.
+
+DISJOINT SMOKE
+A five-arm smoke uses model seed3091 and80 slots/arm, warmup8, batch4,
+capacity64, target interval8 and epsilon decay80. Training task seeds
+24110000..24110001; validation24900000..24900001; timing probe24950000..
+24950001; fresh smoke check24990000..24990001. Total400 slots,365 updates and
+45 target copies. It is integration-only, not a learning or architecture
+selection gate. Development must not auto-start after smoke.
+
+SEED AND SOURCE CHECKS
+Validator: validate_value_bound_protocol.py
+Validation output: validation/value_bound_protocol_2026-11-04_01/verification.json
+The validator scans registered JSON SPEC/PLAN seed fields in Low Complexity,
+Source, and the October31 project folder, checks intra-design disjointness,
+exact budget arithmetic, source hashes, nonpositive transform behavior and
+exact negated-table decoding against brute force. This is a scoped registered
+protocol scan, not proof that every historical unregistered seed was searched.
+The output explicitly records that no optimizer or simulator step was run and
+that the development launch is not authorized by this design step.
+
+NEXT GATE
+Implement the separate bounded-arm models, paired runner and saved-artifact
+auditor. Unit-test raw-min exact decoding, terminal target handling, bound
+sign, pairing, finite values, and unchanged parameter counts. Run only the
+reserved smoke; audit it and review a run note before a separate development
+launch decision. No change to the Word thesis is made.

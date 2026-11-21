@@ -1,0 +1,58 @@
+ADP-DDQN DEVELOPMENT COMPARISON: RELEASE DECISION
+Date: 2026-11-16
+
+DECISION: TECHNICALLY READY FOR A SEPARATE EXPLICIT LAUNCH
+
+The operational hold recorded on 2026-11-15 is closed. The frozen scientific
+protocol, controller definitions, rewards, optimizer settings, thresholds and
+reserved seeds remain unchanged. The experiment has NOT been launched, and the
+runner remains disabled outside the versioned launch adapter.
+
+WHAT CHANGED
+1. The project migration placed the primary workspace on E:, which currently
+   provides 547.15 GB free. The independent D: archive volume currently provides
+   140.58 GB free. Each exceeds the declared 45.09 GB per-volume engineering
+   buffer for the approximately 34.36 GB projected output.
+2. ASSIGNMENT_PRICE_OUTPUT_RETENTION_PLAN_2026-11-16.json fixes the primary raw
+   run, audited completion, prelaunch evidence and independent archive paths.
+   Raw diagnostics are retained through thesis examination and acceptance.
+3. launch_assignment_price_development_2026_11_16.py binds one explicit command
+   to the unchanged tested runner, corrected saved-artifact auditor, verified
+   completion routine and independent SHA256 archive. DEVELOPMENT_RELEASED is
+   true only inside that confirmed launch call and is reset in a finally block.
+4. Preflight validates the frozen protocol and source hashes, recorded Python/
+   Torch/NumPy environment, unused output paths, distinct volumes and free-space
+   buffers before creating prelaunch output or enabling the runner.
+5. Four focused tests pass: read-only preflight, confirmation-before-preflight,
+   run/audit/archive ordering with release reset, and byte-for-byte tiny archive
+   verification. The exact versioned binding passes check-only.
+6. A fresh seed scan passes across 48 declaration and saved-plan documents with
+   zero collisions. It consumes no reserved research seed.
+
+RESEARCH SCOPE
+The future comparison remains the frozen assignment-dependent pricing study:
+15 learned controllers, four heuristics, five initializations, 600,000 training
+slots, 151,680 evaluation slots and 75 final checkpoints. It will measure policy
+quality, deadline performance, value stability, storage and complete deployment
+latency. Security/trust remains deferred; cloud and charging stations remain
+absent. No Word thesis text has been changed.
+
+LIMITS
+This is engineering authorization readiness, not evidence that the proposed
+controller succeeds. The low-complexity/lightweight and novelty claims remain
+unproven until the full run completes, the saved-artifact audit passes, the
+independent archive verifies, and the results satisfy the predeclared screens.
+The runtime estimate remains uncertain.
+
+NEXT DECISION
+Issue a separate explicit launch instruction if proceeding. The exact action is
+to launch the frozen assignment-price development comparison through the
+versioned adapter. Until that instruction is given, research remains unlaunched.
+
+EVIDENCE
+validation/assignment_price_release_gate_2026-11-16_01/
+ASSIGNMENT_PRICE_DEVELOPMENT_RELEASE_2026-11-16.json
+ASSIGNMENT_PRICE_OUTPUT_RETENTION_PLAN_2026-11-16.json
+launch_assignment_price_development_2026_11_16.py
+archive_assignment_price_run.py
+test_assignment_price_release_2026_11_16.py

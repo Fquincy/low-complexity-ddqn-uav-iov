@@ -1,0 +1,32 @@
+{
+  "id": "v3-native-runtime-compatibility-v2",
+  "date": "2026-11-05",
+  "status": "predeclared_before_implementation_and_any_v2_timing",
+  "amends": "v3-neural-core-and-native-decoder-v1",
+  "preserved_failure": "validation/controller_v3_runtime_optimization_2026-11-05_01/gate_01",
+  "reason": "splitting_the_v2_tables_changes_FP32_rounding_and_near_tie_candidate_selection",
+  "fix": "retain_original_full_policy_graph_for_entire_historical_v2_family_on_every_input",
+  "routes": {
+    "native_core_and_decoder": ["amortized_workload_price24", "amortized_no_price24", "plain24_nonpositive", "additive64_nonpositive", "additive128_unbounded", "emc_q_nonpositive", "bdq64_uniform_adapted"],
+    "validated_complete_ORT_policy": ["shared_congestion_cost", "shared_no_congestion", "untied_congestion_cost", "shared_joint_bound"]
+  },
+  "route_policy": "fixed_by_family_before_timing_not_adaptive_per_input_or_failure",
+  "fairness": "primary_compact_wide_plain24_EMC_BDQ_all_same_ORT_core_plus_native_decoder; historical_v2_four_not_native_accelerated_report_separately_do_not_claim_cross_route_architecture_speedup",
+  "whole_policy_source": "validation/controller_v3_engineering_2026-11-05_01/exports",
+  "unchanged": ["architectures", "mathematical_critics", "weights", "allowed_actions", "tie_policy", "v2_two_price_passes_four_repairs", "v2_epsilon1e-6", "training_path", "rewards", "optimizer_settings", "research_seeds", "acceptance_thresholds"],
+  "backend": {"runtime": "ONNX Runtime1.31.0_CPU_FP32", "onnx": "1.23.2", "numba": "0.65.1", "llvmlite": "0.47.0", "threads": 1, "sequential": true, "ORT_ENABLE_ALL": true, "native_fastmath": false, "native_parallel": false, "native_boundscheck": true, "cache": false, "no_new_dependencies": true},
+  "regression": {"fixture": "validation/controller_v3_runtime_optimization_2026-11-05_01/gate_01/discrepancy_fixture.npz", "diagnosis": "validation/controller_v3_runtime_optimization_2026-11-05_01/gate_01/discrepancy_diagnosis.json", "arm": "shared_congestion_cost", "model_seed": 99023, "observation_index": 187, "vehicle_index": 2, "expected_destination": 2, "required": "exact_complete_action_agreement_with_original_eager_and_fullORT_Q_tolerance"},
+  "equivalence": {"model_seeds": [99021,99023,99029], "observations": "same192_saved_inputs_per_model", "models": 33, "complete_actions": 6336, "exact_actions": true, "Q_atol": 0.000001, "Q_rtol": 0.00001, "reload_deterministic": true, "weights_unchanged": true, "stop_before_timing_if_any_failure": true, "no_posthoc_tie_tolerance": true},
+  "benchmark": {"paths": "11_legacy_fullORT_and11_fixed_compatibility_routes", "rounds": 5, "warmups": 32, "observations_per_round": 128, "timing_order_seed": 99048, "timed_model_seed": 99021, "same_input_validation_and_output_copy": true, "include": ["input_conversion_and_finiteness", "all_neural_runtime", "all_cost_calculation_and_decoding", "chosen_value", "action_output_copy"], "exclude_report_separately": ["graph_export", "session_startup", "JIT_first_dispatch", "simulator", "file_io"], "one_frozen_attempt_no_favorable_retest": true},
+  "screens": {"primary_FP32_parameter_bytes_ratio_to_native_compact64_max": 0.5, "primary_complete_median_ratio_to_native_wide128_max": 1.0, "primary_complete_p95_ms_max": 1.0},
+  "on_pass": "prepare_and_review_complete_eleven_arm_research_runner_protocol_auditor_then_separate_explicit_launch_decision",
+  "on_failure": "record_failure_stop_no_training",
+  "new_simulator_steps": 0,
+  "optimizer_updates": 0,
+  "research_training_authorized": false,
+  "research_CLI": "disabled_even_with_confirmation",
+  "cloud": false,
+  "charging_stations": false,
+  "security_trust": "deferred_contribution_two",
+  "word_thesis_changed": false
+}

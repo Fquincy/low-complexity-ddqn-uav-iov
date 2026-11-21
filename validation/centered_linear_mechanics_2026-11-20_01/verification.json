@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "new_optimizer_updates": 0,
+  "new_simulator_steps": 0,
+  "research_seeds_consumed": false,
+  "research_launch_authorized": false
+}

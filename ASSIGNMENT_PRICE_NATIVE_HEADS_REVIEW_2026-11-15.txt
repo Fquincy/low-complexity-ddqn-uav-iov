@@ -1,0 +1,129 @@
+ASSIGNMENT-DEPENDENT PRICE: NATIVE-HEADS ENGINEERING GATE
+Date: 2026-11-15
+
+DECISION
+PASS the unchanged matched-deployment engineering cost screens in both saved
+engineering initializations. Five correctness groups and independent artifact
+audit pass. This supports preparing a small isolated simulator integration
+fixture and auditor. No simulator, optimizer or research training ran here.
+The result is a narrow engineering pass, not a robust speed superiority claim
+or proof of the thesis contribution. Policy quality and novelty remain open.
+
+PAIRED DIAGNOSIS
+profile_assignment_price_matched_paths.py profiled the prior candidate and
+compiled unmasked-wide reference, each at both original engineering seeds.
+After 32 warmups, 128-call cProfile records were saved. Separate instrumented
+segments used five rounds x 128 states per path, randomized order seed 99917.
+All segment rows are diagnostic, not replacement acceptance timings.
+Candidate median graph segments: 45.05/46.10 us; wide: 30.10/29.60 us.
+Candidate native finishing: 13.10/13.30 us; wide: 3.40/3.40 us.
+Validation: candidate 2.70/2.70 us, wide 1.70/1.70 us.
+Copy: candidate 1.40/1.40 us, wide 1.10/1.10 us.
+Quantiles are not additive. Instrumentation affects absolute durations.
+The extra head-graph/decoder region is a measured target for one optimization,
+not evidence about learner failure or a changed mathematical controller.
+
+IMPLEMENTATION
+assignment_price_native_heads_runtime.py exports only the original neural
+core, returning one raw FP32 vector. Native code fuses softplus/division,
+softmax and existing workload/decoder finishing. FP32 head transforms and
+workload products remain FP32; potential/decoder work remains FP64, fastmath
+off. No equation, network, replay-value definition, sweep count, mask, stable
+vehicle order, exact-tie rule, DDQN update or loss was changed. It calls the
+same previously tested coordinate decoder and uses its selected full cost.
+Queue preparation retains expm1, not exp-minus-one. All four arms supported.
+
+Backend softplus/softmax and reduction rounding may differ from PyTorch.
+Equivalence here means exact actions on tested inputs and the existing head/
+value tolerances; it is not universal bitwise identity. No claim that all
+possible near ties or future trained checkpoints will agree. Training stays
+on the original differentiable critic; exported runtime is an immutable
+snapshot and must be rebuilt and checked after training updates.
+
+CORRECTNESS
+Five groups passed, zero failures/errors:
+- Four arms x two saved engineering models x 128 states: 1,024 model/state
+  comparisons; exact actions, head tolerance rtol 1e-5/atol 1e-7 and selected
+  value tolerance rtol 1e-5/atol 1e-6. Source weights remain unchanged.
+- 500 randomized/adjoining-FP32 local-screen and remaining-horizon checks.
+- Invalid/nonfinite/time/task/workload inputs, wrong dtype/shape and valid
+  noncontiguous state handling.
+- Equal-head ties, output ownership and snapshot independence from later
+  mutation of source model parameters.
+- Adjacent-FP32 biases and zero/subnormal/tiny/larger queue fixtures.
+References use their already tested compiled runtime without source changes.
+The original decoder oracle, nonincrease and suboptimal counterexample tests
+remain preserved; this optimization does not imply global assignment optimality.
+
+PROSPECTIVE MATCHED BENCHMARK
+ASSIGNMENT_PRICE_NATIVE_HEADS_PLAN_2026-11-15.txt declared this version before
+timing. Machine plan saved before setup; source/checkpoint/graph/order freeze
+before timed calls. One timing attempt, order seed 99929. Four new ADP paths
+and four compiled reference paths, two engineering seeds 99861/99869, same
+128 common engineering states, five rounds, 32 warmups/path/round, 640 calls
+per path and 10,240 raw readings. All 2,048 setup action/value checks passed.
+All paths use identical ONNX CPU session options and one-thread graph execution
+plus native decoding. Entire Runtime.values(state)[0][0].copy() measured.
+
+Path                         Fit  Median ms   p95 ms    Parameter bytes
+Native-head ADP primary        0    0.037700   0.074525        68,264
+Native-head ADP primary        1    0.038200   0.081615        68,264
+Compiled screened_price24      0    0.032600   0.053910        68,264
+Compiled screened_price24      1    0.031700   0.035510        68,264
+Compiled unmasked_compact64    0    0.032000   0.068905       194,944
+Compiled unmasked_compact64    1    0.032300   0.059300       194,944
+Compiled screened_wide128      0    0.038500   0.081810       422,016
+Compiled screened_wide128      1    0.043200   0.075725       422,016
+Compiled unmasked_wide128      0    0.039400   0.054505       422,016
+Compiled unmasked_wide128      1    0.038200   0.072710       422,016
+
+PASS each fit: parameter bytes <= 97,472 (half compact64), median <= each
+wide reference, p95 <= 1 ms. Fit 1 median equals unmasked-wide exactly at
+recorded precision; fit 0 is only modestly faster than the wide references.
+No uncertainty interval or robust speed superiority has been established.
+Compact64 and original price remain faster. The primary's p95 is higher
+than unmasked-wide in both fits, although it passes the declared 1 ms limit.
+Do not retrospectively change the screen, select an initialization or retime.
+This is a viable storage/latency tradeoff to investigate, not dominance over
+all comparators. All ablation timings remain saved without selecting a new
+primary. No cross-session speedup is inferred from the previous failed gate.
+
+Storage: 68,264 neural parameter bytes plus 20 external scale-buffer bytes;
+serialized primary graph 68,703 bytes. Model storage is about 35.0% of compact
+and 16.2% of wide parameter payload. Graph/tensor payload excludes shared
+runtime code, libraries, transient workspace and actual process peak memory.
+Constructor/first-action records share process/import caches; no fresh-process
+cold-start claim. Graph precision is FP32, with declared FP64 scalar costs.
+
+AUDIT
+audit_assignment_price_native_heads.py passed. It independently verifies all
+16 checkpoint and 16 graph hashes, ONNX validity, exact FP32 initializer
+equality to source model weights, separate parameter/external-buffer/graph
+sizes, tested/current sources and preserved original test/cost manifests.
+It reconstructs shuffled order and independently recalculates all 10,240 raw
+timings, medians/p95 and screens. Setup equivalence checks are recorded test
+executions, not independently rerun by the saved-arithmetic auditor. No retiming.
+
+NEXT ENGINEERING GATE
+Prepare one small isolated simulator workflow using this candidate and declared
+controls, original differentiable DDQN update and rebuilt deployment snapshots.
+Use engineering-only seeds, a temporary output directory and explicit fixture
+labels. Test transitions/terminal handling, gradient and target isolation,
+checkpoint/reload/export equivalence, complete decoder choices, trace outputs
+and artifact auditing. Do not interpret tiny fixture outcomes as policy quality
+or tune rewards, architecture, thresholds or models from them. No research
+budget, reserved development seeds or final evaluation should be consumed.
+After fixture review, freeze the full comparison and fresh research seeds,
+resolve specific novelty overlap and make a separate explicit launch decision.
+
+Prior sources, completed research failures, timing gates and final reserved
+seeds remain preserved. Word thesis unchanged; security/trust, cloud and
+charging remain excluded. Return/deadlines, learned-price and sweep benefit,
+value calibration/training stability and a defensible novelty claim remain
+requirements before claiming the contribution or revising the thesis.
+
+EVIDENCE
+validation/assignment_price_matched_profile_2026-11-15_01/
+validation/assignment_price_native_heads_2026-11-15_01/tests_extended.json
+validation/assignment_price_native_heads_2026-11-15_01/cost_gate/
+validation/assignment_price_native_heads_2026-11-15_01/independent_audit.json

@@ -1,0 +1,27 @@
+LOW COMPLEXITY EXPERIMENT PLAN
+
+Phase 1: mechanics and cost gate
+Implement SPI-DDQN and tests in new files. Use common fixed observations from
+the existing action-sensitivity data only for engineering timing. No training
+updates. Compare complete-slot selection, parameter bytes and replay storage.
+
+Phase 2: paired learning smoke
+Use new disjoint development seeds. Match physical slots, optimizer updates,
+epsilon schedule, replay capacity and evaluation seeds between additive and
+SPI arms. Keep the sequential model as a cost/reference diagnostic. Smoke is
+integration evidence only.
+
+Phase 3: bounded development pilot
+Only after Phase 1 and Phase 2 pass. Predeclare multiple model seeds, fresh
+workload seeds, final checkpoint selection, bootstrap unit and quality/cost
+margins. Compare return, deadline success, calibration, complete-slot latency,
+parameter bytes and wall time.
+
+Proposed continuation screen
+All candidate replicates must meet the same return/deadline noninferiority
+margin against additive and the two heuristics, and must show a measured
+reduction in the predeclared complete-slot cost metric. No favorable seed,
+checkpoint or root selection. A candidate that is smaller but slower fails a
+latency-based low-complexity claim.
+
+No phase beyond the mechanics gate is launched by creating this plan.

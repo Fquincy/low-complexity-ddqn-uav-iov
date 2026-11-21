@@ -1,0 +1,95 @@
+AR24 FIXED-PATH PROFILE AND PARK DECISION
+Date: 2026-11-19 (Asia/Shanghai)
+DECISION: PARK AR24. NO OPTIMIZED IMPLEMENTATION OR NEW COST ATTEMPT.
+
+WHAT RAN
+Preserved32 synthetic observations and3 original AR24 ONNX graphs, unchanged
+source/equations. Seven diagnostic components,5 shuffled rounds,8 warmups
+per component:3,360 readings.96 prepared/decomposed actions and scalar
+values match the full path. No graphs,weights,task workloads or new models
+were generated. No simulator or optimizer steps. Profile plan/input hashes
+saved before execution; consumed files verified unchanged afterward.
+The saved-artifact auditor recomputes all medians/p95,checks unique keys/
+recorded order and hashes,verifies all30 original fixture graphs and the
+preserved failed engineering cost result. No acceptance retiming occurred.
+
+PROFILE MEDIANS (microseconds)
+component             fit0     fit1     fit2
+validation             2.50     2.40     2.40
+ONNX neural forward   17.30    17.30    17.10
+physical features      3.50     3.50     3.60
+heads                  4.00     4.10     4.00
+complete native finish15.25    15.20    15.40
+prepared decoder      14.30    14.30    13.90
+complete path         42.00    41.50    41.90
+
+Component timing includes separate Python/native boundaries and prepared
+inputs. Native finish INCLUDES features,heads,decoder and scalar checks;
+decoder INCLUDES initial/final scalar calculation,sorting and caches.
+Their medians must NOT be added. Native inlining/allocation can explain
+why separately called components sum above their enclosing function.
+Every full-path call recomputes all observation-dependent data. These
+diagnostic timings do not replace the failed matched reference benchmark.
+No current-session reference timing or speedup claim was made.
+
+FEASIBILITY DECISION
+The original matched AR24 benchmark needs6.45,6.55,7.10us reduction versus
+its unmasked-wide reference. Recovering these gaps entirely from the native
+finish would require about42%,43%,46% removal relative to its profiled time.
+This compares historical benchmark gaps with diagnostic component medians;
+it is a rough feasibility calculation,not an Amdahl bound or prediction.
+
+Source inspection found30 duplicate old-destination marginal scores and
+separate initial-scalar/cache aggregate construction. This profile does
+not isolate their runtime or show they consume the needed6.5-7.1us.
+The entire prepared decoder probe is about14us; removing its required
+sorting,full candidate evaluation,scalar consistency checks or radio terms
+would change the specification or weaken its checks. Removing some redundant
+work is possible,but an identified path to the full required savings is
+not established. Neural forwarding also costs about17us and must remain
+matched with references. No speculative optimization percentage is accepted
+as evidence of feasibility. Failure is not proof that optimization is
+impossible; it is insufficient basis for another automatic attempt.
+
+The prior feasibility memo explicitly required parking when the profile
+did not establish a credible removable-overhead route. Apply that stop rule.
+AR24 remains a preserved correct synthetic implementation that failed the
+median speed requirement. It has not been trained or policy-tested. Do not
+claim it failed deadline performance or label it a successful low-complexity
+controller merely because it is small and sub-millisecond.
+
+WHAT REMAINS SUPPORTED
+Implementation/algebra/finite-gradient/export evidence and model parameter
+reduction versus compact/wide DDQN; absolute synthetic p95<1ms. No combined
+speed/policy/calibration success,publication novelty or thesis contribution
+approval. No winner selected from ablations after seeing the failed primary.
+
+NEXT DECISION, NOT ANOTHER AUTOMATIC DESIGN
+Prepare a consolidated contribution-evidence and claim-scope decision using
+ALL completed development evidence,not another candidate by default.
+Distinguish (a) the original faster-than-wide requirement and failed record
+from (b) any independently justified future storage/performance/latency
+tradeoff claim. Do not redefine failure as success. A changed claim must be
+prospective,scientifically justified and compatible with the approved thesis
+scope; departmental acceptance cannot be guaranteed here.
+If the original combined requirement is retained,acknowledge that it remains
+unmet and requires a materially justified new idea before more engineering.
+If a different claim is considered,it still needs fresh policy/calibration/
+mechanism evidence and a separately frozen comparison. Parked AR24 is not
+automatically promoted or authorized for a long run under new criteria.
+No new prototype,loss tuning,width sweep,benchmark repeat,training or final
+evaluation is authorized by this report. Preserve all failed artifacts.
+
+BOUNDARIES
+Word thesis unchanged; final evaluation reservations untouched.
+Security/trust deferred; cloud and charging excluded.
+
+EVIDENCE
+validation/ar24_runtime_profile_2026-11-19_01/PLAN.json
+validation/ar24_runtime_profile_2026-11-19_01/INPUT_FREEZE.json
+validation/ar24_runtime_profile_2026-11-19_01/profile.json
+validation/ar24_runtime_profile_2026-11-19_01/raw_profile.json
+validation/ar24_runtime_profile_2026-11-19_01/saved_artifact_audit.json
+AR24_RUNTIME_FEASIBILITY_DECISION_2026-11-19.txt
+AR24_SYNTHETIC_ENGINEERING_REVIEW_2026-11-19.txt
+profile_ar24_fixed_path_2026_11_19.py;audit_ar24_profile_2026_11_19.py

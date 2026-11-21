@@ -1,0 +1,22 @@
+{
+  "status": "ENGINEERING_WORKFLOW_PASSED_PILOT_DISABLED",
+  "tests": 8,
+  "fixture": "validation/heuristic_initialization_pilot_fixture_2026-11-19_03",
+  "source_sha256": {
+    "run_heuristic_initialization_pilot.py": "b1fe6bda08a5e0f22a36ccc6444037119e896e21c20acf687fd272da1b75e277",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "audit_heuristic_initialization_pilot.py": "1b8b81c68eb448627af85f1ceb83614ac095e8b0d7095d88cb1e241049eb89f2",
+    "test_heuristic_initialization_pilot.py": "dfcd6de4eea0903bafa90d185f160bfc6c8a7e3503771d9df65b7e460fe8eab4",
+    "HEURISTIC_INITIALIZATION_PILOT_RUNNER_ENGINEERING_REVIEW_2026-11-19.txt": "a762f63b6a6c88115681fe88b31ccf9d5701239d0c7e7ac96006ba2acfbcd982"
+  },
+  "protocol_sha256": "a73994fdfea9eda763232fa4c86d52e6a1317f421c40fd6f25ddb0f78c1745fc",
+  "definition_bindings_verified": 7,
+  "historical_source_hashes_unchanged": 15,
+  "all_fixture_simulator_slots": 1320,
+  "all_fixture_bc_updates": 12,
+  "all_fixture_ddqn_updates": 384,
+  "pilot_launched": false,
+  "pilot_release_enabled": false,
+  "final_seeds_consumed": false,
+  "word_thesis_changed": false
+}

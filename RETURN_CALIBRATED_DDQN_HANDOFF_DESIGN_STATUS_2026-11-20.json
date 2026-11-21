@@ -1,0 +1,157 @@
+{
+  "status": "PROSPECTIVE_BRIEF_COMPLETE_ISOLATED_MECHANICS_NEXT",
+  "brief": "RETURN_CALIBRATED_DDQN_HANDOFF_DESIGN_BRIEF_2026-11-20.txt",
+  "brief_sha256": "bb856926378a7e8b4f0c4029425fd3f3d91254f0dba03be979a09eb48a8d86eb",
+  "research_protocol_frozen": false,
+  "controller_implemented": false,
+  "novelty_established": false,
+  "seeds": {
+    "model_seeds": [
+      968280001,
+      968280011,
+      968280021
+    ],
+    "demonstration_seed_blocks": [
+      {
+        "start": 968290000,
+        "count": 10
+      },
+      {
+        "start": 968291000,
+        "count": 10
+      },
+      {
+        "start": 968292000,
+        "count": 10
+      }
+    ],
+    "online_seed_blocks": [
+      {
+        "start": 968300000,
+        "count": 50
+      },
+      {
+        "start": 968301000,
+        "count": 50
+      },
+      {
+        "start": 968302000,
+        "count": 50
+      }
+    ],
+    "evaluation_seed_block": {
+      "start": 968310000,
+      "count": 16
+    },
+    "bc_sampler_seeds": [
+      968320001,
+      968320011,
+      968320021
+    ],
+    "epsilon_branch_seeds": [
+      968330001,
+      968330011,
+      968330021
+    ],
+    "replay_sampler_seeds": [
+      968340001,
+      968340011,
+      968340021
+    ],
+    "retention_sampler_seeds": [
+      968350001,
+      968350011,
+      968350021
+    ],
+    "job_order_seed": 968360001,
+    "timing_order_seed": 968360011
+  },
+  "seed_reservations_only": true,
+  "arms": [
+    {
+      "id": "calibrated_retained_ddqn",
+      "calibration": true,
+      "retention": true,
+      "bc": true,
+      "ddqn": true,
+      "role": "primary"
+    },
+    {
+      "id": "calibrated_no_retention_ddqn",
+      "calibration": true,
+      "retention": false,
+      "bc": true,
+      "ddqn": true,
+      "role": "retention_ablation"
+    },
+    {
+      "id": "uncalibrated_retained_ddqn",
+      "calibration": false,
+      "retention": true,
+      "bc": true,
+      "ddqn": true,
+      "role": "calibration_ablation"
+    },
+    {
+      "id": "uncalibrated_no_retention_ddqn",
+      "calibration": false,
+      "retention": false,
+      "bc": true,
+      "ddqn": true,
+      "role": "previous_failed_centered"
+    },
+    {
+      "id": "calibrated_bc_only",
+      "calibration": true,
+      "retention": false,
+      "bc": true,
+      "ddqn": false,
+      "role": "no_TD_control"
+    },
+    {
+      "id": "old_softplus_bc_ddqn",
+      "calibration": false,
+      "retention": false,
+      "bc": true,
+      "ddqn": true,
+      "role": "previous_baseline"
+    },
+    {
+      "id": "plain_small_softplus_ddqn",
+      "calibration": false,
+      "retention": false,
+      "bc": false,
+      "ddqn": true,
+      "role": "ordinary_small_DDQN"
+    }
+  ],
+  "prospective_constants": {
+    "gap_scale": "S_r/(S_r+R_max)",
+    "reward_scale_floor": 1e-06,
+    "ridge_rho": 0.001,
+    "retention_lambda": 1.0,
+    "calibration_fit_demo_episodes": 8,
+    "calibration_check_demo_episodes": 2
+  },
+  "proposed_totals": {
+    "simulated_slots": 51280,
+    "student_training_slots": 36000,
+    "evaluation_slots": 14080,
+    "demo_slots": 1200,
+    "bc_updates": 3600,
+    "td_updates": 33696,
+    "retention_batches": 11232,
+    "ridge_solves": 9,
+    "final_checkpoints": 21
+  },
+  "seed_audit": {
+    "documents": 50,
+    "collisions": 0,
+    "coverage": "Root JSON plus validation and development_runs */run/runtime_plan.json; not exhaustive historical log scan"
+  },
+  "next_gate": "isolated synthetic mechanics for calibration and retention; no reserved seeds",
+  "research_launch_authorized": false,
+  "launched": false,
+  "final_seeds_consumed": false,
+  "word_thesis_changed": false
+}

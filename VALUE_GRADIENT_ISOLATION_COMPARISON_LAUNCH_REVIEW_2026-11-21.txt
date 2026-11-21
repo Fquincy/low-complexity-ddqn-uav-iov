@@ -1,0 +1,75 @@
+VALUE-GRADIENT ISOLATION DEVELOPMENT COMPARISON: AUTHORIZED LAUNCH
+21 November 2026 (Asia/Shanghai)
+
+The user explicitly authorized: "Launch the frozen 67,120-slot
+value-gradient-isolation development comparison."
+The source-bound supervisor started at 2026-11-21T00:09:53+08:00.
+Supervisor PID: 34788. Supervised Python worker PID: 40992.
+Startup was verified from the live processes, frozen runtime plan, actual
+saved demonstration episodes and automatically refreshed numeric counters.
+At 00:11:06+08:00, 800 demonstration slots were saved; online training and
+evaluation had not yet begun. These are startup observations, not final counts.
+
+Binding: VALUE_GRADIENT_ISOLATION_COMPARISON_LAUNCH_BINDING_2026-11-21.json
+SHA256: b7b273c93bd86324e591c5cfe2ec902c74015a42c526584df91c236e113a4618
+Worker: launch_value_gradient_isolation_comparison_2026_11_21.py
+Supervisor: supervise_value_gradient_isolation_launch_2026_11_21.py
+Wrapper tests: test_value_gradient_isolation_launch_2026_11_21.py
+Wrapper evidence: validation/value_gradient_isolation_comparison_launch_wrapper_2026-11-21_01/verification.json
+Startup record: validation/value_gradient_isolation_launch_start_2026-11-21_01/launch.json
+Fresh worker preflight: validation/value_gradient_isolation_comparison_launch_checks_2026-11-21_02/readiness.json
+
+All 10 new wrapper tests passed, with no research model, optimizer, simulator
+or teacher work. They exercised confirmation/source guards, actual fixed
+supervisor command wiring with a harmless Python child, stderr/exit status,
+successful and failed worker cleanup using mocks, independent archive
+inventory/hash roundtrip, failed-audit rejection, copy-corruption detection,
+preservation of existing archives and closed default/final release flags.
+
+The read-only check-only preflight and the worker's fresh preflight rehashed
+the frozen definitions, readiness and fixture evidence, checked environment,
+seed reservations and E:/D: headroom, and verified unused output locations.
+Research settings, rewards, thresholds, optimizers, models and source files
+were not changed. The tested runner is enabled only in this authorized
+worker's memory; on-disk DEVELOPMENT_RELEASED and final defaults remain false.
+
+The frozen budget remains 1,200 demonstrations + 48,000 online training +
+17,920 evaluation = 67,120 total simulated slots, across nine student arms
+and three initializations, with the shared teacher evaluated once.
+P remains the sole primary. Every arm/fit and failed scientific screen is
+retained. No best-fit promotion, retuning or automatic retry is authorized.
+
+PRIMARY OUTPUT
+development_runs/value_gradient_isolation_comparison_2026-11-20_01/
+The 20 November folder identifier is the frozen reservation, retained even
+though launch occurred on 21 November.
+
+MONITORING
+Worker stage and numerical counters:
+development_runs/value_gradient_isolation_comparison_2026-11-20_01/LIVE_STATUS.txt
+Supervised process, actual Python exit code and numerical counters:
+validation/value_gradient_isolation_comparison_launch_2026-11-21_01/LIVE_STATUS.txt
+Structured process state: same directory, LIVE_STATUS.json.
+Python stdout/stderr: same directory, stdout.log and stderr.log.
+Counters advance at saved episode/fit boundaries; active work can be ahead.
+The worker publishes every three seconds. The external supervisor captures
+the actual child exit code independently of stderr warnings, without a shell.
+
+AFTER THE DECLARED COMPARISON
+The worker automatically performs the full independent saved-artifact audit,
+records audit time separately, then copies the declared completed artifacts
+to D:\Fitz Thesis Research Archive\value_gradient_isolation_comparison_2026-11-20_01.
+It verifies exact archive inventory and every SHA256, including the final
+verification receipt. Archive time is recorded separately. Scientific failure
+does not skip a valid run's audit/archive. Engineering failure stops and
+preserves partial evidence without replacement fits or automatic restart.
+
+A running process, completed training, zero child exit or a present archive
+directory alone is not proof of audited/archived completion or scientific
+success. Review the completed audit, independent archive verification and
+all predeclared scientific comparisons after the run finishes.
+
+No reliable full-run ETA is established. The untouched final evaluation set
+remains reserved. Contribution one remains efficient DDQN offloading;
+security/trust is deferred, and cloud/charging are excluded. The Word thesis
+is unchanged. Launch does not establish novelty or the low-complexity claim.

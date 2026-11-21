@@ -1,0 +1,23 @@
+{
+  "state": "passed_same_weight_runtime_audit",
+  "models": 14,
+  "actions_replayed": 1792,
+  "timing_rows_recomputed": 8960,
+  "boundary_checks_reproduced": true,
+  "screens": [
+    {
+      "fit": 0,
+      "storage": true,
+      "median": true,
+      "p95": true
+    },
+    {
+      "fit": 1,
+      "storage": true,
+      "median": true,
+      "p95": true
+    }
+  ],
+  "new_timing_measurements": 0,
+  "research_launched": false
+}

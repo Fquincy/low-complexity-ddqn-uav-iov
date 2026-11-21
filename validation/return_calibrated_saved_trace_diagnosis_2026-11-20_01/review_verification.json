@@ -1,0 +1,39 @@
+{
+  "status": "OFFLINE_DIAGNOSIS_REVIEW_VERIFIED_NO_RESEARCH_UPDATES",
+  "artifacts_sha256": {
+    "diagnosis.json": "4b47bcaa757da7363eea7c568e7ba0383ddcf014d08556f10bbe0c72198151f8",
+    "first_update_gradient_decomposition.json": "64f52fcf367d06c2f7a8aced42715c04cfe0fbbfeb8dfaf70ee178d92beac367",
+    "first_update_verification.json": "4bc529022cd559cd2661dac825769334cf5c286c6e4900ae948f978d465f525f",
+    "fixed_state_predictions.npz": "e44e6795c977f0ccf84739731b66b98d84c468f2c8c7232a5f75280434a112be",
+    "independent_verification.json": "0da846719758ce1f47d7e60c4afb0a08ce71f0fec9652f818db552404002698f",
+    "verification.json": "abbc35985da0760eab05bb4182aafabb277e52286694b828c74617112feb9ff4",
+    "within_slot_queue_evidence.json": "3422ad1b0421bdb21bb06ec4b614123395df587a7ede1de1c20cb274f95af1ac"
+  },
+  "source_and_report_sha256": {
+    "diagnose_return_calibrated_saved_traces_2026_11_20.py": "c5f0bfc0fd6ac22e1019368552a9e4b9c7a63ccf6f8cb16521df9c6b984874e0",
+    "decompose_return_calibrated_first_update_2026_11_20.py": "c89c6b60a8846975f8d87223516decc2a1a9f2f55ead391821ee895e1749a3af",
+    "verify_return_calibrated_diagnosis_2026_11_20.py": "151f8bc449553d4aa912995cf9240795ad2bffdc15bb1d0bbcbc1a21f8aa810a",
+    "analyze_return_calibrated_slot_queues_2026_11_20.py": "9ae2f383c2f56bf408602ce1754df982b1cd9fa8a67070f80490ef3c2895beef",
+    "RETURN_CALIBRATED_SAVED_TRACE_DIAGNOSIS_2026-11-20.txt": "852cbdd5bc802544dd70ca791861c510165b174dc9f5223be3985a77cfc1ff32"
+  },
+  "preserved_harness_sha256": {
+    "diagnose_return_calibrated_saved_traces_2026_11_20.py": "aa5a691f3913d2f8941ba72e37d29311a4ef9109803e06068ce895fdb97048f4",
+    "failure.json": "8c4b4c2865b3251eab8a2c7bc5daafd7e507e729c008850298d1a569b69be97f"
+  },
+  "frozen_launch_sources_unchanged": true,
+  "all_21_final_checkpoint_hashes_unchanged": true,
+  "primary_evidence_files_verified": 612,
+  "first_update_evidence_files_verified": 56,
+  "decoded_fixed_population_states": 41760,
+  "additional_original_demo_probe_states_reproduced": 7200,
+  "new_offline_autograd_evaluations": 15,
+  "new_simulator_steps": 0,
+  "new_optimizer_steps": 0,
+  "new_teacher_calls": 0,
+  "policy_screen": false,
+  "value_screen": true,
+  "promising": false,
+  "new_research_launch_authorized": false,
+  "final_phase_launched": false,
+  "word_thesis_changed": false
+}

@@ -1,0 +1,171 @@
+HORIZON-NORMALIZED DDQN LOSS: PROSPECTIVE CORRECTION BRIEF
+Date: November14,2026
+Status: design/amendment only; no implementation, seed reservation or launch.
+
+DECISION AND SCOPE
+Test one training correction: normalize each uniform-replay Bellman residual
+by that transition's remaining horizon BEFORE applying Huber. Retain the
+screened compact price24 primary, its frozen neural architecture, exact decoder
+and inherited terminal anchor. Give no-price24 and anchored plain24 the same
+correction to distinguish general learning benefit from architecture benefit.
+This does not invent a new remote feasibility rule or change reward weights.
+It is a prospective hypothesis, not an explanation established by saved traces.
+
+WHY THIS BOUNDED QUESTION
+Screening removed impossible-local choices and all local misses in the saved
+screened traces, yet remote CPU and upload failures remain. The primary's
+Q-G bias is negative in all5fits, with large early-horizon error. No-price
+also exhibits pessimism. The current Q=-h*c_theta parameterization scales its
+training derivatives with remaining horizon h; ordinary Huber on Q-y therefore
+has different per-state gradient scales across h. A normalization correction
+can be tested without new weights, information or online action overhead.
+The diagnosis did NOT prove gradient scaling caused policy/calibration failure.
+The correction may underfit early-episode total return, fail remote choices,
+or worsen deadline performance. Those outcomes must remain reportable failures.
+
+1. UNCHANGED CRITIC, STATE AND ACTION SPACE
+H=40, h(s)=40-round(40*s[-1]); h in1..40 for executed states.
+For each horizon-scaled controller Q_theta(s,a)=-h(s)*c_theta(s,a), with its
+original nonnegative cost parameterization and unchanged price/plain tables.
+All533observed features remain. The controller receives no exact private
+queue history, future arrivals, completed-delay labels or new feasibility oracle.
+The conservative interval local screen is unchanged. All four remote choices
+and all movement actions stay available. There is no remote deadline guarantee.
+Q=0 at h=0; terminal observations are never decoded.
+
+2. MASK-AWARE DOUBLE DQN TARGET
+For each nonterminal transition, choose
+  a_next = argmax_(a in existing allowed set(s_next)) Q_online(s_next,a).
+Evaluate exactly that chosen action with the target network:
+  y = r + Q_target(s_next,a_next), gamma=1.
+For terminal transitions y=r, with no next-state action decoding.
+Target values are detached; target-copy schedule and behavior policy unchanged.
+Do not substitute current-state masks or let the target select a second action.
+
+3. THE ONLY NEW TRAINING MECHANISM
+Old uniform loss per transition:
+  ell_old = Huber_1(Q_theta(s,a)-stopgrad(y)).
+New uniform loss per transition:
+  z_theta = Q_theta(s,a)/h(s)
+  z_target = stopgrad(y)/h(s)
+  ell_new = Huber_1(z_theta-z_target).
+Use current-state h, NOT next-state h, and divide BOTH operands before Huber.
+Do not divide the scalar old loss by h: Huber(e/h) != Huber(e)/h.
+The Huber threshold1 is now in reward-per-remaining-step units. This changes
+both residual scaling and the clipping regime; neither effect is hidden.
+No adaptive normalizer, learned statistics, clipping of y, new reward scale,
+or normalization fitted to evaluation outcomes.
+
+For the anchored arms, retain the exact separate terminal-anchor loss:
+  L = mean_uniform(ell_new) + 1.0*mean_terminal Huber_1(Q(s,a)-r).
+Anchor samples have current h=1, so the explicit formula there is unchanged.
+Uniform batch128 and anchor batch32 retain their existing sampling rules,
+empty-pool handling, optimizer step count and separate RNG. The correction
+changes relative uniform/terminal influence through its defined scaling;
+it is not claimed to isolate gradient magnitude from every loss-weight effect.
+
+Equivalent average-cost recurrence for c=-Q/h at h>1:
+  c_target = (-r + (h-1)*c_target_network(s_next,a_next))/h.
+At h=1, c_target=-r. This is an algebraic rewriting of gamma1 finite-horizon
+DDQN, not a new objective, proof of convergence, or guarantee of calibration.
+For Q=-h*c, d ell_new/d theta = -psi_1((Q-y)/h)*d c/d theta,
+whereas d ell_old/d theta = -h*psi_1(Q-y)*d c/d theta.
+This motivates the experiment; identical zero-residual fixed points do not
+imply identical projected solutions with finite capacity/noisy replay.
+
+4. REMOTE DECISIONS: REQUIRED OUTCOME, NO ASSUMED FIX
+Fit0's recorded RSU1 congestion and fit3's UAV1 upload failures are distinct.
+The unchanged architecture has workload/radio observations, but screening
+alone does not certify remote choices. This correction asks whether changed
+value learning improves those decisions. Remote outcome diagnosis is a
+required report: deadlines/misses by destination, upload/CPU stage and time,
+loads, action frequencies and movement. Preserve all five initializations.
+Do not declare success merely because Q calibration improves. If remote
+performance remains inadequate, this candidate fails the combined decision.
+A queue/link decoder, new remote mask, rollout planner, reward/penalty change,
+additional head or architecture simplification is outside this brief.
+
+5. EXPECTED COMPLEXITY AND LIMITS
+Zero added model parameters or buffers. Primary remains17,066parameters,
+68,264FP32 parameter bytes +20buffer bytes; no-price same; plain24
+16,841parameters/67,364bytes +20buffer bytes. Verify live implementation.
+Action selection and the deployed forward/decoder are unchanged. There are
+O(B) extra scalar operations for B uniform replay samples, no additional
+network forward or target evaluations. Horizon computation is existing code.
+Actual trained-checkpoint inference equivalence/storage/latency must still
+be checked; unchanged architecture is not a substitute for measurements.
+This correction does not make the primary smaller than plain24. It aims at
+better performance per measured cost versus both compact and wide controls.
+
+6. PROSPECTIVE COMPARISON AMENDMENT: NO WINNER SUBSTITUTION
+Retain all11 learner definitions and3heuristics from the completed November12
+protocol as fresh-run controls. Add exactly3named normalized-loss arms:
+  normalized_screened_price24 (new primary),
+  normalized_screened_no_price24,
+  normalized_screened_plain24_anchored.
+Thus14learned arms plus3heuristics if this design proceeds to research.
+Every control reruns on the SAME fresh paired initialization/workload blocks;
+old consumed runs are historical evidence, not matched fresh controls.
+Ordinary small DDQN, wide128, adapted BDQ and their declared original losses
+remain untouched. BDQ never silently gets a scalar branch-mean objective.
+There is no choosing whichever of price/no-price/plain24 wins as the primary.
+
+Exact correction ablations: normalized vs original loss within each of the
+three anchored architectures. Primary must show positive correction evidence
+against screened_price24, not only improve on weak references. Price benefit
+must be tested against normalized_screened_no_price24. Same-width benefit
+must be tested against normalized_screened_plain24_anchored. Report all three
+correction effects regardless of direction. Previous screening evidence is
+preserved; no second claim that normalization itself established masking benefit.
+
+Retain existing per-fit reference margins (return>=-2,deadline>=-1point),
+strong heuristic nondegradation, primary value limits and cost ceilings.
+Require nondegradation in both policy metrics per fit and equal-fit mean
+return gain>=2/deadline gain>=1point for each new primary mechanism claim
+(correction, price, same-width architecture). The new primary must also pass
+all five-fit global value screens in ORIGINAL Q/return units:
+RMSEnormalized<=.25,bias<=2,nearzero-large-return fraction<=.05,
+terminal abs-error p95<=2; nonpositive/finite values and diagnostics.
+Normalization of the training loss does not normalize away evaluation error.
+Report distributions of both original-unit TD residuals and normalized
+residuals by horizon. Reduced normalized loss alone is not a success claim.
+
+7. FAIRNESS, FRESHNESS AND AUTHORIZATION
+Before research reserve/collision-audit new disjoint model/task/RNG blocks,
+predeclare fixed budgets and all14-arm arithmetic, optimizer settings,
+checkpoints, timing, descriptive uncertainty and independent audit workflow.
+No budget or fresh seed is declared or consumed by this brief. Do not quietly
+inherit440,000slots: more arms require a separately explicit budget decision.
+Final historical seed sets remain protected. Retain all failed completed runs.
+No evaluation-based tuning, favorable retiming, extra fits or best checkpoint.
+
+8. ENGINEERING CHECKS BEFORE A RESEARCH RUN
+Implement the loss in a new versioned adapter; preserve frozen old sources.
+Check current h vs next h, terminal bypass, detached targets, correct division
+inside Huber, unchanged terminal anchor, branch-specific losses and exact
+one-step gradients on controlled scalar cases. Confirm coefficients and
+gradient clipping follow the declared formula, not old-unit clipping logic.
+Check unchanged zero-residual targets and original-unit diagnostics.
+Then use an isolated synthetic fixture for paired RNG/replay, final-only
+checkpoint freezes, exact eager/runtime actions and independent summaries.
+Use the corrected batch-one auditor for saved evaluation predictions and
+stream logs/compact summaries. Synthetic outcomes cannot tune the design.
+Research launch remains a later explicit decision, not part of this brief.
+
+9. NOVELTY AND STOPPING BOUNDARY
+Horizon normalization, Huber loss, Double DQN, action masks and branching
+critics are established ideas. This brief supplies no new algorithmic novelty
+proof. A defensible contribution would need successful measured controller
+improvement within UAV-IoV, equally informed controls, positive ablations,
+independent final evidence, relevant literature comparison and supervisor
+agreement. Do not label a routine loss normalization novel by itself.
+If normalized plain24 matches/beats the primary or price benefit fails,
+price-architecture superiority remains unsupported. If calibration improves
+but deadline/return fails, the complete contribution remains unestablished.
+Do not retrospectively replace thresholds or promote the best comparator.
+
+SCOPE
+Contribution1 remains efficient DDQN for local/UAV/RSU offloading. No cloud,
+charging stations or security/trust in this design. Word thesis unchanged.
+The next authorized engineering stage would implement/test this exact
+candidate; it would not launch research training or final evaluation.

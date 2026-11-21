@@ -1,0 +1,80 @@
+TERMINAL-ANCHOR POST-TRAINING CONTINUATION ENGINEERING REVIEW
+Date: November 11, 2026
+
+OUTCOME
+Five tests passed. The complete reduced continuation loads existing saved
+weights, executes the amended runtime/export/cost gate, evaluates the isolated
+synthetic task set, computes comparisons and value distributions, and completes
+the full saved-training/evaluation artifact audit. No training is repeated.
+Reserved development evaluation has not started. Final execution is disabled.
+This result is implementation evidence, not research policy-quality evidence.
+
+IMPLEMENTATION
+run_anchor_posttraining_continuation.py reuses the unchanged seventeen-arm
+comparison, value summaries, screen thresholds and batch-one greedy evaluation.
+The input checkpoint set and original source snapshots remain unchanged.
+A new output directory contains the continuation evidence, input hashes,
+original event history, separate continuation-source snapshots and regenerated
+post-training artifacts. Existing output directories are rejected.
+Input trace/checkpoint payloads can share storage via hard links; the code
+never writes input paths. Input hashes are rechecked against original files.
+The original failed run, FAILED.json, frozen checkpoints and status are intact.
+
+anchor_continuation_inference.py installs the prospectively declared original
+PyTorch-core/native-decoder route uniformly for native-decoder families. The
+four coupled full-policy ORT families retain their existing route. Sources and
+runtime amendment are hash-covered before inference. Every checkpoint is
+exported and checked before evaluation, including all comparators and fits.
+Complete cost is measured once per fixture, using the fixed five-round schedule.
+
+The new full auditor independently checks original training/validation traces,
+optimizer histories and terminal replay accounting, checkpoint identities,
+paired workload fingerprints/action streams, saved evaluation states/actions,
+chosen/target values, weight invariance, all predeclared comparisons and value
+summaries, exported runtime equivalence, and raw timing/order/cost calculations.
+It checks both original-source and continuation-source bytes and all input
+hashes. It reports historical training totals separately from zero new training.
+
+REDUCED END-TO-END EVIDENCE
+Source: validation/anchor_research_route_v2_2026-11-06_01.
+Output: validation/anchor_posttraining_continuation_fixture_2026-11-11_01.
+Seventeen controllers x two saved synthetic initializations:34 checkpoints.
+244 episodes audited:68 preserved training,102 preserved validation,
+68 regenerated evaluation and6 heuristic episodes. The74 regenerated episodes
+use only the already declared synthetic engineering seeds (2,960 simulator
+slots); none is a reserved research task. There were zero new training slots,
+zero optimizer updates and zero target-network copies.
+2,482 historical optimizer updates were audited, not rerun.
+4,352 runtime action/value checks;21,760 raw timing rows recomputed.
+Storage, median-latency and p95-latency screens passed in both fixture fits.
+All paired workloads, evaluation invariance and saved-artifact checks passed.
+Synthetic results do not establish return/deadline/calibration success.
+
+TESTS
+1. Complete continuation and full audit while optimizer construction, training
+   agent construction and update calls are patched to fail on any invocation.
+2. CLI and direct-API guards reject development/final execution, including
+   attempts with the confirmation flag, before creating an output directory.
+3. Reserved research input is rejected in fixture mode before output creation.
+4. An existing output is rejected; no overwrite or automatic restart.
+5. Deliberate summary corruption is rejected by the auditor without retiming;
+   exact original bytes are restored and the saved manifest is reverified.
+All five passed. The existing complete reduced fixture was not retrained.
+
+REMAINING LAUNCH BOUNDARY
+The research continuation path remains intentionally disabled in this gate.
+Before reserved development evaluation, review this implementation and evidence
+and prepare a separately versioned evaluation-only entry point. That entry
+point must validate the original failed-run source, all85 frozen checkpoint
+identities, the exact frozen five model/task blocks and held-out seed schedule,
+and the runtime amendment. Keep final mode disabled and require explicit CLI
+confirmation. Use a new continuation output; never edit the original run.
+The reduced test exercises the shared post-checkpoint orchestration; it does
+not claim a production evaluation run or complete audit of the real680,000-slot
+training traces. Those comparisons and that audit still remain to be executed.
+No additional training is necessary to perform the continuation.
+
+SCOPE
+Original rewards, architectures, objectives, optimizer settings, seeds and
+thresholds unchanged. All fits/comparators retained; no best-fit selection.
+Cloud/charging stations excluded. Security/trust deferred. Word thesis unchanged.

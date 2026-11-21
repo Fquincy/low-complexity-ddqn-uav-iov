@@ -1,0 +1,27 @@
+{
+  "artifact_audit_passed": true,
+  "deployment_storage_audit": {
+    "passed": true,
+    "models": 55,
+    "online_weights_exact": true,
+    "storage_and_training_cost_recomputed": true,
+    "extra_optimizer_steps": 0,
+    "extra_simulator_steps": 0,
+    "timing_repeated": false
+  },
+  "source_run": "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\development_runs\\deadline_screen_development_2026-11-14_01",
+  "scientific_screens": {
+    "references_every_fit": false,
+    "strong_heuristics_every_fit": false,
+    "screening_mechanism": true,
+    "price_mechanism": false,
+    "same_width_architecture_mechanism": false,
+    "primary_value_every_fit": false,
+    "primary_cost_every_fit": true
+  },
+  "all_scientific_screens_passed": false,
+  "trained_checkpoints_preserved": true,
+  "new_training_slots": 0,
+  "new_evaluation_slots": 0,
+  "retiming": false
+}

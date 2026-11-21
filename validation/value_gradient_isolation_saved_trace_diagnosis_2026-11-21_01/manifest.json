@@ -1,0 +1,13 @@
+{
+  "behavior_replay_coverage.json": "d1091983831e2a4a3fc37fb89bbadd7d52d81428b265ea2316596f3ab0f38cdf",
+  "diagnosis.json": "c059ffc70624db719fe8bdadb9dda29d8ae830448e3e9ca2b3b92bd9f68a3714",
+  "fixed_state_predictions.npz": "fa27a9f7c5c6ba16f7b2064fdf4af1efcb0f17633bf76984b56d649943332c78",
+  "independent_verification.json": "9e3453be9a05785de6cbf188950771462f08770498551f527479772e3ec1fd85",
+  "review_source_snapshot/analyze_value_gradient_isolation_replay_coverage_2026_11_21.py": "cbe77af82d00e7d9263d8f135d4cd1d51d457c200cffe6831c61c585751af4a9",
+  "review_source_snapshot/diagnose_value_gradient_isolation_saved_traces_2026_11_21.py": "a4082eb0b56799e3b86fe20aca133a12328291b6cbe2e9638d0e6ccc860affc4",
+  "review_source_snapshot/VALUE_GRADIENT_ISOLATION_SAVED_TRACE_DIAGNOSIS_2026-11-21.txt": "3d40db2aa72461250fc36fee07da3a761a344a68a5dfc290fa4768a6e5e5bcb8",
+  "review_source_snapshot/verify_value_gradient_isolation_diagnosis_2026_11_21.py": "ac331223d3fb138e7b30b4a85dbc75922d2c367cb54cfe25d97c8f2f9ca99548",
+  "review_source_snapshot/verify_value_gradient_isolation_diagnosis_review_2026_11_21.py": "1de9c135f1535610e42d442f2cfe579cccf0bf89f2d6e2a78c5631fddb39b898",
+  "review_verification.json": "a6a9bb9b54e8794e90fde7bb88630053746453bb7f247dec1b077d59f68ebdd1",
+  "verification.json": "0bd0b84c6d5420bbebf51e611bdbbe514c15e3ee41fa32e325ada3c0deee243e"
+}

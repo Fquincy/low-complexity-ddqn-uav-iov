@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "scope": "design_structure_arithmetic_source_integrity_and_local_seed_audit",
+  "budget_checks": true,
+  "model_and_comparison_definitions_unchanged": true,
+  "reserved_streams_disjoint": true,
+  "protocol_sha256": "23b1b292e80a4dadba99ee99b1f7151a80a37db4f6c8b5d03ac198729acf84de",
+  "review_sha256": "421b86679a375c3b6857114cb8c378248e8e6b8b38433b16e1dacf122c8ed28d",
+  "simulator_steps": 0,
+  "optimizer_updates": 0,
+  "live_runner_tests": false,
+  "launch_authorized": false
+}

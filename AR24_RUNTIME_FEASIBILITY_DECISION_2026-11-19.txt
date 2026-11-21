@@ -1,0 +1,139 @@
+AR24 RUNTIME FEASIBILITY AND BOUNDED NEXT-GATE DECISION
+Date: 2026-11-19 (Asia/Shanghai)
+Basis: source inspection and preserved synthetic results; no new timing.
+
+DECISION
+GO to ONE bounded diagnostic-profile/possible equivalent-optimization gate.
+NO research preparation, training, final evaluation or scientific release.
+There are identifiable redundant operations to investigate. Their runtime
+importance is NOT measured, so feasibility remains conditional. If a fixed-
+path profile finds no credible removable overhead, park AR24 without running
+another optimization benchmark. Do not open another design by default.
+
+1. REQUIRED IMPROVEMENT
+Saved same-session synthetic medians, milliseconds:
+fit | AR24 | unmasked wide128 | gap | reduction needed from AR24
+0   | .04125 | .03480 | .00645 |15.6364%
+1   | .04110 | .03455 | .00655 |15.9367%
+2   | .04140 | .03430 | .00710 |17.1498%
+AR24 must beat BOTH screened and unmasked references in EVERY engineering
+initialization, not just the easiest row or the mean. These numbers describe
+the existing fixture, not guaranteed future targets on different hardware.
+Storage and absolute p95 criteria pass; the combined median gate fails.
+No new measurements or policy evidence are produced by this memo.
+
+2. CONCRETE SOURCE-LEVEL OPPORTUNITIES
+In ar24_prototype.decode, each task starts with its current destination's
+marginal, then the candidate loop evaluates that current destination again.
+For30 tasks this creates30 duplicate scores. There are up to180 sweep
+marginal evaluations (old + five candidates); original mask exclusions may
+reduce this. Skipping d==old preserves its already computed candidate and
+the original old-on-tie preference. It is not removal of a feasible action.
+All other candidates and the fixed stable visit order must stay unchanged.
+
+The decoder computes initial scalar C through scalar(), which separately
+builds CPU aggregates and radio prefixes; it then loops over placements
+again to build W,X,Y and occupancy caches. The final scalar must also be
+computed independently to keep the model-consistency/nonincrease check.
+A new native routine can fill initial scalar accumulators AND decoder
+caches in a coordinated pass, with each accumulator retaining its original
+increasing-vehicle-ID update order. This can remove repeated traversal and
+small-array allocation without deleting either initial or final validation.
+Preserving order and output tolerance is a mandatory test, not assumed.
+
+features(),heads(),decode(),scalar(),radio_prefix() create several small
+temporary arrays. Invocation-local fixed-size scratch and native fusion
+could reduce allocation/dispatch. Do not share mutable workspace across
+states or rely on memoized physical features. Any frozen weights/constants
+may be reused, but every input-dependent feature must be recomputed and
+charged in the complete timed path.
+
+The native marginal routine is already compiled; its existence as a Python
+function does NOT establish Python call overhead inside compiled decode.
+LLVM may inline it already. Do not promise a speedup merely by adding an
+inline flag or count duplicate calls as measured microseconds. The neural
+ONNX dispatch may dominate the remaining cost. Reference models must receive
+the same graph/compiler opportunities if their execution route is changed.
+
+3. UNCHANGED SEMANTICS AND NUMERICAL CONTRACT
+Keep17,116 parameters/68,464 parameter bytes,24 hidden units,172 outputs,
+FP32 neural core,FP64 physical/head/scalar arithmetic,20-byte scale buffer,
+geometry proxy,deadline factors,compute/radio equations,all six variants,
+original feasibility mask,same initial scores,one sweep,stable decreasing-
+cycle order,old-on-tie behavior,and direct final same-action Q.
+Preserve empty-destination cache reset,negative-cache errors,finite checks,
+terminal handling,initial/final scalar validation and copied output ownership.
+No fastmath,pruning,quantization,clipping/loss/reward changes,extra masks,
+skipping expensive states,removing movement or changing the scalar critic.
+Do not replace prefix radio evaluation with cancellation-prone X*Y-Z.
+
+Retain FP64 same-raw rtol1e-12/atol1e-12. Require exact action/tie outcomes;
+report every near-tie discrepancy and block timing rather than widen the
+tolerance. Identical actions in a finite fixture do not prove all-state
+equivalence. An error correction before timing is allowed with its failure
+preserved, but a failed measured speed attempt is not repeated favorably.
+
+4. FIRST PART OF NEXT GATE: DIAGNOSTIC PROFILE ONLY
+Use preserved32 synthetic states and3 AR24 graphs from
+validation/ar24_engineering_2026-11-19_01. No new model/task seeds,graphs,
+simulator calls or optimizer steps. Write a profile plan and input/source
+hashes before execution. Measure validation,neural forward,features,heads,
+full native finish,decoder with prepared arguments,and complete values+copy.
+Five shuffled rounds,8 warmups/component,32 states,3 initializations.
+Record raw readings and exact decomposed/full action/scalar checks.
+Label Python/native boundary overhead and overlapping probes explicitly;
+do not add component medians as an exact end-to-end time decomposition.
+The profile is not a replacement acceptance result or new reference timing.
+
+STOP IF the profile provides no defensible basis for recovering about6.5-
+7.1us without changing semantics. There is no rigorous speedup prediction
+from component totals alone. Record the decision and park AR24 if necessary.
+If it does identify a plausible route, document the specific chosen changes
+from section2 BEFORE the sole optimized implementation/timed comparison.
+The bounded task permits profiling and an evidence-based decision, not an
+obligation to optimize or force a passing result.
+
+5. CONDITIONAL OPTIMIZATION AND ONE MATCHED BENCHMARK
+If justified, create a separately versioned runtime file; preserve the
+original source,failed fixture,and all original graphs. Use existing raw
+neural graphs,weights,synthetic states and model seeds unchanged.
+Correctness prerequisite: all6 variants x3 initializations x37 saved
+ordinary/stress states; exact original/optimized actions,raw heads,and
+FP64 scalar/cache values within unchanged tolerance. Reuse independent
+dense-pair/prefix checks,cached/direct candidate checks,ties,singletons,
+empty destinations,invalid inputs,terminal tests,alternating-call ownership
+and immutable weights/gradients. Recheck reference export equivalence.
+Do not time a path with unresolved equivalence failures.
+
+One matched benchmark: original AR24,optimized AR24,screened plain24,
+screened wide128,unmasked wide128,unmasked compact64 in the SAME session.
+Same32 synthetic inputs,3 original model seeds,3 shuffled rounds,
+16 warmups/path/round:1,728 complete-call readings. Use a predeclared new
+timing-order seed in that later fixture plan (engineering only); freeze
+order,source,input and graph hashes before timing. No favorable retiming.
+Include observation conversion,validation,neural forward,features,heads,
+mask,sorting,decoder,scalar checks and copied final action. Report startup/
+compilation scopes separately; same backend optimization opportunity for all.
+
+Acceptance unchanged: parameter bytes<=half compact64,optimized median
+<=EACH wide reference in EVERY initialization,p95<=1ms,and all correctness
+checks pass. Record every timing/screen. Audit saved data independently.
+Failure closes this bounded attempt. Success would justify considering a
+later research-protocol gate, not a launch or a policy/calibration claim.
+
+6. RESEARCH CLAIM AND PROJECT BOUNDARIES
+AR24's faster-than-wide advantage,return/deadline quality,calibration and
+mechanism benefit remain unestablished. Literature novelty remains open.
+Implementation cleanup is not a new thesis contribution by itself. A later
+trained controller must supply all the missing fresh comparative evidence.
+No new research seeds,budgets or protocol are assigned here. No best-arm
+promotion,threshold relaxation or reclassification of prior failed results.
+Final reservations and the Word thesis remain protected. Security/trust
+deferred; cloud/charging excluded. No training or benchmark was run here.
+
+EVIDENCE
+ar24_prototype.py
+AR24_SYNTHETIC_ENGINEERING_REVIEW_2026-11-19.txt
+validation/ar24_engineering_2026-11-19_01/verification.json
+validation/ar24_engineering_2026-11-19_01/saved_artifact_audit.json
+AGGREGATE_RADIO_DDQN_PROSPECTIVE_DESIGN_2026-11-19.txt

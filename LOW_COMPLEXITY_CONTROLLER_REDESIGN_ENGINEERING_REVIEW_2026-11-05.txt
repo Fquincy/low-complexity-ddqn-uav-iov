@@ -1,0 +1,168 @@
+CONTROLLER REDESIGN VERSION 2 - ENGINEERING GATE REVIEW
+Date: November 5, 2026
+
+DECISION
+Mechanics and reduced runner/auditor integration: PASSED.
+Predeclared complete-action cost gate: FAILED.
+Do NOT launch the 320,000-slot development experiment with this implementation.
+No research training or final evaluation was started. The Word thesis is unchanged.
+The candidate is implemented and mechanically checked; it is not a proven
+low-complexity contribution, a trained successful policy or a security result.
+
+1. CONTRIBUTION SCOPE AND THE USER'S CLOUD/CHARGING INSTRUCTION
+Contribution one is the efficient DDQN-style offloading controller.
+Contribution two will add security/trust after contribution one succeeds.
+Security/trust is absent from this engineering experiment.
+Cloud and charging stations are ABSENT from the ACTIVE simulator and controller.
+Five execution choices only:local vehicle,UAV1,UAV2,RSU1,RSU2. UAV movement
+choices remain hover/north/east/south/west. UAV batteries are not recharged.
+The compliant active environment did not require deletion or reconstruction.
+The source/configuration exclusion checks pass. The historical files and
+completed experiments are preserved as requested; their older cloud/charging
+implementations are not imported by the current simulator/controller path.
+User-confirmed scope record: CONTRIBUTION_SCOPE_DECISION_2026-11-05.txt.
+
+2. WHAT WAS IMPLEMENTED IN NEW FILES
+controller_redesign_v2.py:
+  shared per-vehicle encoder, pooled context, shared placement/mobility heads;
+  termwise nonnegative cost, resource-load term, two price passes and exactly
+  four single-move repairs with full-score acceptance. No exact joint argmax
+  or convergence guarantee is asserted. No security/cloud/charging feature.
+  No-congestion, untied-weight and outer-joint-bound ablations are implemented.
+  The declared 64-64 BDQ adaptation is implemented with branch-mean target,
+  per-branch Huber loss and shared-trunk gradient rescaling by1/33.
+
+run_controller_redesign_engineering.py:
+  all eight declared arms, frozen targets, terminal masking, uniform replay,
+  paired exploration, final-only fixture checkpoints, freeze-before-evaluation,
+  full task/reward/energy/motion/transition/optimizer records, own-trajectory
+  online/target values and realized return-to-go, all fixture comparisons, and
+  the same-backend CPU timing path. Research development/final CLI modes are
+  explicitly disabled, even if confirmation is supplied. The confirmation flags
+  are still checked first; absence of a flag also fails before creating output.
+  This is an engineering harness, not a finished launchable five-fit research
+  runner. Actual multi-fit development/final reporting remains a later gate,
+  contingent on resolving the cost failure and freezing executable sources.
+
+audit_controller_redesign_engineering.py:
+  manifests, source snapshots, checkpoint/replay/counter checks, physical task
+  accounting, paired workloads, optimizer traces, stored value/return arithmetic,
+  timing quantiles, cost-screen recomputation, and active-system exclusions.
+  Audits added zero simulator steps and zero optimizer updates.
+
+test_controller_redesign_engineering.py:
+  the model, target, decoder, gradient, scope, CLI and integration checks below.
+
+3. MECHANICS AND INTEGRATION EVIDENCE
+All18 tests passed in 45.07 seconds. The tests cover exact observation
+index mapping and workload units, parameter/MAC arithmetic, legal actions,
+nonpositive/finite scores, scored-action agreement, gradient flow and the
+intentional zero-load ablation, correct decreasing-transform action selection,
+online selection versus target evaluation, all-terminal bootstrap skipping,
+BDQ trunk-gradient scaling, own-policy return-consistency arithmetic, cost-screen
+failure detection and both research CLI guards.
+
+The complete reduced fixture used model99001, training workload990000000 and
+evaluation workload990000100. It was labeled SYNTHETIC_NOT_RESEARCH throughout.
+Eight models x1 episode x40 slots =320 synthetic training slots;33 updates and
+4 target copies each, totaling264 updates and32 copies. This is engineering
+integration only. Its evaluation seed was intentionally reused for synthetic
+validation; no fresh-research interpretation is permitted.
+The auditor checked8 final checkpoints,35 saved physical episodes,264 optimizer
+rows and104 manifest entries. It recomputed comparisons and value summaries,
+checked replay against the saved transitions, and checked all source snapshots.
+Corrupted and unmanifested artifact fixtures were both rejected as expected.
+Temporary model/trace fixture outputs were removed after the tests. Their
+audit summary is preserved in test_verification.json; they are not thesis data.
+
+Verified parameter counts: shared4052; untied53845; compact additive48736;
+wide additive105504; EMC69361; adapted BDQ48801. Verified shared Linear MACs
+per state:51696. FP32 shared online parameter tensors occupy16208 bytes,
+plus20 bytes of public configuration buffers. Serialized checkpoints, target,
+optimizer, replay, activation and process memory are different quantities.
+
+4. COST GATE - ONE PREDECLARED MEASUREMENT, NO FAVORABLE RETEST
+CPU:AMD Ryzen7 4800H,8 physical cores/16 logical processors. Timing used ONE
+PyTorch intra-op and ONE inter-op thread, eager CPU FP32 for EVERY arm; no GPU
+or candidate-only compilation. Python3.11.9,PyTorch2.15.0+cpu,NumPy2.4.6.
+Hardware/configuration/source hashes were recorded BEFORE any timing.
+
+The declared8 timing-probe workloads422000000..422000007 generated320 slots
+without learning. Their heuristic traces were used solely to form128 common
+observations, not to assess the new policies. Each arm used the same synthetic
+initialization seed99001. Every path received32 warmups/round and128 measured
+calls/round over5 rounds in predeclared randomized order:640 calls/arm,
+5120 total raw timing records. The measurement includes input parsing/conversion,
+all neural modules, coordination/repairs/full scoring and final action conversion.
+Environment stepping and file I/O are outside the timed region.
+
+arm                         | params  | FP32 B  | median ms| p95 ms
+shared_congestion_cost      |    4052 |   16208 |  2.31710 |  3.25140
+shared_no_congestion        |    4052 |   16208 |  0.53845 |  0.87051
+untied_congestion_cost      |   53845 |  215380 |  4.38015 |  5.97003
+shared_joint_bound          |    4052 |   16208 |  2.23085 |  2.87703
+additive64_nonpositive      |   48736 |  194944 |  0.10930 |  0.19133
+additive128_unbounded       |  105504 |  422016 |  0.10960 |  0.18494
+emc_q_nonpositive           |   69361 |  277444 |  0.62720 |  0.92927
+bdq64_uniform_adapted       |   48801 |  195204 |  0.17125 |  0.28228
+
+PREDECLARED SCREENS (UNCHANGED)
+Storage <=50% of compact additive:PASS, actual ratio
+0.083142 (91.69% lower online weight storage).
+Median <=100% of wide additive:FAIL, actual ratio 21.141.
+Complete-action p95 <=1.0ms:FAIL, actual 3.25140ms.
+The raw timing artifact audit PASSED; the measured engineering gate FAILED.
+All5120 readings, probe states and source hashes remain under cost_gate/.
+
+5. INTERPRETATION AND LIMITS
+The implementation achieves the predicted small online model but is much slower
+in this eager CPU implementation. It cannot currently support a faster or
+lower-computation claim. Even the shared no-congestion path is slower than the
+flat references; the measured overhead is not necessarily only in the repairs.
+The full path versus no-congestion timing difference suggests coordination
+adds overhead, but a component profile is required before causal attribution.
+These are untrained timing models and a synthetic runner fixture. They do not
+show useful policy quality, improved deadlines, value calibration after research
+training, empirical novelty, embedded deployment or controller energy savings.
+No experimental settings, thresholds, rewards or model definitions were changed
+after seeing this cost result. No best timing round or passing initialization
+was selected. The failure is preserved.
+
+6. SEED USAGE AND PRESERVATION
+Used for engineering:declared timing probes422000000..422000007, synthetic
+model99001, synthetic workload990000000/evaluation990000100, and component-test
+RNG streams99003/99004. No development training/model/quality-gate seeds were
+used, and all final-training/model/evaluation seeds remain untouched.
+All66 original saved diagnosis-input hashes remain identical. The earlier
+November4 protocol, its source/checkpoints/traces, and the November5 version2
+design artifacts remain unchanged. New implementation and report files are
+separate. No Word file was written.
+
+7. NEXT ENGINEERING ACTION
+Profile the complete inference path to separate parser/forward/nonlinear-cost/
+price/repair/conversion overhead. Then predeclare an implementation optimization
+that preserves the version2 mathematical model and complete actions, with
+equivalence tests and fair backend treatment of ALL comparators. If changing
+the architecture, decoder pass count or cost objective becomes necessary,
+document a new version BEFORE training; retain this failure and its thresholds.
+Do not silently relax the median/p95 gate or launch a long run to see whether
+policy quality compensates. A storage-versus-latency tradeoff study would need
+its own explicit protocol and a narrower claim.
+Security/trust stays deferred until contribution one has adequate evidence.
+
+8. ARTIFACT LOCATIONS AND REPRODUCTION
+Engineering root:validation/controller_redesign_engineering_2026-11-05_01/
+  unit_and_integration_tests.log
+  test_verification.json
+  hardware_cpu_before_timing.json
+  cost_gate/PRE_TIMING_FREEZE.json
+  cost_gate/raw_timings.json
+  cost_gate/common_observations.npz
+  cost_gate/verification.json
+  cost_gate/saved_artifact_audit.json
+  cost_gate/run_manifest.json
+Interpreter:C:/Users/OMEN/AppData/Local/Temp/value_bound_smoke_env/Scripts/python.exe
+Test command:-m unittest test_controller_redesign_engineering -v
+Read-only cost audit:audit_controller_redesign_engineering.py <cost_gate_path> --cost
+Do not rerun the cost measurement just to obtain a favorable result. Any new
+implementation and its benchmark must have a recorded reason and frozen inputs.

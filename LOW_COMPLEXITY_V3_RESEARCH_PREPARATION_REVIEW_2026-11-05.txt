@@ -1,0 +1,111 @@
+VERSION 3 ELEVEN-ARM RESEARCH PREPARATION REVIEW
+Date: November 5, 2026
+
+DECISION
+The eleven-arm protocol, training runner, result auditor and synthetic
+end-to-end fixture are complete. All preparation checks passed. No development
+or final research run has been launched or authorized. The Word thesis remains
+unchanged.
+
+FROZEN DESIGN
+Protocol: LOW_COMPLEXITY_V3_RESEARCH_PROTOCOL_2026-11-05.json
+Primary: amortized_workload_price24 (17,066 parameters).
+All eleven arms: primary; matched-size amortized_no_price24 mechanism ablation;
+plain24_nonpositive; the four shared-cost family arms; additive64 and additive128
+DDQN references; EMC; adapted BDQ.
+Scope: 30 vehicles; local CPU, two UAV servers, two RSUs and two UAV movement
+choices. Cloud and charging stations are excluded. Security/trust is excluded
+from contribution one and remains deferred to contribution two.
+The plain24 reference is smaller and faster than the primary in the engineering
+benchmark. The primary must justify its added pricing mechanism through fresh
+return/deadline results; controller runtime alone is insufficient.
+
+TRAINING AND COMPARISON RULES
+Development: 5 paired model initializations x11 arms x200 episodes x40 slots:
+440,000 physical training slots,383,735 optimizer updates and1,870 target copies.
+Final is a separate five-fit, 200-workload phase with the same training budget.
+Development model seeds41001,41011,41017,41023,41039; final model seeds51001,
+51011,51017,51023,51031. Per-fit training blocks and evaluation seeds are
+frozen in the JSON protocol. The old reservation scan passed, but its caveat
+excludes compressed/binary/external history. A refreshed run-manifest and seed
+collision audit must be a launch precondition.
+
+Arms receive common task schedules and common exploration streams per fit;
+replay sampling has separate recorded streams. All55 development checkpoints
+are saved as final-only weights and hashes are frozen before held-out evaluation.
+The 48 development workloads are paired across arms. No fit or checkpoint is
+dropped or chosen by validation reward. Report primary return and deadline
+comparisons per fit against compact64, wide128, EMC, adapted BDQ and plain24;
+also report all ablations and the three fixed heuristics. The plain24 ablation
+keeps the architecture and parameter tensors, masking only the price term.
+
+For each arm and initialization, save chosen online/target Q on that policy's
+own greedy trajectories and compare each slot to its same-episode realized
+return-to-go. Report distributions and four time bins. Frozen thresholds include
+normalized RMSE<=0.25, absolute bias<=2, near-zero/large-return fraction<=0.05,
+terminal absolute error p95<=2 and finite values; bounded arms must stay
+nonpositive. These are empirical policy-return consistency diagnostics, not
+proof of Q-star calibration.
+
+The untouched final phase uses a paired crossed bootstrap of five fits and200
+common task episodes,5,000 draws, fixed seed520600002. The one-sided97.5%
+lower limits for return and deadline differences versus wide128 must meet
+margins -2 and -0.01 respectively, in addition to every fit's point screens,
+the mechanism screen, value screens and cost screens. No multiple-comparison
+superiority claim is authorized for secondary contrasts.
+
+After final-only weights freeze and before gate evaluation, re-export every
+checkpoint, retest exact complete decisions/Q tolerance on the fixed128 saved
+engineering observations and time full action selection (five rounds,32 warmups,
+128 timed calls). Those observations are reserved for inference checks only;
+they do not enter policy-quality evaluation or checkpoint selection. The same
+fixed execution route applies to each arm family. Report cost per fit without
+model selection. Any mismatch or audit failure stops the formal gate.
+
+ENGINEERING IMPLEMENTATION
+Runner: run_v3_research_preparation.py
+Auditor: audit_v3_research_preparation.py
+Models are connected to the existing tested DDQN update/environment harness.
+Only final online/target weights and audit metadata are checkpointed; the
+training replay is released fit by fit, rather than retaining eleven 50,000-item
+buffers concurrently. Every optimizer update trace, training episode,
+validation episode, evaluation episode, checkpoint hash, paired comparison,
+value summary and final-weight inference timing is saved and covered by a
+manifest. The independent full-run auditor also covers the development/final
+schemas, optimizer counts, frozen-before-evaluation ordering, workload pairing,
+Q replay, final bootstrap and inference measurements.
+
+The implementation CLI currently allows ONLY --mode fixture. Development and
+final modes fail before creating an output directory, even when the confirmation
+flag is supplied. These modes require later review and a separate launch
+instruction; the fixture is never training evidence.
+
+VERIFICATION
+Seven focused tests passed, including protocol arithmetic, comparison pairing,
+all-fit thresholds, the final crossed bootstrap and research CLI blocking.
+The complete marked fixture exercised all11 arms:440 synthetic simulator
+slots,363 optimizer updates and44 target copies. All11 final checkpoints were
+frozen before the synthetic evaluation workload. Every saved controller then
+passed re-export/equivalence on128 fixed observations. The fixture inference
+audit independently replayed1,408 complete joint decisions and recalculated
+7,040 timing rows. All three frozen-checkpoint cost screens passed in this
+one synthetic initialization. This says nothing about trained research quality.
+
+Fixture run:
+validation/controller_v3_research_fixture_2026-11-05_04/
+Fixture state: completed_synthetic_full_fixture_not_research.
+Independent audit: passed_v3_synthetic_orchestration_audit.
+Test evidence: validation/v3_research_preparation_tests_2026-11-05.json.
+The test suite's own fixture was isolated in a temporary directory; the retained
+fixture above was generated with the CLI and passed its independent audit.
+
+NEXT DECISION
+Review this protocol, its reserved seed schedules, the full runner/auditor and
+fixture evidence. If acceptable, make a separate explicit instruction to launch
+the development phase. No research run begins until that decision. The final
+phase requires a further locked-model review and separate launch instruction.
+
+No research seeds were consumed; no full research simulator slots or updates
+were run; no thesis file was edited. Original model runs and failures remain
+preserved. Low-complexity claim, return/deadline improvement, novelty and thesis
+sufficiency remain unestablished.

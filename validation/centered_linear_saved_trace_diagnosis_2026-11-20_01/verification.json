@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "combined_consumed_files_verified_unchanged": 400,
+  "frozen_source_binding_unchanged": true,
+  "evidence_sha256": {
+    "diagnosis.json": "94bee4b888d77ec995d7441a14ee2568dd8b9d9804f2dba58f7ce8527e6b4de2",
+    "value_decomposition.json": "cc48626403207202500990606dd1023c6d5c688da9c5faca65bd15b834b41206",
+    "first_update_decomposition.json": "7bc48b3d53243298864660ed73abf29455ad623c8f19abb82ae67287de10bdb9"
+  },
+  "diagnostic_source_sha256": {
+    "diagnose_centered_linear_saved_traces_2026_11_20.py": "9328d675c0d4afc20248148cec095c59a18882fd45a4228a9b8b3e2f3b1c5904",
+    "decompose_centered_linear_saved_values_2026_11_20.py": "5ec1f0a6da9f4541588a61d6ba4588498b22377a392f00bad7aa729fd9d7e929",
+    "check_centered_linear_first_update_2026_11_20.py": "17472597a6130113c4bff49791f8c173904e663d65b3818336881320557ea4fd",
+    "CENTERED_LINEAR_SAVED_TRACE_DIAGNOSIS_2026-11-20.txt": "3cfd464db0cc124c6b61ae6d87b8b502770668ab35fe80dd47797b1bdf13d4c9"
+  },
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "word_thesis_changed": false
+}

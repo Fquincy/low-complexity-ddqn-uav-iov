@@ -1,0 +1,315 @@
+PROSPECTIVE DESIGN: RETURN-CALIBRATED, POLICY-RETAINING DDQN HANDOFF
+20 November 2026
+DESIGN BRIEF ONLY - NO IMPLEMENTED CONTROLLER OR RESEARCH LAUNCH
+
+1. DECISION AND SCIENTIFIC PURPOSE
+Investigate ONE training-stage correction to the existing compact additive
+DDQN. Keep its observation, architecture, feasibility screen and decoder.
+After BC, reduce the arbitrary action-gap scale without changing action
+rankings, then fit the state-value output to recorded demonstration returns.
+During DDQN, retain an auxiliary imitation loss on fixed demonstrations.
+Use factorial controls to separate calibration from imitation retention.
+This is a prospective hypothesis, not a finding that the correction works.
+
+The diagnosed study remains FAILED under both frozen screens. Preserve all
+failed fits and archives. The earlier promising heuristic-initialization pilot
+remains exploratory evidence with unresolved calibration/novelty limitations.
+No old reward, seed, model, optimizer, threshold or result is changed.
+
+A useful outcome would be an implemented training mechanism that improves
+a same-size compact DDQN and adds value beyond stopping after imitation,
+while retaining small deployment storage. Proving that outcome would still
+require stronger reference comparisons and untouched final evaluation.
+This brief cannot establish a new lightweight/low-complexity contribution.
+
+2. OBSERVATIONS MOTIVATING THE CHANGE
+Source: CENTERED_LINEAR_SAVED_TRACE_DIAGNOSIS_2026-11-20.txt and its bound
+saved-data evidence. BC produced greedy Q means +43.229,+33.359,+39.155
+on fixed demonstration states. After DDQN: +89.406,+72.141,+91.555.
+At the first TD update, the same-state greedy-minus-sampled Q gap averaged
+15.077,10.650,16.757; negative rewards could not offset it. Terminal masking
+was correct. All observed primary evaluation misses occurred at RSUs after
+substantial vehicle-ranking changes. The uncentered linear control had bad
+value scale but much better policies: value inflation alone is not a proven
+complete cause. No claim that a constant value offset repairs action ranking.
+
+3. PRECISE DEPLOYMENT MODEL: UNCHANGED COMPACT FUNCTION CLASS
+Retain 533 -> 24 ReLU -> 161 FP32 outputs: 150 placement scores,10 movement
+scores and one signed state-value output V. Divide placement scores by30
+and movement scores by2 as before. Let z_b,d denote those scaled scores,
+for32branches with5actions each. Define
+  C_theta(s,a) = sum_b [z_theta,b,a_b(s) - mean_(d=0..4) z_theta,b,d(s)]
+  Q_theta(s,a) = V_theta(s) - C_theta(s,a).
+For nonterminal states, decode the exact masked maximum of THIS critic:
+  a_b* = argmin_(d in allowed_b(s)) z_theta,b,d(s).
+Retain inherited conservative local feasibility masking and first-index ties.
+No new RSU/queue/battery filter, physical lookahead, teacher call or destination
+repair is added. The additive model does not solve the coupled physical
+optimization exactly. Terminal next states bypass decoding and bootstrap zero.
+
+4. TRAINING STAGE A: SHARED DEMONSTRATIONS AND BC
+Proposed exposure:10teacher episodes/fit,40slots/episode, same400transitions
+and action labels for every demonstration-using arm of that fit. BC uses
+200updates,batch64,Adam0.001,temperature1, and the inherited branchwise CE
+(mean vehicle CE plus mean movement CE), exactly as in the previous study.
+BC draws and raw network initialization are paired across relevant arms.
+Only the frozen teacher's saved actions/rewards are used; no teacher network
+or hidden state is supplied to deployed students. Report demonstrations'
+simulation and computation cost separately from student online cost.
+
+Record AFTER_BC hashes, fixed-state probes and final BC-only checkpoints.
+The prospective BC optimizer is discarded before DDQN; no optimizer-state
+transfer is allowed. Do not use consumed prior research weights or traces
+as training data. Existing evidence only motivates this prospective design.
+
+5. TRAINING STAGE B: POSITIVE ACTION-GAP RESCALING
+Use the first8demonstration episodes (320states) for calibration fitting.
+The last2episodes (80states) withhold return targets for calibration checks;
+their action labels ARE used by BC and retention. They are therefore NOT
+unseen-policy/generalization data. Do not refit or select settings on them.
+
+On the frozen AFTER_BC fitting states define
+  S_r = max(1e-6, median_n |r_n|)
+  R_max = max_n sum_b [max_d z_b,d(s_n) - min_d z_b,d(s_n)]
+  alpha = S_r / (S_r + R_max).
+Use ALL5actions for these ranges, including locally screened alternatives.
+For R_max=0 set alpha=1 (the formula agrees when S_r>0).
+Multiply the final-layer weights AND biases of the160branch outputs by
+alpha; leave the hidden layer and V row unchanged at this substage.
+This folds alpha into existing parameters; no deployment alpha lookup.
+
+In exact arithmetic alpha>0 preserves every branch ranking and tie, and
+rescales every same-state modeled action gap by alpha. On the fitting
+states only, the total gap between any two modeled legal joint actions
+is at most alpha*R_max <= S_r. This is not a bound on true regret or on
+states outside that finite dataset. It does not constrain later TD learning.
+Assert FP32 greedy actions unchanged on all400demo states; if rounding
+changes an action, HOLD engineering instead of changing tie rules/alpha.
+Report alpha, masks, margins, zero/underflow checks and range distributions.
+
+6. TRAINING STAGE C: VALUE-ROW CALIBRATION WITH BRANCH POLICY FIXED
+Compute every demonstration's undiscounted reward-to-go from its saved
+40slot trajectory:
+  G_t = sum_(k=t..39) r_k.
+These are realized teacher-continuation targets. They are not optimal values
+or returns of the current student's different policy; do not equate them.
+Fit Q(s,a_teacher) to G while freezing the hidden layer and scaled branches.
+Because Q=V-C, the V regression target is
+  t_n = G_n + C_scaled(s_n,a_teacher,n).
+
+Use only the first8episodes' return targets for fitting. Let h_n be the
+24ReLU features, mu their column means, and
+  sigma_j = max(1e-6, sqrt(mean_n (h_n,j-mu_j)^2))
+  H_n,j = (h_n,j-mu_j)/sigma_j
+  S_G = max(1e-6, sqrt(mean_n G_n^2))
+  u_n = t_n/S_G; u_bar = mean_n u_n; rho=1e-3.
+Deterministic FP64 ridge solve:
+  beta = solve(H^T H/N + rho*I, H^T(u-u_bar)/N)
+  w_V,j = S_G*beta_j/sigma_j
+  b_V = S_G*u_bar - sum_j w_V,j*mu_j.
+Store the fitted V row/bias as FP32. Keep all other weights unchanged.
+The regression objective is mean squared normalized error plus rho||beta||^2;
+the intercept is unpenalized. It has a unique slope solve for rho>0.
+Do not claim exact interpolation, a pointwise nonpositivity bound or optimal
+calibration. Report residual distributions on fitting AND withheld targets,
+rank/conditioning, finite coefficients and float32 export discrepancies.
+Bad withheld return fitting is a design failure to report, not permission
+to adjust rho or repeat the fit with more episodes from the held-out set.
+
+Fitting V alone preserves the deployed greedy policy exactly. Both scaling
+and calibration preserve the same action decisions before DDQN in real
+arithmetic; verify against the independently trained BC-only checkpoint.
+At a fitting demo state, if the fitted demo Q has residual e_n,
+  Q(s,a_greedy) = G_n + e_n + modeled_gap(greedy,teacher),
+where that modeled gap is nonnegative and bounded by S_r for that dataset.
+This describes a controlled initial scale, not a convergence theorem.
+
+7. TRAINING STAGE D: DDQN WITH DEMONSTRATION RETENTION
+After the handoff, ALL online parameters are trainable. Copy the online
+weights into a detached target and start a fresh Adam optimizer. For online
+replay transitions, keep gamma=1 and terminal masking:
+  a_next = decode_theta(s_next)
+  y = r + (1-done)*Q_target(s_next,a_next)
+  L_TD = mean Huber_beta1(Q_theta(s,a)-stopgrad(y)).
+Terminal rows bypass decoder/target computation. No reward scaling/clipping,
+terminal anchor, new replay priority or multistep return target is added.
+
+At each TD update draw one additional batch64 of demonstration states and
+teacher actions with replacement using its own reserved sampler. Define
+  L_keep = mean_vehicle CE(-z_theta,b/T, a_teacher,b)
+         + mean_movement CE(-z_theta,b/T, a_teacher,b)
+with inherited masks, and T=alpha for calibrated arms; T=1 otherwise.
+Use the SAME temperature for BOTH vehicle and movement groups, after their
+existing /30 and /2 scaling. Thus the calibrated handoff initially has the
+same imitation probabilities as its unscaled AFTER_BC model; alpha does not
+silently make the retention target uniform. T is a fixed training metadata
+scalar, not adapted from outcomes. There is no extra teacher inference.
+
+Primary update:
+  L = L_TD + lambda_keep*L_keep; lambda_keep=1.
+One backward pass, global gradient clip10, ONE Adam step per TD batch.
+No separate gradient projection or freezing between these two losses.
+There is no guarantee that this fixed loss weight preserves a policy;
+CE gradients can be large when alpha is small. Report separate TD/retention
+losses, preclip total/branch/V gradient norms and clip frequency. Target
+parameters must receive no gradients. Do not tune lambda/alpha/rho after
+fixtures or research outcomes. These constants are prospective choices,
+not established optimal settings.
+
+DDQN exposure proposed unchanged:50episodes/fit,2000slots,warmup128,
+1872updates,uniform replay4096,batch64,Adam0.0001,betas(.9,.999),eps1e-8,
+weight_decay0,target copy each200updates,9scheduled copies. Epsilon is1
+before slot128,else1-.95*min(slot/2000,1),using zero-based slots. The same
+first128random slots are deliberately retained to isolate this correction;
+exploration resets/reward redesign would require a different amendment.
+Retention changes training objective/cost, not information at deployment.
+
+8. PROPOSED COMPARISON: TWO MECHANISMS AND REQUIRED CONTROLS
+All seven learned arms use the same533->24->161architecture.
+A primary: calibration (scaling+value fit) AND retention, centered DDQN.
+B no-retention: same calibration, DDQN with L_TD only.
+C no-calibration: raw BC weights, centered DDQN with L_TD+L_keep,T=1.
+D neither: raw BC weights, centered DDQN with L_TD only (failed design).
+E BC-only: independently repeat BC AND calibration, then STOP; no online
+  rollout, no TD replay/optimizer. Must match A/B handoff tensor hashes.
+F previous baseline: old -softplus(b+sum z) BC+DDQN, unchanged BC and TD,
+  no calibration or retention; identical raw initialization/demos.
+G plain small DDQN: old -softplus formulation, no BC, no demo replay,
+  ordinary empty replay and same online budget; identical raw initialization.
+Reference: evaluate the unchanged observed-load/radio teacher once.
+
+A/B/C/D form a2x2comparison. Calibration bundles rescaling and V fitting:
+this study cannot causally isolate those two substages. Initial algebra and
+first-update diagnostics address their separate properties; a later claim
+that one substage alone caused policy gains would need its own ablation.
+E isolates benefit of DDQN beyond the same starting policy. F checks whether
+this correction actually improves the preserved previous baseline. G reports
+benefit beyond ordinary small DDQN; beating G alone is insufficient.
+Do not remove E/F or select the best initialization to obtain a success.
+
+9. PROPOSED EXPOSURE, SEED RESERVATIONS AND OUTCOME CHECKS
+Three paired fits; all21final checkpoints frozen BEFORE any evaluation.
+Ten shared demo episodes/fit =1200slots. Six TD arms*3fits*2000 =36000
+student training slots. All21students+teacher,16episodes*40 =14080evalslots.
+Proposed total51280simulated slots; this is NOT a frozen/released run.
+BC updates:6BC arms*3*200 =3600. TD updates:6*3*1872 =33696.
+Retention batches:2arms*3*1872 =11232, each64labels; same TD optimizer
+steps, additional forward/backward work. Nine25coefficient ridge solves
+(A/B/E*3) and their data cost must be recorded. Do not count ridge as free.
+Teacher generation shared only within a paired fit. Pair BC, online action
+draws and replay sampler streams across arms; differing policies can still
+produce differing states and replay contents, so equal streams != equal data.
+
+Reserve fresh development-only seeds in
+RETURN_CALIBRATED_DDQN_HANDOFF_DESIGN_STATUS_2026-11-20.json.
+They are reservations, not permission to execute. Audit root protocol/status
+JSON and saved runtime plans for collisions, recording scan coverage. Do not
+use prior948...,918...research blocks or consume final evaluation reservations.
+No research optimizer/model run is authorized by this brief.
+
+Proposed paired correction screen to freeze before any research run:
+- A-minus-E and A-minus-F >=0 in BOTH return and deadline success in EVERY
+  initialization; equal-fit means strictly positive in both outcomes for
+  each contrast. No policy-loss allowance invented from consumed data.
+- A final own-policy NRMSE AND absolute Q-G bias smaller than D EVERY fit.
+  Report absolute errors,positive-Q/near-zero fractions,terminal/nonterminal
+  distributions and teacher-G handoff residuals. Do not equate lower own-policy
+  NRMSE across different policies with causal calibration improvement.
+- Both policy and value screens, complete finite/artifact verification and
+  all fits required for a promising correction result. No best-fit release.
+- A-B,A-C and full2x2interaction reported per initialization for both policy
+  metrics and value errors. A mechanism claim needs its relevant ablation;
+  if A only matches B/C, do not claim the omitted component adds benefit.
+- Report all teacher comparisons, plain DDQN and BC-only absolute outcomes;
+  a policy below teacher can still be a measured approximation, not a claim
+  that learning discovered a superior offloading solution.
+- Compute first-update action-gap decomposition, fixed BEFORE/AFTER_BC/
+  AFTER_SCALE/AFTER_VALUE_FIT/FINAL probes, replay sample and gradient histories,
+  and task/destination/miss distributions without new evaluation episodes.
+
+If policy or value screen fails: HOLD expansion, retain results, no automatic
+search/retry or retrospective threshold change. If screens pass: review
+mechanism, costs and novelty before deciding a broader comparison; do not
+automatically consume the final set or revise the thesis.
+
+10. COMPUTATIONAL COMPLEXITY AND FAIRNESS
+Deployed architecture unchanged:16841parameters,67364FP32parameter bytes,
+20inherited buffer bytes. Affine branch scale and V fit are folded into weights.
+Neural forward cost for dimensions d=533,h=24,B=32,K=5:
+  O(d*h + h*(B*K+1)); additive screen/decode/selected-Q O(B*K).
+Dense-layer weight products per forward:533*24+24*161=16656 (bias/ReLU,
+validation,screen/decoding and framework overhead additional).
+Calibration FP64 feature regression costs O(N*h^2+h^3) plus feature passes;
+retention adds a demonstration forward/backward per TD update. Report wall
+time,optimizer steps,teacher generation,replay/storage and any export work.
+No fewer-training-cost claim is assumed; it is likely more expensive to train.
+
+Measure complete validation,screen,forward,action selection,selected Q if in
+the chosen interface,and output copy in the SAME timing boundary for every
+controller. Match threads/precision/backend/order/warmup and retain raw times.
+Proposed128states*3rounds*22policies =8448measured calls,32warmups/path/round.
+All7arms have the SAME parameter storage,so beating a same-size arm cannot
+establish storage reduction. Stronger compact64/wide128 and relevant
+BDQ/DQfD-style references, matched information/budget disclosures, and a final
+untouched evaluation are required for a broader low-complexity contribution.
+Their comparisons are DEFERRED, not presumed wins. No UAV energy/latency
+budget has been verified; laptop latency is not real-UAV hardware evidence.
+
+11. TARGETED LITERATURE CHECK AND NOVELTY LIMIT
+Retrieved original abstracts and saved source hashes under
+validation/return_calibrated_handoff_brief_2026-11-20_01/.
+This is a targeted overlap check, not an exhaustive current-literature review.
+
+Dueling Network Architectures for Deep Reinforcement Learning:
+https://arxiv.org/abs/1511.06581
+State-value/advantage separation is established. We cannot claim its invention.
+
+Deep Q-learning from Demonstrations (DQfD):
+https://arxiv.org/abs/1704.03732
+Explicitly combines TD with supervised classification of demonstrator actions.
+Our continuous imitation loss overlaps that established principle. A smaller
+architecture plus demos alone does not establish a new algorithmic contribution.
+
+Policy Distillation:
+https://arxiv.org/abs/1511.06295
+Compact students extracting teacher policy are established; compression and
+teacher-free deployment alone are not an unexplored contribution.
+
+Kickstarting Deep Reinforcement Learning:
+https://arxiv.org/abs/1803.03835
+Teacher-guided student RL training overlaps the aim of useful initialization
+and continued teacher guidance. Our fixed retention rule differs from the
+abstract's adaptive teacher-use approach but novelty is not established.
+
+Potential narrow distinction to investigate: a transparent policy-preserving
+affine handoff that ties an additive critic's initial action gaps and scalar
+values to recorded offloading returns, with teacher-free compact inference.
+This exact composition has NOT been established as absent from prior work.
+Require a full-text and UAV-IoV-specific literature comparison before claiming
+novelty. The earlier2025DQfD-DECO overlap also remains unresolved; no claim
+that this branch is first in UAV-IoV or that the degree requirement is met.
+
+12. NEXT BOUNDED ENGINEERING GATE
+Implement the handoff helpers and objective in NEW isolated files; do not
+patch the frozen completed runner or model. Test using synthetic states,
+features and transitions only, with no reserved research seeds/teacher calls.
+Required checks before a research comparison protocol can be frozen:
+1. Positive scaling,all-branch gap bound on calibration states, action/tie
+   preservation and matching CE at temperature alpha (including masks).
+2. FP64 ridge against independently computed synthetic known targets,
+   constant/rank-deficient features,FP32 export and exact action preservation.
+3. Single DDQN+retention step: detached target,terminal bypass,finite gradients,
+   correct arm objectives/sampler isolation and no unexpected model sharing.
+4. Reconstruct the first-update diagnostic identities and record all stages;
+   no guarantee of a favorable scientific trajectory from synthetic checks.
+5. A/B/E hash parity after identical handoff; all controls expose correct
+   training/data access and equal raw initial weights. Research CLI closed.
+
+If mechanics pass, freeze the full comparison/amendment and budget, implement
+runner+independent auditor, exercise a reduced isolated end-to-end fixture,
+then conduct a separate readiness and explicit launch decision. Do not merge
+those gates into this design brief. No calendar guarantee of research success.
+
+Contribution one stays efficient DDQN offloading. Security/trust is deferred;
+cloud and charging remain excluded. This brief does not change the approved
+topic, Word thesis or institutional scope; degree acceptance is not guaranteed.

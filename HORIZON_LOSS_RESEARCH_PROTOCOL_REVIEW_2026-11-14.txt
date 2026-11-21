@@ -1,0 +1,85 @@
+HORIZON-LOSS RESEARCH COMPARISON: PROSPECTIVE FREEZE
+2026-11-14
+
+DECISION
+Freeze the fourteen-learner, three-heuristic development design. Local seed
+collision audit and structural/source checks passed. No research launch.
+The fixture-only executable remains disabled for development and final modes.
+This is a design freeze, not a claim that research execution is released.
+
+PRIMARY AND CONTROLS
+Primary: normalized_screened_price24, fixed before new research outcomes.
+Retain all eleven original learner definitions and add normalized no-price24
+and normalized anchored plain24. Include all-local, nearest-RSU and UAV-selective.
+Plain small DDQN, screened/unmasked wide128, compact64 and adapted BDQ remain
+fresh paired controls. Old consumed research outcomes are historical evidence.
+All16 primary and nine auxiliary contrasts are mandatory; no winner substitution.
+
+EXPLICIT BUDGET
+Five fits per learner; 200 episodes of40 slots per fit:70 final checkpoints,
+14,000 training episodes and560,000 training slots. The budget changes solely
+because14 learners replace11 at the same per-fit exposure and five-fit count.
+488,390 optimizer updates and2,380 target copies; final checkpoints only.
+48 common evaluation episodes per fit/controller and per heuristic:
+3,360 learned plus144 heuristic episodes, totaling140,160 evaluation slots.
+Freeze all70 checkpoints before runtime equivalence/timing and policy evaluation.
+44,800 timing readings,128 common inputs, five rounds; no favorable retiming.
+
+SEED RESERVATIONS, NOT EXECUTION
+Models: [83001, 83011, 83017, 83023, 83039].
+Train blocks: [{'start': 830000000, 'count': 200}, {'start': 831000000, 'count': 200}, {'start': 832000000, 'count': 200}, {'start': 833000000, 'count': 200}, {'start': 834000000, 'count': 200}].
+Evaluation: {'start': 840000000, 'count': 48}.
+Order/bootstrap/timing: 840600001, 840600002, 843600003.
+Action/replay/anchor offsets remain100000/200000/300000. Paired action draws,
+task blocks and replay index schedule across arms; contents may differ by policy.
+Local audit checked96593 files and reserved1071
+unique values. New streams are mutually disjoint, avoid prior consumed/declared
+local seeds and protected historical final reservations. The completed fixture
+seeds remain consumed engineering evidence, excluded from new reservations.
+The first scan conservatively flagged four numbers in an older audit report.
+Review found all ten occurrences were file BYTE SIZES, not seeds. The corrected
+report preserves the full raw scan and a field-path/hash proof, and removes
+only those non-seed fields. No actual seed collision or threshold was ignored.
+The audit covers local metadata/declarations/filenames and first16,384 decoded
+episode-header characters. It cannot prove freshness outside its recorded scope.
+Refresh actual-run seed use before launch. Protected final schedules unchanged.
+
+FROZEN LEARNING AND ACCEPTANCE
+Adam1e-4, batch128, replay50000, warmup1024, gamma1, clip10, target200 updates;
+same epsilon schedule, simulator, reward, state, screen and model definitions.
+Only the three specified arms divide both Q and detached y by CURRENT horizon
+inside Huber. Unit-weight batch32 terminal anchoring remains in original units.
+All original controls retain their exact losses, including branchwise BDQ.
+Diagnostic detached forwards add measured training overhead; do not subtract it.
+
+Eleven reference contrasts: per-fit return>=-2 and deadline fraction>=-.01.
+Nearest-RSU/UAV-selective: both paired differences>=0 per fit. All-local diagnostic.
+Correction, price and same-width mechanisms: both differences>=0 every fit,
+equal-fit mean return gain>=2 and deadline fraction gain>=.01 for EACH mechanism.
+Historical screening evidence is preserved; fresh original screening contrasts
+are reported. No normalized unmasked arm or new screening novelty is assumed.
+Primary original-unit value limits EVERY fit: normalized RMSE<=.25, absolute
+bias<=2, near-zero/large-return fraction<=.05, terminal error p95<=2;
+finite values/gradients and nonpositive primary Q. Report all arms and both
+TD residual units by current horizon, terminal status and episode time.
+Primary parameter payload<=half unmasked compact64; median complete action
+latency<=both wide128 paths, p95<=1ms per fit. Buffers/artifact/startup separate.
+Report remote misses by destination, upload/CPU stage and time, loads/actions
+and movement; retain failed fits. All integrity/policy/mechanism/value/cost
+requirements form one conjunction. No tuning, best fit, dropped fit or extra
+budget.5,000-draw paired crossed bootstrap intervals are descriptive only.
+
+NEXT ENGINEERING GATE
+Bind a new versioned research runner/workflow/auditor to this exact protocol.
+Add scale/count/source-release checks and ensure by-horizon residual and remote
+stage reports are emitted/audited automatically. Preserve the tested fixture
+sources; verify executable confirmation guards and source closure before a
+separate explicit launch decision. No launch-ready claim is made by this freeze.
+No new research simulator or optimizer step ran during this preparation.
+
+CLAIM AND SCOPE
+Engineering integration passed, but improved controller quality is unproven.
+The prior research combined gate failed and remains preserved. Loss normalization
+alone is established technique; novelty/literature and supervisor agreement
+remain open. Contribution one remains efficient DDQN for local/UAV/RSU offloading.
+Cloud, charging and security/trust excluded; Word thesis/final seeds unchanged.

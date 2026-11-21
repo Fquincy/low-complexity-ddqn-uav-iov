@@ -1,0 +1,65 @@
+ADP-DDQN: PROSPECTIVE LITERATURE POSITION AND CLAIM LIMITS
+Date: 2026-11-15
+
+This stage re-inspected saved full-text evidence and the prior closest-work
+matrix. No new live retrieval or exhaustive novelty search was performed.
+Publication/index currency and access gaps therefore remain. A comparison
+specification can be frozen while novelty clearance remains explicitly open;
+it cannot be treated as thesis novelty confirmation or research launch release.
+
+Known overlap (saved full texts):
+1. Action Branching Architectures for Deep Reinforcement Learning,
+   arXiv:1711.08946: shared branches, DDQN/BDQ and linear action-output growth
+   already exist. Keep adapted BDQ and same-width plain-DDQN references.
+2. Sustainable Task Offloading in Secure UAV-assisted Smart Farm Networks:
+   A Multi-Agent DRL with Action Mask Approach, arXiv:2407.19657: DDQN with
+   action masking already exists in UAV offloading. Generic DDQN+mask is not
+   the proposed new contribution. That work's security does not validate ours.
+3. Vehicular offloading, arXiv:2404.07215: saved text explicitly describes
+   simultaneous terminal choices causing server/channel congestion and DDQN
+   request scheduling. Queue/congestion awareness alone is not distinct.
+4. Hierarchical UAV/vehicular edge offloading, arXiv:2507.05722: resource-aware
+   node scoring/scheduling with learned control exists. A learned network plus
+   deterministic allocator is not new as a generic combination.
+5. FlexEdge, arXiv:2305.01536, and saved local TMC 2024 full text
+   DOI10.1109/TMC.2024.3350078 discuss joint offloading/trajectory and complexity.
+   Measuring model size or runtime is necessary evidence, not novelty itself.
+
+Candidate-specific hypothesis: jointly learn a compact nonpositive coupled
+action-value potential whose exact insertion marginal depends on ACTUAL
+current assignment workload, with a fixed single coordinate sweep used for
+approximate online DDQN action selection and same-action target evaluation.
+The (1-eta) sum(w_i^2) self-term preserves the old single-task marginal while
+eta weights assigned cross terms. See frozen design equations. This algebra
+and coordinate descent draw on established congestion/potential methods.
+Do not claim to invent quadratic congestion costs, marginal pricing, coordinate
+descent, value anchoring or approximate greedy selection in RL.
+
+Testable differences, not novelty clearance:
+- A versus coupled_no_sweep isolates the sweep within the coupled critic.
+- A versus separable64 changes coupled objective and selection; not sweep alone.
+- A versus fixed_price_plain_sweep tests learned price/mixture heads against
+  fixed beta1/eta.2 with the same coupling and sweep.
+- The observed-state radio/load heuristic tests a no-learning, physically
+  informed alternative under explicit approximation/movement limitations.
+- Same-width plain24, compact64, wide128 and BDQ prevent gains being credited
+  solely to network size or a weak reference.
+Policy/calibration results cannot retrospectively redefine which distinction
+was primary. A positive computational screen alone does not answer these tests.
+
+Outstanding before novelty can be asserted: obtain and compare full methods
+for exact-assignment congestion potentials, learned cost-to-go/marginal resource
+allocation and fixed-pass approximate DDQN decoders; search beyond the existing
+domain set. Q-TOP DOI10.1109/TVT.2026.3721145 and deadline-aware dependent-task
+offloading DOI10.1109/TVT.2026.3676992 still have metadata/abstract evidence only
+in the saved matrix. Their absent full texts do not prove an absent mechanism.
+No claim of first-of-its-kind, no publication-grade novelty clearance, and no
+cross-paper numerical performance comparison is made here.
+
+SOURCE FILES
+INCUMBENT_CLOSEST_WORK_MATRIX_2026-11-15.txt
+validation/incumbent_evidence_stage_2026-11-15_01/literature/
+  branching_full.txt, uav_masking.txt, vehicular_ddqn.txt,
+  hierarchical_iov.txt, flexedge.txt, retrieval_closest.json
+analysis/controller_redesign_2026-11-05/references/
+  hao2024_local_reference.txt, sensors2025_local_reference.txt

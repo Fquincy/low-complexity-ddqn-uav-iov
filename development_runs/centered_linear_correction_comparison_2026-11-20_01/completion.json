@@ -1,0 +1,7 @@
+{
+  "status": "DEVELOPMENT_AUDITED_COMPLETE",
+  "kind": "EXPLORATORY_PAIRED_DEVELOPMENT",
+  "audit_passed": true,
+  "manifest_sha256": "8393124a41876f68a65fc4fbc81549ad0976b01afecee90651601d96a45dbe3d",
+  "research_launch_authorized": false
+}

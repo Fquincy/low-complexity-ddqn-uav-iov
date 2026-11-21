@@ -1,0 +1,73 @@
+{
+  "mode": "fixture",
+  "kind": "ENGINEERING_FIXTURE_NOT_RESEARCH_OR_POLICY_EVIDENCE",
+  "model_seeds": [
+    867350001,
+    867350011
+  ],
+  "train_blocks": [
+    {
+      "start": 867351000,
+      "count": 2
+    },
+    {
+      "start": 867351100,
+      "count": 2
+    }
+  ],
+  "evaluation_seeds": [
+    867352000,
+    867352001
+  ],
+  "order_seed": 867353000,
+  "timing_seed": 867354003,
+  "bootstrap_seed": 867354007,
+  "cfg": {
+    "episodes_per_fit": 2,
+    "slots_per_episode": 40,
+    "slots_per_fit": 80,
+    "warmup": 8,
+    "batch_size": 4,
+    "replay_capacity": 32,
+    "replay": "uniform with replacement; fixed chronological insertion/eviction",
+    "first_update": "after inserting physical slot 1024; one update each slot thereafter",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gamma": 1.0,
+    "gradient_clip": 10.0,
+    "huber_beta": 1.0,
+    "target_interval_updates": 8,
+    "optimizer_updates_per_fit": 73,
+    "target_copies_per_fit": 9,
+    "threads": 1,
+    "epsilon": "1 during warmup, otherwise 1-.95*min(global_slot_before_action/8000,1)",
+    "target_initialization": "exact online state copy; eval mode; requires_grad False",
+    "final_checkpoint_only": true,
+    "checkpoint_selection": false,
+    "research_early_stopping": false,
+    "anchor": {
+      "batch": 4,
+      "weight": 1.0,
+      "terminal_pool": "uniform with replacement among un-evicted terminal transitions",
+      "empty_pool": "zero anchor loss and log event",
+      "separate_rng": true,
+      "one_optimizer_step": true
+    },
+    "loss_definitions": "All new arms: original-unit Huber(Q,y), gamma1, terminal anchor weight1. Original controls retain their frozen losses; no normalized-loss arms.",
+    "training_time": "Record wall time per fit, optimizer time and extra anchor sample counts; equal slots/steps do not imply equal compute",
+    "epsilon_decay": 80
+  },
+  "timing": {
+    "states": 8,
+    "rounds": 1,
+    "warmups": 2
+  },
+  "quality_evidence": false,
+  "research_seed_use": false
+}

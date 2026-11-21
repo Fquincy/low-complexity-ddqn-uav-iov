@@ -1,0 +1,14 @@
+{
+  "state": "passed_saved_weight_torch_core_runtime_audit",
+  "models_replayed": 85,
+  "observations_replayed": 10880,
+  "failed_candidate_models": 0,
+  "failed_candidate_observations": 0,
+  "reference_predictions_reverified": true,
+  "manifest_files_verified": 211,
+  "cost_audit": {
+    "raw_rows_recomputed": 54400,
+    "all_fit_cost_screens_pass": true
+  },
+  "heldout_evaluation_started": false
+}

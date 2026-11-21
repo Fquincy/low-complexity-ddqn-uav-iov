@@ -1,0 +1,50 @@
+TERMINAL-ANCHOR RUNTIME ROUTE V2 INTEGRATION REVIEW
+Date: November 6, 2026
+
+OUTCOME
+Six tests passed, including the complete two-initialization seventeen-arm
+synthetic workflow and independent saved-artifact auditor. The verified
+single-validation adapter is installed in a separately versioned runner.
+Original runner, protocol, amendment and previous results remain preserved.
+
+VERIFICATION
+2,720 synthetic training slots; 2,482 updates; 306 target copies;
+34 final checkpoints; 244 episodes audited; 4,352 complete exported
+action checks; 21,760 timing rows recomputed. All initializations retained.
+Tests cover source amendment, route dispatch and terminal rejection,
+replay equivalence, prospective screen calculations, checkpoint-freeze
+tamper rejection and CLI/direct-API development/final launch guards.
+Synthetic seeds are isolated from reserved development/final task blocks.
+
+COMPLETE ACTION-SELECTION COST
+fit | primary median ms | wide128 median ms | primary p95 ms
+0 | 0.037800 | 0.041300 | 0.040800
+1 | 0.037700 | 0.041350 | 0.042520
+Primary parameter storage: 68,264 bytes; compact64: 194,944 bytes.
+Storage, median and p95 screens passed in both synthetic initializations.
+No favorable retiming or checkpoint selection was performed.
+Synthetic empirical policy/value screens did not all pass. This fixture
+verifies implementation and auditing; it is not research quality evidence.
+
+PROVENANCE LIMIT
+The prototype imports run_v3_research_gate_v2.py as a model factory.
+Its bytes match the earlier terminal-anchor engineering completion
+manifest and are now separately snapshotted in supplemental_provenance.
+This supplemental check occurred after the fixture. Before research,
+include this transitive source directly in the runner pre-run source
+freeze and verify that addition without changing scientific settings.
+
+NEXT DECISION
+Perform a separate launch-readiness review of the frozen seventeen-arm
+680,000-slot protocol, runtime amendment, integrated test evidence and
+source coverage. Research and final modes remain disabled; no launch
+is authorized by this engineering result. No development/final reserved
+seeds were consumed. No rewards, seeds, thresholds, optimizers or model
+definitions were tuned from the fixture. Word thesis unchanged.
+Cloud/charging stations excluded; security/trust deferred.
+
+FILES
+run_anchor_research_route_v2.py
+audit_anchor_research_route_v2.py
+test_anchor_research_route_v2.py
+validation\anchor_research_route_v2_2026-11-06_01

@@ -1,0 +1,149 @@
+CENTERED-LINEAR CORRECTION: PROSPECTIVE PAIRED DEVELOPMENT COMPARISON
+2026-11-20 | PLAN FREEZE ONLY; NOT EXECUTABLE OR LAUNCH AUTHORIZATION
+
+SCOPE
+This is a minimal correction/learning study,not the full low-complexity thesis
+comparison. Seven learned arms are necessary for the declared questions below.
+The observed-load/radio teacher remains a reference,even if stronger. Adapted
+BDQ,compact64 and wide128 are explicitly DEFERRED to a subsequent contribution-
+level comparison. Their absence prohibits superiority/efficiency claims against
+them,not just comparisons of their historical timing. No new novelty clearance.
+
+ARMS: SAME533->24->161NETWORK,67,364PARAMETER BYTES+20BUFFER BYTES
+A centered_linear_bc_ddqn: proposed correction with BC then DDQN.
+B old_softplus_bc_ddqn: exact previous baseline,retrained on the fresh blocks.
+C centered_softplus_bc_ddqn: centered Q before the outer -softplus(-Q) transform.
+D uncentered_linear_bc_ddqn: signed Q=V-sum(scaled raw chosen costs).
+E centered_linear_bc_only: independent declared BC-only arm,no online learning.
+F centered_linear_demo_no_bc: common demo replay,zero BC,then DDQN.
+G centered_linear_no_demo_no_bc: ordinary screened compact DDQN,no teacher data.
+Teacher: unchanged frozen observed-load/radio source equations,Python reference
+backend,public constants,stationary motion and extra empty-battery restriction.
+No cloud,charging,security or hidden exact simulator state in any policy.
+
+MODEL EQUATIONS AND PAIRING
+A,E,F,G:Q=V-sum_b(z_b,a_b-mean_all5(z_b)). C=-softplus(-Q_A).
+D:Q=V-sum_b z_b,a_b. B:Q=-softplus(b+sum_b z_b,a_b).
+z_vehicle=raw/30,z_movement=raw/2. Existing inherited local screen,tie-breaking,
+nonterminal independent minima and terminal bootstrap bypass unchanged.
+Same raw seeded initial state_dict cloned into all7arms within each fit;
+no V-row sign flip/reset. B uses its historical scalar sign convention;
+AversusB is a bundled correction,not a pure output-nonlinearity ablation.
+AversusC isolates the transform under the same centered/sign convention;
+AversusD tests centered parameterization,not added function-class capacity.
+Linear arms may predict positive Q:report sign error,do not silently clip.
+No horizon scaling or terminal-anchor auxiliary loss in any arm.
+
+DATA AND TRAINING
+Reuse the PRIOR PILOT'S SCHEDULE,not its weights,task seeds or data:
+3fresh paired model fits;10teacher episodes*40slots per fit;freeze all
+demonstrations before training. Collect each400-transition dataset only once.
+A,B,C,D,E each receive200BC updates,batch64,T1,Adam lr.001,betas(.9,.999),
+eps1e-8,weight_decay0,clipnorm10. Same per-fit BC draw indices,distinct indices
+within each batch. Vehicle CE mean plus motion CE mean;bias/V has no direct
+BC gradient but shared hidden features can change its output. BC-only is
+trained independently using the same data/draws and cloned initial weights;
+its post-BC tensors must equal A's post-BC tensors BEFORE A's TD updates.
+E then freezes permanently. Do not save/select an intermediate checkpoint of A
+as a substitute for E. No new rollout for E during training.
+
+A,B,C,D,F preload the same400demo transitions into chronological uniform
+replay. G starts empty. F/G get zero BC. All6online arms receive50episodes*
+40slots=2,000online transitions per fit. Replay capacity4096,batch64,uniform
+with replacement. Insert first;zero-based slots0..127 have no TD update,
+slots128..1999 each have1:1,872updates. G has enough replay by first update.
+Adam lr.0001,betas(.9,.999),eps1e-8,weight_decay0,clipnorm10;gamma1;
+scalar Huber_beta1,detached online-selection/target-same-action-evaluation.
+New empty DDQN optimizer after BC;target exact post-initialization copy,
+requires_gradFalse;9scheduled copies every200updates plus initial copy.
+No n-step,permanent demo retention,priority,continual BC or new reward.
+E has no DDQN optimizer/target-copy count;report its unequal data/compute.
+
+Matching per-fit exploration and replay RNG seeds across comparable arms;
+consume1epsilon uniform+32branch uniforms every online slot. Epsilon1 for
+t<128,else1-.95*min(t/2000,1). Exploration samples uniformly within ordered
+allowed actions. G uses matching uniform RANDOM DRAWS but its different replay
+length produces different sample indices;do not claim identical batches.
+Independent trajectories differ after policy decisions;verify common exogenous
+task blocks from saved task records. CPU FP32 eager,1torch thread,deterministic.
+
+RETENTION AND EVALUATION
+One final checkpoint for each7arms*3fits=21. Include required target/optimizer/
+replay/RNG state only where applicable. Freeze ALL21hashes before held-out
+evaluation. Initial weights are verified by hash,not saved as extra checkpoints.
+No best-checkpoint selection,fit dropping,extension,early scientific stopping
+or automatic retry. BC-only final checkpoint is its declared training endpoint.
+Store scalar/probe metrics at before,BC-end and final to diagnose onset without
+retaining extra weights. Include BC-end Q,preactivation where defined,value/
+branch-cost distributions and the exact A/E equality hash BEFORE any TD update.
+
+Same16fresh evaluation workloads for all21students;teacher runs these once.
+Epsilon0,no learning,student-only inference. Deadline denominator includes
+unfinished tasks. Save all task/episode accounting,actions,Q and rewards.
+Student online:36,000slots. Teacher demo:1,200slots.
+Evaluation:(21+1)*16*40=14,080slots. Total51,280simulator slots.
+BC:5arms*3fits*200=3,000updates. TD:6*3*1,872=33,696updates.
+All gradient updates36,696. These totals are prospective,not completed work.
+
+PREDECLARED COMPARISONS AND DECISION
+Compute per-fit absolute outcomes and paired return/deadline differences for
+Aminus B,C,D,E,F,G,and teacher. Also report each comparator versus teacher.
+Primary correction-policy screen:A-B and A-E both nonnegative in BOTH policy
+outcomes for EVERY fit,and their equal-fit means strictly positive in BOTH
+outcomes for EACH contrast. This asks whether corrected training preserves
+the old policy benefit AND adds something over imitation alone. No deployment
+loss margin or superiority over the teacher is assumed.
+Value-correction screen:A's own-policy NRMSE AND absolute mean Q-G bias are
+strictly lower than B's in EVERY fit. NRMSE=RMSE/max(RMS(G),1e-12). Report all
+raw errors,horizon residuals,sign fractions,near-zero chosen Q fraction(absQ<
+1e-6),scalar derivative/preclip/clipping distributions and terminal Q-r p95.
+Different policies produce different G,so this screen is a relative diagnostic,
+not a matched-state causal proof,absolute calibration guarantee or reuse of a
+historical global-calibration pass. No successful relative decrease establishes
+that values are accurate enough for calibrated decisions.
+
+Call the correction PROMISING only if both primary screens pass with finite
+artifacts/full audit. If either fails,HOLD expansion;preserve all outcomes and
+do not tune against these seeds. Even a pass requires stronger baselines and
+novelty/claim review before a full contribution protocol or final evaluation.
+A-C,A-D,A-F,A-G are SECONDARY mechanism/data contrasts;publish all without
+selecting a winning ablation as primary. Attribute removal-of-transform benefit
+only if A-C's observed evidence supports it;A-B alone cannot isolate that cause.
+Do not assert that centering helps merely because A passes;D may be equal/better.
+Threefits yield descriptive evidence,not confirmatory statistical significance.
+Report across-fit variation;episodes do not substitute for independent fits.
+
+COST/STABILITY
+Account teacher generation,label time,allBC/TD updates and wall time separately.
+No equal-total-training-compute claim. Online parameter storage is identical
+across7student arms;no size-reduction claim against the paired control.
+After frozen evaluation,select128nonterminal saved states using reserved order
+RNG;save selected indices/order before timing. All21students+teacher:
+3randomized rounds,32warmups/path/round,128calls/path/round=8,448timed calls.
+Include validation,screen,forward,selection,chosen Q and copy for every student
+path,with consistent boundary for all7formulations. Record raw nanoseconds,
+median/p95,versions,process/serialization memory separately. Complete eager
+student values are part of this study's path,even if deployment could omit them.
+Timing descriptive,no speed gate/no cross-backend historical speedup. No retime
+to rescue results;teacher Python timing not equivalent to compiled inference.
+Stop on nonfinite values/gradients,invalid actions,source/accounting mismatch
+or corruption. Retain partial run and explain;no automatic scientific retries.
+
+IMPLEMENTATION BOUNDARY
+Current A prototype mechanics passed;C/D reference FUNCTIONS do not yet supply
+complete trained/eager deployment implementations. Before research,implement
+bound adapters for all7arms,auditor and CLI guards. Verify A/E BC-end equality,
+G's empty replay,correct scalar formulas in both chosen and greedy evaluation,
+fixed source/budget/RNG bindings,global21checkpoint freeze,allcomparisons,
+signed-value diagnostics and all8,448timing call keys on a reduced isolated
+orchestration fixture. Use engineering-only seeds with no development overlap.
+Research modes remain disabled until a separate readiness/launch decision.
+This plan neither implements that workflow nor launches its51,280slots.
+
+PRESERVATION AND NOVELTY
+Fresh reservations and source hashes in the companion protocol. Refresh seed
+audit before launch,including fixture blocks and protected final sets. Historical
+records,failed gates and positive pilot remain unchanged. No claim to invent
+dueling networks,centering,DDQN or heuristic distillation. Existing literature
+access gaps and the missing contribution-level comparison remain explicit.
+Word thesis unchanged;security/trust deferred;cloud/charging excluded.

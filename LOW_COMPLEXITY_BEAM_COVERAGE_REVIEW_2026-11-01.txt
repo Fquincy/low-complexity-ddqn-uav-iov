@@ -1,0 +1,43 @@
+LOW COMPLEXITY BEAM-COVERAGE REVIEW
+Date: 2026-11-01
+Status: completed; full pilot remains blocked.
+
+The saved SPI smoke checkpoints were evaluated on128 common observations with
+three bounded decoding references: top2/beam8 (current), top3/beam32 and
+top5/beam128. No optimizer updates or simulator steps were performed.
+
+Replicate | top2=top3 action | top2=top5 action | top3=top5 action
+0 | 9.38% | 0.00% | 3.91%
+1 | 17.97% | 0.00% | 1.56%
+
+The current top2/beam8 action never matched the wider top5/beam128 action in
+either saved replicate. The top3/beam32 action also rarely matched top5/beam128.
+This shows that the bounded decoder is highly sensitive to candidate-set width
+for these learned smoke checkpoints. It does not prove that the wider action is
+physically better, because no full simulator counterfactual was run here; it
+does prove that beam8 is not a stable approximation to the model's own wider
+joint-scoring search.
+
+Candidate counts were exactly8,32 and128 per observation. The current trained
+smoke model's joint-score differences between widths were small, but small
+score differences can change the selected joint vector. The previous smoke
+candidate count average below8 was caused by duplicate beam vectors, not by a
+validated coverage guarantee.
+
+DECISION
+Do not launch a full SPI training pilot with top2/beam8. The low-complexity
+claim is blocked by an unresolved decoding approximation. Before another
+learning budget, change the architecture or define a candidate-set objective
+that is explicit and measurable. Options are: increase beam width and accept
+higher cost; design a single-pass scorer whose action set is directly evaluated
+without beam search; or predeclare a bounded candidate generator and validate
+its physical coverage against fresh simulator branches.
+
+The current SPI prototype remains promising only relative to the sequential
+path. It is still much slower than additive DDQN, and the paired smoke was
+mixed across its two replicates. No low-complexity or policy-quality claim is
+established.
+
+Evidence: validation/spi_beam_coverage_2026-11-01_01/verification.json
+Prior smoke: validation/low_complexity_smoke_2026-11-01_03
+No Word edit or full pilot launch.

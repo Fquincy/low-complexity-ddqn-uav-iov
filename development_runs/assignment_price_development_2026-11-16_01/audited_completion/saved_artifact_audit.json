@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "mode": "development",
+  "fits": 5,
+  "episodes": 18792,
+  "task_records": 22550400,
+  "optimizer_rows": 523275,
+  "checkpoint_graphs": 75,
+  "fresh_process_startups": 75,
+  "timing_rows": 48000,
+  "saved_eager_evaluation_states": 144000,
+  "global_freeze_order_verified": true,
+  "replay_and_training_storage_verified": true,
+  "all_comparisons_distributions_audited": true,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "retiming": false,
+  "research_launched": true
+}

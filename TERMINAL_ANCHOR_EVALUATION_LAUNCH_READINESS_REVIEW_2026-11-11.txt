@@ -1,0 +1,77 @@
+TERMINAL-ANCHOR EVALUATION-ONLY LAUNCH READINESS
+Date: November 11, 2026
+
+DECISION
+Ready to resume the remaining development evaluation and full artifact audit
+from the existing85 frozen checkpoints. Recommend proceeding with this
+post-training continuation. This review has not launched reserved evaluation.
+No retraining, optimizer updates or final evaluation is required or authorized
+by the prepared development entry point. Word thesis remains unchanged.
+
+PREPARED ENTRY POINT
+launch_anchor_evaluation.py requires --mode development and an explicit
+--confirm-development-evaluation flag. Final requests are rejected. --check-only
+performs source validation without creating launch or research output folders.
+Actual execution requires a passing readiness decision and exact reviewed
+executable hashes. Generic continuation entry points remain disabled.
+Separate new control/output directories prevent overwrite or automatic restart.
+The executable seals an evaluation-only launch receipt linked to the original
+680,000-slot launch authorization. The original failed run stays preserved.
+
+RESEARCH PREFLIGHT
+The v2 continuation accepts only the original failed development run as input.
+It verifies the frozen protocol and original/runtime-repair/continuation
+engineering evidence; checks all85 checkpoint file and online/target parameter
+hashes; and checks each checkpoint's arm, model seed,8,000 historical slots,
+6,977 historical updates,34 target copies and exact training configuration.
+The original source bytes and snapshots must match. Training episode file
+coverage is checked before entry; detailed trace/optimizer validity is checked
+by the full post-evaluation auditor, not claimed established by preflight.
+The five model seeds, disjoint200-episode training blocks,48 evaluation seeds,
+diagnostic seeds, optimizer configuration, validation interval and development
+phase must equal the frozen protocol. Source evaluation must not have started.
+The prepared CLI passed check-only mode against the actual research source.
+It created no continuation output and executed no reserved task episodes.
+
+VERSIONED IMPLEMENTATION AND TESTS
+Created run_anchor_posttraining_continuation_v2.py,
+anchor_continuation_inference_v2.py and audit_anchor_posttraining_continuation_v2.py.
+Predecessors remain unchanged. AST checks confirm shared post-checkpoint
+orchestration and comparisons are unchanged except the explicit entry guard;
+research-source preflight is added separately. Continuation source freezing
+now explicitly includes the launch entry point and inherited dependencies.
+
+Nine tests passed: reduced complete workflow/full audit with training blocked;
+existing-output rejection; generic development/final CLI and API guards;
+research-source rejection in fixture mode; corruption rejection; actual frozen
+source preflight without simulator/optimizer access; rejection of changed seeds,
+settings or phase; launcher confirmation/final guards; and unchanged shared
+orchestration. The reduced new-version fixture used34 existing synthetic
+checkpoints, audited244 episodes and2,482 historical optimizer updates, replayed
+4,352 runtime actions and recomputed21,760 timing rows. It added zero training
+slots and optimizer updates. Its74 regenerated synthetic evaluation/heuristic
+episodes used2,960 simulator slots exclusively in the declared synthetic set.
+It is excluded from research quality evidence. Its cost screens passed in both
+synthetic fits. No favorable retiming or initialization selection occurred.
+
+CONTINUATION BEHAVIOR
+Use the already declared original-PyTorch-core/native-decoder amendment for all
+native-decoder families. Coupled full-policy ORT families retain their route.
+Export/check every saved checkpoint before reserved development evaluation,
+and measure the fixed complete action-selection cost once. Preserve all fits,
+comparators and failures. Compute the frozen per-initialization comparisons,
+value distributions and all predeclared screens; finish the full artifact audit.
+No changes to rewards, architecture, training, task seeds or acceptance rules.
+The real training dataset's full audit remains outstanding until this executes.
+Readiness establishes engineering readiness, not return/deadline/calibration
+success, novelty or a supported thesis low-complexity claim.
+
+PLANNED OUTPUTS (NOT CREATED BY THIS REVIEW)
+Research: development_runs/terminal_anchor_development_continuation_2026-11-11_01
+Control: validation/anchor_evaluation_launch_2026-11-11_01
+Original: development_runs/terminal_anchor_development_2026-11-06_01
+
+SCOPE
+Development evaluation only. Untouched final evaluation remains separate and
+disabled. Cloud/charging stations excluded; security/trust deferred.
+Word thesis unchanged. Do not repeat the680,000-slot training run.

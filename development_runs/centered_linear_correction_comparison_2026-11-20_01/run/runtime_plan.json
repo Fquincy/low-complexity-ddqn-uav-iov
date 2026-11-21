@@ -1,0 +1,72 @@
+{
+  "mode": "development",
+  "kind": "EXPLORATORY_PAIRED_DEVELOPMENT",
+  "fits": 3,
+  "seeds": {
+    "model_seeds": [
+      948200001,
+      948200011,
+      948200021
+    ],
+    "demonstration_seed_blocks": [
+      {
+        "start": 948210000,
+        "count": 10
+      },
+      {
+        "start": 948211000,
+        "count": 10
+      },
+      {
+        "start": 948212000,
+        "count": 10
+      }
+    ],
+    "online_seed_blocks": [
+      {
+        "start": 948220000,
+        "count": 50
+      },
+      {
+        "start": 948221000,
+        "count": 50
+      },
+      {
+        "start": 948222000,
+        "count": 50
+      }
+    ],
+    "evaluation_seed_block": {
+      "start": 948230000,
+      "count": 16
+    },
+    "bc_sampler_seeds": [
+      948240001,
+      948240011,
+      948240021
+    ],
+    "epsilon_branch_seeds": [
+      948250001,
+      948250011,
+      948250021
+    ],
+    "replay_sampler_seeds": [
+      948260001,
+      948260011,
+      948260021
+    ],
+    "job_order_seed": 948270001,
+    "timing_order_seed": 948270011
+  },
+  "demo_episodes": 10,
+  "online_episodes": 50,
+  "eval_episodes": 16,
+  "bc_steps": 200,
+  "batch": 64,
+  "warmup": 128,
+  "replay_capacity": 4096,
+  "target_interval": 200,
+  "timing_states": 128,
+  "timing_rounds": 3,
+  "timing_warmups": 32
+}

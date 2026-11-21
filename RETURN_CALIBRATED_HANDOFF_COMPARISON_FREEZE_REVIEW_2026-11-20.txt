@@ -1,0 +1,96 @@
+RETURN-CALIBRATED HANDOFF COMPARISON: FREEZE REVIEW
+20 November 2026
+
+DECISION
+The seven-arm development comparison is frozen against the tested mechanics.
+Proceed to runner/auditor implementation and reduced isolated integration
+testing. Research execution remains disabled and NOT authorized by this gate.
+
+FROZEN ARTIFACTS
+Plan: RETURN_CALIBRATED_HANDOFF_COMPARISON_PLAN_2026-11-20.txt
+Protocol: RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json
+Protocol SHA256:
+1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1
+Evidence: validation/return_calibrated_handoff_comparison_freeze_2026-11-20_01/
+Freezer: freeze_return_calibrated_handoff_comparison_2026_11_20.py
+The evidence includes immutable snapshots,verification and a26file manifest.
+The protocol binds24definition/evidence hashes. Rehash checks passed.
+
+VERIFICATION
+Reverified the15passing mechanics tests and their23manifest artifacts,
+tested helper/dependency hashes,the unchanged design brief/reservation and
+the inherited simulator definitions. Checked all26new freeze artifacts and
+24definition hashes after saving. No models,simulator steps,optimizer updates,
+teacher calls or reserved research seed draws occurred in this freeze gate.
+
+Seed collision check:50other root JSON/runtime-plan documents,plus one
+explicitly recognized same-study design reservation copied exactly. No
+external or internal collisions found. Scan covers root JSON and saved
+validation/development */run/runtime_plan.json,not every historical log.
+Refresh the check at launch,excluding only validated same-study aliases.
+No old/final evaluation reservations are consumed or reassigned.
+
+PRESERVED DESIGN AND CONTROLS
+A calibration+retention primary;B calibration only;C retention only;
+D neither (fresh uncorrected centered control);E independent calibrated
+BC-only;F previous old-softplus BC+DDQN;G ordinary small old-softplus DDQN.
+Threepaired fits,plus teacher evaluated once on the same16development
+workloads. A/B/C/D form the2x2design;calibration's scaling and value-fitting
+substages are not separately isolated as policy mechanisms.
+
+All six BC arms independently match raw/BC-end weights. A/B/E independently
+match calibrated handoff weights/alpha. E has no TD/online/retention exposure;
+G has no demonstration access. Only A/C receive retention batches. The
+new protocol keeps the brief's constants,data split and training settings.
+
+Budget:1200teacher demo+36000student online+14080evaluation=51280slots.
+3600BC+33696TD=37296optimizer steps,including11232retention batches within
+the TD steps. Nine ridge solves,21final checkpoints,8448timed calls plus
+2112warmups. None of this research budget has been executed.
+
+DECISION SEMANTICS NOW EXPLICIT
+Policy:A-E and A-F nonnegative for both outcomes in every initialization,
+with strictly positive equal-fit means for both outcomes in each contrast.
+Value:A final own-policy NRMSE and absolute Q-G bias below D every fit.
+Promising requires both screens plus finite complete results/full audit.
+Secondary contrasts and factorial interaction are mandatory reports;they
+cannot substitute for a failed primary screen or promote a best fit/arm.
+
+Worsening withheld-return RMSE versus AFTER_BC is logged as a descriptive
+warning,not a newly invented scientific threshold. Finite poor fits continue
+the declared schedule without refitting or tuning. Numerical/export/action-
+preservation/parity/source/data failures STOP and retain partial evidence.
+No failed fit is replaced. Engineering float tolerances are distinct from
+scientific inequalities;no new scientific equality tolerance is introduced.
+
+AUDITOR AND MEASUREMENT CONTRACT
+All final hashes freeze globally before evaluation. Save split/source/data
+provenance,stage probes,draws/transition IDs,losses and gradient partitions,
+target arithmetic,task outcomes,all comparison arms and raw matched timings.
+The independent auditor must reconstruct return targets/calibration using
+an independent augmented solver,not merely call the same fitting helper.
+It checks gradient norm partition arithmetic and saved values/counts;full
+historical gradients and parameter trajectories are not independently replayed.
+Calibration checks do not establish student-policy/optimal-return values.
+
+Equal architecture storage is not storage improvement over the same-size
+controls. Training costs include demonstrations,BC,ridge and retention;
+timing is descriptive with matched complete action-selection boundaries.
+Teacher uses the bound Python reference,not proven historical compiled
+equivalence. Archive only after full audit,then independently verify D: copies.
+
+NEXT BOUNDED ENGINEERING GATE
+Implement a NEW source-bound paired runner and independent results auditor
+against this frozen protocol. Exercise the SAME workflow on a small isolated
+synthetic plan with distinct fixture seeds and explicit nonresearch labels.
+Test output,freeze,all controls/comparisons,calibration split/provenance,
+retention/RNG/target counts,artifact corruption and CLI rejection semantics.
+Keep the research CLI disabled even with a confirmation string until a
+separate readiness/launch release. Final mode stays closed. Do not launch
+the51280slot study in that implementation gate.
+
+No new novelty/performance/contribution claim is made. Stronger neural
+references and final untouched evaluation remain deferred. Contribution one
+remains efficient DDQN offloading;security/trust is deferred;cloud/charging
+are excluded. The Word thesis and all historical scientific outcomes remain
+unchanged. Graduation/degree acceptance is not guaranteed by this freeze.

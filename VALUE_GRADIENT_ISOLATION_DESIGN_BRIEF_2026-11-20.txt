@@ -1,0 +1,337 @@
+PROSPECTIVE DESIGN: VALUE-GRADIENT ISOLATION IN THE COMPACT DDQN
+20 November 2026
+DESIGN DECISION ONLY - NO CONTROLLER IMPLEMENTATION OR RESEARCH RELEASE
+
+1. DECISION AND PURPOSE
+Test ONE training change to the existing calibrated, policy-retaining DDQN:
+block the state-value output's gradient into the shared features, while
+keeping its value readout, decision branches and shared features trainable.
+The inference function, parameter count, action screen and decoder stay
+the same. This is a correction to an existing compact DDQN, not a claim
+that we invented a new neural architecture or solved the thesis contribution.
+
+The design has a specific motivation, not a guarantee of better learning.
+It removes the locally verified value-to-feature gradient path and retains
+branch-dependent TD learning. It may preserve good decisions, fail to learn
+beyond imitation, or worsen values. Measure all of those outcomes.
+Do not run another research comparison until isolated mechanics, protocol
+freeze, runner/auditor fixture and launch-readiness gates are complete.
+
+2. BOUND DIAGNOSIS AND UNCHANGED HISTORICAL RESULT
+RETURN_CALIBRATED_SAVED_TRACE_DIAGNOSIS_2026-11-20.txt and its verification:
+validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/review_verification.json
+The original 51,280-slot study FAILED its policy screen, PASSED its relative
+value screen and recorded promising=false. All fits and archives remain.
+
+At its first saved update, the shared TD gradient norms were
+381.409/225.169/134.982. Their V-path components were approximately the same,
+whereas branch-path norms were 0.003677/0.003017/0.003916. Retention shared
+norms were 0.038113/0.036306/0.046891. These initial derivatives reproduce
+the logged losses/norms, but do not reconstruct the entire training history.
+
+The third fit's additional misses at RSU 2 include 272 tasks that both
+policies routed there. Their extra 97.105 ms average delay is CPU queue wait.
+Observed queues are empty at the one-second decision boundaries; congestion
+forms after simultaneous assignments within the slot. Thus merely adding
+backlog inputs is not an evidence-based correction for these traces.
+
+3. DEPLOYMENT EQUATIONS: SAME FOR PROPOSAL AND PAIRED ABLATION
+Let h_phi(s)=ReLU(W_h s+b_h), with d=533 and width h=24.
+The affine output has 161 rows: 150 placement, 10 movement, one V readout.
+Divide placement outputs by 30 and movement outputs by 2, as before.
+For 32 branches and 5 actions each, denote scaled branch costs z_b,d(s):
+  C_phi,psi(s,a) = sum_b [z_b,a_b(s)-mean_(d=0..4) z_b,d(s)]
+  V_phi,w(s) = w_V^T h_phi(s)+b_V
+  Q(s,a) = V_phi,w(s)-C_phi,psi(s,a).
+
+For a nonterminal state:
+  a_b* = argmin_(d in inherited_allowed_b(s)) z_b,d(s).
+Retain the conservative local feasibility mask and first-index ties.
+Terminal next states bypass decoding and bootstrap zero. No teacher,
+simulation, projection, queue lookahead, candidate reranker, destination
+repair or new deployment input is added. The decoder exactly maximizes
+the additive critic; it does not exactly optimize coupled physical queues.
+
+4. THE ONLY PROPOSED CHANGE: TRAINING GRADIENT ROUTING
+During the online TD loss, use the following surrogate differentiation:
+  Q_tilde(s,a) = w_V^T stopgrad(h_phi(s))+b_V-C_phi,psi(s,a).
+Numerically Q_tilde equals Q at identical weights and inputs. Inference
+uses the original Q. The change is the backward path, not a new Q offset.
+
+For replay batch size N, retain detached Double-DQN target selection:
+  a_next = decode_online(s_next)
+  y = r+(1-done)*Q_target(s_next,a_next), gamma=1
+  L_TD = mean Huber_beta1(Q_tilde(s,a)-stopgrad(y))
+  L = L_TD + L_keep.
+L_keep is the existing masked branch imitation loss, at the fixed handoff
+temperature alpha, on separately sampled saved demonstration actions.
+
+Writing delta_n=Huber'(Q_tilde_n-y_n)/N:
+  grad_phi L_TD = -sum_n delta_n grad_phi C(s_n,a_n)
+  grad_wV L_TD = sum_n delta_n h_phi(s_n)
+  grad_bV L_TD = sum_n delta_n
+  grad_psi L_TD = -sum_n delta_n grad_psi C(s_n,a_n).
+The imitation loss still trains phi/psi, with zero direct V-readout gradient.
+The ordinary baseline also includes sum_n delta_n grad_phi V(s_n); the
+proposal removes exactly that term. It does NOT freeze the encoder, replace
+DDQN with BC, detach all TD gradients, or change which next action is chosen.
+
+This is an explicitly modified semi-gradient rule. It is not the ordinary
+gradient of the original coupled scalar objective with respect to all
+parameters. No descent, convergence, optimal-policy or calibration theorem
+is claimed. Readout values still depend on evolving features in the forward
+pass, and bootstrap/branch gradients can remain problematic.
+
+5. IMPLEMENTATION CONTRACT FOR THE LATER ISOLATED MECHANICS GATE
+Implement only in new files; never patch the frozen completed models/runner.
+The desired contract is the existing full affine FORWARD operation, with
+its output tensor and floating-point behavior preserved. In its BACKWARD:
+  dW_out = upstream^T h; db_out = sum(upstream)
+  dh = upstream_(first160) W_out_(first160).
+This omits only the V row when passing gradient to h. All output-row weight
+and bias gradients remain trainable. A custom training-only affine backward
+is one possible implementation; independent detached-feature reference
+calculations must verify it. Do not silently split/reorder inference GEMMs
+or change action ties to obtain numerical parity.
+
+Keep the original inference module/state_dict layout for export. BC must
+use its original full gradient rule. Value-row calibration must freeze the
+same features/branches as before. Target evaluation is always no-grad.
+Routing becomes active only for the declared online TD continuation.
+Retention's V-upstream is zero already; its feature/branch derivatives
+must remain unchanged. One joint backward and one Adam step per TD update.
+
+6. INITIALIZATION, DATA AND OPTIMIZATION: INHERIT, DO NOT RETUNE
+Inherit these settings from the completed frozen protocol:
+RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256 1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1
+
+Same simulator defaults, observations, destinations, reward/deadline rules,
+40-slot episodes, screen, teacher reference, tie rule and numeric precision.
+For each NEW initialization: 10 fresh demonstration episodes; 200 BC steps
+at Adam0.001/batch64; existing positive branch rescaling and FP64 V-row
+ridge (rho0.001), first8/last2 return-target split; independent fresh TD Adam
+at0.0001, betas(0.9,0.999),eps1e-8,weight_decay0; global clip10; Huber beta1.
+Keep 50 online episodes (2,000 slots), warmup128, 1,872 TD updates,
+uniform replay capacity4,096, batch64, target copy every200 updates,
+gamma1 and the existing epsilon schedule. No extra optimization step,
+teacher call, priority, reward scaling or adaptive coefficient is proposed.
+Keep retention coefficient1 and its existing separate RNG/batch policy.
+
+Use common fresh demonstrations, task blocks, initial weights and random
+draw streams for matched arms; each arm still has its own actual replay.
+Do not reuse consumed checkpoints or old saved traces as new training data.
+Return-withheld episodes' action labels still participate in BC/retention;
+they are not an entirely unseen generalization set. Final checkpoints only;
+freeze every endpoint before evaluation, retaining all failed fits.
+
+7. ACCOUNTING FOR JOINT ALLOCATION: AN EXPLICIT LIMIT, NOT A SECOND CHANGE
+All current tasks are present in the observation, so the shared encoder can
+in principle learn state-dependent coordination. No impossibility claim is
+made. However, an accurate separable decoder alone cannot guarantee balanced
+same-slot assignments or deadlines. Blocking V gradients does not add an
+explicit physical interaction term or capacity constraint.
+
+A two-task algebraic counterexample illustrates the limit: each independent
+branch prefers the same server with service time0.2s/task. With deadline0.3s,
+the second queued task misses; independent local CPUs at0.25s/task meet both
+deadlines. Exact maximization of the preferred additive scores still chooses
+the congested server. This is a toy accounting check, not simulator evidence.
+
+The proposed test asks whether preserving/improving existing branch learning
+reduces observed allocation failures. Report destination matrices, assigned
+cycles per server/slot, task-matched misses and within-slot wait decomposition.
+If allocation quality remains deficient, record failure. Do not add a new
+repair/price term mid-run or claim that the queue problem has been solved.
+
+8. PROPOSED MECHANISM COMPARISON: NINE STUDENT ARMS
+P  value_gradient_isolated_ddqn: proposal, calibration+retention+DDQN.
+R  dueling_shared_td_rescale_ddqn: established-gradient-rule control.
+A  calibrated_retained_ddqn: unmodified previous primary; isolation ablation.
+B  calibrated_no_retention_ddqn: previous no-retention component control.
+C  uncalibrated_retained_ddqn: previous no-calibration component control.
+D  uncalibrated_no_retention_ddqn: previous centered correction/value control.
+E  calibrated_bc_only: no-TD/imitation-only control.
+F  old_softplus_bc_ddqn: old same-size baseline.
+G  plain_small_softplus_ddqn: ordinary small DDQN without demonstrations.
+Also evaluate the fixed observed-load/radio teacher once on common workloads.
+
+R is A except the shared FEATURE gradient from TD is multiplied by1/sqrt(2),
+with both V and branch TD paths retained. Its readout TD gradients and all
+retention gradients are unchanged. It is a declared adaptation of the
+dueling paper's shared-gradient rescaling to this branch/DDQN/retention
+setting, not a claim to reproduce that paper's Atari network. No projection,
+adaptive norm matching, PCGrad or newly fitted rescaling factor is added.
+
+All nine students have identical parameter storage. P/R/A/B/E share the
+same calibrated handoff per fit; other BC arms share the same BC endpoint.
+P/A is the direct isolation contrast. P/R checks whether selective blocking
+adds value beyond the known general stabilization idea. Never select the
+best of P/R after evaluation and relabel it the prospective primary.
+
+Proposed three-fit,16-workload accounting (not executable protocol release):
+  demonstration slots: 3*10*40 = 1,200
+  student online slots: 8*3*50*40 = 48,000
+  evaluation slots: (9*3+1)*16*40 = 17,920
+  total simulated slots = 67,120
+  BC updates: 8*3*200 = 4,800
+  DDQN updates: 8*3*1,872 = 44,928
+  retention batches: 4*3*1,872 = 22,464 (inside TD updates)
+  ridge solves: 5*3 = 15; final checkpoints: 9*3 = 27.
+Three model seeds and three disjoint demo/online task blocks are reserved
+in the companion design-status JSON. None is consumed by this brief.
+Broader/final evaluation reservations remain separate and untouched.
+
+9. PROSPECTIVE DECISION RULES TO FREEZE BEFORE A RESEARCH RUN
+Retain the previous policy bar against E and F: P-E/P-F nonnegative in BOTH
+mean return and deadline success in EVERY fit, and strictly positive
+equal-fit means in BOTH outcomes for each contrast. Add the SAME requirement
+against A and R to substantiate the specific correction over its ablation
+and adapted known-gradient-rule control. No numeric policy-loss allowance.
+These additional comparisons are new prospective requirements; historical
+screens/results stay unchanged. Equality uses recorded values without a
+new scientific tolerance. Report every absolute value and P-minus-each arm.
+
+Retain the relative value screen against D: P own-policy NRMSE AND absolute
+mean(Q-G_own) strictly below D in every fit. Report P-A/P-R/P-E value metrics
+as well, without equating different-policy errors to causal calibration.
+Report terminal/nonterminal/slot-quarter errors, positive/near-zero Q rates,
+target/gradient distributions and calibration residuals. Relative improvement
+alone is not proof of accurate finite-horizon values; older absolute value
+criteria are not retrospectively lowered or declared passed.
+
+Promising mechanism evidence requires BOTH screens, complete finite data,
+all fits and a full artifact audit. Route-isolation assertions are engineering
+requirements, not policy success. Matching imitation or merely removing a
+gradient path does not establish useful DDQN improvement. If a screen fails:
+HOLD, preserve all evidence, no automatic retry/tuning/best-fit selection.
+
+10. REQUIRED BROADER COMPARISON BEFORE A THESIS EFFICIENCY CLAIM
+The nine-arm test is a narrow mechanism study. It cannot prove compression
+against equal-size models, establish general superiority or settle novelty.
+A later source-bound comparison must include larger-capacity 64/128-hidden
+DDQN references, an explicitly adapted BDQ reference, a properly specified
+DQfD-style reference, the same ordinary small DDQN, E/F and relevant heuristics
+(observed-load/radio, all-local, nearest-RSU and UAV-selective).
+
+All comparators need the same physical problem, available observations,
+reward/deadline accounting and clearly disclosed masks/data exposure. A
+physically legal all-local heuristic may choose actions excluded by the
+learned deadline screen; such a baseline exemption must be explicitly
+declared before execution, not silently handled by the learned-policy runner.
+Full DQfD requires declared demonstration, TD/n-step/margin, prioritization
+and optimization details; the present BC+retention arm is NOT full DQfD.
+BDQ needs a declared joint-action adaptation. Existing versions cannot be
+silently mixed with these new model definitions or different runtimes.
+
+That broader protocol must freeze definitions, budgets, fairness, quality/
+value/cost rules and fresh seeds in its own gate, before training or model
+selection. No unsupported numeric equivalence margin is invented here.
+An untouched final evaluation with predeclared uncertainty remains required
+after model/design lock. Neither broader nor final execution is authorized.
+
+11. EXPECTED COMPUTATIONAL COST AND MEASUREMENTS
+Deployment remains 533->24 ReLU->161:16,841 parameters;67,364 FP32 parameter
+bytes plus20 inherited buffer bytes. Dense weight products per forward:
+533*24+24*161=16,656. Screen/decode is O(B*K), B32,K5; total forward cost
+O(d*h+h*(B*K+1)+B*K), avoiding enumeration of5^32joint actions.
+This complexity is inherited and already overlaps branching architectures.
+
+For a SAME-FORM width64/128 network, theoretical counts are44,641/89,121
+parameters (178,564/356,484 FP32 bytes), with44,416/88,832 dense products.
+These are architecture calculations, not measured savings against a trained
+or deployed reference. No smaller/faster claim is possible against A/R/E/F
+from this change; all use the same small deployment architecture.
+
+Training-only gradient routing is removed from inference, with no second
+encoder, optimizer or recurrent decoder at deployment. Forward-equivalence
+and serialized-export checks are still required, especially near FP32 ties.
+No reduction in training wall time is presumed. Separate demo/BC/ridge/TD+
+retention/audit costs, trainable/target/optimizer/replay/process storage and
+deployment-only serialized files. Demonstrations and audit are not free work.
+
+For the narrow comparison, provisionally retain128common saved timing states,
+3randomized rounds,32warmups per policy/round:28policies,10,752measured calls
+and2,688warmups. Match CPU/FP32/one-thread/backend and complete validation,
+mask,forward,selection,chosen-Q and output-copy boundary; retain raw ns,
+median,p95 and round distributions. No acceptance retiming or hidden slow
+comparator removal. Python-teacher versus compiled-student differences
+must remain disclosed. Laptop measurements are not UAV hardware evidence.
+
+12. TARGETED LITERATURE CHECK: OVERLAP IS REAL
+Primary-paper pages, two full HTML papers, query responses and hashes are
+saved under validation/value_gradient_isolation_brief_2026-11-20_01/.
+
+Double DQN, https://arxiv.org/abs/1509.06461:
+Online action selection and target-network evaluation are established.
+Our retained update is DDQN with a declared additional semi-gradient rule.
+
+Dueling, https://arxiv.org/abs/1511.06581:
+The full paper explicitly states that BOTH streams propagate gradients into
+the shared convolutional layer and rescales their combined gradient by
+1/sqrt(2), with gradient clipping. Our selective removal of V's feature
+gradient differs from that general rescaling; R tests the adapted alternative.
+State-value/advantage factoring and gradient stabilization are not new here.
+
+Action Branching, https://arxiv.org/abs/1711.08946:
+Shared representations with per-action-dimension branches and linear output
+growth are established. Our additive decoder/compact branch architecture
+must not be claimed as the invention of action branching.
+
+DQfD, https://arxiv.org/abs/1704.03732:
+Demonstrations plus TD and supervised action learning are established.
+Teacher warm-start/retention alone is not our novelty, and full DQfD is a
+distinct reference with additional published mechanisms.
+
+Gradient Surgery, https://arxiv.org/abs/2001.06782:
+PCGrad projects conflicting task gradients. Our fixed V-path block performs
+no conflict test or projection and is not PCGrad. The general concern about
+interference and the use of gradient modification are established.
+
+Decoupling Representation Learning from Reinforcement Learning,
+https://arxiv.org/abs/2009.08319:
+The full paper trains representation with ATC/unsupervised learning while
+detaching the encoder from RL gradients. Our encoder still receives branch
+TD and imitation gradients, with only V-to-feature TD removed. This is a
+different restriction, but gradient blocking/decoupling itself is established.
+
+Application overlap: DQfD-DECO, Enhanced Task Offloading in Mobile Edge
+Computing: A Hybrid Approach Using Deep Q-Learning from Demonstrations and
+Heuristic Optimization, https://doi.org/10.1109/ICEAAI64185.2025.10956500.
+Refreshed Crossref metadata and OpenAlex's indexed abstract describe
+heuristic demonstrations followed by adaptive RL for energy/deadlines.
+This is indexed abstract evidence, NOT inspection of that method's full text.
+The generic workflow already overlaps the proposed application story.
+
+Three broad Crossref queries returned largely irrelevant titles. They do
+not establish absence of the exact gradient rule in prior UAV-IoV work.
+This bounded check supports a concrete experiment, NOT a first-ever claim.
+The prospective contribution is a measured, reproducible compact-DDQN
+training improvement in this offloading setting IF it beats its controls
+and meets broader efficiency/quality tests. Exact novelty remains unresolved;
+a fuller application-specific method comparison is needed before thesis prose.
+
+13. NEXT BOUNDED GATE AND CLAIM STATUS
+Implement an isolated training-only gradient-routing layer/helper and its
+adapted rescaling control in NEW files; use deterministic synthetic fixtures
+only, with no research seeds, teacher or simulator. Before any protocol freeze:
+1. Compare same-weight forward Q/actions with the preserved original, including
+   legal masks,ties,terminal handling,single-state and batch inference.
+2. Pure V loss: proposed hidden gradient zero, V row/bias gradients correct.
+   Branch-only loss: original hidden/branch gradients preserved.
+3. Mixed TD+retention: verify all parameter groups against an independent
+   detached-feature reference; verify R rescales ONLY TD shared gradients.
+4. Prove target detachment, no parameter/storage aliasing, unchanged BC and
+   calibration behavior, one optimizer step, clipping and finite-state checks.
+5. Verify deploy export omits training-only routing and preserves state_dict,
+   storage counts and complete action/Q parity without changing tie rules.
+6. Keep all research/final CLIs disabled. Mechanics success is not learning
+   evidence. After mechanics, separately freeze the full comparison, build
+   runner/auditor, exercise an isolated workflow fixture, and review launch.
+
+This gate creates a design brief and algebra/seed/literature evidence only.
+No new controller, optimizer step, simulation, teacher call or research
+launch occurs. Historical rewards,seeds,thresholds,models and archives stay
+unchanged. Contribution one remains efficient DDQN offloading in UAV-IoV;
+security/trust is deferred and cloud/charging remain excluded. The Word
+thesis and reserved final evaluation set remain unchanged.

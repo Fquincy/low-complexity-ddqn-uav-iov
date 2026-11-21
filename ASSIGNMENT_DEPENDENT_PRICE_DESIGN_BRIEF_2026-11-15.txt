@@ -1,0 +1,249 @@
+ASSIGNMENT-DEPENDENT WORKLOAD PRICING: PROSPECTIVE DESIGN BRIEF
+2026-11-15
+Status: design and algebra gate only; not implemented or research-authorized.
+Working name: assignment-dependent price DDQN (ADP-DDQN).
+
+1. QUESTION AND BOUNDARY
+Can replacing expected-other workload by the workload of an actual candidate
+joint assignment improve offloading decisions at bounded decoder cost?
+This is ONE mechanism: assignment-dependent workload pricing. Its critic and
+decoder must both use the same potential. Changing only action selection while
+leaving the old separable Q formula would not test that mechanism consistently.
+This brief does not assert a demonstrated cause, improvement or new algorithm.
+
+Retain the local/UAV/RSU system,533 features,N=30,D=5,two five-choice UAV motion
+branches,40-slot horizon,original reward,gamma1,original-unit Huber loss and
+terminal anchoring. Retain the conservative observed-state local screen.
+All remote/movement actions remain available; no additional observations,
+private queue histories, future arrivals, task dropping or remote feasibility
+oracle. Cloud/charging excluded; security/trust deferred. Word thesis unchanged.
+The failed normalized-loss branch stays closed. Original controllers and all
+previous failures retain their exact source, checkpoints and acceptance rules.
+
+2. INPUTS AND ORIGINAL HEADS
+Use the original width24 FP32 price network and all its17,066 parameters.
+Given s, obtain learned nonnegative placement g_id=softplus(z_id)/N,
+motion v_jb=softplus(z_jb)/2,bias b=softplus(z_b),
+remote beta_d=softplus(z_beta_d), beta_0=0,
+eta_d=softmax(z_eta)_d (all five destinations, including local).
+No new heads/weights/buffers. Preserve existing cycle_to_work buffer20bytes.
+Let w_id be task i's normalized service work at destination d, exactly as the
+incumbent computes it from observed normalized task cycles and CPU settings.
+w_i0=0. Let q_d be the observed normalized pending CPU workload recovered from
+the same logged workload features (q_0=0). All work and q are nonnegative.
+There is no claim that CPU work alone predicts upload delay or actual deadlines.
+
+3. CURRENT TABLE VERSUS NEW JOINT POTENTIAL
+Incumbent expected-other price for a single destination choice:
+  p_old,id = beta_d/(4N) *
+      [2(q_d + eta_d*sum_(k!=i) w_kd)*w_id + w_id^2].
+Other vehicles' contributions appear regardless of their selected destination.
+After computing these tables, each vehicle independently chooses a minimum.
+
+For candidate destination assignment a define
+  W_d(a)=sum_(i:a_i=d) w_id,
+  S_d(a)=sum_(i:a_i=d) w_id^2.
+Proposed potential:
+  P_theta(s,a)=sum_d beta_d/(4N) *
+      [2 q_d W_d(a) + eta_d W_d(a)^2 + (1-eta_d) S_d(a)].
+Full cost and action value:
+  C_theta(s,a,m)=b + sum_i g_i,a_i + sum_j v_j,m_j + P_theta(s,a),
+  Q_theta(s,a,m)=-h(s)*C_theta(s,a,m), h=40-round(40*s[-1]).
+At terminal h=0, Q=0 without decoding. All components are nonnegative, so Q<=0.
+The scalar uses no additional calibrated physical delay/energy coefficients.
+Potential units are inherited normalized model-cost units, not true seconds.
+
+The (1-eta) S term is deliberate: removing task i from the current assignment
+leaves assigned workload W_minus_i,d. Exact insertion marginal is
+  Delta_id(W_minus_i,d) = g_id + beta_d/(4N) *
+      [2(q_d+eta_d W_minus_i,d)*w_id + w_id^2].
+Thus the algebra matches the incumbent's single-task self-work term while
+replacing expected other work by actual assigned other work. Merely using
+beta(q+W)^2 would change self and pairwise weighting together and would be a
+different proposal. The potential omits constant initial q_d^2 because it is
+independent of the assignment. It is not a physical queueing-delay identity.
+eta still has a gradient through assigned cross terms; all original output
+heads remain defined. beta_0=0 means local has no shared remote-work potential.
+
+4. BOUNDED DETERMINISTIC DECODER D_theta(s)
+One network pass obtains all g,v,b,beta,eta,w,q; keep weights FP32.
+Use FP64 for the small scalar potential/decoder accumulator and promote the
+heads into that arithmetic for the differentiable Q evaluation. This is an
+explicit NEW numerical route, not a silent correction of the old experiments.
+Report mixed-precision workspace and measured cost. All new mechanism ablations
+must use this SAME scalar arithmetic to separate coupling from rounding effects.
+
+Step A: build the incumbent expected-other table from the same heads and
+choose a starting destination for each vehicle among its permitted choices.
+Tie: smallest destination index. Choose both motion branches independently
+by minimum v, tie smallest index. No motion search or new movement objective.
+
+Step B: order vehicles by descending observed normalized cycles, ties by
+ascending vehicle ID. This deterministic order is fixed before outcomes.
+Compute W_d and S_d for the initial assignment.
+
+Step C: exactly ONE pass through that order. For each i, remove its current
+work from its old destination's W/S. For every allowed d, evaluate Delta_id
+against the remaining assigned workloads. Select the minimum. On an exact tie
+retain the current destination if tied; otherwise choose smallest index.
+Insert the selected work and update W/S. Do not repeat passes until convergence.
+
+Step D: return the final a and the independently selected motion actions.
+Evaluate Q using the coupled potential, never a sum of stale insertion prices.
+Compute initial and final full potential for an engineering nonincrease check.
+Numerical test tolerances are for verification, not a tunable policy margin.
+No extra network calls, random ordering, fitted threshold, beam search or
+outcome-dependent stopping. Research decisions cannot choose a favored order.
+
+This is coordinate descent on a learned surrogate with fixed initialization
+and one sweep. Exact arithmetic implies nonincrease versus its starting
+assignment for the SAME proposed potential. It does NOT imply a better
+environment reward, deadline result or value calibration. One sweep need not
+be a local optimum, and coordinate minima need not be global optima.
+The FP64 implementation must test cancellation, exact ties, interval boundaries
+and deterministic eager/native behavior; do not claim algebra proves that code.
+
+5. DDQN UPDATE: SELECT APPROXIMATELY, EVALUATE THE SAME ACTION
+Because Q is now coupled, D_theta is not guaranteed to compute argmax Q.
+Describe this honestly as DDQN with bounded approximate joint-action selection:
+  nonterminal a_next = D_online(s_next),
+  y = r + Q_target(s_next,a_next), gamma=1;
+  terminal y=r, no next action decode.
+The target network never selects a replacement action. Decoder uses online
+heads and current next-state mask. Greedy behavior and evaluation use the same
+declared D_online. Exploration retains the paired epsilon/random allowed-action
+rules; Q(s,a) is evaluated for the actual replay action, even off-policy.
+
+Uniform loss remains mean Huber_1(Q_online(s,a)-stopgrad(y)). Retain terminal
+batch32/unit weight separate Huber on Q-r, original128 uniform batch and fixed
+Adam1e-4,clip10,warmup1024,replay50000,target interval200 updates schedule.
+No horizon-normalized loss, reward change, adaptive temperature or new penalty.
+Gradients flow through chosen-action g/v/b/beta/eta and the coupled Q expression;
+not through discrete decoder choices. Nonnegative heads and h remain unchanged.
+FP64 loss inputs still backpropagate into FP32 weights through casts. Match this
+in new separable and same-decoder ablations; include cast and decoder cost.
+
+An action-only heuristic added to the old separable critic would be a distinct
+method. It must not be presented as ADP-DDQN if the target/training value is old Q.
+This proposal changes the functional action-value representation through its
+potential while retaining the network tensors; "unchanged architecture" means
+network shape/parameters, not an unchanged critic equation or exact maximizer.
+
+6. COMPUTATIONAL EXPECTATIONS, NOT MEASURED SAVINGS
+Neural payload remains68,264 parameter bytes+20buffer bytes. Model reconstruction
+and deployed serialization are measured separately. No new trainable weights.
+Network O(dH+H*(5N+20)),d=17N+23,H=24; fixed D.
+Initial tables O(ND), vehicle sort O(N log N), one coordinate pass O(ND),
+final potential O(N+D), motion O(2D). Overall decoder O(ND+N log N), with
+O(ND+N+D) workspace. Do not label the full decoder strictly O(N) because of
+the sort. The incumbent branch decoder is cheaper; no speedup over it assumed.
+FP64 tables/state buffers are additional working memory, not model parameters.
+The existing vectorized source expands a B*N*D work table; report actual
+training overhead of coupled forward, masks and per-sample approximate decoding.
+No equal training-compute claim follows from equal simulator slots.
+
+Potential sums can use current W/S to evaluate candidates in constant work
+per destination. Recomputing full N-task cost for every candidate would make
+the implementation more expensive than the claimed bound and fail engineering.
+No favorable retiming; retain all models and raw timings. Full action path
+includes conversion, screen, network, heads, initial allocation, sort, sweep
+and final copy. Hardware-independent speed/energy claims are not justified.
+
+7. MATCHED COMPARISONS NEEDED BEFORE RESEARCH
+A. ADP24 primary candidate: coupled Q plus one-sweep decoder.
+B. Coupled Q / no-sweep: same heads/equation/precision but original expected-
+   other independent decoder. Tests the sweep, not just a changed objective.
+C. Matched separable24: original Q/table and independent decoder, FP32 neural
+   weights plus the same FP64 scalar route. Tests coupling+selection relative
+   to the incumbent mechanism without a hidden precision difference.
+D. Frozen original-loss screened price24 with its ORIGINAL FP32 runtime:
+   historical implementation comparator freshly trained on paired new seeds.
+E. Plain positive-table24 plus the SAME potential/sweep with fixed beta_d=1
+   for remotes and eta_d=1/D: no learned price heads. Name it as a new control,
+   not the old plain24 unchanged. Use softplus placement/bias/motion and the
+   declared same FP64 scalar route. Distinguishes learned prices from a fixed
+   load-aware inductive bias; its chosen fixed scale is a hypothesis, not tuned.
+F. Same-information deterministic load-aware heuristic with the same sort,
+   insertion/sweep and local mask, no neural cost heads. A prospective equation
+   for its task/radio/CPU/movement costs must be declared and matched to available
+   observations before implementation. This brief does not pretend that a
+   generic queue-only heuristic is a strong complete substitute for link costs.
+G. Ordinary small DDQN, same-width screened/anchored plain24, compact64,
+   wide128, adapted BDQ, existing nearest-RSU and UAV-selective controls remain
+   relevant. All-local diagnostic. Final arm list/budget requires a later freeze.
+
+Mandatory mechanism contrasts: A-B (sweep), A-C (coupling+selection), A-E
+(learned price over fixed load bias), C-D (precision-route characterization).
+An improvement over only a poor or uninformed heuristic is insufficient.
+No best-arm substitution; A must be named prospectively or rejected pre-run.
+Do not attribute A-C to the sweep alone: equation and decoder both differ.
+Mechanism tests must include equally informed controls; a fixed-potential
+heuristic probe is not automatically the full strong heuristic inF.
+
+8. ENGINEERING GATES BEFORE POLICY TRAINING
+First build an isolated algebra/decoder prototype. Verify:
+  - direct potential versus pairwise expansion, exact insertion marginal and
+    directional/autograd gradients for replay actions, including eta softmax;
+  - beta=0 or no shared remote assignments reduces to the appropriate additive
+    cost; empty destination, single task, equal cycles and tie cases;
+  - small N,D exhaustive enumeration bounds decoder cost above/equal true
+    surrogate optimum, with explicit suboptimal counterexamples retained;
+  - one sweep never increases the SAME potential beyond justified floating
+    arithmetic tolerance; this is not a reward/deadline guarantee;
+  - at most one pass, declared destination evaluation count and deterministic
+    sorting/tie behavior; no output-dependent retry;
+  - paired masks/exploration and online selection/target evaluation use the
+    declared decoder; terminal bypass; no gradient through target or discrete
+    decisions; original-unit anchor retained;
+  - FP32 weight counts and FP64 scalar costs/workspaces, eager/native exact
+    actions and unchanged value tolerances, including adversarial near ties;
+  - inference cost against compact/wide references without research workloads.
+Fail cheaply if the extra decoder overhead already violates the frozen cost
+targets. Preserve failed tests; do not call a small fixture scientific success.
+Then review a temporary simulator fixture runner/auditor before research.
+
+9. SCIENTIFIC ENDPOINTS AND DECISION BOUNDARY
+All previous experiments remain failed under their original rules.
+For a future trial, the default reference/value/cost limits remain the most
+recent declared limits unless an independently justified prospective claim
+amendment is written BEFORE any research outcomes. This brief does not remove
+calibration or weaken every-fit criteria. Cost includes the new sweep/precision.
+Require return/deadline evidence, all initializations, learned-price/sweep
+ablations, value/gradient stability distributions and storage/full latency.
+The prior +2 return/+1 deadline-point mean and nondegradation-per-fit mechanism
+margins are design references, not a completed new research protocol.
+Exact arm count, budgets, seeds, collision audit, reporting and acceptance
+conjunction must be frozen later. No seed is reserved or used by this brief.
+Untouched final reservations remain protected. No automatic promotion of a
+consumed-development control or best checkpoint to final evidence.
+
+10. PRIOR WORK AND NOVELTY LIMIT
+Standard ingredients: convex congestion potentials, marginal-cost allocation,
+coordinate descent, shared critics, Double DQN and masks are established.
+The algebra below is a specification derived from our existing table, not a
+claim to have invented a quadratic potential or coordinate optimization.
+The full-text matrix already found UAV masked DDQN(arXiv:2407.19657), vehicular
+DDQN server-congestion scheduling(arXiv:2404.07215), hierarchical resource-aware
+SAC(arXiv:2507.05722), and branchwise DDQN(arXiv:1711.08946).
+The proposed distinction is actual-assignment-dependent marginal pricing with
+one-pass bounded approximate maximization in this compact observed-state
+critic, jointly learned by the unchanged original-unit DDQN objective.
+It may still overlap known congestion-game, potential-based assignment and
+load-balancing RL methods. Exact-overlap full-paper review remains required;
+the matrix is not novelty clearance. If fixed load-aware allocation matches
+the learned mechanism, price-specific novelty is unsupported. No proof of
+convergence, optimal scheduling or deadline guarantees is implied.
+
+11. DECISION
+GO only to isolated algebra/prototype engineering for this exact hypothesis,
+subject to the implementation gate above. No research training or simulator
+collection is launched by the brief. If no specific difference survives the
+overlap review or the decoder cost is excessive, simplify/stop ADP24 before a
+large run. Continue the efficient-DDQN contribution goal without hiding that
+boundary. Supervisor availability does not block this bounded technical stage.
+
+SOURCES
+controller_v3_amortized.py (original marginal_table and network heads)
+INCUMBENT_VALUE_AND_MECHANISM_EVIDENCE_REVIEW_2026-11-15.txt
+INCUMBENT_CLOSEST_WORK_MATRIX_2026-11-15.txt
+LOW_COMPLEXITY_CONTRIBUTION_DECISION_BRIEF_2026-11-15.txt

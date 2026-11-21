@@ -1,0 +1,50 @@
+DEADLINE SCREEN: AUDIT-ONLY CORRECTION REVIEW
+Date: November14,2026
+
+COMPLETED EXPERIMENT
+440,000 training slots,55 frozen final checkpoints,383,735 optimizer updates,
+1,870 target copies,111,360 evaluation slots and35,200 timing readings are
+complete. The original workflow stopped during its saved-artifact audit.
+The original run manifest, logs, source snapshots and checkpoint files remain
+unchanged. No scientific pass is inferred from training completion.
+
+REPRODUCED CAUSE
+Original evaluation computes online and target predictions one state at a time.
+The V2 auditor instead recomputed40 states as a matrix batch. FP32 neural
+kernels accumulate differently by batch shape. The first reproduced failure:
+screened_wide128, initialization0, task720000014, slot31.
+Saved target:-0.016898155212402344.
+Batch40 recomputation:-0.0168914794921875.
+Batch1 recomputation:-0.016898155212402344, exactly equal to saved value.
+The6.67572021e-6 difference exceeded the existing atol1e-6/rtol1e-5 near zero.
+This was an auditor arithmetic mismatch; evidence does not warrant retraining
+or changing values, actions, model definitions or acceptance thresholds.
+
+VERSIONED CORRECTION
+New audit_deadline_screen_research_v3.py recomputes each saved online greedy
+action, chosen Q and target chosen value with the original batch-one calls.
+All original tolerance checks remain. Target evaluates the saved executed
+action; eager/runtime exact action comparison remains. Full independent
+summary/value/comparison/bootstrap/optimizer/mask checks remain unchanged.
+The V2 auditor and original failure log are preserved. The corrected report
+is written into a separate validation directory, preserving the research
+run manifest and failed original workflow state.
+
+VALIDATION
+Regression reproduces the original failure and verifies exact single-state
+agreement. A deliberate0.001 value corruption is rejected by the unchanged
+tolerance. Single-state chosen-value semantics checked across all11 families.
+The full saved synthetic fixture passes the corrected auditor and its result
+matches the original fixture audit exactly. No simulator, optimizer or
+benchmark timing calls were made for these checks.
+
+CURRENT ACTION
+The audit-only continuation was launched using
+continue_deadline_screen_artifact_audit.py. It independently verifies existing
+deployment/storage exports and the complete saved training/evaluation run.
+See validation/deadline_screen_audit_correction_2026-11-14_01/LIVE_STATUS.txt
+and audit_launch.json. Completion is not asserted until its workflow_verification
+and development_saved_artifact_audit files are present and successful.
+No retraining, new workload evaluations, retiming or tolerance relaxation.
+The scientific result remains provisional pending the audit and result review.
+Final evaluation seeds and Word thesis unchanged; security/trust deferred.

@@ -1,0 +1,22 @@
+{
+  "id": "terminal-anchor-engineering-v1",
+  "status": "frozen_engineering_only_no_research_authority",
+  "research_enabled": false,
+  "critic": "Q=h*Qbase at nonterminal states; terminal values exactly zero; h=40-round(40*normalized_time)",
+  "decoder": "unchanged base greedy at h>0; reject terminal decoding",
+  "objective": "mean Huber(uniform DDQN residual) + 1.0*mean Huber(terminal Q-reward)",
+  "terminal_batch": 32,
+  "terminal_sampling": "uniform with replacement from valid terminal indices in current replay; independent RNG; empty pool produces zero anchor loss",
+  "gamma": 1.0,
+  "optimizer": {"type":"Adam","lr":0.0001,"betas":[0.9,0.999],"eps":1e-8,"weight_decay":0},
+  "gradient_clip": 10,
+  "arms": ["price_both","no_price_both","price_horizon_only","price_anchor_only","plain_both","compact_both"],
+  "fixture": {"model_seed":99461,"data_seed":994610000,"transitions_per_arm":80,"horizon":40,"warmup":8,"batch":8,"capacity":48,"target_interval":8},
+  "fixture_data": "artificial feature vectors, random legal actions and negative surrogate rewards; not simulator or policy evidence",
+  "prospective_scientific_decision": "For a later new protocol, candidate values gate candidate claims; comparator values all reported. Historical all-arm gate and its failure remain unchanged. A separate research protocol and review are mandatory before launch.",
+  "numeric_research_thresholds": "not amended by this engineering protocol",
+  "seed_scope": "synthetic namespace only; proposed 610xx research seeds remain unreserved and unused; 510xx final seeds untouched",
+  "inference_route": "PyTorch prototype only; deployment export equivalence/cost gate required later",
+  "no_claim": "No lower value bound, guaranteed policy improvement, literature novelty or research readiness established",
+  "scope": {"cloud":false,"charging_stations":false,"security_trust":false,"word_thesis_changed":false}
+}

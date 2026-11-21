@@ -1,0 +1,61 @@
+LOW COMPLEXITY ARCHITECTURE DESIGN
+Working name: Single-Pass Interaction-Aware DDQN (SPI-DDQN)
+Status: proposal for mechanics gate; not implemented or trained.
+
+Problem to solve
+The prior sequential candidate represented action dependence but required 32
+stages and measured roughly124-125 times the additive selection latency. The
+additive candidate was fast but cannot represent every joint-action interaction
+exactly. SPI-DDQN tests whether a bounded interaction correction can retain
+useful joint information with one shared encoder pass.
+
+Architecture
+
+Physical input: 533 values.
+Shared encoder: 533 -> 96 -> 96, ReLU.
+Parallel component logits: 96 -> 32 x 5.
+Action embeddings: a learned 5 x 16 table shared by components.
+Joint scorer input: encoded state, pooled selected-action embedding and a
+low-rank interaction summary. Initial rank r=8.
+Candidate decoding: take top2 choices per component, then beam-search complete
+vectors with width8. The beam scorer is evaluated in batches.
+
+The component heads generate a bounded candidate set. The joint scorer ranks
+complete vectors within that set. The model does not claim exact optimization
+over all5^32 joint actions. Beam coverage must be reported.
+
+Why this may help
+The shared encoder is computed once. Action interactions are handled by a
+small global scorer rather than by32 sequential neural decisions. Batching the
+beam candidates may keep the complete-slot path closer to the additive cost.
+
+Risks
+
+- top2 choices can exclude the physically useful action;
+- beam width8 may still miss important combinations;
+- the joint scorer adds parameters and candidate evaluations;
+- off-policy DDQN targets for a bounded candidate set need explicit semantics;
+- partial observation and hidden queue state remain unresolved;
+- a lower parameter count may still fail to reduce measured latency.
+
+Training semantics for a future pilot
+Use one physical-slot transition and one complete joint action per decision.
+The environment steps once per physical slot. The candidate action is the
+beam-selected vector. A DDQN target uses the next-state candidate policy and
+the same declared gamma=1 physical-slot objective. Do not use 32 staged
+rewards. If the candidate-set maximization is not stable, stop and redesign
+the learner rather than silently treating it as exact Q-learning.
+
+Mechanics gate before training
+
+1. Verify output shapes and legal action ranges.
+2. Verify top-k and beam decoding on deterministic logits.
+3. Verify the joint scorer changes when an interaction term changes.
+4. Verify one complete-slot selection does one encoder pass and no environment
+   step during timing.
+5. Compare additive, sequential cached and SPI paths on common observations.
+6. Check parameter bytes and complete-slot latency.
+7. Require the candidate to beat the sequential path on latency before a
+   learning smoke; if it does not, its low-complexity premise is weakened.
+
+No performance, novelty or low-complexity claim is established by this design.

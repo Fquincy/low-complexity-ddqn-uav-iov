@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "fits": 15,
+  "episodes": 720,
+  "state_checks": 28800,
+  "saved_predictions_match": true,
+  "trajectory_next_actions_match": true,
+  "self_residual_telescoping": true,
+  "weights_unchanged": true,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "final_seeds_used": false
+}

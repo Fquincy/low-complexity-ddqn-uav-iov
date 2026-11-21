@@ -1,0 +1,44 @@
+{
+  "status": "PUBLICATION_EXPORT_VALIDATED_NO_RESEARCH_LAUNCH",
+  "date": "2026-11-21",
+  "repository": "low-complexity-ddqn-uav-iov",
+  "source_mappings_verified": 970,
+  "byte_identical_source_copies": 970,
+  "adapted_document_copies": 0,
+  "python_sources_syntax_checked": 352,
+  "json_documents_parsed": 483,
+  "root_document_links_verified": 8,
+  "publication_file_violations": [],
+  "scanner_scope": "File inventory, known identity markers and credential/private-key patterns; not a guarantee against all sensitive content.",
+  "isolated_environment_check": {
+    "status": "ENGINEERING_ONLY_ENVIRONMENT_CHECK_PASSED",
+    "observation_size": 74,
+    "destinations": [
+      "vehicle_local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "two_repeated_fixture_episodes": 2,
+    "engineering_slots": 4,
+    "model_training": false,
+    "reserved_research_seeds_used": false,
+    "numpy_version": "2.4.6",
+    "source_sha256": {
+      "chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+      "chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33"
+    }
+  },
+  "existing_checkout_environment_check_previously_passed": true,
+  "total_packaging_engineering_slots_in_this_repository": 8,
+  "new_model_training": false,
+  "new_research_launch": false,
+  "new_seed_reservations": 0,
+  "final_evaluation_seeds_used": false,
+  "full_historical_test_suite_rerun": false,
+  "historical_neural_runtime_verified": false,
+  "private_master_unchanged": true,
+  "raw_artifact_archive_uploaded": false,
+  "source_pdfs_uploaded": false
+}

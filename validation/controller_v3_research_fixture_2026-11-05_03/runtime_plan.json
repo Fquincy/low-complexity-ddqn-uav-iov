@@ -1,0 +1,61 @@
+{
+  "kind": "SYNTHETIC_NOT_RESEARCH",
+  "model_seeds": [
+    99131
+  ],
+  "train_blocks": [
+    {
+      "start": 991310000,
+      "count": 1
+    }
+  ],
+  "evaluation_seeds": [
+    991310100
+  ],
+  "cfg": {
+    "episodes": 1,
+    "warmup": 8,
+    "batch": 4,
+    "capacity": 64,
+    "learning_rate": 0.0001,
+    "gamma": 1.0,
+    "clip": 10.0,
+    "target_interval": 8,
+    "epsilon_decay": 40
+  },
+  "episodes": 1,
+  "diagnostic_validation_seeds": [],
+  "quality_screen_authority": false,
+  "seed_namespace": "synthetic only; excluded from research",
+  "protocol_sha256": "5feece24ac058b547140b0513f4991a3f8035536b59b4002893f0ae1fc8d96d9",
+  "source_sha256": {
+    "controller_redesign_v2.py": "76ee2cc5d40289401165ce4a610c9843e1d90117785077a73c2ead274111feb5",
+    "run_controller_redesign_engineering.py": "b04e0793dc8d126ab8775f51673e7dccf7ce4f711c96e16cb1a59f72987c6021",
+    "audit_controller_redesign_engineering.py": "b08538847a41779c88b1efbca2825e1898bc7625202479ab0060e3e58350e80d",
+    "test_controller_redesign_engineering.py": "5bc8a525c8eeb4aad98aea5f105df85a3d4ed04be08036d543cbbacdd97622fe",
+    "run_value_bound_tradeoff.py": "afe2b9c94265c5f2e7a5fa9fdcf9c0aa0759623548323a92ce711827933ef4c4",
+    "emc_q.py": "790f643c4842492b9cdce1e39b170935f07f31c4bdc37d0c79568bad5ae5e57e",
+    "audit_value_bound_development.py": "d69e90c2a8d2dd2e16c8cb6b875c2bb7d02ab2ffaf85233275dcb00bc78a09a0",
+    "Source/chapter3_iov_env.py": "6a5055d08ed06a2496c699d85a4b6cb133b78fde92a811674e68a01b49977cae",
+    "Source/chapter3_iov_env_v2.py": "4486da83f832f9e7b5b05ad08d3cd896874960b40033ba50e7601a21fe2f5f33",
+    "Source/train_chapter3_ddqn.py": "b0f41b86336a630a1a315fff45eeb7e4be9bcf4cecde88b2e99c85404fcb0d3a",
+    "Source/validate_chapter3_model.py": "0354f9ea137579120716911977bb06b279fc67dcfa86f3f453b81aad252852bb",
+    "analysis\\controller_redesign_2026-11-05\\prospective_comparison_v2.json": "35a41a18bc642a79be4f4f3dfbdf0a7b7a18ecd4a351700b0e6e7f1e2b1b99b5",
+    "controller_v3_amortized.py": "8e4727645471816c4261b4b2a0299c3505c33abc33e666bdbab12978bd9dfb3f",
+    "controller_v3_fused_runtime.py": "0727b94900369bd1dc7540cd4fcec2fe12a3d803b4a98462ebde48d8b5a24264",
+    "controller_v3_runtime_compatibility.py": "ab42d588d3b1fd14e20f9f6d106ab1c14490c29f35fc4fa1c17c05bd0c2b9847",
+    "run_v3_research_preparation.py": "806cc7c287f4715df736224eaafcdcc8098e9f1ef4d2b24b989cb5f2a431f8d9",
+    "audit_v3_research_preparation.py": "74e985b3c3243fe39863dcb3ab6df30aed79a08e4b090a9c7c86a99c5e03e6e2",
+    "test_v3_research_preparation.py": "3f83609951fcf45d46ffdb11d008b64665ebf25d89cac026ebb8633e88dea1ae",
+    "LOW_COMPLEXITY_V3_RESEARCH_PROTOCOL_2026-11-05.json": "5feece24ac058b547140b0513f4991a3f8035536b59b4002893f0ae1fc8d96d9",
+    "LOW_COMPLEXITY_CONTROLLER_REDESIGN_COMPARISON_PROTOCOL_v2_2026-11-05.txt": "d53df95f7c361aeded96043a1f32676857b297a7ee5b386218e05db4606415ca",
+    "LOW_COMPLEXITY_V3_RUNTIME_COMPATIBILITY_PROTOCOL_v2_2026-11-05.json": "f13b9767aaa9055bd5e8991499dd98043c37a555ecc614206fa9894b16599f19"
+  },
+  "inherited_v2_protocol_sha256": "d53df95f7c361aeded96043a1f32676857b297a7ee5b386218e05db4606415ca",
+  "compatibility_protocol_sha256": "f13b9767aaa9055bd5e8991499dd98043c37a555ecc614206fa9894b16599f19",
+  "prior_engineering_completion_manifest_sha256": "659b73bff7baf3a341c715e1557f14c3d8295b1aef55d88882b22ec4526377fb",
+  "prior_engineering_audit_sha256": "61fef414a39703dfa433fc09dfc2327c14ebb3d3dd17d4616f2c106f5aa7c62b",
+  "arm_order_seed": 420600001,
+  "fixture": true,
+  "training_launched": false
+}

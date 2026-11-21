@@ -1,0 +1,221 @@
+{
+  "status": "TECHNICALLY_READY_PENDING_SEPARATE_EXPLICIT_LAUNCH",
+  "protocol_sha256": "a73994fdfea9eda763232fa4c86d52e6a1317f421c40fd6f25ddb0f78c1745fc",
+  "tested_sources": {
+    "run_heuristic_initialization_pilot.py": "b1fe6bda08a5e0f22a36ccc6444037119e896e21c20acf687fd272da1b75e277",
+    "heuristic_pilot_teacher_adapter.py": "66ec9b1903604c3420194d2328ce400d7d0a23512e517959e5c444c3f76af2bc",
+    "audit_heuristic_initialization_pilot.py": "1b8b81c68eb448627af85f1ceb83614ac095e8b0d7095d88cb1e241049eb89f2",
+    "test_heuristic_initialization_pilot.py": "dfcd6de4eea0903bafa90d185f160bfc6c8a7e3503771d9df65b7e460fe8eab4",
+    "HEURISTIC_INITIALIZATION_PILOT_RUNNER_ENGINEERING_REVIEW_2026-11-19.txt": "a762f63b6a6c88115681fe88b31ccf9d5701239d0c7e7ac96006ba2acfbcd982"
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "threads": 1
+  },
+  "python_executable": "C:\\Users\\OMEN\\AppData\\Local\\Temp\\deadline_screen_research_env_2026_11_12\\Scripts\\python.exe",
+  "teacher_backend": "Python reference of frozen teacher bodies; identity native decorators",
+  "compiled_teacher_equivalence_claim": false,
+  "quality_or_novelty_established": false,
+  "fixture_tests": 8,
+  "fixture_manifest_files_verified": 75,
+  "seed_audit": {
+    "root_documents": [
+      {
+        "path": "AGGREGATE_RADIO_DDQN_DESIGN_STATUS_2026-11-19.json",
+        "sha256": "9250cb78f8284773d4d0375d046961eb7d62aa7990551c8ccf64297bcd07413c"
+      },
+      {
+        "path": "ANCHOR_RUNTIME_CHECK_PROTOCOL_2026-11-06.json",
+        "sha256": "df7d3c6b9a3ba2ee4fae4f20a47553a964611350607f7874afb6eccf03d15e2d"
+      },
+      {
+        "path": "ANCHOR_RUNTIME_NUMERICAL_CORRECTION_PROTOCOL_2026-11-11.json",
+        "sha256": "5f8592cdc9c51c16d55cb45527f46d1585e8dc29a6c5b6439e9ebff5711b260c"
+      },
+      {
+        "path": "ANCHOR_RUNTIME_ROUTE_AMENDMENT_2026-11-06.json",
+        "sha256": "91b5685408208ee322cbc831b09317103baf0778100c049f62f4e8e034878294"
+      },
+      {
+        "path": "ANCHOR_TORCH_CORE_RUNTIME_AMENDMENT_2026-11-11.json",
+        "sha256": "8d505463d26602e7c5a695a8622fea33a8ce55e0523678258e5784ae4e982fe9"
+      },
+      {
+        "path": "ASSIGNMENT_PRICE_DEVELOPMENT_RELEASE_2026-11-16.json",
+        "sha256": "0a0989a8caff99162baf6343517f399f2cb7770c3b822c36e521bfda7ddfc794"
+      },
+      {
+        "path": "ASSIGNMENT_PRICE_EVALUATION_CONTINUATION_AMENDMENT_2026-11-17.json",
+        "sha256": "d2c4b8789a41395cbbb162c8c7b9bada027b5b8e65ec19476264423c6720fcaa"
+      },
+      {
+        "path": "ASSIGNMENT_PRICE_EVALUATION_NUMERICAL_AMENDMENT_2026-11-17.json",
+        "sha256": "a27a8e82266760780afec1e41f0704b213d07c957882eb44d8d2310310770001"
+      },
+      {
+        "path": "ASSIGNMENT_PRICE_OUTPUT_RETENTION_PLAN_2026-11-16.json",
+        "sha256": "f650230b5255f5f04ef1d3463638c93678f135b88db6e1938274d30871dba0a0"
+      },
+      {
+        "path": "ASSIGNMENT_PRICE_RESEARCH_PROTOCOL_2026-11-15.json",
+        "sha256": "6213fe3e77946fec0b142f020577274084a795807993f140f39af0c7cbae6fef"
+      },
+      {
+        "path": "DEADLINE_AWARE_DDQN_DESIGN_CANDIDATE_2026-11-11.json",
+        "sha256": "e4a0195a37fbebb4a298cfbfa307243362d23e0fcce6c22fc62a353aa80e6a30"
+      },
+      {
+        "path": "DEADLINE_SCREEN_COMPARISON_SET_FREEZE_2026-11-12.json",
+        "sha256": "015fd205a62fb2e3b7db9fcae640f1b758cd071d28f2010b2dc524fdf40c25ae"
+      },
+      {
+        "path": "DEADLINE_SCREEN_ENGINEERING_PROTOCOL_2026-11-11.json",
+        "sha256": "259b6c42f7ff951a6cd842421916fa75b5e2ac09464c4c4b039ec3027328e1e2"
+      },
+      {
+        "path": "DEADLINE_SCREEN_HORIZON_LOSS_COMPARISON_AMENDMENT_2026-11-14.json",
+        "sha256": "787d06a8402ebcd6564e18d5d1c25863c2fd717bfcfab26079303c6ab1ab1fec"
+      },
+      {
+        "path": "DEADLINE_SCREEN_IOV_FIXTURE_PROTOCOL_2026-11-11.json",
+        "sha256": "dc8c1f342f108a23ef6ca7d27cba82b5ccc72ab0f485c03eef7cc37dcea13133"
+      },
+      {
+        "path": "DEADLINE_SCREEN_LAUNCH_RELEASE_2026-11-14.json",
+        "sha256": "828919141b46d55a51c15b70526cb175ae696f9a09f00e3bc57d842acbbeb498"
+      },
+      {
+        "path": "DEADLINE_SCREEN_RESEARCH_PROTOCOL_2026-11-12.json",
+        "sha256": "23b1b292e80a4dadba99ee99b1f7151a80a37db4f6c8b5d03ac198729acf84de"
+      },
+      {
+        "path": "DEADLINE_SCREEN_RUNTIME_OPTIMIZATION_PROTOCOL_2026-11-11.json",
+        "sha256": "35ce8058641aeaa221b5f85393a17155366250d097dce837ceb5e9ddfc4083b3"
+      },
+      {
+        "path": "HORIZON_LOSS_IOV_FIXTURE_PROTOCOL_2026-11-14.json",
+        "sha256": "a4466dc441eb52dad9326d5fc320de906b0e1a49e1daa1c49351ced73f792de5"
+      },
+      {
+        "path": "HORIZON_LOSS_LAUNCH_RELEASE_2026-11-14.json",
+        "sha256": "70cf221b5548c4f417b84bf28ef3fee4fd7e0e739ac1e7e0bedc4389de852f99"
+      },
+      {
+        "path": "HORIZON_LOSS_RESEARCH_PROTOCOL_2026-11-14.json",
+        "sha256": "6cb86939d2b129e0df827bd71f89899ea4f78545d1e98a001ba97d33867eb6db"
+      },
+      {
+        "path": "LOW_COMPLEXITY_CONSOLIDATED_EVIDENCE_LEDGER_2026-11-19.json",
+        "sha256": "6f393af7089da5d4120ba8c9ad2c8458b9177120a1ff8375ea10f947b4ad14e7"
+      },
+      {
+        "path": "LOW_COMPLEXITY_CONTROLLER_V3_ENGINEERING_PROTOCOL_2026-11-05.json",
+        "sha256": "82488b6dddf48a9260a3a2888e7adc9374d93b8a12852969c762383bf8433eaf"
+      },
+      {
+        "path": "LOW_COMPLEXITY_EMC_TRADEOFF_SPEC_2026-11-04.json",
+        "sha256": "f818f97d0b2e0514dfcba5cdfe793b4e132c034ab029c5723340f4d10142d414"
+      },
+      {
+        "path": "LOW_COMPLEXITY_INFERENCE_OPTIMIZATION_PROTOCOL_2026-11-05.json",
+        "sha256": "3bce21e51968505ab170e46b1656260160de85c9ed93ab7888bb1a53b2c25050"
+      },
+      {
+        "path": "LOW_COMPLEXITY_INFERENCE_OPTIMIZATION_PROTOCOL_v1_1_2026-11-05.json",
+        "sha256": "a7ace15ad8d22debc62de331fb4e34ddc33a837c105eb797e97a01d492e06b2f"
+      },
+      {
+        "path": "LOW_COMPLEXITY_MECHANISM_FEASIBILITY_EVIDENCE_2026-11-19.json",
+        "sha256": "258d7723c934cbb2342962d59084a20c217585a0f5569459d83f12ea0cc818ef"
+      },
+      {
+        "path": "LOW_COMPLEXITY_PROJECT_STATUS.json",
+        "sha256": "ee1bc1b6712d7f4d1efea16a2934418e3f74983caa8c35fad9aca6e7edb0877d"
+      },
+      {
+        "path": "LOW_COMPLEXITY_V3_FUSED_RUNTIME_PROTOCOL_2026-11-05.json",
+        "sha256": "88442211dcbf5c8e199b3395368081ec6bc0b15da1b272036b9a9dd806d0c024"
+      },
+      {
+        "path": "LOW_COMPLEXITY_V3_RESEARCH_PROTOCOL_2026-11-05.json",
+        "sha256": "5feece24ac058b547140b0513f4991a3f8035536b59b4002893f0ae1fc8d96d9"
+      },
+      {
+        "path": "LOW_COMPLEXITY_V3_RUNTIME_COMPATIBILITY_PROTOCOL_v2_2026-11-05.json",
+        "sha256": "f13b9767aaa9055bd5e8991499dd98043c37a555ecc614206fa9894b16599f19"
+      },
+      {
+        "path": "LOW_COMPLEXITY_VALUE_BOUND_PROTOCOL_2026-11-04.json",
+        "sha256": "844a0c5987aaa871e8f2540bcc8e0c7864f902fdaf23817e4324b93c17c40734"
+      },
+      {
+        "path": "RADIO_QUEUE_COMPACT_DDQN_DESIGN_STATUS_2026-11-19.json",
+        "sha256": "b23ca0183f7de7b35081971c8968411998542a7b23e91fe4a0bbf7f822334197"
+      },
+      {
+        "path": "TERMINAL_ANCHOR_ENGINEERING_PROTOCOL_2026-11-06.json",
+        "sha256": "543a5a25f15c26c85892e959a7760bac5b844697190755d392c3d53e80c2e503"
+      },
+      {
+        "path": "TERMINAL_ANCHOR_IOV_FIXTURE_PROTOCOL_2026-11-06.json",
+        "sha256": "4ae59b4567af18cef8937ce300a64b405d00bbfc3f543ee9d0d5b10b88e49402"
+      },
+      {
+        "path": "TERMINAL_ANCHOR_RESEARCH_PROTOCOL_2026-11-06.json",
+        "sha256": "dae10a458a8de3234615e7f013e71730b52d12e9d87c477606de0f23a809f868"
+      }
+    ],
+    "fixture_plans": [
+      {
+        "path": "validation/heuristic_initialization_pilot_fixture_2026-11-19_01/run/runtime_plan.json",
+        "sha256": "aeb2a2c5ffc9b06a8c5e227041e57162d004ba6bdc9c94feb8711b8213569316"
+      },
+      {
+        "path": "validation/heuristic_initialization_pilot_fixture_2026-11-19_02/run/runtime_plan.json",
+        "sha256": "aeb2a2c5ffc9b06a8c5e227041e57162d004ba6bdc9c94feb8711b8213569316"
+      },
+      {
+        "path": "validation/heuristic_initialization_pilot_fixture_2026-11-19_03/run/runtime_plan.json",
+        "sha256": "aeb2a2c5ffc9b06a8c5e227041e57162d004ba6bdc9c94feb8711b8213569316"
+      }
+    ],
+    "collisions": [],
+    "limitation": "Explicit seed values and start/count blocks in root JSON and this pilot fixture family; not exhaustive historical log scan. Refresh at launch."
+  },
+  "storage": {
+    "fixture_category_bytes": {
+      "episodes": 16012557,
+      "optimizer": 332253,
+      "other": 2359342
+    },
+    "projected_bytes": 1133490286,
+    "required_free_bytes": 5607702968,
+    "volumes": {
+      "E:/": {
+        "free_bytes": 521587650560
+      },
+      "D:/": {
+        "free_bytes": 115207028736
+      }
+    },
+    "retention": "Keep primary E: output and independent D: copy after completed audit; verify hashes before claiming archive completion"
+  },
+  "pilot_simulated_slots": 17680,
+  "pilot_training_slots": 12000,
+  "pilot_release_enabled": false,
+  "launch_authorized": false,
+  "launched": false,
+  "new_simulator_steps": 0,
+  "new_optimizer_updates": 0,
+  "word_thesis_changed": false,
+  "launch_requirements": [
+    "Explicit user instruction for this pilot",
+    "Versioned launcher validates this receipt, exact source hashes and environment before authorizing runner in memory",
+    "Refresh seed/storage checks and choose nonexistent output directory",
+    "Leave default runner PILOT_RELEASED=False; final mode disabled",
+    "After completion retain all fits, run full saved-artifact audit and verify independent archive"
+  ]
+}

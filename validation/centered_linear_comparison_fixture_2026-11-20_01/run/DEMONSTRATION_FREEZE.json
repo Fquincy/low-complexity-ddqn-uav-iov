@@ -1,0 +1,12 @@
+{
+  "files": {
+    "demo_0/episode_000.json": "fcf2071a1b811f8b0e1105e7203b5115dac0a7a61c6c591adc6a16c889650d81",
+    "demo_0/episode_000.npz": "72e6ecf71b5c609a7db7954dcbfa42b7ae522e95286c2948cc423c696d811fbe",
+    "demo_1/episode_000.json": "75d7397f8ad6f30fc76eeb79f2b7ef2a70014faa7d50ee78d943a5e9c18d8401",
+    "demo_1/episode_000.npz": "5010f280c12f74c28e05839c5d1996649cbae28c9cc1c1bf13378efe802642ad"
+  },
+  "initial_tensor_hashes": {
+    "0": "d7683abda87ffb5354d742ec19980da9c2a27b81819b1280cf8ee64720e18eff",
+    "1": "b07bd47759b49fd0475fdd2eb9a72d88d91f32e38354b84c3ca29de7443c29fd"
+  }
+}

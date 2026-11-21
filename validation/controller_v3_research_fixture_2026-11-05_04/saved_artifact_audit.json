@@ -1,0 +1,42 @@
+{
+  "state": "passed_v3_synthetic_orchestration_audit",
+  "run_kind": "SYNTHETIC_NOT_RESEARCH",
+  "checkpoints_checked": 11,
+  "episodes_checked": 25,
+  "optimizer_rows_checked": 363,
+  "paired_task_sets_verified": 2,
+  "workload_vectors_shared_across_arms": true,
+  "manifest_entries_checked": 125,
+  "training_slots_checked": 440,
+  "optimizer_updates_checked": 363,
+  "all_final_weights_verified": true,
+  "frozen_inference_audit": {
+    "complete_actions_replayed": 1408,
+    "timing_rows_recomputed": 7040,
+    "frozen_fit_count": 1,
+    "all_weight_hashes_verified": true,
+    "all_screens_recomputed": true
+  },
+  "thesis_changed": false,
+  "research_quality_evidence": false,
+  "simulator_steps_added": 0,
+  "optimizer_updates_added": 0,
+  "scope": {
+    "excluded": true,
+    "active_source_paths": [
+      "Source/chapter3_iov_env.py",
+      "Source/chapter3_iov_env_v2.py",
+      "controller_redesign_v2.py"
+    ],
+    "execution_destinations": [
+      "local",
+      "UAV1",
+      "UAV2",
+      "RSU1",
+      "RSU2"
+    ],
+    "cloud_nodes": 0,
+    "charging_stations": 0,
+    "security_trust_enabled": false
+  }
+}

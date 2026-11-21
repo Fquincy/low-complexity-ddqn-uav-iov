@@ -1,0 +1,225 @@
+RETURN-CALIBRATED HANDOFF: SAVED-TRACE DIAGNOSIS
+Date: 2026-11-20
+
+DECISION
+Offline diagnosis is complete. The frozen policy screen remains FAILED,
+the value screen remains PASSED, and promising remains false. No training,
+simulation, teacher inference or final evaluation was performed. No
+historical model, reward, threshold, seed or optimizer setting was changed.
+
+There are now two concrete findings to guide a prospective design decision:
+1. Destination rankings change after DDQN continuation. The third fit sends
+   more work to RSU 2, producing additional within-slot CPU queue waiting.
+2. At the first saved update, the calibrated value readout dominates the
+   TD gradient into the features shared with destination selection.
+The second is an exactly reconstructed local training mechanism, not proof
+that it caused every final miss or that a particular correction will pass.
+
+EVIDENCE
+Source run:
+development_runs/return_calibrated_handoff_comparison_2026-11-20_01
+Unchanged frozen protocol:
+RETURN_CALIBRATED_HANDOFF_COMPARISON_PROTOCOL_2026-11-20.json
+SHA256: 1602eda36acad77475f0c734fde10448daa2f1b96243c00d3f6f257870a7bee1
+Diagnosis outputs:
+validation/return_calibrated_saved_trace_diagnosis_2026-11-20_01/
+  diagnosis.json: all fits, component controls, tasks, fixed-state summaries,
+      reward decomposition, probes and saved update/gradient distributions.
+  fixed_state_predictions.npz: exported final-model inference on fixed data.
+  verification.json: 612 consumed files verified unchanged against evidence
+      bindings/manifests; 41,760 model-state comparisons.
+  first_update_gradient_decomposition.json: reconstructed initial gradient
+      paths for all three fits, plus source/data hashes.
+  first_update_verification.json: first-update reconstruction receipt.
+  independent_verification.json: rehashes, independently recounted action
+      transitions, paired misses, rewards and exported summary arithmetic.
+  within_slot_queue_evidence.json: workload/queue accounting and hashes.
+
+Scripts:
+diagnose_return_calibrated_saved_traces_2026_11_20.py
+decompose_return_calibrated_first_update_2026_11_20.py
+verify_return_calibrated_diagnosis_2026_11_20.py
+analyze_return_calibrated_slot_queues_2026_11_20.py
+
+Controller labels follow the frozen study:
+A calibrated + retention DDQN; B calibrated DDQN without retention;
+C uncalibrated + retention DDQN; D neither calibration nor retention;
+E calibrated imitation-only control; F old softplus BC + DDQN;
+G plain small softplus DDQN without demonstrations. A/B/E share the same
+calibrated handoff in each fit. E's final checkpoint reproduces that exact
+handoff, enabling initial-gradient reconstruction without retraining BC.
+
+WHY THE RETURN/DEADLINE SCREEN FAILS
+Exact decomposition of mean episode return differences using saved reward
+components and original weights. Positive differences favor A. No new score
+or reward was introduced. Each row sums to the original return contrast.
+
+Contrast   Fit   Delay term   Energy term   Miss penalty   Total return
+A-E         0    +0.551478     -0.000469      -0.212500       +0.338508
+A-E         1    +0.525297     -0.000261      -0.233333       +0.291703
+A-E         2    -0.448795     -0.000033      -0.958333       -1.407161
+A-F         0    -0.425676     -0.000469      +0.012500       -0.413645
+A-F         1    -0.519706     +0.096688      +0.368750       -0.054268
+A-F         2    -0.660242     -0.000033      +0.756250       +0.095975
+
+The first two A-E fits gain on delay but lose on deadlines; fit 2 loses on
+both. Against F, worse delay outweighs the deadline improvement in fits 0
+and 1. This is a policy tradeoff under the existing objective, not an
+arithmetic/auditor failure. The energy term is not the main A-E deficit.
+
+FIXED-STATE DECISIONS: REAL RANKING CHANGES
+Every A/B/C/D/E/F final checkpoint was evaluated on the same saved state
+populations: 400 demonstration states and 640 each from A, E and F per fit.
+No alternative choice was stepped through the simulator. On E's states:
+
+Fit    A vehicle choices changed vs E    A movement choices changed vs E
+0                 29.890625%                             0%
+1                 34.447917%                             0%
+2                 24.875000%                             0%
+
+The changes therefore persist when holding the state fixed. A common V(s)
+output shift alone cannot change the separable branch argmin. For A-E on
+these fixed states, Q differences on the SAME E action decompose as:
+
+Fit    Mean value-readout difference   Mean centered-branch difference
+0                 -8.336186                         +2.108708
+1                -10.520823                         +3.507783
+2                -10.654580                         +3.457701
+
+This is the algebra Q(s,a)=V(s)-sum(centered branch costs), not causal
+attribution of returns. Shared feature training can affect both terms.
+F uses a nonlinear softplus transform; its Q-V quantity is not interpreted
+as a linear centered branch contribution.
+
+On the fixed demonstration population, A's imitation loss falls from
+1.156216 to 1.091969, 1.150869 to 1.092099, and 1.184536 to 1.071869.
+Nevertheless, 19.633333%, 17.233333% and 23.750000% of vehicle decisions
+change from handoff. A lower average imitation loss does not imply preserving
+each greedy action, meeting deadlines, or improving held-out return.
+
+THIRD FIT: WHERE THE DEADLINE LOSSES OCCUR
+There are 19,200 evaluated tasks per fit/arm, with matched task identity,
+arrival, size, cycles and deadline across the saved workloads.
+
+Fit    A misses   E misses   A-only misses   E-only misses   Both miss
+0        118         16          114              12             4
+1        123         11          117               5             6
+2        483         23          468               8            15
+
+All 483 A misses in fit 2 occur at RSU 2 (destination 4). A assigns 6,998
+tasks there, E 4,988 and F 4,441. Mean CPU queue wait at that server is
+108.436 ms for A, 73.240 ms for E and 58.473 ms for F. These overall means
+involve different assigned populations, so they are descriptive comparisons.
+
+Of the 468 A-only misses against E in fit 2:
+  67 tasks were local under E and assigned to RSU 2 by A;
+ 129 were assigned to RSU 1 under E and RSU 2 by A;
+ 272 were assigned to RSU 2 by BOTH policies.
+For those same 272 tasks, A's mean delay is 298.014 ms versus E's 200.908 ms.
+The entire 97.105 ms mean increase is CPU queue waiting: transmission,
+uplink-wait and CPU service durations match within engineering precision.
+This directly accounts for their recorded delay difference. A task need
+not change its own destination to suffer from the other assignments.
+It does not establish the return of any unexecuted alternative allocation.
+
+IMPORTANT OBSERVATION-BOUNDARY LIMIT
+Across ALL saved A/E evaluation decision states, observed local workloads,
+remote workloads, radio backlog and remote queue summaries are zero and
+identical. Tasks/time are identical, and only small UAV-state differences
+appear. All A/E/F tasks finish before the next one-second decision boundary;
+deadline failures occur inside that slot, at shorter task deadlines.
+
+Thus these traces do NOT test how the controllers react to an observed
+nonzero backlog, and do not prove queue-feature blindness. No policy action
+changes were found when swapping between paired saved A/E observations.
+The relevant pressure is the simultaneous within-slot allocation of the
+current tasks, before that slot's queues form. Current task descriptors
+already exist in the observation; no claim that this information is absent
+or that a new simulator/extra state is necessarily required is justified.
+
+WHAT THE GRADIENT RECORDS AND RECONSTRUCTION ESTABLISH
+Every A update is globally clipped. Mean shared-hidden fraction of squared
+combined preclip gradient norm is 99.356%, 99.189% and 98.262% across fits.
+B, without retention, also has very large shared-feature gradients. Combined
+historical norms alone cannot determine separate TD/retention directions.
+
+We therefore reconstructed ONLY the first saved update at the exact retained
+E/A/B handoff in each fit, using saved replay and retention indices. A and
+B have identical first TD batches. Predictions, detached targets, losses and
+all logged preclip gradient-group norms reproduce. Fifteen offline autograd
+evaluations separate TD, retention and the TD value/branch paths. No optimizer
+was constructed or stepped; all parameter hashes remained unchanged.
+
+Fit   Shared TD norm   Shared TD via V   Shared TD via branches   Shared keep
+0        381.409272       381.409620             0.003677           0.038113
+1        225.169483       225.169571             0.003017           0.036306
+2        134.982343       134.981420             0.003916           0.046891
+
+These are norms of gradient vectors before clipping, not additive scalar
+contributions; vector sums and cross terms were checked. Initial V readout
+weight norms are 44.383, 42.264 and 24.822. The entire calibrated branch-row
+weight norms are about 0.039, 0.038 and 0.042. Retention has exactly zero
+direct V-output gradient, while the TD value path strongly drives shared
+features. The paths are differentiated at the same saved initial tensors.
+
+This verifies an indirect route by which value fitting can disturb decision
+features even though a common value offset cannot change argmin directly.
+It does not prove that gradient routing caused every final ranking change.
+These norms are NOT Adam parameter-step sizes: clipping and adaptive moments
+prevent interpreting their ratios as proportional final weight changes.
+No intermediate checkpoints exist to reconstruct that mechanism throughout
+the entire training trajectory.
+
+RESIDUAL VALUE AND LOSS BEHAVIOR
+A's mean terminal Q-G errors remain -16.066, -10.310 and -11.242 across the
+three fits, versus nonterminal means -9.589, -3.848 and -3.154. Passing the
+relative value screen against D is not full finite-horizon calibration.
+Saved first-200-update versus last-72-update mean TD losses rise from
+1.873 to 7.419, 1.941 to 7.419 and 1.204 to 8.351. Their replay populations,
+policies and targets change over time, so these are not fixed-state learning
+curves or sufficient evidence of numerical divergence. Full distributions,
+terminal masks, demo/online splits and first-gap decompositions are retained.
+
+CONTROLS AND CLAIM LIMITS
+A beats B/C/D/G on return and deadlines in all fits. Calibration shrinks
+the first-update mean greedy-versus-sampled action gap from about
+16.506/13.329/12.924 in C/D to 0.058/0.046/0.051 in A/B. Retention materially
+improves the calibrated continuation over B. These useful component results
+do not overcome A's failed required comparisons against E and F.
+The imitation-only arm is a control, not a replacement DDQN success claim.
+The study has identical student parameter storage and no established
+deployment speed improvement over F. Scientific/novelty claims do not change.
+
+DIAGNOSTIC HARNESS CORRECTION
+The first analysis attempt rejected batch-128 Q reproduction: FP32 batching
+changed calibrated Q by up to 0.000240326 in the checked primary population.
+At that state, single-state greedy/forward exactly reproduced the saved Q;
+the checked actions matched. The corrected diagnosis uses the original
+single-state evaluation boundary and separately reproduces original
+batch-400 demonstration probes. Every demonstration single/batch action
+comparison in the completed diagnosis agrees. The original diagnostic
+script and failure receipt are preserved under:
+validation/return_calibrated_diagnosis_harness_correction_2026-11-20_01/
+No scientific tolerance, research evidence or original code was changed.
+
+NEXT BOUNDED GATE
+Prepare one prospective controller-design and comparison decision brief.
+Prioritize the now-identified coupling between calibrated value fitting and
+decision features; assess whether isolating that gradient path can preserve
+useful decisions while retaining genuine DDQN policy improvement. The brief
+must also account for within-slot joint allocation and the delay/deadline
+tradeoff; simply changing a common Q offset or adding backlog inputs is not
+an evidence-backed fix for these observed failures.
+
+Check any proposed mechanism against related literature before calling it
+novel. Specify an unmodified paired ablation, E, F, ordinary small DDQN and
+the relevant stronger references/heuristics, complete storage/latency costs,
+fresh development seeds and an untouched final set before any later run.
+Do not presume success, relax historical criteria, select a best fit or
+automatically retrain. If the mechanism cannot justify improvement over
+imitation alone, record HOLD rather than treating imitation as a DDQN win.
+
+Contribution one remains efficient DDQN offloading in UAV-IoV; security/trust
+is deferred, and cloud/charging remain excluded. The frozen failed evidence,
+archive and final seed reservations are preserved. The Word thesis remains
+unchanged. This diagnosis does not authorize a new research launch.

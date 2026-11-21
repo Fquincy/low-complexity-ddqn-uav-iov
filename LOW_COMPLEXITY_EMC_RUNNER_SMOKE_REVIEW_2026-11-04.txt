@@ -1,0 +1,83 @@
+EMC-Q PAIRED RUNNER AND DISJOINT SMOKE REVIEW
+Date: November 4, 2026
+Scope: integration test and fixed-budget three-arm smoke only.
+
+DECISION
+The paired smoke and subsequent saved-artifact audit passed. This clears the
+runner integration gate only. It does not clear the separate development-run
+readiness gate and does not establish a learning, quality, low-complexity,
+novelty, or deployment claim. No 72,000-slot development run was launched.
+
+IMPLEMENTATION AND CHECKS
+The separate runner is run_emc_tradeoff.py. It compares frozen additive128,
+additive64, and original exact-decoder EMC-Q arms using the unchanged Chapter 3
+timeline-v2 simulator. The training code uses one joint scalar Huber loss,
+Double DQN online selection/target evaluation, terminal-successor skipping,
+detached targets, frozen target parameters, and one update after each record
+from the inclusive warmup threshold. Exploration and replay random streams are
+separate, and exploration vectors are paired across arms.
+
+Six runner tests passed. They exercised synthetic updates, target gradient and
+terminal handling, paired exploration, replay wraparound, a paired physical
+episode, evaluation invariance, and checkpoint round-trip. The 219 updates in
+the synthetic counter test and its 120 simulator evaluation steps are test
+fixtures. They are not the smoke's training totals.
+
+The actual smoke used the frozen disjoint seed 2399 and the three specified
+arms. Each arm trained for two 40-slot episodes, with warmup8, batch4,
+capacity64, target copy interval8, and 73 optimizer updates/9 target copies.
+Totals were 240 physical training slots and 219 updates. It also completed
+18 scheduled validation episodes, 2 fixed-probe episodes, 6 final-model fresh
+episodes, and 6 heuristic fresh episodes, each40 slots. That is 1,280
+evaluation slots, in addition to the training slots. Timing used 5x128
+measured selections per arm plus warmup; it did not step the simulator.
+
+The runner wrote all episode trajectories/task records, physical replay
+transitions, optimizer rows, and final model/target/optimizer/RNG/replay
+checkpoints. It froze and hashed all final model checkpoints before fresh-gate
+evaluation. Paired predecision task fingerprints, exploration histories, and
+learner-state digests around scheduled validation, fresh evaluation, timing,
+and fixed probes were checked.
+
+An independent read-only artifact audit then checked 219 optimizer rows,
+reconstructed replay contents and both RNG streams from the saved evidence,
+verified all checkpoint/source/spec hashes, reconciled all 32 saved episodes'
+task/reward/energy accounting, checked shared workloads, recomputed timing
+quantiles and parameter/replay/optimizer storage totals, and matched 18
+pre/post evaluation-state digests. The auditor launched zero new simulator
+steps and zero optimizer updates. The refreshed audit is at
+validation/emc_tradeoff_smoke_2026-11-04_03/saved_artifact_audit.json.
+
+LIMITS OF SMOKE OUTCOMES
+The two fresh seeds per model are plumbing checks only. For context, EMC-Q's
+two fresh episode returns were -565.07 and -592.27, with deadline fractions
+0.3750 and 0.3867. Additive128 returned -353.63 and -377.06, with fractions
+0.5033 and 0.4867. These short runs are not evidence for ranking trained
+policies: each model had only 80 training slots and 73 updates, and only one
+initialization. Do not use these results to select, retune, or relabel an arm.
+
+This smoke measured online parameter storage at 422,016 bytes for additive128,
+194,944 for additive64, and 277,444 for EMC-Q. Those architecture sizes were
+already known and do not demonstrate policy quality. Smoke timing medians were
+0.0890ms, 0.0843ms, and 0.2994ms respectively; p95 values were 0.1543ms,
+0.1163ms, and 0.6382ms. These small-run measurements are diagnostic and do not
+replace the pre-run timing profile or establish a device-independent runtime.
+
+DEVELOPMENT-GATE STATUS
+The separate development reporting path is implemented and reviewed in
+LOW_COMPLEXITY_EMC_DEVELOPMENT_RUNNER_REVIEW_2026-11-04.txt. Its tests verify
+the paired bootstrap and per-replicate quality screens. The CLI requires an
+explicit --confirm-development-run flag. This smoke passing does not start the
+pilot. Preserve the frozen protocol and seed groups; do not change the reward,
+architecture, budgets, or thresholds using smoke outcomes.
+
+ARTIFACTS
+Runner: run_emc_tradeoff.py
+Runner tests: test_emc_tradeoff_runner.py
+Test evidence: validation/emc_tradeoff_runner_tests_2026-11-04_09/
+Reporting test evidence: validation/emc_tradeoff_reporting_tests_2026-11-04_02/
+Smoke evidence: validation/emc_tradeoff_smoke_2026-11-04_04/
+Read-only auditor: audit_emc_tradeoff_smoke.py
+Frozen design: LOW_COMPLEXITY_EMC_TRADEOFF_SPEC_2026-11-04.json
+Word thesis unchanged. The prior SPI-DDQN results remain separate and are not
+silently replaced by this EMC-Q comparison.

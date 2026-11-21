@@ -1,0 +1,203 @@
+PROSPECTIVE CORRECTION: CENTERED ACTION COSTS AND LINEAR STATE VALUE
+2026-11-20 | Design for one bounded engineering gate; no research release
+
+DECISION
+Recommend implementing ONE isolated corrected baseline for mechanics testing:
+the same compact network with centered branch costs and an unconstrained
+linear scalar state-value component. This is an established dueling-style
+correction,not a claim that centering,dueling DDQN or demonstration learning
+is new. Its purpose is to remove the specifically observed outer-softplus
+attenuation path and separate action preferences from scalar offsets. Actual
+calibration,policy benefit,latency and thesis novelty remain unestablished.
+No weights,criteria or results of the completed pilot are modified.
+
+1. PRECISE MODEL
+Retain533->24 ReLU->161 FP32 outputs. No extra head,width or hidden observation.
+Outputs0..149 are raw vehicle costs c_i,d;150..159 are raw motion costs c_j,d;
+output160 is a signed scalar V(s). Define scaled raw branch costs
+  z_i,d=c_i,d/30 for vehicle branches i=0..29,
+  z_j,d=c_j,d/2 for the two movement branches.
+Center each branch over ALL five declared actions:
+  A_b,d=z_b,d-(1/5)*sum_e z_b,e.
+Define the same-action joint critic
+  Q_theta(s,a)=V_theta(s)-sum_(b=0..31) A_theta,b,a_b(s).
+This is a signed Q approximation. No outer softplus,clamp or forced Q<=0.
+The true nonpositive reward-return convention remains unchanged;positive
+predictions are possible approximation errors and must be reported,not hidden.
+No horizon multiplier or terminal-anchor auxiliary loss is added.
+
+The local feasibility screen and deterministic first-index ties remain the
+same. For a nonterminal state choose independently
+  a_b*=argmin_(d allowed by inherited screen) z_b,d.
+Centering is independent of a chosen action and V is state-only,so this is
+an exact masked maximum of THIS additive joint critic,not of the physical
+coupled UAV-IoV problem. Q remains defined for every legal stored action,
+even if its choice is excluded by the current screen. Center over all5actions,
+not the changing masked subset,so the critic is not silently redefined when
+the allowed set changes. No remote feasibility or battery filter is added.
+
+At terminal next states there is no policy decoding and bootstrap0. The
+unscaled network is not forced to output0 for arbitrary terminal inputs;
+no terminal-network-value guarantee is claimed. Last physical state Q should
+estimate its remaining reward,not be incorrectly compared with0.
+
+2. WHAT THE CORRECTION DOES AND DOES NOT PROVE
+For the selected action,dQ/dV=1. For raw cost z_b,e,
+  dQ/dz_b,e=1/5-1[e=a_b].
+For the actual network outputs,divide those derivatives by30or2 according
+to branch type. There is no multiplier sigmoid(C) that becomes exponentially
+small when the branch costs shift negative. ReLU/shared-feature behavior,
+Huber residual saturation,gradient clipping and optimizer effects remain.
+This is not a proof of globally nonvanishing parameter gradients or convergence.
+
+Adding any common branch offset leaves both A and the selected action
+unchanged,so it cannot shift Q through that branch's arbitrary mean. V provides
+a separately represented scalar offset. The centered cost sum has zero mean
+under uniform independent sampling of all declared actions at fixed s;in that
+limited algebraic sense V is the mean of the modeled joint values. It is not
+automatically the greedy policy value or a physically calibrated baseline.
+
+For unrestricted additive linear outputs,centering is a parameterization
+choice rather than additional expressive capacity. An uncentered linear
+critic can represent the same joint functions by absorbing branch means into
+its state-value output. Do not claim a unique new function class or attribute
+all gains to centering. Removing the output nonlinearity and centering are
+two distinct changes;the comparison below must distinguish them.
+
+3. BC AND DDQN GRADIENT PATHS
+BC uses the existing allowed-action cross entropy on -z/T,T=1,averaged over
+vehicles plus the separate average over movement branches. Using centered
+scores yields the same mathematical softmax probabilities;use raw scores in
+implementation to avoid needless centering in the BC loss. Teacher labels
+remain training-only and include stationary motion. No teacher Q regression.
+The last-layer V row has no direct BC-loss gradient;shared hidden parameters
+do receive BC gradients,so the numerical V(s) can still change during BC.
+Do not say that V is frozen just because its final row is unsupervised.
+No post-BC value-row reset,teacher-return fitting or extra supervised target
+is added in this design. All initialization semantics must be paired explicitly.
+
+After optional BC,discard its Adam state,initialize the target from the
+post-BC online weights and create fresh DDQN Adam. For each replay transition,
+  a_next=decode_theta(s_next),
+  y=r+gamma*(1-done)*Q_target(s_next,a_next),gamma=1,
+  L_TD=mean Huber_beta1(Q_online(s,a)-stop_gradient(y)).
+Terminal rows bypass decode/target evaluation and use y=r. TD trains V,
+advantages and shared features;target parameters receive no gradients/updates
+except scheduled exact copies. A single optimizer step covers each TD batch.
+No continuous imitation loss,reward change,prioritized replay or n-step
+target is introduced. These choices are correction scope,not yet a full-run
+optimizer/budget freeze. Historical pilot data may diagnose but cannot confirm.
+
+4. COST AND STORAGE EXPECTATION
+Same16,841parameters,67,364FP32 parameter bytes and inherited20buffer bytes.
+No training-only teacher code or physical decoder is needed in deployment.
+Same neural MACs as the old compact model;branch means and centering add
+O(32*5) scalar work,while the outer scalar softplus is removed. For selected
+Q,one may subtract the sum of branch means without materializing a full
+centered tensor,provided equivalence is checked under the declared arithmetic.
+No speedup is assumed. Complete validation,screen,forward,selection,Q if used,
+and output copy remain inside matched action-selection measurements.
+If deployment returns actions only,it may omit unused scalar evaluation
+consistently for ALL comparable controllers;do not move candidate-specific
+work outside the timing boundary to obtain a pass. Report actual workspace,
+serialization and framework costs separately from online parameters.
+
+5. CLOSEST METHODS AND NOVELTY BOUNDARY
+BDQ(arXiv1711.08946),saved full extract lines336onward,already describes a
+shared state-value estimator plus locally mean-centered branch advantages.
+Its Eq1 is Q_d=V+A_d-mean(A_d). The present correction uses one summed joint
+scalar and one joint scalar TD loss,with cost signs/scales and our mask;
+BDQ uses branch values and its documented branch-learning/aggregation scheme.
+The exact differences must be retained when adapting a BDQ baseline. They
+are implementation/formulation differences,not proof of original priority.
+Do not claim centering uniquely resolves all neural-parameter identifiability;
+BDQ's own full text explicitly discusses limits of that interpretation.
+
+DQfD(arXiv1704.03732),saved method extract lines330..405,combines demonstration
+supervision with TD,n-step,regularization and replay treatment. Our BC stage
+followed by ordinary TD is not full DQfD. That source already warns that
+supervised-only pretraining does not make values Bellman-consistent.
+Policy Distillation(arXiv1511.06295),saved Section3.2,already separates action
+preferences from difficult Q-scale transfer. The known2025MEC DQfD-DECO work
+(DOI10.1109/ICEAAI64185.2025.10956500)overlaps heuristic demonstration plus RL;
+only abstract/metadata are available locally. Missing full methods remain an
+access gap,not evidence that our extension is novel.
+
+Thus this brief clears a concrete engineering correction question,not the
+requested research contribution by itself. A later claim needs demonstrated
+usefulness against these established alternatives and a precise additional
+domain/method improvement;do not relabel this repair as a novel algorithm.
+
+6. COMPARISON QUESTIONS BEFORE RESEARCH
+The eventual comparison should distinguish the following,with exact budgets,
+RNG blocks,optimizer settings and analysis decisions frozen prospectively:
+A. corrected centered-linear BC->DDQN (engineering candidate).
+B. current uncentered-softplus BC->DDQN,retrained on common fresh seeds.
+C. centered-softplus BC->DDQN:Q=-softplus(-V+sum A_selected).
+   Same heads/scale/BC;AversusC isolates removing the outer saturating transform
+   within the centered parameterization. No assumption that centering alone
+   prevents its nonlinear saturation.
+D. uncentered-linear BC->DDQN:Q=V-sum z_selected.
+   AversusD tests parameterization/optimization under the same linear scalar
+   route,not added expressive capacity. These equations intentionally make
+   V's sign convention explicit;do not silently negate initialized rows.
+E. corrected centered-linear BC-only student,trained on the same demonstrations
+   for the same BC budget,then frozen. Collect no further training transitions
+   for this arm just to pretend data/compute are equal. Account for that gap.
+   AversusE tests whether DDQN adds policy benefit beyond imitation;value
+   accuracy is not expected from BC-only because its V row lacks direct labels.
+F. corrected centered-linear DDQN with shared demo replay but no BC,plus
+   ordinary corrected no-demo DDQN:separate initialization and data-access
+   effects. Specify shared data/access and extra updates honestly.
+G. frozen teacher and stronger compact/wide/DDQN/BDQ references under equal
+   observation and fair implementation opportunities in the full comparison.
+
+This is a comparison REQUIREMENTS MENU,not a released arm list or open-ended
+permission to train eight variants. Before a new protocol,select the minimum
+arm set that answers its stated claim,document deferred questions,and avoid
+dropping stronger controls merely to pass. Any reduced pilot cannot answer
+the omitted mechanism or contribution questions. Final-only checkpoints
+remain the default;BC-only is a distinct declared arm,not a retrospectively
+selected intermediate checkpoint of A. No best-fit selection.
+
+7. ACCEPTANCE MEANING AND NEXT BOUNDED ENGINEERING GATE
+The immediate gate is one isolated prototype for A with small equation-level
+reference functions for C,D. Do not integrate a research runner or assign
+development seeds in that gate. Verify:
+- Exact parameter/storage counts,all-action mean centering,offset invariance,
+  and analytic V/advantage derivatives against autograd on synthetic inputs.
+- Masked greedy equality with chosen Q,and exhaustive reduced joint-action
+  checks;mean centering includes all5actions even when local is excluded.
+- Teacher-guided preferences,zero direct BC gradient to the V output row,
+  shared-feature gradient behavior,and independent BC-only freeze semantics.
+- Online selection/separate target evaluation,detached targets,no terminal
+  decode,finite/sign REPORTING(no enforced nonpositivity),checkpoint reload,
+  no hidden teacher in student deployment,and fail-closed research CLI.
+- Compare scalar derivative behavior of old softplus and the new linear route
+  on fixed synthetic scores;this proves the removed local attenuation factor,
+  not superior trained stability or policy quality.
+Use isolated fixture seeds,retain failures,perform no real task rollouts or
+research optimizer budget. Small synthetic learning steps may test mechanics
+if counted explicitly. Passing this gate leads to a prospective comparison
+freeze/readiness stage,not automatic training or thesis claim revision.
+
+Scientific criteria for any later research run must assess BOTH restoring
+usable scalar TD learning AND policy behavior,including the BC-only contrast.
+No new numerical calibration/utility threshold is chosen from old failures.
+Report all fits,uncertainty,teacher restrictions,near-zero outputs,gradient
+distributions,return/deadlines,storage and full inference cost. A successful
+mechanics derivative check cannot substitute for those outcomes.
+
+PRESERVATION
+No implementation,simulation,optimizer updates,new research seeds,retiming
+or Word-thesis edits in THIS design stage. Current pilot promising result
+remains passed;all prior failed protocols remain failed. Final reservations
+untouched. Security/trust deferred;cloud/charging excluded.
+
+SOURCES
+HEURISTIC_INITIALIZATION_SAVED_VALUE_DIAGNOSIS_2026-11-20.txt
+validation/heuristic_initialization_saved_value_diagnosis_2026-11-20_01/diagnosis.json
+heuristic_initialized_ddqn_baseline.py;controller_v3_amortized.py
+validation/incumbent_evidence_stage_2026-11-15_01/literature/branching_full.txt
+validation/heuristic_initialization_feasibility_2026-11-19_01/dqfd.txt
+validation/heuristic_initialization_feasibility_2026-11-19_01/policy_distillation.txt

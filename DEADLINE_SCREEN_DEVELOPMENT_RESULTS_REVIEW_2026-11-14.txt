@@ -1,0 +1,137 @@
+DEADLINE SCREEN DEVELOPMENT: AUDITED RESULTS REVIEW
+Date: November14,2026
+
+OUTCOME
+Training, evaluation, deployment/storage verification and the full corrected
+saved-artifact audit are complete. Artifact integrity PASSED. The combined
+predeclared scientific acceptance decision FAILED. These are separate results.
+The completed run is preserved, including all55 fits/comparators and failures.
+
+COMPLETION AND AUDIT COVERAGE
+440,000 training slots;55 final checkpoints;383,735 optimizer updates;
+1,870target copies;111,360 evaluation slots;35,200 raw timing readings.
+Full audit:13,784episodes,16,540,800task records,383,735optimizer rows,
+7,040engineering runtime/action checks. All55 deployment exports/storage
+checks passed. No training, evaluation or timing was repeated for correction.
+
+AUDITOR CORRECTION
+The original V2 audit stopped because it recomputed saved batch-one target
+values using40-state FP32 matrix batches. A versioned V3 auditor reproduces
+original batch-one arithmetic. Reproduced failing prediction matches exactly;
+existing atol1e-6/rtol1e-5 unchanged. Regression/corruption/family/fixture checks
+passed before the full audit. Original failure, V2 source, manifests and frozen
+checkpoints remain intact. The successful corrected workflow evidence lives
+in the separate audit-correction validation directory; original workflow
+verification absence does not imply this subsequent audit failed.
+
+PREDECLARED SCIENTIFIC SCREENS
+references_every_fit: FAIL
+strong_heuristics_every_fit: FAIL
+screening_mechanism: PASS
+price_mechanism: FAIL
+same_width_architecture_mechanism: FAIL
+primary_value_every_fit: FAIL
+primary_cost_every_fit: PASS
+
+WHAT IMPROVED
+Exact primary screening ablation (screened price24 vs unmasked price24):
+five-fit mean return improvement +11.297719; deadline improvement +24.055208
+percentage points. All five paired initializations improved both metrics:
+per-fit return improvements range+7.3231..+16.4115; deadline improvements
+range+16.0833..+33.1858points. The predeclared screening-mechanism screen passes.
+This is development evidence for screening within this controller/system.
+It does not establish that masking itself is new or prove independent final
+generalization. Changed decisions alter later queues; this is a trained-policy
+ablation, not an individual-task causal guarantee.
+
+Primary online parameters:68,264bytes +20buffer bytes. Original compact64:
+194,944parameter bytes; primary uses about35.02% (64.98% fewer). Wide128:
+422,016parameter bytes. All five storage/median/p95 cost screens pass.
+Primary median action latency0.0770..0.0779ms; p950.08241..0.134315ms.
+Same host and frozen timing procedure; not peak device memory or an energy
+saving claim. Serialized training checkpoints include extra state and are
+not the online parameter payload.
+
+ALL PRIMARY COMPARISONS
+Positive return means less negative episode return; deadline differences are
+percentage points. Equal weights across five paired model fits.
+Comparator | mean return difference | mean deadline difference (points)
+unmasked_price24 | +11.297719 | +24.055208
+screened_no_price24 | +0.371382 | +1.030208
+screened_plain24_anchored | +3.605585 | -0.763889
+screened_compact64_anchored | +349.998923 | +39.986111
+screened_plain24 | +75.067263 | +13.278819
+unmasked_plain24 | +36.712815 | +35.555903
+screened_wide128 | +44.039769 | +10.396528
+unmasked_wide128 | +24.897449 | +20.015972
+screened_bdq64 | +118.199364 | +16.094097
+unmasked_compact64 | +20.727145 | +12.964583
+all_local | +21.231223 | +38.622569
+nearest_rsu | +4.110587 | +11.410764
+uav_selective | +1.245340 | +6.556597
+
+WHY THE COMPLETE CLAIM FAILED
+The primary beats both wide128 variants, ordinary plain24 variants, adapted
+BDQ64, original compact64 and screened anchored compact64 in return and
+deadlines in every fit. This is meaningful progress over those references.
+However, screened plain24 WITH horizon/anchor is a stronger same-width control:
+primary fit0 loses6.8963return and12.4514deadline points, and fit3 loses
+1.0524return and1.0139deadline points. The all-reference screen therefore fails.
+
+Price ablation vs screened no-price24: mean return+0.371382 (required>=2),
+mean deadline+1.030208points (required>=1), but fits0 and3 lose BOTH metrics.
+Thus consistent benefit of the workload-price term is not established.
+Against screened anchored plain24, mean return+3.605585 but mean deadline
+-0.763889points; fits0 and3 also degrade. Same-width architecture benefit fails.
+
+Strong heuristics: five-fit means favor the primary, but primary fit0 loses
+0.5251return against nearest-RSU and loses3.3904return/2.6372deadline points
+against UAV-selective. Required nondegradation in every fit therefore fails.
+All-local remains diagnostic and is not an acceptance reference.
+
+VALUE CONSISTENCY: ALL FIVE FAIL GLOBAL CALIBRATION
+fit | normalized RMSE (max .25) | absolute bias (max2) | terminal error p95 (max2)
+0 | 0.665688 | 7.051281 | 0.952427
+1 | 2.845045 | 21.214356 | 1.640490
+2 | 2.061146 | 17.067408 | 1.328932
+3 | 1.007201 | 8.084272 | 0.904475
+4 | 1.154461 | 8.363957 | 0.776842
+All five pass terminal p95, nonpositive Q and near-zero/large-return checks,
+but all fail normalized RMSE and absolute bias. Good terminal behavior does
+not establish calibration throughout the horizon. These compare chosen values
+with realized returns on the same greedy trajectories, not exact optimal Q.
+No comparator calibration failure excuses the primary failure.
+
+CONTRIBUTION DECISION
+We now have audited development evidence for a small/fast implemented
+controller and a large screening-related policy gain. We do NOT yet have the
+full predeclared efficient-controller contribution: robust superiority of the
+price architecture, consistency across strongest controls/heuristics and global
+value calibration remain unsupported. Do not select only successful seeds,
+relax thresholds retrospectively, call generic masking novel, or rewrite the
+Word thesis as though the complete claim has passed.
+
+NEXT BOUNDED WORK
+Preserve this completed comparison. Keep the untouched final task/model sets
+reserved; do not launch final confirmation or more training now.
+Use saved trajectories/checkpoints first to compare the primary, screened
+no-price24 and screened anchored plain24, focusing on fits0/3 and consistent
+patterns across all five. Diagnose remaining deadline failures by destination,
+local feasibility, queue/motion decisions and time; compare saved Q/target/G
+and optimizer distributions by terminal/nonterminal stage. Separate observed
+associations from unproven causes. The current review does not establish why
+the price term/calibration failed.
+Only after that diagnosis choose whether a prospectively declared correction
+is justified or whether the strongest simpler controller deserves a separate
+fresh-seed comparison. That would be a new prospective decision, not replacing
+failed primary results or claiming an exploratory comparator as confirmed.
+Broader domain literature and supervisor discussion remain needed for novelty.
+
+SCOPE
+Local/UAV/RSU offloading only. Cloud/charging excluded. Security/trust deferred.
+No new research run or thesis edits in this completion review.
+
+EVIDENCE
+development_runs/deadline_screen_development_2026-11-14_01/run/analysis.json
+validation/deadline_screen_audit_correction_2026-11-14_01/workflow_verification.json
+validation/deadline_screen_audit_correction_2026-11-14_01/development_saved_artifact_audit.json

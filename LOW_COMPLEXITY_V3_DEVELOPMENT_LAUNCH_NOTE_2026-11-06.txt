@@ -1,0 +1,64 @@
+VERSION 3 DEVELOPMENT COMPARISON LAUNCHED
+Date: November 6, 2026
+
+The explicitly authorized frozen development comparison is running locally in
+a persistent background process. Initialization completed and training episode
+files are being saved. The11 controller arms, five paired initializations,
+200 episodes per fit and40 slots per episode give440,000 training slots.
+Expected optimizer updates:383,735; target copies:1,870; final checkpoints:55.
+
+Preflight verified the471-entry engineering completion manifest using the
+archived pre-launch tracker, the frozen protocol hash, source hashes, saved
+test evidence and seed-audit evidence. Missing development confirmation was
+rejected; final execution was rejected; a confirmed check-only request passed
+without creating research output. No research models, rewards, thresholds,
+optimizer settings or seed schedules were modified to launch this experiment.
+
+The new authorized entrypoint uses the tested Version3 revision. The original
+engineering runner remains disabled when invoked directly. The launch wrapper
+enables development execution only for this confirmed process; it offers no
+final-phase execution. New entrypoint/supervisor sources and all training
+sources are snapshotted and hashed inside the research output.
+
+MONITORING
+Open validation/v3_development_launch_2026-11-06_01/LIVE_STATUS.txt
+or LIVE_STATUS.json. The supervisor refreshes them about every15 seconds.
+They report fully saved training episodes, training slots, final checkpoints,
+the latest runner event and process IDs. The current incomplete episode is
+not included, so the slot count may lag by up to39 slots.
+
+PowerShell live view from the Low Complexity folder:
+Get-Content '.alidation3_development_launch_2026-11-06_01\LIVE_STATUS.txt' -Wait
+For continuously refreshed contents, reopen the file or use a polling loop;
+the supervisor replaces the file atomically, so -Wait can retain an older file
+handle on some systems.
+
+Logs:
+validation/v3_development_launch_2026-11-06_01/worker_stdout.log
+validation/v3_development_launch_2026-11-06_01/worker_stderr.log
+validation/v3_development_launch_2026-11-06_01/supervisor_stderr.log
+
+Research output:
+development_runs/controller_v3_development_2026-11-06_01/
+
+After training, the process checks exported frozen checkpoints, runs paired
+held-out development evaluation, computes comparisons/value distributions and
+audits saved artifacts. Training reaching100% is not completion of those
+later stages. The monitor reports completed_and_audited only after success;
+COMPLETION.json records the runner/auditor results. A protocol performance
+screen can fail while the saved-artifact audit passes; all outcomes are kept.
+On process failure the supervisor reports failed_requires_review. No automatic
+restart, overwrite or checkpoint selection occurs.
+
+The run uses local files and does not require an internet connection. Keep
+the computer powered and prevent sleep/hibernation while it runs. The current
+final-only checkpoint policy does not support automatic mid-fit recovery.
+
+The prior tracker bytes are preserved in PROJECT_STATUS_BEFORE_LAUNCH.json
+in the launch control folder so the preceding completion manifest remains
+verifiable after the live project tracker advances.
+
+Cloud and charging stations remain excluded. Security/trust remains deferred
+to contribution two. The final experiment has not been authorized or launched.
+The Word thesis is unchanged. This launch does not establish the contribution;
+the saved results and every declared screen must still be reviewed.

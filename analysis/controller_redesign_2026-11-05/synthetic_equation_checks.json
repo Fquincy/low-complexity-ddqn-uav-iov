@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "kind": "synthetic_equation_checks_not_research_or_runner_tests",
+  "synthetic_seed": 99002,
+  "physical_simulator_steps": 0,
+  "optimizer_updates": 0,
+  "fixtures": 40,
+  "marginal_cost_identities": 800,
+  "retained_candidate_dominance": true,
+  "zero_penalty_exactness": true,
+  "exact_fixture_fraction": 1.0,
+  "maximum_fixture_cost_gap": 0.0,
+  "mean_fixture_cost_gap": 0.0,
+  "symmetric_counterexample": {
+    "decoder_cost": 0.5,
+    "exhaustive_cost": 0.25,
+    "gap": 0.25,
+    "meaning": "synchronous_choices_can_oscillate_together_and_miss_balanced_assignment"
+  },
+  "v2_four_repairs": {
+    "symmetric_cost": 0.25,
+    "mean_random_fixture_gap": 0.0,
+    "maximum_random_fixture_gap": 0.0,
+    "nonincreasing_full_cost_verified": true,
+    "exact_single_move_delta_verified": true,
+    "guarantee": "does_not_guarantee_global_optimality"
+  },
+  "conclusion": "price_decoder_is_approximate_nonzero_optimality_gaps_expected_no_policy_evidence"
+}

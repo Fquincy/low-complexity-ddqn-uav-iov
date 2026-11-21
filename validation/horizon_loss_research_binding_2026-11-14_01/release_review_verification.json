@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "core_tests": 4,
+  "original_evidence_files_verified": 403,
+  "source_files_frozen": 63,
+  "separate_startup_models_verified": 28,
+  "outer_CLI_guards_passed": true,
+  "startup_protocol_tamper_rejected": true,
+  "source_release_enabled": false,
+  "research_launched": false,
+  "reserved_development_seeds_consumed": false,
+  "word_thesis_changed": false
+}

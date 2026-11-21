@@ -1,0 +1,52 @@
+{
+  "state": "passed_specification_checks_only",
+  "spec_sha256": "f818f97d0b2e0514dfcba5cdfe793b4e132c034ab029c5723340f4d10142d414",
+  "validator_sha256": "92041d431f9547dc3c7f615176b43e2d6c6e2e7f4ce5f25d595db764ecc6b76a",
+  "seed_group_counts": {
+    "train0": 200,
+    "train1": 200,
+    "train2": 200,
+    "scheduled_validation": 5,
+    "timing_probe": 8,
+    "fresh_development_gate": 48,
+    "smoke_train_seeds": 2,
+    "smoke_validation_seeds": 2,
+    "smoke_probe_seeds": 2,
+    "smoke_fresh_seeds": 2
+  },
+  "prior_protocols_scanned": [
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\Source\\CHAPTER3_ACTION_SENSITIVITY_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\Low Complexity\\Source\\CHAPTER3_SEQUENTIAL_PILOT_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_ACTION_SENSITIVITY_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_FINITE_HORIZON_FORMULATION_PLAN_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_FROZEN_TARGET_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_LR_STABILITY_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_RESEARCH_EXPERIMENT_SPEC_2026-10-31.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_RESEARCH_EXPERIMENT_SPEC_VERIFICATION_2026-10-31.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_REWARD_SCALE_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_SEQUENTIAL_PILOT_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_SEQUENTIAL_TIMING_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_TERMINAL_FIT_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_TERMINAL_SAMPLING_SPEC_2026-11-01.json",
+    "C:\\Users\\OMEN\\Desktop\\Fitz Thesis docs\\October 31\\Working\\Project\\CHAPTER3_TIME_PRIOR_SPEC_2026-11-01.json"
+  ],
+  "native_online_parameter_bytes": {
+    "emc": 277444,
+    "additive128": 422016,
+    "additive64": 194944
+  },
+  "updates_per_run": 6977,
+  "target_copies_per_run": 34,
+  "nine_run_training_slots": 72000,
+  "nine_run_updates": 62793,
+  "smoke_training_slots": 240,
+  "smoke_updates": 219,
+  "epsilon_schedule_and_quality_units_checked": true,
+  "paired_actor_replay_ownership_checked": true,
+  "instantiated_untrained_models_only": true,
+  "new_optimizer_updates": 0,
+  "new_simulator_steps": 0,
+  "runner_implemented": false,
+  "smoke_launched": false,
+  "development_launched": false
+}

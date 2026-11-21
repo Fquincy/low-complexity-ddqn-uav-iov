@@ -1,0 +1,23 @@
+{
+  "state": "passed_synthetic_saved_artifact_audit",
+  "models": 14,
+  "actions_replayed": 1792,
+  "timing_rows_recomputed": 8960,
+  "screens": [
+    {
+      "fit": 0,
+      "parameter_storage": true,
+      "median": false,
+      "p95": false
+    },
+    {
+      "fit": 1,
+      "parameter_storage": true,
+      "median": false,
+      "p95": false
+    }
+  ],
+  "new_simulator_slots": 0,
+  "new_optimizer_updates": 0,
+  "research_launched": false
+}

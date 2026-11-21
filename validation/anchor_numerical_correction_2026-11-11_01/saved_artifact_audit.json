@@ -1,0 +1,10 @@
+{
+  "state": "passed_audit_of_failed_candidate",
+  "models_replayed": 85,
+  "observations_replayed": 10880,
+  "failed_candidate_models": 1,
+  "failed_candidate_observations": 1,
+  "reference_predictions_reverified": true,
+  "manifest_files_verified": 206,
+  "no_timing_or_heldout_evaluation": true
+}

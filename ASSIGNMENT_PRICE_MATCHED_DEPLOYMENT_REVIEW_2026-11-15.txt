@@ -1,0 +1,122 @@
+ASSIGNMENT-DEPENDENT PRICE: MATCHED CPU DEPLOYMENT COMPARISON
+Date: 2026-11-15
+
+DECISION
+FAIL the unchanged primary median-latency screen in both initializations when
+candidate and references receive the same CPU compilation opportunity.
+Storage and p95 pass. Reference correctness tests and independent artifact
+audit pass. Do not promote the prior unmatched-runtime pass to a controlled
+architecture-efficiency claim. Hold simulator integration and research training.
+
+WHAT WAS IMPLEMENTED
+assignment_price_reference_deployment.py exports the existing reference neural
+cores to ONNX and reuses their existing native validation/decoder. It covers
+screened_price24, unmasked_compact64, screened_wide128 and unmasked_wide128.
+The compact outer softplus, wide branch maximization, original price formula,
+observed-state local mask and horizon factor are retained. FP32 reference
+arithmetic remains FP32; ADP's declared FP32 heads/FP64 costs remain unchanged.
+Both use the same CPUExecutionProvider, graph optimization options, single
+intra/inter-op threads and native compiler settings. No models were redesigned
+and no training/rewards/seeds/thresholds were modified.
+
+REFERENCE EQUIVALENCE TESTS
+Three test groups passed, zero errors/failures:
+- Four references x two saved untrained checkpoints x 128 shared observations:
+  1,024 exact-action checks against original runtime and original eager critic.
+  Chosen values agree at existing atol 1e-6/rtol 1e-5. Model hashes unchanged.
+- Equal-weight ties, adjacent-FP32 biases and returned-array ownership.
+- Nonfinite, terminal/off-grid and invalid task inputs, wrong dtype/shape and
+  noncontiguous valid input handling.
+Candidate deployment source remains the previously tested version. Candidate
+and reference setup supplied 2,048 additional model/state checks before timing.
+These establish equivalence on fixtures, not all possible trained near ties.
+The deployments are immutable snapshots and require export after weight updates.
+
+FROZEN COMPARISON
+Eight controller paths x two original engineering seeds (99861, 99869), sixteen
+original checkpoints and sixteen deployment graphs. Four ADP arms and four
+references. All paths use ONNX CPU neural execution and native decoders.
+The plan was saved before setup; graphs, checkpoint hashes and shuffled order
+were frozen before timing. Order seed 99907; common 128-state engineering
+input; five rounds; 32 warmups/path/round; 640 timed calls/path; 10,240 raw
+readings total. Exactly one benchmark attempt. All prior results preserved.
+Full Runtime.values(state)[0][0].copy() measured, including validation, neural
+execution, masks, decoder, selected Q and returned action copy.
+
+Arm                            Fit   Median ms    p95 ms   Parameter bytes
+ADP coupled_sweep                0     0.083250    0.167415       68,264
+ADP coupled_sweep                1     0.110300    0.164720       68,264
+ADP coupled_no_sweep             0     0.074950    0.222220       68,264
+ADP coupled_no_sweep             1     0.111150    0.154635       68,264
+ADP separable64                  0     0.063900    0.142710       68,264
+ADP separable64                  1     0.120250    0.197455       68,264
+ADP fixed_price_plain_sweep      0     0.063400    0.121125       67,364
+ADP fixed_price_plain_sweep      1     0.065550    0.137900       67,364
+Original screened_price24        0     0.030800    0.058800       68,264
+Original screened_price24        1     0.049700    0.066110       68,264
+Original unmasked_compact64      0     0.033500    0.066120      194,944
+Original unmasked_compact64      1     0.032250    0.061105      194,944
+Original screened_wide128        0     0.061400    0.078915      422,016
+Original screened_wide128        1     0.061350    0.091705      422,016
+Original unmasked_wide128        0     0.049700    0.074905      422,016
+Original unmasked_wide128        1     0.062000    0.079810      422,016
+
+Primary criteria unchanged:
+- <= half compact64 parameter bytes: PASS both fits (68,264 vs 97,472 limit).
+- Median <= each wide reference: FAIL both fits.
+- p95 <= 1 ms: PASS both fits.
+The primary is 1.67 and 1.78 times the unmasked-wide median. Against screened
+wide it is 1.36 and 1.80 times. These are same-session ratios. Neither best-fit
+selection nor absolute times from another session override this result.
+
+The earlier CPU deployment comparison passed against references using their
+previous runtime. That result is preserved with its actual scope. This new
+comparison shows that its speed advantage does not survive equal compilation.
+It does not imply that the controller cannot learn good offloading policies;
+there is still no new policy-quality evidence. Removing the sweep cannot be
+selected from these outcomes to redefine the primary retrospectively.
+
+ARTIFACT AUDIT
+audit_assignment_price_matched_deployment.py independently verified the saved
+manifest, original test/cost manifests, tested/current source hashes, sixteen
+checkpoint hashes, sixteen ONNX graph hashes and ONNX validity. All graph
+FP32 initializer tensors match their source checkpoint weights exactly; sizes
+and parameter/buffer payloads checked. Independent statistics and percentile
+interpolation reproduce all raw timing rows, shuffle order, medians/p95 and
+the failed screens. Audit PASS; no model timing rerun in the audit.
+
+Primary parameter payload 68,264 bytes plus 20 external scale-buffer bytes;
+serialized heads 74,164 bytes. Serialized compact graph 196,238 bytes; wide
+423,316 bytes; original price 68,815 bytes plus its external scale convention.
+Graph/tensor payload excludes shared runtime libraries, workspace and actual
+peak process memory. First-action records share process/import caches and do
+not establish cold deployment startup. Candidate and original price retain
+their existing distinct numerical cost precision; compiler opportunity, not
+controller arithmetic, is matched. The predeclared precision text refers to
+frozen original control arithmetic; control_scope and actual source explicitly
+state ONNX/native for all paths in this comparison.
+
+NEXT DECISION
+Do not launch simulator integration or training under the current failed gate.
+Preserve the smaller-storage result without claiming a proven lightweight or
+low-complexity contribution. A bounded next engineering investigation can
+profile the matched primary and wide reference to identify whether graph output
+conversion, native-call boundaries or actual decoder work account for the
+remaining gap. Those causes have not been established by this benchmark.
+Use a concrete measured bottleneck to decide one equivalent optimization or
+stop this implementation route; do not start another scientific redesign or
+repeat unchanged acceptance timings. Any later version needs declared tests,
+matched references and unchanged limits before measurement. If no justified
+optimization remains, revisit the contribution decision brief explicitly rather
+than weaken criteria retrospectively or run a costly trial that fails the gate.
+
+Zero new simulator steps, optimizer updates, research training or research seed
+use. Final evaluation seeds and Word thesis remain untouched. Novelty, policy
+quality, value calibration and the eventual thesis claim remain unproven.
+Security/trust, cloud and charging remain excluded from this contribution.
+
+EVIDENCE
+validation/assignment_price_matched_deployment_2026-11-15_01/tests.json
+validation/assignment_price_matched_deployment_2026-11-15_01/cost_gate/PRE_BENCHMARK_PLAN.json
+validation/assignment_price_matched_deployment_2026-11-15_01/cost_gate/cost_summary.json
+validation/assignment_price_matched_deployment_2026-11-15_01/independent_audit.json

@@ -1,0 +1,83 @@
+CONTROLLER REDESIGN: READ THIS FIRST
+Date: November 5, 2026
+
+WHERE WE ARE
+The completed experiment is preserved, including its failed aggregate gate.
+We have finished a saved-trace diagnosis and a prospective design stage for
+one new candidate. We have not implemented its neural controller, trained it,
+established novelty, or changed the Word thesis.
+
+WHAT THE SAVED RESULTS SHOW
+The unsuccessful bounded EMC initialization sent 62.542% of tasks to RSU2.
+That destination accounts for about 80% of this policy's missed deadlines.
+Its overall deadline success was 75.115%; the compact bounded additive
+comparator reached 85.595% on the same workloads. The comparator also varies
+across model seeds, so it is not an established reliable teacher.
+The bounded models' fixed-probe values are near zero. Passing the old sign
+and terminal-error screens does not establish episode-wide value calibration.
+These findings motivate hypotheses; they do not prove the cause of learning
+regression or guarantee a particular new architecture will work.
+
+THE SINGLE CURRENT DESIGN
+Use VERSION 2 of the design brief and comparison protocol.
+The candidate shares a small vehicle encoder and placement head, models a
+learned server-load cost and uses two parallel load-price passes followed by
+four individually scored assignment repairs. The DDQN-style update uses an
+online action selector and separate target evaluation with an approximate
+joint decoder. The value estimate is a sum of nonnegative costs with a minus
+sign; its calibration will be tested on the model's own trajectories.
+
+The analytical parameter estimate is 4,052, compared with 48,736 for the plain
+compact reference. This is not a measured memory/runtime result. Its neural
+MAC count is slightly higher than that compact reference, and coordination
+adds work. It must pass a complete-action runtime gate before research training.
+
+Version 1 is kept as a superseded draft. A synthetic symmetry example exposed
+price-pass oscillation; version 2 repairs that example. Forty random algebra
+fixtures and 800 marginal-cost identities were checked. This is not a neural
+implementation test, a full runner smoke, or evidence of improved policy quality.
+
+FILES TO READ IN ORDER
+1. LOW_COMPLEXITY_CONTROLLER_REDESIGN_DIAGNOSIS_2026-11-05.txt
+2. LOW_COMPLEXITY_CONTROLLER_REDESIGN_DESIGN_BRIEF_v2_2026-11-05.txt
+3. LOW_COMPLEXITY_CONTROLLER_REDESIGN_COMPARISON_PROTOCOL_v2_2026-11-05.txt
+
+The brief includes six primary-paper comparisons and the exact equations,
+architecture, decoder, DDQN target and analytical cost. It does not establish
+that the combination is new to the field. A targeted recent novelty search
+and supervisor discussion remain necessary before claiming a novel contribution.
+
+PROPOSED SUPERVISOR DISCUSSION
+I propose extending the UAV-IoV offloading controller with shared vehicle
+processing and explicit congestion coordination, and testing storage, complete
+decision latency, return, deadlines and value consistency against plain compact
+DDQN, a wider DDQN, EMC, an adapted published branching method and ablations.
+Would this extension fit the approved topic and required contribution level?
+Where should the thesis's security claims be handled?
+
+This is a proposed message for manual review, not a message that has been sent.
+
+SCOPE
+This engineering branch excludes cloud, charging and security/trust mechanisms.
+It cannot justify a security-aware claim. The physical simulator is retained
+for controller development; provisional RSU/radio assumptions and sensitivity
+checks are explicitly identified before thesis claims. The historical conference
+paper and its experiments must remain distinguishable from this new extension.
+
+THE NEXT ENGINEERING GATE
+Review version 2, implement it and the declared comparisons in NEW files,
+test equations/targets/gradients/actions, and run a reduced synthetic runner
+and auditor fixture. Benchmark full action selection on the same CPU/backend
+as references. Stop if mechanics or storage/runtime screens fail.
+
+Only after that gate should a separate explicit research launch decision be
+made. The proposed development phase is 320,000 slots across eight arms and
+five initializations, with entirely new reserved seeds; it has NOT started.
+Final evaluation seeds are separately reserved and untouched. No best-seed or
+best-checkpoint selection is allowed. The protocol lists the full budget and
+the criteria for continuing, failing and making a limited final claim.
+
+Design-stage verification and input/output hashes:
+analysis/controller_redesign_2026-11-05/design_stage_verification.json
+Machine-readable prospective specification:
+analysis/controller_redesign_2026-11-05/prospective_comparison_v2.json
